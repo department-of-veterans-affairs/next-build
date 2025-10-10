@@ -3,13 +3,100 @@ import fs from 'fs'
 import path from 'path'
 import { spawn, spawnSync } from 'child_process'
 import { load } from 'cheerio'
+import { Command } from 'commander'
+
+// --- CLI parsing (commander) with env-var fallback ---
+const program = new Command()
+program
+  .option('-n, --sample-size <n>', 'Number of URLs to scan (use -1 for all)')
+  .option('--urls-file <path>', 'Path to urls.txt (default ./urls.txt)')
+  .option('--lychee-chunk-size <n>', 'Number of URLs per lychee invocation')
+  .option(
+    '--batch-concurrency <n>',
+    'Number of parallel lychee processes to run'
+  )
+  .option(
+    '--lychee-max-concurrency <n>',
+    'Value passed to lychee --max-concurrency'
+  )
+  .option('--lychee-timeout <n>', 'Lychee timeout in seconds')
+  .option('--lychee-retries <n>', 'Lychee max retries')
+  .option(
+    '--exclude <list>',
+    'Comma-separated list of excludes to pass to lychee'
+  )
+  .option('--fail-on-lychee-error', 'Make lychee spawn/parse errors fatal')
+  .option(
+    '--fail-on-missing-tools',
+    'Fail at startup if lychee/cheerio are missing'
+  )
+  .option('--parent-fetch-retries <n>', 'Retries for fetching parent HTML')
+  .option(
+    '--parent-fetch-retry-delay-ms <n>',
+    'Base delay ms between parent fetch retries'
+  )
+  .option(
+    '--extra-lychee-args <args...>',
+    'Extra args to append to lychee invocations'
+  )
+  .parse(process.argv)
+
+const opts = program.opts()
+
+// Helper to read numeric option with fallback
+function readNumber(optVal, envName, fallback) {
+  if (typeof optVal !== 'undefined') return Number(optVal)
+  if (process.env[envName]) return Number(process.env[envName])
+  return fallback
+}
+
+const CONFIG = {
+  sampleSize:
+    typeof opts.sampleSize !== 'undefined'
+      ? Number(opts.sampleSize)
+      : process.env.SAMPLE_SIZE
+        ? Number(process.env.SAMPLE_SIZE)
+        : -1,
+  urlsFile: opts.urlsFile || process.env.URLS_FILE || './urls.txt',
+  lycheeChunkSize: readNumber(opts.lycheeChunkSize, 'LYCHEE_CHUNK_SIZE', 500),
+  batchConcurrency: readNumber(opts.batchConcurrency, 'BATCH_CONCURRENCY', 3),
+  lycheeMaxConc:
+    opts.lycheeMaxConcurrency ||
+    process.env.LYCHEE_MAX_CONCURRENCY ||
+    process.env.LYCHEE_CONCURRENCY ||
+    '20',
+  lycheeTimeout: readNumber(opts.lycheeTimeout, 'LYCHEE_TIMEOUT', 10),
+  lycheeRetries: readNumber(opts.lycheeRetries, 'LYCHEE_RETRIES', 3),
+  lycheeExclude: opts.exclude || process.env.LYCHEE_EXCLUDE || null,
+  failOnLycheeError:
+    Boolean(opts.failOnLycheeError) ||
+    Boolean(process.env.FAIL_ON_LYCHEE_ERROR),
+  failOnMissingTools:
+    Boolean(opts.failOnMissingTools) ||
+    Boolean(process.env.FAIL_ON_MISSING_TOOLS),
+  parentFetchRetries: readNumber(
+    opts.parentFetchRetries,
+    'PARENT_FETCH_RETRIES',
+    2
+  ),
+  parentFetchRetryDelayMs: readNumber(
+    opts.parentFetchRetryDelayMs,
+    'PARENT_FETCH_RETRY_DELAY_MS',
+    250
+  ),
+  extraLycheeArgs:
+    opts.extraLycheeArgs ||
+    (process.env.EXTRA_LYCHEE_ARGS
+      ? process.env.EXTRA_LYCHEE_ARGS.split(' ')
+      : []),
+}
 
 // Fetch parent HTML and extract anchor text.
 const parentHtmlCache = new Map()
 async function fetchParentHtml(url) {
   if (parentHtmlCache.has(url)) return parentHtmlCache.get(url)
-  const maxRetries = Number(process.env.PARENT_FETCH_RETRIES || 2)
-  const retryDelayMs = Number(process.env.PARENT_FETCH_RETRY_DELAY_MS || 250)
+  const maxRetries = Number(CONFIG.parentFetchRetries || 2)
+  const retryDelayMs = Number(CONFIG.parentFetchRetryDelayMs || 250)
   for (let attempt = 0; attempt <= maxRetries; attempt++) {
     try {
       const res = await fetch(url, { redirect: 'follow' })
@@ -73,7 +160,7 @@ function countAnchors(html) {
   }
 }
 
-const URLS_TXT = path.resolve('./urls.txt')
+const URLS_TXT = path.resolve(CONFIG.urlsFile || './urls.txt')
 const OUT_DIR = path.resolve('./lychee-pages')
 const COMBINED_JSON = path.resolve('./lychee-pages-combined.json')
 const COMBINED_CSV = path.resolve('./lychee-pages-combined.csv')
@@ -108,16 +195,17 @@ function checkCheerio() {
 }
 
 // Fail early if required tools are missing (configurable).
-if (process.env.CI || process.env.FAIL_ON_MISSING_TOOLS) {
+if (process.env.CI || CONFIG.failOnMissingTools) {
   if (!checkLycheeAvailable()) process.exit(2)
   if (!checkCheerio()) process.exit(2)
 }
 
 // Lychee runtime configuration (can set LYCHEE_EXCLUDE="domain.com,other.com" env var).
 const LYCHEE_CONFIG = {
-  // Comma-separated in env or fall back to this default list.
-  exclude: process.env.LYCHEE_EXCLUDE
-    ? process.env.LYCHEE_EXCLUDE.split(',')
+  // Comma-separated in env/opts or fall back to this default list.
+  exclude: CONFIG.lycheeExclude
+    ? String(CONFIG.lycheeExclude)
+        .split(',')
         .map((s) => s.trim())
         .filter(Boolean)
     : [
@@ -154,8 +242,8 @@ const LYCHEE_CONFIG = {
         /www\.facebook\.com/,
       ],
   // Optional defaults (not required for exclude-only use).
-  timeout: Number(process.env.LYCHEE_TIMEOUT || 10),
-  retries: Number(process.env.LYCHEE_RETRIES || 3),
+  timeout: Number(CONFIG.lycheeTimeout || 10),
+  retries: Number(CONFIG.lycheeRetries || 3),
 }
 
 // Small util: make a filesystem-safe name from a URL (base64url).
@@ -196,13 +284,12 @@ for (const ent of entries) {
 }
 console.log(`Cleared ${OUT_DIR} (${entries.length} items)`)
 
-// Read urls and limit to SAMPLE_SIZE (default -1 = all).
-const SAMPLE_SIZE = process.env.SAMPLE_SIZE
-  ? parseInt(process.env.SAMPLE_SIZE, 10)
-  : -1
+// Read urls and limit to sampleSize (default -1 = all).
 const allUrls = fs.readFileSync(URLS_TXT, 'utf8').split(/\r?\n/).filter(Boolean)
-// if SAMPLE_SIZE is -1, scan all URLs; otherwise take the first SAMPLE_SIZE entries.
-const urls = SAMPLE_SIZE === -1 ? allUrls : allUrls.slice(0, SAMPLE_SIZE)
+const urls =
+  Number(CONFIG.sampleSize) === -1
+    ? allUrls
+    : allUrls.slice(0, Number(CONFIG.sampleSize))
 console.log(
   `Will scan ${urls.length} pages (first ${urls.length} of ${allUrls.length}).`
 )
@@ -214,13 +301,9 @@ console.log(`Started at ${new Date(startTime).toISOString()}`)
 // This writes per-page JSON files (always overwrites) so the existing combine/augment step can proceed unchanged.
 async function runLycheeBatch(allUrlsToScan) {
   // Config: number of URLs per lychee invocation and parallel lychee processes.
-  const chunkSize = Math.max(50, Number(process.env.LYCHEE_CHUNK_SIZE || 500))
-  const batchConcurrency = Math.max(
-    1,
-    Number(process.env.BATCH_CONCURRENCY || 3)
-  )
-  const lycheeMaxConc =
-    process.env.LYCHEE_MAX_CONCURRENCY || process.env.LYCHEE_CONCURRENCY || '20'
+  const chunkSize = Math.max(50, Number(CONFIG.lycheeChunkSize || 500))
+  const batchConcurrency = Math.max(1, Number(CONFIG.batchConcurrency || 3))
+  const lycheeMaxConc = CONFIG.lycheeMaxConc || CONFIG.lycheeMaxConc || '20'
 
   // Split into chunks.
   const chunks = []
@@ -239,8 +322,8 @@ async function runLycheeBatch(allUrlsToScan) {
         // Allow regex strings or plain strings.
         excludeArgs.push('--exclude', String(pat))
       }
-      const args = [
-        ...chunk,
+      // Put options before inputs and use -- to separate inputs from options
+      const optionArgs = [
         '--format',
         'json',
         '--max-concurrency',
@@ -250,7 +333,9 @@ async function runLycheeBatch(allUrlsToScan) {
         '--max-retries',
         String(LYCHEE_CONFIG.retries),
         ...excludeArgs,
+        ...CONFIG.extraLycheeArgs,
       ]
+      const args = [...optionArgs, '--', ...chunk]
       console.log(
         `lychee chunk ${idx + 1}/${chunks.length}: ${chunk.length} urls`
       )
@@ -265,7 +350,7 @@ async function runLycheeBatch(allUrlsToScan) {
       })
       child.on('error', (err) => {
         console.error(`lychee spawn error for chunk ${idx + 1}:`, err.message)
-        if (process.env.FAIL_ON_LYCHEE_ERROR) return reject(err)
+        if (CONFIG.failOnLycheeError) return resolve(Promise.reject(err))
         return resolve()
       })
       child.on('close', (code) => {
@@ -290,7 +375,7 @@ async function runLycheeBatch(allUrlsToScan) {
           )
           fs.writeFileSync(debugPath, stdout, 'utf8')
           console.log('Wrote raw lychee output to', debugPath)
-          if (process.env.FAIL_ON_LYCHEE_ERROR) return reject(e)
+          if (CONFIG.failOnLycheeError) return resolve(Promise.reject(e))
           return resolve()
         }
         // Split results into per-page files.
