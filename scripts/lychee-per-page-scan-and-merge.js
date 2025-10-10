@@ -18,7 +18,7 @@ async function fetchParentHtml(url) {
       return text
     } catch (e) {
       if (attempt < maxRetries) {
-        // small backoff
+        // Small backoff.
         await new Promise((r) => setTimeout(r, retryDelayMs * (attempt + 1)))
         continue
       }
@@ -27,7 +27,7 @@ async function fetchParentHtml(url) {
       return null
     }
   }
-  // should be unreachable
+  // Should be unreachable.
   parentHtmlCache.set(url, null)
   return null
 }
@@ -68,7 +68,7 @@ function countAnchors(html) {
     return $('a[href]').length
   } catch (e) {
     console.warn('cheerio parse failed in countAnchors:', e.message)
-    // fallback conservative guess of 0
+    // Fallback conservative guess of 0.
     return 0
   }
 }
@@ -78,7 +78,7 @@ const OUT_DIR = path.resolve('./lychee-pages')
 const COMBINED_JSON = path.resolve('./lychee-pages-combined.json')
 const COMBINED_CSV = path.resolve('./lychee-pages-combined.csv')
 
-// Startup validation: ensure lychee is available (if not, show actionable message)
+// Startup validation: ensure lychee is available (if not, show actionable message).
 function checkLycheeAvailable() {
   try {
     const res = spawnSync('lychee', ['--version'], { stdio: 'pipe' })
@@ -98,7 +98,7 @@ function checkLycheeAvailable() {
 // Validate cheerio at startup (fail fast).
 function checkCheerio() {
   try {
-    // load should be usable; call with simple HTML to ensure no runtime error
+    // Load should be usable; call with simple HTML to ensure no runtime error.
     const $ = load('<a href="/"></a>')
     return typeof $ === 'function' || $ != null
   } catch (e) {
@@ -107,15 +107,15 @@ function checkCheerio() {
   }
 }
 
-// Fail early if required tools are missing (make this configurable)
+// Fail early if required tools are missing (configurable).
 if (process.env.CI || process.env.FAIL_ON_MISSING_TOOLS) {
   if (!checkLycheeAvailable()) process.exit(2)
   if (!checkCheerio()) process.exit(2)
 }
 
-// Lychee runtime configuration (can set LYCHEE_EXCLUDE="domain.com,other.com" env var)
+// Lychee runtime configuration (can set LYCHEE_EXCLUDE="domain.com,other.com" env var).
 const LYCHEE_CONFIG = {
-  // comma-separated in env or fall back to this default list
+  // Comma-separated in env or fall back to this default list.
   exclude: process.env.LYCHEE_EXCLUDE
     ? process.env.LYCHEE_EXCLUDE.split(',')
         .map((s) => s.trim())
@@ -153,12 +153,12 @@ const LYCHEE_CONFIG = {
         /fb\.(com|me|watch)/,
         /www\.facebook\.com/,
       ],
-  // optional defaults (not required for exclude-only use)
+  // Optional defaults (not required for exclude-only use).
   timeout: Number(process.env.LYCHEE_TIMEOUT || 10),
   retries: Number(process.env.LYCHEE_RETRIES || 3),
 }
 
-// small util: make a filesystem-safe name from a URL (base64url)
+// Small util: make a filesystem-safe name from a URL (base64url).
 function safeName(url) {
   return Buffer.from(String(url))
     .toString('base64')
@@ -171,7 +171,7 @@ function safeName(url) {
 function csvEscape(value) {
   const s = String(value || '')
   const escaped = s.replace(/"/g, '""')
-  // If the field contains a comma, quote, or newline, wrap it in quotes
+  // If the field contains a comma, quote, or newline, wrap it in quotes.
   if (/[",\r\n]/.test(s)) {
     return `"${escaped}"`
   }
@@ -184,7 +184,7 @@ if (!fs.existsSync(URLS_TXT)) {
 }
 if (!fs.existsSync(OUT_DIR)) fs.mkdirSync(OUT_DIR)
 
-// --- empty OUT_DIR so every run starts fresh ---
+// Empty OUT_DIR so every run starts fresh.
 const entries = fs.readdirSync(OUT_DIR, { withFileTypes: true })
 for (const ent of entries) {
   const full = path.join(OUT_DIR, ent.name)
@@ -216,7 +216,7 @@ console.log(`Started at ${new Date(startTime).toISOString()}`)
 // Run lychee once for all URLs and let lychee handle concurrency (--max-concurrency).
 // This writes per-page JSON files (always overwrites) so the existing combine/augment step can proceed unchanged.
 async function runLycheeBatch(allUrlsToScan) {
-  // Config: number of URLs per lychee invocation and parallel lychee processes
+  // Config: number of URLs per lychee invocation and parallel lychee processes.
   const chunkSize = Math.max(50, Number(process.env.LYCHEE_CHUNK_SIZE || 500))
   const batchConcurrency = Math.max(
     1,
@@ -298,7 +298,7 @@ async function runLycheeBatch(allUrlsToScan) {
             return resolve(Promise.reject(e))
           return resolve()
         }
-        // Split results into per-page files (same logic as before).
+        // Split results into per-page files.
         if (Array.isArray(parsed)) {
           for (const entry of parsed) {
             const pageUrl = entry.page_url || entry.url || entry.page || null
@@ -331,9 +331,8 @@ async function runLycheeBatch(allUrlsToScan) {
   }
 
   // Run chunks with limited concurrency using a Set to track in-flight promises.
-  // We remove each promise from the set in a .finally() handler so we always know
-  // which promises are still pending. This avoids dropping references to pending
-  // promises (the previous `running.length = 0` would cause premature return).
+  // We remove each promise from the set in a .finally() handler, so we always know
+  // which promises are still pending.
   const running = new Set()
   for (let i = 0; i < chunks.length; i++) {
     // attach a finally that removes the promise from the set when settled
@@ -342,15 +341,15 @@ async function runLycheeBatch(allUrlsToScan) {
     })
     running.add(p)
 
-    // Throttle concurrency: wait until at least one in-flight promise settles
+    // Throttle concurrency: wait until at least one in-flight promise settles.
     if (running.size >= batchConcurrency) {
       // Promise.race accepts an iterable of promises; convert Set -> Array
       await Promise.race(Array.from(running)).catch(() => {})
-      // the settled promise's .finally() should have removed it from the set
+      // The settled promise's .finally() should have removed it from the set.
     }
   }
 
-  // Wait for any remaining in-flight chunks to finish
+  // Wait for any remaining in-flight chunks to finish.
   if (running.size) await Promise.all(Array.from(running)).catch(() => {})
   console.log('All lychee chunks finished; per-page files written to', OUT_DIR)
 }
@@ -377,13 +376,13 @@ async function runLycheeBatch(allUrlsToScan) {
     try {
       const raw = fs.readFileSync(p, 'utf8')
       const json = JSON.parse(raw)
-      // deduce page URL / title / links shape (handle .links or .error_map forms)
+      // Deduce page URL / title / links shape (handle .links or .error_map forms).
       let pageUrl = json.page_url || json.url || json.page || null
       let pageTitle = json.title || ''
       let links = []
 
       if (Array.isArray(json)) {
-        // array of page objects: flatten entry.links / entry.results
+        // Array of page objects: flatten entry.links / entry.results
         for (const entry of json) {
           if (!pageUrl && entry.url) pageUrl = entry.url
           const entryLinks = entry.links || entry.results || []
@@ -393,7 +392,7 @@ async function runLycheeBatch(allUrlsToScan) {
         links = json.links || json.results || json.failed || []
       } else if (json.error_map && typeof json.error_map === 'object') {
         // error_map: { "<page-url>": [ { url, status }, ... ] , ... }
-        // prefer parsed.page_url if present; otherwise use the first key
+        // Prefer parsed.page_url if present; otherwise use the first key.
         const keys = Object.keys(json.error_map)
         const keyToUse = pageUrl || keys[0]
         if (!pageUrl && keyToUse) pageUrl = keyToUse
@@ -401,12 +400,12 @@ async function runLycheeBatch(allUrlsToScan) {
         for (const k of keys) {
           const arr = json.error_map[k] || []
           for (const it of arr) {
-            // normalize to link object shape like lychee.link entries
+            // Normalize to link object shape like lychee.link entries.
             errorEntries.push({
-              // keep the original target URL
+              // Keep the original target URL.
               url: it.url || it.target || '',
               status: it.status || it.reason || it.error || {},
-              // attach the parent page that contained the link (k)
+              // Attach the parent page that contained the link (k).
               _parent_page: k,
             })
           }
@@ -414,12 +413,12 @@ async function runLycheeBatch(allUrlsToScan) {
         links = errorEntries
       }
 
-      // collect broken links for this page
+      // Collect broken links for this page.
       const broken = []
       for (const l of links || []) {
-        // determine link URL and status
+        // Determine link URL and status.
         const linkUrl = l.url || l.link || l.target || ''
-        // status may be an object or scalar
+        // Status may be an object or scalar.
         let statusText = ''
         let statusCode = ''
         if (l.status) {
@@ -432,19 +431,18 @@ async function runLycheeBatch(allUrlsToScan) {
         } else if (l.error) {
           statusText = String(l.error)
         }
-        // consider non-2xx as broken
+        // Consider non-2xx as broken.
         const isBroken =
           (String(statusCode || '').length &&
             !String(statusCode).startsWith('2')) ||
           (!statusCode && statusText && !statusText.match(/^OK|^2/))
         if (isBroken) {
           broken.push({
-            // prefer the explicit parent recorded by the per-page error_map; fall back to pageUrl
             url: linkUrl,
             status_text: statusText || '',
             code: statusCode || '',
             final_url: l.redirected_to || l.redirectedTo || l.final || linkUrl,
-            // if this row came from error_map include the exact parent page key
+            // If this row came from error_map, include the exact parent page key.
             parent_from_error_map: l._parent_page || undefined,
             link_text: '', // to be filled in below
           })
@@ -462,7 +460,7 @@ async function runLycheeBatch(allUrlsToScan) {
         for (const [parentUrlKey, rows] of Object.entries(parents)) {
           const html = await fetchParentHtml(parentUrlKey)
           if (html) {
-            // count anchors once per parent for metrics
+            // Count anchors once per parent for metrics.
             const anchorCount = countAnchors(html)
             metrics.linksChecked += Number(anchorCount || 0)
             for (const r of rows) {
@@ -470,7 +468,7 @@ async function runLycheeBatch(allUrlsToScan) {
               if (txt) r.link_text = txt
             }
           } else {
-            // fallback: we at least checked the broken links we know about
+            // Fallback: we at least checked the broken links we know about
             metrics.linksChecked += rows.length
           }
         }
@@ -498,7 +496,7 @@ async function runLycheeBatch(allUrlsToScan) {
   )
   console.log('Wrote combined JSON:', COMBINED_JSON)
 
-  // write CSV (tab-separated)
+  // Write CSV.
   const headers = [
     'page_path',
     'link_url',
@@ -511,7 +509,7 @@ async function runLycheeBatch(allUrlsToScan) {
   for (const page of combined) {
     for (const b of page.broken) {
       const row = [
-        // use parent_from_error_map when present as the authoritative page path
+        // Use parent_from_error_map when present as the authoritative page path.
         csvEscape(b.parent_from_error_map || ''),
         csvEscape(b.url || ''),
         csvEscape(b.link_text || ''),
@@ -524,7 +522,7 @@ async function runLycheeBatch(allUrlsToScan) {
   }
   fs.writeFileSync(COMBINED_CSV, lines.join('\n'), 'utf8')
   console.log('Wrote CSV:', COMBINED_CSV)
-  // log end time and duration
+  // Log end time and duration.
   const endTime = Date.now()
   const durationMs = endTime - startTime
   console.log(`Finished at ${new Date(endTime).toISOString()}`)
