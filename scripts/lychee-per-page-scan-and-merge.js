@@ -452,7 +452,7 @@ async function runLycheeBatch(allUrlsToScan) {
           const html = await fetchParentHtml(parentUrlKey)
           if (html) {
             // count anchors once per parent for metrics
-            const anchorCount = await countAnchors(html)
+            const anchorCount = countAnchors(html)
             metrics.linksChecked += Number(anchorCount || 0)
             for (const r of rows) {
               const txt = await extractAnchorTextFromHtml(
