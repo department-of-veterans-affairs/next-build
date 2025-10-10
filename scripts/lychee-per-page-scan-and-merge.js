@@ -100,7 +100,7 @@ function checkCheerio() {
   try {
     // Load should be usable; call with simple HTML to ensure no runtime error.
     const $ = load('<a href="/"></a>')
-    return typeof $ === 'function' || $ != null
+    return true
   } catch (e) {
     console.error('Cheerio did not initialize correctly:', e.message)
     return false
@@ -202,10 +202,7 @@ const SAMPLE_SIZE = process.env.SAMPLE_SIZE
   : -1
 const allUrls = fs.readFileSync(URLS_TXT, 'utf8').split(/\r?\n/).filter(Boolean)
 // if SAMPLE_SIZE is -1, scan all URLs; otherwise take the first SAMPLE_SIZE entries.
-const urls =
-  typeof SAMPLE_SIZE !== 'undefined' && Number(SAMPLE_SIZE) === -1
-    ? allUrls
-    : allUrls.slice(0, SAMPLE_SIZE)
+const urls = SAMPLE_SIZE === -1 ? allUrls : allUrls.slice(0, SAMPLE_SIZE)
 console.log(
   `Will scan ${urls.length} pages (first ${urls.length} of ${allUrls.length}).`
 )
@@ -268,8 +265,7 @@ async function runLycheeBatch(allUrlsToScan) {
       })
       child.on('error', (err) => {
         console.error(`lychee spawn error for chunk ${idx + 1}:`, err.message)
-        if (process.env.FAIL_ON_LYCHEE_ERROR)
-          return resolve(Promise.reject(err))
+        if (process.env.FAIL_ON_LYCHEE_ERROR) return reject(err)
         return resolve()
       })
       child.on('close', (code) => {
@@ -294,8 +290,7 @@ async function runLycheeBatch(allUrlsToScan) {
           )
           fs.writeFileSync(debugPath, stdout, 'utf8')
           console.log('Wrote raw lychee output to', debugPath)
-          if (process.env.FAIL_ON_LYCHEE_ERROR)
-            return resolve(Promise.reject(e))
+          if (process.env.FAIL_ON_LYCHEE_ERROR) return reject(e)
           return resolve()
         }
         // Split results into per-page files.
