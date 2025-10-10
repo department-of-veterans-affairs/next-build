@@ -22,6 +22,7 @@
     "format": "prettier --write .",
     "lint": "eslint ./src",
     "lint:files": "eslint",
+    "lint-staged": "lint-staged",
     "plop": "plop",
     "postinstall": "yarn certs && husky install",
     "lighthouse": "npx run ./lighthouse/lighthouse.js ",
@@ -87,7 +88,8 @@
     "swr": "^2.3.3",
     "uswds": "^2.14.0",
     "uuid": "^9.0.1",
-    "validator": "^13.15.0"
+    "validator": "^13.15.0",
+    "cheerio": "^1.1.2"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.10.2",
@@ -110,7 +112,6 @@
     "@typescript-eslint/parser": "^8.34.0",
     "axe-core": "^4.10.3",
     "babel-plugin-react-compiler": "^19.1.0-rc.2",
-    "cheerio": "^1.1.2",
     "debug": "^4.3.4",
     "eslint": "8.57.0",
     "eslint-config-next": "15.5.3",
@@ -126,7 +127,7 @@
     "jest": "^30.1.3",
     "jest-environment-jsdom": "^30.0.5",
     "jest-watch-typeahead": "^2.2.2",
-    "lint-staged": "^16.1.4",
+    "lint-staged": "^16.2.3",
     "msw": "^2.4.9",
     "nock": "^13.5.4",
     "node_extra_ca_certs_mozilla_bundle": "^1.0.7",
@@ -137,6 +138,12 @@
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.9.2"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "git add"
+    ]
   },
   "resolutions": {
     "drupal-jsonapi-params": "3.0.0",
