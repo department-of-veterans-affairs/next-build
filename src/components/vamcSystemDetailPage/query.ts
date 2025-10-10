@@ -30,6 +30,7 @@ export const params: QueryParams<null> = () => {
     'field_featured_content',
     'field_featured_content.field_answer',
     'field_featured_content.field_answer.field_va_paragraphs',
+    'field_featured_content.field_answer.field_va_paragraphs.field_va_paragraphs',
   ])
   // I would like to be able to use just these recursive fields, but it doesn't seem to
   // work, at least with this version of Drupal. According to the documentation here
