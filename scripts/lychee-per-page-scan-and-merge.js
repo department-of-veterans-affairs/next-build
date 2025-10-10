@@ -1,30 +1,41 @@
 /* eslint-disable no-console */
-import fs, { link } from 'fs'
+import fs from 'fs'
 import path from 'path'
-import { spawn } from 'child_process'
+import { spawn, spawnSync } from 'child_process'
+import { load } from 'cheerio'
 
 // Fetch parent HTML and extract anchor text.
 const parentHtmlCache = new Map()
 async function fetchParentHtml(url) {
   if (parentHtmlCache.has(url)) return parentHtmlCache.get(url)
-  try {
-    const res = await fetch(url, { redirect: 'follow' })
-    const text = await res.text()
-    parentHtmlCache.set(url, text)
-    return text
-  } catch (e) {
-    parentHtmlCache.set(url, null)
-    return null
+  const maxRetries = Number(process.env.PARENT_FETCH_RETRIES || 2)
+  const retryDelayMs = Number(process.env.PARENT_FETCH_RETRY_DELAY_MS || 250)
+  for (let attempt = 0; attempt <= maxRetries; attempt++) {
+    try {
+      const res = await fetch(url, { redirect: 'follow' })
+      const text = await res.text()
+      parentHtmlCache.set(url, text)
+      return text
+    } catch (e) {
+      if (attempt < maxRetries) {
+        // small backoff
+        await new Promise((r) => setTimeout(r, retryDelayMs * (attempt + 1)))
+        continue
+      }
+      console.warn(`Failed to fetch parent HTML for ${url}:`, e.message)
+      parentHtmlCache.set(url, null)
+      return null
+    }
   }
+  // should be unreachable
+  parentHtmlCache.set(url, null)
+  return null
 }
 
-async function extractAnchorTextFromHtml(html, parentUrl, targetUrl) {
+function extractAnchorTextFromHtml(html, parentUrl, targetUrl) {
   if (!html) return ''
-  // Try cheerio if available.
-  const mod = await import('cheerio').catch(() => null)
-  const cheerio = mod && (mod.default || mod)
-  if (cheerio) {
-    const $ = cheerio.load(html)
+  try {
+    const $ = load(html)
     for (const a of $('a[href]').toArray()) {
       const raw = $(a).attr('href') || ''
       let resolved = raw
@@ -40,41 +51,67 @@ async function extractAnchorTextFromHtml(html, parentUrl, targetUrl) {
         return $(a).text().trim()
       }
     }
-    return ''
-  }
-  // regex fallback (best-effort)
-  try {
-    const esc = String(targetUrl).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-    const re = new RegExp(
-      `<a[^>]*href=["']([^"']*${esc}[^"']*)["'][^>]*>([\\s\\S]*?)<\\/a>`,
-      'i'
+  } catch (e) {
+    console.warn(
+      'cheerio parse failed in extractAnchorTextFromHtml:',
+      e.message
     )
-    const m = html.match(re)
-    if (m) return m[2].replace(/<[^>]+>/g, '').trim()
-  } catch (_) {}
+  }
   return ''
 }
-// Count anchors helper (uses cheerio if available, regex fallback).
-async function countAnchors(html) {
+
+// Count anchors helper.
+function countAnchors(html) {
   if (!html) return 0
   try {
-    const mod = await import('cheerio').catch(() => null)
-    const cheerio = mod && (mod.default || mod)
-    if (cheerio) {
-      const $ = cheerio.load(html)
-      return $('a[href]').length
-    }
-    // fallback: best-effort count of anchor href occurrences
-    const matches = html.match(/<a\b[^>]*href=/gi)
-    return matches ? matches.length : 0
+    const $ = load(html)
+    return $('a[href]').length
   } catch (e) {
+    console.warn('cheerio parse failed in countAnchors:', e.message)
+    // fallback conservative guess of 0
     return 0
   }
 }
+
 const URLS_TXT = path.resolve('./urls.txt')
 const OUT_DIR = path.resolve('./lychee-pages')
 const COMBINED_JSON = path.resolve('./lychee-pages-combined.json')
 const COMBINED_CSV = path.resolve('./lychee-pages-combined.csv')
+
+// Startup validation: ensure lychee is available (if not, show actionable message)
+function checkLycheeAvailable() {
+  try {
+    const res = spawnSync('lychee', ['--version'], { stdio: 'pipe' })
+    if (res.error) throw res.error
+    if (res.status !== 0) {
+      console.warn('lychee returned non-zero status:', res.status)
+    }
+    return true
+  } catch (e) {
+    console.error(
+      'lychee binary not found or not runnable. Please install lychee on PATH or set PATH appropriately.'
+    )
+    return false
+  }
+}
+
+// Validate cheerio at startup (fail fast).
+function checkCheerio() {
+  try {
+    // load should be usable; call with simple HTML to ensure no runtime error
+    const $ = load('<a href="/"></a>')
+    return typeof $ === 'function' || $ != null
+  } catch (e) {
+    console.error('Cheerio did not initialize correctly:', e.message)
+    return false
+  }
+}
+
+// Fail early if required tools are missing (make this configurable)
+if (process.env.CI || process.env.FAIL_ON_MISSING_TOOLS) {
+  if (!checkLycheeAvailable()) process.exit(2)
+  if (!checkCheerio()) process.exit(2)
+}
 
 // Lychee runtime configuration (can set LYCHEE_EXCLUDE="domain.com,other.com" env var)
 const LYCHEE_CONFIG = {
@@ -220,6 +257,8 @@ async function runLycheeBatch(allUrlsToScan) {
       })
       child.on('error', (err) => {
         console.error(`lychee spawn error for chunk ${idx + 1}:`, err.message)
+        if (process.env.FAIL_ON_LYCHEE_ERROR)
+          return resolve(Promise.reject(err))
         return resolve()
       })
       child.on('close', (code) => {
@@ -244,6 +283,8 @@ async function runLycheeBatch(allUrlsToScan) {
           )
           fs.writeFileSync(debugPath, stdout, 'utf8')
           console.log('Wrote raw lychee output to', debugPath)
+          if (process.env.FAIL_ON_LYCHEE_ERROR)
+            return resolve(Promise.reject(e))
           return resolve()
         }
         // Split results into per-page files (same logic as before).
