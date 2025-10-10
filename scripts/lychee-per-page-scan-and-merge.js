@@ -167,6 +167,17 @@ function safeName(url) {
     .replace(/=+$/, '')
 }
 
+// CSV escape helper: escape double-quotes by doubling them (CSV-safe).
+function csvEscape(value) {
+  const s = String(value || '')
+  const escaped = s.replace(/"/g, '""')
+  // If the field contains a comma, quote, or newline, wrap it in quotes
+  if (/[",\r\n]/.test(s)) {
+    return `"${escaped}"`
+  }
+  return escaped
+}
+
 if (!fs.existsSync(URLS_TXT)) {
   console.error('Missing urls.txt in repo root')
   process.exit(1)
@@ -455,11 +466,7 @@ async function runLycheeBatch(allUrlsToScan) {
             const anchorCount = countAnchors(html)
             metrics.linksChecked += Number(anchorCount || 0)
             for (const r of rows) {
-              const txt = await extractAnchorTextFromHtml(
-                html,
-                parentUrlKey,
-                r.url
-              )
+              const txt = extractAnchorTextFromHtml(html, parentUrlKey, r.url)
               if (txt) r.link_text = txt
             }
           } else {
@@ -505,12 +512,12 @@ async function runLycheeBatch(allUrlsToScan) {
     for (const b of page.broken) {
       const row = [
         // use parent_from_error_map when present as the authoritative page path
-        `${String(b.parent_from_error_map || b.page || '').replace(/"/g, '""')}`,
-        `${String(b.url || '').replace(/"/g, '""')}`,
-        `${String(b.link_text || '').replace(/"/g, '""')}`,
-        `${String(b.code || '').replace(/"/g, '""')}`,
-        `${String(b.status_text || '').replace(/"/g, '""')}`,
-        `${String(b.final_url || '').replace(/"/g, '""')}`,
+        csvEscape(b.parent_from_error_map || ''),
+        csvEscape(b.url || ''),
+        csvEscape(b.link_text || ''),
+        csvEscape(b.code || ''),
+        csvEscape(b.status_text || ''),
+        csvEscape(b.final_url || ''),
       ]
       lines.push(row.join(','))
     }
