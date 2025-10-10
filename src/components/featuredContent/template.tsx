@@ -1,22 +1,13 @@
 import { FeaturedContent as FormattedFeaturedContent } from '@/components/featuredContent/formatted-type'
 import { ParagraphComponent } from '@/components/paragraph/formatted-type'
 import { slugifyString } from '@/lib/utils/slug'
+import { setPTag } from '@/lib/utils/helpers'
 
 export function FeaturedContent({
   title,
   description,
   link,
 }: ParagraphComponent<FormattedFeaturedContent>) {
-  // Sometimes this component is being used with a non-raw html string, in those cases it should be wrapped in a <p>
-  const setPTag = () => {
-    // Checks of empty or only whitespace characters
-    if (!description || /^\s*$/.test(description)) return ''
-    // Checks for any HTML tag
-    if (/^\s*<[^>]+>/.test(description.trim())) {
-      return description
-    }
-    return `<p>${description}</p>`
-  }
   return (
     <va-card class="vads-u-flex--fill vads-u-margin-bottom--2 vads-u-margin-right--0 tablet:vads-u-margin-x--0p5 spotlight-card">
       {title && (
@@ -27,7 +18,8 @@ export function FeaturedContent({
       {description && (
         <div
           id={`featured-content-description${slugifyString(title)}`}
-          dangerouslySetInnerHTML={{ __html: setPTag() }}
+          // Sometimes this component is being used with a non-raw html string, in those cases it should be wrapped in a <p>
+          dangerouslySetInnerHTML={{ __html: setPTag(description) }}
         />
       )}
       {link && link.url && (
