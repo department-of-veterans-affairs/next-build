@@ -2,7 +2,10 @@ import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { NodeVamcSystemDetailPage } from '@/types/drupal/node'
 import { VamcSystemDetailPage } from './formatted-type'
 import { formatter as formatListOfLinkTeasers } from '@/components/listOfLinkTeasers/query'
-import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
+import {
+  PARAGRAPH_RESOURCE_TYPES,
+  RESOURCE_TYPES,
+} from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
   entityBaseFields,
@@ -20,6 +23,7 @@ import {
 import { formatter as formatAdministration } from '@/components/administration/query'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { formatParagraph } from '@/lib/drupal/paragraphs'
+import { getNestedIncludes } from '@/lib/utils/queries'
 
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude([
@@ -27,12 +31,7 @@ export const params: QueryParams<null> = () => {
     'field_office',
     'field_related_links',
     'field_related_links.field_va_paragraphs',
-    'field_featured_content',
-    'field_featured_content.field_answer',
-    'field_featured_content.field_answer.field_va_paragraphs',
-    'field_featured_content.field_answer.field_va_paragraphs.field_va_paragraphs',
-    'field_featured_content.field_answer.field_alert_block_reference',
-    'field_featured_content.field_answer.field_alert_block_reference.field_alert_content',
+    ...getNestedIncludes('field_featured_content', PARAGRAPH_RESOURCE_TYPES.QA),
   ])
   // I would like to be able to use just these recursive fields, but it doesn't seem to
   // work, at least with this version of Drupal. According to the documentation here
