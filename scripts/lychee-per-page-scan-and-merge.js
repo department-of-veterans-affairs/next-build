@@ -303,7 +303,7 @@ async function runLycheeBatch(allUrlsToScan) {
   // Config: number of URLs per lychee invocation and parallel lychee processes.
   const chunkSize = Math.max(50, Number(CONFIG.lycheeChunkSize || 500))
   const batchConcurrency = Math.max(1, Number(CONFIG.batchConcurrency || 3))
-  const lycheeMaxConc = CONFIG.lycheeMaxConc || CONFIG.lycheeMaxConc || '20'
+  const lycheeMaxConc = CONFIG.lycheeMaxConc || '20'
 
   // Split into chunks.
   const chunks = []
