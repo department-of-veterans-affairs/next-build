@@ -589,8 +589,9 @@ async function runLycheeBatch(allUrlsToScan) {
   for (const page of combined) {
     for (const b of page.broken) {
       const row = [
-        // Use parent_from_error_map when present as the authoritative page path.
-        csvEscape(b.parent_from_error_map || ''),
+        // use parent_from_error_map when present as the authoritative page path;
+        // fall back to the combined page.url (page.page) when missing.
+        csvEscape(b.parent_from_error_map || page.page || ''),
         csvEscape(b.url || ''),
         csvEscape(b.link_text || ''),
         csvEscape(b.code || ''),
