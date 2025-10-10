@@ -148,12 +148,12 @@ for (const ent of entries) {
 }
 console.log(`Cleared ${OUT_DIR} (${entries.length} items)`)
 
-// read urls and limit to SAMPLE_SIZE (default -1 = all)
+// Read urls and limit to SAMPLE_SIZE (default -1 = all).
 const SAMPLE_SIZE = process.env.SAMPLE_SIZE
   ? parseInt(process.env.SAMPLE_SIZE, 10)
   : -1
 const allUrls = fs.readFileSync(URLS_TXT, 'utf8').split(/\r?\n/).filter(Boolean)
-// if SAMPLE_SIZE is -1, scan all URLs; otherwise take the first SAMPLE_SIZE entries+const urls = (typeof SAMPLE_SIZE !== 'undefined' && Number(SAMPLE_SIZE) === -1)
+// if SAMPLE_SIZE is -1, scan all URLs; otherwise take the first SAMPLE_SIZE entries.
 const urls =
   typeof SAMPLE_SIZE !== 'undefined' && Number(SAMPLE_SIZE) === -1
     ? allUrls
@@ -161,14 +161,14 @@ const urls =
 console.log(
   `Will scan ${urls.length} pages (first ${urls.length} of ${allUrls.length}).`
 )
-// record start time for the whole run
+// Record start time for the whole run.
 const startTime = Date.now()
 console.log(`Started at ${new Date(startTime).toISOString()}`)
 
 // Run lychee once for all URLs and let lychee handle concurrency (--max-concurrency).
 // This writes per-page JSON files (always overwrites) so the existing combine/augment step can proceed unchanged.
 async function runLycheeBatch(allUrlsToScan) {
-  // config: number of URLs per lychee invocation and parallel lychee processes
+  // Config: number of URLs per lychee invocation and parallel lychee processes
   const chunkSize = Math.max(50, Number(process.env.LYCHEE_CHUNK_SIZE || 500))
   const batchConcurrency = Math.max(
     1,
@@ -177,7 +177,7 @@ async function runLycheeBatch(allUrlsToScan) {
   const lycheeMaxConc =
     process.env.LYCHEE_MAX_CONCURRENCY || process.env.LYCHEE_CONCURRENCY || '20'
 
-  // split into chunks
+  // Split into chunks.
   const chunks = []
   for (let i = 0; i < allUrlsToScan.length; i += chunkSize) {
     chunks.push(allUrlsToScan.slice(i, i + chunkSize))
@@ -188,10 +188,10 @@ async function runLycheeBatch(allUrlsToScan) {
 
   async function runChunk(chunk, idx) {
     return new Promise((resolve) => {
-      // build exclude args from config
+      // Build exclude args from config.
       const excludeArgs = []
       for (const pat of LYCHEE_CONFIG.exclude || []) {
-        // allow regex strings or plain strings
+        // Allow regex strings or plain strings.
         excludeArgs.push('--exclude', String(pat))
       }
       const args = [
@@ -246,7 +246,7 @@ async function runLycheeBatch(allUrlsToScan) {
           console.log('Wrote raw lychee output to', debugPath)
           return resolve()
         }
-        // split results into per-page files (same logic as before)
+        // Split results into per-page files (same logic as before).
         if (Array.isArray(parsed)) {
           for (const entry of parsed) {
             const pageUrl = entry.page_url || entry.url || entry.page || null
@@ -278,42 +278,37 @@ async function runLycheeBatch(allUrlsToScan) {
     })
   }
 
-  // run chunks with limited concurrency
-  const running = []
+  // Run chunks with limited concurrency using a Set to track in-flight promises.
+  // We remove each promise from the set in a .finally() handler so we always know
+  // which promises are still pending. This avoids dropping references to pending
+  // promises (the previous `running.length = 0` would cause premature return).
+  const running = new Set()
   for (let i = 0; i < chunks.length; i++) {
-    const promise = runChunk(chunks[i], i)
-    running.push(promise)
-    // throttle concurrency
-    if (running.length >= batchConcurrency) {
-      // wait for the earliest to finish
-      await Promise.race(running).catch(() => {})
-      // remove resolved promises from running
-      for (let j = running.length - 1; j >= 0; j--) {
-        if (running[j].isFulfilled) {
-          // not standard; clean up instead by filtering settled promises
-          running.splice(j, 1)
-        }
-      }
-      // simpler cleanup: rebuild running filtering settled promises
-      // (Node's native Promise doesn't expose isFulfilled; use this simple approach)
-      await new Promise((r) => setTimeout(r, 0))
-      // filter out settled ones by checking Promise.race trick above in loop iterations
-      // rebuild running as those still pending
-      // (we keep it simple: let running grow; GC will free resolved promises)
-      running.length = 0
+    // attach a finally that removes the promise from the set when settled
+    const p = runChunk(chunks[i], i).finally(() => {
+      running.delete(p)
+    })
+    running.add(p)
+
+    // Throttle concurrency: wait until at least one in-flight promise settles
+    if (running.size >= batchConcurrency) {
+      // Promise.race accepts an iterable of promises; convert Set -> Array
+      await Promise.race(Array.from(running)).catch(() => {})
+      // the settled promise's .finally() should have removed it from the set
     }
   }
-  // wait for all to finish
-  await Promise.all(running).catch(() => {})
+
+  // Wait for any remaining in-flight chunks to finish
+  if (running.size) await Promise.all(Array.from(running)).catch(() => {})
   console.log('All lychee chunks finished; per-page files written to', OUT_DIR)
 }
 
-// combine per-page outputs (async so we can await fetchParentHtml)
+// Combine per-page outputs (async so we can await fetchParentHtml).
 ;(async function combineAndAugment() {
-  // let lychee handle concurrency for all URLs
+  // Let lychee handle concurrency for all URLs.
   await runLycheeBatch(urls)
 
-  // Metrics to include in combined report
+  // Metrics to include in combined report.
   const metrics = {
     initialPageCount: Array.isArray(allUrls) ? allUrls.length : 0,
     pagesScanned: 0,
@@ -321,8 +316,8 @@ async function runLycheeBatch(allUrlsToScan) {
     brokenLinkCount: 0,
   }
   const files = fs.readdirSync(OUT_DIR).filter((f) => f.endsWith('.json'))
-  // pagesScanned should reflect how many pages we attempted in this run.
-  // use `urls.length` (sample size / -1 => all) — fall back to files.length if urls is not present.
+  // PagesScanned should reflect how many pages we attempted in this run.
+  // Use `urls.length` (sample size / -1 => all) — fall back to files.length if urls is not present.
   metrics.pagesScanned = Array.isArray(urls) ? urls.length : files.length
   const combined = []
   for (const f of files) {
