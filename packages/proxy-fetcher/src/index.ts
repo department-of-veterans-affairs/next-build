@@ -105,11 +105,17 @@ export const getFetcher = (
       }
       // Check if response contains valid JSON
       const contentType = response.headers.get('content-type') || ''
-      if (contentType.includes('application/json')) {
+      if (
+        contentType.includes('application/json') ||
+        contentType.includes('application/vnd.api+json')
+      ) {
         try {
           await response.clone().json()
         } catch (err) {
-          logOrError(`Response is not valid JSON: %O`, err)
+          logOrError(
+            `Response is not valid JSON (Attempt ${attempt} of ${retryCount + 1}): %O`,
+            err
+          )
           throw new Error(`Response from ${response.url} is not valid JSON`, {
             cause: err,
           })
