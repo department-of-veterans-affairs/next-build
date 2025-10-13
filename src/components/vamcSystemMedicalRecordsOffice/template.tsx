@@ -27,7 +27,7 @@ export const VamcSystemMedicalRecordsOffice = ({
   relatedLinks,
   services,
   getRecordsMailOrFaxContent,
-  vamcMedRecordsMailing,
+  mailingAddress,
   faxNumber,
   lovellVariant,
   lovellSwitchPath,
@@ -89,8 +89,12 @@ export const VamcSystemMedicalRecordsOffice = ({
         )}
 
         <Wysiwyg {...getRecordsMailOrFaxContent} />
-        <h3 className="vads-u-font-size--h4">Mail your signed form to</h3>
-        <Address address={vamcMedRecordsMailing} showDirections={false} />
+        {mailingAddress && (
+          <>
+            <h3 className="vads-u-font-size--h4">Mail your signed form to</h3>
+            <Address address={mailingAddress} showDirections={false} />
+          </>
+        )}
         {faxNumber && (
           <PhoneNumber
             number={faxNumber}

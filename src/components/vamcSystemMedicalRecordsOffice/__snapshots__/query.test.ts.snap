@@ -118,6 +118,15 @@ exports[`VamcSystemMedicalRecordsOffice formatter outputs formatted data 1`] = `
   "lastUpdated": "2022-05-26T16:02:50+00:00",
   "lovellSwitchPath": null,
   "lovellVariant": null,
+  "mailingAddress": {
+    "address_line1": "200 Veterans Avenue",
+    "address_line2": "",
+    "administrative_area": "WV",
+    "country_code": "US",
+    "langcode": null,
+    "locality": "Beckley ",
+    "postal_code": "25801",
+  },
   "menu": {
     "data": {
       "description": null,
@@ -379,15 +388,6 @@ exports[`VamcSystemMedicalRecordsOffice formatter outputs formatted data 1`] = `
     "type": "paragraph--wysiwyg",
   },
   "type": "node--vamc_system_medical_records_offi",
-  "vamcMedRecordsMailing": {
-    "address_line1": "200 Veterans Avenue",
-    "address_line2": "",
-    "administrative_area": "WV",
-    "country_code": "US",
-    "langcode": null,
-    "locality": "Beckley ",
-    "postal_code": "25801",
-  },
   "vamcSystem": {
     "id": "6e35d07b-6b55-4f0c-b92d-bfc6e4f46528",
     "title": "VA Beckley health care",

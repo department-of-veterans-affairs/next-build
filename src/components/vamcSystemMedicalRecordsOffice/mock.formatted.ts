@@ -593,7 +593,7 @@ const mockData: VamcSystemMedicalRecordsOffice = {
     id: '82640',
     html: '<h2 id="get-your-records-by-mail-or-fa">Get your records by mail or fax</h2><p>To request a copy of your VA medical records by mail or fax, send a signed and completed VA Form 10-5345a to our Release of Information office.</p><p><a href="https://www.va.gov/vaforms/medical/pdf/VHA%20Form%2010-5345a%20Fill-revision.pdf" hreflang="en">Download VA Form 10-5345a (PDF)</a></p>',
   },
-  vamcMedRecordsMailing: {
+  mailingAddress: {
     langcode: 'en',
     country_code: 'US',
     administrative_area: 'MA',

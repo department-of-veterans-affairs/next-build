@@ -28,19 +28,8 @@ export interface VamcSystemMedicalRecordsOffice extends PublishedEntity {
     phoneNumber: string
   }>
   getRecordsMailOrFaxContent: Wysiwyg
-  vamcMedRecordsMailing: FieldAddress
+  mailingAddress: FieldAddress
   faxNumber: string | null
   lovellVariant?: LovellChildVariant | null
   lovellSwitchPath?: string | null
-
-  // TODO: Add additional centralized content fields from medical records template
-  // reactWidget: Wysiwyg
-  // getRecordsInPerson: Wysiwyg
-  // getRecordsMailOrFax: Wysiwyg
-  // howWeShareRecords: Wysiwyg
-  // faqs: Wysiwyg
-
-  // TODO: Add individual node fields from medical records template
-  // vamcMedRecordsMailing: FieldAddress
-  // faxNumber: string
 }
