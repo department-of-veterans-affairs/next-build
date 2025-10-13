@@ -81,9 +81,8 @@ export const getFetcher = (
       const response = await crossFetch(input, {
         ...options,
       })
-
+      const logOrError = attempt <= retryCount ? log : error
       if (!response.ok) {
-        const logOrError = attempt <= retryCount ? log : error
         logOrError(
           `Failed request (Attempt ${attempt} of ${retryCount + 1}): %o`,
           {
@@ -104,7 +103,18 @@ export const getFetcher = (
 
         throw new Error(errorMessage, { cause: response })
       }
-
+      // Check if response contains valid JSON
+      const contentType = response.headers.get('content-type') || ''
+      if (contentType.includes('application/json')) {
+        try {
+          await response.clone().json()
+        } catch (err) {
+          logOrError(`Response is not valid JSON: %O`, err)
+          throw new Error(`Response from ${response.url} is not valid JSON`, {
+            cause: err,
+          })
+        }
+      }
       return response
     }
 
