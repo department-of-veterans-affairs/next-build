@@ -14,6 +14,7 @@ import {
   addH2Ids,
   addH3Ids,
   convertActionLinks,
+  setPTag,
 } from './helpers'
 
 describe('truncateWordsOrChar', () => {
@@ -506,5 +507,26 @@ describe('convertActionLinks', () => {
     expect(result).toBe(
       '<va-link-action data-testid="test-me" href="/foo" text="Pay now" type="secondary" />'
     )
+  })
+})
+
+describe('setPTag', () => {
+  test('wraps non HTML string in <p>', () => {
+    const input = 'Hello World'
+    const result = setPTag(input)
+    expect(result).toBe('<p>Hello World</p>')
+  })
+  test('returns raw HTML string unmodified', () => {
+    const inputOne = '<p>Hello <a href="#">World</a></p>'
+    const resultOne = setPTag(inputOne)
+    const inputTwo = '<h2>Hello World</h2>'
+    const resultTwo = setPTag(inputTwo)
+    expect(resultOne).toBe('<p>Hello <a href="#">World</a></p>')
+    expect(resultTwo).toBe('<h2>Hello World</h2>')
+  })
+  test('returns empty string without <p>', () => {
+    const input = ' '
+    const result = setPTag(input)
+    expect(result).toBe('')
   })
 })
