@@ -235,7 +235,7 @@ export const convertActionLinks = (content: string): string => {
 }
 
 /**
- * Wraps a non-raw HTML string in a <p>
+ * Returns string wrapped in <p> if there is no other HTML in string.
  */
 export const setPTag = (string) => {
   // Checks of empty or only whitespace characters
