@@ -120,6 +120,9 @@ export const Paragraph = (paragraph: FormattedParagraph) => {
     case PARAGRAPH_RESOURCE_TYPES.QA_SECTION:
       return <QaSection {...(paragraph as FormattedQaSection)} />
 
+    case PARAGRAPH_RESOURCE_TYPES.QA:
+      return <QaParagraph {...(paragraph as FormattedQaParagraph)} />
+
     case PARAGRAPH_RESOURCE_TYPES.WYSIWYG:
     case PARAGRAPH_RESOURCE_TYPES.RICH_TEXT_CHAR_LIMIT_1000:
       return <Wysiwyg {...(paragraph as FormattedWysiwyg)} />
