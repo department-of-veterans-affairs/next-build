@@ -47,6 +47,47 @@ exports[`VamcSystemDetailPage query module outputs formatted data 1`] = `
   "lastUpdated": "2021-03-18T15:01:54+00:00",
   "lovellSwitchPath": null,
   "lovellVariant": null,
+  "mainContent": [
+    {
+      "html": "<h4><strong>Psychology Doctoral Internship</strong></h4><p>Application Deadline: November 1</p><p>The APA accredited internship at the Lexington VAHCS is a full-time, generalist internship in clinical psychology. The goal of our program is to prepare trainees for clinical practice of psychology in a variety of settings with an emphasis on preparation for VA and other medical settings. Our program offers a wide breadth of clinical training opportunities focused on evidence-based practice. Interns generally select their own rotations that fit their training goals. We pride ourselves on creating a friendly, nurturing training environment and aim to create a positive, collegial atmosphere that is conducive for learning and growth.</p><p> </p>",
+      "id": "5fa9eeac-1089-46da-8ecf-b25562a10f24",
+      "type": "paragraph--wysiwyg",
+    },
+    null,
+    null,
+    {
+      "displayAccordion": false,
+      "header": "Q & A group header",
+      "id": "0029a20f-5757-4053-9820-3db039bfa3c7",
+      "intro": "This is some intro text",
+      "questions": [
+        {
+          "answers": [],
+          "id": "211ce79f-5876-4d76-b848-b26532d941a1",
+          "question": undefined,
+          "type": "paragraph--q_a",
+        },
+      ],
+      "type": "paragraph--q_a_section",
+    },
+    null,
+    {
+      "bordered": false,
+      "entityId": 183008,
+      "id": "0a4daab1-c755-401c-bc01-82488a4370e6",
+      "paragraphs": [
+        {
+          "entityId": undefined,
+          "id": "1f1a794b-d061-4112-8c45-e3c6daa5b647",
+          "paragraphs": undefined,
+          "title": undefined,
+          "type": "paragraph--collapsible_panel_item",
+          "wysiwyg": null,
+        },
+      ],
+      "type": "paragraph--collapsible_panel",
+    },
+  ],
   "menu": {
     "data": {
       "description": null,

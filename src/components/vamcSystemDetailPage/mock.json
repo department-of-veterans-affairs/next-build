@@ -187,11 +187,277 @@
   "field_content_block": [
     {
       "type": "paragraph--wysiwyg",
-      "id": "09c28282-c690-4ece-8545-dba9b4434c3a",
+      "id": "5fa9eeac-1089-46da-8ecf-b25562a10f24",
+      "drupal_internal__id": 104354,
+      "drupal_internal__revision_id": 1895527,
+      "langcode": "en",
+      "status": true,
+      "created": "2022-02-18T18:23:47+00:00",
+      "parent_id": "43882",
+      "parent_type": "node",
+      "parent_field_name": "field_content_block",
+      "behavior_settings": [],
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "breadcrumbs": [],
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "content_translation_changed": null,
+      "field_wysiwyg": {
+        "value": "<h4><strong>Psychology Doctoral Internship</strong></h4><p>Application Deadline: November 1</p><p>The APA accredited internship at the Lexington VAHCS is a full-time, generalist internship in clinical psychology. The goal of our program is to prepare trainees for clinical practice of psychology in a variety of settings with an emphasis on preparation for VA and other medical settings. Our program offers a wide breadth of clinical training opportunities focused on evidence-based practice. Interns generally select their own rotations that fit their training goals. We pride ourselves on creating a friendly, nurturing training environment and aim to create a positive, collegial atmosphere that is conducive for learning and growth.</p><p> </p>",
+        "format": "rich_text",
+        "processed": "<h4><strong>Psychology Doctoral Internship</strong></h4><p>Application Deadline: November 1</p><p>The APA accredited internship at the Lexington VAHCS is a full-time, generalist internship in clinical psychology. The goal of our program is to prepare trainees for clinical practice of psychology in a variety of settings with an emphasis on preparation for VA and other medical settings. Our program offers a wide breadth of clinical training opportunities focused on evidence-based practice. Interns generally select their own rotations that fit their training goals. We pride ourselves on creating a friendly, nurturing training environment and aim to create a positive, collegial atmosphere that is conducive for learning and growth.</p><p> </p>"
+      },
+      "links": {
+        "self": {
+          "href": "http://va-gov-cms.ddev.site/jsonapi/paragraph/wysiwyg/5fa9eeac-1089-46da-8ecf-b25562a10f24?resourceVersion=id%3A1895527"
+        }
+      },
       "resourceIdObjMeta": {
-        "target_revision_id": 215167,
-        "drupal_internal__target_id": 15353
-      }
+        "target_revision_id": 1895527,
+        "drupal_internal__target_id": 104354
+      },
+      "paragraph_type": {
+        "type": "paragraphs_type--paragraphs_type",
+        "id": "885e4b61-cfd2-44b9-94ae-f068ba2b48b6",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "wysiwyg"
+        }
+      },
+      "relationshipNames": ["paragraph_type"]
+    },
+    {
+      "type": "paragraph--downloadable_file",
+      "id": "fd014675-7b4c-482b-9167-5389f1dc44ce",
+      "drupal_internal__id": 112056,
+      "drupal_internal__revision_id": 1895528,
+      "langcode": "en",
+      "status": true,
+      "created": "2022-07-25T15:27:09+00:00",
+      "parent_id": "43882",
+      "parent_type": "node",
+      "parent_field_name": "field_content_block",
+      "behavior_settings": [],
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "breadcrumbs": [],
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "content_translation_changed": null,
+      "field_markup": null,
+      "field_title": "Lexington VA Internship Admissions, Support and Initial Placement Data",
+      "links": {
+        "self": {
+          "href": "http://va-gov-cms.ddev.site/jsonapi/paragraph/downloadable_file/fd014675-7b4c-482b-9167-5389f1dc44ce?resourceVersion=id%3A1895528"
+        }
+      },
+      "resourceIdObjMeta": {
+        "target_revision_id": 1895528,
+        "drupal_internal__target_id": 112056
+      },
+      "paragraph_type": {
+        "type": "paragraphs_type--paragraphs_type",
+        "id": "baae35ef-1729-480a-8a15-ada2c7a9a331",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "downloadable_file"
+        }
+      },
+      "field_media": {
+        "type": "media--document",
+        "id": "4c67d90d-914f-4185-8923-62245299c5b9",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 35514
+        }
+      },
+      "relationshipNames": ["paragraph_type", "field_media"]
+    },
+    {
+      "type": "paragraph--staff_profile",
+      "id": "5d77166a-ed09-400c-b858-d7798cd12f04",
+      "drupal_internal__id": 182998,
+      "drupal_internal__revision_id": 1895530,
+      "langcode": "en",
+      "status": true,
+      "created": "2025-10-14T19:16:55+00:00",
+      "parent_id": "43882",
+      "parent_type": "node",
+      "parent_field_name": "field_content_block",
+      "behavior_settings": [],
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "breadcrumbs": [],
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "content_translation_changed": "2025-10-14T19:16:55+00:00",
+      "links": {
+        "self": {
+          "href": "http://va-gov-cms.ddev.site/jsonapi/paragraph/staff_profile/5d77166a-ed09-400c-b858-d7798cd12f04?resourceVersion=id%3A1895530"
+        }
+      },
+      "resourceIdObjMeta": {
+        "target_revision_id": 1895530,
+        "drupal_internal__target_id": 182998
+      },
+      "paragraph_type": {
+        "type": "paragraphs_type--paragraphs_type",
+        "id": "2a90b9c5-04b2-4a58-90b3-848ea568523d",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "staff_profile"
+        }
+      },
+      "field_staff_profile": {
+        "type": "node--person_profile",
+        "id": "e8e043db-a7d3-4dc0-ae57-9ca5ef610a90",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 4713
+        }
+      },
+      "relationshipNames": ["paragraph_type", "field_staff_profile"]
+    },
+    {
+      "type": "paragraph--q_a_section",
+      "id": "0029a20f-5757-4053-9820-3db039bfa3c7",
+      "drupal_internal__id": 183003,
+      "drupal_internal__revision_id": 1895535,
+      "langcode": "en",
+      "status": true,
+      "created": "2025-10-14T19:17:15+00:00",
+      "parent_id": "43882",
+      "parent_type": "node",
+      "parent_field_name": "field_content_block",
+      "behavior_settings": [],
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "breadcrumbs": [],
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "content_translation_changed": "2025-10-14T19:17:15+00:00",
+      "field_accordion_display": false,
+      "field_section_header": "Q & A group header",
+      "field_section_intro": "This is some intro text",
+      "links": {
+        "self": {
+          "href": "http://va-gov-cms.ddev.site/jsonapi/paragraph/q_a_section/0029a20f-5757-4053-9820-3db039bfa3c7?resourceVersion=id%3A1895535"
+        }
+      },
+      "resourceIdObjMeta": {
+        "target_revision_id": 1895535,
+        "drupal_internal__target_id": 183003
+      },
+      "paragraph_type": {
+        "type": "paragraphs_type--paragraphs_type",
+        "id": "f7351783-e298-425f-9b27-ac95be2ed069",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "q_a_section"
+        }
+      },
+      "field_questions": [
+        {
+          "type": "paragraph--q_a",
+          "id": "211ce79f-5876-4d76-b848-b26532d941a1",
+          "resourceIdObjMeta": {
+            "target_revision_id": 1895534,
+            "drupal_internal__target_id": 183002
+          }
+        }
+      ],
+      "relationshipNames": ["paragraph_type", "field_questions"]
+    },
+    {
+      "type": "paragraph--list_of_link_teasers",
+      "id": "f5cedf99-5295-4877-901f-223d92e369d3",
+      "drupal_internal__id": 183005,
+      "drupal_internal__revision_id": 1895537,
+      "langcode": "en",
+      "status": true,
+      "created": "2025-10-14T19:19:22+00:00",
+      "parent_id": "43882",
+      "parent_type": "node",
+      "parent_field_name": "field_content_block",
+      "behavior_settings": [],
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "breadcrumbs": [],
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "content_translation_changed": "2025-10-14T19:19:22+00:00",
+      "field_title": "Link teasers",
+      "links": {
+        "self": {
+          "href": "http://va-gov-cms.ddev.site/jsonapi/paragraph/list_of_link_teasers/f5cedf99-5295-4877-901f-223d92e369d3?resourceVersion=id%3A1895537"
+        }
+      },
+      "resourceIdObjMeta": {
+        "target_revision_id": 1895537,
+        "drupal_internal__target_id": 183005
+      },
+      "paragraph_type": {
+        "type": "paragraphs_type--paragraphs_type",
+        "id": "17be725c-343b-4050-a3c0-4e953226233e",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "list_of_link_teasers"
+        }
+      },
+      "field_va_paragraphs": [
+        {
+          "type": "paragraph--link_teaser",
+          "id": "8db029e2-8f65-40ff-9f1a-cb726814f346",
+          "resourceIdObjMeta": {
+            "target_revision_id": 1895536,
+            "drupal_internal__target_id": 183004
+          }
+        }
+      ],
+      "relationshipNames": ["paragraph_type", "field_va_paragraphs"]
+    },
+    {
+      "type": "paragraph--collapsible_panel",
+      "id": "0a4daab1-c755-401c-bc01-82488a4370e6",
+      "drupal_internal__id": 183008,
+      "drupal_internal__revision_id": 1895540,
+      "langcode": "en",
+      "status": true,
+      "created": "2025-10-14T19:46:00+00:00",
+      "parent_id": "43882",
+      "parent_type": "node",
+      "parent_field_name": "field_content_block",
+      "behavior_settings": [],
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "breadcrumbs": [],
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "content_translation_changed": "2025-10-14T19:46:00+00:00",
+      "field_collapsible_panel_bordered": false,
+      "field_collapsible_panel_expand": false,
+      "field_collapsible_panel_multi": false,
+      "links": {
+        "self": {
+          "href": "http://va-gov-cms.ddev.site/jsonapi/paragraph/collapsible_panel/0a4daab1-c755-401c-bc01-82488a4370e6?resourceVersion=id%3A1895540"
+        }
+      },
+      "resourceIdObjMeta": {
+        "target_revision_id": 1895540,
+        "drupal_internal__target_id": 183008
+      },
+      "paragraph_type": {
+        "type": "paragraphs_type--paragraphs_type",
+        "id": "9d342344-615c-4c0b-b4c8-991d7ec4d20c",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "collapsible_panel"
+        }
+      },
+      "field_va_paragraphs": [
+        {
+          "type": "paragraph--collapsible_panel_item",
+          "id": "1f1a794b-d061-4112-8c45-e3c6daa5b647",
+          "resourceIdObjMeta": {
+            "target_revision_id": 1895539,
+            "drupal_internal__target_id": 183007
+          }
+        }
+      ],
+      "relationshipNames": ["paragraph_type", "field_va_paragraphs"]
     }
   ],
   "field_featured_content": [
