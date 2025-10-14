@@ -57,7 +57,8 @@ export function HealthServiceAccordionItem({
         {service.bodyHtml && (
           <>
             <h4 className="vads-u-font-size--h3">
-              Care we provide at {systemTitle}
+              {/* Use template literal to avoid broken text for screen readers */}
+              {`Care we provide at ${systemTitle}`}
             </h4>
             <div
               dangerouslySetInnerHTML={{
