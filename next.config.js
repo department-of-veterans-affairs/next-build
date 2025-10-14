@@ -35,7 +35,7 @@ const nextConfig = {
     reactCompiler: true,
     instrumentationHook: true,
     staticGenerationRetryCount: 3,
-    staticGenerationMaxConcurrency: 2,
+    staticGenerationMaxConcurrency: 1,
     staticGenerationMinPagesPerWorker: 2,
   },
 
