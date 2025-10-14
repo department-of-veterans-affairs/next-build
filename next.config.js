@@ -36,7 +36,7 @@ const nextConfig = {
     instrumentationHook: true,
     staticGenerationRetryCount: 3,
     staticGenerationMaxConcurrency: 4,
-    staticGenerationMinPagesPerWorker: 10,
+    staticGenerationMinPagesPerWorker: 4,
   },
 
   // This ensures the generated files use a consistent hash inside of the generated `.next/` directory.
