@@ -35,8 +35,8 @@ const nextConfig = {
     reactCompiler: true,
     instrumentationHook: true,
     staticGenerationRetryCount: 3,
-    staticGenerationMaxConcurrency: 4,
-    staticGenerationMinPagesPerWorker: 4,
+    staticGenerationMaxConcurrency: 2,
+    staticGenerationMinPagesPerWorker: 2,
   },
 
   // This ensures the generated files use a consistent hash inside of the generated `.next/` directory.
