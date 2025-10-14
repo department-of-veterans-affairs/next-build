@@ -79,6 +79,16 @@ export const getFetcher = (
 
     // Wrap fetching in p-retry for resilience.
     const retryCount = 5
+
+    // Add jitter function
+    function jitterDelay(attempt: number) {
+      // Exponential backoff: base 500ms, max 10s, with random jitter
+      const base = 500
+      const max = 10_000
+      const exp = Math.min(max, base * 2 ** attempt)
+      return Math.floor(Math.random() * exp)
+    }
+
     const wrappedCrossFetch = async (attempt) => {
       const response = await crossFetch(input, {
         ...options,
@@ -114,6 +124,19 @@ export const getFetcher = (
     return limit(() =>
       pRetry.default(wrappedCrossFetch, {
         retries: retryCount,
+        minTimeout: 500,
+        maxTimeout: 10_000,
+        // Add a custom factor and randomize for jitter
+        factor: 2,
+        randomize: true,
+        // Custom retry delay with jitter
+        onFailedAttempt: (attemptError) => {
+          const delay = jitterDelay(attemptError.attemptNumber)
+          log(
+            `Retrying after ${delay}ms (Attempt ${attemptError.attemptNumber} of ${retryCount + 1})`
+          )
+          return new Promise((res) => setTimeout(res, delay))
+        },
       })
     )
   }
