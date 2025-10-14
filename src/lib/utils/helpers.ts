@@ -194,7 +194,7 @@ export const convertActionLinks = (content: string): string => {
 /**
  * Returns string wrapped in <p> if there is no other HTML in string.
  */
-export const setPTag = (string) => {
+export const setPTag = (string: string) => {
   // Checks of empty or only whitespace characters
   if (!string || /^\s*$/.test(string)) return ''
   // Checks for any HTML tag
