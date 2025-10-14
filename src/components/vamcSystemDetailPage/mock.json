@@ -272,6 +272,51 @@
       "relationshipNames": ["paragraph_type", "field_media"]
     },
     {
+      "type": "paragraph--downloadable_file",
+      "id": "54328865-016b-4694-8bb2-45144c8a61cb",
+      "drupal_internal__id": 112057,
+      "drupal_internal__revision_id": 1895529,
+      "langcode": "en",
+      "status": true,
+      "created": "2022-07-25T15:31:37+00:00",
+      "parent_id": "43882",
+      "parent_type": "node",
+      "parent_field_name": "field_content_block",
+      "behavior_settings": [],
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "breadcrumbs": [],
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "content_translation_changed": null,
+      "field_markup": null,
+      "field_title": "Lexington VA Psychology Internship Brochure 2026 - 2027",
+      "links": {
+        "self": {
+          "href": "http://va-gov-cms.ddev.site/jsonapi/paragraph/downloadable_file/54328865-016b-4694-8bb2-45144c8a61cb?resourceVersion=id%3A1895529"
+        }
+      },
+      "resourceIdObjMeta": {
+        "target_revision_id": 1895529,
+        "drupal_internal__target_id": 112057
+      },
+      "paragraph_type": {
+        "type": "paragraphs_type--paragraphs_type",
+        "id": "baae35ef-1729-480a-8a15-ada2c7a9a331",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "downloadable_file"
+        }
+      },
+      "field_media": {
+        "type": "media--document",
+        "id": "fc81c497-c5a8-40cc-9653-3de9b92dd97f",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 46390
+        }
+      },
+      "relationshipNames": ["paragraph_type", "field_media"]
+    },
+    {
       "type": "paragraph--staff_profile",
       "id": "5d77166a-ed09-400c-b858-d7798cd12f04",
       "drupal_internal__id": 182998,
@@ -355,10 +400,169 @@
         {
           "type": "paragraph--q_a",
           "id": "211ce79f-5876-4d76-b848-b26532d941a1",
+          "drupal_internal__id": 183002,
+          "drupal_internal__revision_id": 1895534,
+          "langcode": "en",
+          "status": true,
+          "created": "2025-10-14T19:17:15+00:00",
+          "parent_id": "183003",
+          "parent_type": "paragraph",
+          "parent_field_name": "field_questions",
+          "behavior_settings": [],
+          "default_langcode": true,
+          "revision_translation_affected": true,
+          "breadcrumbs": [],
+          "content_translation_source": "und",
+          "content_translation_outdated": false,
+          "content_translation_changed": "2025-10-14T19:20:41+00:00",
+          "field_question": "Question 1",
+          "links": {
+            "self": {
+              "href": "http://va-gov-cms.ddev.site/jsonapi/paragraph/q_a/211ce79f-5876-4d76-b848-b26532d941a1?resourceVersion=id%3A1895534"
+            }
+          },
           "resourceIdObjMeta": {
             "target_revision_id": 1895534,
             "drupal_internal__target_id": 183002
-          }
+          },
+          "paragraph_type": {
+            "type": "paragraphs_type--paragraphs_type",
+            "id": "525c8535-c6fa-4e64-8824-82c889785a6a",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": "q_a"
+            }
+          },
+          "field_answer": [
+            {
+              "type": "paragraph--wysiwyg",
+              "id": "2d640021-2068-4233-8651-8fc4de79b846",
+              "drupal_internal__id": 182999,
+              "drupal_internal__revision_id": 1895531,
+              "langcode": "en",
+              "status": true,
+              "created": "2025-10-14T19:17:15+00:00",
+              "parent_id": "183002",
+              "parent_type": "paragraph",
+              "parent_field_name": "field_answer",
+              "behavior_settings": [],
+              "default_langcode": true,
+              "revision_translation_affected": null,
+              "breadcrumbs": [],
+              "content_translation_source": "und",
+              "content_translation_outdated": false,
+              "content_translation_changed": "2025-10-14T19:20:41+00:00",
+              "field_wysiwyg": {
+                "value": "<p>Answer with some extras</p>",
+                "format": "rich_text",
+                "processed": "<p>Answer with some extras</p>"
+              },
+              "links": {
+                "self": {
+                  "href": "http://va-gov-cms.ddev.site/jsonapi/paragraph/wysiwyg/2d640021-2068-4233-8651-8fc4de79b846?resourceVersion=id%3A1895531"
+                }
+              },
+              "resourceIdObjMeta": {
+                "target_revision_id": 1895531,
+                "drupal_internal__target_id": 182999
+              },
+              "paragraph_type": {
+                "type": "paragraphs_type--paragraphs_type",
+                "id": "885e4b61-cfd2-44b9-94ae-f068ba2b48b6",
+                "resourceIdObjMeta": {
+                  "drupal_internal__target_id": "wysiwyg"
+                }
+              },
+              "relationshipNames": ["paragraph_type"]
+            },
+            {
+              "type": "paragraph--table",
+              "id": "710639b1-353f-4583-81a4-2b1a41de5f82",
+              "drupal_internal__id": 183000,
+              "drupal_internal__revision_id": 1895532,
+              "langcode": "en",
+              "status": true,
+              "created": "2025-10-14T19:17:47+00:00",
+              "parent_id": "183002",
+              "parent_type": "paragraph",
+              "parent_field_name": "field_answer",
+              "behavior_settings": [],
+              "default_langcode": true,
+              "revision_translation_affected": null,
+              "breadcrumbs": [],
+              "content_translation_source": "und",
+              "content_translation_outdated": false,
+              "content_translation_changed": "2025-10-14T19:20:41+00:00",
+              "field_table": {
+                "value": [
+                  ["a", "b"],
+                  ["c", "d"],
+                  ["e", "f"]
+                ],
+                "format": "rich_text",
+                "caption": "I'm a table nested in a Q&A"
+              },
+              "links": {
+                "self": {
+                  "href": "http://va-gov-cms.ddev.site/jsonapi/paragraph/table/710639b1-353f-4583-81a4-2b1a41de5f82?resourceVersion=id%3A1895532"
+                }
+              },
+              "resourceIdObjMeta": {
+                "target_revision_id": 1895532,
+                "drupal_internal__target_id": 183000
+              },
+              "paragraph_type": {
+                "type": "paragraphs_type--paragraphs_type",
+                "id": "80b23186-37b2-4c2b-8223-24e952485df8",
+                "resourceIdObjMeta": {
+                  "drupal_internal__target_id": "table"
+                }
+              },
+              "relationshipNames": ["paragraph_type"]
+            },
+            {
+              "type": "paragraph--number_callout",
+              "id": "e5a962fa-e751-4b54-a9f5-777548618bfe",
+              "drupal_internal__id": 183001,
+              "drupal_internal__revision_id": 1895533,
+              "langcode": "en",
+              "status": true,
+              "created": "2025-10-14T19:18:38+00:00",
+              "parent_id": "183002",
+              "parent_type": "paragraph",
+              "parent_field_name": "field_answer",
+              "behavior_settings": [],
+              "default_langcode": true,
+              "revision_translation_affected": null,
+              "breadcrumbs": [],
+              "content_translation_source": "und",
+              "content_translation_outdated": false,
+              "content_translation_changed": "2025-10-14T19:20:41+00:00",
+              "field_short_phrase_with_a_number": "Every 1 is a winner",
+              "field_wysiwyg": {
+                "value": "<p>Every 2 is a loser</p>",
+                "format": "rich_text",
+                "processed": "<p>Every 2 is a loser</p>"
+              },
+              "links": {
+                "self": {
+                  "href": "http://va-gov-cms.ddev.site/jsonapi/paragraph/number_callout/e5a962fa-e751-4b54-a9f5-777548618bfe?resourceVersion=id%3A1895533"
+                }
+              },
+              "resourceIdObjMeta": {
+                "target_revision_id": 1895533,
+                "drupal_internal__target_id": 183001
+              },
+              "paragraph_type": {
+                "type": "paragraphs_type--paragraphs_type",
+                "id": "cb37b17c-adf8-4d46-8304-9b93840b2dc8",
+                "resourceIdObjMeta": {
+                  "drupal_internal__target_id": "number_callout"
+                }
+              },
+              "relationshipNames": ["paragraph_type"]
+            }
+          ],
+          "relationshipNames": ["paragraph_type", "field_answer"]
         }
       ],
       "relationshipNames": ["paragraph_type", "field_questions"]
@@ -402,10 +606,50 @@
         {
           "type": "paragraph--link_teaser",
           "id": "8db029e2-8f65-40ff-9f1a-cb726814f346",
+          "drupal_internal__id": 183004,
+          "drupal_internal__revision_id": 1895536,
+          "langcode": "en",
+          "status": true,
+          "created": "2025-10-14T19:19:22+00:00",
+          "parent_id": "183005",
+          "parent_type": "paragraph",
+          "parent_field_name": "field_va_paragraphs",
+          "behavior_settings": [],
+          "default_langcode": true,
+          "revision_translation_affected": null,
+          "breadcrumbs": [],
+          "content_translation_source": "und",
+          "content_translation_outdated": false,
+          "content_translation_changed": "2025-10-14T19:20:41+00:00",
+          "field_link": {
+            "uri": "https://www.google.com/",
+            "title": "Google",
+            "options": {
+              "href": "https://www.google.com/",
+              "data-entity-type": "",
+              "data-entity-uuid": "",
+              "data-entity-substitution": ""
+            },
+            "url": "https://www.google.com/"
+          },
+          "field_link_summary": "This is a summary of the Google link",
+          "links": {
+            "self": {
+              "href": "http://va-gov-cms.ddev.site/jsonapi/paragraph/link_teaser/8db029e2-8f65-40ff-9f1a-cb726814f346?resourceVersion=id%3A1895536"
+            }
+          },
           "resourceIdObjMeta": {
             "target_revision_id": 1895536,
             "drupal_internal__target_id": 183004
-          }
+          },
+          "paragraph_type": {
+            "type": "paragraphs_type--paragraphs_type",
+            "id": "072db7a4-476e-41a6-ab49-c44184281451",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": "link_teaser"
+            }
+          },
+          "relationshipNames": ["paragraph_type"]
         }
       ],
       "relationshipNames": ["paragraph_type", "field_va_paragraphs"]
@@ -451,10 +695,93 @@
         {
           "type": "paragraph--collapsible_panel_item",
           "id": "1f1a794b-d061-4112-8c45-e3c6daa5b647",
+          "drupal_internal__id": 183007,
+          "drupal_internal__revision_id": 1895539,
+          "langcode": "en",
+          "status": true,
+          "created": "2025-10-14T19:46:00+00:00",
+          "parent_id": "183008",
+          "parent_type": "paragraph",
+          "parent_field_name": "field_va_paragraphs",
+          "behavior_settings": [],
+          "default_langcode": true,
+          "revision_translation_affected": true,
+          "breadcrumbs": [],
+          "content_translation_source": "und",
+          "content_translation_outdated": false,
+          "content_translation_changed": "2025-10-14T19:47:12+00:00",
+          "field_title": "A root-level accordion item",
+          "field_wysiwyg": {
+            "value": "<p>Some text inside</p>",
+            "format": "rich_text",
+            "processed": "<p>Some text inside</p>"
+          },
+          "links": {
+            "self": {
+              "href": "http://va-gov-cms.ddev.site/jsonapi/paragraph/collapsible_panel_item/1f1a794b-d061-4112-8c45-e3c6daa5b647?resourceVersion=id%3A1895539"
+            }
+          },
           "resourceIdObjMeta": {
             "target_revision_id": 1895539,
             "drupal_internal__target_id": 183007
-          }
+          },
+          "paragraph_type": {
+            "type": "paragraphs_type--paragraphs_type",
+            "id": "e2a6831d-9d06-45d6-940e-dc542830f6ec",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": "collapsible_panel_item"
+            }
+          },
+          "field_va_paragraphs": [
+            {
+              "type": "paragraph--table",
+              "id": "662f086d-e329-4978-8771-fd9a7c22c832",
+              "drupal_internal__id": 183006,
+              "drupal_internal__revision_id": 1895538,
+              "langcode": "en",
+              "status": true,
+              "created": "2025-10-14T19:46:22+00:00",
+              "parent_id": "183007",
+              "parent_type": "paragraph",
+              "parent_field_name": "field_va_paragraphs",
+              "behavior_settings": [],
+              "default_langcode": true,
+              "revision_translation_affected": true,
+              "breadcrumbs": [],
+              "content_translation_source": "und",
+              "content_translation_outdated": false,
+              "content_translation_changed": "2025-10-14T19:47:12+00:00",
+              "field_table": {
+                "value": [
+                  ["11", "12"],
+                  ["21", "22"],
+                  ["31", "32"],
+                  ["", ""],
+                  ["", ""]
+                ],
+                "format": "rich_text",
+                "caption": "A table inside a root-level accordion item"
+              },
+              "links": {
+                "self": {
+                  "href": "http://va-gov-cms.ddev.site/jsonapi/paragraph/table/662f086d-e329-4978-8771-fd9a7c22c832?resourceVersion=id%3A1895538"
+                }
+              },
+              "resourceIdObjMeta": {
+                "target_revision_id": 1895538,
+                "drupal_internal__target_id": 183006
+              },
+              "paragraph_type": {
+                "type": "paragraphs_type--paragraphs_type",
+                "id": "80b23186-37b2-4c2b-8223-24e952485df8",
+                "resourceIdObjMeta": {
+                  "drupal_internal__target_id": "table"
+                }
+              },
+              "relationshipNames": ["paragraph_type"]
+            }
+          ],
+          "relationshipNames": ["paragraph_type", "field_va_paragraphs"]
         }
       ],
       "relationshipNames": ["paragraph_type", "field_va_paragraphs"]

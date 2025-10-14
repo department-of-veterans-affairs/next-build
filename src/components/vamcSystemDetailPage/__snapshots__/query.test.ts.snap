@@ -55,6 +55,7 @@ exports[`VamcSystemDetailPage query module outputs formatted data 1`] = `
     },
     null,
     null,
+    null,
     {
       "displayAccordion": false,
       "header": "Q & A group header",
@@ -62,27 +63,114 @@ exports[`VamcSystemDetailPage query module outputs formatted data 1`] = `
       "intro": "This is some intro text",
       "questions": [
         {
-          "answers": [],
+          "answers": [
+            {
+              "html": "<p>Answer with some extras</p>",
+              "id": "2d640021-2068-4233-8651-8fc4de79b846",
+              "type": "paragraph--wysiwyg",
+            },
+            {
+              "data": [
+                [
+                  "a",
+                  "b",
+                ],
+                [
+                  "c",
+                  "d",
+                ],
+                [
+                  "e",
+                  "f",
+                ],
+              ],
+              "entityId": 183000,
+              "id": "710639b1-353f-4583-81a4-2b1a41de5f82",
+              "title": "I'm a table nested in a Q&A",
+              "type": "paragraph--table",
+            },
+            {
+              "description": "<p>Every 2 is a loser</p>",
+              "entityId": 183001,
+              "id": "e5a962fa-e751-4b54-a9f5-777548618bfe",
+              "numberPhrase": "Every 1 is a winner",
+              "type": "paragraph--number_callout",
+            },
+          ],
           "id": "211ce79f-5876-4d76-b848-b26532d941a1",
-          "question": undefined,
+          "question": "Question 1",
           "type": "paragraph--q_a",
         },
       ],
       "type": "paragraph--q_a_section",
     },
-    null,
+    {
+      "entityId": 183005,
+      "id": "f5cedf99-5295-4877-901f-223d92e369d3",
+      "linkTeasers": [
+        {
+          "componentParams": {
+            "sectionHeader": "",
+          },
+          "entityId": 183004,
+          "id": "8db029e2-8f65-40ff-9f1a-cb726814f346",
+          "options": {
+            "data-entity-substitution": "",
+            "data-entity-type": "",
+            "data-entity-uuid": "",
+            "href": "https://www.google.com/",
+          },
+          "parentField": "field_va_paragraphs",
+          "summary": "This is a summary of the Google link",
+          "title": "Google",
+          "type": "paragraph--link_teaser",
+          "uri": "https://www.google.com/",
+        },
+      ],
+      "title": "Link teasers",
+      "type": "paragraph--list_of_link_teasers",
+    },
     {
       "bordered": false,
       "entityId": 183008,
       "id": "0a4daab1-c755-401c-bc01-82488a4370e6",
       "paragraphs": [
         {
-          "entityId": undefined,
+          "entityId": 183007,
           "id": "1f1a794b-d061-4112-8c45-e3c6daa5b647",
-          "paragraphs": undefined,
-          "title": undefined,
+          "paragraphs": [
+            {
+              "data": [
+                [
+                  "11",
+                  "12",
+                ],
+                [
+                  "21",
+                  "22",
+                ],
+                [
+                  "31",
+                  "32",
+                ],
+                [
+                  "",
+                  "",
+                ],
+                [
+                  "",
+                  "",
+                ],
+              ],
+              "entityId": 183006,
+              "id": "662f086d-e329-4978-8771-fd9a7c22c832",
+              "title": "A table inside a root-level accordion item",
+              "type": "paragraph--table",
+            },
+          ],
+          "title": "A root-level accordion item",
           "type": "paragraph--collapsible_panel_item",
-          "wysiwyg": null,
+          "wysiwyg": "<p>Some text inside</p>",
         },
       ],
       "type": "paragraph--collapsible_panel",
