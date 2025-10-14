@@ -1,10 +1,12 @@
 import crossFetch from 'cross-fetch'
 import Debug from 'debug'
 import { SocksProxyAgent } from 'socks-proxy-agent'
+import pLimit from 'p-limit'
 
 const logger = Debug('proxy-fetcher')
 const log = logger.extend('log')
 const error = logger.extend('error')
+const limit = pLimit(32)
 
 /**
  * Creates a custom fetcher function with support for SOCKS proxying,
@@ -109,7 +111,9 @@ export const getFetcher = (
     }
 
     const pRetry = await import('p-retry')
-    return pRetry.default(wrappedCrossFetch, {
-      retries: retryCount,
-    })
+    return limit(() =>
+      pRetry.default(wrappedCrossFetch, {
+        retries: retryCount,
+      })
+    )
   }
