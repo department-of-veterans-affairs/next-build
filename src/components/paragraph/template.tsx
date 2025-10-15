@@ -23,6 +23,8 @@ import {
   ContactInfo as FormattedContactInfo,
   EmailContact as FormattedEmailContact,
 } from '@/components/contactInfo/formatted-type'
+import { DownloadableFile } from '@/components/downloadableFile/template'
+import { DownloadableFile as FormattedDownloadableFile } from '@/components/downloadableFile/formatted-type'
 import { ExpandableText } from '@/components/expandableText/template'
 import { ExpandableText as FormattedExpandableText } from '@/components/expandableText/formatted-type'
 import { FeaturedContent } from '@/components/featuredContent/template'
@@ -78,6 +80,9 @@ export const Paragraph = (paragraph: FormattedParagraph) => {
 
     case PARAGRAPH_RESOURCE_TYPES.CONTACT_INFORMATION:
       return <ContactInfo {...(paragraph as FormattedContactInfo)} />
+
+    case PARAGRAPH_RESOURCE_TYPES.DOWNLOADABLE_FILE:
+      return <DownloadableFile {...(paragraph as FormattedDownloadableFile)} />
 
     case PARAGRAPH_RESOURCE_TYPES.EMAIL_CONTACT:
       return <EmailContact {...(paragraph as FormattedEmailContact)} />

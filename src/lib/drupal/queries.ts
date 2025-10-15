@@ -12,6 +12,7 @@ import * as Button from '@/components/button/query'
 import * as CollapsiblePanel from '@/components/collapsiblePanel/query'
 import * as CollapsiblePanelItem from '@/components/collapsiblePanelItem/query'
 import * as ContactInfo from '@/components/contactInfo/query'
+import * as DownloadableFile from '@/components/downloadableFile/query'
 import * as EmailContact from '@/components/emailContact/query'
 import * as Event from '../../components/event/query'
 import * as EventListing from '../../components/eventListing/query'
@@ -120,6 +121,7 @@ export const QUERIES_MAP = {
   [PARAGRAPH_RESOURCE_TYPES.COLLAPSIBLE_PANEL]: CollapsiblePanel,
   [PARAGRAPH_RESOURCE_TYPES.COLLAPSIBLE_PANEL_ITEM]: CollapsiblePanelItem,
   [PARAGRAPH_RESOURCE_TYPES.CONTACT_INFORMATION]: ContactInfo,
+  [PARAGRAPH_RESOURCE_TYPES.DOWNLOADABLE_FILE]: DownloadableFile,
   [PARAGRAPH_RESOURCE_TYPES.EMAIL_CONTACT]: EmailContact,
   [PARAGRAPH_RESOURCE_TYPES.EXPANDABLE_TEXT]: ExpandableText,
   [PARAGRAPH_RESOURCE_TYPES.FEATURED_CONTENT]: FeaturedContent,

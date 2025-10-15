@@ -9,7 +9,11 @@ import {
   FieldTable,
   FieldDateTimeRange,
 } from './field_type'
-import { DrupalMediaImage } from './media'
+import {
+  DrupalMediaImage,
+  DrupalMediaDocument,
+  DrupalMediaVideo,
+} from './media'
 import { NodeLandingPage, NodePersonProfile, NodeSupportService } from './node'
 import {
   TaxonomyTermAudienceBeneficiaries,
@@ -27,6 +31,7 @@ export type ParagraphTypes =
   | ParagraphCollapsiblePanel
   | ParagraphCollapsiblePanelItem
   | ParagraphContactInformation
+  | ParagraphDownloadableFile
   | ParagraphEmailContact
   | ParagraphExpandableText
   | ParagraphFeaturedContent
@@ -110,6 +115,13 @@ export interface ParagraphContactInformation extends DrupalParagraph {
   field_additional_contact: ParagraphEmailContact | ParagraphPhoneNumber
   field_benefit_hub_contacts: NodeLandingPage
   field_contact_default: NodeSupportService
+}
+
+export interface ParagraphDownloadableFile extends DrupalParagraph {
+  type: 'paragraph--downloadable_file'
+  field_title: string
+  field_markup: string | null
+  field_media: DrupalMediaImage | DrupalMediaDocument | DrupalMediaVideo
 }
 
 export interface ParagraphEmailContact extends DrupalParagraph {
