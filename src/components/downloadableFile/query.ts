@@ -19,7 +19,7 @@ export const formatter: QueryFormatter<
   // Determine media type and extract URL
   let mediaType: 'image' | 'document' | 'video'
   let url: string
-  let extension: string | undefined
+  let extension: string | null = null
 
   if (media.type === 'media--image') {
     mediaType = 'image'
