@@ -15,6 +15,9 @@ export const formatter: QueryFormatter<
   DownloadableFile
 > = (entity: ParagraphDownloadableFile) => {
   const media = entity.field_media
+  if (!media) {
+    return null
+  }
 
   // Determine media type and extract URL
   let mediaType: 'image' | 'document' | 'video'
@@ -23,7 +26,7 @@ export const formatter: QueryFormatter<
 
   if (media.type === 'media--image') {
     mediaType = 'image'
-    url = media.image.url
+    url = media.image.uri.url
     extension = url.split('.').pop()?.toUpperCase()
   } else if (media.type === 'media--document') {
     mediaType = 'document'
@@ -32,15 +35,11 @@ export const formatter: QueryFormatter<
   } else if (media.type === 'media--video') {
     mediaType = 'video'
     url = media.field_media_video_embed_field
-  } else {
-    // Fallback for unknown media types
-    mediaType = 'document'
-    url = ''
   }
 
   return {
     id: entity.id,
-    entityId: entity.drupal_internal__id,
+    entityId: entity.drupal_internal__id ?? null,
     title: entity.field_title,
     type: entity.type,
     mediaType,
