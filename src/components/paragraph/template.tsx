@@ -50,6 +50,8 @@ import { Wysiwyg } from '@/components/wysiwyg/template'
 import { Wysiwyg as FormattedWysiwyg } from '@/components/wysiwyg/formatted-type'
 import { QaParagraph } from '@/components/qaParagraph/template'
 import { QaParagraph as FormattedQaParagraph } from '@/components/qaParagraph/formatted-type'
+import { StaffProfileParagraph } from '@/components/staffProfileParagraph/template'
+import { StaffProfileParagraph as FormattedStaffProfileParagraph } from '@/components/staffProfileParagraph/formatted-type'
 
 export const Paragraph = (paragraph: FormattedParagraph) => {
   switch (paragraph.type) {
@@ -112,6 +114,13 @@ export const Paragraph = (paragraph: FormattedParagraph) => {
 
     case PARAGRAPH_RESOURCE_TYPES.REACT_WIDGET:
       return <ReactWidget {...(paragraph as FormattedReactWidget)} />
+
+    case PARAGRAPH_RESOURCE_TYPES.STAFF_PROFILE:
+      return (
+        <StaffProfileParagraph
+          {...(paragraph as FormattedStaffProfileParagraph)}
+        />
+      )
 
     case PARAGRAPH_RESOURCE_TYPES.TABLE:
       return <Table {...(paragraph as FormattedTable)} />

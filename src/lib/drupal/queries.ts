@@ -44,6 +44,7 @@ import * as QaSection from '@/components/qaSection/query'
 import * as QuestionAnswer from '../../components/questionAnswer/query'
 import * as ReactWidget from '@/components/reactWidget/query'
 import * as ResourcesSupport from '../../components/resourcesSupport/query'
+import * as StaffProfileParagraph from '@/components/staffProfileParagraph/query'
 import * as StaticPathResources from '@/components/staticPathResources/query'
 import * as StoryListing from '../../components/storyListing/query'
 import * as SupportServices from '@/components/supportServices/query'
@@ -136,6 +137,7 @@ export const QUERIES_MAP = {
   [PARAGRAPH_RESOURCE_TYPES.REACT_WIDGET]: ReactWidget,
   [PARAGRAPH_RESOURCE_TYPES.RICH_TEXT_CHAR_LIMIT_1000]: Wysiwyg,
   [PARAGRAPH_RESOURCE_TYPES.SERVICE_LOCATION]: ServiceLocation,
+  [PARAGRAPH_RESOURCE_TYPES.STAFF_PROFILE]: StaffProfileParagraph,
   [PARAGRAPH_RESOURCE_TYPES.TABLE]: Table,
   [PARAGRAPH_RESOURCE_TYPES.WYSIWYG]: Wysiwyg,
 
