@@ -15,7 +15,7 @@ export const formatter: QueryFormatter<
   DownloadableFile
 > = (entity: ParagraphDownloadableFile) => {
   const media = entity.field_media
-  if (!media) {
+  if (!media || media.type === 'unknown') {
     return null
   }
 

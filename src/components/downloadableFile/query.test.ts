@@ -99,6 +99,19 @@ describe('downloadableFile query', () => {
         const result = formatter(mockData)
         expect(result.entityId).toBeNull()
       })
+
+      test('handles unknown/missing media type', () => {
+        const mockData = {
+          ...mockDocument,
+          field_media: {
+            type: 'unknown',
+            id: 'missing',
+          },
+        } as unknown as ParagraphDownloadableFile
+
+        const result = formatter(mockData)
+        expect(result).toBeNull()
+      })
     })
   })
 })
