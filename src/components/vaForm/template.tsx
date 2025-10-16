@@ -2,7 +2,7 @@ import { VaForm as VaFormType } from './formatted-type'
 
 type VaFormProps = VaFormType
 
-export function VaForm({ 
+export function VaForm({
   title,
   formName,
   formNumber,
@@ -13,14 +13,14 @@ export function VaForm({
   toolUrl,
   toolIntro,
   usage,
-  helpfulLinks,
+  linkTeasers: helpfulLinks,
   relatedForms,
-  entityPath 
+  entityPath,
 }: VaFormProps) {
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('en-US', {
       year: 'numeric',
-      month: 'long'
+      month: 'long',
     })
   }
 
@@ -29,14 +29,14 @@ export function VaForm({
       <div className="usa-grid usa-grid-full">
         <div className="usa-width-three-fourths">
           <article className="usa-content">
-            <h1 className="vads-u-margin-bottom--0">
-              {title}
-            </h1>
+            <h1 className="vads-u-margin-bottom--0">{title}</h1>
 
             <dl>
               <div className="vads-u-margin-bottom--4">
                 <dt className="va-introtext">
-                  <dfn className="vads-u-visibility--screen-reader">Form name:</dfn>
+                  <dfn className="vads-u-visibility--screen-reader">
+                    Form name:
+                  </dfn>
                   {formName}
                 </dt>
               </div>
@@ -84,9 +84,9 @@ export function VaForm({
                   id="main-download-button"
                   onClick={() => window.open(formUrl.uri, '_blank')}
                 >
-                  <va-icon 
-                    className="vads-u-margin-right--0p5" 
-                    icon="file_download" 
+                  <va-icon
+                    className="vads-u-margin-right--0p5"
+                    icon="file_download"
                     size="3"
                   />
                   Download VA Form {formNumber} (PDF)
@@ -113,7 +113,9 @@ export function VaForm({
                   {relatedForms.map((vaForm) => (
                     <li key={vaForm.id}>
                       <h3>
-                        <a href={`/find-forms/about-form-${vaForm.formNumber.toLowerCase()}`}>
+                        <a
+                          href={`/find-forms/about-form-${vaForm.formNumber.toLowerCase()}`}
+                        >
                           VA Form {vaForm.formNumber}
                         </a>
                       </h3>
@@ -129,8 +131,7 @@ export function VaForm({
                 <h2 className="vads-u-font-size--h3 vads-u-margin-top--0 vads-u-padding-bottom--1 vads-u-border-bottom--1px vads-u-border-color--gray-light">
                   {helpfulLinks && helpfulLinks.length > 0
                     ? `Helpful links related to VA Form ${formNumber}`
-                    : 'Helpful links'
-                  }
+                    : 'Helpful links'}
                 </h2>
                 <ul className="usa-unstyled-list" role="list">
                   {helpfulLinks && helpfulLinks.length > 0 ? (
@@ -143,7 +144,9 @@ export function VaForm({
                           />
                         </h3>
                         {linkTeaser.summary && (
-                          <p className="vads-u-margin--0">{linkTeaser.summary}</p>
+                          <p className="vads-u-margin--0">
+                            {linkTeaser.summary}
+                          </p>
                         )}
                       </li>
                     ))
@@ -157,7 +160,9 @@ export function VaForm({
                           />
                         </h3>
                         <p className="vads-u-margin--0">
-                          Find out how to update your direct deposit information online for disability compensation, pension, or education benefits.
+                          Find out how to update your direct deposit information
+                          online for disability compensation, pension, or
+                          education benefits.
                         </p>
                       </li>
                       <li>
@@ -168,7 +173,10 @@ export function VaForm({
                           />
                         </h3>
                         <p className="vads-u-margin--0">
-                          Find out how to change your address and other information in your VA.gov profile for disability compensation, claims and appeals, VA health care, and other benefits.
+                          Find out how to change your address and other
+                          information in your VA.gov profile for disability
+                          compensation, claims and appeals, VA health care, and
+                          other benefits.
                         </p>
                       </li>
                       <li>
@@ -179,7 +187,9 @@ export function VaForm({
                           />
                         </h3>
                         <p className="vads-u-margin--0">
-                          Submit an online request to get your DD214 or other military service records through the milConnect website.
+                          Submit an online request to get your DD214 or other
+                          military service records through the milConnect
+                          website.
                         </p>
                       </li>
                       <li>
@@ -190,7 +200,8 @@ export function VaForm({
                           />
                         </h3>
                         <p className="vads-u-margin--0">
-                          Learn how to access your VA records, benefit letters, and documents online.
+                          Learn how to access your VA records, benefit letters,
+                          and documents online.
                         </p>
                       </li>
                     </>

@@ -12,7 +12,7 @@ export type VaForm = PublishedEntity & {
   toolUrl?: FieldLink
   toolIntro?: string
   usage?: string
-  helpfulLinks?: Array<{
+  linkTeasers?: Array<{
     link: FieldLink
     summary?: string
   }>

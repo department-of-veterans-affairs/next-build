@@ -53,7 +53,7 @@ export const formatter: QueryFormatter<NodeVaForm, VaForm> = (
     toolUrl: entity.field_va_form_tool_url,
     toolIntro: entity.field_va_form_tool_intro,
     usage: entity.field_va_form_usage,
-    helpfulLinks: entity.field_va_form_link_teasers?.map((teaser) => ({
+    linkTeasers: entity.field_va_form_link_teasers?.map((teaser) => ({
       link: teaser.field_link,
       summary: teaser.field_link_summary,
     })),
