@@ -6,7 +6,7 @@ import pLimit from 'p-limit'
 const logger = Debug('proxy-fetcher')
 const log = logger.extend('log')
 const error = logger.extend('error')
-const limit = pLimit(1)
+const limit = pLimit(5)
 
 /**
  * Creates a custom fetcher function with support for SOCKS proxying,
