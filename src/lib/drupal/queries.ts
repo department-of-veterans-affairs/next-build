@@ -65,6 +65,7 @@ import * as VamcOperatingStatusAndAlerts from '../../components/vamcOperatingSta
 import * as VamcSystemPoliciesPage from '../../components/vamcSystemPoliciesPage/query'
 import * as VamcSystemDetailPage from '../../components/vamcSystemDetailPage/query'
 import * as ServiceLocation from '@/components/serviceLocation/query'
+import * as VaForm from '@/components/vaForm/query'
 import {
   ResourceType,
   ParagraphResourceType,
@@ -109,6 +110,7 @@ export const QUERIES_MAP = {
     VamcOperatingStatusAndAlerts,
   [RESOURCE_TYPES.VAMC_SYSTEM_POLICIES_PAGE]: VamcSystemPoliciesPage,
   [RESOURCE_TYPES.VAMC_SYSTEM_DETAIL_PAGE]: VamcSystemDetailPage,
+  [RESOURCE_TYPES.VA_FORM]: VaForm,
 
   // Paragraphs
   [PARAGRAPH_RESOURCE_TYPES.ACCORDION_ITEM]: Accordion,

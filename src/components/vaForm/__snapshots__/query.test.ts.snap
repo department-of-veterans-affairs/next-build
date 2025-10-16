@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`VaForm formatData outputs formatted data 1`] = `
+{
+  "breadcrumbs": [
+    {
+      "title": "Home",
+      "uri": "https://www.va.gov/",
+    },
+    {
+      "title": "Find a VA Form",
+      "uri": "https://www.va.gov/find-forms",
+    },
+    {
+      "title": "About VA Form 10-10EZ",
+      "uri": "https://www.va.gov/find-forms/about-form-10-10ez",
+    },
+  ],
+  "entityId": 5731,
+  "entityPath": "/find-forms/about-form-10-10ez",
+  "formName": "Application for Health Benefits",
+  "formNumber": "10-10EZ",
+  "formTitle": "Application for Health Benefits",
+  "formUrl": {
+    "title": "Download VA Form 10-10EZ (PDF)",
+    "uri": "https://www.va.gov/vaforms/medical/pdf/10-10EZ-fillable.pdf",
+    "url": "https://www.va.gov/vaforms/medical/pdf/10-10EZ-fillable.pdf",
+  },
+  "helpfulLinks": [
+    {
+      "link": {
+        "title": "Health care eligibility",
+        "uri": "https://www.va.gov/health-care/eligibility/",
+        "url": "https://www.va.gov/health-care/eligibility/",
+      },
+      "summary": "Find out if you're eligible for VA health care benefits.",
+    },
+  ],
+  "id": "fb6f4b24-1150-4a8b-9dac-de706306a60a",
+  "issueDate": undefined,
+  "lastUpdated": "2024-01-15T10:30:00+00:00",
+  "metatags": undefined,
+  "moderationState": "published",
+  "numPages": 6,
+  "published": true,
+  "relatedForms": [
+    {
+      "formName": "Health Benefits Renewal Form",
+      "formNumber": "10-10EZR",
+      "id": "related-form-1",
+    },
+  ],
+  "revisionDate": "2023-12-01",
+  "title": "About VA Form 10-10EZ",
+  "toolIntro": "You can apply online instead of using this form.",
+  "toolUrl": {
+    "title": "Apply online for health care",
+    "uri": "https://www.va.gov/health-care/apply/application/",
+    "url": "https://www.va.gov/health-care/apply/application/",
+  },
+  "type": "node--va_form",
+  "usage": "Use this form to apply for VA health care benefits.",
+}
+`;

@@ -98,6 +98,7 @@ export type NodeTypes =
   | NodeVbaFacility
   | NodeVbaService
   | NodeVamcOperatingStatusAndAlerts
+  | NodeVaForm
 
 /** Shared type structure for resource nodes. */
 export interface NodeAbstractResource extends DrupalNode {
@@ -644,4 +645,24 @@ export interface NodeVamcOperatingStatusAndAlerts extends DrupalNode {
   field_banner_alert?: NodeFullWidthBannerAlert[]
   field_operating_status_emerg_inf: FieldFormattedText
   field_links: FieldLink[]
+}
+
+export interface NodeVaForm extends DrupalNode {
+  field_va_form_name: string
+  field_va_form_number: string
+  field_va_form_title: string
+  field_va_form_num_pages: number
+  field_va_form_revision_date: string
+  field_va_form_issue_date?: string
+  field_va_form_url?: FieldLink
+  field_va_form_tool_url?: FieldLink
+  field_va_form_tool_intro?: string
+  field_va_form_usage?: string
+  field_va_form_deleted?: boolean
+  field_va_form_deleted_date?: string
+  field_va_form_language?: string
+  field_va_form_link_teasers?: ParagraphLinkTeaser[]
+  field_va_form_related_forms?: NodeVaForm[]
+  field_administration?: FieldAdministration
+  breadcrumbs: BreadcrumbItem[]
 }
