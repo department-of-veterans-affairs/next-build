@@ -1,5 +1,6 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
+import { axe } from '@/test-utils'
 import VamcSystemDetailPage from './template'
 import mockPage from './mock.json'
 import mockMenu from './mock.menu.json'
@@ -16,9 +17,14 @@ describe('VamcSystemDetailPage', () => {
     hasLovellCounterpart: false,
   })
 
-  test('renders the title', () => {
-    render(<VamcSystemDetailPage {...formattedMockData} />)
+  test('renders the title', async () => {
+    const { container } = render(
+      <VamcSystemDetailPage {...formattedMockData} />
+    )
     expect(screen.getByText('Mission and vision')).toBeInTheDocument()
+
+    const axeResults = await axe(container)
+    expect(axeResults).toHaveNoViolations()
   })
 
   test('renders intro text when provided', () => {

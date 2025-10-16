@@ -1,4 +1,5 @@
 import { render } from '@testing-library/react'
+import { axe } from '@/test-utils'
 import { RateYourExperience } from './template'
 import userEvent from '@testing-library/user-event'
 import { waitFor } from '@testing-library/react'
@@ -6,8 +7,8 @@ import { prettyDOM } from '@testing-library/react'
 import { screen } from '@testing-library/dom'
 
 describe('<RateYourExperience>', () => {
-  test('renders <RateYourExperience />', () => {
-    const { queryByText } = render(<RateYourExperience />)
+  test('renders <RateYourExperience />', async () => {
+    const { queryByText, container } = render(<RateYourExperience />)
 
     const good = document.querySelector('#rate-your-experience--good')
     const bad = document.querySelector('#rate-your-experience--bad')
@@ -17,6 +18,9 @@ describe('<RateYourExperience>', () => {
     ).toBeInTheDocument()
     expect(good).toBeInTheDocument()
     expect(bad).toBeInTheDocument()
+
+    const axeResults = await axe(container)
+    expect(axeResults).toHaveNoViolations()
   })
 
   test('shows error message when submitted without selection', async () => {
