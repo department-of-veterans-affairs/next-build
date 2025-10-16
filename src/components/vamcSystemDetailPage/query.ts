@@ -53,6 +53,7 @@ export const params: QueryParams<null> = () => {
       'field_content_block',
       PARAGRAPH_RESOURCE_TYPES.STAFF_PROFILE
     ),
+    ...getNestedIncludes('field_content_block', PARAGRAPH_RESOURCE_TYPES.MEDIA),
   ])
   // I would like to be able to use just these recursive fields, but it doesn't seem to
   // work, at least with this version of Drupal. According to the documentation here

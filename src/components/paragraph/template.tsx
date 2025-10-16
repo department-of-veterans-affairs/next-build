@@ -52,6 +52,8 @@ import { QaParagraph } from '@/components/qaParagraph/template'
 import { QaParagraph as FormattedQaParagraph } from '@/components/qaParagraph/formatted-type'
 import { StaffProfileParagraph } from '@/components/staffProfileParagraph/template'
 import { StaffProfileParagraph as FormattedStaffProfileParagraph } from '@/components/staffProfileParagraph/formatted-type'
+import { Media } from '@/components/media/template'
+import { Media as FormattedMedia } from '@/components/media/formatted-type'
 
 export const Paragraph = (paragraph: FormattedParagraph) => {
   switch (paragraph.type) {
@@ -102,6 +104,9 @@ export const Paragraph = (paragraph: FormattedParagraph) => {
       return (
         <ListOfLinkTeasers {...(paragraph as FormattedListOfLinkTeasers)} />
       )
+
+    case PARAGRAPH_RESOURCE_TYPES.MEDIA:
+      return <Media {...(paragraph as FormattedMedia)} />
 
     case PARAGRAPH_RESOURCE_TYPES.NUMBER_CALLOUT:
       return <NumberCallout {...(paragraph as FormattedNumberCallout)} />

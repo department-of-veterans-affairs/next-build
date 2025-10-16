@@ -28,6 +28,7 @@ import * as LocationsListing from '../../components/locationsListing/query'
 import * as MediaDocument from '@/components/mediaDocument/query'
 import * as MediaImage from '@/components/mediaImage/query'
 import * as MediaVideo from '@/components/mediaVideo/query'
+import * as Media from '@/components/media/query'
 import * as NewsStory from '../../components/newsStory/query'
 import * as NewsStoryTeaser from '@/components/newsStoryTeaser/query'
 import * as NumberCallout from '@/components/numberCallout/query'
@@ -128,6 +129,7 @@ export const QUERIES_MAP = {
   [PARAGRAPH_RESOURCE_TYPES.FEATURED_CONTENT]: FeaturedContent,
   [PARAGRAPH_RESOURCE_TYPES.LINK_TEASER]: LinkTeaser,
   [PARAGRAPH_RESOURCE_TYPES.LIST_OF_LINK_TEASERS]: ListOfLinkTeasers,
+  [PARAGRAPH_RESOURCE_TYPES.MEDIA]: Media,
   [PARAGRAPH_RESOURCE_TYPES.NUMBER_CALLOUT]: NumberCallout,
   [PARAGRAPH_RESOURCE_TYPES.PHONE_CONTACT]: PhoneNumber,
   [PARAGRAPH_RESOURCE_TYPES.PROCESS_LIST]: ProcessList,

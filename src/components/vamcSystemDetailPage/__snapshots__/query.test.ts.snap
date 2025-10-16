@@ -355,6 +355,17 @@ exports[`VamcSystemDetailPage query module outputs formatted data 1`] = `
       ],
       "type": "paragraph--collapsible_panel",
     },
+    {
+      "allowClicksOnThisImage": true,
+      "entityId": 183009,
+      "id": "bc5d91c0-ae80-4b24-a942-e2c3688bbe8d",
+      "image": {
+        "alt": "Rating sandwiches",
+        "title": "",
+        "url": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/2025-10/my-image.png",
+      },
+      "type": "paragraph--media",
+    },
   ],
   "menu": {
     "data": {

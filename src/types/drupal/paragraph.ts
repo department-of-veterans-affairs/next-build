@@ -39,6 +39,7 @@ export type ParagraphTypes =
   | ParagraphLinkTeaser
   | ParagraphListOfLinks
   | ParagraphListOfLinkTeasers
+  | ParagraphMedia
   | ParagraphNonReusableAlert
   | ParagraphNumberCallout
   | ParagraphPhoneNumber
@@ -185,6 +186,11 @@ export interface ParagraphListOfLinks extends DrupalParagraph {
   field_link: FieldLink
   field_links: FieldLink[]
   field_section_header: string
+}
+
+export interface ParagraphMedia extends DrupalParagraph {
+  type: 'paragraph--media'
+  field_media: DrupalMediaImage
 }
 
 export interface ParagraphNonReusableAlert extends DrupalParagraph {
