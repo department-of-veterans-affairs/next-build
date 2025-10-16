@@ -77,4 +77,7 @@ exit_code
 logs/
 
 # link checker
+urls.txt
 lychee-pages/*
+lychee-pages-combined.*
+
