@@ -90,9 +90,11 @@ export interface ParagraphButton extends DrupalParagraph {
 export interface ParagraphCollapsiblePanel extends DrupalParagraph {
   type: 'paragraph--collapsible_panel'
   field_collapsible_panel_bordered: boolean
-  field_collapsible_panel_expand: boolean
-  field_collapsible_panel_multi: boolean
   field_va_paragraphs: ParagraphCollapsiblePanelItem[]
+
+  // Editors don't have control over these fields, so we don't use them
+  // field_collapsible_panel_expand: boolean
+  // field_collapsible_panel_multi: boolean
 }
 
 export interface ParagraphCollapsiblePanelItem extends DrupalParagraph {
