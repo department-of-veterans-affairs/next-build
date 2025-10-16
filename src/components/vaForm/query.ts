@@ -1,6 +1,5 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { drupalClient } from '@/lib/drupal/drupalClient'
 import { NodeVaForm } from '@/types/drupal/node'
 import { VaForm } from './formatted-type'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
