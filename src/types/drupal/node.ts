@@ -657,7 +657,7 @@ export interface NodeVaForm extends DrupalNode {
   field_va_form_url?: FieldLink
   field_va_form_tool_url?: FieldLink
   field_va_form_tool_intro?: string
-  field_va_form_usage?: string
+  field_va_form_usage?: FieldFormattedText
   field_va_form_deleted?: boolean
   field_va_form_deleted_date?: string
   field_va_form_language?: string

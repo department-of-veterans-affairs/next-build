@@ -26,7 +26,10 @@ exports[`VaForm formatData outputs formatted data 1`] = `
     "uri": "https://www.va.gov/vaforms/medical/pdf/10-10EZ-fillable.pdf",
     "url": "https://www.va.gov/vaforms/medical/pdf/10-10EZ-fillable.pdf",
   },
-  "helpfulLinks": [
+  "id": "fb6f4b24-1150-4a8b-9dac-de706306a60a",
+  "issueDate": undefined,
+  "lastUpdated": "2024-01-15T10:30:00+00:00",
+  "linkTeasers": [
     {
       "link": {
         "title": "Health care eligibility",
@@ -36,9 +39,6 @@ exports[`VaForm formatData outputs formatted data 1`] = `
       "summary": "Find out if you're eligible for VA health care benefits.",
     },
   ],
-  "id": "fb6f4b24-1150-4a8b-9dac-de706306a60a",
-  "issueDate": undefined,
-  "lastUpdated": "2024-01-15T10:30:00+00:00",
   "metatags": undefined,
   "moderationState": "published",
   "numPages": 6,
@@ -59,6 +59,6 @@ exports[`VaForm formatData outputs formatted data 1`] = `
     "url": "https://www.va.gov/health-care/apply/application/",
   },
   "type": "node--va_form",
-  "usage": "Use this form to apply for VA health care benefits.",
+  "usage": "",
 }
 `;
