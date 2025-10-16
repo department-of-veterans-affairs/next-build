@@ -2,12 +2,12 @@
  * @jest-environment node
  */
 
-import { StaffProfileParagraph } from './formatted-type'
 import { queries } from '@/lib/drupal/queries'
 import { params, formatter } from './query'
 import { ParagraphStaffProfile } from '@/types/drupal/paragraph'
 import { PARAGRAPH_RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import mockData from './mock.json'
+import { NodePersonProfile } from '@/types/drupal/node'
 
 const StaffProfileParagraphMock = mockData as unknown as ParagraphStaffProfile
 
@@ -50,6 +50,21 @@ describe('StaffProfileParagraph formatter', () => {
     }
 
     const result = formatter(inactiveData)
+    expect(result).toBeNull()
+  })
+
+  test('returns null for archived profiles', () => {
+    const archivedData: ParagraphStaffProfile = {
+      ...StaffProfileParagraphMock,
+      // In the unauthenticated queries, it just won't hydrate the field_staff_profile
+      // object if it's archived
+      field_staff_profile: {
+        id: '5d77166a-ed09-400c-b858-d7798cd12f04',
+        type: 'paragraph--staff_profile',
+        resourceIdObjMeta: {},
+      } as unknown as NodePersonProfile,
+    }
+    const result = formatter(archivedData)
     expect(result).toBeNull()
   })
 

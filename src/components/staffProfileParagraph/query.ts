@@ -22,6 +22,11 @@ export const formatter: QueryFormatter<
   if (entity.status !== true) return null
 
   const profile = entity.field_staff_profile
+  if (!profile.field_name_first && !profile.field_last_name) {
+    // If the first name or last name is not present, this is likely an archived profile.
+    return null
+  }
+
   return {
     type: entity.type as StaffProfileParagraph['type'],
     id: entity.id,
