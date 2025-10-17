@@ -32,6 +32,28 @@ export const params: QueryParams<null> = () => {
     'field_related_links',
     'field_related_links.field_va_paragraphs',
     ...getNestedIncludes('field_featured_content', PARAGRAPH_RESOURCE_TYPES.QA),
+    ...getNestedIncludes(
+      'field_content_block',
+      PARAGRAPH_RESOURCE_TYPES.QA_SECTION
+    ),
+    ...getNestedIncludes(
+      'field_content_block',
+      PARAGRAPH_RESOURCE_TYPES.LIST_OF_LINK_TEASERS
+    ),
+    ...getNestedIncludes(
+      'field_content_block',
+      PARAGRAPH_RESOURCE_TYPES.COLLAPSIBLE_PANEL
+    ),
+    ...getNestedIncludes(
+      'field_content_block',
+      PARAGRAPH_RESOURCE_TYPES.DOWNLOADABLE_FILE
+    ),
+    ...getNestedIncludes('field_content_block', PARAGRAPH_RESOURCE_TYPES.ALERT),
+    ...getNestedIncludes(
+      'field_content_block',
+      PARAGRAPH_RESOURCE_TYPES.STAFF_PROFILE
+    ),
+    ...getNestedIncludes('field_content_block', PARAGRAPH_RESOURCE_TYPES.MEDIA),
   ])
   // I would like to be able to use just these recursive fields, but it doesn't seem to
   // work, at least with this version of Drupal. According to the documentation here
@@ -133,6 +155,7 @@ export const formatter: QueryFormatter<
       entity.field_featured_content?.map((paragraph) =>
         formatParagraph(paragraph)
       ) || null,
+    mainContent: entity.field_content_block.map((p) => formatParagraph(p)),
     relatedLinks: entity.field_related_links
       ? formatListOfLinkTeasers(entity.field_related_links)
       : null,

@@ -18,6 +18,7 @@ export function VamcSystemDetailPage({
   vamcEhrSystem,
   vamcSystem,
   featuredContent,
+  mainContent,
   lovellVariant,
   lovellSwitchPath,
   showLovellSwitcher,
@@ -71,7 +72,9 @@ export function VamcSystemDetailPage({
         )}
 
         {/* Main content blocks */}
-        <div>TODO: Main content blocks component</div>
+        {mainContent.map((paragraph, index) => (
+          <Paragraph key={paragraph?.id || index} {...paragraph} />
+        ))}
 
         {/* Related links */}
         {relatedLinks && (

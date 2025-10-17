@@ -23,5 +23,5 @@ export interface DrupalMediaDocument extends DrupalMedia {
 }
 
 export interface DrupalMediaVideo extends DrupalMedia {
-  video: DrupalFile
+  field_media_video_embed_field: string
 }
