@@ -54,6 +54,8 @@ import { StaffProfileParagraph } from '@/components/staffProfileParagraph/templa
 import { StaffProfileParagraph as FormattedStaffProfileParagraph } from '@/components/staffProfileParagraph/formatted-type'
 import { Media } from '@/components/media/template'
 import { Media as FormattedMedia } from '@/components/media/formatted-type'
+import { SpanishTranslationSummary } from '@/components/spanishTranslationSummary/template'
+import { SpanishTranslationSummary as FormattedSpanishTranslationSummary } from '@/components/spanishTranslationSummary/formatted-type'
 
 export const Paragraph = (paragraph: FormattedParagraph) => {
   switch (paragraph.type) {
@@ -119,6 +121,13 @@ export const Paragraph = (paragraph: FormattedParagraph) => {
 
     case PARAGRAPH_RESOURCE_TYPES.REACT_WIDGET:
       return <ReactWidget {...(paragraph as FormattedReactWidget)} />
+
+    case PARAGRAPH_RESOURCE_TYPES.SPANISH_TRANSLATION_SUMMARY:
+      return (
+        <SpanishTranslationSummary
+          {...(paragraph as FormattedSpanishTranslationSummary)}
+        />
+      )
 
     case PARAGRAPH_RESOURCE_TYPES.STAFF_PROFILE:
       return (

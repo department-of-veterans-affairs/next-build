@@ -68,6 +68,7 @@ import * as VamcOperatingStatusAndAlerts from '../../components/vamcOperatingSta
 import * as VamcSystemPoliciesPage from '../../components/vamcSystemPoliciesPage/query'
 import * as VamcSystemDetailPage from '../../components/vamcSystemDetailPage/query'
 import * as ServiceLocation from '@/components/serviceLocation/query'
+import * as SpanishTranslationSummary from '@/components/spanishTranslationSummary/query'
 import {
   ResourceType,
   ParagraphResourceType,
@@ -139,6 +140,8 @@ export const QUERIES_MAP = {
   [PARAGRAPH_RESOURCE_TYPES.REACT_WIDGET]: ReactWidget,
   [PARAGRAPH_RESOURCE_TYPES.RICH_TEXT_CHAR_LIMIT_1000]: Wysiwyg,
   [PARAGRAPH_RESOURCE_TYPES.SERVICE_LOCATION]: ServiceLocation,
+  [PARAGRAPH_RESOURCE_TYPES.SPANISH_TRANSLATION_SUMMARY]:
+    SpanishTranslationSummary,
   [PARAGRAPH_RESOURCE_TYPES.STAFF_PROFILE]: StaffProfileParagraph,
   [PARAGRAPH_RESOURCE_TYPES.TABLE]: Table,
   [PARAGRAPH_RESOURCE_TYPES.WYSIWYG]: Wysiwyg,
