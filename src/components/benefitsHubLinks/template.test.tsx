@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react'
+import { axe } from '@/test-utils'
 import { BenefitsHubLinks } from './template'
 
 const data = {
@@ -24,9 +25,12 @@ const data = {
 }
 
 describe('BenefitsHubLinks with valid data', () => {
-  test('renders BenefitsHubLinks component', () => {
-    render(<BenefitsHubLinks {...data} />)
+  test('renders BenefitsHubLinks component', async () => {
+    const { container } = render(<BenefitsHubLinks {...data} />)
 
     expect(screen.queryByText(/Health Care/)).toBeInTheDocument()
+
+    const axeResults = await axe(container)
+    expect(axeResults).toHaveNoViolations()
   })
 })

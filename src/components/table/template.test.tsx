@@ -1,4 +1,5 @@
 import { render } from '@testing-library/react'
+import { axe } from '@/test-utils'
 import { Table } from './template'
 
 const tableData = [
@@ -25,18 +26,24 @@ const tableData = [
 ]
 
 describe('<Table> with valid data', () => {
-  test('renders <Table> component with header and rows', () => {
-    render(<Table data={tableData} title={null} />)
+  test('renders <Table> component with header and rows', async () => {
+    const { container } = render(<Table data={tableData} title={null} />)
     const vaTableEl = document.querySelector('va-table')
     const vaTableRowEl = document.querySelectorAll('va-table-row')
     expect(vaTableEl).toBeTruthy()
     expect(vaTableRowEl).toHaveLength(4)
+
+    const axeResults = await axe(container)
+    expect(axeResults).toHaveNoViolations()
   })
 
-  test('renders <Table> component with caption', () => {
-    render(<Table data={tableData} title="Table Title" />)
+  test('renders <Table> component with caption', async () => {
+    const { container } = render(<Table data={tableData} title="Table Title" />)
     const vaTableEl = document.querySelector('va-table')
     expect(vaTableEl).toHaveAttribute('table-title')
+
+    const axeResults = await axe(container)
+    expect(axeResults).toHaveNoViolations()
   })
 })
 
