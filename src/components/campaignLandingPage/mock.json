@@ -1,0 +1,4 @@
+{
+  "note": "Replace this data! The file should contain an example response for the desired query before formatting",
+  "example": "See src/mocks/newsStory.mock.json for an example response from va.gov-cms's JSON:API"
+}

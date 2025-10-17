@@ -98,6 +98,7 @@ export type NodeTypes =
   | NodeVbaFacility
   | NodeVbaService
   | NodeVamcOperatingStatusAndAlerts
+  | NodeCampaignLandingPage
 
 /** Shared type structure for resource nodes. */
 export interface NodeAbstractResource extends DrupalNode {
@@ -258,6 +259,18 @@ export interface NodeLandingPage extends DrupalNode {
   field_related_links: ParagraphListOfLinks
   field_spokes: ParagraphListOfLinks
   field_support_services: NodeSupportService[]
+}
+
+export interface NodeCampaignLandingPage extends DrupalNode {
+  /* This is a minimal set of properties for scaffolding purposes.
+   * TODO: Figure out what Campaign Landing Page specifically needs.
+   */
+  field_intro_text: string
+  field_table_of_contents_boolean: boolean
+  field_alert: BlockAlert[]
+  field_content_block: FieldContentBlock
+  field_featured_content: Array<ParagraphQA | ParagraphWysiwyg>
+  field_related_links: ParagraphListOfLinkTeasers
 }
 
 /**
