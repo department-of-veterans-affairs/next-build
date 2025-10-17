@@ -17,12 +17,6 @@ const Document = () => {
         />
         <link rel="stylesheet" href={`${ASSETS_URL}style.css`} />
 
-        <Script
-          id="web-components"
-          strategy="beforeInteractive"
-          src={`${ASSETS_URL}web-components.entry.js`}
-        />
-
         {/* Add vendor file */}
         <Script
           id="vendor"
