@@ -2,7 +2,7 @@ name: Content Release
 
 permissions:
   id-token: write # This is required for requesting the JWT for AWS creds
-  contents: read  # This is required for actions/checkout
+  contents: read # This is required for actions/checkout
 
 on:
   # Runs when called from other workflows. Used for ongoing releases for dev/staging/prod.
@@ -12,7 +12,7 @@ on:
         type: string
         description: "Environment this workflow runs against"
         required: true
-        default: 'PROD'
+        default: "PROD"
   # Manual release.
   workflow_dispatch:
     inputs:
@@ -20,7 +20,7 @@ on:
         type: choice
         description: "Environment this workflow runs against"
         required: true
-        default: 'PROD'
+        default: "PROD"
         options:
           - dev
           - staging
@@ -39,17 +39,17 @@ jobs:
   login-to-amazon-ecr:
     runs-on: ubuntu-latest
     steps:
-    - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@a03048d87541d1d9fcf2ecf528a4a65ba9bd7838 # v5.0.0
-      with:
-        aws-region: us-gov-west-1
-        role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
-        mask-aws-account-id: 'false'
-    - name: Login to Amazon ECR
-      id: login-ecr
-      uses: aws-actions/amazon-ecr-login@v2
-      with:
-        mask-password: 'false'
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@a03048d87541d1d9fcf2ecf528a4a65ba9bd7838 # v5.0.0
+        with:
+          aws-region: us-gov-west-1
+          role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
+          mask-aws-account-id: "false"
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+        with:
+          mask-password: "false"
     outputs:
       docker_username: ${{ steps.login-ecr.outputs.docker_username_008577686731_dkr_ecr_us_gov_west_1_amazonaws_com }}
       docker_password: ${{ steps.login-ecr.outputs.docker_password_008577686731_dkr_ecr_us_gov_west_1_amazonaws_com }}
@@ -111,7 +111,7 @@ jobs:
 
   build:
     name: Build static pages & deploy to S3
-    timeout-minutes: 90 # Adding 50% more time. Build is taking close to 50 minutes on a cold cache and the new sitemap takes about 10 minutes.
+    timeout-minutes: 100 # Adding 50% more time. Build is taking close to 50 minutes on a cold cache and the new sitemap takes about 10 minutes.
     runs-on: [self-hosted, asg]
     needs: [validate-build-status, login-to-amazon-ecr]
     outputs:
@@ -143,193 +143,191 @@ jobs:
       volumes:
         - /etc/ssl/certs:/etc/ssl/certs
     steps:
+      - name: Export setup start time
+        id: export-setup-start-time
+        run: echo SETUP_START_TIME=$(date +"%s") >> $GITHUB_OUTPUT
 
-    - name: Export setup start time
-      id: export-setup-start-time
-      run: echo SETUP_START_TIME=$(date +"%s") >> $GITHUB_OUTPUT
+      - name: Checkout next-build
+        uses: actions/checkout@v5
+        with:
+          repository: department-of-veterans-affairs/next-build
+          #ref: ${{ needs.validate-build-status.outputs.TAG }}
+          ref: ${{ github.head_ref || github.ref_name }}
+          path: main
+          sparse-checkout-cone-mode: false
 
-    - name: Checkout next-build
-      uses: actions/checkout@v5
-      with:
-        repository: department-of-veterans-affairs/next-build
-        #ref: ${{ needs.validate-build-status.outputs.TAG }}
-        ref: ${{ github.head_ref || github.ref_name }}
-        path: main
-        sparse-checkout-cone-mode: false
+      - name: Checkout vets-website
+        uses: actions/checkout@v5
+        with:
+          repository: department-of-veterans-affairs/vets-website
+          path: vets-website
 
-    - name: Checkout vets-website
-      uses: actions/checkout@v5
-      with:
-        repository: department-of-veterans-affairs/vets-website
-        path: vets-website
+      - name: Install awscli
+        run: |
+          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+          unzip -o awscliv2.zip
+          ./aws/install
 
-    - name: Install awscli
-      run: |
-        curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-        unzip -o awscliv2.zip
-        ./aws/install
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+      - name: Setup Yarn
+        run: |
+          cd main
+          corepack enable
+          corepack install -g --cache-only .yarn/releases/corepack.tgz
 
-    - uses: actions/setup-node@v5
-      with:
-        node-version: 24
-    - name: Setup Yarn
-      run: |
-        cd main
-        corepack enable
-        corepack install -g --cache-only .yarn/releases/corepack.tgz
+      - name: Install dependencies
+        run: cd main && yarn
 
-    - name: Install dependencies
-      run: cd main && yarn
+      - name: Export setup end time
+        id: export-setup-end-time
+        run: echo SETUP_END_TIME=$(date +"%s") >> $GITHUB_OUTPUT
 
-    - name: Export setup end time
-      id: export-setup-end-time
-      run: echo SETUP_END_TIME=$(date +"%s") >> $GITHUB_OUTPUT
+      - name: Export build start time
+        id: export-build-start-time
+        run: echo BUILD_START_TIME=$(date +"%s") >> $GITHUB_OUTPUT
 
-    - name: Export build start time
-      id: export-build-start-time
-      run: echo BUILD_START_TIME=$(date +"%s") >> $GITHUB_OUTPUT
+      - name: Gather vets-website assets
+        run: cd main && yarn setup
 
-    - name: Gather vets-website assets
-      run: cd main && yarn setup
+      - name: Wait for the CMS to be ready
+        uses: "./main/.github/workflows/wait-for-cms-ready"
 
-    - name: Wait for the CMS to be ready
-      uses: "./main/.github/workflows/wait-for-cms-ready"
+      - name: Build site
+        id: export-yarn-output
+        uses: nick-fields/retry@v3
+        with:
+          max_attempts: 3
+          retry_on: error
+          timeout_minutes: 90
+          command: |
+            cd main && BUILD_OPTION=static yarn export --DRUPAL_CLIENT_ID ${{ secrets.PROD_DRUPAL_CLIENT_ID }} --DRUPAL_CLIENT_SECRET ${{ secrets.PROD_DRUPAL_CLIENT_SECRET }} --no-USE_REDIS | tee yarnoutput
+            echo YARN_OUTPUT=$(<yarnoutput) >> $GITHUB_OUTPUT
+            ls
+            ls out
+            if [[ $? -ne 0 ]]; then
+              echo "One or more pages failed to build. Exiting."
+              exit 1
+            else
+              cd out
+              ls -l
+            fi
 
-    - name: Build site
-      id: export-yarn-output
-      uses: nick-fields/retry@v3
-      with:
-        max_attempts: 3
-        retry_on: error
-        timeout_minutes: 90
-        command: |
-          cd main && BUILD_OPTION=static yarn export --DRUPAL_CLIENT_ID ${{ secrets.PROD_DRUPAL_CLIENT_ID }} --DRUPAL_CLIENT_SECRET ${{ secrets.PROD_DRUPAL_CLIENT_SECRET }} --no-USE_REDIS | tee yarnoutput
-          echo YARN_OUTPUT=$(<yarnoutput) >> $GITHUB_OUTPUT
-          ls
-          ls out
-          if [[ $? -ne 0 ]]; then
-            echo "One or more pages failed to build. Exiting."
-            exit 1
+      - name: Check for warnings during build
+        id: export-warnings
+        run: |
+          cd main
+          node scripts/consolidate-warning-logs.js
+          # This bit is a little complicated, so some explanation:
+          #
+          # 1. Check to see if the warnings file exists.
+          # 2a. If yes, add a "\n" to the end of the file and remove all newlines; set
+          #   the output to this squashed string. It needs to be a single line
+          #   because we'll be adding it to the JSON payload for sending to Slack
+          #   later.
+          #     NOTE: The four backslashes are needed to escape the newline for the
+          #     output; we need `sed` to output "\\n", so then the double-quote
+          #     string we're echoing will contain the literal string "\n".
+          # 2b. If no, set the output to an empty string.
+          echo "EXPORT_WARNINGS=$( [ -f logs/warnings.md ] && sed 's/$/\\\\n/' logs/warnings.md | tr -d '\n' || echo '' )" >> "$GITHUB_OUTPUT"
+
+      - name: Build sitemap
+        run: |
+          cd main && yarn build:sitemap
+          cd out
+          if [ -f sitemap-nb.xml ]; then
+              echo "File found!"
           else
-            cd out
-            ls -l
+              touch sitemap-nb.xml
           fi
+        shell: bash
 
-    - name: Check for warnings during build
-      id: export-warnings
-      run: |
-        cd main
-        node scripts/consolidate-warning-logs.js
-        # This bit is a little complicated, so some explanation:
-        #
-        # 1. Check to see if the warnings file exists.
-        # 2a. If yes, add a "\n" to the end of the file and remove all newlines; set
-        #   the output to this squashed string. It needs to be a single line
-        #   because we'll be adding it to the JSON payload for sending to Slack
-        #   later.
-        #     NOTE: The four backslashes are needed to escape the newline for the
-        #     output; we need `sed` to output "\\n", so then the double-quote
-        #     string we're echoing will contain the literal string "\n".
-        # 2b. If no, set the output to an empty string.
-        echo "EXPORT_WARNINGS=$( [ -f logs/warnings.md ] && sed 's/$/\\\\n/' logs/warnings.md | tr -d '\n' || echo '' )" >> "$GITHUB_OUTPUT"
+      - name: setup bucket descriptor
+        id: bucket-descriptor
+        run: |
+          if [ "${{ inputs.build_type }}" == 'dev' ]; then
+            echo NEXT_SITEMAP_LOCATION="https://dev.va.gov/sitemap-nb.xml" >> $GITHUB_OUTPUT
+            echo CB_SITEMAP_LOCATION="https://dev.va.gov/sitemap-cb.xml" >> $GITHUB_OUTPUT
+          elif [ "${{ inputs.build_type }}" == 'staging'] ; then
+            echo NEXT_SITEMAP_LOCATION="https://staging.va.gov/sitemap-nb.xml" >> $GITHUB_OUTPUT
+            echo CB_SITEMAP_LOCATION="https://staging.va.gov/sitemap-cb.xml" >> $GITHUB_OUTPUT
+          elif [ "${{ inputs.build_type }}" == 'prod' ]; then
+            echo NEXT_SITEMAP_LOCATION="https://www.va.gov/sitemap-nb.xml" >> $GITHUB_OUTPUT
+            echo CB_SITEMAP_LOCATION="https://www.va.gov/sitemap-cb.xml" >> $GITHUB_OUTPUT
+          else
+            echo NEXT_SITEMAP_LOCATION="https://www.va.gov/sitemap-nb.xml" >> $GITHUB_OUTPUT
+            echo CB_SITEMAP_LOCATION="https://www.va.gov/sitemap-cb.xml" >> $GITHUB_OUTPUT
+          fi
+        shell: bash
 
-    - name: Build sitemap
-      run: |
-        cd main && yarn build:sitemap
-        cd out
-        if [ -f sitemap-nb.xml ]; then
-            echo "File found!"
-        else
-            touch sitemap-nb.xml
-        fi
-      shell: bash
+      - name: Generate new sitemap
+        run: |
+          cd main
+          cd out
+          echo "${{steps.bucket-descriptor.outputs.OLD_SITEMAP_LOCATION}}"
+          cat <<'EOF' >> sitemap_index.xml
+          <?xml version="1.0" encoding="UTF-8"?>
+            <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+              <sitemap>
+                <loc>${{steps.bucket-descriptor.outputs.NEXT_SITEMAP_LOCATION}}</loc>
+              </sitemap>
+              <sitemap>
+                <loc>${{steps.bucket-descriptor.outputs.CB_SITEMAP_LOCATION}}</loc>
+              </sitemap>
+            </sitemapindex>
+          EOF
 
-    - name: setup bucket descriptor
-      id: bucket-descriptor
-      run: |
-        if [ "${{ inputs.build_type }}" == 'dev' ]; then
-          echo NEXT_SITEMAP_LOCATION="https://dev.va.gov/sitemap-nb.xml" >> $GITHUB_OUTPUT
-          echo CB_SITEMAP_LOCATION="https://dev.va.gov/sitemap-cb.xml" >> $GITHUB_OUTPUT
-        elif [ "${{ inputs.build_type }}" == 'staging'] ; then
-          echo NEXT_SITEMAP_LOCATION="https://staging.va.gov/sitemap-nb.xml" >> $GITHUB_OUTPUT
-          echo CB_SITEMAP_LOCATION="https://staging.va.gov/sitemap-cb.xml" >> $GITHUB_OUTPUT
-        elif [ "${{ inputs.build_type }}" == 'prod' ]; then
-          echo NEXT_SITEMAP_LOCATION="https://www.va.gov/sitemap-nb.xml" >> $GITHUB_OUTPUT
-          echo CB_SITEMAP_LOCATION="https://www.va.gov/sitemap-cb.xml" >> $GITHUB_OUTPUT
-        else
-          echo NEXT_SITEMAP_LOCATION="https://www.va.gov/sitemap-nb.xml" >> $GITHUB_OUTPUT
-          echo CB_SITEMAP_LOCATION="https://www.va.gov/sitemap-cb.xml" >> $GITHUB_OUTPUT
-        fi
-      shell: bash
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@a03048d87541d1d9fcf2ecf528a4a65ba9bd7838 # v5.0.0
+        with:
+          aws-region: us-gov-west-1
+          role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
+          role-duration-seconds: 900
 
-    - name: Generate new sitemap
-      run: |
-        cd main
-        cd out
-        echo "${{steps.bucket-descriptor.outputs.OLD_SITEMAP_LOCATION}}"
-        cat <<'EOF' >> sitemap_index.xml
-        <?xml version="1.0" encoding="UTF-8"?>
-          <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-            <sitemap>
-              <loc>${{steps.bucket-descriptor.outputs.NEXT_SITEMAP_LOCATION}}</loc>
-            </sitemap>
-            <sitemap>
-              <loc>${{steps.bucket-descriptor.outputs.CB_SITEMAP_LOCATION}}</loc>
-            </sitemap>
-          </sitemapindex>
-        EOF
+      - name: Export build end time
+        id: export-build-end-time
+        run: echo BUILD_END_TIME=$(date +"%s") >> $GITHUB_OUTPUT
 
+      - name: Export deploy start time
+        id: export-deploy-start-time
+        run: echo DEPLOY_START_TIME=$(date +"%s") >> $GITHUB_OUTPUT
 
-    - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@a03048d87541d1d9fcf2ecf528a4a65ba9bd7838 # v5.0.0
-      with:
-        aws-region: us-gov-west-1
-        role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
-        role-duration-seconds: 900
+      - if: inputs.build_type == 'dev'
+        name: Deploy to S3
+        run: |
+          cd main && ./scripts/github-actions/deploy.sh -s $SRC -d $DEST -v
+          ls
+        env:
+          SRC: ./out/
+          DEST: s3://next-content.dev.va.gov
+      - if: inputs.build_type == 'staging'
+        name: Deploy to S3
+        run: |
+          cd main && ./scripts/github-actions/deploy.sh -s $SRC -d $DEST -v
+          ls
+          cd out
+          ls -l
+        env:
+          SRC: ./out/
+          DEST: s3://next-content.staging.va.gov
+      - if: inputs.build_type == 'prod'
+        name: Deploy to S3
+        run: cd main && ./scripts/github-actions/deploy.sh -s $SRC -d $DEST -v
+        env:
+          SRC: ./out/
+          DEST: s3://next-content.www.va.gov
 
-    - name: Export build end time
-      id: export-build-end-time
-      run: echo BUILD_END_TIME=$(date +"%s") >> $GITHUB_OUTPUT
+      - if: inputs.build_type == ''
+        name: Deploy to S3
+        run: cd main && ./scripts/github-actions/deploy.sh -s $SRC -d $DEST -v
+        env:
+          SRC: ./out/
+          DEST: s3://next-content.www.va.gov
 
-    - name: Export deploy start time
-      id: export-deploy-start-time
-      run: echo DEPLOY_START_TIME=$(date +"%s") >> $GITHUB_OUTPUT
-
-    - if: inputs.build_type == 'dev'
-      name: Deploy to S3
-      run: |
-        cd main && ./scripts/github-actions/deploy.sh -s $SRC -d $DEST -v
-        ls
-      env:
-        SRC: ./out/
-        DEST: s3://next-content.dev.va.gov
-    - if: inputs.build_type == 'staging'
-      name: Deploy to S3
-      run: |
-        cd main && ./scripts/github-actions/deploy.sh -s $SRC -d $DEST -v
-        ls
-        cd out
-        ls -l
-      env:
-        SRC: ./out/
-        DEST: s3://next-content.staging.va.gov
-    - if: inputs.build_type == 'prod'
-      name: Deploy to S3
-      run: cd main && ./scripts/github-actions/deploy.sh -s $SRC -d $DEST -v
-      env:
-        SRC: ./out/
-        DEST: s3://next-content.www.va.gov
-
-    - if: inputs.build_type == ''
-      name: Deploy to S3
-      run: cd main && ./scripts/github-actions/deploy.sh -s $SRC -d $DEST -v
-      env:
-        SRC: ./out/
-        DEST: s3://next-content.www.va.gov
-
-    - name: Export deploy end time
-      id: export-deploy-end-time
-      run: echo DEPLOY_END_TIME=$(date +"%s") >> $GITHUB_OUTPUT
+      - name: Export deploy end time
+        id: export-deploy-end-time
+        run: echo DEPLOY_END_TIME=$(date +"%s") >> $GITHUB_OUTPUT
 
   notify-success:
     name: Notify Success
@@ -449,77 +447,77 @@ jobs:
           -d @- < event.json
 
   record-metrics:
-      name: Record metrics in Datadog
-      runs-on: [ubuntu-latest]
-      needs:
-        - build
-        - validate-build-status
-      env:
-        METRIC_NAMESPACE: dsva_vagov.next_build
-      steps:
-        - name: Checkout
-          uses: actions/checkout@v5
-        #uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+    name: Record metrics in Datadog
+    runs-on: [ubuntu-latest]
+    needs:
+      - build
+      - validate-build-status
+    env:
+      METRIC_NAMESPACE: dsva_vagov.next_build
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      #uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
-        - name: Get current timestamp
-          run: echo "NOW=$(date +"%s")" >> $GITHUB_ENV
+      - name: Get current timestamp
+        run: echo "NOW=$(date +"%s")" >> $GITHUB_ENV
 
-        - name: Set vars for CMS-triggered runs
-          if: ${{ github.event_name == 'repository_dispatch' }}
-          run: |
-            echo "BUILD_TRIGGER=cms" >> $GITHUB_ENV
+      - name: Set vars for CMS-triggered runs
+        if: ${{ github.event_name == 'repository_dispatch' }}
+        run: |
+          echo "BUILD_TRIGGER=cms" >> $GITHUB_ENV
 
-          # Calculate all of our metrics that we send to data dog
-        - name: Calculate durations
-          run: |
-            echo "SETUP_DURATION=$(expr ${{needs.build.outputs.SETUP_END_TIME}} - ${{needs.build.outputs.SETUP_START_TIME}})" >> $GITHUB_ENV
-            echo "BUILD_DURATION=$(expr ${{needs.build.outputs.BUILD_END_TIME}} - ${{needs.build.outputs.BUILD_START_TIME}})" >> $GITHUB_ENV
-            echo "NEXT_BUILD_DURATION=$(expr ${{needs.build.outputs.BUILD_END_TIME}} - ${{needs.build.outputs.BUILD_START_TIME}})" >> $GITHUB_ENV
-            echo "OVERALL_DURATION=$(expr ${{needs.build.outputs.DEPLOY_END_TIME}} - ${{needs.validate-build-status.outputs.APPROX_WORKFLOW_START_TIME}})" >> $GITHUB_ENV
-            echo "DEPLOY_DURATION=$(expr ${{needs.build.outputs.DEPLOY_END_TIME}} - ${{needs.build.outputs.DEPLOY_START_TIME}})" >> $GITHUB_ENV
-            echo "${{needs.build.outputs.YARN_OUTPUT}}" >> yarnoutput
-            echo "BUILT_PAGES=$(grep -oE "*\/([0-9]{4,})" ./yarnoutput| head -1 | sed 's/\///g')" >> $GITHUB_ENV
+        # Calculate all of our metrics that we send to data dog
+      - name: Calculate durations
+        run: |
+          echo "SETUP_DURATION=$(expr ${{needs.build.outputs.SETUP_END_TIME}} - ${{needs.build.outputs.SETUP_START_TIME}})" >> $GITHUB_ENV
+          echo "BUILD_DURATION=$(expr ${{needs.build.outputs.BUILD_END_TIME}} - ${{needs.build.outputs.BUILD_START_TIME}})" >> $GITHUB_ENV
+          echo "NEXT_BUILD_DURATION=$(expr ${{needs.build.outputs.BUILD_END_TIME}} - ${{needs.build.outputs.BUILD_START_TIME}})" >> $GITHUB_ENV
+          echo "OVERALL_DURATION=$(expr ${{needs.build.outputs.DEPLOY_END_TIME}} - ${{needs.validate-build-status.outputs.APPROX_WORKFLOW_START_TIME}})" >> $GITHUB_ENV
+          echo "DEPLOY_DURATION=$(expr ${{needs.build.outputs.DEPLOY_END_TIME}} - ${{needs.build.outputs.DEPLOY_START_TIME}})" >> $GITHUB_ENV
+          echo "${{needs.build.outputs.YARN_OUTPUT}}" >> yarnoutput
+          echo "BUILT_PAGES=$(grep -oE "*\/([0-9]{4,})" ./yarnoutput| head -1 | sed 's/\///g')" >> $GITHUB_ENV
 
-        - name: Build JSON object
-          run: |
-            jq --null-input '{}' | \
-            jq '.series[0].metric = "${{env.METRIC_NAMESPACE}}.setup.duration"' | \
-            jq '.series[0].points[0] = [${{env.NOW}}, ${{env.SETUP_DURATION || 0}}]' | \
-            jq '.series[1].metric = "${{env.METRIC_NAMESPACE}}.build.duration"' | \
-            jq '.series[1].points[0] = [${{env.NOW}}, ${{env.BUILD_DURATION || 0}}]' | \
-            jq '.series[2].metric = "${{env.METRIC_NAMESPACE}}.deploy.duration"' | \
-            jq '.series[2].points[0] = [${{env.NOW}}, ${{env.DEPLOY_DURATION || 0}}]' | \
-            jq '.series[3].metric = "${{env.METRIC_NAMESPACE}}.overall.duration"' | \
-            jq '.series[3].points[0] = [${{env.NOW}}, ${{env.OVERALL_DURATION || 0}}]' | \
-            jq '.series[4].metric = "${{env.METRIC_NAMESPACE}}.built.pages"' | \
-            jq '.series[4].points[0] = [${{env.NOW}}, ${{env.BUILT_PAGES || 0}}]' | \
-            jq '.series[].tags[0] = "env:${{env.DEPLOY_ENV}}"' | \
-            jq '.series[].tags[1] = "build_number:${{github.run_number}}"' | \
-            jq '.series[].tags[2] = "status:${{needs.build.result}}"' | \
-            jq '.series[].tags[3] = "trigger:${{env.BUILD_TRIGGER}}"' > metrics.json
+      - name: Build JSON object
+        run: |
+          jq --null-input '{}' | \
+          jq '.series[0].metric = "${{env.METRIC_NAMESPACE}}.setup.duration"' | \
+          jq '.series[0].points[0] = [${{env.NOW}}, ${{env.SETUP_DURATION || 0}}]' | \
+          jq '.series[1].metric = "${{env.METRIC_NAMESPACE}}.build.duration"' | \
+          jq '.series[1].points[0] = [${{env.NOW}}, ${{env.BUILD_DURATION || 0}}]' | \
+          jq '.series[2].metric = "${{env.METRIC_NAMESPACE}}.deploy.duration"' | \
+          jq '.series[2].points[0] = [${{env.NOW}}, ${{env.DEPLOY_DURATION || 0}}]' | \
+          jq '.series[3].metric = "${{env.METRIC_NAMESPACE}}.overall.duration"' | \
+          jq '.series[3].points[0] = [${{env.NOW}}, ${{env.OVERALL_DURATION || 0}}]' | \
+          jq '.series[4].metric = "${{env.METRIC_NAMESPACE}}.built.pages"' | \
+          jq '.series[4].points[0] = [${{env.NOW}}, ${{env.BUILT_PAGES || 0}}]' | \
+          jq '.series[].tags[0] = "env:${{env.DEPLOY_ENV}}"' | \
+          jq '.series[].tags[1] = "build_number:${{github.run_number}}"' | \
+          jq '.series[].tags[2] = "status:${{needs.build.result}}"' | \
+          jq '.series[].tags[3] = "trigger:${{env.BUILD_TRIGGER}}"' > metrics.json
 
-        - name: Configure AWS credentials
-          uses: aws-actions/configure-aws-credentials@a03048d87541d1d9fcf2ecf528a4a65ba9bd7838 # v5.0.0
-          with:
-            aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-            aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-            aws-region: us-gov-west-1
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@a03048d87541d1d9fcf2ecf528a4a65ba9bd7838 # v5.0.0
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-gov-west-1
 
-        - name: Get Datadog api key from Parameter Store
-          uses: department-of-veterans-affairs/action-inject-ssm-secrets@d8e6de3bde4dd728c9d732baef58b3c854b8c4bb # latest
-          with:
-            ssm_parameter: /dsva-vagov/content-build/GHA_CONTENT_BUILD_DATADOG_API_KEY
-            env_variable_name: GHA_CONTENT_BUILD_DATADOG_API_KEY
+      - name: Get Datadog api key from Parameter Store
+        uses: department-of-veterans-affairs/action-inject-ssm-secrets@d8e6de3bde4dd728c9d732baef58b3c854b8c4bb # latest
+        with:
+          ssm_parameter: /dsva-vagov/content-build/GHA_CONTENT_BUILD_DATADOG_API_KEY
+          env_variable_name: GHA_CONTENT_BUILD_DATADOG_API_KEY
 
-        - name: Get Datadog app key from Parameter Store
-          uses: department-of-veterans-affairs/action-inject-ssm-secrets@d8e6de3bde4dd728c9d732baef58b3c854b8c4bb # latest
-          with:
-            ssm_parameter: /dsva-vagov/content-build/GHA_CONTENT_BUILD_DATADOG_APP_KEY
-            env_variable_name: GHA_CONTENT_BUILD_DATADOG_APP_KEY
+      - name: Get Datadog app key from Parameter Store
+        uses: department-of-veterans-affairs/action-inject-ssm-secrets@d8e6de3bde4dd728c9d732baef58b3c854b8c4bb # latest
+        with:
+          ssm_parameter: /dsva-vagov/content-build/GHA_CONTENT_BUILD_DATADOG_APP_KEY
+          env_variable_name: GHA_CONTENT_BUILD_DATADOG_APP_KEY
 
-        - name: Send metrics to Datadog
-          run: |
-            curl -X POST "https://api.ddog-gov.com/api/v1/series" \
-            -H "Content-Type: text/json" \
-            -H "DD-API-KEY: ${{ env.GHA_CONTENT_BUILD_DATADOG_API_KEY }}" \
-            -d @- < metrics.json
+      - name: Send metrics to Datadog
+        run: |
+          curl -X POST "https://api.ddog-gov.com/api/v1/series" \
+          -H "Content-Type: text/json" \
+          -H "DD-API-KEY: ${{ env.GHA_CONTENT_BUILD_DATADOG_API_KEY }}" \
+          -d @- < metrics.json
