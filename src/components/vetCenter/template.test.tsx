@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react'
+import { axe } from '@/test-utils'
 import { VetCenter } from './template'
 import { Wysiwyg as FormattedWysiwyg } from '@/components/wysiwyg/formatted-type'
 import { FeaturedContent as FormattedFeaturedContent } from '@/components/featuredContent/formatted-type'
@@ -234,13 +235,16 @@ describe('VetCenter with valid data', () => {
     administration: undefined,
   }
 
-  test('renders VetCenter component', () => {
+  test('renders VetCenter component', async () => {
     const { container } = render(<VetCenter {...mockData} />)
     const imgEl = container.querySelectorAll('img')
     expect(imgEl).toBeTruthy()
     expect(screen.queryByText(/Test introText/)).toBeInTheDocument()
     expect(screen.queryByText(/1010 Delafield Road/)).toBeInTheDocument()
     expect(screen.queryByText(/In the spotlight/)).toBeInTheDocument()
+
+    const axeResults = await axe(container)
+    expect(axeResults).toHaveNoViolations()
   })
 
   test('renders schema.org structured data scripts correctly', () => {

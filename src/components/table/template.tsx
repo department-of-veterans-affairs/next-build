@@ -13,14 +13,14 @@ export function Table({
   if (isEmpty(data)) return
 
   return (
-    <VaTable table-title={title}>
+    <VaTable table-title={title} table-type="bordered">
       {data.map((tableRow: string[], tableRowIndex) => (
         <VaTableRow
           key={tableRowIndex}
           slot={tableRowIndex === 0 ? 'headers' : ''}
         >
           {tableRow.map((rowItem, rowIndex) => (
-            <div
+            <span
               key={rowIndex}
               dangerouslySetInnerHTML={{
                 __html: rowItem,

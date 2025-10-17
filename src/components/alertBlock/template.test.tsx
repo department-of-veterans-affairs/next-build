@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react'
+import { axe } from '@/test-utils'
 import { AlertBlock } from './template'
 import { AlertBlock as FormattedAlertBlock } from '@/components/alert/formatted-type'
 import { ExpandableText } from '@/components/expandableText/formatted-type'
@@ -30,7 +31,7 @@ describe('<Alert> with valid data and with expandable text', () => {
     content: expandableText,
   }
 
-  test('renders info <Alert> component', () => {
+  test('renders info <Alert> component', async () => {
     const { container } = render(<AlertBlock {...blockContentExpandable} />)
 
     const vaAlertExpandableEl = container.querySelector('va-alert-expandable')
@@ -48,9 +49,12 @@ describe('<Alert> with valid data and with expandable text', () => {
     ).toBeInTheDocument()
     const alertEl = container.querySelector('va-alert')
     expect(alertEl).toHaveAttribute('status', 'info')
+
+    const axeResults = await axe(container)
+    expect(axeResults).toHaveNoViolations()
   })
 
-  test('renders warning <Alert> component', () => {
+  test('renders warning <Alert> component', async () => {
     blockContentExpandable.alertType = 'warning'
     const { container } = render(<AlertBlock {...blockContentExpandable} />)
 
@@ -69,6 +73,9 @@ describe('<Alert> with valid data and with expandable text', () => {
     ).toBeInTheDocument()
     const alertEl = container.querySelector('va-alert')
     expect(alertEl).toHaveAttribute('status', 'warning')
+
+    const axeResults = await axe(container)
+    expect(axeResults).toHaveNoViolations()
   })
 })
 
@@ -78,7 +85,7 @@ describe('<Alert> with valid data and wysiwyg', () => {
     content: wysiwyg,
   }
 
-  test('renders info <Alert> component', () => {
+  test('renders info <Alert> component', async () => {
     const { container } = render(<AlertBlock {...blockContentWysiwyg} />)
 
     expect(
@@ -91,9 +98,12 @@ describe('<Alert> with valid data and wysiwyg', () => {
     ).toBeInTheDocument()
     const alertEl = container.querySelector('va-alert')
     expect(alertEl).toHaveAttribute('status', 'info')
+
+    const axeResults = await axe(container)
+    expect(axeResults).toHaveNoViolations()
   })
 
-  test('renders warning <Alert> component', () => {
+  test('renders warning <Alert> component', async () => {
     blockContentWysiwyg.alertType = 'warning'
     const { container } = render(<AlertBlock {...blockContentWysiwyg} />)
 
@@ -107,5 +117,8 @@ describe('<Alert> with valid data and wysiwyg', () => {
     ).toBeInTheDocument()
     const alertEl = container.querySelector('va-alert')
     expect(alertEl).toHaveAttribute('status', 'warning')
+
+    const axeResults = await axe(container)
+    expect(axeResults).toHaveNoViolations()
   })
 })

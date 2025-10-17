@@ -1,5 +1,6 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
+import { axe } from '@/test-utils'
 import { EventListing } from './template'
 import { mockResponse } from './mock.js'
 import { formatter } from './query'
@@ -21,10 +22,13 @@ describe('EventListing with valid data', () => {
     totalItems: 0,
     totalPages: 1,
   })
-  test('renders EventListing component', () => {
-    render(<EventListing {...resource} />)
+  test('renders EventListing component', async () => {
+    const { container } = render(<EventListing {...resource} />)
 
     expect(screen.queryByText(/Events/)).toBeInTheDocument()
+
+    const axeResults = await axe(container)
+    expect(axeResults).toHaveNoViolations()
   })
   describe('lovell variant handling', () => {
     beforeEach(() => {

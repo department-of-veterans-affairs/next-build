@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react'
+import { axe } from '@/test-utils'
 import { FeaturedContent } from './template'
 
 const data = {
@@ -7,10 +8,13 @@ const data = {
 }
 
 describe('FeaturedContent with valid data', () => {
-  test('renders FeaturedContent component', () => {
-    render(<FeaturedContent {...data} />)
+  test('renders FeaturedContent component', async () => {
+    const { container } = render(<FeaturedContent {...data} />)
 
     expect(screen.queryByText(/Hello world/)).toBeInTheDocument()
+
+    const axeResults = await axe(container)
+    expect(axeResults).toHaveNoViolations()
   })
 
   test('renders FeaturedContent optional elements', () => {

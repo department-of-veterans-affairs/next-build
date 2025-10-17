@@ -1,10 +1,14 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
+import { axe } from '@/test-utils'
 import { VbaFacility } from './template'
 import mockData from '@/components/vbaFacility/mock.json'
 import mockServiceData from './vbaFacilityService.mock.json'
 import { formatter } from './query'
 import { NodeVbaFacility, NodeVbaService } from '@/types/drupal/node'
+
+// Import the loader to register web components
+import { defineCustomElements } from '@department-of-veterans-affairs/web-components/loader'
 
 describe('VbaFacility with valid data', () => {
   const mockWithService = {
@@ -14,8 +18,13 @@ describe('VbaFacility with valid data', () => {
     ],
   }
   const formattedMockData = formatter(mockWithService)
-  test('renders VbaFacility component', () => {
-    render(<VbaFacility {...formattedMockData} />)
+
+  // Register web components before tests run
+  beforeAll(() => {
+    defineCustomElements()
+  })
+  test('renders VbaFacility component', async () => {
+    const { container } = render(<VbaFacility {...formattedMockData} />)
 
     expect(
       screen.queryByText(
@@ -28,30 +37,26 @@ describe('VbaFacility with valid data', () => {
       )
     ).toBeInTheDocument()
     expect(screen.queryByText(/1 VA Center, Bldg. 248/)).toBeInTheDocument()
-    expect(screen.getByTestId('make-appointment-link')).toHaveAttribute(
-      'text',
-      'Make an appointment'
-    )
-    expect(screen.getByTestId('make-appointment-link')).toHaveAttribute(
-      'href',
-      'https://va.my.site.com/VAVERA/s/'
-    )
-    expect(screen.getByTestId('ask-benefit-question-link')).toHaveAttribute(
-      'text',
-      'Ask a benefit question'
-    )
-    expect(screen.getByTestId('ask-benefit-question-link')).toHaveAttribute(
-      'href',
-      'https://ask.va.gov'
-    )
-    expect(screen.getByTestId('check-claim-status-link')).toHaveAttribute(
-      'text',
-      'Check a claim status'
-    )
-    expect(screen.getByTestId('check-claim-status-link')).toHaveAttribute(
-      'href',
-      '/claim-or-appeal-status'
-    )
+
+    // Check web component properties (not HTML attributes)
+    // Web components store their props as JavaScript properties on the element
+    const makeApptLink = screen.getByTestId('make-appointment-link')
+    expect(makeApptLink).toBeInTheDocument()
+    expect(makeApptLink.text).toBe('Make an appointment')
+    expect(makeApptLink.href).toBe('https://va.my.site.com/VAVERA/s/')
+
+    const askQuestionLink = screen.getByTestId('ask-benefit-question-link')
+    expect(askQuestionLink).toBeInTheDocument()
+    expect(askQuestionLink.text).toBe('Ask a benefit question')
+    expect(askQuestionLink.href).toBe('https://ask.va.gov')
+
+    const checkStatusLink = screen.getByTestId('check-claim-status-link')
+    expect(checkStatusLink).toBeInTheDocument()
+    expect(checkStatusLink.text).toBe('Check a claim status')
+    expect(checkStatusLink.href).toBe('/claim-or-appeal-status')
+
+    const axeResults = await axe(container)
+    expect(axeResults).toHaveNoViolations()
   })
   test('renders ExpandableOperatingStatus when operating status is provided', () => {
     const testDataWithOperatingStatus = {

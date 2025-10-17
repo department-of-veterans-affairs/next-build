@@ -89,10 +89,10 @@ interface QueryState {
   filters: Filter[]
 }
 
-const AVAILABLE_RESOURCE_TYPES = {
+const resourceTypeOptions = Object.values({
   ...RESOURCE_TYPES,
   ...PARAGRAPH_RESOURCE_TYPES,
-}
+}).sort()
 
 // Helper functions for URL state management
 const serializeFilters = (filters: Filter[]): string => {
@@ -339,7 +339,7 @@ export default function ApiExplorer() {
             value={queryState.resourceType}
             onChange={handleResourceTypeChange}
           >
-            {Object.entries(AVAILABLE_RESOURCE_TYPES).map(([key, value]) => (
+            {resourceTypeOptions.map((value) => (
               <option key={value} value={value}>
                 {value}
               </option>

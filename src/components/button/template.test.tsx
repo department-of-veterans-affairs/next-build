@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react'
+import { axe } from '@/test-utils'
 import { Button } from './template'
 import { Button as FormattedButton } from '@/components/button/formatted-type'
 import { ParagraphComponent } from '@/components/paragraph/formatted-type'
@@ -10,14 +11,19 @@ const buttonProps: ParagraphComponent<FormattedButton> = {
 }
 
 describe('Button with valid data', () => {
-  test('renders Button component', () => {
-    render(<Button key={buttonProps.id} {...buttonProps} />)
+  test('renders Button component', async () => {
+    const { container } = render(
+      <Button key={buttonProps.id} {...buttonProps} />
+    )
 
     expect(screen.queryByText(/Sign in now/)).toBeInTheDocument()
     expect(screen.getByRole('link')).toHaveAttribute(
       'href',
       'https://www.va.gov/?next=sign-in-faq'
     )
+
+    const axeResults = await axe(container)
+    expect(axeResults).toHaveNoViolations()
   })
 })
 

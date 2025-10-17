@@ -89,9 +89,11 @@ export const formatter: QueryFormatter<
     contactInformation: formatParagraph(
       entity.field_contact_information
     ) as ContactInfo,
-    benefitsHubLinks: queries.formatData(
-      RESOURCE_TYPES.BENEFITS_HUB,
-      entity.field_related_benefit_hubs
-    ),
+    benefitsHubLinks: entity.field_related_benefit_hubs
+      ? queries.formatData(
+          'benefits-hub-links',
+          entity.field_related_benefit_hubs
+        )
+      : [],
   }
 }
