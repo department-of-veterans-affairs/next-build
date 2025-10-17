@@ -1,0 +1,280 @@
+{
+  "id": "sepulveda-outstation",
+  "type": "node--vet_center_outstation",
+  "published": true,
+  "title": "Sepulveda Vet Center Outstation",
+  "officialName": "Sepulveda Vet Center Outstation",
+  "path": "/chatsworth-vet-center/locations/sepulveda-outstation",
+  "lastUpdated": "2023-10-25T14:30:04+00:00",
+  "lastSavedByAnEditor": "2023-04-20T17:00:23+00:00",
+
+  "breadcrumbs": [
+    {
+      "uri": "/",
+      "title": "Home",
+      "options": []
+    },
+    {
+      "uri": "/chatsworth-vet-center",
+      "title": "Chatsworth Vet Center",
+      "options": []
+    },
+    {
+      "uri": "/chatsworth-vet-center/locations",
+      "title": "Locations",
+      "options": []
+    },
+    {
+      "uri": "/chatsworth-vet-center/locations/sepulveda-outstation",
+      "title": "Sepulveda Vet Center Outstation",
+      "options": []
+    }
+  ],
+
+  "parentVetCenter": {
+    "title": "Chatsworth Vet Center",
+    "path": "/chatsworth-vet-center"
+  },
+
+  "address": {
+    "langcode": "en",
+    "country_code": "US",
+    "administrative_area": "CA",
+    "locality": "Sepulveda",
+    "address_line1": "9737 Haskell Ave",
+    "address_line2": "",
+    "postal_code": "91343"
+  },
+
+  "geolocation": {
+    "value": "POINT (-118.4762463 34.2477033)",
+    "geo_type": "Point",
+    "lat": 34.2477033,
+    "lon": -118.4762463,
+    "left": -118.4762463,
+    "top": 34.2477033,
+    "right": -118.4762463,
+    "bottom": 34.2477033,
+    "geohash": "9q5fb485r6egb",
+    "latlon": "34.2477033,-118.4762463"
+  },
+
+  "phoneNumber": "818-892-9227",
+  "fieldFacilityLocatorApiId": "vc_6051OS",
+  "timezone": "America/Los_Angeles",
+
+  "officeHours": [
+    { "day": 0, "starthours": null, "endhours": null, "comment": "Closed" },
+    { "day": 1, "starthours": 800, "endhours": 1630, "comment": "" },
+    { "day": 2, "starthours": 800, "endhours": 1630, "comment": "" },
+    { "day": 3, "starthours": 1000, "endhours": 1800, "comment": "" },
+    { "day": 4, "starthours": 800, "endhours": 1630, "comment": "" },
+    { "day": 5, "starthours": 800, "endhours": 1630, "comment": "" },
+    { "day": 6, "starthours": null, "endhours": null, "comment": "Closed" }
+  ],
+
+  "operatingStatusFacility": "normal",
+  "operatingStatusMoreInfo": null,
+
+  "introText": "We provide readjustment counseling services to help you make a successful transition from military to civilian life. We can help with concerns you might have related to military service such as difficulty sleeping, anger, or feeling disconnected from family and friends.",
+
+  "missionExplainer": {
+    "heading": "Our commitment to your care",
+    "body": "<p>We provide readjustment counseling in a comfortable, confidential, and non-medical setting. Our goal is to help you and your family work through the challenges that come with managing life during and after military service.</p>\n\n<p>Whether you come in for one-on-one counseling or to participate in a group session, you can form social connections, try new things, and build a support system with people who understand you and want to help you succeed.</p>"
+  },
+
+  "image": {
+    "id": "1c269d59-682b-4f9f-ac23-c15bb20320db",
+    "links": {
+      "3_2_medium_thumbnail": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2021-09/Sepulveda%20Outstation%20Picture%20new.jpg",
+        "meta": {
+          "linkParams": {
+            "width": "320",
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        }
+      },
+      "2_1_large": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_large/public/2021-09/Sepulveda%20Outstation%20Picture%20new.jpg",
+        "meta": {
+          "linkParams": {
+            "width": "512",
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        }
+      }
+    },
+    "alt": "Sepulveda Outstation building exterior",
+    "title": "",
+    "width": 320,
+    "height": 213
+  },
+
+  "bannerImage": null,
+
+  "prepareForVisit": [
+    {
+      "id": "1",
+      "type": "paragraph--basic_accordion",
+      "header": "What to bring",
+      "html": "<ul><li>A valid photo ID</li><li>Your DD214 or other discharge papers</li><li>Any relevant medical records</li></ul>"
+    },
+    {
+      "id": "2",
+      "type": "paragraph--basic_accordion",
+      "header": "What to expect",
+      "html": "<p>Your first visit will be an intake session where we'll talk about your concerns and goals. We'll work together to create a plan that's right for you.</p><p>Sessions are confidential and typically last 45-50 minutes.</p>"
+    },
+    {
+      "id": "3",
+      "type": "paragraph--basic_accordion",
+      "header": "Parking and accessibility",
+      "html": "<p>Free parking is available in our lot. The building is fully accessible with wheelchair access and an elevator.</p>"
+    }
+  ],
+
+  "featuredContent": [
+    {
+      "id": "national-1",
+      "type": "paragraph--featured_content",
+      "title": "New Vet Centers and Satellite Locations Announced",
+      "description": "<p>To improve access to counseling, we are adding three Vet Centers and six satellite locations across the US and its territories. We will continue to expand our program to meet Veteran demand and provide local support to those who served.</p>",
+      "link": {
+        "id": "32956",
+        "url": "https://www.vetcenter.va.gov/New_Vet_Centers.asp",
+        "label": "View the new locations here!"
+      }
+    },
+    {
+      "id": "local-1",
+      "type": "paragraph--featured_content",
+      "title": "Group Sessions Available",
+      "description": "<p><strong>Vietnam Era Group:</strong> Tuesdays 1-3pm</p><p><strong>OIF/OEF Group:</strong> 2nd & 4th Mondays 6-7:30pm</p><p><strong>Spouse Support Group:</strong> Wednesdays 9-11am</p>",
+      "link": null
+    }
+  ],
+
+  "counselingHealthServices": [
+    {
+      "name": "PTSD care",
+      "vetCenterTypeOfCare": "counseling",
+      "vetCenterFriendlyName": null,
+      "alsoKnownAs": null,
+      "vetCenterComConditions": null,
+      "commonlyTreatedCondition": null,
+      "vetCenterServiceDescription": "If you have symptoms of PTSD after a traumatic event, we can help. We offer assessment and support through private counseling and group therapy.",
+      "description": "<p>If you have symptoms of PTSD after a traumatic event, we can help. We offer assessment and treatment support such as private counseling, group therapy and evidence-based treatments.</p>",
+      "body": "<p>Our counselors are trained in evidence-based therapies including:</p><ul><li>Cognitive Processing Therapy (CPT)</li><li>Prolonged Exposure (PE)</li><li>EMDR (Eye Movement Desensitization and Reprocessing)</li></ul>"
+    },
+    {
+      "name": "Depression counseling",
+      "vetCenterTypeOfCare": "counseling",
+      "vetCenterFriendlyName": null,
+      "alsoKnownAs": null,
+      "vetCenterComConditions": null,
+      "commonlyTreatedCondition": null,
+      "vetCenterServiceDescription": "We provide counseling for depression and help you develop coping strategies and build resilience.",
+      "description": "<p>We provide individual and group counseling for depression, helping you develop healthy coping strategies and reconnect with your support system.</p>",
+      "body": "<p>Our depression counseling services include:</p><ul><li>Individual therapy sessions</li><li>Group therapy options</li><li>Cognitive behavioral therapy techniques</li><li>Mindfulness-based interventions</li></ul>"
+    }
+  ],
+
+  "referralHealthServices": [
+    {
+      "name": "Couples and family counseling",
+      "vetCenterTypeOfCare": "referral",
+      "vetCenterFriendlyName": null,
+      "alsoKnownAs": null,
+      "vetCenterComConditions": null,
+      "commonlyTreatedCondition": null,
+      "vetCenterServiceDescription": "We offer couples and family counseling to support you as you work toward meeting your goals.",
+      "description": "<p>We offer couples and family counseling to help strengthen relationships and improve communication.</p>",
+      "body": "<p>Our family services include:</p><ul><li>Couples counseling</li><li>Family therapy sessions</li><li>Spouse and partner support groups</li><li>Communication skills training</li></ul>"
+    }
+  ],
+
+  "otherHealthServices": [
+    {
+      "name": "Military sexual trauma care",
+      "vetCenterTypeOfCare": "other",
+      "vetCenterFriendlyName": null,
+      "alsoKnownAs": null,
+      "vetCenterComConditions": null,
+      "commonlyTreatedCondition": null,
+      "vetCenterServiceDescription": "If you experienced sexual assault or harassment during military service, we can help you get the counseling you need.",
+      "description": "<p>Military sexual trauma can happen to any gender. If you experienced sexual assault or harassment during military service—no matter when you served—we provide specialized counseling and treatment.</p>",
+      "body": "<p>Our MST services include:</p><ul><li>Individual counseling with MST-trained counselors</li><li>Trauma-focused therapy</li><li>Support groups for MST survivors</li><li>Coordination with VA medical care if needed</li></ul>"
+    }
+  ],
+
+  "ccNonTraditionalHours": {
+    "id": "1",
+    "type": "paragraph--wysiwyg",
+    "html": "<p>We also have non-traditional hours that change periodically given our community's needs. Please call us to find out more.</p>"
+  },
+
+  "ccVetCenterCallCenter": {
+    "id": "1",
+    "type": "paragraph--wysiwyg",
+    "html": "<p>Our call center is available 24/7. Call us anytime at <a href=\"tel:+18779278387\" aria-label=\"8 7 7. 9 2 7. 8 3 8 7.\">877-927-8387</a>.</p>"
+  },
+
+  "ccVetCenterFaqs": {
+    "type": "paragraph--q_a_section",
+    "id": "5f582f12-b72f-4a35-a9df-411485c8e446",
+    "header": "How Vet Centers are different",
+    "intro": "Select a topic to learn more about how we're different from VA medical centers.",
+    "displayAccordion": true,
+    "questions": [
+      {
+        "id": "29903",
+        "type": "paragraph--q_a_section",
+        "question": "What are Vet Centers?",
+        "answers": [
+          {
+            "type": "paragraph--wysiwyg",
+            "id": "1",
+            "html": "<p>Vet Centers are small, non-medical, counseling centers conveniently located in your community. They're staffed by highly trained counselors and team members dedicated to seeing you through the challenges that come with managing life during and after the military.</p><p>Whether you come in for one-on-one counseling or to participate in a group session, at Vet Centers you can form social connections, try new things, and build a support system with people who understand you and want to help you succeed.</p>"
+          }
+        ],
+        "header": "Vet Center -- Facility pages > Content > Questions"
+      },
+      {
+        "id": "29904",
+        "type": "paragraph--q_a_section",
+        "question": "Who can use Vet Center services?",
+        "answers": [
+          {
+            "type": "paragraph--wysiwyg",
+            "id": "2",
+            "html": "<p>You may be eligible for Vet Center services if you served on active duty in any combat zone or area of hostility, including Iraq, Afghanistan, or other locations where you received hazardous duty or imminent danger pay.</p><p>You may also be eligible if you experienced military sexual trauma during your service, regardless of when or where you served.</p>"
+          }
+        ],
+        "header": "Vet Center -- Facility pages > Content > Questions"
+      },
+      {
+        "id": "29905",
+        "type": "paragraph--q_a_section",
+        "question": "Do I need to be enrolled in VA health care to use Vet Center services?",
+        "answers": [
+          {
+            "type": "paragraph--wysiwyg",
+            "id": "3",
+            "html": "<p>No, you don't need to be enrolled in VA health care or have a VA disability rating to receive Vet Center services. Our services are free and available to eligible Veterans and their families.</p>"
+          }
+        ],
+        "header": "Vet Center -- Facility pages > Content > Questions"
+      }
+    ]
+  },
+
+  "administration": {
+    "id": "admin-1",
+    "name": "Office of Rural Health"
+  }
+}

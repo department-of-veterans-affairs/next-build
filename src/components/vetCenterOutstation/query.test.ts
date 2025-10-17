@@ -3,10 +3,8 @@
  */
 
 import { NodeVetCenter } from '@/types/drupal/node'
-import { queries } from '@/lib/drupal/queries'
 import { mockResponse } from '../vetCenter/mock'
-import { params } from './query'
-import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
+import { params, formatter } from './query'
 
 const VetCenterMock = mockResponse as NodeVetCenter
 
@@ -22,14 +20,12 @@ describe('DrupalJsonApiParams configuration', () => {
 
 describe('VetCenterOutstation formatData', () => {
   it('outputs formatted data', () => {
-    expect(
-      queries.formatData(RESOURCE_TYPES.VET_CENTER_OUTSTATION, VetCenterMock)
-    ).toMatchSnapshot()
+    expect(formatter(VetCenterMock)).toMatchSnapshot()
   })
 
   it('handles ccFeaturedContent not getting fetched', () => {
     expect(
-      queries.formatData(RESOURCE_TYPES.VET_CENTER_OUTSTATION, {
+      formatter({
         ...VetCenterMock,
         // @ts-expect-error Something somewhere along the way apparently adds
         // this field, but it's not in the type definition.

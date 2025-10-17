@@ -130,7 +130,7 @@ export const entityBaseFields = (entity: NodeTypes): PublishedEntity | null => {
   }
   return {
     id: entity.id,
-    entityId: entity.drupal_internal__nid,
+    entityId: entity.drupal_internal__nid ?? null,
     entityPath: entity.path.alias,
     type: entity.type,
     published: entity.status,

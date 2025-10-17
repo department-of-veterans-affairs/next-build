@@ -55,6 +55,7 @@ import * as VamcSystemVaPolice from '../../components/vamcSystemVaPolice/query'
 import * as VetCenter from '../../components/vetCenter/query'
 import * as VetCenterHealthServices from '@/components/vetCenterHealthServices/query'
 import * as VetCenterOutstation from '../../components/vetCenterOutstation/query'
+import * as VetCenterOutstationPage from '../../components/vetCenterOutstationPage/query'
 import * as VetCenterLocationListing from '../../components/vetCenterLocationListing/query'
 import * as Wysiwyg from '@/components/wysiwyg/query'
 import * as LeadershipListing from '../../components/leadershipListing/query'
@@ -99,7 +100,7 @@ export const QUERIES_MAP = {
     VamcSystemMedicalRecordsOffice,
   [RESOURCE_TYPES.VAMC_SYSTEM_VA_POLICE]: VamcSystemVaPolice,
   [RESOURCE_TYPES.VET_CENTER]: VetCenter,
-  [RESOURCE_TYPES.VET_CENTER_OUTSTATION]: VetCenterOutstation,
+  [RESOURCE_TYPES.VET_CENTER_OUTSTATION]: VetCenterOutstationPage,
   [RESOURCE_TYPES.VET_CENTER_LOCATION_LISTING]: VetCenterLocationListing,
   [RESOURCE_TYPES.LEADERSHIP_LISTING]: LeadershipListing,
   [RESOURCE_TYPES.VBA_FACILITY]: VbaFacility,

@@ -52,6 +52,7 @@ import { ResourcesSupport as FormattedResourcesSupport } from '../components/res
 import { StaffProfile as FormattedStaffProfile } from '../components/staffProfile/formatted-type'
 import { StoryListing as FormattedStoryListing } from '../components/storyListing/formatted-type'
 import { VetCenter as FormattedVetCenter } from '../components/vetCenter/formatted-type'
+import { VetCenterOutstationPage as FormattedVetCenterOutstationPage } from '../components/vetCenterOutstationPage/formatted-type'
 import { VamcFacility as FormattedVamcFacility } from '../components/vamcFacility/formatted-type'
 import { VamcSystem as FormattedVamcSystem } from '../components/vamcSystem/formatted-type'
 import { VamcSystemRegisterForCare as FormattedVamcSystemRegisterForCare } from '../components/vamcSystemRegisterForCare/formatted-type'
@@ -95,6 +96,7 @@ import { VamcHealthServicesListing } from '../components/vamcHealthServicesListi
 import { VamcOperatingStatusAndAlerts } from '../components/vamcOperatingStatusAndAlerts/template'
 import { VamcSystemPoliciesPage } from '../components/vamcSystemPoliciesPage/template'
 import { VamcSystemDetailPage } from '../components/vamcSystemDetailPage/template'
+import { VetCenterOutstationPage } from '../components/vetCenterOutstationPage/template'
 
 // IMPORTANT: in order for a content type to build in Next Build, it must have an appropriate
 // environment variable set in one of two places:
@@ -218,6 +220,11 @@ export default function ResourcePage({
           )}
           {resource.type === RESOURCE_TYPES.VET_CENTER && (
             <VetCenter {...(resource as FormattedVetCenter)} />
+          )}
+          {resource.type === RESOURCE_TYPES.VET_CENTER_OUTSTATION && (
+            <VetCenterOutstationPage
+              {...(resource as FormattedVetCenterOutstationPage)}
+            />
           )}
           {resource.type === RESOURCE_TYPES.VAMC_FACILITY && (
             <VamcFacility {...(resource as FormattedVamcFacility)} />
