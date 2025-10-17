@@ -9,11 +9,14 @@ export function VaForm({
   numPages,
   revisionDate,
   issueDate,
+  formType,
+  benefitCategories,
+  administration,
   formUrl,
   toolUrl,
   toolIntro,
   usage,
-  linkTeasers: helpfulLinks,
+  linkTeasers,
   relatedForms,
   entityPath,
 }: VaFormProps) {
@@ -57,7 +60,23 @@ export function VaForm({
                   <dfn className="vads-u-font-weight--bold vads-u-display--inline">
                     Related to:
                   </dfn>
-                  {` VA benefits and services`}
+                  {formType === 'employment' && ` Employment or jobs at VA`}
+                  {formType === 'non-va' && (
+                    <>
+                      {` A non-VA form. For other government agency forms, go to the `}
+                      <a href="https://www.gsa.gov/reference/forms">
+                        GSA forms library
+                      </a>
+                      .
+                    </>
+                  )}
+                  {(!formType || formType === 'benefit') && (
+                    <>
+                      {benefitCategories && benefitCategories.length > 0
+                        ? ` ${benefitCategories.join(', ')}`
+                        : ` ${administration || 'VA benefits and services'}`}
+                    </>
+                  )}
                 </dd>
               </div>
             </dl>
@@ -129,13 +148,13 @@ export function VaForm({
             <section>
               <div className="vads-u-background-color--gray-lightest vads-u-padding-x--2 vads-u-padding-y--2p5 vads-u-margin-y--4">
                 <h2 className="vads-u-font-size--h3 vads-u-margin-top--0 vads-u-padding-bottom--1 vads-u-border-bottom--1px vads-u-border-color--gray-light">
-                  {helpfulLinks && helpfulLinks.length > 0
+                  {linkTeasers && linkTeasers.length > 0
                     ? `Helpful links related to VA Form ${formNumber}`
                     : 'Helpful links'}
                 </h2>
                 <ul className="usa-unstyled-list" role="list">
-                  {helpfulLinks && helpfulLinks.length > 0 ? (
-                    helpfulLinks.map((linkTeaser, index) => (
+                  {linkTeasers && linkTeasers.length > 0 ? (
+                    linkTeasers.map((linkTeaser, index) => (
                       <li key={index}>
                         <h3 className="vads-u-font-size--h4">
                           <va-link

@@ -8,6 +8,9 @@ export type VaForm = PublishedEntity & {
   numPages?: number
   revisionDate?: string
   issueDate?: string
+  formType?: 'benefit' | 'employment' | 'non-va' | string
+  benefitCategories?: string[]
+  administration?: string
   formUrl?: FieldLink
   toolUrl?: FieldLink
   toolIntro?: string

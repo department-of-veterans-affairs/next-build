@@ -15,7 +15,11 @@ export const params: QueryParams<null> = () => {
   return (
     new DrupalJsonApiParams()
       // uncomment to add referenced entity data to the response
-      .addInclude(['field_va_form_link_teasers'])
+      .addInclude([
+        'field_va_form_link_teasers',
+        'field_va_form_administration',
+        'field_benefit_categories',
+      ])
   )
 }
 
@@ -49,6 +53,11 @@ export const formatter: QueryFormatter<NodeVaForm, VaForm> = (
     numPages: entity.field_va_form_num_pages,
     revisionDate: entity.field_va_form_revision_date,
     issueDate: entity.field_va_form_issue_date,
+    formType: entity.field_va_form_type,
+    benefitCategories: entity.field_benefit_categories?.map(
+      (category) => category.field_home_page_hub_label
+    ),
+    administration: entity.field_va_form_administration?.name,
     formUrl: entity.field_va_form_url,
     toolUrl: entity.field_va_form_tool_url,
     toolIntro: entity.field_va_form_tool_intro,
