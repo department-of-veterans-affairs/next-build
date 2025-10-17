@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
-exports[`VaForm formatData outputs formatted data 1`] = `
+exports[`VaForm formatter outputs formatted data with all fields 1`] = `
 {
   "administration": undefined,
   "benefitCategories": [
