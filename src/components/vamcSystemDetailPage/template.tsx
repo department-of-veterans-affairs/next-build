@@ -7,6 +7,7 @@ import { SideNavLayout } from '@/components/sideNavLayout/template'
 import { RegionalTopTasks } from '@/components/topTasks/template'
 import { LovellSwitcher } from '@/components/lovellSwitcher/template'
 import { Paragraph } from '@/components/paragraph/template'
+import { ParagraphsWithManagedHeadingLevels } from '@/components/paragraph/ParagraphsWithManagedHeadingLevels'
 
 export function VamcSystemDetailPage({
   entityPath,
@@ -69,9 +70,7 @@ export function VamcSystemDetailPage({
         )}
 
         {/* Main content blocks */}
-        {mainContent.map((paragraph, index) => (
-          <Paragraph key={paragraph?.id || index} {...paragraph} />
-        ))}
+        <ParagraphsWithManagedHeadingLevels paragraphs={mainContent} />
 
         {/* Related links */}
         {relatedLinks && (

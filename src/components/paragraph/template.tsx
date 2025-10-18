@@ -56,8 +56,9 @@ import { Media } from '@/components/media/template'
 import { Media as FormattedMedia } from '@/components/media/formatted-type'
 import { SpanishTranslationSummary } from '@/components/spanishTranslationSummary/template'
 import { SpanishTranslationSummary as FormattedSpanishTranslationSummary } from '@/components/spanishTranslationSummary/formatted-type'
+import { WithHeadingLevel } from '@/components/heading/formatted-type'
 
-export const Paragraph = (paragraph: FormattedParagraph) => {
+export const Paragraph = (paragraph: FormattedParagraph & WithHeadingLevel) => {
   switch (paragraph.type) {
     case PARAGRAPH_RESOURCE_TYPES.ACCORDION_ITEM:
       return <AccordionItem {...(paragraph as FormattedAccordionItem)} />
