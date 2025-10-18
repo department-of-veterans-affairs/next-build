@@ -7,3 +7,7 @@ export type HeadingElement = {
   slot?: string
   children: ReactNode
 }
+
+export type WithHeadingLevel = {
+  headingLevel?: HeadingLevel
+}

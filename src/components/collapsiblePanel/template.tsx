@@ -9,6 +9,7 @@ import { escape } from '@/lib/utils/helpers'
 import { slugifyString } from '@/lib/utils/slug'
 import { ParagraphComponent } from '@/components/paragraph/formatted-type'
 import { conditionalAttr } from '@/lib/utils/helpers'
+import { WithHeadingLevel } from '@/components/heading/formatted-type'
 
 export const CollapsiblePanelItem = ({
   id,
@@ -17,7 +18,7 @@ export const CollapsiblePanelItem = ({
   wysiwyg,
   headingLevel = 'h4',
   paragraphs = [],
-}: ParagraphComponent<FormattedCollapsiblePanelItem>) => {
+}: ParagraphComponent<FormattedCollapsiblePanelItem> & WithHeadingLevel) => {
   return (
     <va-accordion-item
       key={entityId}
@@ -53,7 +54,7 @@ export const CollapsiblePanel = ({
   paragraphs,
   bordered = false,
   headingLevel = 'h4',
-}: ParagraphComponent<FormattedCollapsiblePanel>) => {
+}: ParagraphComponent<FormattedCollapsiblePanel> & WithHeadingLevel) => {
   return (
     <div
       id={id}
