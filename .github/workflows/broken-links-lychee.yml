@@ -74,10 +74,10 @@ jobs:
           path: broken-links-report-run-${{github.run_id}}.csv
           retention-days: 30
 
-      - name: Prepare Slack payload
-        run: |
-          # Create a basic slack payload file similar to existing script expectations
-          node scripts/broken-links-slack-payload.js -i broken-links-report-combined-run-${{github.run_id}}.json -c "$(echo 'TODO: artifact url in GH Actions')"
+      # - name: Prepare Slack payload
+        # run: |
+        #   # Create a basic slack payload file similar to existing script expectations
+        #   node scripts/broken-links-slack-payload.js -i broken-links-report-combined-run-${{github.run_id}}.json -c "$(echo 'TODO: artifact url in GH Actions')"
 
       # - name: Notify Slack
         # uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4
