@@ -4,8 +4,8 @@ on:
   # Manual trigger
   workflow_dispatch:
   # Schedule; currently once nightly, at 7:20 UTC.
-  schedule:
-    - cron: '20 7 * * *'
+  # schedule:
+  #   - cron: '20 7 * * *'
 
 env:
   SLACK_CHANNEL: C06DSBT7CBW
@@ -40,8 +40,9 @@ jobs:
 
       - name: Install lychee
         run: |
-          curl -sSf 'https://sh.rustup.rs' | sh
-          apt install gcc pkg-config libc6-dev libssl-dev
+          curl -sSf 'https://sh.rustup.rs' | sh -s -- -y
+          sudo apt install -y gcc pkg-config libc6-dev libssl-dev
+          export PATH="$HOME/.cargo/bin:$PATH"
           cargo install lychee
 
       - name: Run lychee broken link check
