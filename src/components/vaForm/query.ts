@@ -19,6 +19,7 @@ export const params: QueryParams<null> = () => {
         'field_va_form_link_teasers',
         'field_va_form_administration',
         'field_benefit_categories',
+        'field_va_form_related_forms',
       ])
   )
 }
@@ -50,7 +51,6 @@ export const formatter: QueryFormatter<NodeVaForm, VaForm> = (
     formName: entity.field_va_form_name,
     formNumber: entity.field_va_form_number,
     formTitle: entity.field_va_form_title,
-    numPages: entity.field_va_form_num_pages,
     revisionDate: entity.field_va_form_revision_date,
     issueDate: entity.field_va_form_issue_date,
     formType: entity.field_va_form_type,
@@ -68,8 +68,8 @@ export const formatter: QueryFormatter<NodeVaForm, VaForm> = (
     })),
     relatedForms: entity.field_va_form_related_forms?.map((form) => ({
       id: form.id,
-      formNumber: form.field_va_form_number,
-      formName: form.field_va_form_name,
+      formNumber: form.field_va_form_number ?? null,
+      formName: form.field_va_form_name ?? null,
     })),
   }
 }
