@@ -44,7 +44,9 @@ jobs:
           sudo apt install -y gcc pkg-config libc6-dev libssl-dev
           export PATH="$HOME/.cargo/bin:$PATH"
           cargo install lychee
-
+      - name: Download urls from sitemap
+        run: |
+          sitemap2urllist -c http://www.va.gov/sitemap_index.xml > ./urls.txt
       - name: Run lychee broken link check
         run: |
           # Run the lychee per-page scanner; outputs lychee-pages/ and combined json/csv in repo root.
