@@ -45,6 +45,6 @@ export const formatter: QueryFormatter<
     media: queries.formatData('media--image', profile.field_media),
     completeBiographyCreate: profile.field_complete_biography_create,
     photoAllowHiresDownload: profile.field_photo_allow_hires_download,
-    vamcTitle: entity?.field_office?.title || null,
+    vamcTitle: profile?.field_office?.title || null,
   }
 }

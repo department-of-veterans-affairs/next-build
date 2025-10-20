@@ -107,7 +107,10 @@ describe('StaffProfileParagraph formatter', () => {
   test('handles missing field_office gracefully', () => {
     const dataWithoutOffice: ParagraphStaffProfile = {
       ...StaffProfileParagraphMock,
-      field_office: null,
+      field_staff_profile: {
+        ...StaffProfileParagraphMock.field_staff_profile,
+        field_office: null,
+      },
     }
 
     const result = formatter(dataWithoutOffice)

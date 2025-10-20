@@ -172,6 +172,6 @@ exports[`StaffProfileParagraph formatData integration outputs formatted data 1`]
   "photoAllowHiresDownload": false,
   "suffix": "MBA, AAS CA",
   "type": "paragraph--staff_profile",
-  "vamcTitle": null,
+  "vamcTitle": "VA Philadelphia health care",
 }
 `;
