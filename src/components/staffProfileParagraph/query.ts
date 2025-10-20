@@ -37,7 +37,7 @@ export const formatter: QueryFormatter<
     emailAddress: profile.field_email_address,
     phoneNumber: queries.formatData(
       'paragraph--phone_number',
-      entity.field_telephone
+      profile.field_telephone
     ),
     description: profile.field_description,
     introText: profile.field_intro_text,
