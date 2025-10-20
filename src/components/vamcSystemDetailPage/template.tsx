@@ -56,9 +56,6 @@ export function VamcSystemDetailPage({
           </div>
         )}
 
-        {/* Alerts */}
-        <div>TODO: Alerts component</div>
-
         {/* Table of contents */}
         {showTableOfContents && <va-on-this-page></va-on-this-page>}
 
@@ -82,9 +79,6 @@ export function VamcSystemDetailPage({
             <ListOfLinkTeasers {...relatedLinks} />
           </div>
         )}
-
-        {/* Social links for contact pages */}
-        {isContactPage && <div>TODO: Social links component</div>}
 
         <va-back-to-top></va-back-to-top>
         <ContentFooter lastUpdated={lastUpdated} />
