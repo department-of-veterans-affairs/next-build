@@ -38,11 +38,16 @@ jobs:
         run: |
           yarn certs
 
-      - name: Install lychee
+      - name: Install rust and dependencies
         run: |
           curl -sSf 'https://sh.rustup.rs' | sh -s -- -y
           sudo apt install -y gcc pkg-config libc6-dev libssl-dev
           export PATH="$HOME/.cargo/bin:$PATH"
+      - name: Install sitemap2urllist
+        run: |
+          cargo install sitemap2urllist
+      - name: Install lychee
+        run: |
           cargo install lychee
       - name: Download urls from sitemap
         run: |
