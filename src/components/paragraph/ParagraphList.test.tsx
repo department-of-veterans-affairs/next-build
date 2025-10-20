@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react'
-import { ParagraphsWithManagedHeadingLevels } from './ParagraphsWithManagedHeadingLevels'
+import { ParagraphList } from './ParagraphList'
 import { FormattedParagraph } from '@/lib/drupal/queries'
 
-describe('ParagraphsWithManagedHeadingLevels Component', () => {
+describe('ParagraphList Component', () => {
   describe('Basic functionality', () => {
     it('renders paragraphs without heading levels when no previous headings exist', () => {
       const paragraphs: FormattedParagraph[] = [
@@ -20,7 +20,7 @@ describe('ParagraphsWithManagedHeadingLevels Component', () => {
         },
       ]
 
-      render(<ParagraphsWithManagedHeadingLevels paragraphs={paragraphs} />)
+      render(<ParagraphList paragraphs={paragraphs} />)
 
       // Check that both buttons are rendered
       expect(screen.getByText('First Button')).toBeInTheDocument()
@@ -28,9 +28,7 @@ describe('ParagraphsWithManagedHeadingLevels Component', () => {
     })
 
     it('renders empty array when no paragraphs provided', () => {
-      const { container } = render(
-        <ParagraphsWithManagedHeadingLevels paragraphs={[]} />
-      )
+      const { container } = render(<ParagraphList paragraphs={[]} />)
       expect(container.firstChild).toBeNull()
     })
   })
@@ -60,7 +58,7 @@ describe('ParagraphsWithManagedHeadingLevels Component', () => {
         },
       ]
 
-      render(<ParagraphsWithManagedHeadingLevels paragraphs={paragraphs} />)
+      render(<ParagraphList paragraphs={paragraphs} />)
 
       // Check that the headings are rendered correctly
       expect(screen.getByText('First Section')).toBeInTheDocument()
@@ -87,7 +85,7 @@ describe('ParagraphsWithManagedHeadingLevels Component', () => {
         },
       ]
 
-      render(<ParagraphsWithManagedHeadingLevels paragraphs={paragraphs} />)
+      render(<ParagraphList paragraphs={paragraphs} />)
 
       // Check that all headings are rendered
       expect(screen.getByText('Main Section')).toBeInTheDocument()
@@ -112,7 +110,7 @@ describe('ParagraphsWithManagedHeadingLevels Component', () => {
         },
       ]
 
-      render(<ParagraphsWithManagedHeadingLevels paragraphs={paragraphs} />)
+      render(<ParagraphList paragraphs={paragraphs} />)
 
       // Check that the content is rendered
       expect(
@@ -148,7 +146,7 @@ describe('ParagraphsWithManagedHeadingLevels Component', () => {
         },
       ]
 
-      render(<ParagraphsWithManagedHeadingLevels paragraphs={paragraphs} />)
+      render(<ParagraphList paragraphs={paragraphs} />)
 
       // Check that the WYSIWYG content is rendered
       expect(screen.getByText('Section Title')).toBeInTheDocument()
@@ -178,7 +176,7 @@ describe('ParagraphsWithManagedHeadingLevels Component', () => {
         },
       ]
 
-      render(<ParagraphsWithManagedHeadingLevels paragraphs={paragraphs} />)
+      render(<ParagraphList paragraphs={paragraphs} />)
 
       // Check that the CollapsiblePanel is rendered with default heading level (h4)
       const faqHeading = screen.getByText('FAQ Item 1')
@@ -218,7 +216,7 @@ describe('ParagraphsWithManagedHeadingLevels Component', () => {
         },
       ]
 
-      render(<ParagraphsWithManagedHeadingLevels paragraphs={paragraphs} />)
+      render(<ParagraphList paragraphs={paragraphs} />)
 
       // Check that all content is rendered
       expect(screen.getByText('Introduction')).toBeInTheDocument()
@@ -247,7 +245,7 @@ describe('ParagraphsWithManagedHeadingLevels Component', () => {
         },
       ]
 
-      render(<ParagraphsWithManagedHeadingLevels paragraphs={paragraphs} />)
+      render(<ParagraphList paragraphs={paragraphs} />)
 
       // Check that content is rendered
       expect(screen.getByText('Valid heading')).toBeInTheDocument()
@@ -270,7 +268,7 @@ describe('ParagraphsWithManagedHeadingLevels Component', () => {
         },
       ]
 
-      render(<ParagraphsWithManagedHeadingLevels paragraphs={paragraphs} />)
+      render(<ParagraphList paragraphs={paragraphs} />)
 
       // Check that content is rendered
       expect(screen.getByText('Heading with class')).toBeInTheDocument()
@@ -293,7 +291,7 @@ describe('ParagraphsWithManagedHeadingLevels Component', () => {
         },
       ]
 
-      render(<ParagraphsWithManagedHeadingLevels paragraphs={paragraphs} />)
+      render(<ParagraphList paragraphs={paragraphs} />)
 
       // Check that the second paragraph content is rendered
       expect(
@@ -315,7 +313,7 @@ describe('ParagraphsWithManagedHeadingLevels Component', () => {
         },
       ]
 
-      render(<ParagraphsWithManagedHeadingLevels paragraphs={paragraphs} />)
+      render(<ParagraphList paragraphs={paragraphs} />)
 
       // Check that the second paragraph content is rendered
       expect(
@@ -363,7 +361,7 @@ describe('ParagraphsWithManagedHeadingLevels Component', () => {
         },
       ]
 
-      render(<ParagraphsWithManagedHeadingLevels paragraphs={paragraphs} />)
+      render(<ParagraphList paragraphs={paragraphs} />)
 
       // Check that all content is rendered
       expect(screen.getByText('Article Title')).toBeInTheDocument()
@@ -400,7 +398,7 @@ describe('ParagraphsWithManagedHeadingLevels Component', () => {
         },
       ]
 
-      render(<ParagraphsWithManagedHeadingLevels paragraphs={paragraphs} />)
+      render(<ParagraphList paragraphs={paragraphs} />)
 
       // Check that all headings are rendered
       expect(screen.getByText('Main Title')).toBeInTheDocument()
@@ -463,7 +461,7 @@ describe('ParagraphsWithManagedHeadingLevels Component', () => {
         },
       ]
 
-      render(<ParagraphsWithManagedHeadingLevels paragraphs={paragraphs} />)
+      render(<ParagraphList paragraphs={paragraphs} />)
 
       // Check that all content is rendered
       expect(screen.getByText('Frequently Asked Questions')).toBeInTheDocument()

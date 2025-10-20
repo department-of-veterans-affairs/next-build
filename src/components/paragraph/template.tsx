@@ -57,6 +57,7 @@ import { Media as FormattedMedia } from '@/components/media/formatted-type'
 import { SpanishTranslationSummary } from '@/components/spanishTranslationSummary/template'
 import { SpanishTranslationSummary as FormattedSpanishTranslationSummary } from '@/components/spanishTranslationSummary/formatted-type'
 import { WithHeadingLevel } from '@/components/heading/formatted-type'
+export { ParagraphList } from './ParagraphList'
 
 export const Paragraph = (paragraph: FormattedParagraph & WithHeadingLevel) => {
   switch (paragraph.type) {

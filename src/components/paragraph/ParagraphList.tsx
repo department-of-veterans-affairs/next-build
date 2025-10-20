@@ -15,7 +15,7 @@ import { Paragraph } from './template'
  * heading or multiple headings in its content, paragraphs after it that accept a heading
  * level will take that into account and use the next appropriate heading level.
  */
-export const ParagraphsWithManagedHeadingLevels = ({
+export const ParagraphList = ({
   paragraphs,
   initialHeadingLevel,
 }: {
