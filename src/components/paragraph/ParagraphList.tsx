@@ -14,6 +14,9 @@ import { Paragraph } from './template'
  * on the content of the paragraphs. For instance, if a WYSIWYG paragraph contains a
  * heading or multiple headings in its content, paragraphs after it that accept a heading
  * level will take that into account and use the next appropriate heading level.
+ *
+ * When a paragraph's heading level is not being affected by a previous paragraph's
+ * heading level, that paragraph's heading level will fall back to `initialHeadingLevel`.
  */
 export const ParagraphList = ({
   paragraphs,
