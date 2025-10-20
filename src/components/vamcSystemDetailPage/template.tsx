@@ -62,9 +62,7 @@ export function VamcSystemDetailPage({
         {/* Featured content */}
         {featuredContent && featuredContent.length > 0 && (
           <div className="feature">
-            {featuredContent.map((content) => (
-              <Paragraph key={content.id} {...content} />
-            ))}
+            <ParagraphList paragraphs={featuredContent} />
           </div>
         )}
 
