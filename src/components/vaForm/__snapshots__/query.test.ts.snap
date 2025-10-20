@@ -184,7 +184,6 @@ exports[`VaForm formatter outputs formatted data with all fields 1`] = `
     },
   ],
   "moderationState": "published",
-  "numPages": 7,
   "published": true,
   "relatedForms": [],
   "revisionDate": "2024-03-28",

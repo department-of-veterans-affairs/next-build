@@ -6,7 +6,6 @@ export function VaForm({
   title,
   formName,
   formNumber,
-  numPages,
   revisionDate,
   issueDate,
   formType,
@@ -18,7 +17,6 @@ export function VaForm({
   usage,
   linkTeasers,
   relatedForms,
-  entityPath,
 }: VaFormProps) {
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('en-US', {
@@ -133,7 +131,7 @@ export function VaForm({
                     <li key={vaForm.id}>
                       <h3>
                         <a
-                          href={`/find-forms/about-form-${vaForm.formNumber.toLowerCase()}`}
+                          href={`/find-forms/about-form-${vaForm.formNumber?.toLowerCase() ?? ''}`}
                         >
                           VA Form {vaForm.formNumber}
                         </a>

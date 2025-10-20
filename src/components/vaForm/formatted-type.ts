@@ -5,7 +5,6 @@ export type VaForm = PublishedEntity & {
   formName: string
   formNumber: string
   formTitle?: string
-  numPages?: number
   revisionDate?: string
   issueDate?: string
   formType?: 'benefit' | 'employment' | 'non-va' | string
