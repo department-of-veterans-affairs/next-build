@@ -65,6 +65,7 @@ import * as VamcOperatingStatusAndAlerts from '../../components/vamcOperatingSta
 import * as VamcSystemPoliciesPage from '../../components/vamcSystemPoliciesPage/query'
 import * as VamcSystemDetailPage from '../../components/vamcSystemDetailPage/query'
 import * as ServiceLocation from '@/components/serviceLocation/query'
+import * as FacilityListing  from '@/components/facilityListing/query';
 import {
   ResourceType,
   ParagraphResourceType,
@@ -93,6 +94,7 @@ export const QUERIES_MAP = {
   [RESOURCE_TYPES.RESOURCES_SUPPORT]: ResourcesSupport,
   [RESOURCE_TYPES.SUPPORT_SERVICES]: SupportServices,
   [RESOURCE_TYPES.VAMC_FACILITY]: HealthCareLocalFacility,
+  [`${RESOURCE_TYPES.VAMC_FACILITY}--teaser` as const]: FacilityListing,
   [RESOURCE_TYPES.VAMC_SYSTEM]: VamcSystem,
   [RESOURCE_TYPES.VAMC_SYSTEM_REGISTER_FOR_CARE]: VamcSystemRegisterForCare,
   [RESOURCE_TYPES.VAMC_SYSTEM_BILLING_INSURANCE]: VamcSystemBillingAndInsurance,

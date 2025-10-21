@@ -64,7 +64,6 @@ export async function fetchAndConcatAllResourceCollectionPages<T>(
     pageSize,
     1
   )
-
   // If more pages, fetch them in parallel.
   // Note: If we used JSON:API `next` links, we'd have to fetch in series.
   const subsequentPageData = await Promise.all(

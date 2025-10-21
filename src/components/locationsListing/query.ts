@@ -48,6 +48,14 @@ type LocationsListingData = {
   lovell?: ExpandedStaticPropsContext['lovell']
   otherVaLocationIds: string[]
 }
+export const listingParams: QueryParams<string> = (officeEntityId: string) => {
+  const myQuery = queries
+    .getParams(`${RESOURCE_TYPES.VAMC_FACILITY}--teaser`)
+    .addFilter('field_region_page.id', officeEntityId)
+    .addSort('title', 'ASC')
+  return myQuery
+}
+
 // Implement the data loader.
 export const data: QueryData<
   LocationsListingDataOpts,
@@ -74,13 +82,9 @@ export const data: QueryData<
   const { data: allFacilities } =
     await fetchAndConcatAllResourceCollectionPages<NodeHealthCareLocalFacility>(
       RESOURCE_TYPES.VAMC_FACILITY,
-      queries
-        .getParams(RESOURCE_TYPES.VAMC_FACILITY)
-        .addFilter('field_region_page.id', entity.field_office.id)
-        .addSort('title', 'ASC'),
+      listingParams(entity.field_office.id),
       PAGE_SIZES[RESOURCE_TYPES.VAMC_FACILITY]
     )
-
   // Categorize facilities based on content build template
   // Matches GraphQL categorization: main (field_main_location=true),
   // mobile (field_mobile=true), other (neither main nor mobile)
@@ -90,6 +94,7 @@ export const data: QueryData<
     (f) => !f.field_main_location && !f.field_mobile
   )
   const otherVaLocationIds = entity.field_office.field_other_va_locations
+
   return {
     entity,
     menu,
@@ -123,7 +128,20 @@ export const formatter: QueryFormatter<
   const formatFacility = (
     facility: NodeHealthCareLocalFacility,
     includeHealthConnect = true
-  ) => ({
+  ) => {
+    console.log({
+    title: facility.title,
+    path: facility.path.alias,
+    operatingStatusFacility: facility.field_operating_status_facility,
+    address: facility.field_address,
+    mainPhoneString: facility.field_phone_number,
+    mentalHealthPhoneNumber: formatPhone(facility.field_telephone),
+    vaHealthConnectPhoneNumber: includeHealthConnect
+      ? (entity.field_office.field_va_health_connect_phone ?? null)
+      : null,
+    //image: formatImage(facility.field_media),
+  })
+    return {
     title: facility.title,
     path: facility.path.alias,
     operatingStatusFacility: facility.field_operating_status_facility,
@@ -134,7 +152,7 @@ export const formatter: QueryFormatter<
       ? (entity.field_office.field_va_health_connect_phone ?? null)
       : null,
     image: formatImage(facility.field_media),
-  })
+  }}
 
   const baseResult = {
     ...entityBaseFields(entity),
