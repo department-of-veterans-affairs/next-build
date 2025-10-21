@@ -6,7 +6,7 @@ import { NodeCampaignLandingPage } from '@/types/drupal/node'
 import { queries } from '@/lib/drupal/queries'
 import mockData from './mock.json'
 
-const campaignLandingPageMock: NodeCampaignLandingPage = mockData
+const campaignLandingPageMock = mockData as unknown as NodeCampaignLandingPage
 
 describe('DrupalJsonApiParams configuration', () => {
   test('params function sets the correct include fields', () => {
