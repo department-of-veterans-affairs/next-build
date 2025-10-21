@@ -2230,9 +2230,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@modelcontextprotocol/sdk@npm:^1.17.5":
-  version: 1.17.5
-  resolution: "@modelcontextprotocol/sdk@npm:1.17.5"
+"@modelcontextprotocol/sdk@npm:^1.20.1":
+  version: 1.20.1
+  resolution: "@modelcontextprotocol/sdk@npm:1.20.1"
   dependencies:
     ajv: ^6.12.6
     content-type: ^1.0.5
@@ -2246,7 +2246,7 @@ __metadata:
     raw-body: ^3.0.0
     zod: ^3.23.8
     zod-to-json-schema: ^3.24.1
-  checksum: 94ebd8f5464e9fadc20a76efe79eaeb07b1c1ea6ead01e05dffa475723c001c67e1cf02169b2f0d9c1cd7d1fa75c0b69304a287175901e2e8398e8afd0cf12d2
+  checksum: cde51e0100f2d08f886505e8e24d952ae17adcfd1a3e057731a7322adb4d5ce7ef2da21360558a181ec0885d3f8146924734be865a5fcfad1ba0db29557aad6d
   languageName: node
   linkType: hard
 
@@ -16524,7 +16524,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "template-migration-mcp-server@workspace:packages/template-migration-mcp-server"
   dependencies:
-    "@modelcontextprotocol/sdk": ^1.17.5
+    "@modelcontextprotocol/sdk": ^1.20.1
     zod: ^3.23.8
   languageName: unknown
   linkType: soft
