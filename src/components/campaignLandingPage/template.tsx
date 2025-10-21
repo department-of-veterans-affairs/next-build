@@ -12,34 +12,32 @@ import { WhyThisMatters } from './WhyThisMatters'
 
 import { CampaignLandingPage as FormattedCampaignLandingPage } from './formatted-type'
 
-export type CampaignLandingPageProps = {
-  title: string
-  hero: {
-    cta: {
-      primary: Link
-      secondary: Link
-    }
-    blurb: string
-    image: {
-      url: string
-    }
-  }
+export interface CampaignLandingPageProps extends FormattedCampaignLandingPage {
+  // TODO: remove this once all the components are done. Used for axe testing which will fail on
+  // unfinished, scaffolded sections
+  onlyRenderFinishedComponents?: boolean
 }
 
 export function CampaignLandingPage(props: CampaignLandingPageProps) {
   return (
     <>
       <HeroBanner {...props} />
-      <WhyThisMatters {...props} />
-      <WhatYouCanDo />
-      <VideoPanel />
-      <SpotlightPanel />
-      <StoriesPanel />
-      <ResourcesPanel />
-      <EventsPanel />
-      <FaqPanel />
-      <ConnectWithUs />
-      <BenefitCategories />
+
+      {/* TODO: In-progress components: */}
+      {props.onlyRenderFinishedComponents !== true && (
+        <>
+          <WhyThisMatters {...props} />
+          <WhatYouCanDo />
+          <VideoPanel />
+          <SpotlightPanel />
+          <StoriesPanel />
+          <ResourcesPanel />
+          <EventsPanel />
+          <FaqPanel />
+          <ConnectWithUs />
+          <BenefitCategories />
+        </>
+      )}
     </>
   )
 }
