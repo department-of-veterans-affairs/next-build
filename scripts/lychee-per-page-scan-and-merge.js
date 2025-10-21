@@ -516,7 +516,7 @@ async function runLycheeBatch(allUrlsToScan) {
           (String(statusCode || '').length &&
             !String(statusCode).startsWith('2')) ||
           (!statusCode && statusText && !statusText.match(/^OK|^2/))
-        if (isBroken && String(statusCode).match(/^\d+$/)) {
+        if (isBroken) {
           broken.push({
             url: linkUrl,
             status_text: statusText || '',

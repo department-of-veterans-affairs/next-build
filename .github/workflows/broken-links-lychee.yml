@@ -55,7 +55,13 @@ jobs:
       - name: Run lychee broken link check
         run: |
           # Run the lychee per-page scanner; outputs lychee-pages/ and combined json/csv in repo root.
-          NODE_EXTRA_CA_CERTS=certs/VA-mozilla-combined.pem node scripts/lychee-per-page-scan-and-merge.js --lychee-chunk-size 100 --batch-concurrency 50 --lychee-retries 5
+          NODE_EXTRA_CA_CERTS=certs/VA-mozilla-combined.pem \
+          node scripts/lychee-per-page-scan-and-merge.js \
+          --lychee-chunk-size 100 \
+          --batch-concurrency 4  \
+          --lychee-max-concurrency 8 \
+          --lychee-timeout 30 \
+          --lychee-retries 5
 
       - name: Prepare reports
         run: |
