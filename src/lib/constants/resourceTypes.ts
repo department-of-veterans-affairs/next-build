@@ -1,4 +1,5 @@
 export const RESOURCE_TYPES = {
+  BENEFITS_DETAIL_PAGE: 'node--page',
   BENEFITS_HUB: 'node--landing_page',
   EVENT_LISTING: 'node--event_listing',
   EVENT: 'node--event',
