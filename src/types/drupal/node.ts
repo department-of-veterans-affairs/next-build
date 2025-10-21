@@ -51,6 +51,7 @@ import {
   ParagraphListOfLinkTeasers,
   ParagraphSituationUpdate,
   ParagraphQA,
+  ParagraphTypes,
 } from './paragraph'
 import {
   TaxonomyTermLcCategories,
@@ -236,7 +237,7 @@ export interface NodeVamcSystemDetailPage extends DrupalNode {
   field_intro_text: string
   field_table_of_contents_boolean: boolean
   field_alert: BlockAlert[]
-  field_content_block: FieldContentBlock
+  field_content_block: ParagraphTypes[]
   field_featured_content: Array<ParagraphQA | ParagraphWysiwyg>
   field_related_links: ParagraphListOfLinkTeasers
   field_office: Pick<
