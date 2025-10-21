@@ -1,10 +1,7 @@
-import { placeholders } from './placeholders.temp'
+import Image from 'next/image'
+import type { CampaignLandingPageProps } from './template'
 
-type HeroBannerProps = {
-  title: string
-}
-
-export const HeroBanner = ({ title }: HeroBannerProps) => {
+export const HeroBanner = ({ title, hero }: CampaignLandingPageProps) => {
   return (
     <div className="va-u-background--gradiant-blue">
       <div className="vads-l-grid-container vads-u-padding-x--4 desktop-lg:vads-u-padding-x--0">
@@ -13,29 +10,27 @@ export const HeroBanner = ({ title }: HeroBannerProps) => {
             <div className="vads-l-col--12 small-desktop-screen:vads-l-col--6 vads-u-padding-top--4 vads-u-padding-bottom--6 desktop:vads-u-padding-right--4">
               <h1 className="vads-u-color--white">{title}</h1>
               <hr className="va-c-blue-line--large vads-u-border-color--primary-alt vads-u-border--2px vads-u-margin-y--2" />
-              <p className="va-introtext vads-u-color--white">
-                {placeholders.fieldHeroBlurb}
-              </p>
+              <p className="va-introtext vads-u-color--white">{hero.blurb}</p>
 
-              {placeholders.fieldPrimaryCallToAction && (
+              {hero.cta.primary && (
                 <va-link-action
                   className="vads-u-margin-top--2"
-                  href={
-                    placeholders.fieldPrimaryCallToAction.entity.fieldButtonLink
-                      .url.path
-                  }
+                  href={hero.cta.primary.href}
                   type="reverse"
-                  text={
-                    placeholders.fieldPrimaryCallToAction.entity
-                      .fieldButtonLabel
-                  }
+                  text={hero.cta.primary.label}
                 />
               )}
             </div>
             <div className="vads-u-display--none desktop:vads-u-display--block">
-              <img
+              {/* Empty alt expected per requirements
+               * https://github.com/department-of-veterans-affairs/va.gov-cms/issues/22439
+               */}
+              <Image
                 alt=""
-                src={placeholders.fieldHeroImage.entity.image.derivative.url}
+                src={hero.image.url}
+                width={500}
+                height={500}
+                style={{ objectFit: 'cover', aspectRatio: '1/1' }}
               />
             </div>
           </div>

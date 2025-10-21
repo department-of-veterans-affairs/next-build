@@ -10,15 +10,27 @@ import { VideoPanel } from './VideoPanel'
 import { WhatYouCanDo } from './WhatYouCanDo'
 import { WhyThisMatters } from './WhyThisMatters'
 
+import { CampaignLandingPage as FormattedCampaignLandingPage } from './formatted-type'
+
 export type CampaignLandingPageProps = {
   title: string
+  hero: {
+    cta: {
+      primary: Link
+      secondary: Link
+    }
+    blurb: string
+    image: {
+      url: string
+    }
+  }
 }
 
-export function CampaignLandingPage({ title }: CampaignLandingPageProps) {
+export function CampaignLandingPage(props: CampaignLandingPageProps) {
   return (
     <>
-      <HeroBanner title={title} />
-      <WhyThisMatters title={title} />
+      <HeroBanner {...props} />
+      <WhyThisMatters {...props} />
       <WhatYouCanDo />
       <VideoPanel />
       <SpotlightPanel />
