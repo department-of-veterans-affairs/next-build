@@ -1,7 +1,11 @@
-import { QueryFormatter } from 'next-drupal-query'
+import { QueryFormatter, QueryParams } from 'next-drupal-query'
 import { ParagraphListOfLinkTeasers } from '@/types/drupal/paragraph'
 import { ListOfLinkTeasers } from '@/components/listOfLinkTeasers/formatted-type'
 import { formatter as formatLinkTeaser } from '@/components/linkTeaser/query'
+import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
+
+export const params: QueryParams<null> = () =>
+  new DrupalJsonApiParams().addInclude(['field_va_paragraphs'])
 
 export const formatter: QueryFormatter<
   ParagraphListOfLinkTeasers,
