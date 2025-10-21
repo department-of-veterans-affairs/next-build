@@ -3,7 +3,7 @@ import type { CampaignLandingPageProps } from './template'
 
 export const HeroBanner = ({ title, hero }: CampaignLandingPageProps) => {
   return (
-    <div className="va-u-background--gradiant-blue">
+    <div className="va-u-background--gradiant-blue" data-testid="hero-banner">
       <div className="vads-l-grid-container vads-u-padding-x--4 desktop-lg:vads-u-padding-x--0">
         <div className="vads-l-col--12 small-screen:vads-l-col--10 medium-screen:vads-l-col--8 small-desktop-screen:vads-l-col--12">
           <div className="vads-u-display--flex small-desktop-screen:vads-l-row">
@@ -14,6 +14,7 @@ export const HeroBanner = ({ title, hero }: CampaignLandingPageProps) => {
 
               {hero.cta.primary && (
                 <va-link-action
+                  data-testid="primary-cta"
                   className="vads-u-margin-top--2"
                   href={hero.cta.primary.href}
                   type="reverse"
@@ -27,6 +28,7 @@ export const HeroBanner = ({ title, hero }: CampaignLandingPageProps) => {
                */}
               <Image
                 alt=""
+                data-testid="hero-image"
                 src={hero.image.url}
                 width={500}
                 height={500}

@@ -2,20 +2,22 @@
 
 exports[`CampaignLandingPage formatData outputs formatted data 1`] = `
 {
-  "breadcrumbs": [
-    {
-      "options": [],
-      "title": "Home",
-      "uri": "https://va-gov-cms.ddev.site/",
-    },
-    {
-      "options": [],
-      "title": "PACT Act and Survivors",
-      "uri": "https://va-gov-cms.ddev.site/initiatives/pact-act-and-survivors",
-    },
-  ],
+  "breadcrumbs": null,
   "entityId": 48974,
   "entityPath": "/initiatives/pact-act-and-survivors",
+  "hero": {
+    "blurb": "This page will help answer your questions about the PACT Act and what it means for survivors.",
+    "cta": {
+      "primary": {
+        "href": "https://www.va.gov/disability/file-disability-claim-form-21-526ez/",
+        "label": "File a disability claim online",
+      },
+      "secondary": null,
+    },
+    "image": {
+      "url": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/2021-03/Listening-Session-Website-Graphic-730x370.jpg",
+    },
+  },
   "id": "7f375d16-00c5-4aed-a1ff-c01e4c4254c3",
   "lastUpdated": "2022-09-01T23:13:15+00:00",
   "metatags": [
