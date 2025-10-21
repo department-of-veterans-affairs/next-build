@@ -108,6 +108,16 @@ export async function getMenu(name: string, params?: QueryParams<null>) {
   return menu
 }
 
+// Fetch drupal resource.
+export async function getResourceByPath(path: string, params?: QueryParams<null>) {
+
+  const resource = await drupalClient.getResourceByPath(path, {
+    params: params().getQueryObject(),
+  })
+
+  return resource
+}
+
 // Consistent handler to fetch a node entity from a normal route or a preview route.
 export async function fetchSingleEntityOrPreview(opts, type, params) {
   const entity = opts?.context?.preview

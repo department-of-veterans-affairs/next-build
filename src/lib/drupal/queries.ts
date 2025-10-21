@@ -21,6 +21,7 @@ import * as ExpandableText from '@/components/expandableText/query'
 import * as FeaturedContent from '@/components/featuredContent/query'
 import * as Footer from '@/components/footer/query'
 import * as Header from '@/components/header/query'
+import * as FrontPageHero from '@/components/frontPage/query'
 import * as HealthCareLocalFacility from '../../components/vamcFacility/query'
 import * as LinkTeaser from '@/components/linkTeaser/query'
 import * as ListOfLinkTeasers from '@/components/listOfLinkTeasers/query'
@@ -162,6 +163,7 @@ export const QUERIES_MAP = {
   'header-data': Header,
   'footer-data': Footer,
   'benefits-hub-links': BenefitsHubLinks,
+  'front-page-hero': FrontPageHero,
 
   // Static Path Generation
   'static-path-resources': StaticPathResources,
