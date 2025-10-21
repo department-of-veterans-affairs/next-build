@@ -25,6 +25,11 @@ export default defineConfig([
     '.swc/*',
     '.next/*',
     'out/*',
+    'next-env.d.ts',
+    'packages/*',
+    'playwright.config.ts',
+    'playwright/*',
+    'scripts/logNextBuildNetworkFailures.cjs',
   ]),
   {
     extends: compat.extends(
