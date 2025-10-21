@@ -49,12 +49,8 @@ export function BenefitsDetailPage({
 
               {/* Related links */}
               {relatedLinks && (
-                <div className="row">
-                  <div className="usa-content">
-                    <aside className="va-nav-linkslist va-nav-linkslist--related">
-                      <ListOfLinkTeasers {...relatedLinks} />
-                    </aside>
-                  </div>
+                <div className="va-nav-linkslist va-nav-linkslist--related">
+                  <ListOfLinkTeasers {...relatedLinks} />
                 </div>
               )}
 
