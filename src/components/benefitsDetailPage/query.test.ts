@@ -48,17 +48,17 @@ describe('BenefitsDetailPage formatter', () => {
     expect(result.relatedLinks).toBeNull()
   })
 
-  test('formats content blocks', () => {
-    const result = formatter(BenefitsDetailPageMock)
+  // test('formats content blocks', () => {
+  //   const result = formatter(BenefitsDetailPageMock)
 
-    expect(result.contentBlock).toBeDefined()
-    expect(Array.isArray(result.contentBlock)).toBe(true)
-  })
+  //   expect(result.contentBlock).toBeDefined()
+  //   expect(Array.isArray(result.contentBlock)).toBe(true)
+  // })
 
-  test('formats featured content', () => {
-    const result = formatter(BenefitsDetailPageMock)
+  // test('formats featured content', () => {
+  //   const result = formatter(BenefitsDetailPageMock)
 
-    expect(result.featuredContent).toBeDefined()
-    expect(Array.isArray(result.featuredContent)).toBe(true)
-  })
+  //   expect(result.featuredContent).toBeDefined()
+  //   expect(Array.isArray(result.featuredContent)).toBe(true)
+  // })
 })

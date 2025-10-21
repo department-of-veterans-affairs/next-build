@@ -650,11 +650,11 @@ export interface NodeVamcOperatingStatusAndAlerts extends DrupalNode {
 export interface NodeBenefitsDetailPage extends DrupalNode {
   breadcrumbs: BreadcrumbItem[]
   field_administration: FieldAdministration
-  field_alert?: BlockAlert
-  field_content_block: FieldContentBlock
-  field_description: string
-  field_featured_content?: Array<ParagraphWysiwyg | ParagraphQA>
-  field_intro_text_limited_html: FieldFormattedText
-  field_related_links?: ParagraphListOfLinkTeasers
+  field_alert: BlockAlert | null
+  field_content_block: FieldContentBlock | null
+  field_description: string | null
+  field_featured_content: Array<ParagraphWysiwyg | ParagraphQA> | null
+  field_intro_text_limited_html: FieldFormattedText | null
+  field_related_links: ParagraphListOfLinkTeasers | null
   field_table_of_contents_boolean?: boolean
 }

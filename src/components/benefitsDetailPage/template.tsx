@@ -1,6 +1,6 @@
 import React from 'react'
 import { BenefitsDetailPage as FormattedBenefitsDetailPage } from './formatted-type'
-import { Paragraph } from '@/components/paragraph/template'
+// import { Paragraph } from '@/components/paragraph/template'
 import { ListOfLinkTeasers } from '@/components/listOfLinkTeasers/template'
 import { AlertBlock } from '@/components/alertBlock/template'
 
@@ -9,8 +9,8 @@ export function BenefitsDetailPage({
   introText,
   alert,
   showTableOfContents,
-  featuredContent,
-  contentBlock,
+  // featuredContent,
+  // contentBlock,
   relatedLinks,
 }: FormattedBenefitsDetailPage) {
   return (
@@ -40,19 +40,10 @@ export function BenefitsDetailPage({
               {showTableOfContents && <va-on-this-page></va-on-this-page>}
 
               {/* Featured content */}
-              {featuredContent && featuredContent.length > 0 && (
-                <div className="feature">
-                  {featuredContent.map((block) => (
-                    <Paragraph key={block.id} {...block} />
-                  ))}
-                </div>
-              )}
+              <div>TODO: Featured content component</div>
 
               {/* Main content blocks */}
-              {contentBlock &&
-                contentBlock.map((block) => (
-                  <Paragraph key={block.id} {...block} />
-                ))}
+              <div>TODO: Main content blocks component</div>
 
               {/* Related links */}
               {relatedLinks && (

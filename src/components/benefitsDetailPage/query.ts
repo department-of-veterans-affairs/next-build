@@ -4,7 +4,7 @@ import { NodeBenefitsDetailPage } from '@/types/drupal/node'
 import { BenefitsDetailPage } from './formatted-type'
 import {
   RESOURCE_TYPES,
-  PARAGRAPH_RESOURCE_TYPES,
+  // PARAGRAPH_RESOURCE_TYPES,
 } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
@@ -15,18 +15,18 @@ import { formatter as formatListOfLinkTeasers } from '@/components/listOfLinkTea
 import { formatter as formatAdministration } from '@/components/administration/query'
 import { formatter as formatAlertBlock } from '@/components/alertBlock/query'
 import { formatParagraph } from '@/lib/drupal/paragraphs'
-import { getNestedIncludes } from '@/lib/utils/queries'
+// import { getNestedIncludes } from '@/lib/utils/queries'
+import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 
 // Define the query params for fetching node--page (benefits detail page).
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude([
     'field_administration',
     'field_alert',
-    ...getNestedIncludes('field_content_block', PARAGRAPH_RESOURCE_TYPES.QA),
-    ...getNestedIncludes('field_featured_content', PARAGRAPH_RESOURCE_TYPES.QA),
-    'field_intro_text_limited_html',
     'field_related_links',
     'field_related_links.field_va_paragraphs',
+    // ...getNestedIncludes('field_content_block', PARAGRAPH_RESOURCE_TYPES.QA),
+    // ...getNestedIncludes('field_featured_content', PARAGRAPH_RESOURCE_TYPES.QA),
   ])
 }
 
@@ -57,18 +57,18 @@ export const formatter: QueryFormatter<
   return {
     ...entityBaseFields(entity),
     title: entity.title,
-    description: entity.field_description,
-    introText: entity.field_intro_text_limited_html?.processed,
-    showTableOfContents: entity.field_table_of_contents_boolean,
+    description: entity.field_description || null,
+    introText: getHtmlFromField(entity.field_intro_text_limited_html) || null,
+    showTableOfContents: entity.field_table_of_contents_boolean ?? false,
     alert: entity.field_alert ? formatAlertBlock(entity.field_alert) : null,
-    featuredContent:
-      entity.field_featured_content?.map((paragraph) =>
-        formatParagraph(paragraph)
-      ) || null,
-    contentBlock:
-      entity.field_content_block?.map((paragraph) =>
-        formatParagraph(paragraph)
-      ) || null,
+    // featuredContent:
+    //   entity.field_featured_content?.map((paragraph) =>
+    //     formatParagraph(paragraph)
+    //   ) || null,
+    // contentBlock:
+    //   entity.field_content_block?.map((paragraph) =>
+    //     formatParagraph(paragraph)
+    //   ) || null,
     relatedLinks: entity.field_related_links
       ? formatListOfLinkTeasers(entity.field_related_links)
       : null,

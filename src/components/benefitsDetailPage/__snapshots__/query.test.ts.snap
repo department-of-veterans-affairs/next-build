@@ -19,23 +19,9 @@ exports[`BenefitsDetailPage formatter outputs formatted data with correct struct
       "uri": "http://va-gov-cms.ddev.site/check-your-va-claim-or-appeal-status",
     },
   ],
-  "contentBlock": [
-    {
-      "html": "<h2 id="how-to-check-your-va-claim-or-appeal-status-online">How to check your VA claim or appeal status online</h2><p>Sign in to VA.gov to check the status of your VA claim or appeal.</p>",
-      "id": "b871d67e-44a1-45d7-a3c9-948795c0b10d",
-      "type": "paragraph--wysiwyg",
-    },
-  ],
   "description": "Find out how to check the status of a VA claim or appeal online.",
   "entityId": 298,
   "entityPath": "/check-your-va-claim-or-appeal-status",
-  "featuredContent": [
-    {
-      "html": "<h3>What you need to know</h3><p>You can check the status of your disability claim online.</p>",
-      "id": "07b2ad1b-9b94-464a-8961-3ca73e84c8aa",
-      "type": "paragraph--wysiwyg",
-    },
-  ],
   "id": "27aaaef6-0c67-4639-b7d7-84cb3c124cff",
   "introText": "<p>Find out how to check the status of a VA claim or appeal online.</p>
 ",
