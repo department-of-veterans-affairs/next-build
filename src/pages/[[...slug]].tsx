@@ -44,6 +44,7 @@ const isExport = process.env.BUILD_OPTION === 'static'
 // Types
 import { Event as FormattedEvent } from '../components/event/formatted-type'
 import { EventListing as FormattedEventListing } from '../components/eventListing/formatted-type'
+import { BenefitsDetailPage as FormattedBenefitsDetailPage } from '../components/benefitsDetailPage/formatted-type'
 import { LocationsListing as FormattedLocationsListing } from '../components/locationsListing/formatted-type'
 import { NewsStory as FormattedNewsStory } from '../components/newsStory/formatted-type'
 import { PressRelease as FormattedPressRelease } from '../components/pressRelease/formatted-type'
@@ -69,6 +70,7 @@ import { VamcSystemDetailPage as FormattedVamcSystemDetailPage } from '../compon
 
 // Templates
 import HTMLComment from '@/components/htmlComment/template'
+import { BenefitsDetailPage } from '../components/benefitsDetailPage/template'
 import { Event } from '../components/event/template'
 import { EventListing } from '../components/eventListing/template'
 import { LocationsListing } from '../components/locationsListing/template'
@@ -188,6 +190,11 @@ export default function ResourcePage({
 
       <main>
         <div id="content" className="interior">
+          {resource.type === RESOURCE_TYPES.BENEFITS_DETAIL_PAGE && (
+            <BenefitsDetailPage
+              {...(resource as FormattedBenefitsDetailPage)}
+            />
+          )}
           {resource.type === RESOURCE_TYPES.EVENT && (
             <Event {...(resource as FormattedEvent)} />
           )}

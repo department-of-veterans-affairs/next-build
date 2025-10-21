@@ -41,6 +41,7 @@ export const RESOURCE_TYPES = {
 // nodes that are entity references but that
 // do not have individual pages.
 export const PAGE_RESOURCE_TYPES = [
+  RESOURCE_TYPES.BENEFITS_DETAIL_PAGE,
   RESOURCE_TYPES.BENEFITS_HUB,
   RESOURCE_TYPES.EVENT,
   RESOURCE_TYPES.EVENT_LISTING,

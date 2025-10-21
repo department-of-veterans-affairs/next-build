@@ -1,4 +1,71 @@
 {
-  "note": "Replace this data! The file should contain an example response for the desired query before formatting",
-  "example": "See src/mocks/newsStory.mock.json for an example response from va.gov-cms's JSON:API"
+  "type": "node--page",
+  "id": "27aaaef6-0c67-4639-b7d7-84cb3c124cff",
+  "drupal_internal__nid": 298,
+  "drupal_internal__vid": 304204,
+  "status": true,
+  "title": "Check Your VA Claim or Appeal Status",
+  "created": "2019-04-24T19:05:07+00:00",
+  "changed": "2020-04-30T20:11:16+00:00",
+  "moderation_state": "published",
+  "path": {
+    "alias": "/check-your-va-claim-or-appeal-status",
+    "pid": 479,
+    "langcode": "en"
+  },
+  "breadcrumbs": [
+    {
+      "uri": "http://va-gov-cms.ddev.site/",
+      "title": "Home",
+      "options": []
+    },
+    {
+      "uri": "http://va-gov-cms.ddev.site/check-your-va-claim-or-appeal-status",
+      "title": "Check Your VA Claim or Appeal Status",
+      "options": []
+    }
+  ],
+  "field_description": "Find out how to check the status of a VA claim or appeal online.",
+  "field_intro_text_limited_html": {
+    "value": "Find out how to check the status of a VA claim or appeal online.",
+    "format": "rich_text_limited",
+    "processed": "<p>Find out how to check the status of a VA claim or appeal online.</p>\n"
+  },
+  "field_table_of_contents_boolean": true,
+  "field_administration": {
+    "type": "taxonomy_term--administration",
+    "id": "2c331a6d-b525-4f0c-8bea-4ecde41c7ef0",
+    "drupal_internal__tid": 1,
+    "name": "Veterans Benefits Administration",
+    "description": null,
+    "path": {
+      "alias": "/vba"
+    }
+  },
+  "field_alert": null,
+  "field_content_block": [
+    {
+      "type": "paragraph--wysiwyg",
+      "id": "b871d67e-44a1-45d7-a3c9-948795c0b10d",
+      "drupal_internal__id": 3885,
+      "field_wysiwyg": {
+        "value": "<h2>How to check your VA claim or appeal status online</h2><p>Sign in to VA.gov to check the status of your VA claim or appeal.</p>",
+        "format": "rich_text",
+        "processed": "<h2>How to check your VA claim or appeal status online</h2><p>Sign in to VA.gov to check the status of your VA claim or appeal.</p>"
+      }
+    }
+  ],
+  "field_featured_content": [
+    {
+      "type": "paragraph--wysiwyg",
+      "id": "07b2ad1b-9b94-464a-8961-3ca73e84c8aa",
+      "drupal_internal__id": 3886,
+      "field_wysiwyg": {
+        "value": "<h3>What you need to know</h3><p>You can check the status of your disability claim online.</p>",
+        "format": "rich_text",
+        "processed": "<h3>What you need to know</h3><p>You can check the status of your disability claim online.</p>"
+      }
+    }
+  ],
+  "field_related_links": null
 }

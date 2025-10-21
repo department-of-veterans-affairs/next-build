@@ -1,24 +1,33 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { drupalClient } from '@/lib/drupal/drupalClient'
 import { NodeBenefitsDetailPage } from '@/types/drupal/node'
 import { BenefitsDetailPage } from './formatted-type'
-import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
+import {
+  RESOURCE_TYPES,
+  PARAGRAPH_RESOURCE_TYPES,
+} from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
   entityBaseFields,
   fetchSingleEntityOrPreview,
 } from '@/lib/drupal/query'
+import { formatter as formatListOfLinkTeasers } from '@/components/listOfLinkTeasers/query'
+import { formatter as formatAdministration } from '@/components/administration/query'
+import { formatter as formatAlertBlock } from '@/components/alertBlock/query'
+import { formatParagraph } from '@/lib/drupal/paragraphs'
+import { getNestedIncludes } from '@/lib/utils/queries'
 
-// Define the query params for fetching node--benefits_detail_page.
+// Define the query params for fetching node--page (benefits detail page).
 export const params: QueryParams<null> = () => {
-  return new DrupalJsonApiParams()
-    // uncomment to add referenced entity data to the response
-    // .addInclude([
-    //  'field_media',
-    //  'field_media.image',
-    //  'field_administration',
-    // ])
+  return new DrupalJsonApiParams().addInclude([
+    'field_administration',
+    'field_alert',
+    ...getNestedIncludes('field_content_block', PARAGRAPH_RESOURCE_TYPES.QA),
+    ...getNestedIncludes('field_featured_content', PARAGRAPH_RESOURCE_TYPES.QA),
+    'field_intro_text_limited_html',
+    'field_related_links',
+    'field_related_links.field_va_paragraphs',
+  ])
 }
 
 // Define the option types for the data loader.
@@ -28,10 +37,11 @@ export type BenefitsDetailPageDataOpts = {
 }
 
 // Implement the data loader.
-export const data: QueryData<BenefitsDetailPageDataOpts, NodeBenefitsDetailPage> = async (
-  opts
-): Promise<NodeBenefitsDetailPage> => {
-const entity = (await fetchSingleEntityOrPreview(
+export const data: QueryData<
+  BenefitsDetailPageDataOpts,
+  NodeBenefitsDetailPage
+> = async (opts): Promise<NodeBenefitsDetailPage> => {
+  const entity = (await fetchSingleEntityOrPreview(
     opts,
     RESOURCE_TYPES.BENEFITS_DETAIL_PAGE,
     params
@@ -40,10 +50,30 @@ const entity = (await fetchSingleEntityOrPreview(
   return entity
 }
 
-export const formatter: QueryFormatter<NodeBenefitsDetailPage, BenefitsDetailPage> = (
-  entity: NodeBenefitsDetailPage
-) => {
+export const formatter: QueryFormatter<
+  NodeBenefitsDetailPage,
+  BenefitsDetailPage
+> = (entity: NodeBenefitsDetailPage) => {
   return {
-    ...entityBaseFields(entity)
+    ...entityBaseFields(entity),
+    title: entity.title,
+    description: entity.field_description,
+    introText: entity.field_intro_text_limited_html?.processed,
+    showTableOfContents: entity.field_table_of_contents_boolean,
+    alert: entity.field_alert ? formatAlertBlock(entity.field_alert) : null,
+    featuredContent:
+      entity.field_featured_content?.map((paragraph) =>
+        formatParagraph(paragraph)
+      ) || null,
+    contentBlock:
+      entity.field_content_block?.map((paragraph) =>
+        formatParagraph(paragraph)
+      ) || null,
+    relatedLinks: entity.field_related_links
+      ? formatListOfLinkTeasers(entity.field_related_links)
+      : null,
+    administration: entity.field_administration
+      ? formatAdministration(entity.field_administration)
+      : null,
   }
 }

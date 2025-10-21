@@ -1,11 +1,73 @@
-type BenefitsDetailPageProps = {
-  title: string
-}
+import React from 'react'
+import { BenefitsDetailPage as FormattedBenefitsDetailPage } from './formatted-type'
+import { Paragraph } from '@/components/paragraph/template'
+import { ListOfLinkTeasers } from '@/components/listOfLinkTeasers/template'
+import { AlertBlock } from '@/components/alertBlock/template'
 
-export function BenefitsDetailPage({ title }: BenefitsDetailPageProps) {
+export function BenefitsDetailPage({
+  title,
+  introText,
+  alert,
+  showTableOfContents,
+  featuredContent,
+  contentBlock,
+  relatedLinks,
+}: FormattedBenefitsDetailPage) {
   return (
-    <div>
-      <p>{title}</p>
+    <div id="content" className="interior" data-template="benefits-detail-page">
+      <main className="va-l-detail-page">
+        <div className="usa-grid usa-grid-full">
+          <div className="usa-width-three-fourths">
+            <article className="usa-content vads-u-padding-bottom--0">
+              {/* i18n language selector widget placeholder */}
+              <div data-widget-type="i18-select"></div>
+
+              {/* Page title */}
+              <h1>{title}</h1>
+
+              {/* Intro text */}
+              {introText && (
+                <div
+                  className="va-introtext"
+                  dangerouslySetInnerHTML={{ __html: introText }}
+                />
+              )}
+
+              {/* Alert */}
+              {alert && <AlertBlock {...alert} />}
+
+              {/* Table of contents */}
+              {showTableOfContents && <va-on-this-page></va-on-this-page>}
+
+              {/* Featured content */}
+              {featuredContent && featuredContent.length > 0 && (
+                <div className="feature">
+                  {featuredContent.map((block) => (
+                    <Paragraph key={block.id} {...block} />
+                  ))}
+                </div>
+              )}
+
+              {/* Main content blocks */}
+              {contentBlock &&
+                contentBlock.map((block) => (
+                  <Paragraph key={block.id} {...block} />
+                ))}
+
+              {/* Related links */}
+              {relatedLinks && (
+                <div className="row">
+                  <div className="usa-content">
+                    <aside className="va-nav-linkslist va-nav-linkslist--related">
+                      <ListOfLinkTeasers {...relatedLinks} />
+                    </aside>
+                  </div>
+                </div>
+              )}
+            </article>
+          </div>
+        </div>
+      </main>
     </div>
   )
 }
