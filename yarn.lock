@@ -12646,8 +12646,8 @@ __metadata:
     "@types/react-dom": 19.1.7
     "@types/react-gtm-module": ^2.0.4
     "@types/uuid": ^9.0.7
-    "@typescript-eslint/parser": ^8.46.1
     "@typescript-eslint/eslint-plugin": ^8.46.1
+    "@typescript-eslint/parser": ^8.46.1
     axe-core: ^4.10.3
     axios: ^1.6.3
     babel-plugin-react-compiler: ^19.1.0-rc.2
