@@ -3,6 +3,7 @@ import { BenefitsDetailPage as FormattedBenefitsDetailPage } from './formatted-t
 // import { Paragraph } from '@/components/paragraph/template'
 import { ListOfLinkTeasers } from '@/components/listOfLinkTeasers/template'
 import { AlertBlock } from '@/components/alertBlock/template'
+import { ContentFooter } from '../contentFooter/template'
 
 export function BenefitsDetailPage({
   title,
@@ -12,6 +13,7 @@ export function BenefitsDetailPage({
   // featuredContent,
   // contentBlock,
   relatedLinks,
+  lastUpdated,
 }: FormattedBenefitsDetailPage) {
   return (
     <div id="content" className="interior" data-template="benefits-detail-page">
@@ -55,6 +57,9 @@ export function BenefitsDetailPage({
                   </div>
                 </div>
               )}
+
+              <va-back-to-top></va-back-to-top>
+              <ContentFooter lastUpdated={lastUpdated} />
             </article>
           </div>
         </div>
