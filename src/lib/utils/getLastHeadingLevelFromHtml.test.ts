@@ -59,25 +59,25 @@ describe('getLastHeadingLevelFromHtml', () => {
   })
 
   describe('headings with attributes', () => {
-    test('returns undeinfed for headings with class attributes (current limitation)', () => {
+    test('handles headings with class attributes', () => {
       const html = '<h2 class="custom-class">Heading with class</h2>'
-      expect(getLastHeadingLevelFromHtml(html)).toBeUndefined()
+      expect(getLastHeadingLevelFromHtml(html)).toBe('h2')
     })
 
-    test('returns undeinfed for headings with id attributes (current limitation)', () => {
+    test('handles headings with id attributes', () => {
       const html = '<h3 id="my-heading">Heading with id</h3>'
-      expect(getLastHeadingLevelFromHtml(html)).toBeUndefined()
+      expect(getLastHeadingLevelFromHtml(html)).toBe('h3')
     })
 
-    test('returns undeinfed for headings with multiple attributes (current limitation)', () => {
+    test('handles headings with multiple attributes', () => {
       const html =
         '<h4 class="test" id="heading" data-value="123">Complex heading</h4>'
-      expect(getLastHeadingLevelFromHtml(html)).toBeUndefined()
+      expect(getLastHeadingLevelFromHtml(html)).toBe('h4')
     })
 
-    test('returns undeinfed for headings with self-closing attributes (current limitation)', () => {
+    test('handles headings with self-closing attributes', () => {
       const html = '<h5 class="test" disabled>Self-closing heading</h5>'
-      expect(getLastHeadingLevelFromHtml(html)).toBeUndefined()
+      expect(getLastHeadingLevelFromHtml(html)).toBe('h5')
     })
 
     test('handles simple headings without attributes', () => {
@@ -88,6 +88,12 @@ describe('getLastHeadingLevelFromHtml', () => {
     test('handles mixed simple and complex headings', () => {
       const html =
         '<h1>Simple</h1><h2 class="complex">Complex</h2><h3>Another simple</h3>'
+      expect(getLastHeadingLevelFromHtml(html)).toBe('h3')
+    })
+
+    test('returns last heading when it has attributes', () => {
+      const html =
+        '<h1>Simple</h1><h2>Another simple</h2><h3 class="last" id="final">Last with attrs</h3>'
       expect(getLastHeadingLevelFromHtml(html)).toBe('h3')
     })
   })
