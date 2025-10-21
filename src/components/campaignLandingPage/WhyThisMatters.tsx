@@ -1,4 +1,4 @@
-import { placeholders } from '../placeholders.temp'
+import { placeholders } from './placeholders.temp'
 
 export const WhyThisMatters = ({ title }: { title: string }) => {
   return (

@@ -1,4 +1,4 @@
-import { placeholders } from '../placeholders.temp'
+import { placeholders } from './placeholders.temp'
 
 export const ConnectWithUs = () => {
   // TODO: jsonToObj filter - need helper function to parse JSON
