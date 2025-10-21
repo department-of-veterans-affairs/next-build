@@ -2,13 +2,14 @@
  * @jest-environment node
  */
 
-import { NodeVetCenter } from '@/types/drupal/node'
+import { NodeVetCenterOutstation } from '@/types/drupal/node'
 import { queries } from '@/lib/drupal/queries'
 import { mockResponse } from '../vetCenter/mock'
 import { params } from './query'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 
-const VetCenterMock = mockResponse as NodeVetCenter
+const VetCenterOutstationMock =
+  mockResponse as unknown as NodeVetCenterOutstation
 
 describe('DrupalJsonApiParams configuration', () => {
   it('should include the correct fields', () => {
@@ -23,16 +24,17 @@ describe('DrupalJsonApiParams configuration', () => {
 describe('VetCenterOutstation formatData', () => {
   it('outputs formatted data', () => {
     expect(
-      queries.formatData(RESOURCE_TYPES.VET_CENTER_OUTSTATION, VetCenterMock)
+      queries.formatData(
+        RESOURCE_TYPES.VET_CENTER_OUTSTATION,
+        VetCenterOutstationMock
+      )
     ).toMatchSnapshot()
   })
 
   it('handles ccFeaturedContent not getting fetched', () => {
     expect(
       queries.formatData(RESOURCE_TYPES.VET_CENTER_OUTSTATION, {
-        ...VetCenterMock,
-        // @ts-expect-error Something somewhere along the way apparently adds
-        // this field, but it's not in the type definition.
+        ...VetCenterOutstationMock,
         field_cc_vet_center_featured_con: { fetched: false },
       })
     ).toMatchSnapshot()

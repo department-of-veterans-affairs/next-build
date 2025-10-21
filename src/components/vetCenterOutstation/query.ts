@@ -1,7 +1,7 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { queries } from '@/lib/drupal/queries'
-import { NodeVetCenter } from '@/types/drupal/node'
+import { NodeVetCenterOutstation } from '@/types/drupal/node'
 import { VetCenterOutstation as FormattedVetCenterOutstation } from './formatted-type'
 import {
   PARAGRAPH_RESOURCE_TYPES,
@@ -42,21 +42,22 @@ export type VetCenterDataOpts = {
 }
 
 // Implement the data loader.
-export const data: QueryData<VetCenterDataOpts, NodeVetCenter> = async (
-  opts
-): Promise<NodeVetCenter> => {
+export const data: QueryData<
+  VetCenterDataOpts,
+  NodeVetCenterOutstation
+> = async (opts): Promise<NodeVetCenterOutstation> => {
   const entity = (await fetchSingleEntityOrPreview(
     opts,
-    RESOURCE_TYPES.VET_CENTER,
+    RESOURCE_TYPES.VET_CENTER_OUTSTATION,
     params
-  )) as NodeVetCenter
+  )) as NodeVetCenterOutstation
   return entity
 }
 
 export const formatter: QueryFormatter<
-  NodeVetCenter,
+  NodeVetCenterOutstation,
   FormattedVetCenterOutstation
-> = (entity: NodeVetCenter) => {
+> = (entity: NodeVetCenterOutstation) => {
   // format health services / filter per category
   const healthServicesArray = queries.formatData(
     RESOURCE_TYPES.VET_CENTER_HEALTH_SERVICES,
