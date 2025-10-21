@@ -26,7 +26,7 @@ const customJestConfig: Config = {
     '^axios$': 'axios',
   },
 
-  testEnvironment: 'jest-environment-jsdom',
+  testEnvironment: './jest.environment.js',
   collectCoverageFrom: [
     'src/**/*.{js,jsx,ts,tsx}',
     '!**/__tests__/**.test.{js,jsx,ts,tsx}',
