@@ -91,7 +91,7 @@ export const data: QueryData<VamcSystemDataOpts, VamcSystemData> = async (
         .addInclude(['field_telephone', 'field_media.image'])
         .addFilter('field_region_page.id', entity.id)
         .addFilter('field_main_location', '1'),
-      PAGE_SIZES[RESOURCE_TYPES.VAMC_FACILITY]
+      PAGE_SIZES.MAX
     )
 
   // Fetch featured stories for this VAMC System
