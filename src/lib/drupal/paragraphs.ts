@@ -93,6 +93,24 @@ function isEntityFetchedRoot(root: unknown): root is EntityFetchedRoot {
   )
 }
 
+const toBoolean = (value: string | boolean) => {
+  if (typeof value === 'string') {
+    return value === '1'
+  }
+  return value
+}
+
+const toNumber = (value: string | number) => {
+  if (typeof value === 'string') {
+    return parseInt(value, 10)
+  }
+  return value
+}
+
+/**
+ * These are fields that we expect to be actual arrays, so we don't want to convert them
+ * to single values.
+ */
 const EXPECTED_ARRAY_FIELDS = [
   'field_links',
   'field_audience_beneficiares',
@@ -100,7 +118,30 @@ const EXPECTED_ARRAY_FIELDS = [
   'field_topics',
 ]
 
-const POSSIBLY_EMPTY_FIELDS = ['field_alert_block_reference']
+/**
+ * Automatically convert `"0"` and `"1"` to `false` and `true`.
+ */
+const EXPECTED_BOOLEAN_FIELDS = [
+  'field_accordion_display',
+  'field_cta_widget',
+  'field_button_format',
+]
+
+/**
+ * Automatically parse the strings in these fields to numbers.
+ */
+const EXPECTED_NUMBER_FIELDS = ['field_timeout']
+
+/**
+ * These are fields that could be null, so if we are converting from an array to a single
+ * value and get an empty array, we want to convert it back to null.
+ */
+const POSSIBLY_EMPTY_FIELDS = [
+  'field_alert_block_reference',
+  'field_default_link',
+  'field_loading_message',
+  'field_section_intro',
+]
 
 /**
  * Recursively converts a paragraph that was fetched using [entity_field_fetch](https://www.drupal.org/project/entity_field_fetch)
@@ -143,7 +184,14 @@ export function normalizeEntityFetchedParagraphs<T extends DrupalParagraph>(
           !('format' in firstItem) &&
           !('processed' in firstItem)
         ) {
-          return [key, firstItem.value]
+          let value = firstItem.value
+          if (EXPECTED_BOOLEAN_FIELDS.includes(key)) {
+            value = toBoolean(value)
+          }
+          if (EXPECTED_NUMBER_FIELDS.includes(key)) {
+            value = toNumber(value)
+          }
+          return [key, value]
         }
         return [key, firstItem]
       }

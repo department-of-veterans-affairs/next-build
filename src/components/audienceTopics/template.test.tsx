@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react'
+import { axe } from '@/test-utils'
 import { AudienceTopics } from './template'
 import { AudienceTopics as FormattedAudienceTopics } from '@/components/audienceTopics/formatted-type'
 import { ParagraphComponent } from '@/components/paragraph/formatted-type'
@@ -22,8 +23,8 @@ describe('AudienceTopics with valid data', () => {
     ],
   }
 
-  test('renders component', () => {
-    render(<AudienceTopics {...audienceTopicProps} />)
+  test('renders component', async () => {
+    const { container } = render(<AudienceTopics {...audienceTopicProps} />)
 
     // Find the Link elements using their text content
     const link1 = screen.getByText('All Veterans')
@@ -37,6 +38,9 @@ describe('AudienceTopics with valid data', () => {
     expect(screen.queryByText(/Tags/)).toBeInTheDocument()
     expect(screen.queryByText(/Payments and debt/)).toBeInTheDocument()
     expect(screen.queryByText(/All Veterans/)).toBeInTheDocument()
+
+    const axeResults = await axe(container)
+    expect(axeResults).toHaveNoViolations()
   })
 })
 
