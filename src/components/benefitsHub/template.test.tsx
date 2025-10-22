@@ -6,7 +6,6 @@ import { BenefitsHub } from './template'
 describe('BenefitsHub with valid data', () => {
   test('renders BenefitsHub component', async () => {
     const { container } = render(
-
       <BenefitsHub
         id="1"
         type=""
