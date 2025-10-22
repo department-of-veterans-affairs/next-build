@@ -15,7 +15,5 @@ export type CollapsiblePanel = PublishedParagraph & {
   type: 'paragraph--collapsible_panel'
   paragraphs: CollapsiblePanelItem[]
   bordered?: boolean
-  startExpanded?: boolean
-  multiSelect?: boolean
   headingLevel?: HeadingLevel
 }

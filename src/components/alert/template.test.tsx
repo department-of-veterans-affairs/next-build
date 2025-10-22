@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react'
+import { axe } from '@/test-utils'
 import { Alert } from './template'
 import { FormattedParagraph } from '@/lib/drupal/queries'
 import { Alert as FormattedAlert } from '@/components/alert/formatted-type'
@@ -31,7 +32,7 @@ const mockAlert: FormattedAlert = {
 }
 
 describe('<Alert> Component', () => {
-  it('renders AlertBlock when blockReference is provided', () => {
+  it('renders AlertBlock when blockReference is provided', async () => {
     const mockAlertWithBlockReference = {
       ...mockAlert,
       blockReference: {
@@ -45,9 +46,12 @@ describe('<Alert> Component', () => {
     const alertBlock = container.querySelector('va-alert')
     expect(alertBlock).toBeInTheDocument()
     expect(screen.getByText('Block Reference Title')).toBeInTheDocument()
+
+    const axeResults = await axe(container)
+    expect(axeResults).toHaveNoViolations()
   })
 
-  it('renders custom alert with paragraphs when blockReference is not provided', () => {
+  it('renders custom alert with paragraphs when blockReference is not provided', async () => {
     const { container } = render(<Alert {...mockAlert} />)
     const customAlert = container.querySelector('va-alert')
     expect(customAlert).toHaveAttribute(
@@ -56,5 +60,8 @@ describe('<Alert> Component', () => {
     )
     expect(screen.getByText('Test Alert Heading')).toBeInTheDocument()
     expect(screen.getByText('test html')).toBeInTheDocument()
+
+    const axeResults = await axe(container)
+    expect(axeResults).toHaveNoViolations()
   })
 })

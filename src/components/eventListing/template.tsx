@@ -72,9 +72,7 @@ export function EventListing({
           />
 
           <h1 id="article-heading">{title}</h1>
-          <div className="va-introtext">
-            {introText && <p id="office-events-description">{introText}</p>}
-          </div>
+          <div className="va-introtext">{introText && <p>{introText}</p>}</div>
         </div>
 
         {/* Events widget coming from vets-website */}

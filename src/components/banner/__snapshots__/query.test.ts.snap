@@ -4,7 +4,8 @@ exports[`Banners return formatted data outputs formatted data for BASIC banner t
 [
   {
     "alertType": "information",
-    "body": "<p>this is a regular degular ol banner</p>",
+    "body": "<p>this is a regular degular ol banner</p>
+",
     "dismiss": true,
     "id": 65137,
     "title": "a banner",
