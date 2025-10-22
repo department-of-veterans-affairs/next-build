@@ -1,27 +1,4 @@
 export const placeholders = {
-  fieldPrimaryCallToAction: {
-    entity: {
-      fieldButtonLink: { url: { path: '#' } },
-      fieldButtonLabel: 'Primary Action',
-    },
-  },
-  // Why this matters section
-  fieldClpWhyThisMatters: 'This is why this matters to you.',
-  fieldSecondaryCallToAction: {
-    entity: {
-      fieldButtonLink: { url: { path: '#' } },
-      fieldButtonLabel: 'Secondary Action',
-    },
-  },
-  fieldClpAudience: [
-    { entity: { name: 'Veterans' } },
-    { entity: { name: 'Service members' } },
-  ],
-
-  // URLs for social sharing
-  hostUrl: 'https://www.va.gov',
-  entityUrl: { path: '/campaign-page' },
-
   // What you can do section
   fieldClpWhatYouCanDoHeader: 'What you can do',
   fieldClpWhatYouCanDoIntro: 'Here are some actions you can take.',

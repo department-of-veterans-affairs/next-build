@@ -5,6 +5,7 @@ import { NodeCampaignLandingPage } from '@/types/drupal/node'
 import { CampaignLandingPage } from './formatted-type'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
+import { getFacebookLink, getXLink } from '@/lib/utils/social'
 import {
   entityBaseFields,
   fetchSingleEntityOrPreview,
@@ -18,6 +19,8 @@ export const params: QueryParams<null> = () => {
     'field_secondary_call_to_action',
     'field_hero_image',
     'field_hero_image.image',
+    'field_clp_audience',
+    'field_connect_with_us',
   ])
 }
 
@@ -45,6 +48,10 @@ export const formatter: QueryFormatter<
   NodeCampaignLandingPage,
   CampaignLandingPage
 > = (entity: NodeCampaignLandingPage) => {
+  const pageUrl = entity.field_connect_with_us?.field_external_link?.url
+    ? `${entity.field_connect_with_us.field_external_link.url.replace(/\/$/, '')}${entity.path.alias}`
+    : null
+
   return {
     ...entityBaseFields(entity),
     breadcrumbs: null, // hide breadcrumb on the page
@@ -73,5 +80,12 @@ export const formatter: QueryFormatter<
           }
         : null,
     },
+    whyThisMatters: entity.field_clp_why_this_matters,
+    audience: entity.field_clp_audience.map((audience) => ({
+      name: audience.name,
+    })),
+    socialLinks: entity.field_connect_with_us
+      ? [getFacebookLink(pageUrl), getXLink(pageUrl, entity.title)]
+      : [],
   }
 }

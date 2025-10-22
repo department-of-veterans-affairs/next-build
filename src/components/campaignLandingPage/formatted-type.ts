@@ -1,3 +1,4 @@
+import { SocialLink } from '@/lib/utils/social'
 import { PublishedEntity } from '@/types/formatted/publishedEntity'
 import { DrupalFile } from 'next-drupal'
 import { MediaImage } from '@/components/mediaDocument/formatted-type'
@@ -17,4 +18,7 @@ export interface CampaignLandingPage extends PublishedEntity {
     primary?: Link | null
     secondary?: Link | null
   }
+  whyThisMatters: string
+  audience: { name: string }[]
+  socialLinks: SocialLink[]
 }
