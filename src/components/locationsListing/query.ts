@@ -78,7 +78,7 @@ export const data: QueryData<
         .addInclude(['field_telephone', 'field_media.image'])
         .addFilter('field_region_page.id', entity.field_office.id)
         .addSort('title', 'ASC'),
-      PAGE_SIZES[RESOURCE_TYPES.VAMC_FACILITY]
+      PAGE_SIZES.MAX
     )
 
   // Categorize facilities based on content build template
