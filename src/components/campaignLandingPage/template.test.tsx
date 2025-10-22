@@ -5,7 +5,6 @@ import { axe } from '@/test-utils'
 import { HeroBanner } from './HeroBanner'
 
 import { defineCustomElements } from '@department-of-veterans-affairs/web-components/loader'
-import { ImageProps } from 'next/image'
 import { DrupalFile } from 'next-drupal'
 import {
   MediaImage,
@@ -15,12 +14,6 @@ import {
 const mockBaseProps: Partial<CampaignLandingPageProps> = {
   title: 'Testing title',
   hero: {
-    cta: {
-      primary: {
-        label: 'primary cta label',
-        href: '#primary-cta',
-      },
-    },
     blurb: 'This is the test hero blurb',
     image: {
       alt: '',
@@ -30,6 +23,12 @@ const mockBaseProps: Partial<CampaignLandingPageProps> = {
         } as unknown as MediaImageLinks,
       },
     } as unknown as MediaImage,
+  },
+  cta: {
+    primary: {
+      label: 'primary cta label',
+      href: '#primary-cta',
+    },
   },
 }
 
@@ -88,8 +87,8 @@ describe('CampaignLandingPage->HeroBanner', () => {
     const link = screen.getByTestId('primary-cta')
 
     expect(link.localName).toBe('va-link-action')
-    expect(link.href).toBe(mockBaseProps.hero.cta.primary.href)
-    expect(link.text).toBe(mockBaseProps.hero.cta.primary.label)
+    expect(link.href).toBe(mockBaseProps.cta.primary.href)
+    expect(link.text).toBe(mockBaseProps.cta.primary.label)
   })
 
   test('shows hero image with 1:1 aspect ratio', () => {

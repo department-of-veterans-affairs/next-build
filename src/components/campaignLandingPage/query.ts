@@ -49,20 +49,6 @@ export const formatter: QueryFormatter<
     ...entityBaseFields(entity),
     breadcrumbs: null, // hide breadcrumb on the page
     hero: {
-      cta: {
-        primary: entity.field_primary_call_to_action
-          ? {
-              href: entity.field_primary_call_to_action.field_button_link.url,
-              label: entity.field_primary_call_to_action.field_button_label,
-            }
-          : null,
-        secondary: entity.field_secondary_call_to_action
-          ? {
-              href: entity.field_secondary_call_to_action.field_button_link.url,
-              label: entity.field_secondary_call_to_action.field_button_label,
-            }
-          : null,
-      },
       blurb: entity.field_hero_blurb,
       image: {
         ...formatImage(entity.field_hero_image),
@@ -72,6 +58,20 @@ export const formatter: QueryFormatter<
          */
         alt: '',
       },
+    },
+    cta: {
+      primary: entity.field_primary_call_to_action
+        ? {
+            href: entity.field_primary_call_to_action.field_button_link.url,
+            label: entity.field_primary_call_to_action.field_button_label,
+          }
+        : null,
+      secondary: entity.field_secondary_call_to_action
+        ? {
+            href: entity.field_secondary_call_to_action.field_button_link.url,
+            label: entity.field_secondary_call_to_action.field_button_label,
+          }
+        : null,
     },
   }
 }
