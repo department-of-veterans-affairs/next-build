@@ -11,7 +11,9 @@ export const formatter: QueryFormatter<
     type: entity.type as LinkTeaser['type'],
     id: entity.id,
     entityId: entity.drupal_internal__id ?? null,
-    uri: entity.field_link?.uri,
+    // URI is at (least sometimes) 'entity:node/1234', and not the actual URL we
+    // want to use for links.
+    uri: entity.field_link?.url || entity.field_link?.uri,
     title: entity.field_link?.title,
     options: entity.field_link?.options,
     summary: entity.field_link_summary,
