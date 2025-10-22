@@ -19,7 +19,7 @@ jobs:
     # Prevent overlapping runs and provide a single group key for cancellation
     concurrency:
       group: broken-links-scan-${{ github.ref }}-${{ github.run_id }}
-      cancel-in-progress: true
+      cancel-in-progress: false
 
     # Centralized tuning for lychee concurrency and batch behavior.
     env:
