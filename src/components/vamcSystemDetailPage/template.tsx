@@ -18,6 +18,7 @@ export function VamcSystemDetailPage({
   vamcEhrSystem,
   vamcSystem,
   featuredContent,
+  mainContent,
   lovellVariant,
   lovellSwitchPath,
   showLovellSwitcher,
@@ -55,9 +56,6 @@ export function VamcSystemDetailPage({
           </div>
         )}
 
-        {/* Alerts */}
-        <div>TODO: Alerts component</div>
-
         {/* Table of contents */}
         {showTableOfContents && <va-on-this-page></va-on-this-page>}
 
@@ -71,7 +69,9 @@ export function VamcSystemDetailPage({
         )}
 
         {/* Main content blocks */}
-        <div>TODO: Main content blocks component</div>
+        {mainContent.map((paragraph, index) => (
+          <Paragraph key={paragraph?.id || index} {...paragraph} />
+        ))}
 
         {/* Related links */}
         {relatedLinks && (
@@ -79,9 +79,6 @@ export function VamcSystemDetailPage({
             <ListOfLinkTeasers {...relatedLinks} />
           </div>
         )}
-
-        {/* Social links for contact pages */}
-        {isContactPage && <div>TODO: Social links component</div>}
 
         <va-back-to-top></va-back-to-top>
         <ContentFooter lastUpdated={lastUpdated} />

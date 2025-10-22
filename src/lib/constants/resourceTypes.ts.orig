@@ -1,0 +1,139 @@
+export const RESOURCE_TYPES = {
+  BENEFITS_HUB: 'node--landing_page',
+  EVENT_LISTING: 'node--event_listing',
+  EVENT: 'node--event',
+  LEADERSHIP_LISTING: 'node--leadership_listing',
+  LOCATIONS_LISTING: 'node--locations_listing',
+  MEDIA: 'media--image',
+  PRESS_RELEASE_LISTING: 'node--press_releases_listing',
+  PRESS_RELEASE: 'node--press_release',
+  QA: 'node--q_a',
+  RESOURCES_SUPPORT: 'node--support_resources_detail_page',
+  STAFF_PROFILE: 'node--person_profile',
+  STORY_LISTING: 'node--story_listing',
+  STORY: 'node--news_story',
+  SUPPORT_SERVICES: 'node--support_service',
+  VAMC_FACILITY: 'node--health_care_local_facility',
+  VAMC_SYSTEM_VA_POLICE: 'node--vamc_system_va_police',
+  VAMC_SYSTEM: 'node--health_care_region_page',
+  VAMC_SYSTEM_REGISTER_FOR_CARE: 'node--vamc_system_register_for_care',
+  VAMC_SYSTEM_BILLING_INSURANCE: 'node--vamc_system_billing_insurance',
+  VAMC_SYSTEM_MEDICAL_RECORDS_OFFICE: 'node--vamc_system_medical_records_offi',
+  VBA_FACILITY: 'node--vba_facility',
+  VBA_SERVICE: 'node--vba_facility_service',
+  VHA_FACILITY_NONCLINICAL_SERVICE: 'node--vha_facility_nonclinical_service',
+  VET_CENTER_HEALTH_SERVICES: 'node--vet_center_facility_health_servi',
+  VET_CENTER_OUTSTATION: 'node--vet_center_outstation',
+  VET_CENTER: 'node--vet_center',
+  VET_CENTER_LOCATION_LISTING: 'node--vet_center_locations_list',
+  VET_CENTER_CAP: 'node--vet_center_cap',
+  VET_CENTER_MOBILE_VET_CENTER: 'node--vet_center_mobile_vet_center',
+  VAMC_HEALTH_SERVICES_LISTING: 'node--health_services_listing',
+  VAMC_OPERATING_STATUS_AND_ALERTS: 'node--vamc_operating_status_and_alerts',
+  VAMC_SYSTEM_POLICIES_PAGE: 'node--vamc_system_policies_page',
+  VAMC_SYSTEM_SERVICE_DES: 'node--regional_health_care_service_des',
+  VAMC_SYSTEM_DETAIL_PAGE: 'node--health_care_region_detail_page',
+<<<<<<< HEAD
+  VA_FORM: 'node--va_form'
+||||||| 9dc604a2
+=======
+  CAMPAIGN_LANDING_PAGE: 'node--campaign_landing_page',
+>>>>>>> integration-202510
+} as const
+
+// (Node) resources that generate full pages.
+// Other entries in RESOURCE_TYPES are Drupal
+// nodes that are entity references but that
+// do not have individual pages.
+export const PAGE_RESOURCE_TYPES = [
+  RESOURCE_TYPES.BENEFITS_HUB,
+  RESOURCE_TYPES.EVENT,
+  RESOURCE_TYPES.EVENT_LISTING,
+  RESOURCE_TYPES.LOCATIONS_LISTING,
+  RESOURCE_TYPES.RESOURCES_SUPPORT,
+  RESOURCE_TYPES.PRESS_RELEASE,
+  RESOURCE_TYPES.PRESS_RELEASE_LISTING,
+  RESOURCE_TYPES.STAFF_PROFILE,
+  RESOURCE_TYPES.STORY,
+  RESOURCE_TYPES.STORY_LISTING,
+  RESOURCE_TYPES.VET_CENTER,
+  RESOURCE_TYPES.VET_CENTER_OUTSTATION,
+  RESOURCE_TYPES.VAMC_FACILITY,
+  RESOURCE_TYPES.VAMC_SYSTEM_VA_POLICE,
+  RESOURCE_TYPES.VAMC_SYSTEM,
+  RESOURCE_TYPES.VAMC_SYSTEM_REGISTER_FOR_CARE,
+  RESOURCE_TYPES.VAMC_SYSTEM_BILLING_INSURANCE,
+  RESOURCE_TYPES.VAMC_SYSTEM_MEDICAL_RECORDS_OFFICE,
+  RESOURCE_TYPES.VBA_FACILITY,
+  RESOURCE_TYPES.LEADERSHIP_LISTING,
+  RESOURCE_TYPES.VET_CENTER_LOCATION_LISTING,
+  RESOURCE_TYPES.VAMC_HEALTH_SERVICES_LISTING,
+  RESOURCE_TYPES.VAMC_OPERATING_STATUS_AND_ALERTS,
+  RESOURCE_TYPES.VAMC_SYSTEM_POLICIES_PAGE,
+  RESOURCE_TYPES.VAMC_SYSTEM_DETAIL_PAGE,
+<<<<<<< HEAD
+  RESOURCE_TYPES.VA_FORM,
+||||||| 9dc604a2
+=======
+  RESOURCE_TYPES.CAMPAIGN_LANDING_PAGE,
+>>>>>>> integration-202510
+]
+
+export const PARAGRAPH_RESOURCE_TYPES = {
+  ACCORDION_ITEM: 'paragraph--basic_accordion',
+  ADDRESS: 'paragraph--address',
+  ALERT: 'paragraph--alert',
+  ALERT_NON_REUSABLE: 'paragraph--non_reusable_alert',
+  ALERT_SINGLE: 'paragraph--alert_single',
+  AUDIENCE_TOPICS: 'paragraph--audience_topics',
+  BUTTON: 'paragraph--button',
+  CENTRALIZED_CONTENT_DESCRIPTOR: 'paragraph--centralized_content_descriptor',
+  CHECKLIST: 'paragraph--checklist',
+  CHECKLIST_ITEM: 'paragraph--checklist_item',
+  COLLAPSIBLE_PANEL: 'paragraph--collapsible_panel',
+  COLLAPSIBLE_PANEL_ITEM: 'paragraph--collapsible_panel_item',
+  CONTACT_INFORMATION: 'paragraph--contact_information',
+  DOWNLOADABLE_FILE: 'paragraph--downloadable_file',
+  EMAIL_CONTACT: 'paragraph--email_contact',
+  EMBEDDED_VIDEO: 'paragraph--embedded_video',
+  EXPANDABLE_TEXT: 'paragraph--expandable_text',
+  FEATURED_CONTENT: 'paragraph--featured_content',
+  HEALTH_CARE_LOCAL_FACILITY_SERVICE:
+    'paragraph--health_care_local_facility_servi',
+  LINK_TEASER: 'paragraph--link_teaser',
+  LINK_TEASER_WITH_IMAGE: 'paragraph--link_teaser_with_image',
+  LISTS_OF_LINKS: 'paragraph--lists_of_links',
+  LIST_OF_LINKS: 'paragraph--list_of_links',
+  LIST_OF_LINK_TEASERS: 'paragraph--list_of_link_teasers',
+  MEDIA: 'paragraph--media',
+  MEDIA_LIST_IMAGES: 'paragraph--media_list_images',
+  MEDIA_LIST_VIDEOS: 'paragraph--media_list_videos',
+  NUMBER_CALLOUT: 'paragraph--number_callout',
+  PHONE_CONTACT: 'paragraph--phone_number',
+  PROCESS_LIST: 'paragraph--process',
+  REACT_WIDGET: 'paragraph--react_widget',
+  RICH_TEXT_CHAR_LIMIT_1000: 'paragraph--rich_text_char_limit_1000',
+  SERVICE_LOCATION: 'paragraph--service_location',
+  SERVICE_LOCATION_ADDRESS: 'paragraph--service_location_address',
+  SPANISH_TRANSLATION_SUMMARY: 'paragraph--spanish_translation_summary',
+  STAFF_PROFILE: 'paragraph--staff_profile',
+  STEP: 'paragraph--step',
+  STEP_BY_STEP: 'paragraph--step_by_step',
+  TABLE: 'paragraph--table',
+  WYSIWYG: 'paragraph--wysiwyg',
+  QA: 'paragraph--q_a',
+  QA_SECTION: 'paragraph--q_a_section',
+  QA_GROUP: 'paragraph--q_a_group',
+} as const
+
+export const BANNER_RESOURCE_TYPES = {
+  BASIC: 'banner',
+  PROMO: 'promo_banner',
+} as const
+
+export type ResourceType = (typeof RESOURCE_TYPES)[keyof typeof RESOURCE_TYPES]
+export type PageResourceType = (typeof PAGE_RESOURCE_TYPES)[number]
+export type ParagraphResourceType =
+  (typeof PARAGRAPH_RESOURCE_TYPES)[keyof typeof PARAGRAPH_RESOURCE_TYPES]
+export type BannerResourceType =
+  (typeof BANNER_RESOURCE_TYPES)[keyof typeof BANNER_RESOURCE_TYPES]

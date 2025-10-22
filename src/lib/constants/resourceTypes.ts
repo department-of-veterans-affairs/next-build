@@ -33,7 +33,8 @@ export const RESOURCE_TYPES = {
   VAMC_SYSTEM_POLICIES_PAGE: 'node--vamc_system_policies_page',
   VAMC_SYSTEM_SERVICE_DES: 'node--regional_health_care_service_des',
   VAMC_SYSTEM_DETAIL_PAGE: 'node--health_care_region_detail_page',
-  VA_FORM: 'node--va_form'
+  VA_FORM: 'node--va_form',
+  CAMPAIGN_LANDING_PAGE: 'node--campaign_landing_page',
 } as const
 
 // (Node) resources that generate full pages.
@@ -67,6 +68,7 @@ export const PAGE_RESOURCE_TYPES = [
   RESOURCE_TYPES.VAMC_SYSTEM_POLICIES_PAGE,
   RESOURCE_TYPES.VAMC_SYSTEM_DETAIL_PAGE,
   RESOURCE_TYPES.VA_FORM,
+  RESOURCE_TYPES.CAMPAIGN_LANDING_PAGE,
 ]
 
 export const PARAGRAPH_RESOURCE_TYPES = {
