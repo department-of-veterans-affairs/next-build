@@ -8,14 +8,14 @@ import { HeadingElement } from '@/components/heading/template'
 import { incrementHeadingLevel } from '../heading/incrementHeadingLevel'
 
 export function QaSection({
-  currentHeadingLevel = 'h1',
+  currentHeadingLevel,
   header,
   intro,
   questions,
   displayAccordion,
 }: (FormattedQaSection | FormattedQaGroup) & WithCurrentHeadingLevel) {
   const headingLevel = header
-    ? incrementHeadingLevel(currentHeadingLevel)
+    ? incrementHeadingLevel(currentHeadingLevel ?? 'h1')
     : currentHeadingLevel
   return (
     <div data-template="paragraphs/q_a_section">

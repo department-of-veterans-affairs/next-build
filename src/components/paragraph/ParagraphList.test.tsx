@@ -180,7 +180,7 @@ describe('ParagraphList Component', () => {
 
       // Check that the CollapsiblePanel is rendered with default heading level (h4)
       const faqHeading = screen.getByText('FAQ Item 1')
-      expect(faqHeading.tagName).toBe('H4')
+      expect(faqHeading.tagName).toBe('H2')
     })
   })
 

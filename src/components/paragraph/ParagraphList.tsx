@@ -19,7 +19,7 @@ import { Paragraph } from './template'
  */
 export const ParagraphList = ({
   paragraphs,
-  currentHeadingLevel,
+  currentHeadingLevel = 'h1',
 }: {
   paragraphs: Array<(FormattedParagraph & WithCurrentHeadingLevel) | null>
 } & WithCurrentHeadingLevel) => {
