@@ -98,9 +98,15 @@ exports[`VamcSystemMedicalRecordsOffice formatter outputs formatted data 1`] = `
     ],
     "type": "paragraph--q_a_section",
   },
+  "faxNumber": null,
   "getRecordsInPersonContent": {
     "html": "<h2 id="get-your-records-in-person">Get your records in person</h2><p>We can help you get copies of your VA medical records. We can also help you update your records. Call or visit one of our release of information offices.</p><p><strong>What to bring</strong></p><ul><li>A signed written request for a copy of your records to be provided to you. For your convenience you may download and complete the “Individuals’ Request For a Copy of Their Own Health Information” (VA Form 10-5345a).  <a href="https://www.va.gov/vaforms/medical/pdf/VHA%20Form%2010-5345a%20Fill-revision.pdf" hreflang="en">Download VA Form 10-5345a (PDF)</a></li><li>Your Veteran Health Identification Card (VHIC)</li></ul>",
     "id": "82639",
+    "type": "paragraph--wysiwyg",
+  },
+  "getRecordsMailOrFaxContent": {
+    "html": "<h2 id="get-your-records-by-mail-or-fa">Get your records by mail or fax</h2><p>To request a copy of your VA medical records by mail or fax, send a signed and completed VA Form 10-5345a to our Release of Information office.</p><p><a href="https://www.va.gov/vaforms/medical/pdf/VHA%20Form%2010-5345a%20Fill-revision.pdf" hreflang="en">Download VA Form 10-5345a (PDF)</a></p>",
+    "id": "82640",
     "type": "paragraph--wysiwyg",
   },
   "howWeShareRecordsContent": {
@@ -112,6 +118,15 @@ exports[`VamcSystemMedicalRecordsOffice formatter outputs formatted data 1`] = `
   "lastUpdated": "2022-05-26T16:02:50+00:00",
   "lovellSwitchPath": null,
   "lovellVariant": null,
+  "mailingAddress": {
+    "address_line1": "200 Veterans Avenue",
+    "address_line2": "",
+    "administrative_area": "WV",
+    "country_code": "US",
+    "langcode": null,
+    "locality": "Beckley ",
+    "postal_code": "25801",
+  },
   "menu": {
     "data": {
       "description": null,

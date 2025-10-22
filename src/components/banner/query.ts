@@ -2,6 +2,7 @@ import { QueryData, QueryFormatter } from 'next-drupal-query'
 import { BANNER_RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { BannersData } from './formatted-type'
 import { drupalClient } from '@/lib/drupal/drupalClient'
+import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 
 export type BannerDataOpts = {
   itemPath?: string
@@ -35,7 +36,7 @@ export const formatter: QueryFormatter<any, BannersData> = (entities) => {
         return {
           id: banner.nid,
           title: banner.title,
-          body: banner.body.value,
+          body: getHtmlFromField(banner.body),
           alertType: banner.field_alert_type,
           dismiss,
           type: banner.type.target_id,

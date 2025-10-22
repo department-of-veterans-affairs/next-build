@@ -4,8 +4,9 @@ import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
 import { ListOfLinkTeasers } from '@/components/listOfLinkTeasers/template'
 import { ContentFooter } from '@/components/contentFooter/template'
 import { SideNavLayout } from '@/components/sideNavLayout/template'
-import { RegionalTopTasks } from '../topTasks/template'
-import { LovellSwitcher } from '../lovellSwitcher/template'
+import { RegionalTopTasks } from '@/components/topTasks/template'
+import { LovellSwitcher } from '@/components/lovellSwitcher/template'
+import { Paragraph } from '@/components/paragraph/template'
 
 export function VamcSystemDetailPage({
   entityPath,
@@ -16,6 +17,8 @@ export function VamcSystemDetailPage({
   administration,
   vamcEhrSystem,
   vamcSystem,
+  featuredContent,
+  mainContent,
   lovellVariant,
   lovellSwitchPath,
   showLovellSwitcher,
@@ -53,17 +56,22 @@ export function VamcSystemDetailPage({
           </div>
         )}
 
-        {/* Alerts */}
-        <div>TODO: Alerts component</div>
-
         {/* Table of contents */}
         {showTableOfContents && <va-on-this-page></va-on-this-page>}
 
         {/* Featured content */}
-        <div>TODO: Featured content component</div>
+        {featuredContent && featuredContent.length > 0 && (
+          <div className="feature">
+            {featuredContent.map((content) => (
+              <Paragraph key={content.id} {...content} />
+            ))}
+          </div>
+        )}
 
         {/* Main content blocks */}
-        <div>TODO: Main content blocks component</div>
+        {mainContent.map((paragraph, index) => (
+          <Paragraph key={paragraph?.id || index} {...paragraph} />
+        ))}
 
         {/* Related links */}
         {relatedLinks && (
@@ -71,9 +79,6 @@ export function VamcSystemDetailPage({
             <ListOfLinkTeasers {...relatedLinks} />
           </div>
         )}
-
-        {/* Social links for contact pages */}
-        {isContactPage && <div>TODO: Social links component</div>}
 
         <va-back-to-top></va-back-to-top>
         <ContentFooter lastUpdated={lastUpdated} />

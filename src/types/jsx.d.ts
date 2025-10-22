@@ -17,6 +17,8 @@ declare module 'react' {
       'va-link': any
       'va-link-action': any
       'va-on-this-page': any
+      'va-process-list': any
+      'va-process-list-item': any
       'va-summary-box': any
       'va-telephone': any
     }

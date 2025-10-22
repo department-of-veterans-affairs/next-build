@@ -9,7 +9,7 @@ export const formatter: QueryFormatter<ParagraphTable, Table> = (
     type: entity.type as Table['type'],
     id: entity.id,
     entityId: entity.drupal_internal__id,
-    title: entity.field_table?.caption,
-    data: entity.field_table?.value,
+    title: entity.field_table?.caption ?? null,
+    data: entity.field_table?.value ?? [],
   }
 }
