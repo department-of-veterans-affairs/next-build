@@ -6,6 +6,7 @@ import { HeroBanner } from './HeroBanner'
 
 import { defineCustomElements } from '@department-of-veterans-affairs/web-components/loader'
 import { ImageProps } from 'next/image'
+import { DrupalFile } from 'next-drupal'
 
 const mockBaseProps: Partial<CampaignLandingPageProps> = {
   title: 'Testing title',
@@ -18,8 +19,12 @@ const mockBaseProps: Partial<CampaignLandingPageProps> = {
     },
     blurb: 'This is the test hero blurb',
     image: {
-      url: 'https://example.com/hero-image.png',
-    },
+      links: {
+        '1_1_square_large': {
+          href: 'https://example.com/hero-image.png',
+        } as unknown as DrupalFile,
+      },
+    } as unknown as DrupalFile,
   },
 }
 
@@ -85,7 +90,9 @@ describe('CampaignLandingPage->HeroBanner', () => {
   test('shows hero image with 1:1 aspect ratio', () => {
     const img = screen.getByTestId('hero-image')
 
-    expect(img.src).toBe(mockBaseProps.hero.image.url)
+    expect(img.src).toBe(
+      mockBaseProps.hero.image.links['1_1_square_large'].href
+    )
 
     // Empty alt intentional
     // See https://github.com/department-of-veterans-affairs/va.gov-cms/issues/22439

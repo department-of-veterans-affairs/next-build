@@ -1,5 +1,5 @@
-import Image from 'next/image'
 import type { CampaignLandingPageProps } from './template'
+import { MediaImage } from '../mediaImage/template'
 
 export const HeroBanner = ({ title, hero }: CampaignLandingPageProps) => {
   return (
@@ -26,10 +26,13 @@ export const HeroBanner = ({ title, hero }: CampaignLandingPageProps) => {
               {/* Empty alt expected per requirements
                * https://github.com/department-of-veterans-affairs/va.gov-cms/issues/22439
                */}
-              <Image
+              <MediaImage
                 alt=""
+                title=""
+                id="hero-image"
                 data-testid="hero-image"
-                src={hero.image.url}
+                links={hero.image.links}
+                imageStyle="1_1_square_large"
                 width={500}
                 height={500}
                 style={{ objectFit: 'cover', aspectRatio: '1/1' }}

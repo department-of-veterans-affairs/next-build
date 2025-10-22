@@ -63,9 +63,7 @@ export const formatter: QueryFormatter<
           : null,
       },
       blurb: entity.field_hero_blurb,
-      image: {
-        url: entity.field_hero_image.image.uri.url,
-      },
+      image: entity.field_hero_image.image,
     },
   }
 }

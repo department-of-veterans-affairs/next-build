@@ -79,6 +79,7 @@ export const MediaImage = (
       className={props.className}
       style={props.style}
       loading={props.loading}
+      data-testid={props['data-testid']}
     />
   )
 }
