@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { ParagraphList } from './ParagraphList'
 import { FormattedParagraph } from '@/lib/drupal/queries'
+import { nestedQaParagraphs } from './mock.formatted'
 
 describe('ParagraphList Component', () => {
   describe('Basic functionality', () => {
@@ -71,58 +72,6 @@ describe('ParagraphList Component', () => {
       ).toBeInTheDocument()
     })
 
-    it('handles multiple headings in a single WYSIWYG paragraph', () => {
-      const paragraphs: FormattedParagraph[] = [
-        {
-          type: 'paragraph--wysiwyg',
-          id: '1',
-          html: '<h2>Main Section</h2><h3>Subsection</h3><h4>Sub-subsection</h4>',
-        },
-        {
-          type: 'paragraph--wysiwyg',
-          id: '2',
-          html: '<p>This should use h5 heading level</p>',
-        },
-      ]
-
-      render(<ParagraphList paragraphs={paragraphs} />)
-
-      // Check that all headings are rendered
-      expect(screen.getByText('Main Section')).toBeInTheDocument()
-      expect(screen.getByText('Subsection')).toBeInTheDocument()
-      expect(screen.getByText('Sub-subsection')).toBeInTheDocument()
-      expect(
-        screen.getByText('This should use h5 heading level')
-      ).toBeInTheDocument()
-    })
-
-    it('handles WYSIWYG paragraphs with no headings', () => {
-      const paragraphs: FormattedParagraph[] = [
-        {
-          type: 'paragraph--wysiwyg',
-          id: '1',
-          html: '<p>Just a paragraph with no headings</p>',
-        },
-        {
-          type: 'paragraph--wysiwyg',
-          id: '2',
-          html: '<p>Another paragraph with no headings</p>',
-        },
-      ]
-
-      render(<ParagraphList paragraphs={paragraphs} />)
-
-      // Check that the content is rendered
-      expect(
-        screen.getByText('Just a paragraph with no headings')
-      ).toBeInTheDocument()
-      expect(
-        screen.getByText('Another paragraph with no headings')
-      ).toBeInTheDocument()
-    })
-  })
-
-  describe('CollapsiblePanel heading management', () => {
     it('passes correct heading level to CollapsiblePanel after WYSIWYG with headings', () => {
       const paragraphs: FormattedParagraph[] = [
         {
@@ -158,6 +107,42 @@ describe('ParagraphList Component', () => {
       expect(faqHeading.tagName).toBe('H3')
     })
 
+    it('passes correct heading level to CollapsiblePanel after WYSIWYG with multiple headings', () => {
+      const paragraphs: FormattedParagraph[] = [
+        {
+          type: 'paragraph--wysiwyg',
+          id: '1',
+          html: '<h2>Main Section</h2><h3>Subsection</h3>',
+        },
+        {
+          type: 'paragraph--wysiwyg',
+          id: '2',
+          html: '<p>No heading here</p>',
+        },
+        {
+          type: 'paragraph--collapsible_panel',
+          id: '2',
+          entityId: 1,
+          paragraphs: [
+            {
+              type: 'paragraph--collapsible_panel_item',
+              id: 'item-1',
+              entityId: 10,
+              title: 'FAQ Item 1',
+              wysiwyg: '<p>Answer 1</p>',
+            },
+          ],
+        },
+      ]
+
+      render(<ParagraphList paragraphs={paragraphs} />)
+
+      // Check that the CollapsiblePanel is rendered with the correct heading level
+      // The CollapsiblePanel should use h4 (next level after h3)
+      const faqHeading = screen.getByText('FAQ Item 1')
+      expect(faqHeading.tagName).toBe('H4')
+    })
+
     it('handles CollapsiblePanel without previous headings', () => {
       const paragraphs: FormattedParagraph[] = [
         {
@@ -182,51 +167,125 @@ describe('ParagraphList Component', () => {
       const faqHeading = screen.getByText('FAQ Item 1')
       expect(faqHeading.tagName).toBe('H2')
     })
-  })
 
-  describe('Mixed paragraph types', () => {
-    it('manages heading levels across different paragraph types', () => {
+    it('handles multiple CollapsiblePanels at different heading levels', () => {
       const paragraphs: FormattedParagraph[] = [
         {
           type: 'paragraph--wysiwyg',
           id: '1',
-          html: '<h2>Introduction</h2><p>Welcome to our guide</p>',
+          html: '<h2>Frequently Asked Questions</h2>',
         },
         {
-          type: 'paragraph--button',
+          type: 'paragraph--collapsible_panel',
           id: '2',
-          label: 'Get Started',
-          url: '/start',
+          entityId: 1,
+          paragraphs: [
+            {
+              type: 'paragraph--collapsible_panel_item',
+              id: 'faq-item-1',
+              entityId: 10,
+              title: 'FAQ Item 1',
+              wysiwyg: '<p>This service helps with...</p>',
+            },
+            {
+              type: 'paragraph--collapsible_panel_item',
+              id: 'faq-item-2',
+              entityId: 20,
+              title: 'FAQ Item 2',
+              wysiwyg: '<p>To get started...</p>',
+            },
+          ],
         },
         {
           type: 'paragraph--wysiwyg',
           id: '3',
-          html: '<h3>Step 1</h3><p>First step content</p>',
+          html: '<h3>Additional Information</h3>',
         },
         {
-          type: 'paragraph--featured_content',
+          type: 'paragraph--collapsible_panel',
           id: '4',
-          title: 'Featured Content',
-          description: 'Important information',
-          link: {
-            id: 'link-1',
-            url: '/featured',
-            label: 'Learn More',
-          },
+          entityId: 2,
+          paragraphs: [
+            {
+              type: 'paragraph--collapsible_panel_item',
+              id: 'info-item-1',
+              entityId: 30,
+              title: 'Info Item 1',
+              wysiwyg: '<p>Info content 1</p>',
+            },
+          ],
         },
       ]
 
       render(<ParagraphList paragraphs={paragraphs} />)
 
       // Check that all content is rendered
-      expect(screen.getByText('Introduction')).toBeInTheDocument()
-      expect(screen.getByText('Welcome to our guide')).toBeInTheDocument()
-      expect(screen.getByText('Get Started')).toBeInTheDocument()
-      expect(screen.getByText('Step 1')).toBeInTheDocument()
-      expect(screen.getByText('First step content')).toBeInTheDocument()
-      expect(screen.getByText('Featured Content')).toBeInTheDocument()
-      expect(screen.getByText('Important information')).toBeInTheDocument()
-      expect(screen.getByTestId('featured-content-link')).toBeInTheDocument()
+      expect(
+        screen.getByText('Frequently Asked Questions', { selector: 'h2' })
+      ).toBeInTheDocument()
+      expect(
+        screen.getByText('FAQ Item 1', { selector: 'h3' })
+      ).toBeInTheDocument()
+      expect(
+        screen.getByText('FAQ Item 2', { selector: 'h3' })
+      ).toBeInTheDocument()
+      expect(
+        screen.getByText('Additional Information', { selector: 'h3' })
+      ).toBeInTheDocument()
+      expect(
+        screen.getByText('Info Item 1', { selector: 'h4' })
+      ).toBeInTheDocument()
+    })
+
+    it('handles complex nested QA structure', () => {
+      render(<ParagraphList paragraphs={nestedQaParagraphs} />)
+
+      expect(
+        screen.getByText('What is mpox?', { selector: 'h2' })
+      ).toBeInTheDocument()
+      expect(
+        screen.getByText(
+          /Mpox is a rare disease caused by infection with the mpox virus/
+        )
+      ).toBeInTheDocument()
+
+      expect(
+        screen.getByText('What are signs and symptoms of mpox?', {
+          selector: 'h2',
+        })
+      ).toBeInTheDocument()
+      expect(screen.getByText('Sign and symptoms')).toBeInTheDocument()
+
+      expect(
+        screen.getByText('Symptoms of mpox', { selector: 'h3' })
+      ).toBeInTheDocument()
+      expect(screen.getByText('Fever')).toBeInTheDocument()
+
+      expect(
+        screen.getByText('How does it spread?', { selector: 'h2' })
+      ).toBeInTheDocument()
+      expect(
+        screen.getByText('Mpox spreads in a few ways.')
+      ).toBeInTheDocument()
+
+      expect(
+        screen.getByText(
+          'Through close, personal, often skin-to-skin contact',
+          { selector: 'h3' }
+        )
+      ).toBeInTheDocument()
+      expect(
+        screen.getByText('Direct contact', { selector: 'h3' })
+      ).toBeInTheDocument()
+      expect(
+        screen.getByText('Pregnancy', { selector: 'h3' })
+      ).toBeInTheDocument()
+
+      expect(
+        screen.getByText('How can I protect myself and others?', {
+          selector: 'h2',
+        })
+      ).toBeInTheDocument()
     })
   })
 
@@ -319,159 +378,6 @@ describe('ParagraphList Component', () => {
       expect(
         screen.getByText('This should not have a heading level')
       ).toBeInTheDocument()
-    })
-  })
-
-  describe('Real-world scenarios', () => {
-    it('handles a typical article structure', () => {
-      const paragraphs: FormattedParagraph[] = [
-        {
-          type: 'paragraph--wysiwyg',
-          id: '1',
-          html: '<h1>Article Title</h1><p>Introduction paragraph</p>',
-        },
-        {
-          type: 'paragraph--wysiwyg',
-          id: '2',
-          html: '<h2>First Section</h2><p>Section content</p>',
-        },
-        {
-          type: 'paragraph--collapsible_panel',
-          id: '3',
-          entityId: 1,
-          paragraphs: [
-            {
-              type: 'paragraph--collapsible_panel_item',
-              id: 'faq-item-1',
-              entityId: 1,
-              title: 'What is this?',
-              wysiwyg: '<p>Answer to the question</p>',
-            },
-          ],
-        },
-        {
-          type: 'paragraph--wysiwyg',
-          id: '4',
-          html: '<h3>Subsection</h3><p>Subsection content</p>',
-        },
-        {
-          type: 'paragraph--wysiwyg',
-          id: '5',
-          html: '<p>This should use h4 heading level</p>',
-        },
-      ]
-
-      render(<ParagraphList paragraphs={paragraphs} />)
-
-      // Check that all content is rendered
-      expect(screen.getByText('Article Title')).toBeInTheDocument()
-      expect(screen.getByText('Introduction paragraph')).toBeInTheDocument()
-      expect(screen.getByText('First Section')).toBeInTheDocument()
-      expect(screen.getByText('Section content')).toBeInTheDocument()
-      expect(screen.getByText('What is this?')).toBeInTheDocument()
-      expect(screen.getByText('Answer to the question')).toBeInTheDocument()
-      expect(screen.getByText('Subsection')).toBeInTheDocument()
-      expect(screen.getByText('Subsection content')).toBeInTheDocument()
-      expect(
-        screen.getByText('This should use h4 heading level')
-      ).toBeInTheDocument()
-    })
-
-    it('handles complex nested heading structure', () => {
-      const paragraphs: FormattedParagraph[] = [
-        {
-          type: 'paragraph--wysiwyg',
-          id: '1',
-          html: `
-            <h1>Main Title</h1>
-            <h2>Section 1</h2>
-            <h3>Subsection 1.1</h3>
-            <h4>Sub-subsection 1.1.1</h4>
-            <h5>Sub-sub-subsection 1.1.1.1</h5>
-            <h6>Final level</h6>
-          `,
-        },
-        {
-          type: 'paragraph--wysiwyg',
-          id: '2',
-          html: '<p>This should not have a heading level (h6 is max)</p>',
-        },
-      ]
-
-      render(<ParagraphList paragraphs={paragraphs} />)
-
-      // Check that all headings are rendered
-      expect(screen.getByText('Main Title')).toBeInTheDocument()
-      expect(screen.getByText('Section 1')).toBeInTheDocument()
-      expect(screen.getByText('Subsection 1.1')).toBeInTheDocument()
-      expect(screen.getByText('Sub-subsection 1.1.1')).toBeInTheDocument()
-      expect(screen.getByText('Sub-sub-subsection 1.1.1.1')).toBeInTheDocument()
-      expect(screen.getByText('Final level')).toBeInTheDocument()
-      expect(
-        screen.getByText('This should not have a heading level (h6 is max)')
-      ).toBeInTheDocument()
-    })
-
-    it('handles FAQ-style content with multiple CollapsiblePanels', () => {
-      const paragraphs: FormattedParagraph[] = [
-        {
-          type: 'paragraph--wysiwyg',
-          id: '1',
-          html: '<h2>Frequently Asked Questions</h2>',
-        },
-        {
-          type: 'paragraph--collapsible_panel',
-          id: '2',
-          entityId: 1,
-          paragraphs: [
-            {
-              type: 'paragraph--collapsible_panel_item',
-              id: 'faq-item-1',
-              entityId: 10,
-              title: 'What is this service?',
-              wysiwyg: '<p>This service helps with...</p>',
-            },
-            {
-              type: 'paragraph--collapsible_panel_item',
-              id: 'faq-item-2',
-              entityId: 20,
-              title: 'How do I get started?',
-              wysiwyg: '<p>To get started...</p>',
-            },
-          ],
-        },
-        {
-          type: 'paragraph--wysiwyg',
-          id: '3',
-          html: '<h2>Additional Information</h2>',
-        },
-        {
-          type: 'paragraph--collapsible_panel',
-          id: '4',
-          entityId: 2,
-          paragraphs: [
-            {
-              type: 'paragraph--collapsible_panel_item',
-              id: 'faq-item-3',
-              entityId: 30,
-              title: 'Where can I get help?',
-              wysiwyg: '<p>You can get help...</p>',
-            },
-          ],
-        },
-      ]
-
-      render(<ParagraphList paragraphs={paragraphs} />)
-
-      // Check that all content is rendered
-      expect(screen.getByText('Frequently Asked Questions')).toBeInTheDocument()
-      expect(screen.getByText('What is this service?')).toBeInTheDocument()
-      expect(screen.getByText('This service helps with...')).toBeInTheDocument()
-      expect(screen.getByText('How do I get started?')).toBeInTheDocument()
-      expect(screen.getByText('To get started...')).toBeInTheDocument()
-      expect(screen.getByText('Additional Information')).toBeInTheDocument()
-      expect(screen.getByText('Where can I get help?')).toBeInTheDocument()
-      expect(screen.getByText('You can get help...')).toBeInTheDocument()
     })
   })
 })
