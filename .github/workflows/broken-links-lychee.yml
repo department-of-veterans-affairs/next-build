@@ -77,12 +77,11 @@ jobs:
           # Run the lychee per-page scanner; outputs lychee-pages/ and combined json/csv in repo root.
           NODE_EXTRA_CA_CERTS=certs/VA-mozilla-combined.pem \
           node scripts/lychee-per-page-scan-and-merge.js \
-          --lychee-chunk-size 100 \
+          --lychee-chunk-size 400 \
           --batch-concurrency $BATCH_CONCURRENCY \
           --lychee-max-concurrency $LYCHEE_MAX_CONC \
           --lychee-timeout $LYCHEE_TIMEOUT \
           --lychee-retries $LYCHEE_RETRIES
-          --sample-size 1000
 
       - name: Prepare reports
         run: |
