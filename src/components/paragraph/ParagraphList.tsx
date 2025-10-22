@@ -59,18 +59,10 @@ export function getLastHeadingLevelFromParagraph(
     case PARAGRAPH_RESOURCE_TYPES.WYSIWYG:
     case PARAGRAPH_RESOURCE_TYPES.RICH_TEXT_CHAR_LIMIT_1000:
       return getLastHeadingLevelFromHtml((paragraph as FormattedWysiwyg).html)
-    // Actually, we don't want to drill down into multiple levels to find headings
-    // case PARAGRAPH_RESOURCE_TYPES.QA_GROUP:
-    // case PARAGRAPH_RESOURCE_TYPES.QA_SECTION:
-    //   // Drill down into the QaGroup or QaSection to find the last heading level
-    //   return (paragraph as QaSection | QaGroup).questions.reduce((lastLevel, question) => {
-    //     const questionLevel = getLastHeadingLevelFromParagraph(question as FormattedParagraph )
-    //     return questionLevel ?? lastLevel
-    //   }, undefined as HeadingLevel | undefined)
-    // case PARAGRAPH_RESOURCE_TYPES.QA:
-    //   return (paragraph as QaParagraph).answers.reduce((lastLevel, answer) => {
-    //     const answerLevel = getLastHeadingLevelFromParagraph(answer as FormattedParagraph )
-    //     return answerLevel ?? lastLevel
-    //   }, undefined as HeadingLevel | undefined)
+    // Note that it is a design decision to not drill down into multiple levels of
+    // paragraphs in order to find headings, though I did set up this switch statement
+    // to allow for that and to recursively search. It is not always the editor's intent
+    // to have a subsequent paragraph be under the heading of a previous paragraph, so
+    // we're purposely keeping this logic simple.
   }
 }
