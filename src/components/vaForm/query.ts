@@ -9,6 +9,7 @@ import {
   fetchSingleEntityOrPreview,
 } from '@/lib/drupal/query'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
+import { formatter as formatLinkTeaser } from '@/components/linkTeaser/query'
 
 // Define the query params for fetching node--va_form.
 export const params: QueryParams<null> = () => {
@@ -58,10 +59,7 @@ export const formatter: QueryFormatter<NodeVaForm, VaForm> = (
     toolUrl: entity.field_va_form_tool_url ?? null,
     toolIntro: entity.field_va_form_tool_intro ?? null,
     usage: getHtmlFromField(entity.field_va_form_usage),
-    linkTeasers: entity.field_va_form_link_teasers?.map((teaser) => ({
-      link: teaser.field_link,
-      summary: teaser.field_link_summary,
-    })),
+    linkTeasers: entity.field_va_form_link_teasers?.map(formatLinkTeaser),
     relatedForms: entity.field_va_form_related_forms?.map((form) => ({
       id: form.id,
       formNumber: form.field_va_form_number ?? null,

@@ -1,5 +1,6 @@
 import { FieldLink } from '@/types/drupal/field_type'
 import { PublishedEntity } from '@/types/formatted/publishedEntity'
+import { LinkTeaser } from '../linkTeaser/formatted-type'
 
 export type VaForm = PublishedEntity & {
   formName: string
@@ -14,10 +15,7 @@ export type VaForm = PublishedEntity & {
   toolUrl?: FieldLink
   toolIntro?: string
   usage?: string
-  linkTeasers?: Array<{
-    link: FieldLink
-    summary?: string
-  }>
+  linkTeasers?: LinkTeaser[]
   relatedForms?: Array<{
     id: string
     formNumber: string

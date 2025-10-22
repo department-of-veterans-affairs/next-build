@@ -1,3 +1,5 @@
+import { ListOfLinkTeasers } from '../listOfLinkTeasers/template'
+import { defaultHelpfulLinks } from './default-helpful-links'
 import { VaForm as VaFormType } from './formatted-type'
 
 type VaFormProps = VaFormType
@@ -143,89 +145,19 @@ export function VaForm({
               </section>
             )}
 
-            <section>
-              <div className="vads-u-background-color--gray-lightest vads-u-padding-x--2 vads-u-padding-y--2p5 vads-u-margin-y--4">
-                <h2 className="vads-u-font-size--h3 vads-u-margin-top--0 vads-u-padding-bottom--1 vads-u-border-bottom--1px vads-u-border-color--gray-light">
-                  {linkTeasers && linkTeasers.length > 0
-                    ? `Helpful links related to VA Form ${formNumber}`
-                    : 'Helpful links'}
-                </h2>
-                <ul className="usa-unstyled-list" role="list">
-                  {linkTeasers && linkTeasers.length > 0 ? (
-                    linkTeasers.map((linkTeaser, index) => (
-                      <li key={index}>
-                        <h3 className="vads-u-font-size--h4">
-                          <va-link
-                            href={linkTeaser.link.url}
-                            text={linkTeaser.link.title || linkTeaser.link.uri}
-                          />
-                        </h3>
-                        {linkTeaser.summary && (
-                          <p className="vads-u-margin--0">
-                            {linkTeaser.summary}
-                          </p>
-                        )}
-                      </li>
-                    ))
-                  ) : (
-                    <>
-                      <li>
-                        <h3 className="vads-u-font-size--h4">
-                          <va-link
-                            href="/change-direct-deposit"
-                            text="Change your direct deposit information"
-                          />
-                        </h3>
-                        <p className="vads-u-margin--0">
-                          Find out how to update your direct deposit information
-                          online for disability compensation, pension, or
-                          education benefits.
-                        </p>
-                      </li>
-                      <li>
-                        <h3 className="vads-u-font-size--h4">
-                          <va-link
-                            href="/change-address"
-                            text="Change your address"
-                          />
-                        </h3>
-                        <p className="vads-u-margin--0">
-                          Find out how to change your address and other
-                          information in your VA.gov profile for disability
-                          compensation, claims and appeals, VA health care, and
-                          other benefits.
-                        </p>
-                      </li>
-                      <li>
-                        <h3 className="vads-u-font-size--h4">
-                          <va-link
-                            href="/records/get-military-service-records/"
-                            text="Request your military records, including DD214"
-                          />
-                        </h3>
-                        <p className="vads-u-margin--0">
-                          Submit an online request to get your DD214 or other
-                          military service records through the milConnect
-                          website.
-                        </p>
-                      </li>
-                      <li>
-                        <h3 className="vads-u-font-size--h4">
-                          <va-link
-                            href="/records/"
-                            text="Get your VA records and documents online"
-                          />
-                        </h3>
-                        <p className="vads-u-margin--0">
-                          Learn how to access your VA records, benefit letters,
-                          and documents online.
-                        </p>
-                      </li>
-                    </>
-                  )}
-                </ul>
-              </div>
-            </section>
+            <div className="va-nav-linkslist va-nav-linkslist--related">
+              {linkTeasers?.length > 0 ? (
+                <ListOfLinkTeasers
+                  title={`Helpful links related to VA Form ${formNumber}`}
+                  linkTeasers={linkTeasers}
+                />
+              ) : (
+                <ListOfLinkTeasers
+                  title="Helpful links"
+                  linkTeasers={defaultHelpfulLinks}
+                />
+              )}
+            </div>
           </article>
         </div>
       </div>
