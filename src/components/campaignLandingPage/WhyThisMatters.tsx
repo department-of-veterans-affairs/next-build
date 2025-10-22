@@ -9,7 +9,10 @@ export const WhyThisMatters = ({
   socialLinks,
 }: CampaignLandingPageProps) => {
   return (
-    <div className="vads-u-background-color--primary-alt-lightest">
+    <div
+      className="vads-u-background-color--primary-alt-lightest"
+      data-testid="why-this-matters"
+    >
       <div className="vads-l-grid-container vads-u-padding-y--6 vads-u-padding-bottom--3 vads-u-padding-x--4 desktop-lg:vads-u-padding-x--0">
         <div className="vads-l-row">
           <div className="vads-l-col--12 medium-screen:vads-l-col--8">
@@ -21,6 +24,7 @@ export const WhyThisMatters = ({
             </p>
             {cta.secondary && (
               <va-link-action
+                data-testid="secondary-cta"
                 href={cta.secondary.href}
                 type="secondary"
                 text={cta.secondary.label}

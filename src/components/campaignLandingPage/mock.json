@@ -139,7 +139,7 @@
   "field_clp_video_panel_header": null,
   "field_clp_what_you_can_do_header": "Edit Heading",
   "field_clp_what_you_can_do_intro": "Edit Introduction",
-  "field_clp_why_this_matters": "Edit introduction",
+  "field_clp_why_this_matters": "Example why it matters",
   "field_hero_blurb": "This page will help answer your questions about the PACT Act and what it means for survivors.",
   "field_last_saved_by_an_editor": null,
   "links": {
@@ -6685,7 +6685,54 @@
     },
     "relationshipNames": ["paragraph_type"]
   },
-  "field_secondary_call_to_action": null,
+  "field_secondary_call_to_action": {
+    "type": "paragraph--button",
+    "id": "da2352d3-0b23-43d8-8bfd-6b4c69ce0f13",
+    "drupal_internal__id": 173409,
+    "drupal_internal__revision_id": 1888642,
+    "langcode": "en",
+    "status": true,
+    "created": "2025-02-10T13:21:59+00:00",
+    "parent_id": "63686",
+    "parent_type": "node",
+    "parent_field_name": "field_secondary_call_to_action",
+    "behavior_settings": [],
+    "default_langcode": true,
+    "revision_translation_affected": true,
+    "breadcrumbs": [],
+    "content_translation_source": "und",
+    "content_translation_outdated": false,
+    "content_translation_changed": "2025-09-30T19:15:24+00:00",
+    "field_button_label": "Get support for common issues",
+    "field_button_link": {
+      "uri": "entity:node/75613",
+      "title": "",
+      "options": {
+        "href": "entity:node/75613",
+        "data-entity-type": "node",
+        "data-entity-uuid": "d5f32bdf-810c-455e-9a9b-4335a1b5a7b3",
+        "data-entity-substitution": "canonical"
+      },
+      "url": "/resources/support-for-common-logingov-and-idme-issues"
+    },
+    "links": {
+      "self": {
+        "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/button/da2352d3-0b23-43d8-8bfd-6b4c69ce0f13?resourceVersion=id%3A1888642"
+      }
+    },
+    "resourceIdObjMeta": {
+      "target_revision_id": 1888642,
+      "drupal_internal__target_id": 173409
+    },
+    "paragraph_type": {
+      "type": "paragraphs_type--paragraphs_type",
+      "id": "f2ea2f57-89da-43d4-be22-ba46d728a286",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "button"
+      }
+    },
+    "relationshipNames": ["paragraph_type"]
+  },
   "relationshipNames": [
     "node_type",
     "revision_uid",
