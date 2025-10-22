@@ -40,7 +40,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@a03048d87541d1d9fcf2ecf528a4a65ba9bd7838 # v5.0.0
+      uses: aws-actions/configure-aws-credentials@00943011d9042930efac3dcd3a170e4273319bc8 # v5.1.0
       with:
         aws-region: us-gov-west-1
         role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
@@ -111,7 +111,7 @@ jobs:
 
   build:
     name: Build static pages & deploy to S3
-    timeout-minutes: 90 # Adding 50% more time. Build is taking close to 50 minutes on a cold cache and the new sitemap takes about 10 minutes.
+    timeout-minutes: 100 # Adding 50% more time. Build is taking close to 50 minutes on a cold cache and the new sitemap takes about 10 minutes.
     runs-on: [self-hosted, asg]
     needs: [validate-build-status, login-to-amazon-ecr]
     outputs:
@@ -201,7 +201,7 @@ jobs:
       with:
         max_attempts: 3
         retry_on: error
-        timeout_minutes: 70
+        timeout_minutes: 90
         command: |
           cd main && BUILD_OPTION=static yarn export --DRUPAL_CLIENT_ID ${{ secrets.PROD_DRUPAL_CLIENT_ID }} --DRUPAL_CLIENT_SECRET ${{ secrets.PROD_DRUPAL_CLIENT_SECRET }} --no-USE_REDIS | tee yarnoutput
           echo YARN_OUTPUT=$(<yarnoutput) >> $GITHUB_OUTPUT
@@ -281,7 +281,7 @@ jobs:
 
 
     - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@a03048d87541d1d9fcf2ecf528a4a65ba9bd7838 # v5.0.0
+      uses: aws-actions/configure-aws-credentials@00943011d9042930efac3dcd3a170e4273319bc8 # v5.1.0
       with:
         aws-region: us-gov-west-1
         role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
@@ -360,7 +360,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@a03048d87541d1d9fcf2ecf528a4a65ba9bd7838 # v5.0.0
+        uses: aws-actions/configure-aws-credentials@00943011d9042930efac3dcd3a170e4273319bc8 # v5.1.0
         with:
           aws-region: us-gov-west-1
           role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
@@ -414,7 +414,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@a03048d87541d1d9fcf2ecf528a4a65ba9bd7838 # v5.0.0
+        uses: aws-actions/configure-aws-credentials@00943011d9042930efac3dcd3a170e4273319bc8 # v5.1.0
         with:
           aws-region: us-gov-west-1
           role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
@@ -499,7 +499,7 @@ jobs:
             jq '.series[].tags[3] = "trigger:${{env.BUILD_TRIGGER}}"' > metrics.json
 
         - name: Configure AWS credentials
-          uses: aws-actions/configure-aws-credentials@a03048d87541d1d9fcf2ecf528a4a65ba9bd7838 # v5.0.0
+          uses: aws-actions/configure-aws-credentials@00943011d9042930efac3dcd3a170e4273319bc8 # v5.1.0
           with:
             aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
             aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}

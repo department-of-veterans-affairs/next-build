@@ -27,10 +27,10 @@ exports[`VamcSystemVaPolice formatData outputs formatted data 1`] = `
   "entityId": 63857,
   "entityPath": "/central-arkansas-health-care/va-police",
   "faqs": {
-    "displayAccordion": "1",
+    "displayAccordion": true,
     "header": "Other questions you may have about VA police",
     "id": "141575",
-    "intro": [],
+    "intro": null,
     "questions": [
       {
         "answers": [
