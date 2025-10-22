@@ -25,7 +25,7 @@ jobs:
       # lychee internal concurrency (recommended 4-8)
       LYCHEE_MAX_CONC: '8'
       # number of parallel lychee processes launched by the script
-      BATCH_CONCURRENCY: '8'
+      BATCH_CONCURRENCY: '6'
       # timeout and retries for lychee (seconds / attempts)
       LYCHEE_TIMEOUT: '30'
       LYCHEE_RETRIES: '5'
@@ -71,7 +71,7 @@ jobs:
           # Run the lychee per-page scanner; outputs lychee-pages/ and combined json/csv in repo root.
           NODE_EXTRA_CA_CERTS=certs/VA-mozilla-combined.pem \
           node scripts/lychee-per-page-scan-and-merge.js \
-          --lychee-chunk-size 400 \
+          --lychee-chunk-size 600 \
           --batch-concurrency $BATCH_CONCURRENCY \
           --lychee-max-concurrency $LYCHEE_MAX_CONC \
           --lychee-timeout $LYCHEE_TIMEOUT \
