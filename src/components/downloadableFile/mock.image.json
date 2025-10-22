@@ -1,0 +1,419 @@
+{
+  "type": "paragraph--downloadable_file",
+  "id": "b6c225c4-ab04-4426-8d72-3811e8c8a5ad",
+  "drupal_internal__id": 61724,
+  "drupal_internal__revision_id": 1287766,
+  "langcode": "en",
+  "status": true,
+  "created": "2020-10-14T16:29:31+00:00",
+  "parent_id": "8559",
+  "parent_type": "node",
+  "parent_field_name": "field_content_block",
+  "behavior_settings": [],
+  "default_langcode": true,
+  "revision_translation_affected": true,
+  "breadcrumbs": [],
+  "content_translation_source": "und",
+  "content_translation_outdated": false,
+  "content_translation_changed": null,
+  "field_markup": null,
+  "field_title": "Northport campus map",
+  "links": {
+    "self": {
+      "href": "http://va-gov-cms.ddev.site/jsonapi/paragraph/downloadable_file/b6c225c4-ab04-4426-8d72-3811e8c8a5ad?resourceVersion=id%3A1287766"
+    }
+  },
+  "resourceIdObjMeta": {
+    "target_revision_id": 1287766,
+    "drupal_internal__target_id": 61724
+  },
+  "paragraph_type": {
+    "type": "paragraphs_type--paragraphs_type",
+    "id": "baae35ef-1729-480a-8a15-ada2c7a9a331",
+    "resourceIdObjMeta": { "drupal_internal__target_id": "downloadable_file" }
+  },
+  "field_media": {
+    "type": "media--image",
+    "id": "90bd19f3-f6a2-4c2f-a936-9f768d953341",
+    "drupal_internal__mid": 32581,
+    "drupal_internal__vid": 34191,
+    "status": true,
+    "name": "VA Northport Campus Map.png",
+    "created": "2024-04-29T13:53:15+00:00",
+    "changed": "2024-04-29T13:53:15+00:00",
+    "breadcrumbs": [
+      {
+        "uri": "http://va-gov-cms.ddev.site/",
+        "title": "Home",
+        "options": []
+      },
+      {
+        "uri": "http://va-gov-cms.ddev.site/media/image/32581",
+        "title": "VA Northport Campus Map.png",
+        "options": []
+      }
+    ],
+    "path": { "alias": "/media/image/32581", "pid": 103442, "langcode": "en" },
+    "field_description": "VA Northport Medical Center Map",
+    "links": {
+      "self": {
+        "href": "http://va-gov-cms.ddev.site/jsonapi/media/image/90bd19f3-f6a2-4c2f-a936-9f768d953341?resourceVersion=id%3A34191"
+      }
+    },
+    "resourceIdObjMeta": { "drupal_internal__target_id": 32581 },
+    "bundle": {
+      "type": "media_type--media_type",
+      "id": "92f64a34-81e5-4094-82a9-4fe61d7f2227",
+      "resourceIdObjMeta": { "drupal_internal__target_id": "image" }
+    },
+    "uid": {
+      "type": "user--user",
+      "id": "f616288f-3b9c-46d7-b990-8467e68b6da6",
+      "resourceIdObjMeta": { "drupal_internal__target_id": 4615 }
+    },
+    "thumbnail": {
+      "type": "file--file",
+      "id": "073666cb-f23f-4590-863d-fca1ecda214d",
+      "drupal_internal__fid": 37474,
+      "langcode": "en",
+      "filename": "VA Northport Campus Map.png",
+      "uri": {
+        "value": "public://2024-04/VA Northport Campus Map.png",
+        "url": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/2024-04/VA%20Northport%20Campus%20Map.png"
+      },
+      "filemime": "image/png",
+      "filesize": 2460217,
+      "status": true,
+      "created": "2024-04-29T13:53:15+00:00",
+      "changed": "2024-04-29T13:53:52+00:00",
+      "breadcrumbs": [],
+      "links": {
+        "1_1_square_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/1_1_square_medium_thumbnail/public/2024-04/VA%20Northport%20Campus%20Map.png",
+          "meta": {
+            "linkParams": {
+              "width": "240",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "2_1_large": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_large/public/2024-04/VA%20Northport%20Campus%20Map.png",
+          "meta": {
+            "linkParams": {
+              "width": "512",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "2_1_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_medium_thumbnail/public/2024-04/VA%20Northport%20Campus%20Map.png",
+          "meta": {
+            "linkParams": {
+              "width": "240",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "2_3_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_3_medium_thumbnail/public/2024-04/VA%20Northport%20Campus%20Map.png",
+          "meta": {
+            "linkParams": {
+              "width": "480",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "3_2_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2024-04/VA%20Northport%20Campus%20Map.png",
+          "meta": {
+            "linkParams": {
+              "width": "320",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "7_2_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/7_2_medium_thumbnail/public/2024-04/VA%20Northport%20Campus%20Map.png",
+          "meta": {
+            "linkParams": {
+              "width": "300",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "full_content_width": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/full_content_width/public/2024-04/VA%20Northport%20Campus%20Map.png",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "large": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/large/public/2024-04/VA%20Northport%20Campus%20Map.png",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "original": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/original/public/2024-04/VA%20Northport%20Campus%20Map.png",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "self": {
+          "href": "http://va-gov-cms.ddev.site/jsonapi/file/file/073666cb-f23f-4590-863d-fca1ecda214d"
+        },
+        "viewport_width": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/viewport_width/public/2024-04/VA%20Northport%20Campus%20Map.png",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        }
+      },
+      "resourceIdObjMeta": {
+        "alt": "Map of VA Northport Medical Center Campus",
+        "title": null,
+        "width": 12600,
+        "height": 9000,
+        "drupal_internal__target_id": 37474
+      },
+      "uid": {
+        "type": "user--user",
+        "id": "f616288f-3b9c-46d7-b990-8467e68b6da6",
+        "resourceIdObjMeta": { "drupal_internal__target_id": 4615 }
+      },
+      "relationshipNames": ["uid"]
+    },
+    "image": {
+      "type": "file--file",
+      "id": "073666cb-f23f-4590-863d-fca1ecda214d",
+      "drupal_internal__fid": 37474,
+      "langcode": "en",
+      "filename": "VA Northport Campus Map.png",
+      "uri": {
+        "value": "public://2024-04/VA Northport Campus Map.png",
+        "url": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/2024-04/VA%20Northport%20Campus%20Map.png"
+      },
+      "filemime": "image/png",
+      "filesize": 2460217,
+      "status": true,
+      "created": "2024-04-29T13:53:15+00:00",
+      "changed": "2024-04-29T13:53:52+00:00",
+      "breadcrumbs": [],
+      "links": {
+        "1_1_square_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/1_1_square_medium_thumbnail/public/2024-04/VA%20Northport%20Campus%20Map.png",
+          "meta": {
+            "linkParams": {
+              "width": "240",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "2_1_large": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_large/public/2024-04/VA%20Northport%20Campus%20Map.png",
+          "meta": {
+            "linkParams": {
+              "width": "512",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "2_1_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_medium_thumbnail/public/2024-04/VA%20Northport%20Campus%20Map.png",
+          "meta": {
+            "linkParams": {
+              "width": "240",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "2_3_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_3_medium_thumbnail/public/2024-04/VA%20Northport%20Campus%20Map.png",
+          "meta": {
+            "linkParams": {
+              "width": "480",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "3_2_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2024-04/VA%20Northport%20Campus%20Map.png",
+          "meta": {
+            "linkParams": {
+              "width": "320",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "7_2_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/7_2_medium_thumbnail/public/2024-04/VA%20Northport%20Campus%20Map.png",
+          "meta": {
+            "linkParams": {
+              "width": "300",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "full_content_width": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/full_content_width/public/2024-04/VA%20Northport%20Campus%20Map.png",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "large": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/large/public/2024-04/VA%20Northport%20Campus%20Map.png",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "original": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/original/public/2024-04/VA%20Northport%20Campus%20Map.png",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "self": {
+          "href": "http://va-gov-cms.ddev.site/jsonapi/file/file/073666cb-f23f-4590-863d-fca1ecda214d"
+        },
+        "viewport_width": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/viewport_width/public/2024-04/VA%20Northport%20Campus%20Map.png",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        }
+      },
+      "resourceIdObjMeta": {
+        "alt": "Map of VA Northport Medical Center Campus",
+        "title": "",
+        "width": 12600,
+        "height": 9000,
+        "drupal_internal__target_id": 37474
+      },
+      "uid": {
+        "type": "user--user",
+        "id": "f616288f-3b9c-46d7-b990-8467e68b6da6",
+        "resourceIdObjMeta": { "drupal_internal__target_id": 4615 }
+      },
+      "relationshipNames": ["uid"]
+    },
+    "relationshipNames": ["bundle", "uid", "thumbnail", "image"]
+  },
+  "relationshipNames": ["paragraph_type", "field_media"]
+}

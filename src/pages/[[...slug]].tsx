@@ -64,7 +64,9 @@ import { VamcHealthServicesListing as FormattedVamcHealthServicesListing } from 
 import { VbaFacility as FormattedVbaFacility } from '../components/vbaFacility/formatted-type'
 import { VamcOperatingStatusAndAlerts as FormattedVamcOperatingStatusAndAlerts } from '../components/vamcOperatingStatusAndAlerts/formatted-type'
 import { VamcSystemPoliciesPage as FormattedVamcSystemPoliciesPage } from '../components/vamcSystemPoliciesPage/formatted-type'
+import { BenefitsHub as FormattedBenefitsHub } from '../components/benefitsHub/formatted-type'
 import { VamcSystemDetailPage as FormattedVamcSystemDetailPage } from '../components/vamcSystemDetailPage/formatted-type'
+import { CampaignLandingPage as FormattedCampaignLandingPage } from '@/components/campaignLandingPage/formatted-type'
 
 // Templates
 import HTMLComment from '@/components/htmlComment/template'
@@ -94,7 +96,9 @@ import { VetCenterLocationListing } from '../components/vetCenterLocationListing
 import { VamcHealthServicesListing } from '../components/vamcHealthServicesListing/template'
 import { VamcOperatingStatusAndAlerts } from '../components/vamcOperatingStatusAndAlerts/template'
 import { VamcSystemPoliciesPage } from '../components/vamcSystemPoliciesPage/template'
+import { BenefitsHub } from '../components/benefitsHub/template'
 import { VamcSystemDetailPage } from '../components/vamcSystemDetailPage/template'
+import { CampaignLandingPage } from '@/components/campaignLandingPage/template'
 
 // IMPORTANT: in order for a content type to build in Next Build, it must have an appropriate
 // environment variable set in one of two places:
@@ -163,6 +167,7 @@ export default function ResourcePage({
       },
     ]
   }
+
   return (
     <PageLayout
       bannerData={[...bannerData, ...contentBanner]}
@@ -180,6 +185,7 @@ export default function ResourcePage({
         breadcrumbs={resource.breadcrumbs}
         entityPath={resource.entityPath}
         hideHomeBreadcrumb={shouldHideHomeBreadcrumb(resource.type)}
+        resource={resource}
       />
 
       <main>
@@ -273,9 +279,17 @@ export default function ResourcePage({
               {...(resource as FormattedVamcSystemPoliciesPage)}
             />
           )}
+          {resource.type === RESOURCE_TYPES.BENEFITS_HUB && (
+            <BenefitsHub {...(resource as FormattedBenefitsHub)} />
+          )}
           {resource.type === RESOURCE_TYPES.VAMC_SYSTEM_DETAIL_PAGE && (
             <VamcSystemDetailPage
               {...(resource as FormattedVamcSystemDetailPage)}
+            />
+          )}
+          {resource.type === RESOURCE_TYPES.CAMPAIGN_LANDING_PAGE && (
+            <CampaignLandingPage
+              {...(resource as FormattedCampaignLandingPage)}
             />
           )}
         </div>

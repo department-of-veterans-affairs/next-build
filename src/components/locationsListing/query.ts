@@ -74,8 +74,8 @@ export const data: QueryData<
   const { data: allFacilities } =
     await fetchAndConcatAllResourceCollectionPages<NodeHealthCareLocalFacility>(
       RESOURCE_TYPES.VAMC_FACILITY,
-      queries
-        .getParams(RESOURCE_TYPES.VAMC_FACILITY)
+      new DrupalJsonApiParams()
+        .addInclude(['field_telephone', 'field_media.image'])
         .addFilter('field_region_page.id', entity.field_office.id)
         .addSort('title', 'ASC'),
       PAGE_SIZES[RESOURCE_TYPES.VAMC_FACILITY]
