@@ -18,7 +18,7 @@ jobs:
     timeout-minutes: 60
     # Prevent overlapping runs and provide a single group key for cancellation
     concurrency:
-      group: broken-links-scan-${{ github.ref }}
+      group: broken-links-scan-${{ github.ref }}-${{ github.run_id }}
       cancel-in-progress: true
 
     # Centralized tuning for lychee concurrency and batch behavior.
