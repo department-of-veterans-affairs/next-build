@@ -23,9 +23,9 @@ jobs:
     # Centralized tuning for lychee concurrency and batch behavior.
     env:
       # lychee internal concurrency (recommended 4-8)
-      LYCHEE_MAX_CONC: '6'
+      LYCHEE_MAX_CONC: '8'
       # number of parallel lychee processes launched by the script
-      BATCH_CONCURRENCY: '2'
+      BATCH_CONCURRENCY: '8'
       # timeout and retries for lychee (seconds / attempts)
       LYCHEE_TIMEOUT: '30'
       LYCHEE_RETRIES: '5'
