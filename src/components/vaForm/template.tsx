@@ -21,7 +21,14 @@ export function VaForm({
   relatedForms,
 }: VaFormProps) {
   const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('en-US', {
+    // Avoid UTC-to-local-timezone conversion by not using the `dateString`
+    // directly. Instead, parse out the year and month to create the new Date.
+    // This will remove any timezone conversion issues, so 2024-10-01 will show
+    // up as October instead of rolling the month back to September because of
+    // the timezone difference between UTC and the local time.
+    const [year, month] = dateString.split('-')
+    const date = new Date(parseInt(year), parseInt(month) - 1)
+    return date.toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'long',
     })
