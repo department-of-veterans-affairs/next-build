@@ -12,16 +12,12 @@ import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 
 // Define the query params for fetching node--va_form.
 export const params: QueryParams<null> = () => {
-  return (
-    new DrupalJsonApiParams()
-      // uncomment to add referenced entity data to the response
-      .addInclude([
-        'field_va_form_link_teasers',
-        'field_va_form_administration',
-        'field_benefit_categories',
-        'field_va_form_related_forms',
-      ])
-  )
+  return new DrupalJsonApiParams().addInclude([
+    'field_va_form_link_teasers',
+    'field_va_form_administration',
+    'field_benefit_categories',
+    'field_va_form_related_forms',
+  ])
 }
 
 // Define the option types for the data loader.
