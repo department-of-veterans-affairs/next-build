@@ -3,10 +3,9 @@ import { PARAGRAPH_RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { Wysiwyg as FormattedWysiwyg } from '@/components/wysiwyg/formatted-type'
 import {
   HeadingLevel,
-  WithHeadingLevel,
+  WithCurrentHeadingLevel,
 } from '@/components/heading/formatted-type'
 import { getLastHeadingLevelFromHtml } from '@/lib/utils/getLastHeadingLevelFromHtml'
-import { incrementHeadingLevel } from '@/components/heading/incrementHeadingLevel'
 import { Paragraph } from './template'
 
 /**
@@ -20,12 +19,10 @@ import { Paragraph } from './template'
  */
 export const ParagraphList = ({
   paragraphs,
-  initialHeadingLevel,
+  currentHeadingLevel,
 }: {
-  paragraphs: Array<(FormattedParagraph & WithHeadingLevel) | null>
-  initialHeadingLevel?: HeadingLevel
-}) => {
-  let currentHeadingLevel: HeadingLevel | undefined
+  paragraphs: Array<(FormattedParagraph & WithCurrentHeadingLevel) | null>
+} & WithCurrentHeadingLevel) => {
   const paragraphElements = []
 
   paragraphs.forEach((paragraph, index) => {
@@ -35,19 +32,15 @@ export const ParagraphList = ({
       <Paragraph
         {...paragraph}
         key={paragraph.id || index}
-        headingLevel={
-          // If we have a heading level from a previous paragraph, use it to determine
-          // the appropriate heading level for the next paragraph
-          currentHeadingLevel
-            ? incrementHeadingLevel(currentHeadingLevel)
-            : initialHeadingLevel
-        }
+        currentHeadingLevel={currentHeadingLevel}
       />
     )
 
-    const lastFoundHeadingLevel = getLastHeadingLevelFromParagraph(paragraph)
-    if (lastFoundHeadingLevel) {
-      currentHeadingLevel = lastFoundHeadingLevel
+    // If this paragraph has a heading in it, that is now our current heading level to
+    // be used in subsequent paragraphs.
+    const foundHeadingLevel = getLastHeadingLevelFromParagraph(paragraph)
+    if (foundHeadingLevel) {
+      currentHeadingLevel = foundHeadingLevel
     }
   })
 
@@ -66,5 +59,18 @@ export function getLastHeadingLevelFromParagraph(
     case PARAGRAPH_RESOURCE_TYPES.WYSIWYG:
     case PARAGRAPH_RESOURCE_TYPES.RICH_TEXT_CHAR_LIMIT_1000:
       return getLastHeadingLevelFromHtml((paragraph as FormattedWysiwyg).html)
+    // Actually, we don't want to drill down into multiple levels to find headings
+    // case PARAGRAPH_RESOURCE_TYPES.QA_GROUP:
+    // case PARAGRAPH_RESOURCE_TYPES.QA_SECTION:
+    //   // Drill down into the QaGroup or QaSection to find the last heading level
+    //   return (paragraph as QaSection | QaGroup).questions.reduce((lastLevel, question) => {
+    //     const questionLevel = getLastHeadingLevelFromParagraph(question as FormattedParagraph )
+    //     return questionLevel ?? lastLevel
+    //   }, undefined as HeadingLevel | undefined)
+    // case PARAGRAPH_RESOURCE_TYPES.QA:
+    //   return (paragraph as QaParagraph).answers.reduce((lastLevel, answer) => {
+    //     const answerLevel = getLastHeadingLevelFromParagraph(answer as FormattedParagraph )
+    //     return answerLevel ?? lastLevel
+    //   }, undefined as HeadingLevel | undefined)
   }
 }

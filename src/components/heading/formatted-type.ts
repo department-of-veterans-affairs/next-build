@@ -8,6 +8,6 @@ export type HeadingElement = {
   children: ReactNode
 }
 
-export type WithHeadingLevel = {
-  headingLevel?: HeadingLevel
+export type WithCurrentHeadingLevel = {
+  currentHeadingLevel?: HeadingLevel
 }

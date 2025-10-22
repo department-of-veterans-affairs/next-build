@@ -1,33 +1,39 @@
 import { QaSection as FormattedQaSection } from '@/components/qaSection/formatted-type'
 import { QaCollapsiblePanel } from '@/components/qaSection/QaCollapsiblePanel'
 import { QaGroup as FormattedQaGroup } from '@/components/qaGroup/formatted-type'
-import { Paragraph } from '@/components/paragraph/template'
-import { FormattedParagraph } from '@/lib/drupal/queries'
+import { ParagraphList } from '@/components/paragraph/template'
 import { slugifyString } from '@/lib/utils/slug'
+import { WithCurrentHeadingLevel } from '@/components/heading/formatted-type'
+import { HeadingElement } from '@/components/heading/template'
+import { incrementHeadingLevel } from '../heading/incrementHeadingLevel'
 
 export function QaSection({
+  currentHeadingLevel = 'h1',
   header,
   intro,
   questions,
   displayAccordion,
-}: FormattedQaSection | FormattedQaGroup) {
-  const setHeaderh3 = header ? true : false
-  // Prepare id for use by va-on-this-page component to identify the QaSection
-  const headerId = header ? slugifyString(header) : ''
+}: (FormattedQaSection | FormattedQaGroup) & WithCurrentHeadingLevel) {
+  const headingLevel = header
+    ? incrementHeadingLevel(currentHeadingLevel)
+    : currentHeadingLevel
   return (
     <div data-template="paragraphs/q_a_section">
-      {header && <h2 id={headerId}>{header}</h2>}
+      {header && (
+        <HeadingElement headingLevel={headingLevel} id={slugifyString(header)}>
+          {header}
+        </HeadingElement>
+      )}
       {intro && <p>{intro}</p>}
+      {/* Note that this doesn't properly handle the case where the QaSection is a
+          QaGroup and the displayAccordion is false */}
       {displayAccordion ? (
         <QaCollapsiblePanel questions={questions} />
       ) : (
-        questions.map((questionContent: FormattedParagraph) => (
-          <Paragraph
-            key={questionContent.id || questionContent.entityId}
-            setHeaderh3={setHeaderh3}
-            {...questionContent}
-          />
-        ))
+        <ParagraphList
+          paragraphs={questions}
+          currentHeadingLevel={headingLevel}
+        />
       )}
     </div>
   )

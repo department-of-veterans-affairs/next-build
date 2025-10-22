@@ -64,13 +64,13 @@ export function VamcSystemDetailPage({
           <div className="feature">
             <ParagraphList
               paragraphs={featuredContent}
-              initialHeadingLevel="h2"
+              currentHeadingLevel="h1"
             />
           </div>
         )}
 
         {/* Main content blocks */}
-        <ParagraphList paragraphs={mainContent} initialHeadingLevel="h2" />
+        <ParagraphList paragraphs={mainContent} currentHeadingLevel="h1" />
 
         {/* Related links */}
         {relatedLinks && (

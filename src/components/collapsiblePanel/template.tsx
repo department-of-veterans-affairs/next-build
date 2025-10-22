@@ -9,16 +9,19 @@ import { escape } from '@/lib/utils/helpers'
 import { slugifyString } from '@/lib/utils/slug'
 import { ParagraphComponent } from '@/components/paragraph/formatted-type'
 import { conditionalAttr } from '@/lib/utils/helpers'
-import { WithHeadingLevel } from '@/components/heading/formatted-type'
+import { WithCurrentHeadingLevel } from '@/components/heading/formatted-type'
+import { incrementHeadingLevel } from '../heading/incrementHeadingLevel'
 
 export const CollapsiblePanelItem = ({
   id,
   entityId,
   title,
   wysiwyg,
-  headingLevel = 'h4',
+  currentHeadingLevel = 'h3',
   paragraphs = [],
-}: ParagraphComponent<FormattedCollapsiblePanelItem> & WithHeadingLevel) => {
+}: ParagraphComponent<FormattedCollapsiblePanelItem> &
+  WithCurrentHeadingLevel) => {
+  const headingLevel = incrementHeadingLevel(currentHeadingLevel)
   return (
     <va-accordion-item
       key={entityId}
@@ -40,7 +43,13 @@ export const CollapsiblePanelItem = ({
           <WysiwygField html={wysiwyg} />
 
           {paragraphs.map((paragraph) => {
-            return <Paragraph key={paragraph.id} {...paragraph} />
+            return (
+              <Paragraph
+                key={paragraph.id}
+                {...paragraph}
+                currentHeadingLevel={headingLevel}
+              />
+            )
           })}
         </div>
       </div>
@@ -53,8 +62,8 @@ export const CollapsiblePanel = ({
   entityId,
   paragraphs,
   bordered = false,
-  headingLevel = 'h4',
-}: ParagraphComponent<FormattedCollapsiblePanel> & WithHeadingLevel) => {
+  currentHeadingLevel = 'h3',
+}: ParagraphComponent<FormattedCollapsiblePanel> & WithCurrentHeadingLevel) => {
   return (
     <div
       id={id}
@@ -69,7 +78,7 @@ export const CollapsiblePanel = ({
             <CollapsiblePanelItem
               key={collapsiblePanelItem.id}
               {...collapsiblePanelItem}
-              headingLevel={headingLevel}
+              currentHeadingLevel={currentHeadingLevel}
             />
           )
         })}
