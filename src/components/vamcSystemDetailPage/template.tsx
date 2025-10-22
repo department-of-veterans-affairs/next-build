@@ -62,12 +62,15 @@ export function VamcSystemDetailPage({
         {/* Featured content */}
         {featuredContent && featuredContent.length > 0 && (
           <div className="feature">
-            <ParagraphList paragraphs={featuredContent} />
+            <ParagraphList
+              paragraphs={featuredContent}
+              initialHeadingLevel="h2"
+            />
           </div>
         )}
 
         {/* Main content blocks */}
-        <ParagraphList paragraphs={mainContent} />
+        <ParagraphList paragraphs={mainContent} initialHeadingLevel="h2" />
 
         {/* Related links */}
         {relatedLinks && (
