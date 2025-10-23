@@ -1,9 +1,10 @@
+import { ContentFooter } from '@/components/contentFooter/template'
 import { PageLayout } from '@/components/pageLayout/template'
 import { queries } from '@/lib/drupal/queries'
 import Head from 'next/head'
 import Script from 'next/script'
 
-const FrontPage = ({ footerData, megaMenuData, bannerData }) => {
+const HomePage = ({ footerData, megaMenuData, bannerData }) => {
   return (
     <>
       <Head>
@@ -19,17 +20,7 @@ const FrontPage = ({ footerData, megaMenuData, bannerData }) => {
           <div>TODO: add Common tasks</div>
           <div>TODO: add news-spotlight</div>
           <div>TODO: add homepage-benefits</div>
-          <div className="usa-grid usa-grid-full">
-            <div className="last-updated vads-u-padding-x--1 desktop-lg:vads-u-padding-x--0">
-              <div className="vads-u-display--flex above-footer-elements-container">
-                <div className="vads-u-flex--1 vads-u-text-align--right">
-                  <span className="vads-u-text-align--right">
-                    <div>TODO: add Medallia</div>
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
+          <ContentFooter />
           <div>TODO: add email signup</div>
         </main>
 
@@ -72,4 +63,4 @@ export async function getStaticProps() {
   }
 }
 
-export default FrontPage
+export default HomePage
