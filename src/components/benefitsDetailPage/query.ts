@@ -54,6 +54,17 @@ export const formatter: QueryFormatter<
   NodeBenefitsDetailPage,
   BenefitsDetailPage
 > = (entity: NodeBenefitsDetailPage) => {
+  // TODO: There is an ownership problem with the related links for /education/benefit-rates/post-9-11-gi-bill-rates/past-rates-2021-2022.
+  // This needs to be resolved in Drupal, but for now I'm just going to not show the related links
+  // if it fails to fetch it.
+  let relatedLinks = null
+  if (
+    entity.field_related_links &&
+    entity.field_related_links.field_va_paragraphs
+  ) {
+    relatedLinks = formatListOfLinkTeasers(entity.field_related_links)
+  }
+
   return {
     ...entityBaseFields(entity),
     title: entity.title,
@@ -69,9 +80,7 @@ export const formatter: QueryFormatter<
     //   entity.field_content_block?.map((paragraph) =>
     //     formatParagraph(paragraph)
     //   ) || null,
-    relatedLinks: entity.field_related_links
-      ? formatListOfLinkTeasers(entity.field_related_links)
-      : null,
+    relatedLinks,
     administration: entity.field_administration
       ? formatAdministration(entity.field_administration)
       : null,
