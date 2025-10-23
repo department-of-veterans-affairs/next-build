@@ -6,6 +6,10 @@ const IMAGE_STYLE_DIMENSIONS = {
     width: 240,
     height: 240,
   },
+  '1_1_square_large': {
+    width: 500,
+    height: 500,
+  },
   '2_1_large': {
     width: 1024,
     height: 512,

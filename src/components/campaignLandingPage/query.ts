@@ -9,6 +9,7 @@ import {
   entityBaseFields,
   fetchSingleEntityOrPreview,
 } from '@/lib/drupal/query'
+import { formatter as formatImage } from '@/components/mediaImage/query'
 
 // Define the query params for fetching node--campaign_landing_page.
 export const params: QueryParams<null> = () => {
@@ -63,7 +64,14 @@ export const formatter: QueryFormatter<
           : null,
       },
       blurb: entity.field_hero_blurb,
-      image: entity.field_hero_image.image,
+      image: {
+        ...formatImage(entity.field_hero_image),
+
+        /* Empty alt expected per requirements
+         * https://github.com/department-of-veterans-affairs/va.gov-cms/issues/22439
+         */
+        alt: '',
+      },
     },
   }
 }

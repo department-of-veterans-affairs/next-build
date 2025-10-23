@@ -15,15 +15,9 @@ exports[`CampaignLandingPage formatData outputs formatted data 1`] = `
       "secondary": null,
     },
     "image": {
-      "breadcrumbs": [],
-      "changed": "2021-03-08T19:03:07+00:00",
-      "created": "2021-03-08T19:02:45+00:00",
-      "drupal_internal__fid": 2965,
-      "filemime": "image/jpeg",
-      "filename": "Listening-Session-Website-Graphic-730x370.jpg",
-      "filesize": 121897,
+      "alt": "",
+      "height": 370,
       "id": "a5f76ccd-b235-4f4b-8e2d-b6c519304540",
-      "langcode": "en",
       "links": {
         "1_1_square_medium_thumbnail": {
           "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/1_1_square_medium_thumbnail/public/2021-03/Listening-Session-Website-Graphic-730x370.jpg?h=e092120c",
@@ -165,129 +159,9 @@ exports[`CampaignLandingPage formatData outputs formatted data 1`] = `
           },
         },
       },
-      "relationshipNames": [
-        "uid",
-      ],
-      "resourceIdObjMeta": {
-        "alt": "Various flags",
-        "drupal_internal__target_id": 2965,
-        "height": 370,
-        "title": "",
-        "width": 730,
-      },
-      "status": true,
-      "type": "file--file",
-      "uid": {
-        "access": "2025-09-12T21:48:00+00:00",
-        "breadcrumbs": [
-          {
-            "options": [],
-            "title": "Home",
-            "uri": "https://va-gov-cms.ddev.site/",
-          },
-          {
-            "options": [],
-            "title": "test@example.com",
-            "uri": "https://va-gov-cms.ddev.site/user/34",
-          },
-        ],
-        "changed": "2025-03-13T19:58:47+00:00",
-        "created": "2019-01-29T19:11:10+00:00",
-        "default_langcode": true,
-        "display_name": "test@example.com",
-        "drupal_internal__uid": 34,
-        "field_last_password_reset": "2020-10-06T09:17:00-04:00",
-        "field_password_expiration": false,
-        "field_pending_expire_sent": null,
-        "id": "76a324e9-c71f-4524-9a21-ab167cbd4542",
-        "init": "kevin.walsh+rs@civicactions.com",
-        "langcode": "en",
-        "links": {
-          "self": {
-            "href": "https://va-gov-cms.ddev.site/jsonapi/user/user/76a324e9-c71f-4524-9a21-ab167cbd4542",
-          },
-        },
-        "login": "2025-09-11T13:17:36+00:00",
-        "mail": "user34@example.com",
-        "message_subscribe_email": false,
-        "metatag": [
-          {
-            "attributes": {
-              "content": "test@example.com | VA.gov CMS",
-              "name": "title",
-            },
-            "tag": "meta",
-          },
-          {
-            "attributes": {
-              "content": "VA.gov CMS",
-              "name": "description",
-            },
-            "tag": "meta",
-          },
-          {
-            "attributes": {
-              "href": "https://va-gov-cms.ddev.site/user/34",
-              "rel": "canonical",
-            },
-            "tag": "link",
-          },
-        ],
-        "name": "test@example.com",
-        "path": {
-          "alias": null,
-          "langcode": "en",
-          "pid": null,
-        },
-        "preferred_admin_langcode": "en",
-        "preferred_langcode": "en",
-        "relationshipNames": [
-          "roles",
-          "role_change",
-        ],
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 34,
-        },
-        "role_change": [
-          {
-            "id": "missing",
-            "resourceIdObjMeta": {
-              "links": {
-                "help": {
-                  "href": "https://www.drupal.org/docs/8/modules/json-api/core-concepts#missing",
-                  "meta": {
-                    "about": "Usage and meaning of the 'missing' resource identifier.",
-                  },
-                },
-              },
-            },
-            "type": "user_role--user_role",
-          },
-        ],
-        "roles": [
-          {
-            "id": "d61bb4b4-697c-470e-b9ea-47a72730064e",
-            "resourceIdObjMeta": {
-              "drupal_internal__target_id": "vamc_content_creator",
-            },
-            "type": "user_role--user_role",
-          },
-          {
-            "id": "2782bb1f-74f1-4ac9-b2f8-5dd3cc9bfec1",
-            "resourceIdObjMeta": {
-              "drupal_internal__target_id": "content_publisher",
-            },
-            "type": "user_role--user_role",
-          },
-        ],
-        "status": true,
-        "timezone": "America/New_York",
-        "type": "user--user",
-      },
-      "uri": {
-        "url": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/2021-03/Listening-Session-Website-Graphic-730x370.jpg",
-        "value": "public://2021-03/Listening-Session-Website-Graphic-730x370.jpg",
-      },
+      "title": "",
+      "type": "media--image",
+      "width": 730,
     },
   },
   "id": "7f375d16-00c5-4aed-a1ff-c01e4c4254c3",

@@ -1,5 +1,6 @@
 import { PublishedEntity } from '@/types/formatted/publishedEntity'
 import { DrupalFile } from 'next-drupal'
+import { MediaImage } from '@/components/mediaDocument/formatted-type'
 
 type Link = {
   href: string
@@ -14,6 +15,6 @@ export interface CampaignLandingPage extends PublishedEntity {
       secondary?: Link | null
     }
     blurb: string
-    image: DrupalFile
+    image: MediaImage
   }
 }

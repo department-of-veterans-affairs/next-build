@@ -7,6 +7,10 @@ import { HeroBanner } from './HeroBanner'
 import { defineCustomElements } from '@department-of-veterans-affairs/web-components/loader'
 import { ImageProps } from 'next/image'
 import { DrupalFile } from 'next-drupal'
+import {
+  MediaImage,
+  MediaImageLinks,
+} from '@/components/mediaDocument/formatted-type'
 
 const mockBaseProps: Partial<CampaignLandingPageProps> = {
   title: 'Testing title',
@@ -19,12 +23,13 @@ const mockBaseProps: Partial<CampaignLandingPageProps> = {
     },
     blurb: 'This is the test hero blurb',
     image: {
+      alt: '',
       links: {
         '1_1_square_large': {
           href: 'https://example.com/hero-image.png',
-        } as unknown as DrupalFile,
+        } as unknown as MediaImageLinks,
       },
-    } as unknown as DrupalFile,
+    } as unknown as MediaImage,
   },
 }
 

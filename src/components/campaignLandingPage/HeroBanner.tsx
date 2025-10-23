@@ -23,19 +23,11 @@ export const HeroBanner = ({ title, hero }: CampaignLandingPageProps) => {
               )}
             </div>
             <div className="vads-u-display--none desktop:vads-u-display--block">
-              {/* Empty alt expected per requirements
-               * https://github.com/department-of-veterans-affairs/va.gov-cms/issues/22439
-               */}
               <MediaImage
-                alt=""
-                title=""
-                id="hero-image"
-                data-testid="hero-image"
-                links={hero.image.links}
+                {...hero.image}
                 imageStyle="1_1_square_large"
-                width={500}
-                height={500}
                 style={{ objectFit: 'cover', aspectRatio: '1/1' }}
+                data-testid="hero-image"
               />
             </div>
           </div>
