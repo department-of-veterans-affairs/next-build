@@ -47,17 +47,19 @@ export async function getStaticProps() {
     }
   }
   try {
-    // Fetch header and footer data directly (no banners on 404)
-    const [footerData, megaMenuData] = await Promise.all([
+    const [footerData, megaMenuData, bannerData] = await Promise.all([
       queries.getData('footer-data'),
       queries.getData('header-data'),
+      queries.getData('banner-data', {
+        itemPath: '/',
+      }),
     ])
 
     return {
       props: {
         footerData,
         megaMenuData,
-        bannerData: [], // no banners on 404
+        bannerData,
       },
     }
   } catch (error) {
