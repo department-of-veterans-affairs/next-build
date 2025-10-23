@@ -1,0 +1,428 @@
+{
+  "type": "node--va_form",
+  "id": "13dcf2b1-92f3-4296-9b8b-6b4b13e16c7b",
+  "drupal_internal__nid": 6022,
+  "drupal_internal__vid": 986759,
+  "langcode": "en",
+  "revision_timestamp": "2025-06-13T18:24:10+00:00",
+  "status": true,
+  "title": "About VA Form 21-0781",
+  "created": "2020-06-22T20:00:02+00:00",
+  "changed": "2025-06-13T18:24:10+00:00",
+  "promote": false,
+  "sticky": false,
+  "default_langcode": true,
+  "revision_translation_affected": true,
+  "breadcrumbs": [
+    {
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+      "title": "Home",
+      "options": []
+    },
+    {
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/find-forms",
+      "title": "Find a VA Form",
+      "options": []
+    },
+    {
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/find-forms/about-form-21-0781",
+      "title": "About VA Form 21-0781",
+      "options": []
+    }
+  ],
+  "moderation_state": "published",
+  "expiration_date": null,
+  "warning_date": null,
+  "metatag": [
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "title",
+        "content": "About VA Form 21-0781 | Veterans Affairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "description",
+        "content": "Statement in Support of Claimed Mental Health Disorder(s) Due to an In-Service Traumatic Event(s)"
+      }
+    },
+    {
+      "tag": "link",
+      "attributes": {
+        "rel": "image_src",
+        "href": "https://www.va.gov/img/design/logo/va-og-image.png"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "property": "og:site_name",
+        "content": "Veterans Affairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "property": "og:title",
+        "content": "About VA Form 21-0781 | Veterans Affairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "property": "og:image",
+        "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "property": "og:image:alt",
+        "content": "U.S. Department of Veterans Affairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "twitter:card",
+        "content": "summary_large_image"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "twitter:site",
+        "content": "@DeptVetAffairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "twitter:title",
+        "content": "About VA Form 21-0781 | Veterans Affairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "twitter:image",
+        "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "twitter:image:alt",
+        "content": "U.S. Department of Veterans Affairs"
+      }
+    }
+  ],
+  "path": {
+    "alias": "/find-forms/about-form-21-0781",
+    "pid": 6986,
+    "langcode": "en"
+  },
+  "content_translation_source": "und",
+  "content_translation_outdated": false,
+  "field_last_saved_by_an_editor": "2025-06-13T18:24:11+00:00",
+  "field_va_form_deleted": false,
+  "field_va_form_deleted_date": null,
+  "field_va_form_issue_date": "2024-06-27",
+  "field_va_form_language": "en",
+  "field_va_form_name": "Statement in Support of Claimed Mental Health Disorder(s) Due to an In-Service Traumatic Event(s)",
+  "field_va_form_number": "21-0781",
+  "field_va_form_num_pages": 7,
+  "field_va_form_revision_date": "2024-03-28",
+  "field_va_form_row_id": 4259,
+  "field_va_form_title": "Statement in Support of Claim for Service Connection for PTSD (Fillable)",
+  "field_va_form_tool_intro": "We’ll ask you to complete an online application for disability compensation (VA Form 21-526EZ) and answer questions about your mental health condition and the related events.",
+  "field_va_form_tool_url": {
+    "uri": "https://www.va.gov/disability/how-to-file-claim/",
+    "title": "",
+    "options": {
+      "href": "https://www.va.gov/disability/how-to-file-claim/",
+      "data-entity-type": "",
+      "data-entity-uuid": "",
+      "data-entity-substitution": ""
+    },
+    "url": "https://www.va.gov/disability/how-to-file-claim/"
+  },
+  "field_va_form_type": "benefit",
+  "field_va_form_upload": false,
+  "field_va_form_url": {
+    "uri": "http://www.vba.va.gov/pubs/forms/VBA-21-0781-ARE.pdf",
+    "title": null,
+    "options": [],
+    "url": "http://www.vba.va.gov/pubs/forms/VBA-21-0781-ARE.pdf"
+  },
+  "field_va_form_usage": {
+    "value": "<p>Use VA Form 21-0781 if you’ve been diagnosed with a mental health condition related to a traumatic event during your military service, and you want to apply for related benefits or services.</p><p>As of June 28, 2024, we’ve discontinued a similar form, Statement in Support of Claim for Service Connection for PTSD Secondary to Personal Assault (VA Form 21-0781a). We previously used this form to get more information to support claims for posttraumatic stress disorder (PTSD) related to personal assault. Now you can report all mental health conditions, including PTSD, on Form 21-0781.</p><p>These are some examples of mental health conditions:</p><ul><li>Posttraumatic stress disorder (PTSD)</li><li>Major depressive disorder</li><li>Generalized anxiety disorder</li><li>Bipolar disorder</li></ul><p>Traumatic events during your military service can include any of these types of events:</p><ul type=\"square\"><li>Combat events, like engaging in combat with enemy forces, experiencing fear of hostile military or terrorist activity, serving in an imminent danger area, or serving as a drone aircraft crew member</li><li>Sexual assault or harassment&nbsp;(also known as military sexual trauma or MST)</li><li>Traumatic personal events, like physical assault, battery, robbery, mugging, stalking, or harassment by a person who wasn’t part of an enemy force, or domestic abuse or harassment by a partner&nbsp;</li><li>Other traumatic events, like getting into a car accident, witnessing a natural disaster, working on burn ward or graves registration, witnessing the death, injury, or threat to another person or to yourself, that was caused by something other than a hostile military or terrorist activity, or experiencing or witnessing friendly fire that occurred on a gunnery range during a training mission</li></ul><p>This form is optional. But if you’re submitting a claim related to a mental health condition, this form could help with your claim. We’ll use the information you provide to help identify records and other evidence to support your claim.</p><p><strong>Note:</strong> If you’re submitting the PDF version of VA Form 21-0781 to support an online application for disability compensation (VA Form 21-526EZ) related to PTSD, you don’t need to answer the online application’s questions about PTSD. Select<strong> I’ve already filled out VA Form 21-0781/21-0781a and want to upload it</strong>.<strong>&nbsp;</strong></p>",
+    "format": "rich_text",
+    "processed": "<p>Use VA Form 21-0781 if you’ve been diagnosed with a mental health condition related to a traumatic event during your military service, and you want to apply for related benefits or services.</p><p>As of June 28, 2024, we’ve discontinued a similar form, Statement in Support of Claim for Service Connection for PTSD Secondary to Personal Assault (VA Form 21-0781a). We previously used this form to get more information to support claims for posttraumatic stress disorder (PTSD) related to personal assault. Now you can report all mental health conditions, including PTSD, on Form 21-0781.</p><p>These are some examples of mental health conditions:</p><ul><li>Posttraumatic stress disorder (PTSD)</li><li>Major depressive disorder</li><li>Generalized anxiety disorder</li><li>Bipolar disorder</li></ul><p>Traumatic events during your military service can include any of these types of events:</p><ul type=\"square\"><li>Combat events, like engaging in combat with enemy forces, experiencing fear of hostile military or terrorist activity, serving in an imminent danger area, or serving as a drone aircraft crew member</li><li>Sexual assault or harassment&nbsp;(also known as military sexual trauma or MST)</li><li>Traumatic personal events, like physical assault, battery, robbery, mugging, stalking, or harassment by a person who wasn’t part of an enemy force, or domestic abuse or harassment by a partner&nbsp;</li><li>Other traumatic events, like getting into a car accident, witnessing a natural disaster, working on burn ward or graves registration, witnessing the death, injury, or threat to another person or to yourself, that was caused by something other than a hostile military or terrorist activity, or experiencing or witnessing friendly fire that occurred on a gunnery range during a training mission</li></ul><p>This form is optional. But if you’re submitting a claim related to a mental health condition, this form could help with your claim. We’ll use the information you provide to help identify records and other evidence to support your claim.</p><p><strong>Note:</strong> If you’re submitting the PDF version of VA Form 21-0781 to support an online application for disability compensation (VA Form 21-526EZ) related to PTSD, you don’t need to answer the online application’s questions about PTSD. Select<strong> I’ve already filled out VA Form 21-0781/21-0781a and want to upload it</strong>.<strong>&nbsp;</strong></p>"
+  },
+  "links": {
+    "self": {
+      "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/va_form/13dcf2b1-92f3-4296-9b8b-6b4b13e16c7b?resourceVersion=id%3A986759"
+    }
+  },
+  "node_type": {
+    "type": "node_type--node_type",
+    "id": "b316e6ca-e033-4a25-992e-0300505fc5e2",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": "va_form"
+    }
+  },
+  "revision_uid": {
+    "type": "user--user",
+    "id": "b94ae059-340a-4dfb-90de-1676d024ef3d",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 5326
+    }
+  },
+  "uid": {
+    "type": "user--user",
+    "id": "c564bd69-e8da-4ac3-905c-dd94f4bf7b35",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 1317
+    }
+  },
+  "field_administration": {
+    "type": "taxonomy_term--administration",
+    "id": "7d7e2e18-f91e-4af0-bca2-52a9af9a7b3e",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 196
+    }
+  },
+  "field_alert": null,
+  "field_benefit_categories": [
+    {
+      "type": "node--landing_page",
+      "id": "ac8b805b-e5b7-4cdb-b4c4-fb81956bac65",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 68
+      }
+    },
+    {
+      "type": "node--landing_page",
+      "id": "fd822f25-788f-489c-a0fc-b1f7ad6c20d5",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 67
+      }
+    }
+  ],
+  "field_va_form_administration": {
+    "type": "taxonomy_term--administration",
+    "id": "2c331a6d-b525-4f0c-8bea-4ecde41c7ef0",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 1
+    }
+  },
+  "field_va_form_link_teasers": [
+    {
+      "type": "paragraph--link_teaser",
+      "id": "91e2a267-40e5-469f-8cd2-4cb2362cf26f",
+      "drupal_internal__id": 156599,
+      "drupal_internal__revision_id": 1785065,
+      "langcode": "en",
+      "status": true,
+      "created": "2024-06-28T11:32:08+00:00",
+      "parent_id": "6022",
+      "parent_type": "node",
+      "parent_field_name": "field_va_form_link_teasers",
+      "behavior_settings": [],
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "breadcrumbs": [],
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "content_translation_changed": "2025-06-13T18:20:27+00:00",
+      "field_link": {
+        "uri": "entity:node/905",
+        "title": "How to file a VA disability claim",
+        "options": {
+          "href": "entity:node/905",
+          "data-entity-type": "node",
+          "data-entity-uuid": "414c54b9-cd5c-4d86-8203-fc2489e4be8a",
+          "data-entity-substitution": "canonical"
+        },
+        "url": "/disability/how-to-file-claim"
+      },
+      "field_link_summary": "Find out how to file a claim for VA disability compensation.",
+      "links": {
+        "self": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/link_teaser/91e2a267-40e5-469f-8cd2-4cb2362cf26f?resourceVersion=id%3A1785065"
+        }
+      },
+      "resourceIdObjMeta": {
+        "target_revision_id": 1785065,
+        "drupal_internal__target_id": 156599
+      },
+      "paragraph_type": {
+        "type": "paragraphs_type--paragraphs_type",
+        "id": "072db7a4-476e-41a6-ab49-c44184281451",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "link_teaser"
+        }
+      },
+      "relationshipNames": ["paragraph_type"]
+    },
+    {
+      "type": "paragraph--link_teaser",
+      "id": "74e2e77d-148b-4291-8371-a03095265299",
+      "drupal_internal__id": 10995,
+      "drupal_internal__revision_id": 1785066,
+      "langcode": "en",
+      "status": true,
+      "created": "2020-07-08T18:15:52+00:00",
+      "parent_id": "6022",
+      "parent_type": "node",
+      "parent_field_name": "field_va_form_link_teasers",
+      "behavior_settings": [],
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "breadcrumbs": [],
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "content_translation_changed": null,
+      "field_link": {
+        "uri": "entity:node/35",
+        "title": "How to apply for VA health care",
+        "options": {
+          "href": "entity:node/35",
+          "data-entity-type": "node",
+          "data-entity-uuid": "f8323733-28cd-497d-b536-349005be9b71",
+          "data-entity-substitution": "canonical"
+        },
+        "url": "/health-care/how-to-apply"
+      },
+      "field_link_summary": "Find out how to apply for VA health care. This can be a first step in getting treatment and support for PTSD.",
+      "links": {
+        "self": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/link_teaser/74e2e77d-148b-4291-8371-a03095265299?resourceVersion=id%3A1785066"
+        }
+      },
+      "resourceIdObjMeta": {
+        "target_revision_id": 1785066,
+        "drupal_internal__target_id": 10995
+      },
+      "paragraph_type": {
+        "type": "paragraphs_type--paragraphs_type",
+        "id": "072db7a4-476e-41a6-ab49-c44184281451",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "link_teaser"
+        }
+      },
+      "relationshipNames": ["paragraph_type"]
+    },
+    {
+      "type": "paragraph--link_teaser",
+      "id": "fad126a2-a7d7-4d8d-8993-eb10190dc45c",
+      "drupal_internal__id": 11218,
+      "drupal_internal__revision_id": 1785067,
+      "langcode": "en",
+      "status": true,
+      "created": "2020-07-16T15:44:28+00:00",
+      "parent_id": "6022",
+      "parent_type": "node",
+      "parent_field_name": "field_va_form_link_teasers",
+      "behavior_settings": [],
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "breadcrumbs": [],
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "content_translation_changed": null,
+      "field_link": {
+        "uri": "entity:node/23",
+        "title": "VA mental health services",
+        "options": {
+          "href": "entity:node/23",
+          "data-entity-type": "node",
+          "data-entity-uuid": "ec926928-4e69-47c9-9820-f41d14183b76",
+          "data-entity-substitution": "canonical"
+        },
+        "url": "/health-care/health-needs-conditions/mental-health"
+      },
+      "field_link_summary": "Learn how to get started using VA mental health services. You can use some services even if you’re not enrolled in VA health care.",
+      "links": {
+        "self": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/link_teaser/fad126a2-a7d7-4d8d-8993-eb10190dc45c?resourceVersion=id%3A1785067"
+        }
+      },
+      "resourceIdObjMeta": {
+        "target_revision_id": 1785067,
+        "drupal_internal__target_id": 11218
+      },
+      "paragraph_type": {
+        "type": "paragraphs_type--paragraphs_type",
+        "id": "072db7a4-476e-41a6-ab49-c44184281451",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "link_teaser"
+        }
+      },
+      "relationshipNames": ["paragraph_type"]
+    },
+    {
+      "type": "paragraph--link_teaser",
+      "id": "39e60e6c-c030-4236-bd4d-c6c8a7eae608",
+      "drupal_internal__id": 10996,
+      "drupal_internal__revision_id": 1785068,
+      "langcode": "en",
+      "status": true,
+      "created": "2020-07-08T18:18:28+00:00",
+      "parent_id": "6022",
+      "parent_type": "node",
+      "parent_field_name": "field_va_form_link_teasers",
+      "behavior_settings": [],
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "breadcrumbs": [],
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "content_translation_changed": null,
+      "field_link": {
+        "uri": "entity:node/19",
+        "title": "PTSD treatment",
+        "options": {
+          "href": "entity:node/19",
+          "data-entity-type": "node",
+          "data-entity-uuid": "da20e1c8-3021-4609-b0dd-766879599579",
+          "data-entity-substitution": "canonical"
+        },
+        "url": "/health-care/health-needs-conditions/mental-health/ptsd"
+      },
+      "field_link_summary": "Find out how to access PTSD health services through VA. Our National Center for PTSD is the world leader in PTSD research, education, and treatment.",
+      "links": {
+        "self": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/link_teaser/39e60e6c-c030-4236-bd4d-c6c8a7eae608?resourceVersion=id%3A1785068"
+        }
+      },
+      "resourceIdObjMeta": {
+        "target_revision_id": 1785068,
+        "drupal_internal__target_id": 10996
+      },
+      "paragraph_type": {
+        "type": "paragraphs_type--paragraphs_type",
+        "id": "072db7a4-476e-41a6-ab49-c44184281451",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "link_teaser"
+        }
+      },
+      "relationshipNames": ["paragraph_type"]
+    }
+  ],
+  "field_va_form_related_forms": [],
+  "relationshipNames": [
+    "node_type",
+    "revision_uid",
+    "uid",
+    "field_administration",
+    "field_alert",
+    "field_benefit_categories",
+    "field_va_form_administration",
+    "field_va_form_link_teasers",
+    "field_va_form_related_forms"
+  ]
+}
