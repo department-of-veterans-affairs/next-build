@@ -43,7 +43,7 @@ export const formatter: QueryFormatter<NodeLandingPage, BenefitsHub> = (
   return {
     ...entityBaseFields(entity),
     title: entity.title,
-    fieldIntroText: entity.field_intro_text,
+    intro: entity.field_intro_text,
     hubLabel: entity.field_home_page_hub_label,
     teaserText: entity.field_teaser_text,
     titleIcon: entity.field_title_icon,

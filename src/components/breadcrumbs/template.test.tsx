@@ -96,7 +96,7 @@ describe('<Breadcrumbs />', () => {
       type: RESOURCE_TYPES.BENEFITS_HUB,
       title: 'VA health care',
       titleIcon: 'health-care',
-      fieldIntroText: 'Apply for and manage VA health care benefits',
+      intro: 'Apply for and manage VA health care benefits',
       id: 'test-id',
       published: true,
       lastUpdated: '2024-01-01',

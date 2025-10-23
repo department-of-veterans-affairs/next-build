@@ -14,7 +14,7 @@ describe('BenefitsHub with valid data', () => {
         lastUpdated="2024-01-01"
         title={'Hello world'}
         titleIcon={null}
-        fieldIntroText={null}
+        intro={null}
       />
     )
 
@@ -33,7 +33,7 @@ describe('BenefitsHub with valid data', () => {
         lastUpdated="2024-01-01"
         title={'Health Care'}
         titleIcon={null}
-        fieldIntroText={'This is an intro text for health care benefits.'}
+        intro={'This is an intro text for health care benefits.'}
       />
     )
 
@@ -52,7 +52,7 @@ describe('BenefitsHub with valid data', () => {
         lastUpdated="2024-01-01"
         title={'Disability'}
         titleIcon={'disability'}
-        fieldIntroText={'Learn about disability compensation.'}
+        intro={'Learn about disability compensation.'}
       />
     )
 
@@ -60,5 +60,13 @@ describe('BenefitsHub with valid data', () => {
     expect(
       screen.queryByText(/Learn about disability compensation./)
     ).toBeInTheDocument()
+    
+    // Test that the va-icon element is rendered with the correct icon and styling
+    const vaIcon = document.querySelector('va-icon')
+    expect(vaIcon).toBeInTheDocument()
+    expect(vaIcon).toHaveAttribute('icon', 'description')
+    expect(vaIcon).toHaveAttribute('size', '3')
+    expect(vaIcon).toHaveClass('hub-icon')
+    expect(vaIcon).toHaveClass('vads-u-background-color--hub-disability')
   })
 })

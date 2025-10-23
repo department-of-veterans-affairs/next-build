@@ -4,7 +4,7 @@ import { BenefitsHub as FormattedBenefitsHub } from './formatted-type'
 export function BenefitsHub({
   title,
   titleIcon,
-  fieldIntroText,
+  intro,
 }: FormattedBenefitsHub) {
   const iconConfig = getHubIcon(titleIcon)
 
@@ -30,7 +30,7 @@ export function BenefitsHub({
               <h1>{title}</h1>
             )}
             <div className="va-introtext">
-              <p>{fieldIntroText}</p>
+              <p>{intro}</p>
             </div>
           </article>
         </div>
