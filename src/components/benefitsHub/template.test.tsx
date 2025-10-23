@@ -59,7 +59,7 @@ describe('BenefitsHub with valid data', () => {
     expect(
       screen.queryByText(/Learn about disability compensation./)
     ).toBeInTheDocument()
-    
+
     // Test that the va-icon element is rendered with the correct icon and styling
     const vaIcon = document.querySelector('va-icon')
     expect(vaIcon).toBeInTheDocument()

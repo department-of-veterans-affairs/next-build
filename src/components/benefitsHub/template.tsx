@@ -1,11 +1,7 @@
 import { getHubIcon } from '@/lib/utils/benefitsHub'
 import { BenefitsHub as FormattedBenefitsHub } from './formatted-type'
 
-export function BenefitsHub({
-  title,
-  titleIcon,
-  intro,
-}: FormattedBenefitsHub) {
+export function BenefitsHub({ title, titleIcon, intro }: FormattedBenefitsHub) {
   const iconConfig = getHubIcon(titleIcon)
 
   return (
