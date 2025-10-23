@@ -1,20 +1,10 @@
 export const placeholders = {
-  // Hero section
-  fieldHeroBlurb: 'This is a blurb for the hero element',
   fieldPrimaryCallToAction: {
     entity: {
       fieldButtonLink: { url: { path: '#' } },
       fieldButtonLabel: 'Primary Action',
     },
   },
-  fieldHeroImage: {
-    entity: {
-      image: {
-        derivative: { url: '/placeholder-hero.jpg' },
-      },
-    },
-  },
-
   // Why this matters section
   fieldClpWhyThisMatters: 'This is why this matters to you.',
   fieldSecondaryCallToAction: {
