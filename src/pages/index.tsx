@@ -20,7 +20,9 @@ const HomePage = ({ footerData, megaMenuData, bannerData }) => {
           <div>TODO: add Common tasks</div>
           <div>TODO: add news-spotlight</div>
           <div>TODO: add homepage-benefits</div>
-          <ContentFooter />
+          <div className="usa-grid usa-grid-full">
+            <ContentFooter />
+          </div>
           <div>TODO: add email signup</div>
         </main>
 
