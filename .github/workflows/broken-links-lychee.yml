@@ -25,7 +25,7 @@ jobs:
       # lychee internal concurrency (recommended 4-8)
       LYCHEE_MAX_CONC: '8'
       # number of parallel lychee processes launched by the script
-      BATCH_CONCURRENCY: '6'
+      BATCH_CONCURRENCY: '7'
       # timeout and retries for lychee (seconds / attempts)
       LYCHEE_TIMEOUT: '30'
       LYCHEE_RETRIES: '5'
