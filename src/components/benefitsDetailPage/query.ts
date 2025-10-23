@@ -3,6 +3,7 @@ import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodeBenefitsDetailPage } from '@/types/drupal/node'
 import { BenefitsDetailPage } from './formatted-type'
 import {
+  PARAGRAPH_RESOURCE_TYPES,
   RESOURCE_TYPES,
   // PARAGRAPH_RESOURCE_TYPES,
 } from '@/lib/constants/resourceTypes'
@@ -15,16 +16,19 @@ import { formatter as formatListOfLinkTeasers } from '@/components/listOfLinkTea
 import { formatter as formatAdministration } from '@/components/administration/query'
 import { formatter as formatAlertBlock } from '@/components/alertBlock/query'
 import { formatParagraph } from '@/lib/drupal/paragraphs'
-// import { getNestedIncludes } from '@/lib/utils/queries'
+import { getNestedIncludes } from '@/lib/utils/queries'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 
 // Define the query params for fetching node--page (benefits detail page).
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude([
     'field_administration',
-    'field_alert',
     'field_related_links',
-    'field_related_links.field_va_paragraphs',
+    ...getNestedIncludes(
+      'field_related_links',
+      PARAGRAPH_RESOURCE_TYPES.LIST_OF_LINK_TEASERS
+    ),
+    ...getNestedIncludes('field_alert', 'block--alert'),
     // ...getNestedIncludes('field_content_block', PARAGRAPH_RESOURCE_TYPES.QA),
     // ...getNestedIncludes('field_featured_content', PARAGRAPH_RESOURCE_TYPES.QA),
   ])
