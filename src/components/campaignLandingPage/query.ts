@@ -9,16 +9,16 @@ import {
   entityBaseFields,
   fetchSingleEntityOrPreview,
 } from '@/lib/drupal/query'
+import { formatter as formatImage } from '@/components/mediaImage/query'
 
 // Define the query params for fetching node--campaign_landing_page.
 export const params: QueryParams<null> = () => {
-  return new DrupalJsonApiParams()
-  // uncomment to add referenced entity data to the response
-  // .addInclude([
-  //  'field_media',
-  //  'field_media.image',
-  //  'field_administration',
-  // ])
+  return new DrupalJsonApiParams().addInclude([
+    'field_primary_call_to_action',
+    'field_secondary_call_to_action',
+    'field_hero_image',
+    'field_hero_image.image',
+  ])
 }
 
 // Define the option types for the data loader.
@@ -47,5 +47,31 @@ export const formatter: QueryFormatter<
 > = (entity: NodeCampaignLandingPage) => {
   return {
     ...entityBaseFields(entity),
+    breadcrumbs: null, // hide breadcrumb on the page
+    hero: {
+      cta: {
+        primary: entity.field_primary_call_to_action
+          ? {
+              href: entity.field_primary_call_to_action.field_button_link.url,
+              label: entity.field_primary_call_to_action.field_button_label,
+            }
+          : null,
+        secondary: entity.field_secondary_call_to_action
+          ? {
+              href: entity.field_secondary_call_to_action.field_button_link.url,
+              label: entity.field_secondary_call_to_action.field_button_label,
+            }
+          : null,
+      },
+      blurb: entity.field_hero_blurb,
+      image: {
+        ...formatImage(entity.field_hero_image),
+
+        /* Empty alt expected per requirements
+         * https://github.com/department-of-veterans-affairs/va.gov-cms/issues/22439
+         */
+        alt: '',
+      },
+    },
   }
 }

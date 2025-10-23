@@ -2,20 +2,168 @@
 
 exports[`CampaignLandingPage formatData outputs formatted data 1`] = `
 {
-  "breadcrumbs": [
-    {
-      "options": [],
-      "title": "Home",
-      "uri": "https://va-gov-cms.ddev.site/",
-    },
-    {
-      "options": [],
-      "title": "PACT Act and Survivors",
-      "uri": "https://va-gov-cms.ddev.site/initiatives/pact-act-and-survivors",
-    },
-  ],
+  "breadcrumbs": null,
   "entityId": 48974,
   "entityPath": "/initiatives/pact-act-and-survivors",
+  "hero": {
+    "blurb": "This page will help answer your questions about the PACT Act and what it means for survivors.",
+    "cta": {
+      "primary": {
+        "href": "https://www.va.gov/disability/file-disability-claim-form-21-526ez/",
+        "label": "File a disability claim online",
+      },
+      "secondary": null,
+    },
+    "image": {
+      "alt": "",
+      "height": 370,
+      "id": "a5f76ccd-b235-4f4b-8e2d-b6c519304540",
+      "links": {
+        "1_1_square_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/1_1_square_medium_thumbnail/public/2021-03/Listening-Session-Website-Graphic-730x370.jpg?h=e092120c",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+              "width": "240",
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+        },
+        "2_1_large": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_large/public/2021-03/Listening-Session-Website-Graphic-730x370.jpg",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+              "width": "512",
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+        },
+        "2_1_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_medium_thumbnail/public/2021-03/Listening-Session-Website-Graphic-730x370.jpg",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+              "width": "240",
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+        },
+        "2_3_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_3_medium_thumbnail/public/2021-03/Listening-Session-Website-Graphic-730x370.jpg",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+              "width": "480",
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+        },
+        "3_2_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2021-03/Listening-Session-Website-Graphic-730x370.jpg",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+              "width": "320",
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+        },
+        "7_2_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/7_2_medium_thumbnail/public/2021-03/Listening-Session-Website-Graphic-730x370.jpg",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+              "width": "300",
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+        },
+        "full_content_width": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/full_content_width/public/2021-03/Listening-Session-Website-Graphic-730x370.jpg",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+        },
+        "large": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/large/public/2021-03/Listening-Session-Website-Graphic-730x370.jpg",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+        },
+        "original": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/original/public/2021-03/Listening-Session-Website-Graphic-730x370.jpg",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+        },
+        "self": {
+          "href": "https://va-gov-cms.ddev.site/jsonapi/file/file/a5f76ccd-b235-4f4b-8e2d-b6c519304540",
+        },
+        "viewport_width": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/viewport_width/public/2021-03/Listening-Session-Website-Graphic-730x370.jpg",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+        },
+      },
+      "title": "",
+      "type": "media--image",
+      "width": 730,
+    },
+  },
   "id": "7f375d16-00c5-4aed-a1ff-c01e4c4254c3",
   "lastUpdated": "2022-09-01T23:13:15+00:00",
   "metatags": [
