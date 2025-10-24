@@ -57,9 +57,6 @@ describe('<QuestionAnswerData> component renders with data', () => {
         options: [null],
         summary: null,
         parentField: 'field_related_information',
-        componentParams: {
-          sectionHeader: '',
-        },
       },
       {
         id: '6af4b68b-c18a-4ec8-8598-6c5348aaa349',
@@ -69,9 +66,6 @@ describe('<QuestionAnswerData> component renders with data', () => {
         options: [null],
         summary: null,
         parentField: 'field_related_information',
-        componentParams: {
-          sectionHeader: '',
-        },
       },
       {
         id: '8b4e3067-333d-4739-9682-9ab191fe7ad1',
@@ -81,9 +75,6 @@ describe('<QuestionAnswerData> component renders with data', () => {
         options: [null],
         summary: null,
         parentField: 'field_related_information',
-        componentParams: {
-          sectionHeader: '',
-        },
       },
     ],
   }

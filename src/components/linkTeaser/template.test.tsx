@@ -7,7 +7,7 @@ import { LinkTeaser as FormattedLinkTeaser } from '@/components/linkTeaser/forma
 import { ParagraphComponent } from '@/components/paragraph/formatted-type'
 
 describe('<LinkTeaser> component', () => {
-  const baseProps: ParagraphComponent<FormattedLinkTeaser> = {
+  const baseProps = {
     id: 'cb0c2019-0f48-448f-98ca-205d80c8f6fe',
     uri: '/health-care/eligibility/',
     title: 'Health Care Benefits Eligibility',
@@ -15,9 +15,7 @@ describe('<LinkTeaser> component', () => {
     summary:
       'Not sure if you qualify? Find out if you can get VA health care benefits.',
     parentField: 'field_va_paragraphs',
-    componentParams: {
-      sectionHeader: 'Test Section Header',
-    },
+    sectionHeader: 'Test Section Header',
   }
 
   beforeEach(() => {

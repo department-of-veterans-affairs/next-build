@@ -8,7 +8,4 @@ export type LinkTeaser = PublishedParagraph & {
   parentField: string | null
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   options: { [key: string]: any }
-  componentParams: {
-    sectionHeader: string
-  }
 }

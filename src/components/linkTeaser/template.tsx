@@ -10,16 +10,14 @@ export const LinkTeaser = ({
   summary,
   uri,
   parentField,
-  componentParams,
   options,
-}: ParagraphComponent<FormattedLinkTeaser>) => {
-  const { sectionHeader } = componentParams
-
+  sectionHeader,
+}: ParagraphComponent<FormattedLinkTeaser> & { sectionHeader?: string }) => {
   const handleItemClick = () => {
     recordEvent({
       event: 'nav-linkslist',
       'links-list-header': encodeURIComponent(title),
-      'links-list-section-header': encodeURIComponent(sectionHeader),
+      'links-list-section-header': encodeURIComponent(sectionHeader ?? ''),
     })
   }
 

@@ -119,10 +119,10 @@ describe('HealthCareLocalFacility with valid data', () => {
 
     expect(
       screen.getByRole('heading', {
-        name: 'Other services at VA Boston health care',
+        name: /Other services at Framingham VA Clinic/,
       })
     ).toBeInTheDocument()
-    expect(container.querySelectorAll('ul > li > p > va-link')).toHaveLength(8)
+    expect(container.querySelectorAll('ul > li > p > va-link')).toHaveLength(10)
   })
 
   test('renders the location services', () => {

@@ -24,9 +24,6 @@ const mockFeaturedContent = [
     parentField: 'field_featured_content_healthser',
     entityId: 1,
     options: [],
-    componentParams: {
-      sectionHeader: '',
-    },
   },
   {
     id: 'test-2',
@@ -38,9 +35,6 @@ const mockFeaturedContent = [
     parentField: 'field_featured_content_healthser',
     entityId: 2,
     options: [],
-    componentParams: {
-      sectionHeader: '',
-    },
   },
 ]
 
