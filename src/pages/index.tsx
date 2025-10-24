@@ -1,6 +1,7 @@
 import { ContentFooter } from '@/components/contentFooter/template'
 import { PageLayout } from '@/components/pageLayout/template'
 import { queries } from '@/lib/drupal/queries'
+import { HomePageHero } from '@/components/homePageHero/template'
 import Head from 'next/head'
 import Script from 'next/script'
 
@@ -16,7 +17,7 @@ const HomePage = ({ footerData, megaMenuData, bannerData }) => {
         megaMenuData={megaMenuData}
       >
         <main data-template="layouts/home" id="content">
-          <div>TODO: add HERO</div>
+          <HomePageHero />
           <div>TODO: add Common tasks</div>
           <div>TODO: add news-spotlight</div>
           <div>TODO: add homepage-benefits</div>
