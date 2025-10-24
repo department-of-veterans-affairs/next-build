@@ -6,6 +6,7 @@ export function BenefitsHub({
   titleIcon,
   lastUpdated,
   title,
+  intro,
 }: FormattedBenefitsHub) {
   const iconConfig = getHubIcon(titleIcon)
   return (
@@ -27,6 +28,9 @@ export function BenefitsHub({
         ) : (
           <h1>{title}</h1>
         )}
+        <div className="va-introtext">
+          <p>{intro}</p>
+        </div>
         <ContentFooter lastUpdated={lastUpdated} />
       </article>
     </div>
