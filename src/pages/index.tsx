@@ -39,8 +39,9 @@ const HomePage = ({ footerData, megaMenuData, bannerData }) => {
 
 export async function getStaticProps() {
   if (
-    process.env.FEATURE_NEXT_BUILD_CONTENT_HOMEPAGE === 'false' &&
-    process.env.FEATURE_NEXT_BUILD_CONTENT_ALL !== 'true'
+    !process.env.FEATURE_NEXT_BUILD_CONTENT_HOMEPAGE ||
+    (process.env.FEATURE_NEXT_BUILD_CONTENT_HOMEPAGE === 'false' &&
+      process.env.FEATURE_NEXT_BUILD_CONTENT_ALL !== 'true')
   ) {
     return {
       notFound: true,
