@@ -1,7 +1,7 @@
 import type { CampaignLandingPageProps } from './template'
 import { MediaImage } from '../mediaImage/template'
 
-export const HeroBanner = ({ title, hero }: CampaignLandingPageProps) => {
+export const HeroBanner = ({ title, hero, cta }: CampaignLandingPageProps) => {
   return (
     <div className="va-u-background--gradiant-blue" data-testid="hero-banner">
       <div className="vads-l-grid-container vads-u-padding-x--4 desktop-lg:vads-u-padding-x--0">
@@ -12,13 +12,13 @@ export const HeroBanner = ({ title, hero }: CampaignLandingPageProps) => {
               <hr className="va-c-blue-line--large vads-u-border-color--primary-alt vads-u-border--2px vads-u-margin-y--2" />
               <p className="va-introtext vads-u-color--white">{hero.blurb}</p>
 
-              {hero.cta.primary && (
+              {cta.primary && (
                 <va-link-action
                   data-testid="primary-cta"
                   className="vads-u-margin-top--2"
-                  href={hero.cta.primary.href}
+                  href={cta.primary.href}
                   type="reverse"
-                  text={hero.cta.primary.label}
+                  text={cta.primary.label}
                 />
               )}
             </div>
