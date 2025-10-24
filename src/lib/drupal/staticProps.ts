@@ -115,6 +115,7 @@ export async function fetchSingleStaticPropsResource(
         queryOpts
       )
     : null
+
   if (!resource) {
     throw new Error(`Failed to fetch resource: ${pathInfo.jsonapi.individual}`)
   }

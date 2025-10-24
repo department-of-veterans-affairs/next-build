@@ -87,11 +87,11 @@ export const data: QueryData<VamcSystemDataOpts, VamcSystemData> = async (
   const { data: mainFacilities } =
     await fetchAndConcatAllResourceCollectionPages<NodeHealthCareLocalFacility>(
       RESOURCE_TYPES.VAMC_FACILITY,
-      queries
-        .getParams(RESOURCE_TYPES.VAMC_FACILITY)
+      new DrupalJsonApiParams()
+        .addInclude(['field_telephone', 'field_media.image'])
         .addFilter('field_region_page.id', entity.id)
         .addFilter('field_main_location', '1'),
-      PAGE_SIZES[RESOURCE_TYPES.VAMC_FACILITY]
+      PAGE_SIZES.MAX
     )
 
   // Fetch featured stories for this VAMC System

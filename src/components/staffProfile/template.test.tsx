@@ -1,5 +1,6 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
+import { axe } from '@/test-utils'
 import { MediaImage } from '@/components/mediaDocument/formatted-type'
 import { StaffProfile } from './template'
 import { StaffProfile as FormattedStaffProfile } from './formatted-type'
@@ -74,8 +75,8 @@ describe('StaffProfile Component', () => {
     lastUpdated: '2/2/25',
   }
 
-  test('renders StaffProfile with correct data', () => {
-    render(<StaffProfile {...mockProfile} />)
+  test('renders StaffProfile with correct data', async () => {
+    const { container } = render(<StaffProfile {...mockProfile} />)
 
     expect(screen.getByText('Prachi Asher')).toBeInTheDocument()
     expect(screen.getByText('Deputy Director')).toBeInTheDocument()
@@ -106,6 +107,9 @@ describe('StaffProfile Component', () => {
       'filetype',
       'PDF'
     )
+
+    const axeResults = await axe(container)
+    expect(axeResults).toHaveNoViolations()
   })
 
   test('does not render email when it is null', () => {

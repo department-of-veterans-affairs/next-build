@@ -1,5 +1,6 @@
 import React from 'react'
 import { render } from '@testing-library/react'
+import { axe } from '@/test-utils'
 import { Address } from './template'
 import { FieldAddress } from '@/types/drupal/field_type'
 
@@ -14,7 +15,7 @@ const baseAddress: FieldAddress = {
 }
 
 describe('<Address />', () => {
-  it('renders the address correctly without address_line2', () => {
+  it('renders the address correctly without address_line2', async () => {
     const { container } = render(
       <Address address={baseAddress} title="VA Clinic" />
     )
@@ -23,9 +24,12 @@ describe('<Address />', () => {
     expect(addressEl).toHaveTextContent('123 Main St')
     expect(addressEl).toHaveTextContent('Springfield, IL 62704')
     expect(addressEl).not.toHaveTextContent('address_line2')
+
+    const axeResults = await axe(container)
+    expect(axeResults).toHaveNoViolations()
   })
 
-  it('renders the address correctly with address_line2', () => {
+  it('renders the address correctly with address_line2', async () => {
     const fullAddress = { ...baseAddress, address_line2: 'Suite 100' }
 
     const { container } = render(
@@ -36,9 +40,12 @@ describe('<Address />', () => {
     expect(addressEl).toHaveTextContent('123 Main St')
     expect(addressEl).toHaveTextContent('Suite 100')
     expect(addressEl).toHaveTextContent('Springfield, IL 62704')
+
+    const axeResults = await axe(container)
+    expect(axeResults).toHaveNoViolations()
   })
 
-  it('passes correct props to <GoogleMapsDirections />', () => {
+  it('passes correct props to <GoogleMapsDirections />', async () => {
     const fullAddress = { ...baseAddress, address_line2: 'Suite 100' }
 
     const { container } = render(
@@ -55,5 +62,8 @@ describe('<Address />', () => {
       'label',
       'Get directions on Google Maps to VA Clinic'
     )
+
+    const axeResults = await axe(container)
+    expect(axeResults).toHaveNoViolations()
   })
 })

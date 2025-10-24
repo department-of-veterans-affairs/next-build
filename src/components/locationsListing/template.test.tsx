@@ -1,5 +1,6 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
+import { axe } from '@/test-utils'
 import { LocationsListing } from './template'
 import { LOVELL } from '@/lib/drupal/lovell/constants'
 import { MinimalLocalFacility } from './formatted-type'
@@ -49,8 +50,8 @@ const mockMainFacilities: MinimalLocalFacility[] = [
 ]
 
 describe('LocationsListing', () => {
-  test('renders the given title in an <h1>', () => {
-    render(
+  test('renders the given title in an <h1>', async () => {
+    const { container } = render(
       <LocationsListing
         {...mockBaseProps}
         title="Boston VA Locations"
@@ -62,6 +63,9 @@ describe('LocationsListing', () => {
     })
     expect(heading).toBeInTheDocument()
     expect(heading.tagName).toBe('H1')
+
+    const axeResults = await axe(container)
+    expect(axeResults).toHaveNoViolations()
   })
 
   test('renders the sidebar nav with correct attributes', () => {

@@ -113,49 +113,6 @@ export const conditionalAttr = (
     : {}
 }
 
-export const numToWord = (num) => {
-  if (num === 0) return 'zero'
-
-  const belowTwenty = [
-    'one',
-    'two',
-    'three',
-    'four',
-    'five',
-    'six',
-    'seven',
-    'eight',
-    'nine',
-    'ten',
-    'eleven',
-    'twelve',
-    'thirteen',
-    'fourteen',
-    'fifteen',
-    'sixteen',
-    'seventeen',
-    'eighteen',
-    'nineteen',
-  ]
-  const tens = [
-    'twenty',
-    'thirty',
-    'forty',
-    'fifty',
-    'sixty',
-    'seventy',
-    'eighty',
-    'ninety',
-  ]
-
-  if (num < 20) return belowTwenty[num - 1]
-  if (num < 100)
-    return (
-      tens[Math.floor(num / 10) - 2] +
-      (num % 10 ? '-' + belowTwenty[(num % 10) - 1] : '')
-    )
-}
-
 /**
  * Convert newline characters to HTML <br> tags.
  */
@@ -168,10 +125,29 @@ export const newlinesToBr = (content: string): string => {
  * an ID already.
  */
 export const addH2Ids = (content: string): string => {
-  if (!content) return content
+  return addHeadingIds(content, '2')
+}
 
+/**
+ * Add IDs to all H3 elements in the provided HTML content if they don't have
+ * an ID already.
+ */
+export const addH3Ids = (content: string): string => {
+  return addHeadingIds(content, '3')
+}
+
+/**
+ * Add IDs to all heading elements in the provided HTML content if they don't have
+ * an ID already at the level specified.
+ */
+export const addHeadingIds = (content: string, level: string): string => {
+  if (!content) return content
+  const regex = new RegExp(
+    `(<h${level})(?![^>]*\\sid=)([^>]*>)(.*?)(</h${level}>)`,
+    'gi'
+  )
   return content.replace(
-    /(<h2)(?![^>]*\sid=)([^>]*>)(.*?)(<\/h2>)/gi,
+    regex,
     (match, openTag, attributes, headingContent, closeTag) => {
       // Extract text content from the heading, removing HTML tags and entities
       const textContent = headingContent
@@ -185,8 +161,45 @@ export const addH2Ids = (content: string): string => {
 
       if (!id) return match // Return original if we can't generate an ID
 
-      // Construct the new h2 tag with the ID, preserving original case and structure
+      // Construct the new heading tag with the ID, preserving original case and structure
       return `${openTag}${attributes.replace('>', ` id="${id}">`)}${headingContent}${closeTag}`
     }
   )
+}
+
+/**
+ * Converts action link style defined in wysiwyg to web-component
+ */
+export const convertActionLinks = (content: string): string => {
+  if (!content) return content
+  return content.replace(
+    /<a([^>]*class="[^"]*vads-c-action-link--(blue|green)[^"]*"[^>]*)>([\s\S]*?)<\/a>/gi,
+    (match, attrs, color, inner) => {
+      const type = color === 'blue' ? 'secondary' : 'primary'
+      // Remove class attribute for either blue or green
+      const newAttrs = attrs
+        .replace(/class="[^"]*vads-c-action-link--(blue|green)[^"]*"/, '')
+        .trim()
+      // Strip HTML tags from inner to get only the text
+      // Also remove any remaining angle brackets to avoid incomplete tag fragments
+      const innerText = inner
+        .replace(/<[^>]+>/g, '')
+        .replace(/[<>]/g, '')
+        .trim()
+      return `<va-link-action ${newAttrs} text="${innerText}" type="${type}" />`
+    }
+  )
+}
+
+/**
+ * Returns string wrapped in <p> if there is no other HTML in string.
+ */
+export const setPTag = (string: string) => {
+  // Checks of empty or only whitespace characters
+  if (!string || /^\s*$/.test(string)) return ''
+  // Checks for any HTML tag
+  if (/^\s*<[^>]+>/.test(string.trim())) {
+    return string
+  }
+  return `<p>${string}</p>`
 }

@@ -2,7 +2,7 @@
  * @jest-environment node
  */
 
-import { getStaticProps } from '../pages/[[...slug]]'
+import { getStaticProps } from '../pages/[...slug]'
 import {
   getStaticPropsResource,
   getExpandedStaticPropsContext,

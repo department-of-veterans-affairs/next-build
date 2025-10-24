@@ -30,7 +30,5 @@ export const formatter: QueryFormatter<
       formatParagraph(paragraph)
     ) as CollapsiblePanel['paragraphs'],
     bordered: entity.field_collapsible_panel_bordered,
-    startExpanded: entity.field_collapsible_panel_expand,
-    multiSelect: entity.field_collapsible_panel_multi,
   }
 }
