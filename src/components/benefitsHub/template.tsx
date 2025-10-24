@@ -5,8 +5,8 @@ import { ListOfLinkTeasers } from '@/components/listOfLinkTeasers/template'
 export function BenefitsHub({
   title,
   titleIcon,
-  fieldIntroText,
-  fieldSpokes,
+  intro,
+  spokes,
 }: FormattedBenefitsHub) {
   const iconConfig = getHubIcon(titleIcon)
 
@@ -32,9 +32,9 @@ export function BenefitsHub({
               <h1>{title}</h1>
             )}
             <div className="va-introtext">
-              <p>{fieldIntroText}</p>
+              <p>{intro}</p>
             </div>
-            {fieldSpokes?.map((spokeSection) => (
+            {spokes?.map((spokeSection) => (
               <div key={spokeSection.id}>
                 <section className="usa-grid">
                   <div className="va-h-ruled--stars"></div>

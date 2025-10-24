@@ -54,22 +54,22 @@ describe('<LinkTeaser> component', () => {
   })
 
   test('applies correct CSS classes to li element for field_spokes', () => {
-    const propsWithFieldSpokes = {
+    const propsWithSpokes = {
       ...baseProps,
       parentField: 'field_spokes',
     }
-    const { container } = render(<LinkTeaser {...propsWithFieldSpokes} />)
+    const { container } = render(<LinkTeaser {...propsWithSpokes} />)
 
     const liEl = container.querySelector('li')
     expect(liEl).toHaveClass('hub-page-link-list__item')
   })
 
   test('sets active attribute to true for field_spokes', () => {
-    const propsWithFieldSpokes = {
+    const propsWithSpokes = {
       ...baseProps,
       parentField: 'field_spokes',
     }
-    const { container } = render(<LinkTeaser {...propsWithFieldSpokes} />)
+    const { container } = render(<LinkTeaser {...propsWithSpokes} />)
 
     const vaLink = container.querySelector('va-link')
     expect(vaLink).toHaveAttribute('active', '')

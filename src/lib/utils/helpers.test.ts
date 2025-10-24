@@ -7,13 +7,13 @@ import {
   drupalToVaPath,
   toString,
   escape,
-  numToWord,
   formatDate,
   newlinesToBr,
   addHeadingIds,
   addH2Ids,
   addH3Ids,
   convertActionLinks,
+  setPTag,
 } from './helpers'
 
 describe('truncateWordsOrChar', () => {
@@ -259,32 +259,6 @@ describe('conditionalAttr', () => {
   })
 })
 
-describe('numToWord function', () => {
-  test('converts single digit numbers', () => {
-    expect(numToWord(1)).toBe('one')
-    expect(numToWord(5)).toBe('five')
-  })
-
-  test('converts numbers below twenty', () => {
-    expect(numToWord(13)).toBe('thirteen')
-    expect(numToWord(19)).toBe('nineteen')
-  })
-
-  test('converts tens', () => {
-    expect(numToWord(20)).toBe('twenty')
-    expect(numToWord(90)).toBe('ninety')
-  })
-
-  test('converts numbers between twenty and ninety-nine', () => {
-    expect(numToWord(21)).toBe('twenty-one')
-    expect(numToWord(99)).toBe('ninety-nine')
-  })
-
-  test('handles zero', () => {
-    expect(numToWord(0)).toBe('zero')
-  })
-})
-
 describe('formatDate', () => {
   test('formats standard date strings correctly', () => {
     expect(formatDate('2024-03-20')).toBe('March 20, 2024')
@@ -506,5 +480,26 @@ describe('convertActionLinks', () => {
     expect(result).toBe(
       '<va-link-action data-testid="test-me" href="/foo" text="Pay now" type="secondary" />'
     )
+  })
+})
+
+describe('setPTag', () => {
+  test('wraps non HTML string in <p>', () => {
+    const input = 'Hello World'
+    const result = setPTag(input)
+    expect(result).toBe('<p>Hello World</p>')
+  })
+  test('returns raw HTML string unmodified', () => {
+    const inputOne = '<p>Hello <a href="#">World</a></p>'
+    const resultOne = setPTag(inputOne)
+    const inputTwo = '<h2>Hello World</h2>'
+    const resultTwo = setPTag(inputTwo)
+    expect(resultOne).toBe('<p>Hello <a href="#">World</a></p>')
+    expect(resultTwo).toBe('<h2>Hello World</h2>')
+  })
+  test('returns empty string without <p>', () => {
+    const input = ' '
+    const result = setPTag(input)
+    expect(result).toBe('')
   })
 })

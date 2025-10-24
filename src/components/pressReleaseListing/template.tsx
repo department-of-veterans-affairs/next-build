@@ -55,9 +55,7 @@ export function PressReleaseListing(
         />
         <h1 id="article-heading">{title}</h1>
         <div className="vads-grid-container--full">
-          <div className="va-introtext">
-            {introText && <p id="office-events-description">{introText}</p>}
-          </div>
+          <div className="va-introtext">{introText && <p>{introText}</p>}</div>
           <ul className="usa-unstyled-list">{pressReleaseTeasers}</ul>
           {totalPages > 1 && (
             <VaPagination

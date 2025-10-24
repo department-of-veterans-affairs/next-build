@@ -11,6 +11,8 @@ import { Address } from '@/components/address/template'
 import { LovellSwitcher } from '@/components/lovellSwitcher/template'
 import { SideNavLayout } from '@/components/sideNavLayout/template'
 import { ReactWidget } from '@/components/reactWidget/template'
+import { QaSection } from '../qaSection/template'
+import { PhoneNumber } from '../phoneNumber/template'
 
 export const VamcSystemMedicalRecordsOffice = ({
   title,
@@ -20,9 +22,13 @@ export const VamcSystemMedicalRecordsOffice = ({
   topOfPageContent,
   getRecordsInPersonContent,
   howWeShareRecordsContent,
+  faqsContent,
   reactWidget,
   relatedLinks,
   services,
+  getRecordsMailOrFaxContent,
+  mailingAddress,
+  faxNumber,
   lovellVariant,
   lovellSwitchPath,
 }: FormattedVamcSystemMedicalRecordsOffice) => {
@@ -82,17 +88,27 @@ export const VamcSystemMedicalRecordsOffice = ({
           </>
         )}
 
+        <Wysiwyg {...getRecordsMailOrFaxContent} />
+        {mailingAddress && (
+          <>
+            <h3 className="vads-u-font-size--h4">Mail your signed form to</h3>
+            <Address address={mailingAddress} showDirections={false} />
+          </>
+        )}
+        {faxNumber && (
+          <PhoneNumber
+            number={faxNumber}
+            phoneType="fax"
+            label="Fax your signed form to"
+            labelClassName="vads-u-font-size--h4"
+            treatment="h3"
+            testId="fax-number"
+          />
+        )}
+
         <Wysiwyg {...howWeShareRecordsContent} />
 
-        {/* TODO: Add centralized content sections from medical records template
-              - fieldCcGetRecordsMailOrFax
-              - fieldCcFaqs
-            */}
-
-        {/* TODO: Add individual node fields from medical records template
-              - fieldVamcMedRecordsMailing (mailing address)
-              - fieldFaxNumber (fax number)
-            */}
+        <QaSection {...faqsContent} />
 
         <div className="va-nav-linkslist va-nav-linkslist--related">
           <ListOfLinkTeasers {...relatedLinks} />

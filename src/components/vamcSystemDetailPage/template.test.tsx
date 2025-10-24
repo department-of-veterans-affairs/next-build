@@ -1,5 +1,6 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
+import { axe } from '@/test-utils'
 import VamcSystemDetailPage from './template'
 import mockPage from './mock.json'
 import mockMenu from './mock.menu.json'
@@ -13,14 +14,20 @@ describe('VamcSystemDetailPage', () => {
     entity: mockPage as NodeVamcSystemDetailPage,
     menu: mockMenu as unknown as Menu,
     lovell: null,
+    hasLovellCounterpart: false,
   })
 
-  it('renders the title', () => {
-    render(<VamcSystemDetailPage {...formattedMockData} />)
+  test('renders the title', async () => {
+    const { container } = render(
+      <VamcSystemDetailPage {...formattedMockData} />
+    )
     expect(screen.getByText('Mission and vision')).toBeInTheDocument()
+
+    const axeResults = await axe(container)
+    expect(axeResults).toHaveNoViolations()
   })
 
-  it('renders intro text when provided', () => {
+  test('renders intro text when provided', () => {
     render(<VamcSystemDetailPage {...formattedMockData} />)
     expect(
       screen.getByText(
@@ -34,8 +41,31 @@ describe('VamcSystemDetailPage', () => {
     expect(window.sideNav).toEqual(formattedMockData.menu)
   })
 
+  describe('Featured content', () => {
+    test('renders featured content when provided', () => {
+      render(<VamcSystemDetailPage {...formattedMockData} />)
+      expect(
+        screen.getByText(/Beginning Sept. 6 and continuing through November/)
+      ).toBeInTheDocument()
+    })
+
+    test('does not render featured content div when featuredContent is null', () => {
+      const { container } = render(
+        <VamcSystemDetailPage {...formattedMockData} featuredContent={null} />
+      )
+      expect(container.querySelector('.feature')).not.toBeInTheDocument()
+    })
+
+    test('does not render featured content block when featuredContent is empty', () => {
+      const { container } = render(
+        <VamcSystemDetailPage {...formattedMockData} featuredContent={[]} />
+      )
+      expect(container.querySelector('.feature')).not.toBeInTheDocument()
+    })
+  })
+
   describe('Related links', () => {
-    it('renders list of link teasers when related links are provided', () => {
+    test('renders list of link teasers when related links are provided', () => {
       render(<VamcSystemDetailPage {...formattedMockData} />)
 
       // Check that the related links section is rendered
@@ -44,7 +74,7 @@ describe('VamcSystemDetailPage', () => {
       ).toBeInTheDocument()
     })
 
-    it('does not render list of link teasers when related links are null', () => {
+    test('does not render list of link teasers when related links are null', () => {
       render(
         <VamcSystemDetailPage {...formattedMockData} relatedLinks={null} />
       )
@@ -56,15 +86,18 @@ describe('VamcSystemDetailPage', () => {
     })
   })
 
-  describe.skip('LovellSwitcher integration', () => {
-    test('renders LovellSwitcher for TRICARE variant', () => {
-      const dataWithLovell = {
-        ...formattedMockData,
-        lovellVariant: LOVELL.tricare.variant,
-        lovellSwitchPath: '/lovell-federal-health-care-va',
-      }
+  describe('LovellSwitcher integration', () => {
+    const dataWithLovell = {
+      ...formattedMockData,
+      lovellVariant: LOVELL.tricare.variant,
+      lovellSwitchPath: '/lovell-federal-health-care-va',
+      showLovellSwitcher: true,
+    }
 
-      const { container } = render(<VamcSystemDetailPage {...dataWithLovell} />)
+    test('renders LovellSwitcher for TRICARE variant when showLovellSwitcher is true', () => {
+      const { container } = render(
+        <VamcSystemDetailPage {...dataWithLovell} showLovellSwitcher={true} />
+      )
 
       // Look for the LovellSwitcher content
       expect(
@@ -82,8 +115,10 @@ describe('VamcSystemDetailPage', () => {
       )
     })
 
-    test('does not render LovellSwitcher when lovellVariant is missing', () => {
-      render(<VamcSystemDetailPage {...formattedMockData} />)
+    test('does not render LovellSwitcher when showLovellSwitcher is false', () => {
+      render(
+        <VamcSystemDetailPage {...dataWithLovell} showLovellSwitcher={false} />
+      )
 
       // Should not find LovellSwitcher content
       expect(
@@ -96,7 +131,7 @@ describe('VamcSystemDetailPage', () => {
     const getLink = (text: string) =>
       document.querySelector(`va-link-action[text="${text}"]`)
 
-    it('renders top tasks when this is a contact page', () => {
+    test('renders top tasks when this is a contact page', () => {
       render(
         <VamcSystemDetailPage {...formattedMockData} entityPath="/contact-us" />
       )
@@ -119,7 +154,7 @@ describe('VamcSystemDetailPage', () => {
       )
     })
 
-    it('renders the TRICARE variant with the MHS link when this is a TRICARE contact page', () => {
+    test('renders the TRICARE variant with the MHS link when this is a TRICARE contact page', () => {
       render(
         <VamcSystemDetailPage
           {...formattedMockData}

@@ -9,7 +9,7 @@ export const ListOfLinkTeasers = ({
   linkTeasers,
   parentField,
 }: ParagraphComponent<FormattedListOfLinkTeasers>) => {
-  const isFieldSpokes = parentField === 'field_spokes'
+  const isSpokes = parentField === 'field_spokes'
 
   return (
     <section
@@ -20,7 +20,7 @@ export const ListOfLinkTeasers = ({
         <h2
           id={hashReference(title)}
           className={
-            isFieldSpokes
+            isSpokes
               ? ''
               : 'vads-u-border-bottom--1px vads-u-border-color--base-light vads-u-margin--0 vads-u-padding-top--2 vads-u-padding-bottom--0p5'
           }

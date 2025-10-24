@@ -43,14 +43,14 @@ export const formatter: QueryFormatter<NodeLandingPage, BenefitsHub> = (
   entity: NodeLandingPage
 ) => {
   // Only return field_spokes if it's the correct type (ParagraphListOfLinkTeasers)
-  const rawFieldSpokes = Array.isArray(entity.field_spokes)
+  const rawSpokes = Array.isArray(entity.field_spokes)
     ? entity.field_spokes.filter(
         (spoke) => spoke.type === 'paragraph--list_of_link_teasers'
       )
     : []
 
   // Format each spoke using the ListOfLinkTeasers formatter and add parentField
-  const fieldSpokes = rawFieldSpokes
+  const spokes = rawSpokes
     .map((spoke) => formatListOfLinkTeasers(spoke))
     .filter((spoke) => spoke !== null)
     .map((spoke) => ({
@@ -61,10 +61,10 @@ export const formatter: QueryFormatter<NodeLandingPage, BenefitsHub> = (
   return {
     ...entityBaseFields(entity),
     title: entity.title,
-    fieldIntroText: entity.field_intro_text,
+    intro: entity.field_intro_text,
     hubLabel: entity.field_home_page_hub_label,
     teaserText: entity.field_teaser_text,
     titleIcon: entity.field_title_icon,
-    fieldSpokes: fieldSpokes,
+    spokes: spokes,
   }
 }

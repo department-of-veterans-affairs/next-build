@@ -51,7 +51,7 @@ export const LinkTeaser = (props: LinkTeaserProps) => {
       'links-list-section-header': encodeURIComponent(sectionHeader),
     })
   }
-  const isFieldSpokes = parentField === 'field_spokes'
+  const isSpokes = parentField === 'field_spokes'
   const target = get(options, ['target'], '')
 
   return (
@@ -59,7 +59,7 @@ export const LinkTeaser = (props: LinkTeaserProps) => {
       key={id}
       className={clsx(
         'vads-u-margin-y--2',
-        isFieldSpokes && 'hub-page-link-list__item'
+        isSpokes && 'hub-page-link-list__item'
       )}
       onClick={handleItemClick}
       data-template="paragraphs/linkTeaser"
@@ -67,7 +67,7 @@ export const LinkTeaser = (props: LinkTeaserProps) => {
       data-links-list-header={title}
       data-links-list-section-header={sectionHeader}
     >
-      {isFieldSpokes ? (
+      {isSpokes ? (
         <>
           <span className="hub-page-link-list__header">
             <va-link

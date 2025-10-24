@@ -35,11 +35,347 @@ exports[`VamcSystemDetailPage query module outputs formatted data 1`] = `
   ],
   "entityId": 6983,
   "entityPath": "/durham-health-care/about-us/mission-and-vision",
+  "featuredContent": [
+    {
+      "html": "<p>Beginning Sept. 6 and continuing through November, our 'Blue Canopy' entrance to Bldgs. 133CA and 134 will be closed. The adjacent parking lot will also be closed. The Metra train shuttle stop at the 'Blue Canopy' entrance will be closed starting Friday, Sept. 5, 2025. Please instead use the shuttle stop at the entrance of Bldg. 131.</p>",
+      "id": "55e4001e-1727-4c9c-970d-f985da93dfa8",
+      "type": "paragraph--wysiwyg",
+    },
+  ],
   "id": "6f66f92d-4e84-476b-83fb-0457ce0ab4ae",
   "introText": "The mission of the Durham VA Medical Center and clinics is to make a positive difference in the lives of the Veterans we serve by providing compassionate, comprehensive, and quality healthcare.  The Durham VA Medical Center and clinics promote a community of integrity, respect, stewardship, and excellence by understanding and respecting the diversity of those whom we serve.",
   "lastUpdated": "2021-03-18T15:01:54+00:00",
   "lovellSwitchPath": null,
   "lovellVariant": null,
+  "mainContent": [
+    {
+      "html": "<h2 id="psychology-doctoral-internship"><strong>Psychology Doctoral Internship</strong></h2><p>Application Deadline: November 1</p><p>The APA accredited internship at the Lexington VAHCS is a full-time, generalist internship in clinical psychology. The goal of our program is to prepare trainees for clinical practice of psychology in a variety of settings with an emphasis on preparation for VA and other medical settings. Our program offers a wide breadth of clinical training opportunities focused on evidence-based practice. Interns generally select their own rotations that fit their training goals. We pride ourselves on creating a friendly, nurturing training environment and aim to create a positive, collegial atmosphere that is conducive for learning and growth.</p><p> </p>",
+      "id": "5fa9eeac-1089-46da-8ecf-b25562a10f24",
+      "type": "paragraph--wysiwyg",
+    },
+    {
+      "entityId": 112056,
+      "extension": "PDF",
+      "id": "fd014675-7b4c-482b-9167-5389f1dc44ce",
+      "mediaType": "document",
+      "title": "Lexington VA Internship Admissions, Support and Initial Placement Data",
+      "type": "paragraph--downloadable_file",
+      "url": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/2024-08/Internship%20Admissions%20Support%20and%20Inital%20Placement%20Data.pdf",
+    },
+    {
+      "entityId": 112057,
+      "extension": "PDF",
+      "id": "54328865-016b-4694-8bb2-45144c8a61cb",
+      "mediaType": "document",
+      "title": "Lexington VA Psychology Internship Brochure 2026 - 2027",
+      "type": "paragraph--downloadable_file",
+      "url": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/2025-09/Lexington%20Psychology%20Internship%20Brochure%202026-2027.pdf",
+    },
+    {
+      "body": "<p>Robert W. Askey, MBA, AAS CA, is the Associate Director of the Corporal Michael J. Crescenz VA Medical Center (CMCVAMC). A  retired colonel of the United States Army,  he served in a variety of transportation and logistics assignments both stateside and overseas, to include a tour on the Army General Staff. Mr. Askey began his career with the VA in 2014 when he joined the  Voluntary Service Team in support of the National Veterans Wheelchair Games, hosted that year by the Philadelphia VA Medical Center. His next  assignment with the CMCVAMC was on the Logistics Service leadership team. Mr. Askey then relocated to North Carolina to serve as the Assistant Chief of Logistics at the Durham VA Healthcare System. In 2017, he returned to the CMCVAMC as the Chief Supply Chain Officer. Mr. Askey earned his Master’s Degree in Business Administration from the Florida Institute of Technology, and his Culinary Degree from the Culinary Institute of Virginia.</p>",
+      "completeBiographyCreate": true,
+      "description": "Associate Director",
+      "emailAddress": null,
+      "entityId": 182998,
+      "firstName": "Bob",
+      "id": "5d77166a-ed09-400c-b858-d7798cd12f04",
+      "introText": "Robert W. Askey, MBA, AAS CA, is the Associate Director of the VA Philadelphia health care system. ",
+      "lastName": "Askey",
+      "media": {
+        "alt": "Photo of Bob Askey, Acting associate director for support services",
+        "height": 136,
+        "id": "ac356195-9631-43c0-a0fc-d84f4ea362eb",
+        "links": {
+          "1_1_square_medium_thumbnail": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/1_1_square_medium_thumbnail/public/2020-04/Bob_Askey.jpg",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "240",
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "2_1_large": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_large/public/2020-04/Bob_Askey.jpg",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "512",
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "2_1_medium_thumbnail": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_medium_thumbnail/public/2020-04/Bob_Askey.jpg",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "240",
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "2_3_medium_thumbnail": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_3_medium_thumbnail/public/2020-04/Bob_Askey.jpg",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "480",
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "3_2_medium_thumbnail": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2020-04/Bob_Askey.jpg",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "320",
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "7_2_medium_thumbnail": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/7_2_medium_thumbnail/public/2020-04/Bob_Askey.jpg",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "300",
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "full_content_width": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/full_content_width/public/2020-04/Bob_Askey.jpg",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "large": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/large/public/2020-04/Bob_Askey.jpg",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "original": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/original/public/2020-04/Bob_Askey.jpg",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "self": {
+            "href": "http://va-gov-cms.ddev.site/jsonapi/file/file/ac356195-9631-43c0-a0fc-d84f4ea362eb",
+          },
+          "viewport_width": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/viewport_width/public/2020-04/Bob_Askey.jpg",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+        },
+        "title": "",
+        "type": "media--image",
+        "width": 110,
+      },
+      "phoneNumber": {
+        "entityId": 163836,
+        "extension": null,
+        "id": "8c735f6b-c902-4688-8d77-deda6fde6cbe",
+        "label": null,
+        "number": "215-823-5856",
+        "phoneType": "phone",
+        "type": "paragraph--phone_number",
+      },
+      "photoAllowHiresDownload": false,
+      "suffix": "MBA, AAS CA",
+      "type": "paragraph--staff_profile",
+      "vamcTitle": "VA Philadelphia health care",
+    },
+    {
+      "displayAccordion": false,
+      "header": "Q & A group header",
+      "id": "0029a20f-5757-4053-9820-3db039bfa3c7",
+      "intro": "This is some intro text",
+      "questions": [
+        {
+          "answers": [
+            {
+              "html": "<p>Answer with some extras</p>",
+              "id": "2d640021-2068-4233-8651-8fc4de79b846",
+              "type": "paragraph--wysiwyg",
+            },
+            {
+              "data": [
+                [
+                  "a",
+                  "b",
+                ],
+                [
+                  "c",
+                  "d",
+                ],
+                [
+                  "e",
+                  "f",
+                ],
+              ],
+              "entityId": 183000,
+              "id": "710639b1-353f-4583-81a4-2b1a41de5f82",
+              "title": "I'm a table nested in a Q&A",
+              "type": "paragraph--table",
+            },
+            {
+              "description": "<p>Every 2 is a loser</p>",
+              "entityId": 183001,
+              "id": "e5a962fa-e751-4b54-a9f5-777548618bfe",
+              "numberPhrase": "Every 1 is a winner",
+              "type": "paragraph--number_callout",
+            },
+          ],
+          "id": "211ce79f-5876-4d76-b848-b26532d941a1",
+          "question": "Question 1",
+          "type": "paragraph--q_a",
+        },
+      ],
+      "type": "paragraph--q_a_section",
+    },
+    {
+      "entityId": 183005,
+      "id": "f5cedf99-5295-4877-901f-223d92e369d3",
+      "linkTeasers": [
+        {
+          "componentParams": {
+            "sectionHeader": "",
+          },
+          "entityId": 183004,
+          "id": "8db029e2-8f65-40ff-9f1a-cb726814f346",
+          "options": {
+            "data-entity-substitution": "",
+            "data-entity-type": "",
+            "data-entity-uuid": "",
+            "href": "https://www.google.com/",
+          },
+          "parentField": "field_va_paragraphs",
+          "summary": "This is a summary of the Google link",
+          "title": "Google",
+          "type": "paragraph--link_teaser",
+          "uri": "https://www.google.com/",
+        },
+      ],
+      "parentField": "field_content_block",
+      "title": "Link teasers",
+      "type": "paragraph--list_of_link_teasers",
+    },
+    {
+      "bordered": false,
+      "entityId": 183008,
+      "id": "0a4daab1-c755-401c-bc01-82488a4370e6",
+      "paragraphs": [
+        {
+          "entityId": 183007,
+          "id": "1f1a794b-d061-4112-8c45-e3c6daa5b647",
+          "paragraphs": [
+            {
+              "data": [
+                [
+                  "11",
+                  "12",
+                ],
+                [
+                  "21",
+                  "22",
+                ],
+                [
+                  "31",
+                  "32",
+                ],
+                [
+                  "",
+                  "",
+                ],
+                [
+                  "",
+                  "",
+                ],
+              ],
+              "entityId": 183006,
+              "id": "662f086d-e329-4978-8771-fd9a7c22c832",
+              "title": "A table inside a root-level accordion item",
+              "type": "paragraph--table",
+            },
+          ],
+          "title": "A root-level accordion item",
+          "type": "paragraph--collapsible_panel_item",
+          "wysiwyg": "<p>Some text inside</p>",
+        },
+      ],
+      "type": "paragraph--collapsible_panel",
+    },
+    {
+      "allowClicksOnThisImage": true,
+      "entityId": 183009,
+      "id": "bc5d91c0-ae80-4b24-a942-e2c3688bbe8d",
+      "image": {
+        "alt": "Rating sandwiches",
+        "title": "",
+        "url": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/2025-10/my-image.png",
+      },
+      "type": "paragraph--media",
+    },
+  ],
   "menu": {
     "data": {
       "description": null,
@@ -129,6 +465,7 @@ exports[`VamcSystemDetailPage query module outputs formatted data 1`] = `
     "title": "Learn more about how we serve Veterans",
     "type": "paragraph--list_of_link_teasers",
   },
+  "showLovellSwitcher": false,
   "showTableOfContents": true,
   "title": "Mission and vision",
   "type": "node--health_care_region_detail_page",

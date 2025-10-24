@@ -1,10 +1,11 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
+import { axe } from '@/test-utils'
 import { BenefitsHub } from './template'
 
 describe('BenefitsHub with valid data', () => {
-  test('renders BenefitsHub component with title only', () => {
-    render(
+  test('renders BenefitsHub component', async () => {
+    const { container } = render(
       <BenefitsHub
         id="1"
         type=""
@@ -12,12 +13,15 @@ describe('BenefitsHub with valid data', () => {
         lastUpdated="2024-01-01"
         title={'Hello world'}
         titleIcon={null}
-        fieldIntroText={null}
-        fieldSpokes={[]}
+        spokes={[]}
+        intro={null}
       />
     )
 
     expect(screen.queryByText(/Hello world/)).toBeInTheDocument()
+
+    const axeResults = await axe(container)
+    expect(axeResults).toHaveNoViolations()
   })
 
   test('renders BenefitsHub component with intro text', () => {
@@ -29,8 +33,8 @@ describe('BenefitsHub with valid data', () => {
         lastUpdated="2024-01-01"
         title={'Health Care'}
         titleIcon={null}
-        fieldIntroText={'This is an intro text for health care benefits.'}
-        fieldSpokes={[]}
+        spokes={[]}
+        intro={'This is an intro text for health care benefits.'}
       />
     )
 
@@ -49,8 +53,8 @@ describe('BenefitsHub with valid data', () => {
         lastUpdated="2024-01-01"
         title={'Disability'}
         titleIcon={'disability'}
-        fieldIntroText={'Learn about disability compensation.'}
-        fieldSpokes={[]}
+        spokes={[]}
+        intro={'Learn about disability compensation.'}
       />
     )
 
@@ -58,6 +62,14 @@ describe('BenefitsHub with valid data', () => {
     expect(
       screen.queryByText(/Learn about disability compensation./)
     ).toBeInTheDocument()
+
+    // Test that the va-icon element is rendered with the correct icon and styling
+    const vaIcon = document.querySelector('va-icon')
+    expect(vaIcon).toBeInTheDocument()
+    expect(vaIcon).toHaveAttribute('icon', 'description')
+    expect(vaIcon).toHaveAttribute('size', '3')
+    expect(vaIcon).toHaveClass('hub-icon')
+    expect(vaIcon).toHaveClass('vads-u-background-color--hub-disability')
   })
 
   test('renders BenefitsHub component with spokes', () => {
@@ -94,8 +106,8 @@ describe('BenefitsHub with valid data', () => {
         lastUpdated="2024-01-01"
         title={'Health Care'}
         titleIcon={'health-care'}
-        fieldIntroText={'Manage your VA health care.'}
-        fieldSpokes={mockSpokes}
+        intro={'Manage your VA health care.'}
+        spokes={mockSpokes}
       />
     )
 
