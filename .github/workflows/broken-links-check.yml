@@ -183,20 +183,20 @@ jobs:
   #         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
   # notify-failure:
-    name: Notify Failure
-    runs-on: ubuntu-latest
-    if: ${{ failure() || cancelled() }}
-    needs: prepare-reports
+    # name: Notify Failure
+    # runs-on: ubuntu-latest
+    # if: ${{ failure() || cancelled() }}
+    # needs: prepare-reports
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@ff7abcd0c3c05ccf6adc123a8cd1fd4fb30fb493 # v4.1.1
+    # steps:
+    #   - name: Checkout
+    #     uses: actions/checkout@ff7abcd0c3c05ccf6adc123a8cd1fd4fb30fb493 # v4.1.1
 
-      - name: Notify Slack
-        uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4 # main
-        continue-on-error: true
-        with:
-          payload: '{"attachments": [{"color": "#D33834","blocks": [{"type": "section","text": {"type": "mrkdwn","text": ">:warning: The broken links check failed to complete: <https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}>"}}]}]}'
-          channel_id: ${{ env.SLACK_CHANNEL }}
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    #   - name: Notify Slack
+    #     uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4 # main
+    #     continue-on-error: true
+    #     with:
+    #       payload: '{"attachments": [{"color": "#D33834","blocks": [{"type": "section","text": {"type": "mrkdwn","text": ">:warning: The broken links check failed to complete: <https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}>"}}]}]}'
+    #       channel_id: ${{ env.SLACK_CHANNEL }}
+    #       aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+    #       aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
