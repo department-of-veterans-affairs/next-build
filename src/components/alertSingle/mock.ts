@@ -1,4 +1,6 @@
-export const mockResponse = {
+import { ParagraphAlertSingle } from '@/types/drupal/paragraph'
+
+const baseEntity = {
   type: 'paragraph--alert_single',
   id: '0e71c5cd-a4e2-4dec-9b1e-0ef1c5666f65',
   drupal_internal__id: 13070,
@@ -29,6 +31,16 @@ export const mockResponse = {
       drupal_internal__target_id: 'alert_single',
     },
   },
+  relationshipNames: [
+    'paragraph_type',
+    'field_alert_non_reusable_ref',
+    'field_alert_block_reference',
+  ],
+} as const
+
+export const alertReusable = {
+  ...baseEntity,
+  field_alert_non_reusable_ref: null,
   field_alert_block_reference: {
     type: 'block_content--alert',
     id: 'ba9dd3f4-4260-4e21-bbf9-a5cf0db49fc1',
@@ -36,13 +48,14 @@ export const mockResponse = {
     drupal_internal__revision_id: 994,
     langcode: 'en',
     revision_created: '2022-09-06T17:30:19+00:00',
-    status: false,
-    info: 'COVID-19 alert: Claims and other services',
+    revision_log: 'Updating on account of alien invasion',
+    status: true,
+    info: 'Alien invasion alert: Claims and other services',
     changed: '2022-09-06T17:30:19+00:00',
     reusable: true,
     default_langcode: true,
     revision_translation_affected: true,
-    moderation_state: 'archived',
+    moderation_state: 'published',
     metatag: [
       {
         tag: 'meta',
@@ -53,7 +66,7 @@ export const mockResponse = {
       },
     ],
     field_alert_title:
-      'You can still file a claim and apply for benefits during the coronavirus pandemic',
+      'You can still file a claim and apply for benefits during the alien invasion. Proof of humanity required.',
     field_alert_type: 'information',
     field_reusability: 'reusable',
     links: {
@@ -96,11 +109,9 @@ export const mockResponse = {
       content_translation_outdated: false,
       content_translation_changed: null,
       field_wysiwyg: {
-        value:
-          '<p>Get the latest information about in-person services, claim exams, extensions, paperwork, decision reviews and appeals, and how best to contact us during this time.</p>\r\n\r\n<p><a href="/coronavirus-veteran-frequently-asked-questions/#claims-and-applications">Go to our coronavirus FAQs</a></p>\r\n',
-        format: 'rich_text',
-        processed:
-          '<p>Get the latest information about in-person services, claim exams, extensions, paperwork, decision reviews and appeals, and how best to contact us during this time.</p>\n\n<p><a href="/coronavirus-veteran-frequently-asked-questions/#claims-and-applications">Go to our coronavirus FAQs</a></p>',
+        value: 'sample text',
+        format: 'full_html',
+        processed: '<p>sample text</p>',
       },
       links: {
         self: {
@@ -134,10 +145,88 @@ export const mockResponse = {
       'field_owner',
     ],
   },
-  field_alert_non_reusable_ref: null,
-  relationshipNames: [
-    'paragraph_type',
-    'field_alert_block_reference',
-    'field_alert_non_reusable_ref',
-  ],
-}
+} as ParagraphAlertSingle
+
+export const alertNonReusable = {
+  ...baseEntity,
+  field_alert_block_reference: null,
+  field_alert_non_reusable_ref: {
+    type: 'paragraph--non_reusable_alert',
+    id: '4eff76c1-5e3e-410b-a56a-64b572f98756',
+    drupal_internal__id: 13072,
+    drupal_internal__revision_id: 145559,
+    langcode: 'en',
+    status: true,
+    created: '2020-10-01T17:08:59+00:00',
+    parent_id: '13073',
+    parent_type: 'paragraph',
+    parent_field_name: 'field_alert_non_reusable_ref',
+    behavior_settings: [],
+    default_langcode: true,
+    revision_translation_affected: null,
+    content_translation_source: 'und',
+    content_translation_outdated: false,
+    content_translation_changed: null,
+    field_alert_heading: 'Sample non-reusable alert',
+    field_alert_type: 'information',
+    links: {
+      self: {
+        href: 'https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/non_reusable_alert/4eff76c1-5e3e-410b-a56a-64b572f98756?resourceVersion=id%3A145559',
+      },
+    },
+    resourceIdObjMeta: {
+      target_revision_id: 145559,
+      drupal_internal__target_id: 13072,
+    },
+    paragraph_type: {
+      type: 'paragraphs_type--paragraphs_type',
+      id: '3d633fc0-97d6-4087-b709-edfa2d1e6a1e',
+      resourceIdObjMeta: {
+        drupal_internal__target_id: 'non_reusable_alert',
+      },
+    },
+    field_va_paragraphs: [
+      {
+        type: 'paragraph--wysiwyg',
+        id: '2fc092f1-969a-4136-9039-4fc50a9f93c4',
+        drupal_internal__id: 13071,
+        drupal_internal__revision_id: 141493,
+        langcode: 'en',
+        status: true,
+        created: '2020-10-01T17:09:17+00:00',
+        parent_id: '13072',
+        parent_type: 'paragraph',
+        parent_field_name: 'field_va_paragraphs',
+        behavior_settings: [],
+        default_langcode: true,
+        revision_translation_affected: true,
+        content_translation_source: 'und',
+        content_translation_outdated: false,
+        content_translation_changed: null,
+        field_wysiwyg: {
+          value: 'sample text',
+          format: 'full_html',
+          processed: '<p>sample text</p>',
+        },
+        links: {
+          self: {
+            href: 'https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/wysiwyg/2fc092f1-969a-4136-9039-4fc50a9f93c4?resourceVersion=id%3A141493',
+          },
+        },
+        resourceIdObjMeta: {
+          target_revision_id: 141493,
+          drupal_internal__target_id: 13071,
+        },
+        paragraph_type: {
+          type: 'paragraphs_type--paragraphs_type',
+          id: '885e4b61-cfd2-44b9-94ae-f068ba2b48b6',
+          resourceIdObjMeta: {
+            drupal_internal__target_id: 'wysiwyg',
+          },
+        },
+        relationshipNames: ['paragraph_type'],
+      },
+    ],
+    relationshipNames: ['paragraph_type', 'field_va_paragraphs'],
+  },
+} as ParagraphAlertSingle

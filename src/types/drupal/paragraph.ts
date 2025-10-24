@@ -76,8 +76,8 @@ export interface ParagraphAlert extends DrupalParagraph {
 export interface ParagraphAlertSingle extends DrupalParagraph {
   type: 'paragraph--alert_single'
   field_alert_selection: string
-  field_alert_block_reference: BlockAlert
-  field_alert_non_reusable_ref: ParagraphNonReusableAlert
+  field_alert_block_reference: BlockAlert | null
+  field_alert_non_reusable_ref: ParagraphNonReusableAlert | null
 }
 
 export interface ParagraphAudienceTopics extends DrupalParagraph {

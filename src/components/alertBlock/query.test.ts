@@ -12,7 +12,7 @@ describe('alertBlock formatter', () => {
     info: '',
     type: '',
     langcode: '',
-    status: false,
+    status: true,
   }
 
   test('correctly formats valid entity', () => {
@@ -26,12 +26,29 @@ describe('alertBlock formatter', () => {
     })
   })
 
-  test('correctly formats null entity', () => {
+  test('returns null for null entity', () => {
     const result = formatter(null)
     expect(result).toBeNull()
   })
 
-  test('correctly formats alertType as "warning" when field_alert_type is "warning"', () => {
+  test('returns null for unpublished entity', () => {
+    const entity: BlockAlert = { ...baseEntity, status: false }
+    const result = formatter(entity)
+    expect(result).toBeNull()
+  })
+
+  test('returns null for (archived) entity with no status', () => {
+    const entity = {
+      type: 'block_content--alert',
+      id: 'e60159c1-e1db-44c5-aed8-e7d2e98ef0f4',
+      resourceIdObjMeta: { drupal_internal__target_id: 124 },
+    } as unknown as BlockAlert
+
+    const result = formatter(entity)
+    expect(result).toBeNull()
+  })
+
+  test('handles other alert types', () => {
     const entity: BlockAlert = { ...baseEntity, field_alert_type: 'warning' }
     const result = formatter(entity)
     expect(result.alertType).toBe('warning')
