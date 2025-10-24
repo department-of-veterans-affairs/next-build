@@ -5,5 +5,4 @@ export type QaParagraph = PublishedParagraph & {
   question: string
   answers: FormattedParagraph[]
   type: string
-  setHeaderh3?: boolean
 }
