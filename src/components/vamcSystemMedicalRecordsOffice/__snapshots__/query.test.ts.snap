@@ -197,9 +197,6 @@ exports[`VamcSystemMedicalRecordsOffice formatter outputs formatted data 1`] = `
     "id": "82659",
     "linkTeasers": [
       {
-        "componentParams": {
-          "sectionHeader": "",
-        },
         "entityId": null,
         "id": "82655",
         "options": {
@@ -214,9 +211,6 @@ exports[`VamcSystemMedicalRecordsOffice formatter outputs formatted data 1`] = `
         "uri": "/test-translated-path",
       },
       {
-        "componentParams": {
-          "sectionHeader": "",
-        },
         "entityId": null,
         "id": "82656",
         "options": {
@@ -231,9 +225,6 @@ exports[`VamcSystemMedicalRecordsOffice formatter outputs formatted data 1`] = `
         "uri": "/test-translated-path",
       },
       {
-        "componentParams": {
-          "sectionHeader": "",
-        },
         "entityId": null,
         "id": "82657",
         "options": {
@@ -248,9 +239,6 @@ exports[`VamcSystemMedicalRecordsOffice formatter outputs formatted data 1`] = `
         "uri": "/test-translated-path",
       },
       {
-        "componentParams": {
-          "sectionHeader": "",
-        },
         "entityId": null,
         "id": "82658",
         "options": {
