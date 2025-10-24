@@ -1,8 +1,9 @@
 /* eslint-disable no-console */
 import fs from 'fs'
 import chalk from 'chalk'
+import { load } from 'cheerio'
 
-const createCombinedReports = () => {
+const createCombinedReports = async () => {
   // List any report files.
   let combinedJson = {
     metrics: {
@@ -46,6 +47,66 @@ const createCombinedReports = () => {
         )
     }
   }
+  // Helper: safe CSV escape for a single field
+  const escapeCsv = (val) => {
+    if (val === null || val === undefined) return ''
+    const s = String(val)
+    // If the field contains a quote, comma, or newline, wrap in double quotes and escape inner quotes
+    if (/[",\n]/.test(s)) {
+      return '"' + s.replace(/"/g, '""') + '"'
+    }
+    return s
+  }
+
+  // Helper: attempt to resolve link text from known fields, otherwise fetch parent and parse anchor text
+  const resolveLinkText = async (parentUrl, targetUrl, maybeObj) => {
+    // Look through common properties
+    const candidates = [
+      maybeObj && maybeObj.link_text,
+      maybeObj && maybeObj.linkText,
+      maybeObj && maybeObj.text,
+      maybeObj && maybeObj.anchor_text,
+    ]
+    for (const c of candidates) {
+      if (c && String(c).trim().length > 0) return String(c).trim()
+    }
+
+    // Fallback: fetch parent HTML and find the anchor
+    try {
+      const res = await fetch(parentUrl, { timeout: 10000 })
+      if (!res.ok) return ''
+      const html = await res.text()
+      const $ = load(html)
+      // Try to find anchors whose href matches targetUrl (exact or relative)
+      const normTarget = targetUrl.replace(/#.*$/, '')
+      let found = ''
+      $('a').each((i, el) => {
+        if (found) return
+        const href = $(el).attr('href') || ''
+        if (!href) return
+        // Normalize potential absolute/relative hrefs by comparing pathnames when possible
+        if (href === targetUrl || href === normTarget) {
+          found = $(el).text().trim()
+          return
+        }
+        // Handle relative links that end with the target path
+        try {
+          const resolved = new URL(href, parentUrl)
+            .toString()
+            .replace(/#.*$/, '')
+          if (resolved === normTarget || resolved === targetUrl) {
+            found = $(el).text().trim()
+            return
+          }
+        } catch (e) {
+          // ignore invalid URLs
+        }
+      })
+      return found
+    } catch (e) {
+      return ''
+    }
+  }
   // Write finished report to file.
   fs.writeFile(
     'broken-links-report-combined.json',
@@ -63,13 +124,45 @@ const createCombinedReports = () => {
     )}`
   )
 
-  // Generate a CSV report
-  let csvReport = `Source,Broken Link,Error Code\n`
-  for (const parent of Object.keys(combinedJson.brokenLinksByParent)) {
-    const sanitizedParent = parent.replace(/,/g, ',,')
+  // Generate a CSV report with Link Text column. We'll resolve link text if available in the combined JSON entry,
+  // otherwise attempt to fetch the parent page and extract the anchor text (best-effort).
+  let csvReport = `Source,Broken Link,Error Code,Link Text\n`
+  const parents = Object.keys(combinedJson.brokenLinksByParent)
+  for (const parent of parents) {
+    const items = combinedJson.brokenLinksByParent[parent]
+    for (const child of items) {
+      // Ensure child has link_text in combined JSON (best-effort resolution)
+      if (!child.link_text) {
+        // Note: we call resolveLinkText synchronously via deasync-ish pattern is messy; instead collect promises and
+        // resolve them before writing file. To keep simple, attach a promise to the child and resolve them below.
+        child._link_text_promise = resolveLinkText(parent, child.url, child)
+      }
+    }
+  }
+
+  // Resolve all promises
+  const allPromises = []
+  for (const parent of parents) {
     for (const child of combinedJson.brokenLinksByParent[parent]) {
-      const sanitizedChildUrl = child.url.replace(/,/g, ',,')
-      csvReport += `${sanitizedParent},${sanitizedChildUrl},${child.status}\n`
+      if (child._link_text_promise) {
+        const p = child._link_text_promise.then((v) => {
+          child.link_text = v || ''
+          delete child._link_text_promise
+        })
+        allPromises.push(p)
+      }
+    }
+  }
+
+  await Promise.all(allPromises)
+
+  for (const parent of parents) {
+    const sanitizedParent = escapeCsv(parent)
+    for (const child of combinedJson.brokenLinksByParent[parent]) {
+      const sanitizedChildUrl = escapeCsv(child.url)
+      const code = escapeCsv(child.status)
+      const linkText = escapeCsv(child.link_text || '')
+      csvReport += `${sanitizedParent},${sanitizedChildUrl},${code},${linkText}\n`
     }
   }
 
@@ -87,4 +180,7 @@ const createCombinedReports = () => {
   )
 }
 
-createCombinedReports()
+// Run the async main
+;(async () => {
+  await createCombinedReports()
+})()

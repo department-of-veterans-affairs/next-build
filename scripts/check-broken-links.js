@@ -7,6 +7,7 @@ import {
   getPagesSlice,
 } from '../test/getSitemapLocations.js'
 import fs from 'fs'
+import crypto from 'crypto'
 
 const OPTIONS = {
   sitemapUrl: process.env.SITE_URL || 'http://www.va.gov/',
@@ -15,6 +16,8 @@ const OPTIONS = {
   // instanceNumber is the specifc instance currently running the check.
   // In this and totalInstances case, the defaults will check the entire set.
   instanceNumber: process.env.INSTANCE_NUMBER || 1,
+  // sampleSize: -1 means all. Can be set with SAMPLE_SIZE env var.
+  sampleSize: process.env.SAMPLE_SIZE ? Number(process.env.SAMPLE_SIZE) : -1,
   // batchSize is the number of pararllel link check processes to run.
   batchSize: process.env.BATCH_SIZE || 20,
   verbose: process.env.VERBOSE || false,
@@ -128,8 +131,41 @@ async function checkBrokenLinks() {
 
   // Full array of sitemap defined URLs.
   const allPaths = await getSitemapLocations(OPTIONS.sitemapUrl)
+
+  // Sampling: if sampleSize is set (> -1) take a deterministic sample of the sitemap
+  // before partitioning work across instances. Deterministic sampling uses a
+  // sha256-derived fraction so the same URLs are selected each run.
+  function hashToFraction(u) {
+    const h = crypto
+      .createHash('sha256')
+      .update(String(u))
+      .digest('hex')
+      .slice(0, 8)
+    const v = parseInt(h, 16)
+    return v / 0xffffffff
+  }
+
+  function deterministicSampleExact(arr, n) {
+    if (n <= 0 || n >= arr.length) return Array.from(arr)
+    const pairs = arr.map((u) => ({ u, v: hashToFraction(u) }))
+    pairs.sort((a, b) => a.v - b.v)
+    return pairs.slice(0, n).map((p) => p.u)
+  }
+
+  let sampledPaths = allPaths
+  if (Number(OPTIONS.sampleSize) > -1) {
+    const n = Number(OPTIONS.sampleSize)
+    sampledPaths = deterministicSampleExact(allPaths, n)
+    console.log(
+      `Sampling enabled: selected ${chalk.yellow(sampledPaths.length)} of ${chalk.yellow(
+        allPaths.length
+      )} sitemap URLs (SAMPLE_SIZE=${n})`
+    )
+  }
+
+  // Partition sampled paths across instances so each instance scans a unique slice.
   const paths = getPagesSlice(
-    allPaths,
+    sampledPaths,
     OPTIONS.totalInstances,
     OPTIONS.instanceNumber
   )
