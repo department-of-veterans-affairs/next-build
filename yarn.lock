@@ -4102,13 +4102,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/retry@npm:0.12.2":
-  version: 0.12.2
-  resolution: "@types/retry@npm:0.12.2"
-  checksum: e5675035717b39ce4f42f339657cae9637cf0c0051cf54314a6a2c44d38d91f6544be9ddc0280587789b6afd056be5d99dbe3e9f4df68c286c36321579b1bf4a
-  languageName: node
-  linkType: hard
-
 "@types/shimmer@npm:^1.2.0":
   version: 1.2.0
   resolution: "@types/shimmer@npm:1.2.0"
@@ -9966,10 +9959,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"is-network-error@npm:^1.0.0":
-  version: 1.1.0
-  resolution: "is-network-error@npm:1.1.0"
-  checksum: b2fe6aac07f814a9de275efd05934c832c129e7ba292d27614e9e8eec9e043b7a0bbeaeca5d0916b0f462edbec2aa2eaee974ee0a12ac095040e9515c222c251
+"is-network-error@npm:^1.1.0":
+  version: 1.3.0
+  resolution: "is-network-error@npm:1.3.0"
+  checksum: 56dc0b8ed9c0bb72202058f172ad0c3121cf68772e8cbba343d3775f6e2ec7877d423cbcea45f4cedcd345de8693de1b52dfe0c6fc15d652c4aa98c2abf0185a
   languageName: node
   linkType: hard
 
@@ -13504,14 +13497,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"p-retry@npm:^6.2.0":
-  version: 6.2.0
-  resolution: "p-retry@npm:6.2.0"
+"p-retry@npm:^7.1.0":
+  version: 7.1.0
+  resolution: "p-retry@npm:7.1.0"
   dependencies:
-    "@types/retry": 0.12.2
-    is-network-error: ^1.0.0
-    retry: ^0.13.1
-  checksum: 6003573c559ee812329c9c3ede7ba12a783fdc8dd70602116646e850c920b4597dc502fe001c3f9526fca4e93275045db7a27341c458e51db179c1374a01ac44
+    is-network-error: ^1.1.0
+  checksum: 5f8b34218d0041adac2d9133e116d18a9ff6e61f55390910cb63dbc9bfb4088de8ce36a6da3dad48878ef1bf9b565b883a2ef5ff4733cb8cc3c8eab82d9b2e6d
   languageName: node
   linkType: hard
 
@@ -14244,7 +14235,7 @@ __metadata:
   dependencies:
     cross-fetch: ^4.0.0
     debug: ^4.3.4
-    p-retry: ^6.2.0
+    p-retry: ^7.1.0
     socks-proxy-agent: ^8.0.5
     syswide-cas: ^5.3.0
   languageName: unknown
