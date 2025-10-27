@@ -62,7 +62,7 @@ export function HomePageHero() {
 
               <div className="vads-l-col--12 medium-screen:vads-l-col--6 homepage-hero__container">
                 <div className="vads-u-display--flex vads-u-width--full vads-u-align-items--center vars-u-justify-content--center">
-                  <div className="va-flex vads-u-flex-direction--column vads-u-align-items--flex-start vads-u-background-color--white vads-u-margin-top--6 vads-u-margin-bottom--6 vads-u-padding-x--3 vads-u-padding-y--2 vads-u-width--full homepage-hero__create-account vads-u-display--none">
+                  <div className="va-flex vads-u-flex-direction--column vads-u-align-items--flex-start vads-u-background-color--white vads-u-margin-top--6 vads-u-margin-bottom--6 vads-u-padding-x--3 vads-u-padding-y--2 vads-u-width--full homepage-hero__create-account">
                     <h2 className="vads-u-font-size--md vads-u-line-height--5 vads-u-color--gray vads-u-margin-top--0 vads-u-padding-right--2 vads-u-font-family--sans vads-u-font-weight--normal">
                       {createAccountBlock.fieldCtaSummaryText}
                     </h2>
