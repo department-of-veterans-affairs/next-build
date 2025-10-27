@@ -1,14 +1,8 @@
 export function HomePageHero() {
   const fieldPromoHeadline = 'headline'
   const fieldPromoCta = {
-    entity: {
-      fieldButtonLabel: 'button label',
-      fieldButtonLink: {
-        url: {
-          path: 'https://google.com',
-        },
-      },
-    },
+    fieldButtonLabel: 'button label',
+    fieldButtonLink: 'https://google.com',
   }
   const fieldPromoText = 'promo text'
   const createAccountBlock = {
@@ -17,9 +11,7 @@ export function HomePageHero() {
     fieldRelatedInfoLinks: [
       {
         title: 'link title',
-        url: {
-          path: 'https://va.gov',
-        },
+        url: 'https://va.gov',
       },
     ],
   }
@@ -49,12 +41,12 @@ export function HomePageHero() {
                       {fieldPromoText}
                     </p>
                   )}
-                  {fieldPromoCta.entity.fieldButtonLabel &&
-                    fieldPromoCta.entity.fieldButtonLink.url.path && (
+                  {fieldPromoCta.fieldButtonLabel &&
+                    fieldPromoCta.fieldButtonLink && (
                       <va-link-action
                         type="reverse"
-                        href={fieldPromoCta.entity.fieldButtonLink.url.path}
-                        text={fieldPromoCta.entity.fieldButtonLabel}
+                        href={fieldPromoCta.fieldButtonLink}
+                        text={fieldPromoCta.fieldButtonLabel}
                       ></va-link-action>
                     )}
                 </div>
@@ -75,7 +67,7 @@ export function HomePageHero() {
                       (link, index) => (
                         <va-link
                           key={index}
-                          href={link.url.path}
+                          href={link.url}
                           text={link.title}
                         ></va-link>
                       )
