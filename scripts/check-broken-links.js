@@ -145,14 +145,21 @@ async function checkBrokenLinks() {
     return v / 0xffffffff
   }
 
+  // Deterministic sampling function: given an array and a number n,
+  // return a sample of n items from the array, selected deterministically
+  // via hashing.
   function deterministicSampleExact(arr, n) {
     if (n <= 0 || n >= arr.length) return Array.from(arr)
+    // Create array of {u, v} pairs where "u" is the item and "v" is its hash-derived fraction.
     const pairs = arr.map((u) => ({ u, v: hashToFraction(u) }))
+    // Sort pairs by v and take the first n items.
     pairs.sort((a, b) => a.v - b.v)
     return pairs.slice(0, n).map((p) => p.u)
   }
 
   let sampledPaths = allPaths
+  // Anything > -1 means sampling is enabled.
+  // Otherwise we use the full set of sitemap URLs.
   if (Number(OPTIONS.sampleSize) > -1) {
     const n = Number(OPTIONS.sampleSize)
     sampledPaths = deterministicSampleExact(allPaths, n)

@@ -3,6 +3,54 @@ import fs from 'fs'
 import chalk from 'chalk'
 import { load } from 'cheerio'
 
+// Helper: attempt to resolve link text from known fields, otherwise fetch parent and parse anchor text
+const resolveLinkText = async (parentUrl, targetUrl, maybeObj) => {
+  // Look through common properties
+  const candidates = [
+    maybeObj && maybeObj.link_text,
+    maybeObj && maybeObj.linkText,
+    maybeObj && maybeObj.text,
+    maybeObj && maybeObj.anchor_text,
+  ]
+  for (const c of candidates) {
+    if (c && String(c).trim().length > 0) return String(c).trim()
+  }
+
+  // Fallback: fetch parent HTML and find the anchor
+  try {
+    const response = await fetch(parentUrl, { timeout: 10000 })
+    if (!response.ok) return ''
+    const html = await response.text()
+    const $ = load(html)
+    // Try to find anchors whose href matches targetUrl (exact or relative)
+    const normTarget = targetUrl.replace(/#.*$/, '')
+    let found = ''
+    $('a').each((i, el) => {
+      if (found) return
+      const href = $(el).attr('href') || ''
+      if (!href) return
+      // Normalize potential absolute/relative hrefs by comparing pathnames when possible
+      if (href === targetUrl || href === normTarget) {
+        found = $(el).text().trim()
+        return
+      }
+      // Handle relative links that end with the target path
+      try {
+        const resolved = new URL(href, parentUrl).toString().replace(/#.*$/, '')
+        if (resolved === normTarget || resolved === targetUrl) {
+          found = $(el).text().trim()
+          return
+        }
+      } catch (e) {
+        // ignore invalid URLs
+      }
+    })
+    return found
+  } catch (e) {
+    return ''
+  }
+}
+
 const createCombinedReports = async () => {
   // List any report files.
   let combinedJson = {
@@ -68,55 +116,6 @@ const createCombinedReports = async () => {
     return s
   }
 
-  // Helper: attempt to resolve link text from known fields, otherwise fetch parent and parse anchor text
-  const resolveLinkText = async (parentUrl, targetUrl, maybeObj) => {
-    // Look through common properties
-    const candidates = [
-      maybeObj && maybeObj.link_text,
-      maybeObj && maybeObj.linkText,
-      maybeObj && maybeObj.text,
-      maybeObj && maybeObj.anchor_text,
-    ]
-    for (const c of candidates) {
-      if (c && String(c).trim().length > 0) return String(c).trim()
-    }
-
-    // Fallback: fetch parent HTML and find the anchor
-    try {
-      const response = await fetch(parentUrl, { timeout: 10000 })
-      if (!response.ok) return ''
-      const html = await response.text()
-      const $ = load(html)
-      // Try to find anchors whose href matches targetUrl (exact or relative)
-      const normTarget = targetUrl.replace(/#.*$/, '')
-      let found = ''
-      $('a').each((i, el) => {
-        if (found) return
-        const href = $(el).attr('href') || ''
-        if (!href) return
-        // Normalize potential absolute/relative hrefs by comparing pathnames when possible
-        if (href === targetUrl || href === normTarget) {
-          found = $(el).text().trim()
-          return
-        }
-        // Handle relative links that end with the target path
-        try {
-          const resolved = new URL(href, parentUrl)
-            .toString()
-            .replace(/#.*$/, '')
-          if (resolved === normTarget || resolved === targetUrl) {
-            found = $(el).text().trim()
-            return
-          }
-        } catch (e) {
-          // ignore invalid URLs
-        }
-      })
-      return found
-    } catch (e) {
-      return ''
-    }
-  }
   // Write finished report to file.
   fs.writeFile(
     'broken-links-report-combined.json',
