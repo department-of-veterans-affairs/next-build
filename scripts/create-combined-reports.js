@@ -47,6 +47,16 @@ const createCombinedReports = async () => {
         )
     }
   }
+  // Iterate over combinedJson to look up link text.
+  for (const parentLink in combinedJson.brokenLinksByParent) {
+    for (const brokenLink of combinedJson.brokenLinksByParent[parentLink]) {
+      brokenLink.linkText = await resolveLinkText(
+        parentLink,
+        brokenLink.url,
+        brokenLink
+      )
+    }
+  }
   // Helper: safe CSV escape for a single field
   const escapeCsv = (val) => {
     if (val === null || val === undefined) return ''
@@ -73,9 +83,9 @@ const createCombinedReports = async () => {
 
     // Fallback: fetch parent HTML and find the anchor
     try {
-      const res = await fetch(parentUrl, { timeout: 10000 })
-      if (!res.ok) return ''
-      const html = await res.text()
+      const response = await fetch(parentUrl, { timeout: 10000 })
+      if (!response.ok) return ''
+      const html = await response.text()
       const $ = load(html)
       // Try to find anchors whose href matches targetUrl (exact or relative)
       const normTarget = targetUrl.replace(/#.*$/, '')
