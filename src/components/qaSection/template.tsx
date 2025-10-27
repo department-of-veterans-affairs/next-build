@@ -3,24 +3,22 @@ import { QaCollapsiblePanel } from '@/components/qaSection/QaCollapsiblePanel'
 import { QaGroup as FormattedQaGroup } from '@/components/qaGroup/formatted-type'
 import { ParagraphList } from '@/components/paragraph/template'
 import { slugifyString } from '@/lib/utils/slug'
-import { WithCurrentHeadingLevel } from '@/components/heading/formatted-type'
 import { HeadingElement } from '@/components/heading/template'
-import { incrementHeadingLevel } from '../heading/incrementHeadingLevel'
 
 export function QaSection({
-  currentHeadingLevel,
   header,
   intro,
   questions,
   displayAccordion,
-}: (FormattedQaSection | FormattedQaGroup) & WithCurrentHeadingLevel) {
-  const headingLevel = header
-    ? incrementHeadingLevel(currentHeadingLevel ?? 'h1')
-    : currentHeadingLevel
+}: FormattedQaSection | FormattedQaGroup) {
+  // We actually reset the heading level for QA sections instead of inheriting the
+  // current heading level from previous pragraph content.
+  const currentHeadingLevel = header ? 'h2' : 'h1'
+
   return (
     <div data-template="paragraphs/q_a_section">
       {header && (
-        <HeadingElement headingLevel={headingLevel} id={slugifyString(header)}>
+        <HeadingElement headingLevel="h2" id={slugifyString(header)}>
           {header}
         </HeadingElement>
       )}
@@ -32,7 +30,7 @@ export function QaSection({
       ) : (
         <ParagraphList
           paragraphs={questions}
-          currentHeadingLevel={headingLevel}
+          currentHeadingLevel={currentHeadingLevel}
         />
       )}
     </div>
