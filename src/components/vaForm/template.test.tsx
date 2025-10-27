@@ -60,7 +60,7 @@ const formWithRelatedMock: VaFormType = {
 describe('VaForm Component', () => {
   describe('Basic rendering', () => {
     test('renders form title and basic information', () => {
-      render(<VaForm {...formattedMockData} />)
+      const { container } = render(<VaForm {...formattedMockData} />)
 
       expect(screen.getByText('About VA Form 21-0781')).toBeInTheDocument()
       expect(
@@ -70,6 +70,10 @@ describe('VaForm Component', () => {
       ).toBeInTheDocument()
       expect(screen.getByText(/Form revision date:/)).toBeInTheDocument()
       expect(screen.getByText('March 2024')).toBeInTheDocument()
+      expect(container.querySelector('dt.va-introtext')).toHaveAttribute(
+        'lang',
+        'en'
+      )
     })
 
     test('displays form download information', () => {

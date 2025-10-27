@@ -8,6 +8,7 @@ export function VaForm({
   title,
   formName,
   formNumber,
+  formLanguage,
   revisionDate,
   issueDate,
   formType,
@@ -43,7 +44,7 @@ export function VaForm({
 
             <dl>
               <div className="vads-u-margin-bottom--4">
-                <dt className="va-introtext">
+                <dt className="va-introtext" lang={formLanguage}>
                   <dfn className="vads-u-visibility--screen-reader">
                     Form name:
                   </dfn>

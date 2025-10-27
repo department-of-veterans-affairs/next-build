@@ -26,6 +26,7 @@ exports[`VaForm formatter outputs formatted data with all fields 1`] = `
   ],
   "entityId": 6022,
   "entityPath": "/find-forms/about-form-21-0781",
+  "formLanguage": "en",
   "formName": "Statement in Support of Claimed Mental Health Disorder(s) Due to an In-Service Traumatic Event(s)",
   "formNumber": "21-0781",
   "formTitle": "Statement in Support of Claim for Service Connection for PTSD (Fillable)",

@@ -48,6 +48,7 @@ export const formatter: QueryFormatter<NodeVaForm, VaForm> = (
     formName: entity.field_va_form_name,
     formNumber: entity.field_va_form_number,
     formTitle: entity.field_va_form_title,
+    formLanguage: entity.field_va_form_language ?? null,
     revisionDate: entity.field_va_form_revision_date,
     issueDate: entity.field_va_form_issue_date,
     formType: entity.field_va_form_type,
