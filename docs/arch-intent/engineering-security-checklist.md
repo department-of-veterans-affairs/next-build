@@ -8,35 +8,35 @@ Does the project introduce any new or unusual infrastructure dependencies?
 - We are introducing a Nodejs server that runs Nextjs for generating and serving web pages for Content from Drupal.
 - An extra logic step will be added to the RevProxy to send a request to Nextjs Server.
   ON SUCCESS: Content page will be returned to the user
-  ON FAILURE: The RevProxy will continue its normal operation to serve the content page from the existing S3 Storage.
-- The failover logic is currently being used in production to determine if a content page is available in the Nextjs S3 Storage. If it is not it fails over to our Content Build S# storage.
-- More detailed information on this is avaiable in the Accelerated Publishing System Design Documentation.
+  ON FAILURE: The RevProxy will continue its normal operation to serve the content page from the existing S3 Storage options as it does today.
+- The failover logic is currently being used in production to determine if a content page is available in the Nextjs S3 Storage. If it is not it fails over to our Content Build S3 storage.
+- More detailed information on this is available in the Accelerated Publishing System Design Documentation.
 
 Does the project introduce any new connections or exchanges of new information types with other systems? (e.g. "new" meaning a new connection of type of information not already present in vets-api)
 
 - NO
   Do you need to poll any APIs for status? How is API success or failure determined?
-- NO
+- NO, Our failover will handle if there are any api issues and the user expereience will not be impacted. We will be monitoring and have alerts to let us know if ther is a problem.
 
 Are you handling all failure and error cases while in custody of your users's data?
 
-- We have NO User Data
+- N/A - We have NO User Data
 
 Does this update change shared code?
 
-- NO
+- Yes, We are adding logic in the RevProxy. This logic has been and will be part of our testing.
 
 What information will be captured in logs or metrics?
 
-- No User data will be captured in logs or metrics since we have no user data
+- N/A - User data will be captured in logs or metrics since we have no user data
 
 Does this project/update involve user-uploaded data?
 
-- No
+- N/A
 
 Are user-uploaded files being scanned for viruses?
 
-- No
+- N/A
 
 Does this project/update generate intermediate or "temporary" files during processing? If so, where and how are the temporary files materialized? What is the cleanup/removal process or mechanism?
 
@@ -44,18 +44,19 @@ Does this project/update generate intermediate or "temporary" files during proce
 
 Internal API changes
 List new or modified APIs in vets-api
-Are you deprecating or removing any APIs?
 
-- NO
+- N/A
+  Are you deprecating or removing any APIs?
+- N/A
 
 Do you have API documentation?
 
-- Ask Tim for our API to Drupal stuff
+- N/A
 
 Describe expected call patterns
 Are there new endpoints or services that require rate limiting or throttling?
 
-- NO. We have no publically exposed API endpoints
+- N/A - We have no publically exposed API endpoints, however we vcan disucss how we handle spikes in traffic.
 
 Are there any third party integrations, and how are they vetted?
 
@@ -123,7 +124,8 @@ Identify key areas to monitor
 - Drupal Server - Depoyed to EC2 Intance
 
 Are you introducing any custom metric tags?
-??? - Ask Team
+N/A - Not at present time
+
 Have you considered their cost and potential cardinality? High cardinality = higher cost
 
 Are there any sensitive data risks with logging?
@@ -140,7 +142,7 @@ List any changes or additions
 Test strategy
 Describe automated, manual and user acceptance test strategy
 
-- Autmated tests for frontend functionality
+- Automated tests for frontend functionality
 - Manual User Testing using Tugboat Preview Environments
 - Full build of all content pages for regression and integration testing prior to production deployment.
 
