@@ -132,9 +132,7 @@ async function checkBrokenLinks() {
   // Full array of sitemap defined URLs.
   const allPaths = await getSitemapLocations(OPTIONS.sitemapUrl)
 
-  // Sampling: if sampleSize is set (> -1) take a deterministic sample of the sitemap
-  // before partitioning work across instances. Deterministic sampling uses a
-  // sha256-derived fraction so the same URLs are selected each run.
+  // Hash function to convert a string to a fraction between 0 and 1.
   function hashToFraction(u) {
     const h = crypto
       .createHash('sha256')
@@ -152,8 +150,9 @@ async function checkBrokenLinks() {
     if (n <= 0 || n >= arr.length) return Array.from(arr)
     // Create array of {u, v} pairs where "u" is the item and "v" is its hash-derived fraction.
     const pairs = arr.map((u) => ({ u, v: hashToFraction(u) }))
-    // Sort pairs by v and take the first n items.
+    // Sort pairs by the hash-derived fraction.
     pairs.sort((a, b) => a.v - b.v)
+    // Return the first n items from the sorted pairs.
     return pairs.slice(0, n).map((p) => p.u)
   }
 
@@ -162,6 +161,9 @@ async function checkBrokenLinks() {
   // Otherwise we use the full set of sitemap URLs.
   if (Number(OPTIONS.sampleSize) > -1) {
     const n = Number(OPTIONS.sampleSize)
+    // Sampling: take a deterministic sample of the sitemap
+    // before partitioning work across instances. Deterministic sampling uses a
+    // sha256-derived fraction so the same URLs are selected each run.
     sampledPaths = deterministicSampleExact(allPaths, n)
     console.log(
       `Sampling enabled: selected ${chalk.yellow(sampledPaths.length)} of ${chalk.yellow(
