@@ -1,4 +1,7 @@
-import { VaLink, VaLinkAction } from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
+import {
+  VaLink,
+  VaLinkAction,
+} from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { Fragment } from 'react'
 import { VamcSystemRegisterForCare as FormattedVamcSystemRegisterForCare } from './formatted-type'
 import { ContentFooter } from '../contentFooter/template'

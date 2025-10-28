@@ -1,4 +1,5 @@
-import { VaIcon ,
+import {
+  VaIcon,
   VaLink,
 } from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { DownloadableFile as FormattedDownloadableFile } from '@/components/downloadableFile/formatted-type'
@@ -14,9 +15,7 @@ export function DownloadableFile({
     switch (mediaType) {
       case 'document':
       case 'image':
-        return (
-          <VaLink download href={url} text={`${title} (${extension})`} />
-        )
+        return <VaLink download href={url} text={`${title} (${extension})`} />
       case 'video':
         return (
           <>

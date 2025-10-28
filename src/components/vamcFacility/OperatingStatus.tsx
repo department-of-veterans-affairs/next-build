@@ -1,4 +1,5 @@
-import { VaAlert ,
+import {
+  VaAlert,
   VaLink,
 } from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { FacilityOperatingStatusFlags } from '@/types/drupal/node'

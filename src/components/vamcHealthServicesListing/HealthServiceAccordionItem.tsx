@@ -1,4 +1,5 @@
-import { VaAccordionItem ,
+import {
+  VaAccordionItem,
   VaLink,
 } from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { HealthService } from './formatted-type'

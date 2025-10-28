@@ -1,4 +1,5 @@
-import { VaButton ,
+import {
+  VaButton,
   VaLink,
 } from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { PressRelease as FormattedPressRelease } from './formatted-type'

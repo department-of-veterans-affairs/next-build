@@ -1,4 +1,5 @@
-import { VaTelephone ,
+import {
+  VaTelephone,
   VaLink,
 } from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import {

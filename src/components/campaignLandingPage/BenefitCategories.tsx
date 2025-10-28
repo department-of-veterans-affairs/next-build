@@ -1,4 +1,5 @@
-import { VaIcon ,
+import {
+  VaIcon,
   VaLink,
 } from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { placeholders } from './placeholders.temp'
