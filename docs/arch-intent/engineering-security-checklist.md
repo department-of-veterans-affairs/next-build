@@ -14,9 +14,9 @@ Does the project introduce any new or unusual infrastructure dependencies?
 
 Does the project introduce any new connections or exchanges of new information types with other systems? (e.g. "new" meaning a new connection of type of information not already present in vets-api)
 
-- NO
+- N/A
   Do you need to poll any APIs for status? How is API success or failure determined?
-- NO, Our failover will handle if there are any api issues and the user expereience will not be impacted. We will be monitoring and have alerts to let us know if ther is a problem.
+- N/A, Our failover will handle if there are any api issues and the user expereience will not be impacted. We will be monitoring and have alerts to let us know if ther is a problem.
 
 Are you handling all failure and error cases while in custody of your users's data?
 
@@ -40,7 +40,7 @@ Are user-uploaded files being scanned for viruses?
 
 Does this project/update generate intermediate or "temporary" files during processing? If so, where and how are the temporary files materialized? What is the cleanup/removal process or mechanism?
 
-- NO
+- N/A
 
 Internal API changes
 List new or modified APIs in vets-api
@@ -60,38 +60,48 @@ Are there new endpoints or services that require rate limiting or throttling?
 
 Are there any third party integrations, and how are they vetted?
 
-- NO
+- N/A
 
 Are there any new scheduled/cron jobs? If so, how are their intervals and impact considered? (especially with regard to periods of higher traffic or times when Sidekiq and infrastructure is already handling a high volume of jobs?)
 
-- Ask Tim
+- {TIM NEEDS TO COMMENT}
 
 Is schema validation enforced (ex: using the vets-json-schema repo)?
 
-- On Demand Publishing will not impact any internal or external API changes.
+- N/A - On Demand Publishing will not impact any internal or external API changes.
 
 External API changes
 List new or modified APIs for upstream or external systems
+N/A
+
 Describe expected call patterns
+N/A
+
 What PII or PHI will be transmitted to/from the external systems?
-On Demand Publishing will not impact any internal or external API changes.
+N/A - On Demand Publishing will not impact any internal or external API changes.
+
 Background jobs
+N/A
+
 List any required background processing
+N/A
+
 Describe error and dead letter handling
+N/A
 
 Data storage
 
-- NO CHANGES
+- N/A
 
 Describe new or modified databases, tables or columns
 
-- NONE
+- N/A
 
 Describe indexes and constraints
 
-- NONE
+- N/A
   Identify PII and PHI and where and how it will be stored, processed, expired and deleted
-- NONE
+- N/A
 
 Is this change introducing a large or new volume of data?
 
@@ -110,7 +120,7 @@ Do the changes have implications for data volume, memory, or CPU usage to consid
 
 Does this project/update expect to persist information? What is the expiration policy for data added to the system? What is the cleanup/removal process or mechanism?
 
-- No
+- N/A
 
 Libraries and dependencies
 List new or updated dependencies
@@ -129,7 +139,7 @@ N/A - Not at present time
 Have you considered their cost and potential cardinality? High cardinality = higher cost
 
 Are there any sensitive data risks with logging?
-None
+N/A
 
 Infrastructure and network changes
 List any changes or additions
