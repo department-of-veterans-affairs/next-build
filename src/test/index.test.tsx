@@ -7,6 +7,7 @@ describe('FrontPage', () => {
     footerData: { test: 'footer' },
     megaMenuData: { test: 'menu' },
     bannerData: [{ test: 'banner' }],
+    heroData: { test: 'hero' },
   }
 
   it.skip('renders the page layout and main content', () => {

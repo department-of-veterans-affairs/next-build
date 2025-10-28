@@ -1,19 +1,13 @@
-
 type Link = {
   title: string
   url: string
 }
 
 export type HomePageHero = {
-  fieldPromoHeadline: string
-  fieldPromoCta: {
-    fieldButtonLabel: string
-    fieldButtonLink: string
-  }
-  fieldPromoText: string
-  createAccountBlock: {
-    fieldCtaSummaryText: string
-    fieldPrimaryCtaButtonText: string
-    fieldRelatedInfoLinks: Link[]
-  }
+  promoHeadline: string
+  promoCta: Link
+  promoText: string
+  ctaSummaryText: string
+  primaryCtaButtonText: string
+  relatedInfoLinks: Link[]
 }

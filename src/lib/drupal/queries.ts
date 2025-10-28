@@ -70,6 +70,7 @@ import * as VamcSystemDetailPage from '../../components/vamcSystemDetailPage/que
 import * as CampaignLandingPage from '../../components/campaignLandingPage/query'
 import * as ServiceLocation from '@/components/serviceLocation/query'
 import * as SpanishTranslationSummary from '@/components/spanishTranslationSummary/query'
+import * as HomePageHero from '@/components/homePageHero/query'
 import {
   ResourceType,
   ParagraphResourceType,
@@ -162,6 +163,7 @@ export const QUERIES_MAP = {
   'header-data': Header,
   'footer-data': Footer,
   'benefits-hub-links': BenefitsHubLinks,
+  'hero-data': HomePageHero,
 
   // Static Path Generation
   'static-path-resources': StaticPathResources,
