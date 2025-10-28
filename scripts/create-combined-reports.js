@@ -6,7 +6,7 @@ import { load } from 'cheerio'
 // Fetch parent and parse anchor text.
 const resolveLinkText = async (parentUrl, targetUrl) => {
   try {
-    const response = await fetch(parentUrl, { timeout: 10000 })
+    const response = await fetch(parentUrl, { signal: AbortSignal.timeout(10000) })
     if (!response.ok) return ''
     const html = await response.text()
     const $ = load(html)
@@ -119,7 +119,7 @@ const createCombinedReports = async () => {
 
   // Generate a CSV report with Link Text column. We'll resolve link text if available in the combined JSON entry,
   // otherwise attempt to fetch the parent page and extract the anchor text (best-effort).
-  let csvReport = `Source,Broken Link,Error Code,Link Text\n`
+  let csvReport = `Source,Broken Link,Link Text,Error Code\n`
   const parents = Object.keys(combinedJson.brokenLinksByParent)
   for (const parent of parents) {
     const items = combinedJson.brokenLinksByParent[parent]
@@ -156,8 +156,8 @@ const createCombinedReports = async () => {
     for (const child of combinedJson.brokenLinksByParent[parent]) {
       const sanitizedChildUrl = escapeCsv(child.url)
       const code = escapeCsv(child.status)
-      const linkText = escapeCsv(child.link_text || '')
-      csvReport += `${sanitizedParent},${sanitizedChildUrl},${code},${linkText}\n`
+      const linkText = escapeCsv(child.linkText || '')
+      csvReport += `${sanitizedParent},${sanitizedChildUrl},${linkText},${code}\n`
     }
   }
 
