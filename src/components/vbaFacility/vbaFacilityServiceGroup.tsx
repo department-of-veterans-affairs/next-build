@@ -1,4 +1,9 @@
 import {
+  VaAccordion,
+  VaAccordionItem,
+  VaLink,
+} from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
+import {
   ServiceLocation,
   ServiceLocationType,
 } from '@/components/serviceLocation/template'
@@ -21,9 +26,9 @@ export const VbaFacilityServiceGroup = ({
       <h2 id={headingId}>{heading}</h2>
       <p>Select a topic to learn more.</p>
       <div className="vads-u-margin-bottom--3">
-        <va-accordion data-testid="service-accordion">
+        <VaAccordion data-testid="service-accordion">
           {services.map((service, index) => (
-            <va-accordion-item
+            <VaAccordionItem
               header={service.name}
               key={index}
               level={3}
@@ -42,11 +47,11 @@ export const VbaFacilityServiceGroup = ({
                   </p>
 
                   <p>
-                    <va-link
+                    <VaLink
                       active
                       href={service.onlineSelfService.url}
                       text={service.onlineSelfService.title}
-                    ></va-link>
+                    ></VaLink>
                   </p>
                 </>
               )}
@@ -60,9 +65,9 @@ export const VbaFacilityServiceGroup = ({
                   locationType={ServiceLocationType.VBA}
                 />
               ))}
-            </va-accordion-item>
+            </VaAccordionItem>
           ))}
-        </va-accordion>
+        </VaAccordion>
       </div>
     </>
   )

@@ -1,3 +1,7 @@
+import {
+  VaAccordion,
+  VaAccordionItem,
+} from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { VamcFacilityHealthService } from '../formatted-type'
 import { ServiceLocation } from '@/components/serviceLocation/template'
 import { hashReference } from '@/lib/utils/hashReference'
@@ -22,14 +26,14 @@ export const HealthServices = ({
       </h2>
       <p>Select a topic to learn more.</p>
 
-      <va-accordion>
+      <VaAccordion>
         {healthServices.map((service) => {
           // Will this always be true for VAMC facilities?
           const isVha = service.fieldFacilityLocatorApiId?.startsWith('vha_')
           const hasLocationData = service.locations?.[0]?.serviceLocationAddress
 
           return (
-            <va-accordion-item
+            <VaAccordionItem
               key={service.name}
               data-label={service.name}
               data-childlabel={service.fieldAlsoKnownAs}
@@ -86,10 +90,10 @@ export const HealthServices = ({
                   />
                 )}
               </div>
-            </va-accordion-item>
+            </VaAccordionItem>
           )
         })}
-      </va-accordion>
+      </VaAccordion>
     </>
   )
 }

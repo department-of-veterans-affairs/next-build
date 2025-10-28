@@ -1,3 +1,4 @@
+import { VaLinkAction } from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { placeholders } from './placeholders.temp'
 
 export const VideoPanel = () => {
@@ -54,7 +55,7 @@ export const VideoPanel = () => {
               placeholders.fieldClpVideoPanelMoreVideo.entity
                 .fieldButtonLabel && (
                 <p>
-                  <va-link-action
+                  <VaLinkAction
                     className="vads-u-display--block"
                     href={
                       placeholders.fieldClpVideoPanelMoreVideo.entity
@@ -65,7 +66,7 @@ export const VideoPanel = () => {
                         .fieldButtonLabel
                     }
                     type="secondary"
-                  ></va-link-action>
+                  ></VaLinkAction>
                 </p>
               )}
           </div>

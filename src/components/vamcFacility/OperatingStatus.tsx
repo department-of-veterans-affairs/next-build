@@ -1,3 +1,6 @@
+import { VaAlert ,
+  VaLink,
+} from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { FacilityOperatingStatusFlags } from '@/types/drupal/node'
 
 interface OperatingStatusFlagsProps {
@@ -40,13 +43,13 @@ export const OperatingStatusFlags = ({
     const { status, text } = presentations[operatingStatusFacility]
     return (
       <div className="vads-u-display--inline-block vads-u-margin-bottom--1">
-        <va-alert status={status} slim visible>
-          <va-link
+        <VaAlert status={status} slim visible>
+          <VaLink
             class="vads-u-font-weight--bold operating-status-link"
             href={`${basePath}/operating-status`}
             text={text}
-          ></va-link>
-        </va-alert>
+          ></VaLink>
+        </VaAlert>
       </div>
     )
   }

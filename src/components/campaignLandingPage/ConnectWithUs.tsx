@@ -1,3 +1,6 @@
+import { VaIcon ,
+  VaLink,
+} from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { placeholders } from './placeholders.temp'
 
 export const ConnectWithUs = () => {
@@ -28,12 +31,12 @@ export const ConnectWithUs = () => {
               .title && (
               <div className="vads-l-col--12 medium-screen:vads-l-col--4">
                 <div className="vads-u-margin-y--1 medium-screen:vads-u-margin-x--1">
-                  <va-icon
+                  <VaIcon
                     icon="mail"
                     size="3"
                     className="vads-u-color--link-default vads-u-padding-right--1"
-                  ></va-icon>
-                  <va-link
+                  ></VaIcon>
+                  <VaLink
                     href={
                       placeholders.fieldConnectWithUs.entity
                         .fieldEmailUpdatesLink.url.path
@@ -50,12 +53,12 @@ export const ConnectWithUs = () => {
           {socialLinksObject.twitter?.value && (
             <div className="vads-l-col--12 medium-screen:vads-l-col--4">
               <div className="vads-u-margin-y--1 medium-screen:vads-u-margin-x--1">
-                <va-icon
+                <VaIcon
                   icon="x"
                   size="3"
                   className="vads-u-color--link-default vads-u-padding-right--1"
-                ></va-icon>
-                <va-link
+                ></VaIcon>
+                <VaLink
                   href={`https://twitter.com/${socialLinksObject.twitter.value}`}
                   text={`${placeholders.fieldConnectWithUs.entity.fieldExternalLink.title} X (formerly Twitter)`}
                 />
@@ -66,12 +69,12 @@ export const ConnectWithUs = () => {
           {socialLinksObject.facebook?.value && (
             <div className="vads-l-col--12 medium-screen:vads-l-col--4">
               <div className="vads-u-margin-y--1 medium-screen:vads-u-margin-x--1">
-                <va-icon
+                <VaIcon
                   icon="facebook"
                   size="3"
                   className="vads-u-color--link-default vads-u-padding-right--1"
-                ></va-icon>
-                <va-link
+                ></VaIcon>
+                <VaLink
                   href={`https://facebook.com/${socialLinksObject.facebook.value}`}
                   text={`${placeholders.fieldConnectWithUs.entity.fieldExternalLink.title} Facebook`}
                 />
@@ -82,12 +85,12 @@ export const ConnectWithUs = () => {
           {socialLinksObject.youtube?.value && (
             <div className="vads-l-col--12 medium-screen:vads-l-col--4">
               <div className="vads-u-margin-y--1 medium-screen:vads-u-margin-x--1">
-                <va-icon
+                <VaIcon
                   icon="youtube"
                   size="3"
                   className="vads-u-color--link-default vads-u-padding-right--1"
-                ></va-icon>
-                <va-link
+                ></VaIcon>
+                <VaLink
                   href={`https://youtube.com/${socialLinksObject.youtube.value}`}
                   text={`${placeholders.fieldConnectWithUs.entity.fieldExternalLink.title} YouTube`}
                 />
@@ -98,12 +101,12 @@ export const ConnectWithUs = () => {
           {socialLinksObject.linkedin?.value && (
             <div className="vads-l-col--12 medium-screen:vads-l-col--4">
               <div className="vads-u-margin-y--1 medium-screen:vads-u-margin-x--1">
-                <va-icon
+                <VaIcon
                   icon="linkedin"
                   size="3"
                   className="vads-u-color--link-default vads-u-padding-right--1"
-                ></va-icon>
-                <va-link
+                ></VaIcon>
+                <VaLink
                   href={`https://linkedin.com/${socialLinksObject.linkedin.value}`}
                   text={`${placeholders.fieldConnectWithUs.entity.fieldExternalLink.title} LinkedIn`}
                 />
@@ -114,12 +117,12 @@ export const ConnectWithUs = () => {
           {socialLinksObject.instagram?.value && (
             <div className="vads-l-col--12 medium-screen:vads-l-col--4">
               <div className="vads-u-margin-y--1 medium-screen:vads-u-margin-x--1">
-                <va-icon
+                <VaIcon
                   icon="instagram"
                   size="3"
                   className="vads-u-color--link-default vads-u-padding-right--1"
-                ></va-icon>
-                <va-link
+                ></VaIcon>
+                <VaLink
                   href={`https://instagram.com/${socialLinksObject.instagram.value}`}
                   text={`${placeholders.fieldConnectWithUs.entity.fieldExternalLink.title} Instagram`}
                 />

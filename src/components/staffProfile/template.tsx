@@ -1,3 +1,4 @@
+import { VaLink } from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import StaffProfileSideBarNav from '@/components/staffProfileSideBarNav/template'
 import { StaffProfile as FormattedStaffProfile } from './formatted-type'
 import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
@@ -85,7 +86,7 @@ export const StaffProfile = ({
                 {emailAddress && (
                   <p className="vads-u-margin-bottom--0p5 vads-u-margin-top--0">
                     <span className="vads-u-font-weight--bold">Email: </span>
-                    <va-link
+                    <VaLink
                       data-testid="profile-email"
                       href={`mailto:${emailAddress}`}
                       text={emailAddress}
@@ -113,7 +114,7 @@ export const StaffProfile = ({
             )}
             {media && photoAllowHiresDownload && (
               <p>
-                <va-link
+                <VaLink
                   data-testid="head-shot-download"
                   href={media.links['original'].href}
                   download
@@ -127,7 +128,7 @@ export const StaffProfile = ({
             )}
             {completeBiography && (
               <p>
-                <va-link
+                <VaLink
                   data-testid="complete-biography-download"
                   href={completeBiography?.url}
                   download

@@ -1,3 +1,7 @@
+import { VaIcon ,
+  VaLink,
+  VaLinkAction,
+} from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { ServiceAddress } from './ServiceAddress'
 import { PhoneNumber } from '@/components/phoneNumber/template'
 import { PhoneNumber as PhoneNumberType } from '@/components/phoneNumber/formatted-type'
@@ -132,11 +136,11 @@ export const ServiceLocation = ({
         <div className="vads-u-padding-top--1">
           {hasOfficeVisits && (
             <p className="vads-u-margin-top--0 vads-u-margin-bottom--0">
-              <va-icon
+              <VaIcon
                 class="vads-u-margin-right--0p5"
                 icon="location_city"
                 size="3"
-              ></va-icon>{' '}
+              ></VaIcon>{' '}
               {{
                 yes_appointment_only: 'Visit our office, by appointment only',
                 yes_walk_in_visits_only:
@@ -148,7 +152,7 @@ export const ServiceLocation = ({
           )}
           {hasVirtualSupport && (
             <p className="vads-u-margin-top--1 vads-u-margin-bottom--0">
-              <va-icon
+              <VaIcon
                 class="vads-u-margin-right--0p5"
                 icon={
                   location.virtualSupport === 'yes_veterans_can_call'
@@ -156,7 +160,7 @@ export const ServiceLocation = ({
                     : 'calendar_today'
                 }
                 size="3"
-              ></va-icon>{' '}
+              ></VaIcon>{' '}
               {{
                 yes_appointment_only: 'Virtual visits by appointment only',
                 yes_veterans_can_call: 'Call at your convenience',
@@ -167,12 +171,12 @@ export const ServiceLocation = ({
           )}
           {showReferralRequirement && (
             <p className="vads-u-margin-top--1 vads-u-margin-bottom--0">
-              <va-icon
+              <VaIcon
                 class="vads-u-margin-right--0p5"
                 icon={fieldReferralRequired === '1' ? 'check_circle' : 'cancel'}
                 size="3"
                 data-testid="referral-icon"
-              ></va-icon>{' '}
+              ></VaIcon>{' '}
               {fieldReferralRequired === '1'
                 ? 'A referral is required'
                 : 'A referral is not required'}
@@ -223,7 +227,7 @@ export const ServiceLocation = ({
           data-testid="service-location-action-link-online"
           className="vads-u-margin-top--2 vads-u-margin-bottom--1"
         >
-          <va-link-action
+          <VaLinkAction
             class="vads-u-display--block"
             href={
               locationType === ServiceLocationType.VBA
@@ -232,7 +236,7 @@ export const ServiceLocation = ({
             }
             text="Schedule an appointment online"
             type="secondary"
-          ></va-link-action>
+          ></VaLinkAction>
         </p>
       )}
 
@@ -272,7 +276,7 @@ export const ServiceLocation = ({
         <div key={i} data-testid="service-location-email-contact">
           {email.label && <SubHeadingTag>{email.label}</SubHeadingTag>}
           <p className="vads-u-margin-y--0">
-            <va-link
+            <VaLink
               href={`mailto:${email.address}`}
               text={email.address}
               data-testid={`service-location-email-contact-${i}`}

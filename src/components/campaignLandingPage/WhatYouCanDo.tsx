@@ -1,3 +1,4 @@
+import { VaLink } from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { placeholders } from './placeholders.temp'
 
 export const WhatYouCanDo = () => {
@@ -37,11 +38,11 @@ export const WhatYouCanDo = () => {
               <h3 className="vads-u-padding-x--2 vads-u-margin-top--2">
                 {/* TODO: determineFieldLink filter - using direct URL path */}
                 {promo.entity.fieldPromoLink.entity.fieldLink.url.path && (
-                  <va-link
+                  <VaLink
                     active
                     href={promo.entity.fieldPromoLink.entity.fieldLink.url.path}
                     text={promo.entity.fieldPromoLink.entity.fieldLink.title}
-                  ></va-link>
+                  ></VaLink>
                 )}
               </h3>
               <p className="vads-u-margin-bottom--2 vads-u-margin-top--1 vads-u-padding-x--2">

@@ -1,3 +1,4 @@
+import { VaLink } from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { get } from 'lodash'
 import { recordEvent } from '@/lib/analytics/recordEvent'
 import { LinkTeaser as FormattedLinkTeaser } from '@/components/linkTeaser/formatted-type'
@@ -36,12 +37,12 @@ export const LinkTeaser = ({
       onClick={handleItemClick}
     >
       <p className="vads-u-margin--0 vads-u-font-weight--bold">
-        <va-link
+        <VaLink
           href={uri}
           target={target}
           text={title}
           active={isFieldSpokes}
-        ></va-link>
+        ></VaLink>
       </p>
       <p className="vads-u-margin--0">{summary}</p>
     </li>

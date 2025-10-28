@@ -1,3 +1,4 @@
+import { VaLink } from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import React, { useEffect } from 'react'
 import { VetCenterLocationListing as FormattedVetCenterLocationListing } from './formatted-type'
 import { ContentFooter } from '@/components/contentFooter/template'
@@ -113,10 +114,10 @@ export function VetCenterLocationListing({
         </h2>
         <p className="vads-u-font-size--base">
           Looking for a Vet Center in another area?{' '}
-          <va-link
+          <VaLink
             href="/find-locations"
             text="Find a Vet Center location"
-          ></va-link>
+          ></VaLink>
         </p>
 
         <va-back-to-top></va-back-to-top>

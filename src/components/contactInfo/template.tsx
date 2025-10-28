@@ -1,3 +1,6 @@
+import { VaTelephone ,
+  VaLink,
+} from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import {
   ContactInfo as FormattedContactInfo,
   EmailContact as FormattedEmailContact,
@@ -23,7 +26,7 @@ export const EmailContact = (
     return (
       <li className="vads-u-margin-top--1">
         <strong>{label}:&nbsp;</strong>
-        <va-link href={`mailto:${address}`} text={address} />
+        <VaLink href={`mailto:${address}`} text={address} />
       </li>
     )
   }
@@ -40,7 +43,7 @@ export const PhoneContact = (
     return (
       <li className="vads-u-margin-top--1">
         <strong>{label}:&nbsp;</strong>
-        <va-telephone contact={number} extension={extension || null} />
+        <VaTelephone contact={number} extension={extension || null} />
       </li>
     )
   }
@@ -79,7 +82,7 @@ const BenefitHubContacts = ({ contacts }) => {
     return (
       <li className="vads-u-margin-top--1" key={label}>
         <strong>{label}:&nbsp;</strong>
-        <va-link href={href} text={number} />
+        <VaLink href={href} text={number} />
       </li>
     )
   })
@@ -111,7 +114,7 @@ export function ContactInfo({
               {useDefaultContact ? (
                 <p>
                   <strong>{defaultContact.label}:&nbsp;</strong>
-                  <va-link
+                  <VaLink
                     href={defaultContact.href}
                     text={defaultContact.number}
                   />

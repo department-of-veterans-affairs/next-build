@@ -1,3 +1,4 @@
+import { VaIcon } from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { StaffProfileParagraph as FormattedStaffProfileParagraph } from './formatted-type'
 import { PhoneNumber } from '@/components/phoneNumber/template'
 import { MediaImage } from '@/components/mediaImage/template'
@@ -29,7 +30,7 @@ export function StaffProfileParagraph({
         {!media ? (
           <div className="circular-profile-image bio-paragraph-image vads-u-position--relative vads-u-background-color--gray-lightest vads-u-display--block">
             <div className="circular-profile-missing-icon">
-              <va-icon size="6" icon="person" />
+              <VaIcon size="6" icon="person" />
             </div>
           </div>
         ) : (

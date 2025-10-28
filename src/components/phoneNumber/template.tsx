@@ -1,3 +1,4 @@
+import { VaTelephone } from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { PhoneNumber as FormattedPhoneNumber } from '@/components/phoneNumber/formatted-type'
 
 export interface SeparatedPhoneNumber {
@@ -100,7 +101,7 @@ export const PhoneNumber = ({
   const internationalPattern = /\(?(\+1)\)?[- ]?/gi
 
   const phoneComponent = (
-    <va-telephone
+    <VaTelephone
       contact={numberToDisplay.replace?.(/-/g, '')}
       extension={extensionToDisplay || null}
       message-aria-describedby={isRegularPhone ? label || 'Phone' : undefined}
@@ -109,7 +110,7 @@ export const PhoneNumber = ({
       tty={tty ? true : undefined}
       international={internationalPattern.test(numberToDisplay)}
       data-testid={testId || undefined}
-    ></va-telephone>
+    ></VaTelephone>
   )
 
   if (

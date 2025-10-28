@@ -1,3 +1,6 @@
+import { VaIcon ,
+  VaLink,
+} from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { VamcEhrSystem } from '@/types/drupal/vamcEhr'
 import clsx from 'clsx'
 
@@ -44,7 +47,7 @@ export function ManageYourHealthLinks({
   }
 
   const renderIcon = (icon: string) => (
-    <va-icon
+    <VaIcon
       class="vads-u-color--link-default vads-facility-hub-cta-circle vads-u-margin-right--1"
       size="3"
       icon={icon}
@@ -69,21 +72,21 @@ export function ManageYourHealthLinks({
       <div className="vads-u-margin-right--0 tablet:vads-u-margin-right--3">
         <p className={normalItemClasses}>
           {renderIcon('pill')}
-          <va-link
+          <VaLink
             href={getTopTaskUrl('refill-track-prescriptions/')}
             text="Refill and track your prescriptions"
           />
         </p>
         <p className={normalItemClasses}>
           {renderIcon('forum')}
-          <va-link
+          <VaLink
             href={getTopTaskUrl('secure-messaging/')}
             text="Send a secure message to your health care team"
           />
         </p>
         <p className={normalItemClasses}>
           {renderIcon('event_available')}
-          <va-link
+          <VaLink
             href={getTopTaskUrl('schedule-view-va-appointments/')}
             text="Schedule and manage health appointments"
           />
@@ -92,7 +95,7 @@ export function ManageYourHealthLinks({
           className={clsx(desktopOnlyItemClasses, 'vads-u-border-bottom--1px')}
         >
           {renderIcon('chat')}
-          <va-link
+          <VaLink
             href="https://mobile.va.gov/app/va-health-chat"
             text="Download VA Health Chat"
           />
@@ -101,35 +104,35 @@ export function ManageYourHealthLinks({
       <div>
         <p className={normalItemClasses}>
           {renderIcon('note_add')}
-          <va-link
+          <VaLink
             href={getTopTaskUrl('get-medical-records/')}
             text="Download your VA medical records (Blue Button)"
           />
         </p>
         <p className={normalItemClasses}>
           {renderIcon('assignment')}
-          <va-link
+          <VaLink
             href={getTopTaskUrl('view-test-and-lab-results/')}
             text="View your lab and test results"
           />
         </p>
         <p className={normalItemClasses}>
           {renderIcon('hearing_disabled')}
-          <va-link
+          <VaLink
             href="/health-care/order-hearing-aid-batteries-and-accessories/"
             text="Order hearing aid batteries and accessories"
           />
         </p>
         <p className={mobileOnlyItemClasses}>
           {renderIcon('chat')}
-          <va-link
+          <VaLink
             href="https://mobile.va.gov/app/va-health-chat"
             text="Download VA Health Chat"
           />
         </p>
         <p className={clsx(normalItemClasses, 'vads-u-border-bottom--1px')}>
           {renderIcon('phone')}
-          <va-link
+          <VaLink
             href="https://www.va.gov/health/connect-to-va-care/index.asp"
             text="Connect to VA care"
           />

@@ -1,3 +1,4 @@
+import { VaLink, VaLinkAction } from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { placeholders } from './placeholders.temp'
 
 export const StoriesPanel = () => {
@@ -49,7 +50,7 @@ export const StoriesPanel = () => {
                             {/* TODO: determineFieldLink filter - using direct URL path */}
                             {storyTeaser.entity.fieldLinkTeaser.entity.fieldLink
                               .url.path && (
-                              <va-link
+                              <VaLink
                                 active
                                 href={
                                   storyTeaser.entity.fieldLinkTeaser.entity
@@ -59,7 +60,7 @@ export const StoriesPanel = () => {
                                   storyTeaser.entity.fieldLinkTeaser.entity
                                     .fieldLink.title
                                 }
-                              ></va-link>
+                              ></VaLink>
                             )}
                           </h3>
                           <p>
@@ -76,7 +77,7 @@ export const StoriesPanel = () => {
               )}
 
             {placeholders.fieldClpStoriesCta.uri && (
-              <va-link-action
+              <VaLinkAction
                 href={placeholders.fieldClpStoriesCta.uri}
                 type="secondary"
                 text="See more stories"

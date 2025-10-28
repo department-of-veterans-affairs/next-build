@@ -1,3 +1,4 @@
+import { VaIcon } from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { getHubIcon } from '@/lib/utils/benefitsHub'
 import { BenefitsHub as FormattedBenefitsHub } from './formatted-type'
 
@@ -10,7 +11,7 @@ export function BenefitsHub({ title, titleIcon, intro }: FormattedBenefitsHub) {
         {iconConfig ? (
           <div className="tablet:vads-u-display--flex vads-u-margin-y--1 vads-u-align-items--flex-start">
             <span className="vads-u-margin-top--1">
-              <va-icon
+              <VaIcon
                 icon={iconConfig.icon}
                 size="3"
                 class={iconConfig.className}

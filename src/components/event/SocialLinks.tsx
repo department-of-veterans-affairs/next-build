@@ -1,3 +1,7 @@
+import {
+  VaIcon,
+  VaLink,
+} from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { getFacebookLink, getXLink } from '@/lib/utils/social'
 
 interface SocialLinksProps {
@@ -24,12 +28,12 @@ export const SocialLinks = ({
   return (
     <div id="va-c-social-share">
       <p className="vads-u-margin-y--2p5">
-        <va-icon
+        <VaIcon
           class="va-c-social-icon vads-u-margin-right--0p5"
           icon="calendar_today"
           size="3"
         />
-        <va-link
+        <VaLink
           data-description={description}
           data-end={dateObject?.endValue}
           data-location={address}
@@ -42,20 +46,20 @@ export const SocialLinks = ({
       </p>
 
       <p className="vads-u-margin-y--2p5">
-        <va-icon
+        <VaIcon
           class="va-c-social-icon vads-u-margin-right--0p5"
           icon={facebookLink.icon}
           size="3"
         />
-        <va-link href={facebookLink.href} text={facebookLink.text} />
+        <VaLink href={facebookLink.href} text={facebookLink.text} />
       </p>
       <p className="vads-u-margin-y--0">
-        <va-icon
+        <VaIcon
           class="va-c-social-icon vads-u-margin-right--0p5"
           icon={xLink.icon}
           size="3"
         />
-        <va-link href={xLink.href} text={xLink.text} />
+        <VaLink href={xLink.href} text={xLink.text} />
       </p>
     </div>
   )

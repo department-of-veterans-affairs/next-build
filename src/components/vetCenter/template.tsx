@@ -1,3 +1,4 @@
+import { VaLink } from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { VetCenter as FormattedVetCenter } from './formatted-type'
 import { Hours } from '@/components/hours/template'
 import { MediaImage } from '@/components/mediaImage/template'
@@ -157,11 +158,11 @@ export function VetCenter(vetCenterProps: FormattedVetCenter) {
             you live.
           </p>
           <p>
-            <va-link
+            <VaLink
               active
               href={`${path}/locations`}
               text={`View more ${title} locations`}
-            ></va-link>
+            ></VaLink>
           </p>
         </div>
 

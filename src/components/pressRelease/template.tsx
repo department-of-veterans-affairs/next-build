@@ -1,3 +1,6 @@
+import { VaButton ,
+  VaLink,
+} from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { PressRelease as FormattedPressRelease } from './formatted-type'
 import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
 import { LovellSwitcher } from '@/components/lovellSwitcher/template'
@@ -37,7 +40,7 @@ export const PressRelease = ({
                     {formatDate(releaseDate)}
                   </p>
                   <p className="va-flex vads-u-flex-direction--column  mobile:vads-u-flex-direction--row mobile:vads-u-align-items--center mobile:vads-u-padding-bottom--4 ">
-                    <va-button
+                    <VaButton
                       data-testid="print-button"
                       onClick={() => {
                         window.print()
@@ -49,7 +52,7 @@ export const PressRelease = ({
                     />
 
                     {pdfVersion && (
-                      <va-link
+                      <VaLink
                         download
                         href={pdfVersion}
                         text="Download press release"
@@ -96,7 +99,7 @@ export const PressRelease = ({
                           })}
                           {contact.email && (
                             <p className="vads-u-margin-top--1 vads-u-margin-bottom--0">
-                              <va-link
+                              <VaLink
                                 data-testid="press-email"
                                 href={`mailto:${contact?.email}`}
                                 text={contact?.email}
@@ -123,7 +126,7 @@ export const PressRelease = ({
                           return null
                         }
                         let link = (
-                          <va-link
+                          <VaLink
                             data-testid="generic-file"
                             filetype={asset.uri.split('.').pop().toUpperCase()}
                             href={asset.uri}
@@ -134,7 +137,7 @@ export const PressRelease = ({
                         switch (asset.type) {
                           case 'media--document':
                             link = (
-                              <va-link
+                              <VaLink
                                 data-testid="document"
                                 filetype={asset.uri
                                   .split('.')
@@ -148,7 +151,7 @@ export const PressRelease = ({
                             break
                           case 'media--image':
                             link = (
-                              <va-link
+                              <VaLink
                                 data-testid="image"
                                 filetype={asset.uri
                                   .split('.')
@@ -162,7 +165,7 @@ export const PressRelease = ({
                             break
                           case 'media--video':
                             link = (
-                              <va-link
+                              <VaLink
                                 data-testid="video"
                                 video
                                 href={asset.uri}
@@ -194,7 +197,7 @@ export const PressRelease = ({
                   {/* should be fieldOffice.entity.fieldPressReleaseBlurb.processed */}
                 </section>
                 <p className="vads-u-margin--0">
-                  <va-link href={listing} text="See all news releases" active />
+                  <VaLink href={listing} text="See all news releases" active />
                 </p>
               </article>
               <ContentFooter />

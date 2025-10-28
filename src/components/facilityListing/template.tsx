@@ -1,3 +1,4 @@
+import { VaLink } from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { MediaImage } from '@/components/mediaImage/template'
 import { OperatingStatusFlags } from '@/components/vamcFacility/OperatingStatus'
 import { Address } from '@/components/address/template'
@@ -48,7 +49,7 @@ export function FacilityListing({
   return (
     <TextWithImage image={imageContent} className="facility">
       <h3 className="vads-u-margin-bottom--1 vads-u-margin-top--0 vads-u-font-size--md tablet:vads-u-font-size--lg">
-        <va-link href={path} text={title}></va-link>
+        <VaLink href={path} text={title}></VaLink>
       </h3>
 
       <OperatingStatusFlags

@@ -1,3 +1,4 @@
+import { VaLink } from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { MediaImage } from '@/components/mediaImage/template'
 import { truncateWordsOrChar } from '@/lib/utils/helpers'
 import { NewsStoryTeaser as FormattedNewsStoryTeaser } from '../newsStory/formatted-type'
@@ -16,7 +17,7 @@ export const StoryTeaser = ({
     image={<MediaImage {...image} imageStyle="3_2_medium_thumbnail" />}
   >
     <h3 className="vads-u-font-size--md tablet:vads-u-font-size--lg vads-u-margin-top--0 tablet:vads-u-margin-bottom--0p5">
-      <va-link href={link} text={title} />
+      <VaLink href={link} text={title} />
     </h3>
     <p className="vads-u-margin-y--0">
       {truncateWordsOrChar(introText, 60, true)}

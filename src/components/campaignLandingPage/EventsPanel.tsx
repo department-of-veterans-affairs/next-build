@@ -1,3 +1,4 @@
+import { VaLink } from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { placeholders } from './placeholders.temp'
 
 export const EventsPanel = () => {
@@ -26,10 +27,10 @@ export const EventsPanel = () => {
                   <h3 className="vads-u-margin-top--0">
                     {eventReference.entity.entityUrl.path &&
                     eventReference.entity.title ? (
-                      <va-link
+                      <VaLink
                         href={eventReference.entity.entityUrl.path}
                         text={eventReference.entity.title}
-                      ></va-link>
+                      ></VaLink>
                     ) : (
                       eventReference.entity.title
                     )}
@@ -60,7 +61,7 @@ export const EventsPanel = () => {
                           .entityUrl.path &&
                           eventReference.entity.fieldFacilityLocation.entity
                             .title && (
-                            <va-link
+                            <VaLink
                               href={
                                 eventReference.entity.fieldFacilityLocation
                                   .entity.entityUrl.path
@@ -77,13 +78,13 @@ export const EventsPanel = () => {
                             <>
                               {/* TODO: determineFieldLink filter - using direct URL path */}
                               {eventReference.entity.fieldLink.url.path && (
-                                <va-link
+                                <VaLink
                                   active
                                   href={
                                     eventReference.entity.fieldLink.url.path
                                   }
                                   text={eventReference.entity.fieldEventCta}
-                                ></va-link>
+                                ></VaLink>
                               )}
                             </>
                           )}
@@ -92,7 +93,7 @@ export const EventsPanel = () => {
                           <>
                             {eventReference.entity.fieldUrlOfAnOnlineEvent
                               .uri ? (
-                              <va-link
+                              <VaLink
                                 href={
                                   eventReference.entity.fieldUrlOfAnOnlineEvent
                                     .uri

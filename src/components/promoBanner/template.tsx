@@ -1,4 +1,4 @@
-import { VaPromoBanner } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
+import { VaPromoBanner } from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { PromoBanner as FormattedPromoBanner } from '@/components/banner/formatted-type'
 
 export const PromoBanner = ({

@@ -1,4 +1,8 @@
 import React from 'react'
+import {
+  VaAccordion,
+  VaAccordionItem,
+} from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { VetCenterHealthServices as FormattedHealthServices } from '@/components/vetCenterHealthServices/formatted-type'
 import { slugifyString } from '@/lib/utils/slug'
 
@@ -10,9 +14,9 @@ function ServicesList({ services }: ServicesListProps) {
   if (!services) return null
   return (
     <div className="vads-u-margin-bottom--3">
-      <va-accordion bordered>
+      <VaAccordion bordered>
         {services.map((service, index) => (
-          <va-accordion-item
+          <VaAccordionItem
             key={index}
             class="va-accordion-item"
             id={`item-${slugifyString(service.name)}`}
@@ -33,9 +37,9 @@ function ServicesList({ services }: ServicesListProps) {
             {service.body && (
               <div dangerouslySetInnerHTML={{ __html: service.body }} />
             )}
-          </va-accordion-item>
+          </VaAccordionItem>
         ))}
-      </va-accordion>
+      </VaAccordion>
     </div>
   )
 }

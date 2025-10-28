@@ -1,3 +1,4 @@
+import { VaLink } from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { truncateWordsOrChar } from '@/lib/utils/helpers'
 import { PressReleaseTeaser as FormattedPressReleaseTeaser } from '@/components/pressRelease/formatted-type'
 import { formatDate } from '@/lib/utils/helpers'
@@ -20,7 +21,7 @@ export function PressReleaseTeaser({
     <>
       <section className="vads-u-margin-bottom--4">
         <TitleTag className="vads-u-margin-bottom--1p5 vads-u-font-size--md medium-screen:vads-u-font-size--lg">
-          <va-link href={link} text={title} />
+          <VaLink href={link} text={title} />
         </TitleTag>
         <strong>{formatDate(releaseDate)}</strong>
         <p className="vads-u-margin-top--0">

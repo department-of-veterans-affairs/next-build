@@ -1,3 +1,7 @@
+import {
+  VaAccordion,
+  VaAccordionItem,
+} from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { hashReference } from '@/lib/utils/hashReference'
 
 export const LocationServices = ({
@@ -19,10 +23,10 @@ export const LocationServices = ({
         Prepare for your visit
       </h2>
       <p>Select a topic to learn more.</p>
-      <va-accordion section-heading="Prepare for your visit" bordered>
+      <VaAccordion section-heading="Prepare for your visit" bordered>
         {items.map((item) => {
           return (
-            <va-accordion-item
+            <VaAccordionItem
               id={hashReference(item.title, 60)}
               key={item.title}
               header={item.title}
@@ -30,10 +34,10 @@ export const LocationServices = ({
               data-label={item.title}
             >
               <div dangerouslySetInnerHTML={{ __html: item.wysiwigContents }} />
-            </va-accordion-item>
+            </VaAccordionItem>
           )
         })}
-      </va-accordion>
+      </VaAccordion>
     </section>
   )
 }

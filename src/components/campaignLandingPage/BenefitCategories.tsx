@@ -1,3 +1,6 @@
+import { VaIcon ,
+  VaLink,
+} from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { placeholders } from './placeholders.temp'
 
 export const BenefitCategories = () => {
@@ -25,16 +28,16 @@ export const BenefitCategories = () => {
               <div className="medium-screen:vads-u-margin-left--6 medium-screen:vads-u-margin-right--5">
                 <div className="vads-u-display--flex vads-u-align-items--center">
                   {/* TODO: getHubIcon filter - need helper function to render icon based on fieldTitleIcon */}
-                  <va-icon
+                  <VaIcon
                     icon={benefitCategory.entity.fieldTitleIcon}
                     size="3"
                     className="vads-u-margin-right--1"
-                  ></va-icon>
+                  ></VaIcon>
                   <h3 className="vads-u-margin--0 vads-u-font-size--h4">
-                    <va-link
+                    <VaLink
                       href={benefitCategory.entity.entityUrl.path}
                       text={benefitCategory.entity.title}
-                    ></va-link>
+                    ></VaLink>
                   </h3>
                 </div>
                 <p className="vads-u-margin-top--1">

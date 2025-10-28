@@ -1,3 +1,4 @@
+import { VaLinkAction } from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { placeholders } from './placeholders.temp'
 
 export const ResourcesPanel = () => {
@@ -52,7 +53,7 @@ export const ResourcesPanel = () => {
           placeholders.fieldClpResourcesCta.entity.fieldButtonLabel && (
             <div className="vads-l-row">
               <div className="vads-u-col--12">
-                <va-link-action
+                <VaLinkAction
                   href={
                     placeholders.fieldClpResourcesCta.entity.fieldButtonLink.url
                       .path

@@ -1,4 +1,8 @@
 import {
+  VaAccordion,
+  VaAccordionItem,
+} from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
+import {
   CollapsiblePanel as FormattedCollapsiblePanel,
   CollapsiblePanelItem as FormattedCollapsiblePanelItem,
 } from '@/components/collapsiblePanel/formatted-type'
@@ -19,7 +23,7 @@ export const CollapsiblePanelItem = ({
   paragraphs = [],
 }: ParagraphComponent<FormattedCollapsiblePanelItem>) => {
   return (
-    <va-accordion-item
+    <VaAccordionItem
       key={entityId}
       class="va-accordion-item"
       id={`${slugifyString(title, 60)}-${id}`}
@@ -43,7 +47,7 @@ export const CollapsiblePanelItem = ({
           })}
         </div>
       </div>
-    </va-accordion-item>
+    </VaAccordionItem>
   )
 }
 
@@ -61,7 +65,7 @@ export const CollapsiblePanel = ({
       data-paragraph-type="paragraph--collapsible_panel"
       data-entity-id={entityId}
     >
-      <va-accordion {...conditionalAttr(bordered, 'bordered')}>
+      <VaAccordion {...conditionalAttr(bordered, 'bordered')}>
         {paragraphs.map((collapsiblePanelItem) => {
           // These paragraphs will always be `paragraph--collapsible_panel_item
           return (
@@ -72,7 +76,7 @@ export const CollapsiblePanel = ({
             />
           )
         })}
-      </va-accordion>
+      </VaAccordion>
     </div>
   )
 }

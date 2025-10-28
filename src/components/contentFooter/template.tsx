@@ -1,4 +1,5 @@
 import React from 'react'
+import { VaButton } from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { MedalliaAssets } from '@/components/medallia/template'
 import { getSurveyNumber, showForm } from '@/lib/utils/medallia'
 import { BUILD_TYPES } from '@/lib/constants/environment'
@@ -44,7 +45,7 @@ export function ContentFooter({
         )}
         <div className="vads-u-flex--1 vads-u-text-align--right">
           <MedalliaAssets />
-          <va-button
+          <VaButton
             id="mdFormButton"
             disable-analytics
             secondary

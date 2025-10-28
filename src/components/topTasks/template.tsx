@@ -1,3 +1,4 @@
+import { VaLinkAction } from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { LOVELL } from '@/lib/drupal/lovell/constants'
 import { VamcEhrSystem } from '@/types/drupal/vamcEhr'
 import { Administration } from '@/components/administration/formatted-type'
@@ -35,24 +36,24 @@ export const FacilityTopTasks = ({
       data-testid="facility-top-tasks"
       className={className}
     >
-      <va-link-action
+      <VaLinkAction
         class="vads-u-display--block"
         href={`${topTask.url}`}
         text={`${topTask.text}`}
         type="secondary"
-      ></va-link-action>
-      <va-link-action
+      ></VaLinkAction>
+      <VaLinkAction
         class="vads-u-display--block"
         href={`${path}/register-for-care`}
         text="Register for care"
         type="secondary"
-      ></va-link-action>
-      <va-link-action
+      ></VaLinkAction>
+      <VaLinkAction
         class="vads-u-display--block"
         href={`${path}/pharmacy`}
         text="Learn about pharmacy services"
         type="secondary"
-      ></va-link-action>
+      ></VaLinkAction>
     </div>
   )
 }
@@ -82,24 +83,24 @@ export const RegionalTopTasks = ({
       className="vads-u-margin-top--0 vads-u-margin-bottom--3"
     >
       <div>
-        <va-link-action
+        <VaLinkAction
           class="vads-u-display--block"
           href={`${topTask.url}`}
           text={`${topTask.text}`}
           type="secondary"
-        ></va-link-action>
-        <va-link-action
+        ></VaLinkAction>
+        <VaLinkAction
           class="vads-u-display--block"
           href={`${path}/health-services`}
           text="View all health services"
           type="secondary"
-        ></va-link-action>
-        <va-link-action
+        ></VaLinkAction>
+        <VaLinkAction
           class="vads-u-display--block"
           href={`${path}/register-for-care`}
           text="Register for care"
           type="secondary"
-        ></va-link-action>
+        ></VaLinkAction>
       </div>
     </div>
   )

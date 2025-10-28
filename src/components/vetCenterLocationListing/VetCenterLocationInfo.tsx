@@ -1,3 +1,4 @@
+import { VaLink } from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import {
   VetCenterInfoVariant,
   VetCenterLocationInfo as VetCenterLocationInfoType,
@@ -112,7 +113,7 @@ export const VetCenterLocationInfo = ({
             aria-describedby={alsoCalledId}
           >
             {isMainOffice ? (
-              <va-link href={vetCenter.path} text={title}></va-link>
+              <VaLink href={vetCenter.path} text={title}></VaLink>
             ) : (
               <span>{title}</span>
             )}

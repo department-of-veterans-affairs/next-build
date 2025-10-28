@@ -1,4 +1,5 @@
 import React from 'react'
+import { VaAlert } from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { Alert as FormattedAlert } from '@/components/alert/formatted-type'
 import { ParagraphComponent } from '@/components/paragraph/formatted-type'
 import { AlertBlock } from '@/components/alertBlock/template'
@@ -16,7 +17,7 @@ export function Alert(alert: ParagraphComponent<FormattedAlert>) {
   }
 
   return (
-    <va-alert
+    <VaAlert
       data-template="paragraphs/alert"
       data-paragraph-type="paragraph--alert"
       data-entity-id={entityId}
@@ -31,7 +32,7 @@ export function Alert(alert: ParagraphComponent<FormattedAlert>) {
       {paragraphs?.map((paragraph) => (
         <Paragraph key={paragraph.id || paragraph.entityId} {...paragraph} />
       ))}
-    </va-alert>
+    </VaAlert>
   )
 }
 

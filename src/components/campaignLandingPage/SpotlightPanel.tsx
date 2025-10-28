@@ -1,3 +1,4 @@
+import { VaLink } from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { placeholders } from './placeholders.temp'
 
 export const SpotlightPanel = () => {
@@ -17,7 +18,7 @@ export const SpotlightPanel = () => {
               {placeholders.fieldClpSpotlightCta.entity.fieldButtonLink.url
                 .path &&
                 placeholders.fieldClpSpotlightCta.entity.fieldButtonLabel && (
-                  <va-link
+                  <VaLink
                     href={
                       placeholders.fieldClpSpotlightCta.entity.fieldButtonLink
                         .url.path
@@ -25,7 +26,7 @@ export const SpotlightPanel = () => {
                     text={
                       placeholders.fieldClpSpotlightCta.entity.fieldButtonLabel
                     }
-                  ></va-link>
+                  ></VaLink>
                 )}
             </p>
           </div>
@@ -42,11 +43,11 @@ export const SpotlightPanel = () => {
                     <h3 className="vads-u-margin-top--0">
                       {/* TODO: determineFieldLink filter - using direct URL path */}
                       {linkTeaser.entity.fieldLink.url.path && (
-                        <va-link
+                        <VaLink
                           active
                           href={linkTeaser.entity.fieldLink.url.path}
                           text={linkTeaser.entity.fieldLink.title}
-                        ></va-link>
+                        ></VaLink>
                       )}
                     </h3>
                     <p className="vads-u-margin-top--1">

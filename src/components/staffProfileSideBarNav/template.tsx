@@ -1,3 +1,4 @@
+import { VaLink } from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import React from 'react'
 import { getLovellVariantOfUrl } from '@/lib/drupal/lovell/utils'
 import { LovellChildVariant } from '@/lib/drupal/lovell/types'
@@ -37,7 +38,7 @@ const StaffProfileSideBarNav: React.FC<SidebarNavProps> = ({
           {link.label}
         </h4>
         <p className="vads-u-margin-y--0">
-          <va-link
+          <VaLink
             data-testid="sidebar-nav-link"
             href={
               lovellVariant

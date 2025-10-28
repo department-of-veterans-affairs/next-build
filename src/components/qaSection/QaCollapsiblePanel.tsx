@@ -1,11 +1,15 @@
+import {
+  VaAccordion,
+  VaAccordionItem,
+} from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { Paragraph } from '@/components/paragraph/template'
 
 export const QaCollapsiblePanel = ({ questions }) => {
   return (
     <div data-template="paragraphs/q_a.collapsible_panel">
-      <va-accordion>
+      <VaAccordion>
         {questions.map((questionObject) => (
-          <va-accordion-item
+          <VaAccordionItem
             key={questionObject.id || questionObject.entityId}
             class="va-accordion-item"
             header={questionObject.question}
@@ -25,9 +29,9 @@ export const QaCollapsiblePanel = ({ questions }) => {
                 ))}
               </div>
             </div>
-          </va-accordion-item>
+          </VaAccordionItem>
         ))}
-      </va-accordion>
+      </VaAccordion>
     </div>
   )
 }

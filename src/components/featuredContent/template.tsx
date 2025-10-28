@@ -1,3 +1,4 @@
+import { VaLink } from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { FeaturedContent as FormattedFeaturedContent } from '@/components/featuredContent/formatted-type'
 import { ParagraphComponent } from '@/components/paragraph/formatted-type'
 import { slugifyString } from '@/lib/utils/slug'
@@ -24,7 +25,7 @@ export function FeaturedContent({
       )}
       {link && link.url && (
         <p>
-          <va-link
+          <VaLink
             href={link.url}
             text={link.label}
             active={true}

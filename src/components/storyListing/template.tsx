@@ -9,7 +9,7 @@
  *
  */
 
-import { VaPagination } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
+import { VaPagination } from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { StoryListing as FormattedStoryListing } from './formatted-type'
 import { NewsStoryTeaser as FormattedNewsStoryTeaser } from '../newsStory/formatted-type'
 import { NewsStoryTeaser } from '@/components/newsStoryTeaser/template'

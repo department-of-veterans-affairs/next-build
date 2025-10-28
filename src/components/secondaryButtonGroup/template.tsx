@@ -1,3 +1,4 @@
+import { VaLinkAction } from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { Button as FormattedButton } from '@/components/button/formatted-type'
 import { ParagraphComponent } from '@/components/paragraph/formatted-type'
 
@@ -12,7 +13,7 @@ export const SecondaryButtonGroup = ({
       <ul className="vads-u-margin-y--3 usa-unstyled-list">
         {buttons?.map((button, index) => (
           <li key={index} className="vads-u-margin-bottom--2">
-            <va-link-action
+            <VaLinkAction
               href={button.url}
               text={button.label}
               type="secondary"
@@ -27,7 +28,7 @@ export const SecondaryButtonGroup = ({
 
   if (button) {
     return (
-      <va-link-action href={button.url} text={button.label} type="secondary" />
+      <VaLinkAction href={button.url} text={button.label} type="secondary" />
     )
   }
 

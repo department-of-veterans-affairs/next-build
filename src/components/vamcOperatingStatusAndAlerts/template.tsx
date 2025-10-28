@@ -1,3 +1,4 @@
+import { VaLink } from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { VamcOperatingStatusAndAlerts as FormattedVamcOperatingStatusAndAlerts } from './formatted-type'
 import { ContentFooter } from '../contentFooter/template'
 import { SideNavLayout } from '@/components/sideNavLayout/template'
@@ -55,7 +56,7 @@ export function VamcOperatingStatusAndAlerts({
                 </h3>
                 {localEmergencyLinks.map((localEmergencyLink, index) => (
                   <p key={index}>
-                    <va-link
+                    <VaLink
                       href={localEmergencyLink.url}
                       text={localEmergencyLink.label}
                     />

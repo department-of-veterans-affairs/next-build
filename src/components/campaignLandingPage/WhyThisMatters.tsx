@@ -1,3 +1,7 @@
+import { VaIcon ,
+  VaLink,
+  VaLinkAction,
+} from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { placeholders } from './placeholders.temp'
 
 export const WhyThisMatters = ({ title }: { title: string }) => {
@@ -13,7 +17,7 @@ export const WhyThisMatters = ({ title }: { title: string }) => {
               {placeholders.fieldClpWhyThisMatters}
             </p>
             {placeholders.fieldSecondaryCallToAction && (
-              <va-link-action
+              <VaLinkAction
                 href={
                   placeholders.fieldSecondaryCallToAction.entity.fieldButtonLink
                     .url.path
@@ -53,28 +57,28 @@ export const WhyThisMatters = ({ title }: { title: string }) => {
               <div data-template="includes/social-share" id="va-c-social-share">
                 <ul className="usa-unstyled-list" role="list">
                   <li className="vads-u-margin-bottom--2p5">
-                    <va-icon
+                    <VaIcon
                       icon="facebook"
                       size="3"
                       className="vads-u-color--link-default"
-                    ></va-icon>
-                    <va-link
+                    ></VaIcon>
+                    <VaLink
                       className="va-js-share-link"
                       href={`https://www.facebook.com/sharer/sharer.php?href=${placeholders.hostUrl}${placeholders.entityUrl.path}`}
                       text="Share on Facebook"
-                    ></va-link>
+                    ></VaLink>
                   </li>
                   <li>
-                    <va-icon
+                    <VaIcon
                       icon="x"
                       size="3"
                       className="vads-u-color--link-default"
-                    ></va-icon>
-                    <va-link
+                    ></VaIcon>
+                    <VaLink
                       className="va-js-share-link"
                       href={`https://twitter.com/intent/tweet?text=${title}&url=${placeholders.hostUrl}${placeholders.entityUrl.path}`}
                       text="Share on X (formerly Twitter)"
-                    ></va-link>
+                    ></VaLink>
                   </li>
                 </ul>
               </div>

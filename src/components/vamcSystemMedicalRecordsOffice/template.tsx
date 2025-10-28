@@ -1,3 +1,4 @@
+import { VaLink } from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { Fragment } from 'react'
 import { VamcSystemMedicalRecordsOffice as FormattedVamcSystemMedicalRecordsOffice } from './formatted-type'
 import { ContentFooter } from '@/components/contentFooter/template'
@@ -69,7 +70,7 @@ export const VamcSystemMedicalRecordsOffice = ({
             {services.map((service) => (
               <Fragment key={service.id}>
                 <h4>
-                  <va-link href={service.path} text={service.title}></va-link>
+                  <VaLink href={service.path} text={service.title}></VaLink>
                 </h4>
                 {service.address && (
                   <Address address={service.address} showDirections={false} />

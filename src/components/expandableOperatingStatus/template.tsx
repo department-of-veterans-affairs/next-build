@@ -2,7 +2,7 @@ import { FacilityOperatingStatusFlags } from '@/types/drupal/node'
 import {
   VaAlert,
   VaAlertExpandable,
-} from '@department-of-veterans-affairs/component-library/dist/react-bindings'
+} from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 
 const statusAlerts: Record<
   FacilityOperatingStatusFlags,

@@ -1,3 +1,8 @@
+import {
+  VaAccordion,
+  VaAccordionItem,
+  VaLinkAction,
+} from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { placeholders } from './placeholders.temp'
 
 export const FaqPanel = () => {
@@ -33,11 +38,11 @@ export const FaqPanel = () => {
                       />
                     )}
 
-                  <va-accordion bordered uswds>
+                  <VaAccordion bordered uswds>
                     {placeholders.fieldClpFaqParagraphs.map(
                       (faqParagraph, index) =>
                         faqParagraph.entity && (
-                          <va-accordion-item
+                          <VaAccordionItem
                             key={index}
                             bordered
                             header={faqParagraph.entity.fieldQuestion}
@@ -58,7 +63,7 @@ export const FaqPanel = () => {
                                   }}
                                 />
                               )}
-                          </va-accordion-item>
+                          </VaAccordionItem>
                         )
                     )}
 
@@ -79,7 +84,7 @@ export const FaqPanel = () => {
                             return questions.map((item) => {
                               const id = item.entityId
                               return (
-                                <va-accordion-item
+                                <VaAccordionItem
                                   key={id}
                                   bordered
                                   className="va-accordion-item"
@@ -108,7 +113,7 @@ export const FaqPanel = () => {
                                         )}
                                     </div>
                                   </div>
-                                </va-accordion-item>
+                                </VaAccordionItem>
                               )
                             })
                           } else {
@@ -139,7 +144,7 @@ export const FaqPanel = () => {
                         }
                         return null
                       })()}
-                  </va-accordion>
+                  </VaAccordion>
                 </>
               )
             })()}
@@ -150,7 +155,7 @@ export const FaqPanel = () => {
           placeholders.fieldClpFaqCta.entity.fieldButtonLabel && (
             <div className="vads-l-row">
               <div className="vads-u-col--12">
-                <va-link-action
+                <VaLinkAction
                   className="vads-u-margin-top--1"
                   href={
                     placeholders.fieldClpFaqCta.entity.fieldButtonLink.url.path

@@ -1,3 +1,4 @@
+import { VaLink } from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { truncateWordsOrChar } from '@/lib/utils/helpers'
 import { EventWidgetTeaser } from '@/components/event/formatted-type'
 import { deriveMostRecentDate, formatEventDateTime } from '@/lib/utils/date'
@@ -28,7 +29,7 @@ export const EventTeaser = ({
       className="vads-u-margin-bottom--3 tablet:vads-u-margin-bottom--4"
     >
       <h3 className="vads-u-margin-top--0 vads-u-margin-bottom-1 vads-u-font-size--md tablet:vads-u-font-size--lg">
-        <va-link text={title} href={entityUrl.path} />
+        <VaLink text={title} href={entityUrl.path} />
       </h3>
       <p className="vads-u-margin-bottom--1p5 vads-u-margin-top--0">
         {truncateWordsOrChar(fieldDescription ?? '', 60, true)}
@@ -52,7 +53,7 @@ export const EventTeaser = ({
           </div>
           <div className={col2Class}>
             <p className="vads-u-margin-top--0 vads-u-margin-bottom--1">
-              <va-link
+              <VaLink
                 href={fieldFacilityLocation.entity.entityUrl.path}
                 text={fieldFacilityLocation.entity.title}
               />

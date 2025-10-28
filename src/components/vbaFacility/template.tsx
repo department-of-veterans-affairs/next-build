@@ -1,4 +1,9 @@
 import { useEffect } from 'react'
+import {
+  VaAlert,
+  VaLink,
+  VaLinkAction,
+} from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { ContentFooter } from '@/components/contentFooter/template'
 import { VbaFacility as FormattedVBAFacility } from './formatted-type'
 import { Wysiwyg } from '@/components/wysiwyg/template'
@@ -89,21 +94,21 @@ export function VbaFacility({
               </div>
             )}
             <div className="vads-u-margin-top--1p5 vads-u-margin-bottom--3">
-              <va-link-action
+              <VaLinkAction
                 class="vads-u-display--block"
                 href="https://va.my.site.com/VAVERA/s/"
                 text="Make an appointment"
                 type="secondary"
                 data-testid="make-appointment-link"
               />
-              <va-link-action
+              <VaLinkAction
                 class="vads-u-display--block"
                 href="https://ask.va.gov"
                 text="Ask a benefit question"
                 type="secondary"
                 data-testid="ask-benefit-question-link"
               />
-              <va-link-action
+              <VaLinkAction
                 class="vads-u-display--block"
                 href="/claim-or-appeal-status"
                 text="Check a claim status"
@@ -219,7 +224,7 @@ export function VbaFacility({
               />
             )}
             {ccCantFindBenefits && (
-              <va-alert
+              <VaAlert
                 status="info"
                 visible
                 data-testid="cant-find-benefits-alert"
@@ -234,12 +239,12 @@ export function VbaFacility({
                 ></div>
                 {ccCantFindBenefits.link.url &&
                   ccCantFindBenefits.link.label && (
-                    <va-link
+                    <VaLink
                       href={ccCantFindBenefits.link.url}
                       text={ccCantFindBenefits.link.label}
                     />
                   )}
-              </va-alert>
+              </VaAlert>
             )}
             {ccGetUpdates && (
               <GetUpdatesSection
@@ -264,10 +269,10 @@ export function VbaFacility({
             </h2>
             <p>Looking for a VA benefits location in another area?</p>
             <p>
-              <va-link
+              <VaLink
                 href="/find-locations?facilityType=benefits"
                 text="Find a VA benefits location"
-              ></va-link>
+              ></VaLink>
             </p>
             <va-back-to-top></va-back-to-top>
             <ContentFooter lastUpdated={lastUpdated} />

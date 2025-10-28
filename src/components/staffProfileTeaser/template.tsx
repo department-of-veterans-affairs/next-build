@@ -1,3 +1,4 @@
+import { VaLink } from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import React from 'react'
 import { StaffProfileTeaser as FormattedStaffProfileTeaser } from '@/components/staffProfile/formatted-type'
 import { MediaImage } from '@/components/mediaImage/template'
@@ -30,12 +31,12 @@ export const StaffProfileTeaser = ({
       )}
       <div>
         {link ? (
-          <va-link
+          <VaLink
             class="vads-u-display--block vads-u-margin-bottom--1 vads-u-font-family--serif vads-u-font-weight--bold vads-u-font-size--lg"
             href={link}
             text={formattedName}
             data-testid="staff-profile-link"
-          ></va-link>
+          ></VaLink>
         ) : (
           <span
             className="

@@ -1,3 +1,4 @@
+import { VaLink } from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { VamcSystem as FormattedVamcSystem } from './formatted-type'
 import { MediaImage } from '@/components/mediaImage/template'
 import { ContentFooter } from '@/components/contentFooter/template'
@@ -74,11 +75,11 @@ export function VamcSystem({
               />
             ))}
             <p className="vads-u-margin-y--0">
-              <va-link
+              <VaLink
                 active
                 href={`${path}/locations`}
                 text="See all locations"
-              ></va-link>
+              ></VaLink>
             </p>
           </section>
 
@@ -110,11 +111,11 @@ export function VamcSystem({
                 <StoryTeaser key={story.id} {...story} />
               ))}
               <p className="vads-u-margin-y--0">
-                <va-link
+                <VaLink
                   active
                   href={`${path}/stories`}
                   text="See all stories"
-                ></va-link>
+                ></VaLink>
               </p>
             </section>
           )}
@@ -135,11 +136,11 @@ export function VamcSystem({
                     />
                   )}
               <p className="vads-u-margin-y--0">
-                <va-link
+                <VaLink
                   active
                   href={`${path}/events`}
                   text="See all events"
-                ></va-link>
+                ></VaLink>
               </p>
             </section>
           )}

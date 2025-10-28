@@ -1,4 +1,8 @@
 import React from 'react'
+import {
+  VaAlert,
+  VaLink,
+} from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { getOppositeChildVariant } from '@/lib/drupal/lovell/utils'
 import { LovellChildVariant } from '@/lib/drupal/lovell/types'
 
@@ -18,7 +22,7 @@ export function LovellSwitcher({
   const switchVariant = getOppositeChildVariant(currentVariant)
 
   return (
-    <va-alert
+    <VaAlert
       status="warning"
       class="vads-u-margin-bottom--2"
       id="va-info-alert"
@@ -30,7 +34,7 @@ export function LovellSwitcher({
       <div>
         <p className="vads-u-margin-y--0">
           <>
-            <va-link
+            <VaLink
               active
               href={switchPath}
               text={`View this page as a ${switchVariant.toUpperCase()} beneficiary`}
@@ -38,6 +42,6 @@ export function LovellSwitcher({
           </>
         </p>
       </div>
-    </va-alert>
+    </VaAlert>
   )
 }

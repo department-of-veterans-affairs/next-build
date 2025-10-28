@@ -1,3 +1,6 @@
+import { VaAccordionItem ,
+  VaLink,
+} from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { HealthService } from './formatted-type'
 import { hashReference } from '@/lib/utils/hashReference'
 
@@ -13,7 +16,7 @@ export function HealthServiceAccordionItem({
   const serviceId = hashReference(service.title, 60)
 
   return (
-    <va-accordion-item
+    <VaAccordionItem
       subheader={service.alsoKnownAs}
       data-childlabel={service.alsoKnownAs}
       className="va-accordion-item"
@@ -44,7 +47,7 @@ export function HealthServiceAccordionItem({
             <ul className="usa-unstyled-list" role="list">
               {service.locations.map((location) => (
                 <li key={location.id} className="vads-u-margin-bottom--2">
-                  <va-link
+                  <VaLink
                     href={`${location.path}/#${serviceId}`}
                     text={location.title}
                   />
@@ -68,6 +71,6 @@ export function HealthServiceAccordionItem({
           </>
         )}
       </>
-    </va-accordion-item>
+    </VaAccordionItem>
   )
 }

@@ -1,4 +1,8 @@
 import {
+  VaAccordion,
+  VaAccordionItem,
+} from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
+import {
   Accordion as FormattedAccordion,
   AccordionItem as FormattedAccordionItem,
 } from '@/components/accordion/formatted-type'
@@ -12,7 +16,7 @@ export function AccordionItem({
   itemLevel,
 }: ParagraphComponent<FormattedAccordionItem>) {
   return (
-    <va-accordion-item
+    <VaAccordionItem
       key={`${id}-${slugifyString(header)}`}
       header={header}
       class="va-accordion-item"
@@ -21,7 +25,7 @@ export function AccordionItem({
       level={itemLevel ?? 2}
     >
       {html && <div dangerouslySetInnerHTML={{ __html: html }} />}
-    </va-accordion-item>
+    </VaAccordionItem>
   )
 }
 
@@ -29,11 +33,11 @@ export function Accordion({ id, bordered, items }: FormattedAccordion) {
   if (!items) return null
   return (
     <div>
-      <va-accordion bordered={bordered} id={id}>
+      <VaAccordion bordered={bordered} id={id}>
         {items.map((item) => (
           <AccordionItem key={item.id} {...item} />
         ))}
-      </va-accordion>
+      </VaAccordion>
     </div>
   )
 }

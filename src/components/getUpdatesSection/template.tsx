@@ -1,3 +1,6 @@
+import { VaIcon ,
+  VaLink,
+} from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { iconNameFromUrl, SocialLink } from '@/lib/utils/social'
 
 type GetUpdatesSectionProps = {
@@ -24,13 +27,13 @@ export const GetUpdatesSection = ({
             className="tablet:vads-grid-col-6 vads-u-display--flex vads-u-align-items--flex-start vads-u-margin-bottom--2 vads-u-margin-top--0"
           >
             {icon && (
-              <va-icon
+              <VaIcon
                 icon={icon}
                 size="3"
                 class="vads-u-color--link-default vads-u-margin-right--1"
               />
             )}
-            <va-link href={link.href} text={link.text} />
+            <VaLink href={link.href} text={link.text} />
           </p>
         )
       })}

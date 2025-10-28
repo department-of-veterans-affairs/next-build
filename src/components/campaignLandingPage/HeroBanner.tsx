@@ -1,3 +1,4 @@
+import { VaLinkAction } from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import type { CampaignLandingPageProps } from './template'
 import { MediaImage } from '../mediaImage/template'
 
@@ -13,7 +14,7 @@ export const HeroBanner = ({ title, hero }: CampaignLandingPageProps) => {
               <p className="va-introtext vads-u-color--white">{hero.blurb}</p>
 
               {hero.cta.primary && (
-                <va-link-action
+                <VaLinkAction
                   data-testid="primary-cta"
                   className="vads-u-margin-top--2"
                   href={hero.cta.primary.href}

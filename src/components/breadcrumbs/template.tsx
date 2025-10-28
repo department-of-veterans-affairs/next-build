@@ -1,3 +1,4 @@
+import { VaBreadcrumbs } from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import {
   transformBreadcrumbs,
   deriveLastBreadcrumbFromPath,
@@ -83,7 +84,7 @@ const Breadcrumbs = ({
 
   return (
     <div className="vads-grid-container">
-      <va-breadcrumbs class="row" wrapping breadcrumb-list={fcString} />
+      <VaBreadcrumbs class="row" wrapping breadcrumb-list={fcString} />
     </div>
   )
 }

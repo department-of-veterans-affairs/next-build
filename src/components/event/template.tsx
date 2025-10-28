@@ -1,5 +1,13 @@
 import React, { useState, useEffect, useMemo } from 'react'
 import {
+  VaAccordion,
+  VaAccordionItem,
+  VaButton,
+  VaIcon,
+  VaLink,
+  VaLinkAction,
+} from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
+import {
   deriveMostRecentDate,
   formatDateObject,
   formatEventDateTime,
@@ -118,7 +126,7 @@ export const Event = ({
               <p className="vads-u-margin--0">{formattedDateTime}</p>
               {formattedDates.length > 1 && (
                 <p className="vads-u-margin--0">
-                  <va-icon icon="autorenew" size="3" />
+                  <VaIcon icon="autorenew" size="3" />
                   Repeats
                 </p>
               )}
@@ -134,10 +142,10 @@ export const Event = ({
             {facilityLocation ? (
               <div className="vads-u-display--flex vads-u-flex-direction--column">
                 <p className="vads-u-margin--0">
-                  <va-link
+                  <VaLink
                     href={facilityLocation?.path?.alias}
                     text={facilityLocation?.title}
-                  ></va-link>
+                  ></VaLink>
                 </p>
                 <p className="vads-u-margin--0">{locationHumanReadable}</p>
                 {facilityLocation?.field_address?.address_line1 && (
@@ -166,7 +174,7 @@ export const Event = ({
             ) : locationType === 'online' ? (
               <p className="vads-u-margin--0">
                 {urlOfOnlineEvent ? (
-                  <va-link
+                  <VaLink
                     href={urlOfOnlineEvent.uri}
                     text="This is an online event."
                     data-test-id="online-event-link"
@@ -244,7 +252,7 @@ export const Event = ({
             ) : (
               <>
                 {link && eventCTAText && (
-                  <va-link-action
+                  <VaLinkAction
                     className="vads-u-display--block"
                     href={link?.uri}
                     text={eventCTAText}
@@ -253,7 +261,7 @@ export const Event = ({
                 {howToSignUp === 'email' && (
                   <>
                     {mostRecentDate && eventCTAText && (
-                      <va-link-action
+                      <VaLinkAction
                         className="vads-u-display--block"
                         href={createMailToLink(
                           emailCTA,
@@ -285,8 +293,8 @@ export const Event = ({
         {/* Recurring Events */}
         {currentFormattedDates.length > 1 && (
           <div>
-            <va-accordion open-single id="expand-recurring-events">
-              <va-accordion-item
+            <VaAccordion open-single id="expand-recurring-events">
+              <VaAccordionItem
                 header="View other times for this event"
                 bordered
               >
@@ -298,7 +306,7 @@ export const Event = ({
                     <p className="vads-u-margin--0">
                       {formatEventDateTime(dateRange)}
                     </p>
-                    <va-link
+                    <VaLink
                       calendar
                       data-description={description}
                       data-end={dateRange?.endValue}
@@ -315,7 +323,7 @@ export const Event = ({
                 {formattedDates.length > 5 && (
                   <div className="vads-u-display--flex vads-u-flex-direction--row vads-u-justify-content--flex-end vads-u-width--full tablet:vads-u-width--auto">
                     {!showAllEvents && (
-                      <va-button
+                      <VaButton
                         id="show-all-recurring-events"
                         secondary
                         text="Show all times"
@@ -324,8 +332,8 @@ export const Event = ({
                     )}
                   </div>
                 )}
-              </va-accordion-item>
-            </va-accordion>
+              </VaAccordionItem>
+            </VaAccordion>
           </div>
         )}
 
@@ -337,21 +345,21 @@ export const Event = ({
           listingOffice != 'Outreach and events' &&
           administration?.name && (
             <p>
-              <va-link
+              <VaLink
                 href={listing}
                 onClick={() =>
                   recordEvent({ event: 'nav-secondary-button-click' })
                 }
                 id="see-more-events"
                 text={`Browse the ${administration.name} events calendar`}
-              ></va-link>
+              ></VaLink>
             </p>
           )}
         <p>
-          <va-link
+          <VaLink
             href="/outreach-and-events/events/"
             text="Browse the VA outreach events calendar"
-          ></va-link>
+          ></VaLink>
         </p>
         <ContentFooter lastUpdated={lastUpdated} />
       </div>

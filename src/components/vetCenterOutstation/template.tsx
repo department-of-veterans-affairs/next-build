@@ -1,3 +1,4 @@
+import { VaLink } from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { VetCenterOutstation as FormattedVetCenterOutstation } from './formatted-type'
 import { GoogleMapsDirections } from '@/components/googleMapsDirections/template'
 import { Hours } from '@/components/hours/template'
@@ -264,7 +265,7 @@ export function VetCenterOutstation({
                 Vet Centers are community based to be more accessible in areas
                 where you live. Find a nearby Vet Center location.
               </p>
-              <va-link
+              <VaLink
                 href={`${path}/locations`}
                 text="Find a nearby Vet Center location"
               />

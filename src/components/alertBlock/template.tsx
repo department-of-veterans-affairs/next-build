@@ -1,4 +1,7 @@
-import { VaAlert } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
+import {
+  VaAlert,
+  VaAdditionalInfo,
+} from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { AlertBlock as FormattedAlertBlock } from '@/components/alert/formatted-type'
 import { PARAGRAPH_RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { Wysiwyg } from '@/components/wysiwyg/template'
@@ -21,7 +24,7 @@ export function AlertBlock(alertBlock: FormattedAlertBlock) {
         )}
 
         {content.type === PARAGRAPH_RESOURCE_TYPES.EXPANDABLE_TEXT && (
-          <va-additional-info
+          <VaAdditionalInfo
             id={id}
             trigger={content.header}
             disable-border="true"
@@ -33,7 +36,7 @@ export function AlertBlock(alertBlock: FormattedAlertBlock) {
                 }}
               />
             )}
-          </va-additional-info>
+          </VaAdditionalInfo>
         )}
       </VaAlert>
     </>

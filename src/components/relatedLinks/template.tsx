@@ -1,3 +1,4 @@
+import { VaLink } from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { isEmpty } from 'lodash'
 import { FormattedRelatedLinks } from '@/components/relatedLinks/formatted-type'
 import { recordEvent } from '@/lib/analytics/recordEvent'
@@ -13,7 +14,7 @@ export const RelatedLinks = ({
   const renderLink = (uri: string, title: string, summary?: string) => (
     <>
       <p className="vads-u-margin--0">
-        <va-link
+        <VaLink
           disable-analytics
           onClick={() =>
             recordEvent({

@@ -1,3 +1,6 @@
+import { VaTelephone ,
+  VaLink,
+} from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { VamcSystemVaPolice as FormattedVamcSystemVaPolice } from './formatted-type'
 import { ContentFooter } from '@/components/contentFooter/template'
 import { QaSection } from '@/components/qaSection/template'
@@ -37,10 +40,10 @@ export function VamcSystemVaPolice({
             </p>
             <p>
               You can call us at&nbsp;
-              <va-telephone
+              <VaTelephone
                 contact={phoneNumber.number}
                 extension={phoneNumber.extension}
-              ></va-telephone>
+              ></VaTelephone>
               <span>. We’re here 24/7.</span>
             </p>
           </div>
@@ -60,7 +63,7 @@ export function VamcSystemVaPolice({
                   __html: policeReport.description,
                 }}
               />
-              <va-link
+              <VaLink
                 href={policeReport.link?.url}
                 text={policeReport.link?.label}
               />

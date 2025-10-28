@@ -1,3 +1,6 @@
+import { VaAlert ,
+  VaLink,
+} from '@department-of-veterans-affairs/web-components/react-bindings/index.js'
 import { OperatingStatus as FormattedOperatingStatus } from './formatted-type'
 import { FacilityOperatingStatusFlags } from '@/types/drupal/node'
 
@@ -11,9 +14,9 @@ export function OperatingStatuses({
     switch (status) {
       case 'notice':
         return (
-          <va-alert slim status="info" visible data-testid="notice-status">
+          <VaAlert slim status="info" visible data-testid="notice-status">
             Facility notice
-          </va-alert>
+          </VaAlert>
         )
       case 'normal':
         return (
@@ -26,59 +29,59 @@ export function OperatingStatuses({
         )
       case 'limited':
         return (
-          <va-alert slim status="info" visible data-testid="limited-status">
+          <VaAlert slim status="info" visible data-testid="limited-status">
             Limited services and hours
-          </va-alert>
+          </VaAlert>
         )
       case 'closed':
         return (
-          <va-alert slim status="warning" visible data-testid="closed-status">
+          <VaAlert slim status="warning" visible data-testid="closed-status">
             Facility Closed
-          </va-alert>
+          </VaAlert>
         )
       case 'temporary_closure':
         return (
-          <va-alert
+          <VaAlert
             slim
             status="warning"
             visible
             data-testid="temporary_closure-status"
           >
             Temporary facility closure
-          </va-alert>
+          </VaAlert>
         )
       case 'temporary_location':
         return (
-          <va-alert
+          <VaAlert
             slim
             status="warning"
             visible
             data-testid="temporary_location-status"
           >
             Temporary location
-          </va-alert>
+          </VaAlert>
         )
       case 'virtual_care':
         return (
-          <va-alert
+          <VaAlert
             slim
             status="warning"
             visible
             data-testid="virtual_care-status"
           >
             Virtual care only
-          </va-alert>
+          </VaAlert>
         )
       case 'coming_soon':
         return (
-          <va-alert
+          <VaAlert
             slim
             status="warning"
             visible
             data-testid="coming_soon-status"
           >
             Coming soon
-          </va-alert>
+          </VaAlert>
         )
       default:
         return ''
@@ -95,7 +98,7 @@ export function OperatingStatuses({
           >
             <div className="vads-grid-col-12 tablet:vads-grid-col-5 vads-u-margin--0 vads-u-padding-y--3">
               <p className="vads-u-margin--0 ">
-                <va-link
+                <VaLink
                   class="vads-u-font-weight--bold"
                   href={operatingStatus.url}
                   text={operatingStatus.title}
