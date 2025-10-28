@@ -3,20 +3,9 @@ import fs from 'fs'
 import chalk from 'chalk'
 import { load } from 'cheerio'
 
-// Helper: attempt to resolve link text from known fields, otherwise fetch parent and parse anchor text
-const resolveLinkText = async (parentUrl, targetUrl, maybeObj) => {
-  // Look through common properties
-  const candidates = [
-    maybeObj && maybeObj.link_text,
-    maybeObj && maybeObj.linkText,
-    maybeObj && maybeObj.text,
-    maybeObj && maybeObj.anchor_text,
-  ]
-  for (const c of candidates) {
-    if (c && String(c).trim().length > 0) return String(c).trim()
-  }
+// Fetch parent and parse anchor text.
+const resolveLinkText = async (parentUrl, targetUrl) => {
 
-  // Fallback: fetch parent HTML and find the anchor
   try {
     const response = await fetch(parentUrl, { timeout: 10000 })
     if (!response.ok) return ''
@@ -100,8 +89,7 @@ const createCombinedReports = async () => {
     for (const brokenLink of combinedJson.brokenLinksByParent[parentLink]) {
       brokenLink.linkText = await resolveLinkText(
         parentLink,
-        brokenLink.url,
-        brokenLink
+        brokenLink.url
       )
     }
   }
@@ -142,9 +130,8 @@ const createCombinedReports = async () => {
     for (const child of items) {
       // Ensure child has link_text in combined JSON (best-effort resolution)
       if (!child.link_text) {
-        // Note: we call resolveLinkText synchronously via deasync-ish pattern is messy; instead collect promises and
-        // resolve them before writing file. To keep simple, attach a promise to the child and resolve them below.
-        child._link_text_promise = resolveLinkText(parent, child.url, child)
+        // Collect promises and resolve them before writing file. To keep simple, attach a promise to the child and resolve them below.
+        child._link_text_promise = resolveLinkText(parent, child.url)
       }
     }
   }
