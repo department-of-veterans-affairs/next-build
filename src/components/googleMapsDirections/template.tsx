@@ -18,7 +18,6 @@ export const GoogleMapsDirections = ({
     <VaLink
       class="vads-u-display--block vads-u-margin-top--0"
       href={googleMapsUrl}
-      name="maps-directions"
       text={`Get directions on Google Maps`}
       data-testid="maps-directions"
       label={location && `Get directions on Google Maps to ${location}`}
