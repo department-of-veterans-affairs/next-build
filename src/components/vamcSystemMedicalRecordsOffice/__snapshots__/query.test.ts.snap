@@ -195,6 +195,7 @@ exports[`VamcSystemMedicalRecordsOffice formatter outputs formatted data 1`] = `
   "relatedLinks": {
     "entityId": null,
     "id": "82659",
+    "isHubPage": false,
     "linkTeasers": [
       {
         "componentParams": {

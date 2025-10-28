@@ -6,6 +6,7 @@ export default {
   entityId: 471,
   title: 'Other VA Benefits and Services',
   parentField: 'field_related_links',
+  isHubPage: false,
   linkTeasers: [
     {
       type: 'paragraph--link_teaser',

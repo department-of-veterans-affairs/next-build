@@ -6,43 +6,57 @@ import { ParagraphLinkTeaser } from '@/types/drupal/paragraph'
 import clsx from 'clsx'
 
 type LinkTeaserProps =
-  | ParagraphComponent<FormattedLinkTeaser>
+  | (ParagraphComponent<FormattedLinkTeaser> & {
+      isHubPage?: boolean
+    })
   | (ParagraphLinkTeaser & {
       parentField?: string
       componentParams?: { sectionHeader: string }
+      isHubPage?: boolean
     })
 
 export const LinkTeaser = (props: LinkTeaserProps) => {
   // Handle both formatted and raw Drupal data
   const isFieldSpokeData = 'field_link' in props
-  const componentParams = props.componentParams || { sectionHeader: '' }
-  const { sectionHeader } = componentParams
 
-  // Extract properties based on data type with proper type assertions
-  const id = props.id
-  const parentField = props.parentField || null
-
-  let title: string,
+  let id: string,
+    title: string,
     summary: string,
     uri: string,
-    options: { [key: string]: unknown }
+    options: { [key: string]: unknown },
+    parentField: string | undefined,
+    componentParams: { sectionHeader: string } | undefined,
+    isHubPage: boolean | undefined
 
   if (isFieldSpokeData) {
     const rawProps = props as ParagraphLinkTeaser & {
       parentField?: string
       componentParams?: { sectionHeader: string }
+      isHubPage?: boolean
     }
+    id = rawProps.id
     title = rawProps.field_link?.title || ''
     summary = rawProps.field_link_summary || ''
     uri = rawProps.field_link?.uri || ''
     options = rawProps.field_link?.options || {}
+    parentField = rawProps.parentField
+    componentParams = rawProps.componentParams
+    isHubPage = rawProps.isHubPage || false
   } else {
-    const formattedProps = props as ParagraphComponent<FormattedLinkTeaser>
+    const formattedProps = props as ParagraphComponent<FormattedLinkTeaser> & {
+      isHubPage?: boolean
+    }
+    id = formattedProps.id
     title = formattedProps.title || ''
     summary = formattedProps.summary || ''
     uri = formattedProps.uri || ''
     options = formattedProps.options || {}
+    parentField = formattedProps.parentField
+    componentParams = formattedProps.componentParams
+    isHubPage = formattedProps.isHubPage || false
   }
+
+  const { sectionHeader } = componentParams || { sectionHeader: '' }
 
   const handleItemClick = () => {
     recordEvent({
@@ -51,7 +65,7 @@ export const LinkTeaser = (props: LinkTeaserProps) => {
       'links-list-section-header': encodeURIComponent(sectionHeader),
     })
   }
-  const isSpokes = parentField === 'field_spokes'
+
   const target = get(options, ['target'], '')
 
   return (
@@ -59,7 +73,7 @@ export const LinkTeaser = (props: LinkTeaserProps) => {
       key={id}
       className={clsx(
         'vads-u-margin-y--2',
-        isSpokes && 'hub-page-link-list__item'
+        isHubPage && 'hub-page-link-list__item'
       )}
       onClick={handleItemClick}
       data-template="paragraphs/linkTeaser"
@@ -67,7 +81,7 @@ export const LinkTeaser = (props: LinkTeaserProps) => {
       data-links-list-header={title}
       data-links-list-section-header={sectionHeader}
     >
-      {isSpokes ? (
+      {isHubPage ? (
         <>
           <span className="hub-page-link-list__header">
             <va-link

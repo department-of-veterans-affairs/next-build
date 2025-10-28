@@ -295,6 +295,7 @@ exports[`VamcSystemDetailPage query module outputs formatted data 1`] = `
     {
       "entityId": 183005,
       "id": "f5cedf99-5295-4877-901f-223d92e369d3",
+      "isHubPage": false,
       "linkTeasers": [
         {
           "componentParams": {
@@ -433,6 +434,7 @@ exports[`VamcSystemDetailPage query module outputs formatted data 1`] = `
   "relatedLinks": {
     "entityId": 19369,
     "id": "928ec63a-97b3-460d-a869-1d0b1ca9fa04",
+    "isHubPage": false,
     "linkTeasers": [
       {
         "componentParams": {

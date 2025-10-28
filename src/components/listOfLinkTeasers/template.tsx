@@ -8,9 +8,8 @@ export const ListOfLinkTeasers = ({
   title,
   linkTeasers,
   parentField,
+  isHubPage,
 }: ParagraphComponent<FormattedListOfLinkTeasers>) => {
-  const isSpokes = parentField === 'field_spokes'
-
   return (
     <section
       data-template="paragraphs/list_of_link_teasers"
@@ -20,7 +19,7 @@ export const ListOfLinkTeasers = ({
         <h2
           id={hashReference(title)}
           className={
-            isSpokes
+            isHubPage
               ? ''
               : 'vads-u-border-bottom--1px vads-u-border-color--base-light vads-u-margin--0 vads-u-padding-top--2 vads-u-padding-bottom--0p5'
           }
@@ -37,6 +36,7 @@ export const ListOfLinkTeasers = ({
               sectionHeader: title,
             }}
             parentField={parentField}
+            isHubPage={isHubPage}
           />
         ))}
       </ul>

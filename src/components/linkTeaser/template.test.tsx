@@ -57,6 +57,7 @@ describe('<LinkTeaser> component', () => {
     const propsWithSpokes = {
       ...baseProps,
       parentField: 'field_spokes',
+      isHubPage: true,
     }
     const { container } = render(<LinkTeaser {...propsWithSpokes} />)
 
@@ -68,6 +69,7 @@ describe('<LinkTeaser> component', () => {
     const propsWithSpokes = {
       ...baseProps,
       parentField: 'field_spokes',
+      isHubPage: true,
     }
     const { container } = render(<LinkTeaser {...propsWithSpokes} />)
 

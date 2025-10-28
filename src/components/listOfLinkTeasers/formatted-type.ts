@@ -6,4 +6,5 @@ export type ListOfLinkTeasers = PublishedParagraph & {
   title: string
   linkTeasers: FormattedLinkTeaser[]
   parentField?: string | null
+  isHubPage: boolean | false
 }

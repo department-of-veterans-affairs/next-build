@@ -9,7 +9,6 @@ import {
   entityBaseFields,
   fetchSingleEntityOrPreview,
 } from '@/lib/drupal/query'
-import { getNestedIncludes } from '@/lib/utils/queries'
 import { formatter as formatListOfLinkTeasers } from '@/components/listOfLinkTeasers/query'
 
 // Define the query params for fetching node--landing_page for benefits hub.
@@ -42,15 +41,8 @@ export const data: QueryData<BenefitsHubDataOpts, NodeLandingPage> = async (
 export const formatter: QueryFormatter<NodeLandingPage, BenefitsHub> = (
   entity: NodeLandingPage
 ) => {
-  // Only return field_spokes if it's the correct type (ParagraphListOfLinkTeasers)
-  const rawSpokes = Array.isArray(entity.field_spokes)
-    ? entity.field_spokes.filter(
-        (spoke) => spoke.type === 'paragraph--list_of_link_teasers'
-      )
-    : []
-
   // Format each spoke using the ListOfLinkTeasers formatter and add parentField
-  const spokes = rawSpokes
+  const spokes = (entity.field_spokes || [])
     .map((spoke) => formatListOfLinkTeasers(spoke))
     .filter((spoke) => spoke !== null)
     .map((spoke) => ({

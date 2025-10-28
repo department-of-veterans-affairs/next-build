@@ -80,6 +80,7 @@ describe('BenefitsHub with valid data', () => {
         entityId: 1,
         title: 'Get VA health care',
         parentField: 'field_spokes',
+        isHubPage: true,
         linkTeasers: [
           {
             type: 'paragraph--link_teaser' as const,

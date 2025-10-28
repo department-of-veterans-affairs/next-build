@@ -21,6 +21,7 @@ export const formatter: QueryFormatter<
     entityId: entity.drupal_internal__id ?? null,
     title: entity.field_title,
     linkTeasers: linkTeasers,
+    isHubPage: false,
     ...(entity.parent_field_name && { parentField: entity.parent_field_name }),
   }
 }
