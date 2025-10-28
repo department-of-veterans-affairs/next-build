@@ -264,12 +264,12 @@ exports[`CampaignLandingPage formatData outputs formatted data 1`] = `
   "published": false,
   "socialLinks": [
     {
-      "href": "https://www.facebook.com/sharer/sharer.php?href=https://www.va.gov/initiatives/pact-act-and-survivors",
+      "href": "https://www.facebook.com/sharer/sharer.php?href=http://127.0.0.1:8001/initiatives/pact-act-and-survivors",
       "icon": "facebook",
       "text": "Share on Facebook",
     },
     {
-      "href": "https://twitter.com/intent/tweet?text=PACT Act and survivors&url=https://www.va.gov/initiatives/pact-act-and-survivors",
+      "href": "https://twitter.com/intent/tweet?text=PACT Act and survivors&url=http://127.0.0.1:8001/initiatives/pact-act-and-survivors",
       "icon": "x",
       "text": "Share on X (formerly Twitter)",
     },

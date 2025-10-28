@@ -48,9 +48,8 @@ export const formatter: QueryFormatter<
   NodeCampaignLandingPage,
   CampaignLandingPage
 > = (entity: NodeCampaignLandingPage) => {
-  const pageUrl = entity.field_connect_with_us?.field_external_link?.url
-    ? `${entity.field_connect_with_us.field_external_link.url.replace(/\/$/, '')}${entity.path.alias}`
-    : null
+  const host = process.env.SITE_URL || 'https://www.va.gov/'
+  const pageUrl = new URL(entity.path.alias, host).href
 
   return {
     ...entityBaseFields(entity),
@@ -84,8 +83,6 @@ export const formatter: QueryFormatter<
     audience: entity.field_clp_audience.map((audience) => ({
       name: audience.name,
     })),
-    socialLinks: entity.field_connect_with_us
-      ? [getFacebookLink(pageUrl), getXLink(pageUrl, entity.title)]
-      : [],
+    socialLinks: [getFacebookLink(pageUrl), getXLink(pageUrl, entity.title)],
   }
 }

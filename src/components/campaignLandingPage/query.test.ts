@@ -71,13 +71,13 @@ describe('CampaignLandingPage formatData', () => {
 
     expect(fb.icon).toBe('facebook')
     expect(fb.href).toBe(
-      'https://www.facebook.com/sharer/sharer.php?href=https://www.va.gov/initiatives/pact-act-and-survivors'
+      `https://www.facebook.com/sharer/sharer.php?href=${process.env.SITE_URL}/initiatives/pact-act-and-survivors`
     )
     expect(fb.text).toBe('Share on Facebook')
 
     expect(x.icon).toBe('x')
     expect(x.href).toBe(
-      'https://twitter.com/intent/tweet?text=PACT Act and survivors&url=https://www.va.gov/initiatives/pact-act-and-survivors'
+      `https://twitter.com/intent/tweet?text=PACT Act and survivors&url=${process.env.SITE_URL}/initiatives/pact-act-and-survivors`
     )
     expect(x.text).toBe('Share on X (formerly Twitter)')
   })
