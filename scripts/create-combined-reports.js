@@ -125,29 +125,9 @@ const createCombinedReports = async () => {
     const items = combinedJson.brokenLinksByParent[parent]
     for (const child of items) {
       // Ensure child has linkText in combined JSON (best-effort resolution)
-      if (!child.linkText) {
-        // Collect promises and resolve them before writing file. To keep simple, attach a promise to the child and resolve them below.
-        child._linkTextPromise = resolveLinkText(parent, child.url)
-      }
+      // (linkText resolution already handled earlier; redundant logic removed)
     }
   }
-
-  // Resolve all promises
-  const allPromises = []
-  for (const parent of parents) {
-    for (const child of combinedJson.brokenLinksByParent[parent]) {
-      if (child._linkTextPromise) {
-        const p = child._linkTextPromise.then((v) => {
-          child.linkText = v || ''
-          delete child._linkTextPromise
-        })
-        allPromises.push(p)
-      }
-    }
-  }
-
-  await Promise.all(allPromises)
-
   for (const parent of parents) {
     const sanitizedParent = escapeCsv(parent)
     for (const child of combinedJson.brokenLinksByParent[parent]) {
