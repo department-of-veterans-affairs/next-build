@@ -14,10 +14,6 @@ concurrency:
 env:
   SLACK_CHANNEL: C06DSBT7CBW #status-next-build
   TOTAL_INSTANCES: 64
-  # When true (default) the workflow will use actions/upload-artifact to
-  # transfer per-instance JSON reports between jobs. Set to 'false' when
-  # running locally with `act` to keep files on the runner filesystem.
-  USE_UPLOAD_ARTIFACT: 'true'
 
 jobs:
   broken-links-check:
@@ -66,18 +62,7 @@ jobs:
         run: |
           mv broken-links-report.json "broken-links-report-run-${{github.run_id}}-instance-${{ matrix.instance_number }}.json"
 
-      - name: Save individual report locally (for act/local runs)
-        if: ${{ env.USE_UPLOAD_ARTIFACT == 'false' }}
-        run: |
-          mkdir -p reports
-          mv broken-links-report-run-${{github.run_id}}-instance-${{ matrix.instance_number }}.json reports/
-
       - name: Upload individual report json
-        # Only run the upload-artifact action on real GitHub runners where
-        # GITHUB_ACTIONS is true and we're not running under 'act'. This
-        # avoids act attempting to run the action (which fails because
-        # ACTIONS_RUNTIME_TOKEN isn't available).
-        # if: ${ env.USE_UPLOAD_ARTIFACT == 'true' && env.GITHUB_ACTIONS == 'true' && env.ACT != 'true' }
         id: upload-report-json
         uses: actions/upload-artifact@5d5d22a31266ced268874388b861e4b58bb5c2f3
         with:
@@ -107,13 +92,11 @@ jobs:
 
       # This grabs all currently created artifacts i.e. individual json reports.
       - name: Download link reports
-        # if: ${ env.USE_UPLOAD_ARTIFACT == 'true' && env.GITHUB_ACTIONS == 'true' && env.ACT != 'true' }
         uses: actions/download-artifact@de96f4613b77ec03b5cf633e7c350c32bd3c5660
         with:
           merge-multiple: true
 
       - name: Collect reports from local workspace (for act/local runs)
-        # if: ${ env.USE_UPLOAD_ARTIFACT == 'false' }
         run: |
           # When running locally (act) the per-instance steps saved reports/
           # in the workspace. Copy them into the current working directory so
@@ -136,7 +119,6 @@ jobs:
           echo REPORT_JSON=broken-links-report-combined-run-${{github.run_id}}.json >> $GITHUB_OUTPUT
 
       - name: Upload report json
-        # if: ${ env.USE_UPLOAD_ARTIFACT == 'true' && env.GITHUB_ACTIONS == 'true' && env.ACT != 'true' }
         id: upload-report-json
         uses: actions/upload-artifact@5d5d22a31266ced268874388b861e4b58bb5c2f3
         with:
@@ -145,7 +127,6 @@ jobs:
           retention-days: 30
 
       - name: Upload report CSV
-        # if: ${ env.USE_UPLOAD_ARTIFACT == 'true' && env.GITHUB_ACTIONS == 'true' && env.ACT != 'true' }
         id: upload-report-csv
         uses: actions/upload-artifact@5d5d22a31266ced268874388b861e4b58bb5c2f3
         with:
@@ -162,41 +143,39 @@ jobs:
         id: export-slack-payload
         run: echo SLACK_PAYLOAD=$(cat broken-links-slack-payload.json) >> $GITHUB_OUTPUT
 
+  notify-success:
+    name: Notify Success
+    runs-on: ubuntu-latest
+    needs: prepare-reports
 
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@ff7abcd0c3c05ccf6adc123a8cd1fd4fb30fb493 # v4.1.1
 
-  # notify-success:
-  #   name: Notify Success
-  #   runs-on: ubuntu-latest
-  #   needs: prepare-reports
+      - name: Notify Slack
+        uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4 # main
+        continue-on-error: true
+        with:
+          payload: ${{ needs.prepare-reports.outputs.SLACK_PAYLOAD }}
+          channel_id: ${{ env.SLACK_CHANNEL }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
-  #   steps:
-  #     - name: Check out repo
-  #       uses: actions/checkout@ff7abcd0c3c05ccf6adc123a8cd1fd4fb30fb493 # v4.1.1
+  notify-failure:
+    name: Notify Failure
+    runs-on: ubuntu-latest
+    if: ${{ failure() || cancelled() }}
+    needs: prepare-reports
 
-  #     - name: Notify Slack
-  #       uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4 # main
-  #       continue-on-error: true
-  #       with:
-  #         payload: ${{ needs.prepare-reports.outputs.SLACK_PAYLOAD }}
-  #         channel_id: ${{ env.SLACK_CHANNEL }}
-  #         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-  #         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@ff7abcd0c3c05ccf6adc123a8cd1fd4fb30fb493 # v4.1.1
 
-  # notify-failure:
-    # name: Notify Failure
-    # runs-on: ubuntu-latest
-    # if: ${{ failure() || cancelled() }}
-    # needs: prepare-reports
-
-    # steps:
-    #   - name: Checkout
-    #     uses: actions/checkout@ff7abcd0c3c05ccf6adc123a8cd1fd4fb30fb493 # v4.1.1
-
-    #   - name: Notify Slack
-    #     uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4 # main
-    #     continue-on-error: true
-    #     with:
-    #       payload: '{"attachments": [{"color": "#D33834","blocks": [{"type": "section","text": {"type": "mrkdwn","text": ">:warning: The broken links check failed to complete: <https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}>"}}]}]}'
-    #       channel_id: ${{ env.SLACK_CHANNEL }}
-    #       aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-    #       aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      - name: Notify Slack
+        uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4 # main
+        continue-on-error: true
+        with:
+          payload: '{"attachments": [{"color": "#D33834","blocks": [{"type": "section","text": {"type": "mrkdwn","text": ">:warning: The broken links check failed to complete: <https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}>"}}]}]}'
+          channel_id: ${{ env.SLACK_CHANNEL }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}

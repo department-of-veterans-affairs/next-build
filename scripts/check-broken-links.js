@@ -13,12 +13,12 @@ const OPTIONS = {
   sitemapUrl: process.env.SITE_URL || 'http://www.va.gov/',
   // totalInstances is the number of instances to split work among.
   totalInstances: process.env.TOTAL_INSTANCES || 1,
-  // instanceNumber is the specifc instance currently running the check.
+  // instanceNumber is the specific instance currently running the check.
   // In this and totalInstances case, the defaults will check the entire set.
   instanceNumber: process.env.INSTANCE_NUMBER || 1,
   // sampleSize: -1 means all. Can be set with SAMPLE_SIZE env var.
   sampleSize: process.env.SAMPLE_SIZE ? Number(process.env.SAMPLE_SIZE) : -1,
-  // batchSize is the number of pararllel link check processes to run.
+  // batchSize is the number of parallel link check processes to run.
   batchSize: process.env.BATCH_SIZE || 20,
   verbose: process.env.VERBOSE || false,
 }
