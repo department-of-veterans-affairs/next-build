@@ -96,15 +96,6 @@ jobs:
         with:
           merge-multiple: true
 
-      - name: Collect reports from local workspace (for act/local runs)
-        run: |
-          # When running locally (act) the per-instance steps saved reports/
-          # in the workspace. Copy them into the current working directory so
-          # the combine step below can find them.
-          echo "Collecting local reports from ./reports"
-          ls -lah reports || true
-          cp reports/* . || true
-
       # Combines the individual reports, creates and outputs json and csv.
       - name: Create reports
         run: |

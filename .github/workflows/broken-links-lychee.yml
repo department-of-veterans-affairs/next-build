@@ -1,4 +1,6 @@
 name: Broken link check (va.gov lychee)
+# This workflow is no better than the Linkinator one. It's just different.
+# In fact, because it doesn't use instances, it throws more network errors.
 
 on:
   # Manual trigger
