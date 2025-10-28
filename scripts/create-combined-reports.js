@@ -84,11 +84,18 @@ const createCombinedReports = async () => {
     }
   }
   // Iterate over combinedJson to look up link text.
+  // Batch all resolveLinkText calls for performance
+  const linkTextPromises = [];
   for (const parentLink in combinedJson.brokenLinksByParent) {
     for (const brokenLink of combinedJson.brokenLinksByParent[parentLink]) {
-      brokenLink.linkText = await resolveLinkText(parentLink, brokenLink.url)
+      linkTextPromises.push(
+        resolveLinkText(parentLink, brokenLink.url).then((text) => {
+          brokenLink.linkText = text;
+        })
+      );
     }
   }
+  await Promise.all(linkTextPromises);
   // Helper: safe CSV escape for a single field
   const escapeCsv = (val) => {
     if (val === null || val === undefined) return ''
