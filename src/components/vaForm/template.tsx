@@ -47,9 +47,8 @@ export function VaForm({
                 <dt className="va-introtext" lang={formLanguage}>
                   <dfn className="vads-u-visibility--screen-reader">
                     {formLanguage === 'es'
-                      ? 'Nombre del formulario'
-                      : 'Form name'}
-                    :
+                      ? 'Nombre del formulario:'
+                      : 'Form name:'}
                   </dfn>
                   {formName}
                 </dt>
