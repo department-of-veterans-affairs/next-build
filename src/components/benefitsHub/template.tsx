@@ -9,7 +9,6 @@ export function BenefitsHub({
   spokes,
 }: FormattedBenefitsHub) {
   const iconConfig = getHubIcon(titleIcon)
-
   return (
     <div className="usa-grid usa-grid-full">
       <article className="usa-width-two-thirds">
@@ -40,6 +39,7 @@ export function BenefitsHub({
             <ListOfLinkTeasers {...spokeSection} isHubPage={true} />
           </div>
         ))}
+        <ContentFooter lastUpdated={lastUpdated} />
       </article>
     </div>
   )
