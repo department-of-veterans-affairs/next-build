@@ -76,6 +76,19 @@ describe('VaForm Component', () => {
       )
     })
 
+    test('renders Spanish text correctly', () => {
+      const { container } = render(
+        <VaForm {...formattedMockData} formLanguage="es" />
+      )
+      expect(container.querySelector('dt.va-introtext')).toHaveAttribute(
+        'lang',
+        'es'
+      )
+      expect(
+        container.querySelector('dfn.vads-u-visibility--screen-reader')
+      ).toHaveTextContent('Nombre del formulario:')
+    })
+
     test('displays form download information', () => {
       render(<VaForm {...formattedMockData} />)
 
