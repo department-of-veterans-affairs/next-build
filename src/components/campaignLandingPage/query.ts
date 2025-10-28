@@ -21,6 +21,10 @@ export const params: QueryParams<null> = () => {
     'field_hero_image.image',
     'field_clp_audience',
     'field_connect_with_us',
+    'field_clp_what_you_can_do_promos',
+    'field_clp_what_you_can_do_promos.field_promo_link',
+    'field_clp_what_you_can_do_promos.field_image',
+    'field_clp_what_you_can_do_promos.field_image.image',
   ])
 }
 
@@ -84,5 +88,13 @@ export const formatter: QueryFormatter<
       name: audience.name,
     })),
     socialLinks: [getFacebookLink(pageUrl), getXLink(pageUrl, entity.title)],
+    whatYouCanDo: {
+      header: entity.field_clp_what_you_can_do_header,
+      intro: entity.field_clp_what_you_can_do_intro,
+      promos: entity.field_clp_what_you_can_do_promos.map((block) => ({
+        image: formatImage(block.field_image),
+        link: block.field_promo_link,
+      })),
+    },
   }
 }
