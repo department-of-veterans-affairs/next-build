@@ -51,10 +51,12 @@ import {
   ParagraphListOfLinkTeasers,
   ParagraphSituationUpdate,
   ParagraphQA,
+  ParagraphTypes,
 } from './paragraph'
 import {
   TaxonomyTermLcCategories,
   TaxonomyTermHealthCareServiceTaxonomy,
+  TaxonomyTermAudienceBeneficiaries,
 } from './taxonomy_term'
 import { VamcEhrSystem } from './vamcEhr'
 import { Wysiwyg } from '@/components/wysiwyg/formatted-type'
@@ -98,6 +100,7 @@ export type NodeTypes =
   | NodeVbaFacility
   | NodeVbaService
   | NodeVamcOperatingStatusAndAlerts
+  | NodeCampaignLandingPage
 
 /** Shared type structure for resource nodes. */
 export interface NodeAbstractResource extends DrupalNode {
@@ -234,7 +237,7 @@ export interface NodeVamcSystemDetailPage extends DrupalNode {
   field_intro_text: string
   field_table_of_contents_boolean: boolean
   field_alert: BlockAlert[]
-  field_content_block: FieldContentBlock
+  field_content_block: ParagraphTypes[]
   field_featured_content: Array<ParagraphQA | ParagraphWysiwyg>
   field_related_links: ParagraphListOfLinkTeasers
   field_office: Pick<
@@ -258,6 +261,72 @@ export interface NodeLandingPage extends DrupalNode {
   field_related_links: ParagraphListOfLinks
   field_spokes: ParagraphListOfLinks
   field_support_services: NodeSupportService[]
+}
+
+export interface NodeCampaignLandingPage extends DrupalNode {
+  // Hero section
+  field_hero_blurb: string
+  field_hero_image: DrupalMediaImage
+  field_primary_call_to_action: ParagraphButton
+  field_secondary_call_to_action: ParagraphButton | null
+
+  // Why this matters section
+  field_clp_why_this_matters: string
+
+  // What you can do section
+  field_clp_what_you_can_do_header: string
+  field_clp_what_you_can_do_intro: string
+  field_clp_what_you_can_do_promos: { type: string; id: string }[]
+
+  // Video panel
+  field_clp_video_panel: boolean
+  field_clp_video_panel_header: string | null
+  field_media: DrupalMediaImage | null
+  field_clp_video_panel_more_video: FieldLink | null
+
+  // Events panel
+  field_clp_events_panel: boolean
+  field_clp_events_header: string | null
+  field_clp_events_references: NodeEvent[]
+
+  // Stories panel
+  field_clp_stories_panel: boolean
+  field_clp_stories_header: string | null
+  field_clp_stories_intro: string | null
+  field_clp_stories_teasers: ParagraphLinkTeaser[]
+  field_clp_stories_cta: FieldLink | null
+
+  // Resources panel
+  field_clp_resources_panel: boolean
+  field_clp_resources_header: string | null
+  field_clp_resources_intro_text: string | null
+  field_clp_resources: unknown[] // TODO: Determine resource type
+  field_clp_resources_cta: FieldLink | null
+
+  // FAQ panel
+  field_clp_faq_panel: boolean
+  field_clp_faq_paragraphs: ParagraphQA[]
+  field_clp_faq_cta: FieldLink | null
+  field_clp_reusable_q_a: unknown | null // TODO: Determine type
+
+  // Spotlight panel
+  field_clp_audience: TaxonomyTermAudienceBeneficiaries[]
+  field_clp_spotlight_panel: boolean
+  field_clp_spotlight_header: string | null
+  field_clp_spotlight_intro_text: string | null
+  field_clp_spotlight_link_teasers: ParagraphLinkTeaser[]
+  field_clp_spotlight_cta: FieldLink | null
+
+  // Connect with us
+  field_connect_with_us: unknown | null // TODO: Determine type
+
+  // Related fields
+  field_administration: { id: string; type: string }
+  field_benefit_categories: Omit<
+    NodeLandingPage,
+    'field_related_office' | 'field_meta_title'
+  >[]
+  field_last_saved_by_an_editor: string | null
 }
 
 /**

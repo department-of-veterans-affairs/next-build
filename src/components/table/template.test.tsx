@@ -27,7 +27,7 @@ const tableData = [
 
 describe('<Table> with valid data', () => {
   test('renders <Table> component with header and rows', async () => {
-    const { container } = render(<Table data={tableData} />)
+    const { container } = render(<Table data={tableData} title={null} />)
     const vaTableEl = document.querySelector('va-table')
     const vaTableRowEl = document.querySelectorAll('va-table-row')
     expect(vaTableEl).toBeTruthy()
@@ -49,7 +49,7 @@ describe('<Table> with valid data', () => {
 
 describe('<Table> with inValid data', () => {
   test('does not render <Table> component', () => {
-    render(<Table data={[]} />)
+    render(<Table data={[]} title={null} />)
     const vaTableEl = document.querySelector('va-table')
     expect(vaTableEl).toBeFalsy()
   })
