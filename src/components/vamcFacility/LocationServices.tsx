@@ -23,14 +23,14 @@ export const LocationServices = ({
         Prepare for your visit
       </h2>
       <p>Select a topic to learn more.</p>
-      <VaAccordion section-heading="Prepare for your visit" bordered>
+      <VaAccordion section-heading="Prepare for your visit">
         {items.map((item) => {
           return (
             <VaAccordionItem
               id={hashReference(item.title, 60)}
               key={item.title}
               header={item.title}
-              level="3"
+              level={3}
               data-label={item.title}
             >
               <div dangerouslySetInnerHTML={{ __html: item.wysiwigContents }} />

@@ -14,7 +14,7 @@ function ServicesList({ services }: ServicesListProps) {
   if (!services) return null
   return (
     <div className="vads-u-margin-bottom--3">
-      <VaAccordion bordered>
+      <VaAccordion>
         {services.map((service, index) => (
           <VaAccordionItem
             key={index}
@@ -22,7 +22,7 @@ function ServicesList({ services }: ServicesListProps) {
             id={`item-${slugifyString(service.name)}`}
             header={service.name}
             subheader={service.vetCenterFriendlyName}
-            level="3"
+            level={3}
           >
             {service.vetCenterComConditions && (
               <p>{service.vetCenterComConditions}</p>

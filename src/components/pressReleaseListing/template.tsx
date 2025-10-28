@@ -61,7 +61,6 @@ export function PressReleaseListing(
             <VaPagination
               page={currentPage}
               pages={totalPages}
-              maxPageListLength={DEFAULT_PAGE_LIST_LENGTH}
               onPageSelect={(page) => {
                 const newPage =
                   page.detail.page > 1 ? `page-${page.detail.page}` : ''

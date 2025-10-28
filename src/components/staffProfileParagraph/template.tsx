@@ -30,7 +30,7 @@ export function StaffProfileParagraph({
         {!media ? (
           <div className="circular-profile-image bio-paragraph-image vads-u-position--relative vads-u-background-color--gray-lightest vads-u-display--block">
             <div className="circular-profile-missing-icon">
-              <VaIcon size="6" icon="person" />
+              <VaIcon size={6} icon="person" />
             </div>
           </div>
         ) : (

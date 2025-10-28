@@ -23,6 +23,7 @@ export function AccordionItem({
       id={`${slugifyString(header)}`}
       data-testid={`accordion-item-${id}-${slugifyString(header)}`}
       level={itemLevel ?? 2}
+      bordered={true}
     >
       {html && <div dangerouslySetInnerHTML={{ __html: html }} />}
     </VaAccordionItem>
@@ -33,7 +34,7 @@ export function Accordion({ id, bordered, items }: FormattedAccordion) {
   if (!items) return null
   return (
     <div>
-      <VaAccordion bordered={bordered} id={id}>
+      <VaAccordion id={id}>
         {items.map((item) => (
           <AccordionItem key={item.id} {...item} />
         ))}

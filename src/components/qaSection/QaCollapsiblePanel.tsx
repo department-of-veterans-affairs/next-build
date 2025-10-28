@@ -14,7 +14,7 @@ export const QaCollapsiblePanel = ({ questions }) => {
             class="va-accordion-item"
             header={questionObject.question}
             id={`${questionObject.question}-header`}
-            level="3"
+            level={3}
           >
             <div
               id={questionObject.id}

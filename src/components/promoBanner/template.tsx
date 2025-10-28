@@ -11,7 +11,7 @@ export const PromoBanner = ({
     <VaPromoBanner
       id={id}
       href={href}
-      type={alertType}
+      type={alertType as 'news' | 'announcement' | 'email-signup'}
       data-testid="promo-banner"
     >
       {title}

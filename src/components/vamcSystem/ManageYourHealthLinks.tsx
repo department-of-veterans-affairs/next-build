@@ -49,7 +49,7 @@ export function ManageYourHealthLinks({
   const renderIcon = (icon: string) => (
     <VaIcon
       class="vads-u-color--link-default vads-facility-hub-cta-circle vads-u-margin-right--1"
-      size="3"
+      size={3}
       icon={icon}
     />
   )

@@ -29,7 +29,7 @@ export const GetUpdatesSection = ({
             {icon && (
               <VaIcon
                 icon={icon}
-                size="3"
+                size={3}
                 class="vads-u-color--link-default vads-u-margin-right--1"
               />
             )}

@@ -59,7 +59,7 @@ export const WhyThisMatters = ({ title }: { title: string }) => {
                   <li className="vads-u-margin-bottom--2p5">
                     <VaIcon
                       icon="facebook"
-                      size="3"
+                      size={3}
                       className="vads-u-color--link-default"
                     ></VaIcon>
                     <VaLink
@@ -71,7 +71,7 @@ export const WhyThisMatters = ({ title }: { title: string }) => {
                   <li>
                     <VaIcon
                       icon="x"
-                      size="3"
+                      size={3}
                       className="vads-u-color--link-default"
                     ></VaIcon>
                     <VaLink

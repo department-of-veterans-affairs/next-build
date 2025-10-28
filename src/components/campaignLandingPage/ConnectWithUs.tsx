@@ -33,7 +33,7 @@ export const ConnectWithUs = () => {
                 <div className="vads-u-margin-y--1 medium-screen:vads-u-margin-x--1">
                   <VaIcon
                     icon="mail"
-                    size="3"
+                    size={3}
                     className="vads-u-color--link-default vads-u-padding-right--1"
                   ></VaIcon>
                   <VaLink
@@ -55,7 +55,7 @@ export const ConnectWithUs = () => {
               <div className="vads-u-margin-y--1 medium-screen:vads-u-margin-x--1">
                 <VaIcon
                   icon="x"
-                  size="3"
+                  size={3}
                   className="vads-u-color--link-default vads-u-padding-right--1"
                 ></VaIcon>
                 <VaLink
@@ -71,7 +71,7 @@ export const ConnectWithUs = () => {
               <div className="vads-u-margin-y--1 medium-screen:vads-u-margin-x--1">
                 <VaIcon
                   icon="facebook"
-                  size="3"
+                  size={3}
                   className="vads-u-color--link-default vads-u-padding-right--1"
                 ></VaIcon>
                 <VaLink
@@ -87,7 +87,7 @@ export const ConnectWithUs = () => {
               <div className="vads-u-margin-y--1 medium-screen:vads-u-margin-x--1">
                 <VaIcon
                   icon="youtube"
-                  size="3"
+                  size={3}
                   className="vads-u-color--link-default vads-u-padding-right--1"
                 ></VaIcon>
                 <VaLink
@@ -103,7 +103,7 @@ export const ConnectWithUs = () => {
               <div className="vads-u-margin-y--1 medium-screen:vads-u-margin-x--1">
                 <VaIcon
                   icon="linkedin"
-                  size="3"
+                  size={3}
                   className="vads-u-color--link-default vads-u-padding-right--1"
                 ></VaIcon>
                 <VaLink
@@ -119,7 +119,7 @@ export const ConnectWithUs = () => {
               <div className="vads-u-margin-y--1 medium-screen:vads-u-margin-x--1">
                 <VaIcon
                   icon="instagram"
-                  size="3"
+                  size={3}
                   className="vads-u-color--link-default vads-u-padding-right--1"
                 ></VaIcon>
                 <VaLink

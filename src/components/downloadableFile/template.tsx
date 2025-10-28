@@ -23,7 +23,7 @@ export function DownloadableFile({
             <VaIcon
               className="vads-u-color--link-default"
               icon="youtube"
-              size="3"
+              size={3}
             />
             <VaLink href={url} text={title} />
           </>

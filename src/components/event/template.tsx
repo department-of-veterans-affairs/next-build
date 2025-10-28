@@ -126,7 +126,7 @@ export const Event = ({
               <p className="vads-u-margin--0">{formattedDateTime}</p>
               {formattedDates.length > 1 && (
                 <p className="vads-u-margin--0">
-                  <VaIcon icon="autorenew" size="3" />
+                  <VaIcon icon="autorenew" size={3} />
                   Repeats
                 </p>
               )}

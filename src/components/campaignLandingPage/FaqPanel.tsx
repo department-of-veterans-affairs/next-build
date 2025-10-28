@@ -38,15 +38,14 @@ export const FaqPanel = () => {
                       />
                     )}
 
-                  <VaAccordion bordered>
+                  <VaAccordion>
                     {placeholders.fieldClpFaqParagraphs.map(
                       (faqParagraph, index) =>
                         faqParagraph.entity && (
                           <VaAccordionItem
                             key={index}
-                            bordered
                             header={faqParagraph.entity.fieldQuestion}
-                            level="3"
+                            level={3}
                             data-faq-entity-id={faqParagraph.entity.entityId}
                             id={faqParagraph.entity.fieldQuestion}
                           >
@@ -85,11 +84,10 @@ export const FaqPanel = () => {
                               return (
                                 <VaAccordionItem
                                   key={id}
-                                  bordered
                                   className="va-accordion-item"
                                   header={item.entityLabel}
                                   id={item.entityLabel}
-                                  level="3"
+                                  level={3}
                                 >
                                   {/* TODO: hashReference filter - need helper function for id */}
                                   <div

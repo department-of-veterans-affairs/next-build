@@ -22,7 +22,7 @@ export const SocialLinks = ({ path, title }: SocialLinksProps) => {
         <VaIcon
           class="va-c-social-icon vads-u-margin-right--0p5"
           icon={facebookLink.icon}
-          size="3"
+          size={3}
         />
         <VaLink href={facebookLink.href} text={facebookLink.text} />
       </p>
@@ -30,7 +30,7 @@ export const SocialLinks = ({ path, title }: SocialLinksProps) => {
         <VaIcon
           class="va-c-social-icon vads-u-margin-right--0p5"
           icon={xLink.icon}
-          size="3"
+          size={3}
         />
         <VaLink href={xLink.href} text={xLink.text} />
       </p>

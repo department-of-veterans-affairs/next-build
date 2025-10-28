@@ -139,7 +139,7 @@ export const ServiceLocation = ({
               <VaIcon
                 class="vads-u-margin-right--0p5"
                 icon="location_city"
-                size="3"
+                size={3}
               ></VaIcon>{' '}
               {{
                 yes_appointment_only: 'Visit our office, by appointment only',
@@ -159,7 +159,7 @@ export const ServiceLocation = ({
                     ? 'phone'
                     : 'calendar_today'
                 }
-                size="3"
+                size={3}
               ></VaIcon>{' '}
               {{
                 yes_appointment_only: 'Virtual visits by appointment only',
@@ -174,7 +174,7 @@ export const ServiceLocation = ({
               <VaIcon
                 class="vads-u-margin-right--0p5"
                 icon={fieldReferralRequired === '1' ? 'check_circle' : 'cancel'}
-                size="3"
+                size={3}
                 data-testid="referral-icon"
               ></VaIcon>{' '}
               {fieldReferralRequired === '1'

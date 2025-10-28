@@ -13,7 +13,7 @@ export function BenefitsHub({ title, titleIcon, intro }: FormattedBenefitsHub) {
             <span className="vads-u-margin-top--1">
               <VaIcon
                 icon={iconConfig.icon}
-                size="3"
+                size={3}
                 class={iconConfig.className}
               />
             </span>

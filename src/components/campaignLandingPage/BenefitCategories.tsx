@@ -30,7 +30,7 @@ export const BenefitCategories = () => {
                   {/* TODO: getHubIcon filter - need helper function to render icon based on fieldTitleIcon */}
                   <VaIcon
                     icon={benefitCategory.entity.fieldTitleIcon}
-                    size="3"
+                    size={3}
                     className="vads-u-margin-right--1"
                   ></VaIcon>
                   <h3 className="vads-u-margin--0 vads-u-font-size--h4">

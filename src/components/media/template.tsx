@@ -19,7 +19,7 @@ export const Media = ({
           href={image.url}
           target="_blank"
         >
-          <VaIcon icon="zoom_out_map" size="3"></VaIcon>
+          <VaIcon icon="zoom_out_map" size={3}></VaIcon>
         </a>
       )}
       <img src={image.url} alt={image.alt} title={image.title} />
