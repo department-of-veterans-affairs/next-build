@@ -39,6 +39,10 @@ export const LinkTeaser = ({
       <p className="vads-u-margin--0 vads-u-font-weight--bold">
         <VaLink
           href={uri}
+          // @ts-expect-error - This isn't supported by the web component, but I know
+          // this template is under active development, so I'm not going to mess with
+          // it right now. We might need to use a regular anchor here if we need to
+          // support the target attribute.
           target={target}
           text={title}
           active={isFieldSpokes}
