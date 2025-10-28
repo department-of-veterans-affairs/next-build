@@ -38,7 +38,7 @@ export const FaqPanel = () => {
                       />
                     )}
 
-                  <VaAccordion bordered uswds>
+                  <VaAccordion bordered>
                     {placeholders.fieldClpFaqParagraphs.map(
                       (faqParagraph, index) =>
                         faqParagraph.entity && (
@@ -49,7 +49,6 @@ export const FaqPanel = () => {
                             level="3"
                             data-faq-entity-id={faqParagraph.entity.entityId}
                             id={faqParagraph.entity.fieldQuestion}
-                            uswds
                           >
                             {/* TODO: hashReference filter - need helper function for id */}
                             {/* TODO: include statement - render paragraph component based on entityBundle */}

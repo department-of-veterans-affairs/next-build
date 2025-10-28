@@ -15,7 +15,6 @@ describe('ExpandableText with valid data', () => {
     const vaAdditionalInfo = document.querySelector('va-additional-info')
     expect(vaAdditionalInfo).toHaveAttribute('trigger', 'Show more')
     expect(vaAdditionalInfo).toHaveAttribute('disable-border')
-    expect(vaAdditionalInfo).toHaveAttribute('uswds')
 
     const axeResults = await axe(container)
     expect(axeResults).toHaveNoViolations()

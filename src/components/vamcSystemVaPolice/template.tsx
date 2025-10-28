@@ -49,7 +49,7 @@ export function VamcSystemVaPolice({
           </div>
           {/* How to request a VA police report (field_cc_police_report) */}
           <div className="vads-u-margin-bottom--3" id="field-va-police-reports">
-            <va-summary-box uswds="true">
+            <va-summary-box>
               <h3
                 slot="headline"
                 id="how-to-request-a-va-police-rep"

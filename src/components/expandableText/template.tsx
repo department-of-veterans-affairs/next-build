@@ -11,7 +11,7 @@ export function ExpandableText({
   if (isEmpty(header)) return
 
   return (
-    <VaAdditionalInfo disable-border uswds trigger={header}>
+    <VaAdditionalInfo disable-border trigger={header}>
       {text && (
         <div
           dangerouslySetInnerHTML={{

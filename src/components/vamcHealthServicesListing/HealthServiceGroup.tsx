@@ -16,7 +16,7 @@ export const HealthServiceGroup = ({
     <h2 id={hashReference(group.typeOfCare)}>{group.typeOfCare}</h2>
     <p>Select a topic to learn more.</p>
     <div className="service-accordion-output">
-      <VaAccordion bordered uswds="true">
+      <VaAccordion bordered>
         {group.services.map((service) => (
           <HealthServiceAccordionItem
             key={service.id}

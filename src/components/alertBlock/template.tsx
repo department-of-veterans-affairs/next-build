@@ -14,7 +14,7 @@ export function AlertBlock(alertBlock: FormattedAlertBlock) {
   const { alertType, id, title, content } = alertBlock
   return (
     <>
-      <VaAlert id={id} status={alertType} class="vads-u-margin-top--3" uswds>
+      <VaAlert id={id} status={alertType} class="vads-u-margin-top--3">
         <h2 slot="headline" className="vads-u-font-size--h3">
           {title}
         </h2>

@@ -23,7 +23,6 @@ export function HealthServiceAccordionItem({
       data-label={service.title}
       data-template="facilities/health_service"
       id={`item-${serviceId}`}
-      uswds="true"
     >
       <h3 slot="headline">{service.title}</h3>
       <>
