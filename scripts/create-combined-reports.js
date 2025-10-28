@@ -5,7 +5,6 @@ import { load } from 'cheerio'
 
 // Fetch parent and parse anchor text.
 const resolveLinkText = async (parentUrl, targetUrl) => {
-
   try {
     const response = await fetch(parentUrl, { timeout: 10000 })
     if (!response.ok) return ''
@@ -87,10 +86,7 @@ const createCombinedReports = async () => {
   // Iterate over combinedJson to look up link text.
   for (const parentLink in combinedJson.brokenLinksByParent) {
     for (const brokenLink of combinedJson.brokenLinksByParent[parentLink]) {
-      brokenLink.linkText = await resolveLinkText(
-        parentLink,
-        brokenLink.url
-      )
+      brokenLink.linkText = await resolveLinkText(parentLink, brokenLink.url)
     }
   }
   // Helper: safe CSV escape for a single field
