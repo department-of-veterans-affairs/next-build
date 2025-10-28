@@ -15,7 +15,7 @@ export function DownloadableFile({
       case 'document':
       case 'image':
         return (
-          <VaLink download={url} href={url} text={`${title} (${extension})`} />
+          <VaLink download href={url} text={`${title} (${extension})`} />
         )
       case 'video':
         return (
