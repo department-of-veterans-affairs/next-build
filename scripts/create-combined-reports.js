@@ -125,30 +125,33 @@ const createCombinedReports = async () => {
     const items = combinedJson.brokenLinksByParent[parent]
     for (const child of items) {
       // Ensure child has linkText in combined JSON (best-effort resolution)
-      if (!child.linkText) {
-        // Collect promises and resolve them before writing file. To keep simple, attach a promise to the child and resolve them below.
-        child._linkTextPromise = resolveLinkText(parent, child.url)
-      }
+      // Link text resolution already handled earlier; no need to resolve again.
     }
   }
 
-  // Resolve all promises
-  const allPromises = []
+  // Proceed to generate CSV report
   for (const parent of parents) {
+    const sanitizedParent = escapeCsv(parent)
     for (const child of combinedJson.brokenLinksByParent[parent]) {
-      if (child._linkTextPromise) {
-        const p = child._linkTextPromise.then((v) => {
-          child.linkText = v || ''
-          delete child._linkTextPromise
-        })
-        allPromises.push(p)
-      }
+      const sanitizedChildUrl = escapeCsv(child.url)
+      const code = escapeCsv(child.status)
+      const linkText = escapeCsv(child.link_text || '')
+      csvReport += `${sanitizedParent},${sanitizedChildUrl},${code},${linkText}\n`
     }
   }
 
-  await Promise.all(allPromises)
+  // Write csv report to file
+  fs.writeFile('broken-links-report.csv', csvReport, (err) => {
+    if (err) {
+      console.error(err)
+    }
+  })
 
-  for (const parent of parents) {
+  console.log(
+    `\n Report CSV file written to: ${chalk.green(
+      process.cwd() + '/broken-links-report.csv'
+    )}`
+  )
     const sanitizedParent = escapeCsv(parent)
     for (const child of combinedJson.brokenLinksByParent[parent]) {
       const sanitizedChildUrl = escapeCsv(child.url)
