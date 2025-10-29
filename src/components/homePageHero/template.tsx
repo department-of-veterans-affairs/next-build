@@ -1,3 +1,4 @@
+import { useSearchParams } from 'next/navigation'
 import { HomePageHero as FormattedHomePageHero } from './formatted-type'
 
 export function HomePageHero({
@@ -8,11 +9,12 @@ export function HomePageHero({
   primaryCtaButtonText,
   relatedInfoLinks,
 }: FormattedHomePageHero) {
+  const searchParams = new URLSearchParams(useSearchParams().toString())
   return (
     <div className="homepage-hero__wrapper" data-testid="hero">
-      <div className="vads-l-grid-container vads-u-padding-x--0 homepage-hero">
-        <div className="vads-l-row">
-          <div className="vads-l-col--12 medium-screen:vads-l-col--6">
+      <div className="vads-grid-container vads-u-padding-x--0">
+        <div className="vads-grid-row">
+          <div className="vads-grid-col-12 tablet:vads-grid-col-6">
             <div
               className="vads-u-padding-left--2 vads-u-padding-right--3 vads-u-padding-top--5
                 vads-u-padding-bottom--3
@@ -34,14 +36,15 @@ export function HomePageHero({
               )}
               {promoCta.title && promoCta.url && (
                 <va-link-action
+                  data-testid="promoCta"
                   type="reverse"
                   href={promoCta.url}
                   text={promoCta.title}
-                ></va-link-action>
+                />
               )}
             </div>
           </div>
-          <div className="vads-l-col--12 medium-screen:vads-l-col--6 homepage-hero__container">
+          <div className="vads-grid-col-12 tablet:vads-grid-col-6 vads-u-display--flex">
             <div className="vads-u-display--flex vads-u-width--full vads-u-align-items--center vars-u-justify-content--center">
               <div className="va-flex vads-u-flex-direction--column vads-u-align-items--flex-start vads-u-background-color--white vads-u-margin-top--6 vads-u-margin-bottom--6 vads-u-padding-x--3 vads-u-padding-y--2 vads-u-width--full homepage-hero__create-account">
                 <h2 className="vads-u-font-size--md vads-u-line-height--5 vads-u-color--gray vads-u-margin-top--0 vads-u-padding-right--2 vads-u-font-family--sans vads-u-font-weight--normal">
@@ -49,15 +52,20 @@ export function HomePageHero({
                 </h2>
                 <va-button
                   className="vads-u-margin-bottom--3"
+                  data-testid="ctaButton"
                   text={primaryCtaButtonText}
-                  onclick="openLoginModal()"
-                ></va-button>
+                  onClick={() => {
+                    searchParams.set('next', 'loginModal')
+                    document.location = `?${searchParams.toString()}`
+                  }}
+                />
                 {relatedInfoLinks.map((link, index) => (
                   <va-link
+                    data-testid={`related-link-${index}`}
                     key={index}
                     href={link.url}
                     text={link.title}
-                  ></va-link>
+                  />
                 ))}
               </div>
             </div>

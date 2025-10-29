@@ -2,6 +2,7 @@ import { QueryData, QueryFormatter } from 'next-drupal-query'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { HomePageHero } from './formatted-type'
 import { deserialize, JsonApiResponse } from 'next-drupal'
+import { FieldLink } from '@/types/drupal/field_type'
 
 export type HomePageHeroData = {
   promoBlock: JsonApiResponse
@@ -43,7 +44,7 @@ export const formatter: QueryFormatter<HomePageHeroData, HomePageHero> = (
     ctaSummaryText: firstCreateAccountBlock.field_cta_summary_text,
     primaryCtaButtonText: firstCreateAccountBlock.field_primary_cta_button_text,
     relatedInfoLinks: firstCreateAccountBlock.field_related_info_links.map(
-      (relatedLink) => {
+      (relatedLink: FieldLink) => {
         return {
           title: relatedLink.title,
           url: relatedLink.url,
