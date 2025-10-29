@@ -1001,7 +1001,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@department-of-veterans-affairs/web-components@npm:22.0.0":
+"@department-of-veterans-affairs/web-components@npm:22.0.0, @department-of-veterans-affairs/web-components@npm:^22.0.0":
   version: 22.0.0
   resolution: "@department-of-veterans-affairs/web-components@npm:22.0.0"
   dependencies:
@@ -12735,6 +12735,7 @@ __metadata:
     "@date-fns/tz": ^1.4.1
     "@department-of-veterans-affairs/component-library": 54.0.0
     "@department-of-veterans-affairs/formation": ^12.0.0
+    "@department-of-veterans-affairs/web-components": ^22.0.0
     "@eslint/eslintrc": ^3.3.1
     "@eslint/js": ^9.38.0
     "@faker-js/faker": ^9.9.0
