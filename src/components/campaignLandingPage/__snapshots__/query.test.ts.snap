@@ -2,18 +2,26 @@
 
 exports[`CampaignLandingPage formatData outputs formatted data 1`] = `
 {
+  "audience": [
+    {
+      "name": "All Veterans",
+    },
+  ],
   "breadcrumbs": null,
+  "cta": {
+    "primary": {
+      "href": "https://www.va.gov/disability/file-disability-claim-form-21-526ez/",
+      "label": "File a disability claim online",
+    },
+    "secondary": {
+      "href": "/resources/support-for-common-logingov-and-idme-issues",
+      "label": "Get support for common issues",
+    },
+  },
   "entityId": 48974,
   "entityPath": "/initiatives/pact-act-and-survivors",
   "hero": {
     "blurb": "This page will help answer your questions about the PACT Act and what it means for survivors.",
-    "cta": {
-      "primary": {
-        "href": "https://www.va.gov/disability/file-disability-claim-form-21-526ez/",
-        "label": "File a disability claim online",
-      },
-      "secondary": null,
-    },
     "image": {
       "alt": "",
       "height": 370,
@@ -254,7 +262,20 @@ exports[`CampaignLandingPage formatData outputs formatted data 1`] = `
   ],
   "moderationState": "draft",
   "published": false,
+  "socialLinks": [
+    {
+      "href": "https://www.facebook.com/sharer/sharer.php?href=http://127.0.0.1:8001/initiatives/pact-act-and-survivors",
+      "icon": "facebook",
+      "text": "Share on Facebook",
+    },
+    {
+      "href": "https://twitter.com/intent/tweet?text=PACT Act and survivors&url=http://127.0.0.1:8001/initiatives/pact-act-and-survivors",
+      "icon": "x",
+      "text": "Share on X (formerly Twitter)",
+    },
+  ],
   "title": "PACT Act and survivors",
   "type": "node--campaign_landing_page",
+  "whyThisMatters": "Example why it matters",
 }
 `;
