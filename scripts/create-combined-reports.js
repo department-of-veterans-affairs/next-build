@@ -3,7 +3,7 @@ import fs from 'fs'
 import chalk from 'chalk'
 import { load } from 'cheerio'
 
-// Fetch parent and parse anchor text.
+// Fetch the parent page of the broken link and parse the link text.
 const resolveLinkText = async (parentUrl, targetUrl) => {
   try {
     const response = await fetch(parentUrl, {
