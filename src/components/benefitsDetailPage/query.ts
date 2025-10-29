@@ -11,7 +11,6 @@ import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
   entityBaseFields,
   fetchSingleEntityOrPreview,
-  getMenu,
 } from '@/lib/drupal/query'
 import { Menu } from '@/types/drupal/menu'
 import { formatter as formatListOfLinkTeasers } from '@/components/listOfLinkTeasers/query'
@@ -21,22 +20,7 @@ import { formatParagraph } from '@/lib/drupal/paragraphs'
 import { getNestedIncludes } from '@/lib/utils/queries'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
-import { getHubIcon } from '@/lib/utils/benefitsHub'
-
-const HUB_NAV_NAMES = [
-  'burials-and-memorials-benef',
-  'careers-employment-benefits',
-  'decision-reviews-benefits-h',
-  'disability-benefits-hub',
-  'education-benefits-hub',
-  'health-care-benefits-hub',
-  'housing-assistance-benefits',
-  'life-insurance-benefits-hub',
-  'pension-benefits-hub',
-  'records-benefits-hub',
-  'root-benefits-hub',
-  'family-and-caregiver-benefits',
-]
+import { getBenefitsHubMenu } from './getBenefitsHubMenu'
 
 // Define the query params for fetching node--page (benefits detail page).
 export const params: QueryParams<null> = () => {
@@ -76,27 +60,13 @@ export const data: QueryData<
     params
   )) as NodeBenefitsDetailPage
 
-  // Fetch the named menu if it exists
-  const administrationName = entity.field_administration?.name ?? ''
-  const benefitsHubName = administrationName
-    .toLowerCase()
-    .replace(/ /g, '-')
-    .replace(/&/g, 'and')
-  const menuName = HUB_NAV_NAMES.find((name) => benefitsHubName.includes(name))
-  let menu = null
-  let menuIcon = null
-  if (menuName) {
-    menu = await getMenu(menuName)
-    // Yeah, this is weird, but it keeps us from having to fetch the hub title page.
-    const hubIconName = benefitsHubName.split('-benefits-hub')[0]
-    const hubIcon = getHubIcon(hubIconName)
-    if (hubIcon) {
-      menuIcon = {
-        name: hubIcon.icon,
-        backgroundColor: hubIcon.backgroundColor,
-      }
-    }
-  }
+  // Use the new getBenefitsHubMenu function that fetches the benefits hub node,
+  // caches it, and extracts the menu and icon from the actual hub data
+  const { menu, menuIcon } = await getBenefitsHubMenu(
+    entity.path.alias,
+    entity.field_administration?.name,
+    opts.context
+  )
 
   return { entity, menu, menuIcon }
 }
