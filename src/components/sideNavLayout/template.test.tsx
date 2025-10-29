@@ -3,11 +3,6 @@ import { render, screen } from '@testing-library/react'
 import { SideNavLayout } from './template'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 
-// Mock window object
-const mockWindow = {
-  sideNav: undefined,
-}
-
 const mockMenu: SideNavMenu = {
   rootPath: '/health-care',
   data: {
@@ -33,11 +28,6 @@ const mockMenu: SideNavMenu = {
 }
 
 describe('SideNavLayout', () => {
-  beforeEach(() => {
-    // Reset window.sideNav before each test
-    mockWindow.sideNav = undefined
-  })
-
   test('renders SideNavLayout component with children', () => {
     render(
       <SideNavLayout menu={mockMenu}>
@@ -65,7 +55,7 @@ describe('SideNavLayout', () => {
     expect(gridCol).toBeInTheDocument()
   })
 
-  test('renders side nav widget element with correct attributes', () => {
+  test('renders SideNav component', () => {
     render(
       <SideNavLayout menu={mockMenu}>
         <div>Test content</div>
@@ -99,51 +89,6 @@ describe('SideNavLayout', () => {
     const gridContainer = container.querySelector('.vads-grid-container')
     expect(gridContainer).toHaveAttribute('data-testid', 'side-nav-layout')
     expect(gridContainer).toHaveAttribute('id', 'test-id')
-  })
-
-  test('sets window.sideNav when component mounts', () => {
-    render(
-      <SideNavLayout menu={mockMenu}>
-        <div>Test content</div>
-      </SideNavLayout>
-    )
-
-    expect(window.sideNav).toEqual(mockMenu)
-  })
-
-  test('updates window.sideNav when menu prop changes', () => {
-    const { rerender } = render(
-      <SideNavLayout menu={mockMenu}>
-        <div>Test content</div>
-      </SideNavLayout>
-    )
-
-    expect(window.sideNav).toEqual(mockMenu)
-
-    const newMenu: SideNavMenu = {
-      rootPath: '/benefits',
-      data: {
-        name: 'Benefits',
-        description: 'Benefits navigation',
-        links: [
-          {
-            description: 'Get benefits',
-            expanded: false,
-            label: 'Get benefits',
-            links: [],
-            url: { path: '/benefits/get-benefits' },
-          },
-        ],
-      },
-    }
-
-    rerender(
-      <SideNavLayout menu={newMenu}>
-        <div>Test content</div>
-      </SideNavLayout>
-    )
-
-    expect(window.sideNav).toEqual(newMenu)
   })
 
   test('renders multiple children correctly', () => {
