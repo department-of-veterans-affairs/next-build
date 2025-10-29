@@ -1,5 +1,4 @@
 import { MediaImage } from '../mediaImage/template'
-import { placeholders } from './placeholders.temp'
 import { CampaignLandingPageProps } from './template'
 
 export const WhatYouCanDo = ({ whatYouCanDo }: CampaignLandingPageProps) => {
@@ -26,18 +25,6 @@ export const WhatYouCanDo = ({ whatYouCanDo }: CampaignLandingPageProps) => {
             <div className="vads-u-background-color--gray-light-alt vads-u-height--full medium-screen:vads-u-margin-x--1 medium-screen:vads-u-margin-y--0">
               <MediaImage {...promo.image} imageStyle="3_2_medium_thumbnail" />
 
-              {/*
-                <img
-                  alt={promo.entity.fieldImage.entity.image.alt}
-                  height={
-                    promo.entity.fieldImage.entity.thumbnail.derivative.height
-                  }
-                  src={promo.entity.fieldImage.entity.thumbnail.derivative.url}
-                  width={
-                    promo.entity.fieldImage.entity.thumbnail.derivative.width
-                  }
-                />
-                */}
               <h3
                 className="vads-u-padding-x--2 vads-u-margin-top--2"
                 aria-label={promo.link.field_link.title}
