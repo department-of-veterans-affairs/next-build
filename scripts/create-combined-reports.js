@@ -6,7 +6,9 @@ import { load } from 'cheerio'
 // Fetch parent and parse anchor text.
 const resolveLinkText = async (parentUrl, targetUrl) => {
   try {
-    const response = await fetch(parentUrl, { signal: AbortSignal.timeout(10000) })
+    const response = await fetch(parentUrl, {
+      signal: AbortSignal.timeout(10000),
+    })
     if (!response.ok) return ''
     const html = await response.text()
     const $ = load(html)
