@@ -311,7 +311,7 @@ exports[`CampaignLandingPage formatData outputs formatted data 1`] = `
             "uri": "entity:node/35",
             "url": "/health-care/how-to-apply",
           },
-          "field_link_summary": null,
+          "field_link_summary": "Test link summary",
           "id": "0c71873a-2f93-4ce3-b821-96177b174113",
           "langcode": "en",
           "links": {

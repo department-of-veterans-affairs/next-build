@@ -91,10 +91,13 @@ export const formatter: QueryFormatter<
     whatYouCanDo: {
       header: entity.field_clp_what_you_can_do_header,
       intro: entity.field_clp_what_you_can_do_intro,
-      promos: entity.field_clp_what_you_can_do_promos.map((block) => ({
-        image: formatImage(block.field_image),
-        link: block.field_promo_link,
-      })),
+      promos: entity.field_clp_what_you_can_do_promos
+        // promos
+        .filter((p) => p.field_promo_link && p.field_image)
+        .map((block) => ({
+          image: block.field_image && formatImage(block.field_image),
+          link: block.field_promo_link,
+        })),
     },
   }
 }
