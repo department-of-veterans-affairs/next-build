@@ -5,5 +5,5 @@ export type ListOfLinkTeasers = PublishedParagraph & {
   type: 'paragraph--list_of_link_teasers'
   title: string
   linkTeasers: LinkTeaser[]
-  isHubPage: boolean | false
+  isHubPage?: boolean | false
 }

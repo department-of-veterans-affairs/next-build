@@ -1,4 +1,5 @@
 import { ListOfLinkTeasers as FormattedListOfLinkTeasers } from '@/components/listOfLinkTeasers/formatted-type'
+import { ParagraphComponent } from '@/components/paragraph/formatted-type'
 import { LinkTeaser } from '@/components/linkTeaser/template'
 import { hashReference } from '@/lib/utils/hashReference'
 
@@ -9,6 +10,7 @@ import { hashReference } from '@/lib/utils/hashReference'
  * be from the `ListOfLinkTeasers` paragraph, or just a field with `LinkTeaser[]`.
  */
 export const ListOfLinkTeasers = ({
+  id,
   title,
   linkTeasers,
   isHubPage,

@@ -1,12 +1,14 @@
 import { getHubIcon } from '@/lib/utils/benefitsHub'
 import { BenefitsHub as FormattedBenefitsHub } from './formatted-type'
 import { ListOfLinkTeasers } from '@/components/listOfLinkTeasers/template'
+import { ContentFooter } from '@/components/contentFooter/template'
 
 export function BenefitsHub({
   title,
   titleIcon,
   intro,
   spokes,
+  lastUpdated,
 }: FormattedBenefitsHub) {
   const iconConfig = getHubIcon(titleIcon)
   return (

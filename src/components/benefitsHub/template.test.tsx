@@ -12,6 +12,7 @@ const mockBenefitsData: FormattedBenefitsHub = {
   title: 'Test Health Benefits Hub',
   titleIcon: null,
   intro: 'This is a test intro for the Benefits Hub component.',
+  spokes: [],
 }
 
 describe('BenefitsHub with valid data', () => {
@@ -22,7 +23,7 @@ describe('BenefitsHub with valid data', () => {
         type=""
         published={true}
         lastUpdated="2024-01-01"
-        title={'Hello world'}
+        title={'Test Health Benefits Hub'}
         titleIcon={null}
         spokes={[]}
         intro={null}
@@ -45,7 +46,7 @@ describe('BenefitsHub with valid data', () => {
         title={'Health Care'}
         titleIcon={null}
         spokes={[]}
-        intro={'This is an intro text for health care benefits.'}
+        intro={'This is a test intro for the Benefits Hub component.'}
       />
     )
 
@@ -134,6 +135,7 @@ describe('BenefitsHub with valid data', () => {
     expect(
       screen.queryByText(/Apply for VA health care benefits/)
     ).toBeInTheDocument()
+  })
   test('renders ContentFooter with lastUpdated date', () => {
     render(<BenefitsHub {...mockBenefitsData} />)
     expect(screen.getByTestId('content-footer')).toBeInTheDocument()

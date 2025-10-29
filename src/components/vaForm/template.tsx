@@ -158,13 +158,17 @@ export function VaForm({
             <div className="va-nav-linkslist va-nav-linkslist--related">
               {linkTeasers?.length > 0 ? (
                 <ListOfLinkTeasers
+                  id="helpful-links-related"
                   title={`Helpful links related to VA Form ${formNumber}`}
                   linkTeasers={linkTeasers}
+                  isHubPage={false}
                 />
               ) : (
                 <ListOfLinkTeasers
+                  id="helpful-links"
                   title="Helpful links"
                   linkTeasers={defaultHelpfulLinks}
+                  isHubPage={false}
                 />
               )}
             </div>
