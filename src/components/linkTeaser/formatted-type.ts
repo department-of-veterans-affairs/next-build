@@ -11,5 +11,4 @@ export type LinkTeaser = PublishedParagraph & {
   componentParams: {
     sectionHeader: string
   }
-  isHubPage?: boolean | false
 }

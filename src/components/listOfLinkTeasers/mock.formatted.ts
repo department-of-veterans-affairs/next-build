@@ -5,7 +5,6 @@ export default {
   id: 'fd090f35-1c89-4bc6-9525-3e8c8221a87e',
   entityId: 471,
   title: 'Other VA Benefits and Services',
-  isHubPage: false,
   linkTeasers: [
     {
       type: 'paragraph--link_teaser',
@@ -16,7 +15,6 @@ export default {
       options: [],
       summary:
         'Explore options for using GI Bill benefits to help pay for school or training, and find out what benefits you can get.',
-      isHubPage: false,
       componentParams: {
         sectionHeader: '',
       },
@@ -28,7 +26,6 @@ export default {
       uri: '/education/other-va-education-benefits/',
       title: 'Other Educational Assistance Programs',
       options: [],
-      isHubPage: false,
       summary:
         'If you’re a Veteran, Reservist, or National Guard Soldier who doesn’t qualify for the Post-9/11 GI Bill, see if you can get education benefits through other VA programs.',
       componentParams: {
@@ -42,7 +39,6 @@ export default {
       uri: '/housing-assistance/home-loans/',
       title: 'Home Loans',
       options: [],
-      isHubPage: false,
       summary:
         'Apply for a Certificate of Eligibility for a VA direct or VA-backed home loan to build, buy, improve, or refinance a home.',
       componentParams: {
@@ -56,7 +52,6 @@ export default {
       uri: '/life-insurance/',
       title: 'Life Insurance',
       options: [],
-      isHubPage: false,
       summary:
         'Explore your life insurance options and find out how to apply as a Servicemember, Veteran, or family member.',
       componentParams: {

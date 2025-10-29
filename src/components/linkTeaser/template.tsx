@@ -4,6 +4,10 @@ import { LinkTeaser as FormattedLinkTeaser } from '@/components/linkTeaser/forma
 import { ParagraphComponent } from '@/components/paragraph/formatted-type'
 import clsx from 'clsx'
 
+type LinkTeaserProps = ParagraphComponent<FormattedLinkTeaser> & {
+  isHubPage?: boolean
+}
+
 export const LinkTeaser = ({
   id,
   title,
@@ -12,7 +16,7 @@ export const LinkTeaser = ({
   componentParams,
   options,
   isHubPage,
-}: ParagraphComponent<FormattedLinkTeaser>) => {
+}: LinkTeaserProps) => {
   const { sectionHeader } = componentParams
 
   const handleItemClick = () => {
@@ -48,14 +52,24 @@ export const LinkTeaser = ({
               active=""
             ></va-link>
           </span>
-          {summary && <p className="va-nav-linkslist-description">{summary}</p>}
+          {summary && (
+            <p
+              className="va-nav-linkslist-description"
+              dangerouslySetInnerHTML={{ __html: summary }}
+            />
+          )}
         </>
       ) : (
         <>
           <p className="vads-u-margin--0 vads-u-font-weight--bold">
             <va-link href={uri} target={target} text={title}></va-link>
           </p>
-          <p className="vads-u-margin--0">{summary}</p>
+          {summary && (
+            <p
+              className="vads-u-margin--0"
+              dangerouslySetInnerHTML={{ __html: summary }}
+            />
+          )}
         </>
       )}
     </li>

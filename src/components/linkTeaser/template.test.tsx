@@ -19,7 +19,6 @@ describe('<LinkTeaser> component', () => {
     componentParams: {
       sectionHeader: 'Test Section Header',
     },
-    isHubPage: false,
   }
 
   beforeEach(() => {

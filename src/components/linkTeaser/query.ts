@@ -19,6 +19,5 @@ export const formatter: QueryFormatter<
     options: entity.field_link?.options,
     summary: entity.field_link_summary,
     componentParams: { sectionHeader: '' },
-    isHubPage: false,
   }
 }

@@ -295,7 +295,6 @@ exports[`VamcSystemDetailPage query module outputs formatted data 1`] = `
     {
       "entityId": 183005,
       "id": "f5cedf99-5295-4877-901f-223d92e369d3",
-      "isHubPage": false,
       "linkTeasers": [
         {
           "componentParams": {
@@ -303,7 +302,6 @@ exports[`VamcSystemDetailPage query module outputs formatted data 1`] = `
           },
           "entityId": 183004,
           "id": "8db029e2-8f65-40ff-9f1a-cb726814f346",
-          "isHubPage": false,
           "options": {
             "data-entity-substitution": "",
             "data-entity-type": "",
@@ -433,7 +431,6 @@ exports[`VamcSystemDetailPage query module outputs formatted data 1`] = `
   "relatedLinks": {
     "entityId": 19369,
     "id": "928ec63a-97b3-460d-a869-1d0b1ca9fa04",
-    "isHubPage": false,
     "linkTeasers": [
       {
         "componentParams": {
@@ -441,7 +438,6 @@ exports[`VamcSystemDetailPage query module outputs formatted data 1`] = `
         },
         "entityId": 19367,
         "id": "95f2a5f6-82b3-447d-afa3-be1a4560fa03",
-        "isHubPage": false,
         "options": [],
         "summary": "Learn more about the VA Durham leadership team.",
         "title": "Our leadership",
@@ -454,7 +450,6 @@ exports[`VamcSystemDetailPage query module outputs formatted data 1`] = `
         },
         "entityId": 19368,
         "id": "2ef38bb5-0c45-4ba6-bd02-e1900880bb4a",
-        "isHubPage": false,
         "options": [],
         "summary": "Find health care and services you need to stay healthy.",
         "title": "Health services",

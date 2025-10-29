@@ -3,6 +3,10 @@ import { ParagraphComponent } from '@/components/paragraph/formatted-type'
 import { LinkTeaser } from '@/components/linkTeaser/template'
 import { hashReference } from '@/lib/utils/hashReference'
 
+type ListOfLinkTeasersProps = ParagraphComponent<FormattedListOfLinkTeasers> & {
+  isHubPage?: boolean
+}
+
 /**
  * @name ListOfLinkTeasers
  * @param {string} title The title to show above the list of link teasers
@@ -14,7 +18,7 @@ export const ListOfLinkTeasers = ({
   title,
   linkTeasers,
   isHubPage,
-}: ParagraphComponent<FormattedListOfLinkTeasers>) => (
+}: ListOfLinkTeasersProps) => (
   <section data-template="paragraphs/list_of_link_teasers" data-entity-id={id}>
     {title && (
       <h2
@@ -28,7 +32,7 @@ export const ListOfLinkTeasers = ({
         {title}
       </h2>
     )}
-    <ul className={'usa-unstyled-list'}>
+    <ul className="usa-unstyled-list">
       {linkTeasers.map((linkTeaser) => (
         <LinkTeaser
           key={linkTeaser.id}

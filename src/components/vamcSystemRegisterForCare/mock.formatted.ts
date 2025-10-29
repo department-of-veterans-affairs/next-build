@@ -583,7 +583,6 @@ const mockData: VamcSystemRegisterForCare = {
     id: '77159',
     entityId: null,
     title: 'More information',
-    isHubPage: false,
     linkTeasers: [
       {
         type: 'paragraph--link_teaser',

@@ -649,7 +649,6 @@ const mockData: VamcSystemBillingAndInsurance = {
     id: '82301',
     entityId: null,
     title: 'More information',
-    isHubPage: false,
     linkTeasers: [
       {
         type: 'paragraph--link_teaser',

@@ -47,7 +47,6 @@ exports[`VaForm formatter outputs formatted data with all fields 1`] = `
       },
       "entityId": 156599,
       "id": "91e2a267-40e5-469f-8cd2-4cb2362cf26f",
-      "isHubPage": false,
       "options": {
         "data-entity-substitution": "canonical",
         "data-entity-type": "node",
@@ -65,7 +64,6 @@ exports[`VaForm formatter outputs formatted data with all fields 1`] = `
       },
       "entityId": 10995,
       "id": "74e2e77d-148b-4291-8371-a03095265299",
-      "isHubPage": false,
       "options": {
         "data-entity-substitution": "canonical",
         "data-entity-type": "node",
@@ -83,7 +81,6 @@ exports[`VaForm formatter outputs formatted data with all fields 1`] = `
       },
       "entityId": 11218,
       "id": "fad126a2-a7d7-4d8d-8993-eb10190dc45c",
-      "isHubPage": false,
       "options": {
         "data-entity-substitution": "canonical",
         "data-entity-type": "node",
@@ -101,7 +98,6 @@ exports[`VaForm formatter outputs formatted data with all fields 1`] = `
       },
       "entityId": 10996,
       "id": "39e60e6c-c030-4236-bd4d-c6c8a7eae608",
-      "isHubPage": false,
       "options": {
         "data-entity-substitution": "canonical",
         "data-entity-type": "node",
