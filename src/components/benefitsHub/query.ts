@@ -10,6 +10,7 @@ import {
   fetchSingleEntityOrPreview,
 } from '@/lib/drupal/query'
 import { formatter as formatListOfLinkTeasers } from '@/components/listOfLinkTeasers/query'
+import { getHtmlFromDrupalContent } from '@/lib/utils/getHtmlFromDrupalContent'
 
 // Define the query params for fetching node--landing_page for benefits hub.
 export const params: QueryParams<null> = () => {
@@ -49,7 +50,9 @@ export const formatter: QueryFormatter<NodeLandingPage, BenefitsHub> = (
   return {
     ...entityBaseFields(entity),
     title: entity.title,
-    intro: entity.field_intro_text,
+    intro: entity.field_intro_text
+      ? getHtmlFromDrupalContent(entity.field_intro_text)
+      : null,
     hubLabel: entity.field_home_page_hub_label,
     teaserText: entity.field_teaser_text,
     titleIcon: entity.field_title_icon,

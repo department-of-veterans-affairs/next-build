@@ -11,6 +11,7 @@ export function BenefitsHub({
   lastUpdated,
 }: FormattedBenefitsHub) {
   const iconConfig = getHubIcon(titleIcon)
+
   return (
     <div className="usa-grid usa-grid-full">
       <article className="usa-width-two-thirds">
@@ -30,9 +31,12 @@ export function BenefitsHub({
         ) : (
           <h1>{title}</h1>
         )}
-        <div className="va-introtext">
-          <p>{intro}</p>
-        </div>
+        {intro && (
+          <p
+            className="va-introtext"
+            dangerouslySetInnerHTML={{ __html: intro }}
+          />
+        )}
         {spokes?.map((spokeSection) => (
           <div key={spokeSection.id}>
             <section className="usa-grid">
