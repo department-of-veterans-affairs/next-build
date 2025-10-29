@@ -16,10 +16,10 @@ describe('<LinkTeaser> component', () => {
     options: null,
     summary:
       'Not sure if you qualify? Find out if you can get VA health care benefits.',
-    parentField: 'field_va_paragraphs',
     componentParams: {
       sectionHeader: 'Test Section Header',
     },
+    isHubPage: false,
   }
 
   beforeEach(() => {
@@ -56,7 +56,6 @@ describe('<LinkTeaser> component', () => {
   test('applies correct CSS classes to li element for field_spokes', () => {
     const propsWithSpokes = {
       ...baseProps,
-      parentField: 'field_spokes',
       isHubPage: true,
     }
     const { container } = render(<LinkTeaser {...propsWithSpokes} />)
@@ -68,7 +67,6 @@ describe('<LinkTeaser> component', () => {
   test('sets active attribute to true for field_spokes', () => {
     const propsWithSpokes = {
       ...baseProps,
-      parentField: 'field_spokes',
       isHubPage: true,
     }
     const { container } = render(<LinkTeaser {...propsWithSpokes} />)

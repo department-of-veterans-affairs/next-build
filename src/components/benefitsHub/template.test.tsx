@@ -79,7 +79,6 @@ describe('BenefitsHub with valid data', () => {
         id: 'spoke-1',
         entityId: 1,
         title: 'Get VA health care',
-        parentField: 'field_spokes',
         isHubPage: true,
         linkTeasers: [
           {
@@ -90,7 +89,7 @@ describe('BenefitsHub with valid data', () => {
             title: 'Apply for health care',
             options: [],
             summary: 'Apply for VA health care benefits',
-            parentField: 'field_va_paragraphs',
+            isHubPage: true,
             componentParams: {
               sectionHeader: 'Get VA health care',
             },

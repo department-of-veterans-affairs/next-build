@@ -2,61 +2,18 @@ import { get } from 'lodash'
 import { recordEvent } from '@/lib/analytics/recordEvent'
 import { LinkTeaser as FormattedLinkTeaser } from '@/components/linkTeaser/formatted-type'
 import { ParagraphComponent } from '@/components/paragraph/formatted-type'
-import { ParagraphLinkTeaser } from '@/types/drupal/paragraph'
 import clsx from 'clsx'
 
-type LinkTeaserProps =
-  | (ParagraphComponent<FormattedLinkTeaser> & {
-      isHubPage?: boolean
-    })
-  | (ParagraphLinkTeaser & {
-      parentField?: string
-      componentParams?: { sectionHeader: string }
-      isHubPage?: boolean
-    })
-
-export const LinkTeaser = (props: LinkTeaserProps) => {
-  // Handle both formatted and raw Drupal data
-  const isFieldSpokeData = 'field_link' in props
-
-  let id: string,
-    title: string,
-    summary: string,
-    uri: string,
-    options: { [key: string]: unknown },
-    parentField: string | undefined,
-    componentParams: { sectionHeader: string } | undefined,
-    isHubPage: boolean | undefined
-
-  if (isFieldSpokeData) {
-    const rawProps = props as ParagraphLinkTeaser & {
-      parentField?: string
-      componentParams?: { sectionHeader: string }
-      isHubPage?: boolean
-    }
-    id = rawProps.id
-    title = rawProps.field_link?.title || ''
-    summary = rawProps.field_link_summary || ''
-    uri = rawProps.field_link?.uri || ''
-    options = rawProps.field_link?.options || {}
-    parentField = rawProps.parentField
-    componentParams = rawProps.componentParams
-    isHubPage = rawProps.isHubPage || false
-  } else {
-    const formattedProps = props as ParagraphComponent<FormattedLinkTeaser> & {
-      isHubPage?: boolean
-    }
-    id = formattedProps.id
-    title = formattedProps.title || ''
-    summary = formattedProps.summary || ''
-    uri = formattedProps.uri || ''
-    options = formattedProps.options || {}
-    parentField = formattedProps.parentField
-    componentParams = formattedProps.componentParams
-    isHubPage = formattedProps.isHubPage || false
-  }
-
-  const { sectionHeader } = componentParams || { sectionHeader: '' }
+export const LinkTeaser = ({
+  id,
+  title,
+  summary,
+  uri,
+  componentParams,
+  options,
+  isHubPage,
+}: ParagraphComponent<FormattedLinkTeaser>) => {
+  const { sectionHeader } = componentParams
 
   const handleItemClick = () => {
     recordEvent({

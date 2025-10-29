@@ -41,14 +41,10 @@ export const data: QueryData<BenefitsHubDataOpts, NodeLandingPage> = async (
 export const formatter: QueryFormatter<NodeLandingPage, BenefitsHub> = (
   entity: NodeLandingPage
 ) => {
-  // Format each spoke using the ListOfLinkTeasers formatter and add parentField
-  const spokes = (entity.field_spokes || [])
-    .map((spoke) => formatListOfLinkTeasers(spoke))
-    .filter((spoke) => spoke !== null)
-    .map((spoke) => ({
-      ...spoke,
-      parentField: 'field_spokes' as const,
-    }))
+  // Format each spoke using the ListOfLinkTeasers formatter
+  const spokes = (entity.field_spokes || []).map((spoke) =>
+    formatListOfLinkTeasers(spoke)
+  )
 
   return {
     ...entityBaseFields(entity),
