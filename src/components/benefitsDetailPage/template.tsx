@@ -14,6 +14,9 @@ export function BenefitsDetailPage({
   // contentBlock,
   relatedLinks,
   lastUpdated,
+  menu,
+  menuIcon,
+  entityPath,
 }: FormattedBenefitsDetailPage) {
   return (
     <div

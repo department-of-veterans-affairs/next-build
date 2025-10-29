@@ -11,13 +11,32 @@ import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
   entityBaseFields,
   fetchSingleEntityOrPreview,
+  getMenu,
 } from '@/lib/drupal/query'
+import { Menu } from '@/types/drupal/menu'
 import { formatter as formatListOfLinkTeasers } from '@/components/listOfLinkTeasers/query'
 import { formatter as formatAdministration } from '@/components/administration/query'
 import { formatter as formatAlertBlock } from '@/components/alertBlock/query'
 import { formatParagraph } from '@/lib/drupal/paragraphs'
 import { getNestedIncludes } from '@/lib/utils/queries'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
+import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
+import { getHubIcon } from '@/lib/utils/benefitsHub'
+
+const HUB_NAV_NAMES = [
+  'burials-and-memorials-benef',
+  'careers-employment-benefits',
+  'decision-reviews-benefits-h',
+  'disability-benefits-hub',
+  'education-benefits-hub',
+  'health-care-benefits-hub',
+  'housing-assistance-benefits',
+  'life-insurance-benefits-hub',
+  'pension-benefits-hub',
+  'records-benefits-hub',
+  'root-benefits-hub',
+  'family-and-caregiver-benefits',
+]
 
 // Define the query params for fetching node--page (benefits detail page).
 export const params: QueryParams<null> = () => {
@@ -40,24 +59,51 @@ export type BenefitsDetailPageDataOpts = {
   context?: ExpandedStaticPropsContext
 }
 
+interface BenefitsDetailPageData {
+  entity: NodeBenefitsDetailPage
+  menu: Menu | null
+  menuIcon: { iconName: string; backgroundColor: string } | null
+}
+
 // Implement the data loader.
 export const data: QueryData<
   BenefitsDetailPageDataOpts,
-  NodeBenefitsDetailPage
-> = async (opts): Promise<NodeBenefitsDetailPage> => {
+  BenefitsDetailPageData
+> = async (opts): Promise<BenefitsDetailPageData> => {
   const entity = (await fetchSingleEntityOrPreview(
     opts,
     RESOURCE_TYPES.BENEFITS_DETAIL_PAGE,
     params
   )) as NodeBenefitsDetailPage
 
-  return entity
+  // Fetch the named menu if it exists
+  const administrationName = entity.field_administration?.name ?? ''
+  const navName = administrationName
+    .toLowerCase()
+    .replace(/ /g, '-')
+    .replace(/&/g, 'and')
+  let menu = null
+  let menuIcon = null
+  if (HUB_NAV_NAMES.includes(navName)) {
+    menu = await getMenu(navName)
+    // Yeah, this is weird, but it keeps us from having to fetch the hub title page.
+    const hubIconName = navName.split('-benef')[0]
+    const hubIcon = getHubIcon(hubIconName)
+    if (hubIcon) {
+      menuIcon = {
+        iconName: hubIcon.icon,
+        backgroundColor: hubIcon.backgroundColor,
+      }
+    }
+  }
+
+  return { entity, menu, menuIcon }
 }
 
 export const formatter: QueryFormatter<
-  NodeBenefitsDetailPage,
+  BenefitsDetailPageData,
   BenefitsDetailPage
-> = (entity: NodeBenefitsDetailPage) => {
+> = ({ entity, menu, menuIcon }) => {
   // TODO: There is an ownership problem with the related links for /education/benefit-rates/post-9-11-gi-bill-rates/past-rates-2021-2022.
   // This needs to be resolved in Drupal, but for now I'm just going to not show the related links
   // if it fails to fetch it.
@@ -88,5 +134,9 @@ export const formatter: QueryFormatter<
     administration: entity.field_administration
       ? formatAdministration(entity.field_administration)
       : null,
+    // TODO: Sidebar data needs to be fetched from GraphQL menu queries
+    // This will be populated when the menu data is available
+    menu: menu ? buildSideNavDataFromMenu(entity.path.alias, menu) : null,
+    menuIcon,
   }
 }

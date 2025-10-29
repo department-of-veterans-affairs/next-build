@@ -1,8 +1,9 @@
 import { PublishedEntity } from '@/types/formatted/publishedEntity'
-import { ListOfLinkTeasers } from '../listOfLinkTeasers/formatted-type'
-import { Administration } from '../administration/formatted-type'
+import { ListOfLinkTeasers } from '@/components/listOfLinkTeasers/formatted-type'
+import { Administration } from '@/components/administration/formatted-type'
 // import { FormattedParagraph } from '@/lib/drupal/queries'
-import { AlertBlock } from '../alert/formatted-type'
+import { AlertBlock } from '@/components/alert/formatted-type'
+import { SideNavMenu } from '@/types/formatted/sideNav'
 
 export interface BenefitsDetailPage extends PublishedEntity {
   title: string
@@ -14,4 +15,6 @@ export interface BenefitsDetailPage extends PublishedEntity {
   // contentBlock: FormattedParagraph[] | null
   relatedLinks: ListOfLinkTeasers | null
   administration: Administration | null
+  menu: SideNavMenu | null
+  menuIcon: { iconName: string; backgroundColor: string } | null
 }
