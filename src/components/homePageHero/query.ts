@@ -1,15 +1,11 @@
 import { QueryData, QueryFormatter } from 'next-drupal-query'
 import { drupalClient } from '@/lib/drupal/drupalClient'
-import {
-  entitySubqueueHomePageHero,
-  entityV2HomePageCreateAccount,
-} from '@/types/drupal/entity_subqueue'
 import { HomePageHero } from './formatted-type'
-import { deserialize } from 'next-drupal'
+import { deserialize, JsonApiResponse } from 'next-drupal'
 
 export type HomePageHeroData = {
-  promoBlock: entitySubqueueHomePageHero[]
-  createAccountBlock: entityV2HomePageCreateAccount[]
+  promoBlock: JsonApiResponse
+  createAccountBlock: JsonApiResponse
 }
 export const data: QueryData<null, HomePageHeroData> = async () => {
   const promoBlockQueueURL = `${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}/jsonapi/entity_subqueue/home_page_hero?include=items,items.field_promo_cta`
