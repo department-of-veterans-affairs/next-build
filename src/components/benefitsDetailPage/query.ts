@@ -78,16 +78,17 @@ export const data: QueryData<
 
   // Fetch the named menu if it exists
   const administrationName = entity.field_administration?.name ?? ''
-  const navName = administrationName
+  const benefitsHubName = administrationName
     .toLowerCase()
     .replace(/ /g, '-')
     .replace(/&/g, 'and')
+  const menuName = HUB_NAV_NAMES.find((name) => benefitsHubName.includes(name))
   let menu = null
   let menuIcon = null
-  if (HUB_NAV_NAMES.includes(navName)) {
-    menu = await getMenu(navName)
+  if (menuName) {
+    menu = await getMenu(menuName)
     // Yeah, this is weird, but it keeps us from having to fetch the hub title page.
-    const hubIconName = navName.split('-benef')[0]
+    const hubIconName = benefitsHubName.split('-benefits-hub')[0]
     const hubIcon = getHubIcon(hubIconName)
     if (hubIcon) {
       menuIcon = {
