@@ -1,23 +1,19 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { SideNavMenu } from '@/types/formatted/sideNav'
-
-interface customWindow extends Window {
-  sideNav?: SideNavMenu
-}
-declare const window: customWindow
+import { WidgetSideNav } from './WidgetSideNav'
+import { WebComponentSideNav } from './WebComponentSideNav'
+import { SideNavMenuIcon } from './formatted-type'
 
 interface SideNavProps {
   menu: SideNavMenu
+  icon?: SideNavMenuIcon | null
+  useWidget?: boolean
 }
 
-export function SideNav({ menu }: SideNavProps) {
-  // Populate the side nav data for the side nav widget to fill in. The side nav widget
-  // is a "React widget" from the `static-pages` "app" in `vets-website`. It is not part
-  // of next-build. We load our data into `window.sideNav`, and that app reads it and
-  // renders the widget into our `[data-widget-type="side-nav"]` element.
-  useEffect(() => {
-    window.sideNav = menu
-  }, [menu])
+export function SideNav({ menu, icon, useWidget = true }: SideNavProps) {
+  if (useWidget) {
+    return <WidgetSideNav menu={menu} />
+  }
 
-  return <nav aria-label="secondary" data-widget-type="side-nav" />
+  return <WebComponentSideNav menu={menu} icon={icon} />
 }

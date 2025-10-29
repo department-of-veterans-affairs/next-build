@@ -4,6 +4,7 @@ import { Administration } from '@/components/administration/formatted-type'
 // import { FormattedParagraph } from '@/lib/drupal/queries'
 import { AlertBlock } from '@/components/alert/formatted-type'
 import { SideNavMenu } from '@/types/formatted/sideNav'
+import { SideNavMenuIcon } from '@/components/sideNav/formatted-type'
 
 export interface BenefitsDetailPage extends PublishedEntity {
   title: string
@@ -16,5 +17,5 @@ export interface BenefitsDetailPage extends PublishedEntity {
   relatedLinks: ListOfLinkTeasers | null
   administration: Administration | null
   menu: SideNavMenu | null
-  menuIcon: { iconName: string; backgroundColor: string } | null
+  menuIcon: SideNavMenuIcon | null
 }

@@ -55,7 +55,7 @@ describe('SideNavLayout', () => {
     expect(gridCol).toBeInTheDocument()
   })
 
-  test('renders SideNav component', () => {
+  test('renders SideNav component when menu is provided', () => {
     render(
       <SideNavLayout menu={mockMenu}>
         <div>Test content</div>
@@ -65,6 +65,19 @@ describe('SideNavLayout', () => {
     const sideNavElement = screen.getByRole('navigation', { name: 'secondary' })
     expect(sideNavElement).toBeInTheDocument()
     expect(sideNavElement).toHaveAttribute('data-widget-type', 'side-nav')
+  })
+
+  test('does not render SideNav component when menu is null', () => {
+    render(
+      <SideNavLayout menu={null} menuIcon={null}>
+        <div>Test content</div>
+      </SideNavLayout>
+    )
+
+    const sideNavElement = screen.queryByRole('navigation', {
+      name: 'secondary',
+    })
+    expect(sideNavElement).not.toBeInTheDocument()
   })
 
   test('applies custom className when provided', () => {

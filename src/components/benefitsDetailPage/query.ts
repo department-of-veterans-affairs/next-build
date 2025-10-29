@@ -62,7 +62,7 @@ export type BenefitsDetailPageDataOpts = {
 interface BenefitsDetailPageData {
   entity: NodeBenefitsDetailPage
   menu: Menu | null
-  menuIcon: { iconName: string; backgroundColor: string } | null
+  menuIcon: { name: string; backgroundColor: string } | null
 }
 
 // Implement the data loader.
@@ -91,7 +91,7 @@ export const data: QueryData<
     const hubIcon = getHubIcon(hubIconName)
     if (hubIcon) {
       menuIcon = {
-        iconName: hubIcon.icon,
+        name: hubIcon.icon,
         backgroundColor: hubIcon.backgroundColor,
       }
     }

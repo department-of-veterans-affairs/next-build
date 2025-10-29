@@ -42,7 +42,7 @@ exports[`BenefitsDetailPage formatter outputs formatted data with correct struct
   },
   "menuIcon": {
     "backgroundColor": "hub-health-care",
-    "iconName": "medical_services",
+    "name": "medical_services",
   },
   "metatags": [
     {
