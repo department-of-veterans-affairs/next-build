@@ -15,7 +15,6 @@ export default {
       options: [],
       summary:
         'Explore options for using GI Bill benefits to help pay for school or training, and find out what benefits you can get.',
-      parentField: 'field_va_paragraphs',
       componentParams: {
         sectionHeader: '',
       },
@@ -29,7 +28,6 @@ export default {
       options: [],
       summary:
         'If you’re a Veteran, Reservist, or National Guard Soldier who doesn’t qualify for the Post-9/11 GI Bill, see if you can get education benefits through other VA programs.',
-      parentField: 'field_va_paragraphs',
       componentParams: {
         sectionHeader: '',
       },
@@ -43,7 +41,6 @@ export default {
       options: [],
       summary:
         'Apply for a Certificate of Eligibility for a VA direct or VA-backed home loan to build, buy, improve, or refinance a home.',
-      parentField: 'field_va_paragraphs',
       componentParams: {
         sectionHeader: '',
       },
@@ -57,7 +54,6 @@ export default {
       options: [],
       summary:
         'Explore your life insurance options and find out how to apply as a Servicemember, Veteran, or family member.',
-      parentField: 'field_va_paragraphs',
       componentParams: {
         sectionHeader: '',
       },

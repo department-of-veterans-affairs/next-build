@@ -1,6 +1,11 @@
 import { ListOfLinkTeasers as FormattedListOfLinkTeasers } from '@/components/listOfLinkTeasers/formatted-type'
+import { ParagraphComponent } from '@/components/paragraph/formatted-type'
 import { LinkTeaser } from '@/components/linkTeaser/template'
 import { hashReference } from '@/lib/utils/hashReference'
+
+type ListOfLinkTeasersProps = ParagraphComponent<FormattedListOfLinkTeasers> & {
+  isHubPage?: boolean
+}
 
 /**
  * @name ListOfLinkTeasers
@@ -9,14 +14,20 @@ import { hashReference } from '@/lib/utils/hashReference'
  * be from the `ListOfLinkTeasers` paragraph, or just a field with `LinkTeaser[]`.
  */
 export const ListOfLinkTeasers = ({
+  id,
   title,
   linkTeasers,
-}: Pick<FormattedListOfLinkTeasers, 'title' | 'linkTeasers'>) => (
-  <section>
+  isHubPage,
+}: ListOfLinkTeasersProps) => (
+  <section data-template="paragraphs/list_of_link_teasers" data-entity-id={id}>
     {title && (
       <h2
         id={hashReference(title)}
-        className="vads-u-border-bottom--1px vads-u-border-color--base-light vads-u-margin--0 vads-u-padding-top--2 vads-u-padding-bottom--0p5"
+        className={
+          isHubPage
+            ? ''
+            : 'vads-u-border-bottom--1px vads-u-border-color--base-light vads-u-margin--0 vads-u-padding-top--2 vads-u-padding-bottom--0p5'
+        }
       >
         {title}
       </h2>
@@ -29,6 +40,7 @@ export const ListOfLinkTeasers = ({
           componentParams={{
             sectionHeader: title,
           }}
+          isHubPage={isHubPage}
         />
       ))}
     </ul>
