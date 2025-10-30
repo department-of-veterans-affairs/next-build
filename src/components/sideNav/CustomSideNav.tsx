@@ -1,75 +1,20 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 import { SideNavMenu, SideNavItem } from '@/types/formatted/sideNav'
 import { SideNavMenuIcon } from './formatted-type'
-import { getHubIcon } from '@/lib/utils/benefitsHub'
 import { recordEvent } from '@/lib/analytics/recordEvent'
 import clsx from 'clsx'
+import { pathsMatch, pathContains, findCurrentPathDepth } from './path-utils'
 
 interface CustomSideNavProps {
   menu: SideNavMenu
   icon?: SideNavMenuIcon | null
 }
 
-interface DeepLinksResult {
-  depth: number
-  links: SideNavItem | null
-}
-
-// Helper function to normalize paths by removing trailing slashes
-function normalizePath(path: string): string {
-  return path.endsWith('/') && path.length > 1 ? path.slice(0, -1) : path
-}
-
-// Helper function to check if paths match (ignoring trailing slashes)
-function pathsMatch(path1: string, path2: string): boolean {
-  return normalizePath(path1) === normalizePath(path2)
-}
-
-// Helper function to check if one path contains another (ignoring trailing slashes)
-function pathContains(fullPath: string, partialPath: string): boolean {
-  return normalizePath(fullPath).includes(normalizePath(partialPath))
-}
-
-// Helper function to find current path depth and deep links
-function findCurrentPathDepth(
-  links: SideNavItem[],
-  currentPath: string,
-  depth = 0
-): DeepLinksResult {
-  for (const link of links) {
-    if (pathsMatch(link.url.path, currentPath)) {
-      return { depth, links: link }
-    }
-
-    if (link.links && link.links.length > 0) {
-      // Check if current path is contained in any child paths
-      const hasChild = link.links.some(
-        (child) =>
-          pathsMatch(child.url.path, currentPath) ||
-          pathContains(currentPath, child.url.path)
-      )
-
-      if (hasChild) {
-        const result = findCurrentPathDepth(link.links, currentPath, depth + 1)
-        if (result.links) {
-          return { depth: result.depth, links: link }
-        }
-      }
-    }
-  }
-
-  return { depth: 0, links: null }
-}
-
 export function CustomSideNav({ menu, icon }: CustomSideNavProps) {
-  const [currentPath, setCurrentPath] = useState<string>('')
-
-  useEffect(() => {
-    // Set current path on client side
-    setCurrentPath(window.location.pathname)
-  }, [])
+  const currentPath = usePathname()
 
   // Close sidebar handler
   const handleClose = () => {
