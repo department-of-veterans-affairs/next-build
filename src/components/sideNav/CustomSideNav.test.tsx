@@ -4,6 +4,17 @@ import { CustomSideNav } from './CustomSideNav'
 import { SideNavMenu, SideNavItem } from '@/types/formatted/sideNav'
 import { SideNavMenuIcon } from './formatted-type'
 
+// Mock Next.js Link component
+jest.mock('next/link', () => {
+  return ({ children, href, ...props }: any) => {
+    return (
+      <a href={href} {...props}>
+        {children}
+      </a>
+    )
+  }
+})
+
 // Mock Next.js navigation
 const mockUsePathname = jest.fn()
 jest.mock('next/navigation', () => ({
