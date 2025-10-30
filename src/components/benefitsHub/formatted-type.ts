@@ -7,5 +7,8 @@ export interface BenefitsHub extends PublishedEntity {
   titleIcon: string | null
   spokes: ListOfLinkTeasers[]
   intro: string | null
-  connectWithUs: Pick<NodeOffice, 'field_email_updates_link' | 'field_social_media_links'>
+  connectWithUs: Pick<
+    NodeOffice,
+    'field_email_updates_link' | 'field_social_media_links'
+  >
 }
