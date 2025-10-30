@@ -48,11 +48,14 @@ export function BenefitsHub({
         ))}
         <ContentFooter lastUpdated={lastUpdated} />
       </article>
-      <va-accordion uswds bordered>
-        <va-accordion-item open header="Connect with us">
-          Test
-        </va-accordion-item>
-      </va-accordion>
+      <div className="usa-width-one-third vads-u-padding-right--2 vads-u-padding-bottom--2 tablet:vads-u-padding-left--2">
+        <va-accordion uswds bordered>
+          <va-accordion-item open header="Connect with us">
+            <h3>Get updates</h3>
+            <h3>Following us</h3>
+          </va-accordion-item>
+        </va-accordion>
+      </div>
     </div>
   )
 }
