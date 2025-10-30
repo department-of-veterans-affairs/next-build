@@ -1,35 +1,4 @@
 export const placeholders = {
-  // What you can do section
-  fieldClpWhatYouCanDoHeader: 'What you can do',
-  fieldClpWhatYouCanDoIntro: 'Here are some actions you can take.',
-  fieldClpWhatYouCanDoPromos: [
-    {
-      entity: {
-        fieldImage: {
-          entity: {
-            image: { alt: 'Promo 1' },
-            thumbnail: {
-              derivative: {
-                url: '/promo1.jpg',
-                height: '200',
-                width: '300',
-              },
-            },
-          },
-        },
-        fieldPromoLink: {
-          entity: {
-            fieldLink: {
-              title: 'Learn more',
-              url: { path: '#' },
-            },
-            fieldLinkSummary: 'Description of promo 1',
-          },
-        },
-      },
-    },
-  ],
-
   // Video panel
   fieldClpVideoPanel: true,
   fieldClpVideoPanelHeader: 'Watch this video',
