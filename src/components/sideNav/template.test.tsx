@@ -52,21 +52,14 @@ describe('SideNav', () => {
   })
 
   describe('when useWidget is false', () => {
-    test('renders WebComponentSideNav component', () => {
+    test('renders CustomSideNav component', () => {
       const { container } = render(
         <SideNav menu={mockMenu} useWidget={false} />
       )
 
-      expect(
-        container.querySelector(
-          'va-sidenav-item[href="/health-care/get-health-care"]'
-        )
-      ).toBeInTheDocument()
-      expect(
-        container.querySelector(
-          'va-sidenav-item[href="/health-care/manage-your-health"]'
-        )
-      ).toBeInTheDocument()
+      const sideNavElement = container.querySelector('#va-detailpage-sidebar')
+      expect(sideNavElement).toBeInTheDocument()
+      expect(sideNavElement).toHaveAttribute('data-drupal-sidebar', 'true')
     })
   })
 })

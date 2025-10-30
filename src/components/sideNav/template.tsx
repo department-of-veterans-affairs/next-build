@@ -1,7 +1,7 @@
 import React from 'react'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 import { WidgetSideNav } from './WidgetSideNav'
-import { WebComponentSideNav } from './WebComponentSideNav'
+import { CustomSideNav } from './CustomSideNav'
 import { SideNavMenuIcon } from './formatted-type'
 
 interface SideNavProps {
@@ -15,5 +15,5 @@ export function SideNav({ menu, icon, useWidget = true }: SideNavProps) {
     return <WidgetSideNav menu={menu} />
   }
 
-  return <WebComponentSideNav menu={menu} icon={icon} />
+  return <CustomSideNav menu={menu} icon={icon} />
 }
