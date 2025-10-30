@@ -43,6 +43,9 @@ export const data: QueryData<BenefitsHubDataOpts, NodeLandingPage> = async (
 export const formatter: QueryFormatter<NodeLandingPage, BenefitsHub> = (
   entity: NodeLandingPage
 ) => {
+  const host = process.env.SITE_URL || 'https://www.va.gov/'
+  const pageUrl = new URL(entity.path.alias, host).href
+
   // Format each spoke using the ListOfLinkTeasers formatter
   const spokes = (entity.field_spokes || []).map((spoke) =>
     formatListOfLinkTeasers(spoke)

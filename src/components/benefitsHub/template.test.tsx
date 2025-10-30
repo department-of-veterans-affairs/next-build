@@ -13,7 +13,51 @@ const mockBenefitsData: FormattedBenefitsHub = {
   titleIcon: null,
   intro: 'This is a test intro for the Benefits Hub component.',
   spokes: [],
+  connectWithUs: {
+    field_email_updates_link: {
+      title: 'Subscribe to email updates',
+      url: 'https://www.va.gov/subscribe',
+      options: [],
+      uri: '',
+    },
+    field_social_media_links: {
+      platform: null,
+      value: null,
+      platform_values: {
+        facebook: {
+          value: 'https://www.facebook.com/VeteransAffairs',
+        },
+        instagram: {
+          value: 'https://www.instagram.com/VeteransAffairs/',
+        },
+        twitter: {
+          value: 'https://twitter.com/VAVetBenefits',
+        },
+        linkedin: {
+          value:
+            'https://www.linkedin.com/company/department-of-veterans-affairs',
+        },
+        youtube: {
+          value: 'https://www.youtube.com/user/VeteransAffairs',
+        },
+      },
+    },
+  },
 }
+
+const BenefitsHubComponent = (
+  <BenefitsHub
+    id="1"
+    type=""
+    published={true}
+    lastUpdated="2024-01-01"
+    title={'Test Health Benefits Hub'}
+    titleIcon={null}
+    spokes={[]}
+    intro={null}
+    connectWithUs={mockBenefitsData.connectWithUs}
+  />
+)
 
 describe('BenefitsHub with valid data', () => {
   test('renders BenefitsHub component', async () => {
@@ -27,6 +71,7 @@ describe('BenefitsHub with valid data', () => {
         titleIcon={null}
         spokes={[]}
         intro={null}
+        connectWithUs={mockBenefitsData.connectWithUs}
       />
     )
 
@@ -47,6 +92,7 @@ describe('BenefitsHub with valid data', () => {
         titleIcon={null}
         spokes={[]}
         intro={'This is a test intro for the Benefits Hub component.'}
+        connectWithUs={mockBenefitsData.connectWithUs}
       />
     )
 
@@ -66,6 +112,7 @@ describe('BenefitsHub with valid data', () => {
         titleIcon={'disability'}
         spokes={[]}
         intro={'Learn about disability compensation.'}
+        connectWithUs={mockBenefitsData.connectWithUs}
       />
     )
 
@@ -119,6 +166,7 @@ describe('BenefitsHub with valid data', () => {
         titleIcon={'health-care'}
         intro={'Manage your VA health care.'}
         spokes={mockSpokes}
+        connectWithUs={mockBenefitsData.connectWithUs}
       />
     )
 

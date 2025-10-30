@@ -264,7 +264,7 @@ export interface NodeLandingPage extends DrupalNode {
   field_related_links: ParagraphListOfLinks
   field_spokes: ParagraphListOfLinks
   field_support_services: NodeSupportService[]
-  field_connect_with_us: FieldContentBlock | null
+  field_connect_with_us: Pick<NodeOffice, 'field_email_updates_link' | 'field_social_media_links'>
 }
 
 export interface NodeCampaignLandingPage extends DrupalNode {

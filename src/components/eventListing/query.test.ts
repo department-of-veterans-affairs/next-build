@@ -4,6 +4,7 @@
 
 import { NodeEvent, NodeEventListing } from '@/types/drupal/node'
 import { queries } from '@/lib/drupal/queries'
+import { drupalClient } from '@/lib/drupal/drupalClient'
 import { mockResponse } from './mock.js'
 import mockEventData from '@/components/event/mock.json'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'

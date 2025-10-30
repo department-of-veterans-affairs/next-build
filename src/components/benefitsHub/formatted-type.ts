@@ -1,11 +1,11 @@
 import { PublishedEntity } from '@/types/formatted/publishedEntity'
 import { ListOfLinkTeasers } from '@/components/listOfLinkTeasers/formatted-type'
-import { FieldContentBlock } from '@/types/drupal/field_type'
+import { NodeOffice } from '@/types/drupal/node'
 
 export interface BenefitsHub extends PublishedEntity {
   title: string
   titleIcon: string | null
   spokes: ListOfLinkTeasers[]
   intro: string | null
-  connectWithUs: FieldContentBlock | null
+  connectWithUs: Pick<NodeOffice, 'field_email_updates_link' | 'field_social_media_links'>
 }
