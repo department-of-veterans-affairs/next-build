@@ -203,7 +203,7 @@ export function CustomSideNav({ menu, icon }: CustomSideNavProps) {
       aria-label="Secondary"
       id="va-detailpage-sidebar"
       data-drupal-sidebar="true"
-      className="va-drupal-sidebarnav va-sidebarnav vads-grid-col-3"
+      className="va-drupal-sidebarnav va-sidebarnav vads-grid-col-3 vads-u-margin-bottom--2"
     >
       <div aria-modal="true" role="dialog" aria-labelledby="sidebar_header">
         <button
