@@ -51,9 +51,15 @@ export function BenefitsHub({
         <ContentFooter lastUpdated={lastUpdated} />
       </article>
       <div className="usa-width-one-third vads-u-padding-right--2 vads-u-padding-bottom--2 mobile:vads-u-padding-left--2">
-        <va-accordion uswds bordered>
-          <va-accordion-item open header="Connect with us">
-            <h3>Get updates</h3>
+        <va-accordion>
+          <va-accordion-item
+            open
+            bordered
+            uswds
+            header="Connect with us"
+            level="2"
+          >
+            <h2 className="vads-u-font-size--h4">Get updates</h2>
             {connectWithUs.field_email_updates_link.url &&
               connectWithUs.field_email_updates_link.title && (
                 <div>
@@ -68,7 +74,7 @@ export function BenefitsHub({
                   />
                 </div>
               )}
-            <h3>Follow us</h3>
+            <h2 className="vads-u-font-size--h4">Follow us</h2>
             <ul className="va-nav-linkslist-list social">
               {socialLinksObject.twitter?.value && (
                 <li>

@@ -101,6 +101,36 @@ describe('<Breadcrumbs />', () => {
       published: true,
       lastUpdated: '2024-01-01',
       spokes: [],
+      connectWithUs: {
+        field_email_updates_link: {
+          title: 'Subscribe to email updates',
+          url: 'https://www.va.gov/subscribe',
+          options: [],
+          uri: '',
+        },
+        field_social_media_links: {
+          platform: null,
+          value: null,
+          platform_values: {
+            facebook: {
+              value: 'https://www.facebook.com/VeteransAffairs',
+            },
+            instagram: {
+              value: 'https://www.instagram.com/VeteransAffairs/',
+            },
+            twitter: {
+              value: 'https://twitter.com/VAVetBenefits',
+            },
+            linkedin: {
+              value:
+                'https://www.linkedin.com/company/department-of-veterans-affairs',
+            },
+            youtube: {
+              value: 'https://www.youtube.com/user/VeteransAffairs',
+            },
+          },
+        },
+      },
     }
 
     // Test using BenefitsHub resource which automatically replaces last breadcrumb

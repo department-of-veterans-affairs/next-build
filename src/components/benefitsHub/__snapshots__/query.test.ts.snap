@@ -9,6 +9,127 @@ exports[`BenefitHubLanding formatData outputs formatted data 1`] = `
       "uri": "https://www.va.gov/",
     },
   ],
+  "connectWithUs": {
+    "block_content_type": {
+      "id": "1f2e0ca0-90ff-4283-81a0-0996f13d4ee0",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "connect_with_us",
+      },
+      "type": "block_content_type--block_content_type",
+    },
+    "breadcrumbs": [
+      {
+        "options": [],
+        "title": "Home",
+        "uri": "https://va-gov-cms.ddev.site/",
+      },
+      {
+        "options": [],
+        "title": "Administration",
+        "uri": "https://va-gov-cms.ddev.site/admin",
+      },
+      {
+        "options": [],
+        "title": "Content",
+        "uri": "https://va-gov-cms.ddev.site/admin/content",
+      },
+      {
+        "options": [],
+        "title": "Custom Block Library",
+        "uri": "https://va-gov-cms.ddev.site/admin/content/block",
+      },
+      {
+        "options": [],
+        "title": "Veterans Affairs",
+        "uri": "https://va-gov-cms.ddev.site/admin/content/block/323",
+      },
+    ],
+    "changed": "2025-03-28T20:45:18+00:00",
+    "default_langcode": true,
+    "drupal_internal__id": 323,
+    "drupal_internal__revision_id": 1829,
+    "expiration_date": null,
+    "field_administration": {
+      "id": "c20f3989-e93e-49bd-8c95-ad3821042a02",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 5,
+      },
+      "type": "taxonomy_term--administration",
+    },
+    "field_email_updates_link": {
+      "options": [],
+      "title": "Veterans Affairs Email Updates",
+      "uri": "https://public.govdelivery.com/accounts/USVA/subscriber/new/",
+      "url": "https://public.govdelivery.com/accounts/USVA/subscriber/new/",
+    },
+    "field_external_link": {
+      "options": [],
+      "title": "Veterans Affairs",
+      "uri": "https://www.va.gov/",
+      "url": "https://www.va.gov/",
+    },
+    "field_social_media_links": {
+      "platform": null,
+      "platform_values": {
+        "facebook": {
+          "value": "VeteransAffairs",
+        },
+        "instagram": {
+          "value": "deptvetaffairs",
+        },
+        "linkedin": {
+          "value": "",
+        },
+        "twitter": {
+          "value": "DeptVetAffairs",
+        },
+        "youtube": {
+          "value": "DeptVetAffairs",
+        },
+      },
+      "value": null,
+    },
+    "id": "1413f4e9-053f-46a4-907f-030ddf93b45c",
+    "info": "Veterans Affairs",
+    "langcode": "en",
+    "links": {
+      "self": {
+        "href": "https://va-gov-cms.ddev.site/jsonapi/block_content/connect_with_us/1413f4e9-053f-46a4-907f-030ddf93b45c?resourceVersion=id%3A1829",
+      },
+    },
+    "metatag": [
+      {
+        "attributes": {
+          "content": "| Veterans Affairs",
+          "name": "title",
+        },
+        "tag": "meta",
+      },
+    ],
+    "moderation_state": "published",
+    "relationshipNames": [
+      "block_content_type",
+      "revision_user",
+      "field_administration",
+    ],
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 323,
+    },
+    "reusable": true,
+    "revision_created": "2025-03-28T20:45:18+00:00",
+    "revision_log": "Updates based on https://github.com/department-of-veterans-affairs/va.gov-cms/issues/20298",
+    "revision_translation_affected": true,
+    "revision_user": {
+      "id": "db8d5f41-d18d-4203-9733-dad6d2f3615d",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 4222,
+      },
+      "type": "user--user",
+    },
+    "status": true,
+    "type": "block_content--connect_with_us",
+    "warning_date": null,
+  },
   "entityId": 67,
   "entityPath": "/health-care",
   "hubLabel": "Health care",
