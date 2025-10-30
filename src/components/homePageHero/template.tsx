@@ -56,7 +56,7 @@ export function HomePageHero({
                   text={primaryCtaButtonText}
                   onClick={() => {
                     searchParams.set('next', 'loginModal')
-                    document.location = `?${searchParams.toString()}`
+                    window.location.href = `?${searchParams.toString()}`
                   }}
                 />
                 {relatedInfoLinks.map((link, index) => (
