@@ -105,8 +105,6 @@ export const formatter: QueryFormatter<
     administration: entity.field_administration
       ? formatAdministration(entity.field_administration)
       : null,
-    // TODO: Sidebar data needs to be fetched from GraphQL menu queries
-    // This will be populated when the menu data is available
     menu: menu ? buildSideNavDataFromMenu(entity.path.alias, menu) : null,
     menuIcon,
   }
