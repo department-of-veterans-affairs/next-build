@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useEffect } from 'react'
-import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { SideNavMenu, SideNavItem } from '@/types/formatted/sideNav'
 import { SideNavMenuIcon } from './formatted-type'
@@ -55,7 +54,7 @@ export function CustomSideNav({ menu, icon }: CustomSideNavProps) {
     <ul className="usa-sidenav-sub_list">
       {items.map((item, idx) => (
         <li key={idx}>
-          <Link
+          <a
             className={
               pathsMatch(currentPath, item.url.path) ? 'usa-current' : ''
             }
@@ -63,7 +62,7 @@ export function CustomSideNav({ menu, icon }: CustomSideNavProps) {
             onClick={handleNavClick}
           >
             {item.label}
-          </Link>
+          </a>
         </li>
       ))}
     </ul>
@@ -77,7 +76,7 @@ export function CustomSideNav({ menu, icon }: CustomSideNavProps) {
 
         return (
           <li key={idx} className={isActivePath ? 'active-level' : ''}>
-            <Link
+            <a
               className={
                 pathsMatch(currentPath, item.url.path) ? 'usa-current' : ''
               }
@@ -85,7 +84,7 @@ export function CustomSideNav({ menu, icon }: CustomSideNavProps) {
               onClick={handleNavClick}
             >
               {item.label}
-            </Link>
+            </a>
             {hasSubItems && renderSubSubList(item.links)}
           </li>
         )
@@ -102,7 +101,7 @@ export function CustomSideNav({ menu, icon }: CustomSideNavProps) {
 
         return (
           <li key={idx} className={isActivePath ? 'active-level' : ''}>
-            <Link
+            <a
               className={
                 pathsMatch(currentPath, item.url.path) ? 'usa-current' : ''
               }
@@ -110,7 +109,7 @@ export function CustomSideNav({ menu, icon }: CustomSideNavProps) {
               onClick={handleNavClick}
             >
               {item.label}
-            </Link>
+            </a>
             {hasSubItems && renderSubList(item.links)}
           </li>
         )
@@ -155,7 +154,7 @@ export function CustomSideNav({ menu, icon }: CustomSideNavProps) {
     return (
       <>
         <div className="sidenav-previous-page">
-          <Link href={deepLinks.url.path}>{deepLinks.label}</Link>
+          <a href={deepLinks.url.path}>{deepLinks.label}</a>
         </div>
         <ul className="usa-sidenav-list">
           {deepLinks.links?.map((link, idx) => {
@@ -164,18 +163,18 @@ export function CustomSideNav({ menu, icon }: CustomSideNavProps) {
 
             return (
               <li key={idx} className={isActivePath ? 'active-level' : ''}>
-                <Link
+                <a
                   className={isActivePath ? 'usa-current' : ''}
                   href={link.url.path}
                   onClick={handleNavClick}
                 >
                   {link.label}
-                </Link>
+                </a>
                 {hasSubItems && (
                   <ul className="usa-sidenav-sub_list">
                     {link.links.map((subLink, subIdx) => (
                       <li key={subIdx}>
-                        <Link
+                        <a
                           className={
                             pathsMatch(currentPath, subLink.url.path)
                               ? 'usa-current'
@@ -185,7 +184,7 @@ export function CustomSideNav({ menu, icon }: CustomSideNavProps) {
                           onClick={handleNavClick}
                         >
                           {subLink.label}
-                        </Link>
+                        </a>
                       </li>
                     ))}
                   </ul>
