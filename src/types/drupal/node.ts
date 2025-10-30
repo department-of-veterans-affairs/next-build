@@ -264,6 +264,7 @@ export interface NodeLandingPage extends DrupalNode {
   field_related_links: ParagraphListOfLinks
   field_spokes: ParagraphListOfLinks
   field_support_services: NodeSupportService[]
+  field_connect_with_us: FieldContentBlock | null
 }
 
 export interface NodeCampaignLandingPage extends DrupalNode {

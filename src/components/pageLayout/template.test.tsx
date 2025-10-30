@@ -69,10 +69,9 @@ describe('formatBannerType function', () => {
       id: '1',
       type: BANNER_RESOURCE_TYPES.PROMO,
       title: '',
-      key: '1',
     }
     const result = formatBannerType(bannerData)
-    expect(result).toEqual(<PromoBanner {...bannerData} />)
+    expect(result).toEqual(<PromoBanner key={bannerData.id} {...bannerData} />)
   })
 
   test('returns Banner for BANNER_RESOURCE_TYPES.BASIC', () => {
@@ -80,10 +79,9 @@ describe('formatBannerType function', () => {
       id: '3',
       type: BANNER_RESOURCE_TYPES.BASIC,
       title: '',
-      key: '3',
     }
     const result = formatBannerType(bannerData)
-    expect(result).toEqual(<Banner {...bannerData} />)
+    expect(result).toEqual(<Banner key={bannerData.id} {...bannerData} />)
   })
 
   test('returns null for unknown banner type', () => {

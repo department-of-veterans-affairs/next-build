@@ -9,6 +9,7 @@ export function BenefitsHub({
   intro,
   spokes,
   lastUpdated,
+  connectWithUs,
 }: FormattedBenefitsHub) {
   const iconConfig = getHubIcon(titleIcon)
 
@@ -47,6 +48,11 @@ export function BenefitsHub({
         ))}
         <ContentFooter lastUpdated={lastUpdated} />
       </article>
+      <va-accordion uswds bordered>
+        <va-accordion-item open header="Connect with us">
+          Test
+        </va-accordion-item>
+      </va-accordion>
     </div>
   )
 }
