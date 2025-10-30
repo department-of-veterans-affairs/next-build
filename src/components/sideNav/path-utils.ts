@@ -45,14 +45,24 @@ export function pathsMatch(path1: string, path2: string): boolean {
  *
  * @param fullPath - The path to search within
  * @param partialPath - The substring to search for
- * @returns true if fullPath contains partialPath after normalization
+ * @returns true if fullPath contains partialPath after normalization (returns false for empty partialPath)
  *
  * @example
  * pathContains("/test/path/deep", "/test/path")  // Returns: true
  * pathContains("/test/path", "/other")           // Returns: false
+ * pathContains("/test/path", "")                 // Returns: false
  */
-export function pathContains(fullPath: string, partialPath: string): boolean {
-  return normalizePath(fullPath).includes(normalizePath(partialPath))
+export function pathContains(
+  fullPath: string | null | undefined,
+  partialPath: string | null | undefined
+): boolean {
+  const normalizedFull = normalizePath(fullPath)
+  const normalizedPartial = normalizePath(partialPath)
+
+  // Don't consider empty strings as "contained"
+  if (!normalizedPartial) return false
+
+  return normalizedFull.includes(normalizedPartial)
 }
 
 /**
