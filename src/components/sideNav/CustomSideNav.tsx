@@ -1,12 +1,13 @@
 'use client'
 
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { SideNavMenu, SideNavItem } from '@/types/formatted/sideNav'
 import { SideNavMenuIcon } from './formatted-type'
 import { recordEvent } from '@/lib/analytics/recordEvent'
 import clsx from 'clsx'
 import { pathsMatch, pathContains, findCurrentPathDepth } from './path-utils'
+import { MobileNavTrigger } from './MobileNavTrigger'
 
 interface CustomSideNavProps {
   menu: SideNavMenu
@@ -16,10 +17,6 @@ interface CustomSideNavProps {
 export function CustomSideNav({ menu, icon }: CustomSideNavProps) {
   const currentPath = usePathname()
   const [isOpen, setIsOpen] = useState(false)
-  const [isSticky, setIsSticky] = useState(false)
-  const [triggerHeight, setTriggerHeight] = useState(0)
-  const sentinelRef = useRef<HTMLDivElement>(null)
-  const triggerRef = useRef<HTMLDivElement>(null)
 
   // Toggle sidebar handler
   const handleToggle = () => {
@@ -42,36 +39,6 @@ export function CustomSideNav({ menu, icon }: CustomSideNavProps) {
     document.addEventListener('keydown', handleKeyDown)
     return () => document.removeEventListener('keydown', handleKeyDown)
   }, [])
-
-  // IntersectionObserver for sticky positioning
-  useEffect(() => {
-    const sentinel = sentinelRef.current
-    const trigger = triggerRef.current
-    if (!sentinel || !trigger) return
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        // When sentinel is not intersecting (scrolled past), make trigger sticky
-        const shouldBeSticky = !entry.isIntersecting
-        setIsSticky(shouldBeSticky)
-
-        // Measure and store the trigger height when it becomes sticky
-        if (shouldBeSticky && triggerHeight === 0) {
-          setTriggerHeight(trigger.offsetHeight)
-        }
-      },
-      {
-        threshold: 0,
-        rootMargin: '0px',
-      }
-    )
-
-    observer.observe(sentinel)
-
-    return () => {
-      observer.disconnect()
-    }
-  }, [triggerHeight])
 
   const handleNavClick = () => {
     recordEvent({ event: 'nav-sidenav' })
@@ -278,34 +245,10 @@ export function CustomSideNav({ menu, icon }: CustomSideNavProps) {
         </div>
       </nav>
 
-      {/* Sentinel element for IntersectionObserver */}
-      <div ref={sentinelRef} className="sidenav-trigger-sentinel" />
-
-      {/* Placeholder to prevent layout shift when trigger becomes fixed */}
-      {isSticky && (
-        <div
-          className="sidenav-trigger-placeholder"
-          style={{ height: `${triggerHeight}px` }}
-        />
-      )}
-
-      {/* Mobile sidebar trigger */}
-      <div
-        ref={triggerRef}
-        className={clsx('va-btn-sidebarnav-trigger', {
-          'sidenav-trigger--sticky': isSticky,
-        })}
-        id="sidenav-trigger"
-      >
-        <button aria-controls="va-detailpage-sidebar" onClick={handleToggle}>
-          <strong>In this section</strong>
-          <va-icon
-            icon="menu"
-            size="3"
-            className="vads-u-color--link-default"
-          />
-        </button>
-      </div>
+      <MobileNavTrigger
+        onToggle={handleToggle}
+        sidebarId="va-detailpage-sidebar"
+      />
     </>
   )
 }
