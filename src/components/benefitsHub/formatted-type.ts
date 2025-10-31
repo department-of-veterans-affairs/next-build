@@ -6,4 +6,10 @@ export interface BenefitsHub extends PublishedEntity {
   titleIcon: string | null
   spokes: ListOfLinkTeasers[]
   intro: string | null
+  fieldLinks: Array<{
+    title: string
+    url: {
+      path: string
+    }
+  }> | null
 }

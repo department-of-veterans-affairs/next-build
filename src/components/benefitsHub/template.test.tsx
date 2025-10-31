@@ -13,6 +13,7 @@ const mockBenefitsData: FormattedBenefitsHub = {
   titleIcon: null,
   intro: 'This is a test intro for the Benefits Hub component.',
   spokes: [],
+  fieldLinks: null,
 }
 
 describe('BenefitsHub with valid data', () => {
@@ -27,6 +28,7 @@ describe('BenefitsHub with valid data', () => {
         titleIcon={null}
         spokes={[]}
         intro={null}
+        fieldLinks={null}
       />
     )
 
@@ -47,6 +49,7 @@ describe('BenefitsHub with valid data', () => {
         titleIcon={null}
         spokes={[]}
         intro={'This is a test intro for the Benefits Hub component.'}
+        fieldLinks={null}
       />
     )
 
@@ -66,6 +69,7 @@ describe('BenefitsHub with valid data', () => {
         titleIcon={'disability'}
         spokes={[]}
         intro={'Learn about disability compensation.'}
+        fieldLinks={null}
       />
     )
 
@@ -119,6 +123,7 @@ describe('BenefitsHub with valid data', () => {
         titleIcon={'health-care'}
         intro={'Manage your VA health care.'}
         spokes={mockSpokes}
+        fieldLinks={null}
       />
     )
 
@@ -144,6 +149,64 @@ describe('BenefitsHub with valid data', () => {
     expect(screen.getByText('October 31, 2021')).toHaveAttribute(
       'dateTime',
       '2021-10-31'
+    )
+  })
+
+  test('renders BenefitsHub component with fieldLinks (Not a Veteran section)', () => {
+    const mockFieldLinks = [
+      {
+        title: 'Family members and caregivers',
+        url: {
+          path: '/family-and-caregiver-benefits/',
+        },
+      },
+      {
+        title: 'Service members',
+        url: {
+          path: '/service-member-benefits/',
+        },
+      },
+    ]
+
+    render(
+      <BenefitsHub
+        id="5"
+        type=""
+        published={true}
+        lastUpdated="2024-01-01"
+        title={'Benefits Hub'}
+        titleIcon={null}
+        intro={'Information for different audiences.'}
+        spokes={[]}
+        fieldLinks={mockFieldLinks}
+      />
+    )
+
+    expect(screen.queryByText(/Benefits Hub/)).toBeInTheDocument()
+    expect(screen.queryByText(/Get information for:/)).toBeInTheDocument()
+
+    // Check for va-accordion-item with correct header attribute
+    const accordionItem = document.querySelector('va-accordion-item')
+    expect(accordionItem).toBeInTheDocument()
+    expect(accordionItem).toHaveAttribute('header', 'Not a Veteran?')
+
+    // Check for va-link elements with correct attributes
+    const familyLink = document.querySelector(
+      'va-link[text="Family members and caregivers"]'
+    )
+    expect(familyLink).toBeInTheDocument()
+    expect(familyLink).toHaveAttribute(
+      'href',
+      '/family-and-caregiver-benefits/'
+    )
+
+    const serviceMemberLink = document.querySelector(
+      'va-link[text="Service members"]'
+    )
+    expect(serviceMemberLink).toBeInTheDocument()
+    expect(serviceMemberLink).toHaveAttribute(
+      'href',
+      '/service-member-benefits/'
     )
   })
 })
