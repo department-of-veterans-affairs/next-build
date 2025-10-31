@@ -110,12 +110,12 @@ va-button#mdFormButton::part(button) {
 }
 
 #sidenav-trigger {
-  padding-top: 1rem;
   padding-left: calc(0.75rem + 0.5em);
   padding-right: calc(0.75rem + 0.5em);
   width: 100%;
   /* Override existing styles and make it under the open mobile nav */
   z-index: 299;
+  margin-top: 1rem;
   margin-bottom: 1rem;
 }
 
