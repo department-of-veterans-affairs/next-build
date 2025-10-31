@@ -17,6 +17,7 @@ const createMockLinkTeaser = (data: Partial<LinkTeaser>) =>
     type: 'paragraph--link_teaser' as const,
     options: null,
     parentField: null,
+    summary: null,
     ...data,
   }) as LinkTeaser
 
@@ -28,13 +29,10 @@ const mockRelatedLinks: ListOfLinkTeasers = {
     createMockLinkTeaser({
       uri: 'https://va.gov/burials-memorials/eligibility',
       title: 'Eligibility for burial in a VA national cemetery',
-      summary:
-        'Here is a summary for this URL so you can see how it displays underneath.',
     }),
     createMockLinkTeaser({
       uri: 'https://va.gov/burials-memorials/schedule-a-burial',
       title: 'Schedule a burial for a Veteran or family member',
-      summary: null,
     }),
   ],
 }
@@ -48,9 +46,6 @@ describe('RelatedLinks Component', () => {
     )
     expect(container.innerHTML).toContain(
       'href="https://va.gov/burials-memorials/eligibility"'
-    )
-    expect(container.innerHTML).toContain(
-      'Here is a summary for this URL so you can see how it displays underneath.'
     )
     expect(container.innerHTML).toContain(
       'Schedule a burial for a Veteran or family member'
@@ -106,5 +101,25 @@ describe('RelatedLinks Component', () => {
       'featured-content-header': sectionTitle,
       'featured-content-click-label': linkTitle,
     })
+  })
+
+  test('does not display link summaries even when they exist in the data', () => {
+    const summaryText =
+      'This summary should not be displayed in the rendered output'
+    const relatedLinks: ListOfLinkTeasers = {
+      ...mockRelatedLinks,
+      linkTeasers: [
+        createMockLinkTeaser({
+          uri: 'https://va.gov/example',
+          title: 'Example Link',
+          summary: summaryText,
+        }),
+      ],
+    }
+
+    const { container } = render(<RelatedLinks {...relatedLinks} />)
+
+    expect(container.innerHTML).toContain('Example Link')
+    expect(container.innerHTML).not.toContain(summaryText)
   })
 })

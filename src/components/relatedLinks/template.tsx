@@ -3,6 +3,10 @@ import { ListOfLinkTeasers } from '@/components/listOfLinkTeasers/formatted-type
 import { recordEvent } from '@/lib/analytics/recordEvent'
 import { LinkTeaser } from '../linkTeaser/formatted-type'
 
+/**
+ * Right now this is only used on the VAMC System and VAMC Facility pages as their own
+ * special way of displaying related links. Note that link summaries are not shown.
+ */
 export const RelatedLinks = ({
   linkTeasers,
   title,
@@ -27,7 +31,6 @@ export const RelatedLinks = ({
           text={link.title}
         />
       </p>
-      {link.summary && <p className="vads-u-margin--0">{link.summary}</p>}
     </>
   )
 
