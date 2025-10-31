@@ -55,7 +55,7 @@ export function BenefitsHub({
               class="va-accordion-item"
               level="2"
               open="true"
-              header="Not a Veteran?"
+              header="Not a Veteran or family member?"
               id="get-information-for"
               bordered
             >

@@ -188,7 +188,10 @@ describe('BenefitsHub with valid data', () => {
     // Check for va-accordion-item with correct header attribute
     const accordionItem = document.querySelector('va-accordion-item')
     expect(accordionItem).toBeInTheDocument()
-    expect(accordionItem).toHaveAttribute('header', 'Not a Veteran?')
+    expect(accordionItem).toHaveAttribute(
+      'header',
+      'Not a Veteran or family member?'
+    )
 
     // Check for va-link elements with correct attributes
     const familyLink = document.querySelector(
