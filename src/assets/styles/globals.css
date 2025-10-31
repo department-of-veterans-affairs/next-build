@@ -110,6 +110,7 @@ va-button#mdFormButton::part(button) {
 }
 
 #sidenav-trigger {
+  padding-top: 1rem;
   padding-left: calc(0.75rem + 0.5em);
   padding-right: calc(0.75rem + 0.5em);
   width: 100%;
@@ -138,6 +139,7 @@ va-button#mdFormButton::part(button) {
 
 /* Placeholder to prevent layout shift when trigger becomes fixed */
 .sidenav-trigger-placeholder {
+  margin-top: 1rem;
   width: 100%;
   /* Height is set dynamically via inline style */
   margin-bottom: 1rem;
