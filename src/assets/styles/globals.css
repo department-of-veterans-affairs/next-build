@@ -109,12 +109,36 @@ va-button#mdFormButton::part(button) {
   }
 }
 
-.va-btn-sidebarnav-trigger button {
-  position: sticky;
-  top: 1rem;
+#sidenav-trigger {
+  padding-left: calc(0.75rem + 0.5em);
+  padding-right: calc(0.75rem + 0.5em);
+  width: 100%;
+  /* Override existing styles and make it under the open mobile nav */
+  z-index: 299;
+  margin-bottom: 1rem;
 }
 
-.va-btn-sidebarnav-trigger {
-  padding-left: 0.5em;
-  padding-right: 0.5em;
+/* Sticky positioning for mobile sidebar trigger */
+#sidenav-trigger.sidenav-trigger--sticky {
+  position: fixed;
+  top: 0;
+  left: 0.25rem;
+  right: 0.25rem;
+  width: initial;
+  
+  background-color: white;
+}
+
+/* Sentinel element for IntersectionObserver */
+.sidenav-trigger-sentinel {
+  height: 1px;
+  width: 100%;
+  pointer-events: none;
+}
+
+/* Placeholder to prevent layout shift when trigger becomes fixed */
+.sidenav-trigger-placeholder {
+  width: 100%;
+  /* Height is set dynamically via inline style */
+  margin-bottom: 1rem;
 }
