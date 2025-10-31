@@ -8,7 +8,7 @@ describe('<LinkTeaser> component', () => {
   const baseProps = {
     id: 'cb0c2019-0f48-448f-98ca-205d80c8f6fe',
     entityId: 123,
-    type: 'paragraph--link_teaser',
+    type: 'paragraph--link_teaser' as const,
     uri: '/health-care/eligibility/',
     title: 'Health Care Benefits Eligibility',
     options: null,
