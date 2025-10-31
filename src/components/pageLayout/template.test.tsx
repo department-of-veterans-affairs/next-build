@@ -67,9 +67,9 @@ describe('formatBannerType function', () => {
   test('returns PromoBanner for BANNER_RESOURCE_TYPES.PROMO', () => {
     const bannerData = {
       id: '1',
-      key: '1',
       type: BANNER_RESOURCE_TYPES.PROMO,
       title: '',
+      key: '1',
     }
     const result = formatBannerType(bannerData)
     expect(result).toEqual(<PromoBanner {...bannerData} />)
@@ -78,9 +78,9 @@ describe('formatBannerType function', () => {
   test('returns Banner for BANNER_RESOURCE_TYPES.BASIC', () => {
     const bannerData = {
       id: '3',
-      key: '3',
       type: BANNER_RESOURCE_TYPES.BASIC,
       title: '',
+      key: '3',
     }
     const result = formatBannerType(bannerData)
     expect(result).toEqual(<Banner {...bannerData} />)
