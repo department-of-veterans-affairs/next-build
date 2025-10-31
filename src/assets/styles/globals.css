@@ -109,6 +109,13 @@ va-button#mdFormButton::part(button) {
   }
 }
 
+/* Override styles for the mobile nav trigger wrapper because we have our own system */
+.va-btn-sidebarnav-trigger {
+  padding: 0 !important;
+  z-index: unset !important;
+  width: 100%;
+}
+
 #sidenav-trigger {
   padding-left: calc(0.75rem + 0.5em);
   padding-right: calc(0.75rem + 0.5em);

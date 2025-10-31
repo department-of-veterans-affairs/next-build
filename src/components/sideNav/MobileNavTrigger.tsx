@@ -46,7 +46,7 @@ export function MobileNavTrigger({
   }, [triggerHeight])
 
   return (
-    <>
+    <div className="va-btn-sidebarnav-trigger">
       {/* Sentinel element for IntersectionObserver */}
       <div ref={sentinelRef} className="sidenav-trigger-sentinel" />
 
@@ -61,7 +61,7 @@ export function MobileNavTrigger({
       {/* Mobile sidebar trigger */}
       <div
         ref={triggerRef}
-        className={clsx('va-btn-sidebarnav-trigger', {
+        className={clsx({
           'sidenav-trigger--sticky': isSticky,
         })}
         id="sidenav-trigger"
@@ -75,6 +75,6 @@ export function MobileNavTrigger({
           />
         </button>
       </div>
-    </>
+    </div>
   )
 }
