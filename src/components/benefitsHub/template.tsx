@@ -49,27 +49,29 @@ export function BenefitsHub({
         <ContentFooter lastUpdated={lastUpdated} />
       </article>
       <div className="usa-width-one-third" id="hub-rail">
-        {fieldLinks && fieldLinks.length > 0 && (
-          <va-accordion-item
-            class="va-accordion-item"
-            level="2"
-            open="true"
-            header="Not a Veteran?"
-            id="get-information-for"
-            bordered
-          >
-            <section>
-              <h3 className="vads-u-font-size--h4">Get information for:</h3>
-              <ul className="va-nav-linkslist-list links">
-                {fieldLinks.map((link, index) => (
-                  <li key={index}>
-                    <va-link href={link.url.path} text={link.title} />
-                  </li>
-                ))}
-              </ul>
-            </section>
-          </va-accordion-item>
-        )}
+        <va-accordion bordered uswds>
+          {fieldLinks && fieldLinks.length > 0 && (
+            <va-accordion-item
+              class="va-accordion-item"
+              level="2"
+              open="true"
+              header="Not a Veteran?"
+              id="get-information-for"
+              bordered
+            >
+              <section>
+                <h3 className="vads-u-font-size--h4">Get information for:</h3>
+                <ul className="va-nav-linkslist-list links">
+                  {fieldLinks.map((link, index) => (
+                    <li key={index}>
+                      <va-link href={link.url.path} text={link.title} />
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            </va-accordion-item>
+          )}
+        </va-accordion>
       </div>
     </div>
   )
