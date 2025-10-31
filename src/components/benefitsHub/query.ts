@@ -17,7 +17,6 @@ export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude([
     'field_spokes',
     'field_spokes.field_va_paragraphs',
-    // 'field_links',
   ])
 }
 
