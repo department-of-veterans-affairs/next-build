@@ -122,7 +122,7 @@ describe('HealthCareLocalFacility with valid data', () => {
         name: /Other services at Framingham VA Clinic/,
       })
     ).toBeInTheDocument()
-    expect(container.querySelectorAll('ul > li > p > va-link')).toHaveLength(10)
+    expect(container.querySelectorAll('ul > li > p > va-link')).toHaveLength(8)
   })
 
   test('renders the location services', () => {

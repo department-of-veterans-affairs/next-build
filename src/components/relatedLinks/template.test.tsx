@@ -122,4 +122,30 @@ describe('RelatedLinks Component', () => {
     expect(container.innerHTML).toContain('Example Link')
     expect(container.innerHTML).not.toContain(summaryText)
   })
+
+  test('limits displayed links to MAX_SHOWN_LINKS (8) when there are more links', () => {
+    const manyLinks: ListOfLinkTeasers = {
+      ...mockRelatedLinks,
+      linkTeasers: Array.from({ length: 10 }, (_, i) =>
+        createMockLinkTeaser({
+          uri: `https://va.gov/example-${i + 1}`,
+          title: `Link ${i + 1}`,
+        })
+      ),
+    }
+
+    const { container } = render(<RelatedLinks {...manyLinks} />)
+
+    // Should render exactly 8 va-link elements
+    const links = container.querySelectorAll('va-link')
+    expect(links).toHaveLength(8)
+
+    // First 8 links should be present
+    expect(container.innerHTML).toContain('Link 1')
+    expect(container.innerHTML).toContain('Link 8')
+
+    // 9th and 10th links should not be present
+    expect(container.innerHTML).not.toContain('Link 9')
+    expect(container.innerHTML).not.toContain('Link 10')
+  })
 })

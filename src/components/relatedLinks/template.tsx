@@ -3,6 +3,8 @@ import { ListOfLinkTeasers } from '@/components/listOfLinkTeasers/formatted-type
 import { recordEvent } from '@/lib/analytics/recordEvent'
 import { LinkTeaser } from '../linkTeaser/formatted-type'
 
+const MAX_SHOWN_LINKS = 8
+
 /**
  * Right now this is only used on the VAMC System and VAMC Facility pages as their own
  * special way of displaying related links. Note that link summaries are not shown.
@@ -47,7 +49,7 @@ export const RelatedLinks = ({
 
       {linkTeasers.length > 1 && (
         <ul className="usa-unstyled-list">
-          {linkTeasers.map((link, index) => (
+          {linkTeasers.slice(0, MAX_SHOWN_LINKS).map((link, index) => (
             <li
               className={
                 index < linkTeasers.length - 1 ? 'vads-u-margin-bottom--2' : ''
