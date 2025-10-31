@@ -34,7 +34,12 @@ export const ListOfLinkTeasers = ({
     )}
     <ul className="usa-unstyled-list">
       {linkTeasers.map((linkTeaser) => (
-        <LinkTeaser key={linkTeaser.id} sectionHeader={title} isHubPage={isHubPage} {...linkTeaser} />
+        <LinkTeaser
+          key={linkTeaser.id}
+          sectionHeader={title}
+          isHubPage={isHubPage}
+          {...linkTeaser}
+        />
       ))}
     </ul>
   </section>
