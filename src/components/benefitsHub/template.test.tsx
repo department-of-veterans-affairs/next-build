@@ -18,8 +18,8 @@ const mockBenefitsData: FormattedBenefitsHub = {
   spokes: [],
   connectWithUs: {
     field_email_updates_link: {
-      title: 'Subscribe to email updates',
-      url: 'https://www.va.gov/subscribe',
+      title: '',
+      url: '',
       options: [],
       uri: '',
     },
@@ -28,20 +28,19 @@ const mockBenefitsData: FormattedBenefitsHub = {
       value: null,
       platform_values: {
         facebook: {
-          value: 'https://www.facebook.com/VeteransAffairs',
+          value: '',
         },
         instagram: {
-          value: 'https://www.instagram.com/VeteransAffairs/',
+          value: '',
         },
         twitter: {
-          value: 'https://twitter.com/VAVetBenefits',
+          value: '',
         },
         linkedin: {
-          value:
-            'https://www.linkedin.com/company/department-of-veterans-affairs',
+          value: '',
         },
         youtube: {
-          value: 'https://www.youtube.com/user/VeteransAffairs',
+          value: '',
         },
       },
     },
