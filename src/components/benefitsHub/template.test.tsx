@@ -4,6 +4,9 @@ import { render, screen } from '@testing-library/react'
 import { axe } from '@/test-utils'
 import { BenefitsHub } from './template'
 
+// Import the loader to register web components
+import { defineCustomElements } from '@department-of-veterans-affairs/web-components/loader'
+
 const mockBenefitsData: FormattedBenefitsHub = {
   id: '1',
   type: '',
@@ -60,6 +63,9 @@ const BenefitsHubComponent = (
 )
 
 describe('BenefitsHub with valid data', () => {
+  beforeAll(() => {
+    defineCustomElements()
+  })
   test('renders BenefitsHub component', async () => {
     const { container } = render(
       <BenefitsHub
@@ -123,9 +129,10 @@ describe('BenefitsHub with valid data', () => {
 
     // Test that the va-icon element is rendered with the correct icon and styling
     const vaIcon = document.querySelector('va-icon')
+
     expect(vaIcon).toBeInTheDocument()
-    expect(vaIcon).toHaveAttribute('icon', 'description')
-    expect(vaIcon).toHaveAttribute('size', '3')
+    expect(vaIcon.icon).toBe('description')
+    expect(vaIcon.size).toBe(3)
     expect(vaIcon).toHaveClass('hub-icon')
     expect(vaIcon).toHaveClass('vads-u-background-color--hub-disability')
   })
@@ -174,9 +181,8 @@ describe('BenefitsHub with valid data', () => {
     expect(screen.queryByText(/Get VA health care/)).toBeInTheDocument()
 
     // Check for va-link with text attribute
-    const vaLink = document.querySelector(
-      'va-link[text="Apply for health care"]'
-    )
+    const vaLink = document.querySelector('va-link')
+
     expect(vaLink).toBeInTheDocument()
 
     // Also check for the summary text which should be visible

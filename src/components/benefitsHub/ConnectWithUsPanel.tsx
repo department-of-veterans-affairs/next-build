@@ -7,8 +7,8 @@ export function ConnectWithUsPanel({ connectWithUs }: ConnectWithUsProps) {
   const socialLinksObject =
     connectWithUs.field_social_media_links.platform_values || null
   return (
-    <va-accordion-item open bordered uswds header="Connect with us" level="2">
-      <h2 className="vads-u-font-size--h4">Get updates</h2>
+    <va-accordion-item open bordered header="Connect with us" level="2">
+      <h3>Get updates</h3>
       {connectWithUs.field_email_updates_link.url &&
         connectWithUs.field_email_updates_link.title && (
           <div>
@@ -23,7 +23,7 @@ export function ConnectWithUsPanel({ connectWithUs }: ConnectWithUsProps) {
             />
           </div>
         )}
-      <h2 className="vads-u-font-size--h4">Follow us</h2>
+      <h3>Follow us</h3>
       <ul className="va-nav-linkslist-list social">
         {socialLinksObject.twitter?.value && (
           <li>
