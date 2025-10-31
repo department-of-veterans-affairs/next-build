@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { SideNavMenu, SideNavItem } from '@/types/formatted/sideNav'
 import { SideNavMenuIcon } from './formatted-type'
@@ -15,13 +15,16 @@ interface CustomSideNavProps {
 
 export function CustomSideNav({ menu, icon }: CustomSideNavProps) {
   const currentPath = usePathname()
+  const [isOpen, setIsOpen] = useState(false)
+
+  // Toggle sidebar handler
+  const handleToggle = () => {
+    setIsOpen((prev) => !prev)
+  }
 
   // Close sidebar handler
   const handleClose = () => {
-    const sidebar = document.getElementById('va-detailpage-sidebar')
-    if (sidebar) {
-      sidebar.style.display = 'none'
-    }
+    setIsOpen(false)
   }
 
   // Keyboard escape handler
@@ -198,39 +201,67 @@ export function CustomSideNav({ menu, icon }: CustomSideNavProps) {
   }
 
   return (
-    <nav
-      data-template="navigation/sidebar_nav"
-      aria-label="Secondary"
-      id="va-detailpage-sidebar"
-      data-drupal-sidebar="true"
-      className="va-drupal-sidebarnav va-sidebarnav vads-grid-col-3 vads-u-margin-bottom--2"
-    >
-      <div aria-modal="true" role="dialog" aria-labelledby="sidebar_header">
-        <button
-          className="va-sidenav-btn-close va-sidebarnav-close"
-          type="button"
-          aria-label="Close this menu"
-          onClick={handleClose}
-        >
-          <va-icon icon="close" size="3" className="vads-u-color--gray-dark" />
-        </button>
-
-        <div className="vads-u-display--flex vads-u-align-items--center left-side-nav-title">
-          {icon && (
+    <>
+      <nav
+        data-template="navigation/sidebar_nav"
+        aria-label="Secondary"
+        id="va-detailpage-sidebar"
+        data-drupal-sidebar="true"
+        className={clsx(
+          'va-drupal-sidebarnav va-sidebarnav vads-grid-col-3 vads-u-margin-bottom--2',
+          { 'va-sidebarnav--opened': isOpen }
+        )}
+      >
+        <div aria-modal="true" role="dialog" aria-labelledby="sidebar_header">
+          <button
+            className="va-sidenav-btn-close va-sidebarnav-close"
+            type="button"
+            aria-label="Close this menu"
+            onClick={handleClose}
+          >
             <va-icon
-              icon={icon.name}
+              icon="close"
               size="3"
-              className={clsx(
-                'hub-icon vads-u-color--white vads-u-display--flex vads-u-align-items--center vads-u-justify-content--center vads-u-margin-right--1',
-                `vads-u-background-color--${icon.backgroundColor}`
-              )}
+              className="vads-u-color--gray-dark"
             />
-          )}
-          <h4 id="sidebar_header">{firstLink.label}</h4>
-        </div>
+          </button>
 
-        {depth <= 2 ? renderShallowNav() : renderDeepNav()}
+          <div className="vads-u-display--flex vads-u-align-items--center left-side-nav-title">
+            {icon && (
+              <va-icon
+                icon={icon.name}
+                size="3"
+                className={clsx(
+                  'hub-icon vads-u-color--white vads-u-display--flex vads-u-align-items--center vads-u-justify-content--center vads-u-margin-right--1',
+                  `vads-u-background-color--${icon.backgroundColor}`
+                )}
+              />
+            )}
+            <h4 id="sidebar_header">{firstLink.label}</h4>
+          </div>
+
+          {depth <= 2 ? renderShallowNav() : renderDeepNav()}
+        </div>
+      </nav>
+
+      {/* Mobile sidebar trigger */}
+      <div className="vads-grid-row vads-u-width--full vads-u-margin-bottom--2">
+        <div className="vads-grid-col-12">
+          <div className="va-btn-sidebarnav-trigger">
+            <button
+              aria-controls="va-detailpage-sidebar"
+              onClick={handleToggle}
+            >
+              <strong>In this section</strong>
+              <va-icon
+                icon="menu"
+                size="3"
+                className="vads-u-color--link-default"
+              />
+            </button>
+          </div>
+        </div>
       </div>
-    </nav>
+    </>
   )
 }

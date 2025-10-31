@@ -20,7 +20,12 @@ export function BenefitsDetailPage({
   entityPath,
 }: FormattedBenefitsDetailPage) {
   return (
-    <SideNavLayout menu={menu} menuIcon={menuIcon} useWidget={false}>
+    <SideNavLayout
+      menu={menu}
+      menuIcon={menuIcon}
+      useWidget={false}
+      className="va-l-detail-page"
+    >
       <article className="usa-content vads-u-padding-bottom--0">
         <h1>{title}</h1>
 

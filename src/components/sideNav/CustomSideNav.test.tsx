@@ -145,18 +145,16 @@ describe('CustomSideNav', () => {
       ])
       mockUsePathname.mockReturnValue('/test/section1/item1')
 
-      render(<CustomSideNav menu={menu} />)
+      const { container } = render(<CustomSideNav menu={menu} />)
 
       // Should render accordion buttons
-      const accordionButtons = screen.getAllByRole('button')
-      // Filter out the close button
-      const sectionButtons = accordionButtons.filter(
-        (btn) => !btn.classList.contains('va-sidenav-btn-close')
+      const accordionButtons = container.querySelectorAll(
+        '.usa-accordion-button'
       )
 
-      expect(sectionButtons).toHaveLength(2)
-      expect(sectionButtons[0]).toHaveTextContent('Section 1')
-      expect(sectionButtons[1]).toHaveTextContent('Section 2')
+      expect(accordionButtons).toHaveLength(2)
+      expect(accordionButtons[0]).toHaveTextContent('Section 1')
+      expect(accordionButtons[1]).toHaveTextContent('Section 2')
 
       // Links should be inside the accordion content
       expect(screen.getByRole('link', { name: 'Item 1' })).toBeInTheDocument()
@@ -336,19 +334,41 @@ describe('CustomSideNav', () => {
   })
 
   describe('User Interactions', () => {
+    function openSidebar() {
+      const menuTrigger = screen.getByRole('button', {
+        name: /in this section/i,
+      })
+      fireEvent.click(menuTrigger)
+    }
+
+    it('opens sidebar when menu trigger is clicked', () => {
+      const menu = createMenu([createNavItem('Item 1', '/test/item1')])
+
+      render(<CustomSideNav menu={menu} />)
+
+      const sidebar = document.getElementById('va-detailpage-sidebar')
+      openSidebar()
+
+      expect(sidebar).toHaveClass('va-sidebarnav--opened')
+    })
+
     it('hides sidebar when close button is clicked', () => {
       const menu = createMenu([createNavItem('Item 1', '/test/item1')])
 
       render(<CustomSideNav menu={menu} />)
 
       const sidebar = document.getElementById('va-detailpage-sidebar')
+
+      openSidebar()
+      expect(sidebar).toHaveClass('va-sidebarnav--opened')
+
       const closeButton = screen.getByRole('button', {
         name: /close this menu/i,
       })
 
       fireEvent.click(closeButton)
 
-      expect(sidebar).toHaveStyle({ display: 'none' })
+      expect(sidebar).not.toHaveClass('va-sidebarnav--open')
     })
 
     it('hides sidebar when Escape key is pressed', () => {
@@ -358,9 +378,12 @@ describe('CustomSideNav', () => {
 
       const sidebar = document.getElementById('va-detailpage-sidebar')
 
+      openSidebar()
+      expect(sidebar).toHaveClass('va-sidebarnav--opened')
+
       fireEvent.keyDown(document, { key: 'Escape' })
 
-      expect(sidebar).toHaveStyle({ display: 'none' })
+      expect(sidebar).not.toHaveClass('va-sidebarnav--open')
     })
 
     it('does not hide sidebar for other keys', () => {
@@ -370,9 +393,12 @@ describe('CustomSideNav', () => {
 
       const sidebar = document.getElementById('va-detailpage-sidebar')
 
+      openSidebar()
+      expect(sidebar).toHaveClass('va-sidebarnav--opened')
+
       fireEvent.keyDown(document, { key: 'Enter' })
 
-      expect(sidebar).not.toHaveStyle({ display: 'none' })
+      expect(sidebar).toHaveClass('va-sidebarnav--opened')
     })
 
     it('records analytics event when nav link is clicked', () => {
