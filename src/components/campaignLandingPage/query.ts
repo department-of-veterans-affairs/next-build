@@ -11,6 +11,7 @@ import {
   fetchSingleEntityOrPreview,
 } from '@/lib/drupal/query'
 import { formatter as formatImage } from '@/components/mediaImage/query'
+import { queries } from '@/lib/drupal/queries'
 
 // Define the query params for fetching node--campaign_landing_page.
 export const params: QueryParams<null> = () => {
@@ -25,6 +26,8 @@ export const params: QueryParams<null> = () => {
     'field_clp_what_you_can_do_promos.field_promo_link',
     'field_clp_what_you_can_do_promos.field_image',
     'field_clp_what_you_can_do_promos.field_image.image',
+    'field_media',
+    'field_clp_video_panel_more_video',
   ])
 }
 
@@ -98,6 +101,19 @@ export const formatter: QueryFormatter<
           image: block.field_image && formatImage(block.field_image),
           link: block.field_promo_link,
         })),
+    },
+    video: {
+      show: entity.field_clp_video_panel,
+      header: entity.field_clp_video_panel_header,
+      media:
+        entity.field_media &&
+        queries.formatData('media--video', entity.field_media),
+      button:
+        entity.field_clp_video_panel_more_video &&
+        queries.formatData(
+          'paragraph--button',
+          entity.field_clp_video_panel_more_video
+        ),
     },
   }
 }
