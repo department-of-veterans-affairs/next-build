@@ -26,6 +26,7 @@ export type MediaVideo = {
   name: string
   field_description: string
   field_duration: number
+  field_publication_date: string
   field_media_video_embed_field: string
 }
 
