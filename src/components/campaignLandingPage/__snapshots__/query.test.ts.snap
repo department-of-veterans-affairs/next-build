@@ -276,6 +276,12 @@ exports[`CampaignLandingPage formatData outputs formatted data 1`] = `
   ],
   "title": "PACT Act and survivors",
   "type": "node--campaign_landing_page",
+  "video": {
+    "button": null,
+    "header": null,
+    "media": null,
+    "show": false,
+  },
   "whatYouCanDo": {
     "header": "Edit Heading",
     "intro": "Edit Introduction",
