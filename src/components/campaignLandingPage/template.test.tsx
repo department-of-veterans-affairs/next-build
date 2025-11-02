@@ -7,12 +7,13 @@ import { ParagraphLinkTeaser } from '@/types/drupal/paragraph'
 
 import { defineCustomElements } from '@department-of-veterans-affairs/web-components/loader'
 import { WhyThisMatters } from './WhyThisMatters'
-import { DrupalFile } from 'next-drupal'
 import {
   MediaImage,
   MediaImageLinks,
+  MediaVideo,
 } from '@/components/mediaDocument/formatted-type'
 import { FieldLink } from '@/types/drupal/field_type'
+import { Button } from '../button/formatted-type'
 
 const mockBaseProps: Partial<CampaignLandingPageProps> = {
   title: 'Testing title',
@@ -73,6 +74,18 @@ const mockBaseProps: Partial<CampaignLandingPageProps> = {
         } as unknown as MediaImage,
       },
     ],
+  },
+  video: {
+    show: true,
+    header: 'video header',
+    media: {
+      field_media_video_embed_field: 'https://example.com/video',
+      name: 'some video',
+    } as MediaVideo,
+    button: {
+      url: 'https://example.com/button-url',
+      label: 'Video button',
+    } as Button,
   },
 }
 
