@@ -2834,6 +2834,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@openfeature/core@npm:^1.9.1":
+  version: 1.9.1
+  resolution: "@openfeature/core@npm:1.9.1"
+  checksum: e69eef52e5467eec5376847f1dd60737610d4e52e592e3957db210efb8d84c6c71d60604a0de14c148687e1caebb6981a85eb18fbf70c92c9d5177f7c76ff047
+  languageName: node
+  linkType: hard
+
+"@openfeature/server-sdk@npm:^1.20.0":
+  version: 1.20.0
+  resolution: "@openfeature/server-sdk@npm:1.20.0"
+  peerDependencies:
+    "@openfeature/core": ^1.9.0
+  checksum: c4ace1f759badff25fc7ee1a53e2d16ac68612d7173626068c6d6fbb5aba9b8351f38f2ae19aea0f5d48727109f23edb02b657d2f1aee7adf400f6f67c9a18cd
+  languageName: node
+  linkType: hard
+
 "@openfeature/server-sdk@npm:~1.18.0":
   version: 1.18.0
   resolution: "@openfeature/server-sdk@npm:1.18.0"
@@ -12337,6 +12353,8 @@ __metadata:
     "@fortawesome/fontawesome-free": ^5.15.4
     "@next/env": 15.5.0
     "@octokit/rest": ^21.0.1
+    "@openfeature/core": ^1.9.1
+    "@openfeature/server-sdk": ^1.20.0
     "@opentelemetry/api": ^1.9.0
     "@opentelemetry/auto-instrumentations-node": ^0.65.0
     "@opentelemetry/exporter-trace-otlp-http": ^0.206.0
