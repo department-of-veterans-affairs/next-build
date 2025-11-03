@@ -56,9 +56,6 @@ describe('<QuestionAnswerData> component renders with data', () => {
         title: 'Request your military service records (including DD214)',
         options: [null],
         summary: null,
-        componentParams: {
-          sectionHeader: '',
-        },
       },
       {
         id: '6af4b68b-c18a-4ec8-8598-6c5348aaa349',
@@ -67,9 +64,6 @@ describe('<QuestionAnswerData> component renders with data', () => {
         title: 'Change your address on file with VA',
         options: [null],
         summary: null,
-        componentParams: {
-          sectionHeader: '',
-        },
       },
       {
         id: '8b4e3067-333d-4739-9682-9ab191fe7ad1',
@@ -78,9 +72,6 @@ describe('<QuestionAnswerData> component renders with data', () => {
         title: 'Managing your VA.gov profile',
         options: [null],
         summary: null,
-        componentParams: {
-          sectionHeader: '',
-        },
       },
     ],
   }
