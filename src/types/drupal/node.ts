@@ -322,7 +322,7 @@ export interface NodeCampaignLandingPage extends DrupalNode {
   field_clp_spotlight_header: string | null
   field_clp_spotlight_intro_text: string | null
   field_clp_spotlight_link_teasers: ParagraphLinkTeaser[]
-  field_clp_spotlight_cta: FieldLink | null
+  field_clp_spotlight_cta: ParagraphButton | null
 
   // Connect with us
   field_connect_with_us: {
