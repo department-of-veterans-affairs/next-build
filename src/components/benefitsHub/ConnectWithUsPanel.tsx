@@ -5,7 +5,7 @@ type ConnectWithUsProps = {
 }
 export function ConnectWithUsPanel({ connectWithUs }: ConnectWithUsProps) {
   const socialLinksObject =
-    connectWithUs.field_social_media_links.platform_values || null
+    connectWithUs.field_social_media_links.platform_values
   return (
     <va-accordion-item open bordered header="Connect with us" level="2">
       <h3>Get updates</h3>
