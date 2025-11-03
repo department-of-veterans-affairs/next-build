@@ -28,6 +28,8 @@ export const params: QueryParams<null> = () => {
     'field_clp_what_you_can_do_promos.field_image.image',
     'field_media',
     'field_clp_video_panel_more_video',
+    'field_clp_spotlight_cta',
+    'field_clp_spotlight_link_teasers',
   ])
 }
 
@@ -114,6 +116,17 @@ export const formatter: QueryFormatter<
           'paragraph--button',
           entity.field_clp_video_panel_more_video
         ),
+    },
+    spotlight: {
+      show: entity.field_clp_spotlight_panel,
+      header: entity.field_clp_spotlight_header,
+      intro: entity.field_clp_spotlight_intro_text,
+      cta:
+        entity.field_clp_spotlight_cta &&
+        queries.formatData('paragraph--button', entity.field_clp_spotlight_cta),
+      teasers: (entity.field_clp_spotlight_link_teasers ?? []).map((teaser) =>
+        queries.formatData('paragraph--link_teaser', teaser)
+      ),
     },
   }
 }
