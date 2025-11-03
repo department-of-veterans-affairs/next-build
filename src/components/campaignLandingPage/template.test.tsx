@@ -14,6 +14,7 @@ import {
 } from '@/components/mediaDocument/formatted-type'
 import { FieldLink } from '@/types/drupal/field_type'
 import { Button } from '../button/formatted-type'
+import { VideoPanel } from './VideoPanel'
 
 const mockBaseProps: Partial<CampaignLandingPageProps> = {
   title: 'Testing title',
@@ -81,6 +82,8 @@ const mockBaseProps: Partial<CampaignLandingPageProps> = {
     media: {
       field_media_video_embed_field: 'https://example.com/video',
       name: 'some video',
+      field_duration: 70,
+      field_publication_date: '2025-11-03',
     } as MediaVideo,
     button: {
       url: 'https://example.com/button-url',
@@ -188,5 +191,21 @@ describe('CampaignLandingPage->WhyThisMatters', () => {
     mockBaseProps.audience.map(({ name }) => {
       expect(screen.getByText(name)).toBeInTheDocument()
     })
+  })
+})
+
+describe('CampaignLandingPage->VideoPanel', () => {
+  beforeEach(async () => {
+    await render(
+      <VideoPanel {...(mockBaseProps as CampaignLandingPageProps)} />
+    )
+  })
+
+  it('shows correct publication date', () => {
+    expect(screen.getByText(/November 3, 2025/)).toBeInTheDocument()
+  })
+
+  it('shows correct duration label', () => {
+    expect(screen.getByText(/1:10 minutes/)).toBeInTheDocument()
   })
 })

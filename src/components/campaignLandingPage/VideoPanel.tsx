@@ -1,4 +1,15 @@
+import { secondsToDurationLabel } from '@/lib/utils/time'
 import { CampaignLandingPageProps } from './template'
+import { format, parse } from 'date-fns'
+
+const formatPublicationDate = (dateStr: string) => {
+  try {
+    const date = parse(dateStr, 'yyyy-MM-dd', new Date())
+    return format(date, 'MMMM d, yyyy')
+  } catch {
+    return null
+  }
+}
 
 export const VideoPanel = ({ video }: CampaignLandingPageProps) => {
   if (!video.show) {
@@ -29,13 +40,11 @@ export const VideoPanel = ({ video }: CampaignLandingPageProps) => {
 
           {video.media?.field_duration && (
             <p className="vads-u-font-size--sm vads-u-margin--0">
-              {video.media.field_duration}
+              {secondsToDurationLabel(video.media.field_duration)}
               {video.media.field_publication_date && (
                 <>
-                  &bull;
-                  {new Date(
-                    video.media.field_publication_date
-                  ).toLocaleDateString()}
+                  &nbsp; &bull; &nbsp;
+                  {formatPublicationDate(video.media.field_publication_date)}
                 </>
               )}
             </p>
