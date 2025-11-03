@@ -15,6 +15,7 @@ import {
 import { FieldLink } from '@/types/drupal/field_type'
 import { Button } from '../button/formatted-type'
 import { VideoPanel } from './VideoPanel'
+import { LinkTeaser } from '../linkTeaser/formatted-type'
 
 const mockBaseProps: Partial<CampaignLandingPageProps> = {
   title: 'Testing title',
@@ -90,6 +91,27 @@ const mockBaseProps: Partial<CampaignLandingPageProps> = {
       label: 'Video button',
     } as Button,
   },
+  spotlight: {
+    show: true,
+    header: 'spotlight header',
+    intro: 'spotlight intro',
+    cta: {
+      url: 'https://example.com/spotlight-cta-url',
+      label: 'spotlight CTA',
+    } as Button,
+    teasers: [
+      {
+        uri: '?teaser-1',
+        title: 'Teaser 1 link',
+        summary: 'Summary for teaser 1',
+      } as LinkTeaser,
+      {
+        uri: '?teaser-2',
+        title: 'Teaser 2 link',
+        summary: 'Summary for teaser 2',
+      } as LinkTeaser,
+    ],
+  },
 }
 
 jest.mock('next/image', () => ({
@@ -111,6 +133,9 @@ describe('CampaignLandingPage with valid data', () => {
 
     expect(screen.getByTestId('hero-banner')).toBeInTheDocument()
     expect(screen.getByTestId('why-this-matters')).toBeInTheDocument()
+    expect(screen.getByTestId('what-you-can-do')).toBeInTheDocument()
+    expect(screen.getByTestId('video-panel')).toBeInTheDocument()
+    expect(screen.getByTestId('spotlight-panel')).toBeInTheDocument()
 
     // TODO: Check that the other components rendered once they're built
   })
