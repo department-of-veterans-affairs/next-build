@@ -7,6 +7,7 @@ import {
 } from '@/components/mediaDocument/formatted-type'
 import { ParagraphLinkTeaser } from '@/types/drupal/paragraph'
 import { Button } from '../button/formatted-type'
+import { LinkTeaser } from '../linkTeaser/formatted-type'
 
 type Link = {
   href: string
@@ -39,5 +40,12 @@ export interface CampaignLandingPage extends PublishedEntity {
     header: string
     media: MediaVideo
     button: Button
+  }
+  spotlight: {
+    show: boolean
+    header: string | null
+    intro: string | null
+    cta: Button | null
+    teasers: LinkTeaser[]
   }
 }
