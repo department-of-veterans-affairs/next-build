@@ -55,7 +55,6 @@ In order for rollout to proceed, a few things need to be done on the CMS side.
 1. **A Next Drupal content entity must exist for the content type.** The primary function of this content entity is to control how the CMS manages content preview for the content type. The procedure for creating a content entity is described in the [Preview documentation under "Content Configuration"](./preview.md#content-configuration).
 
 1. **A feature flag must exist for the content type.** Feature flags for content types are of the form `FEATURE_NEXT_BUILD_CONTENT_<MACHINE_NAME>`, where the machine name is the machine name of that content type in Drupal, in all caps. The machine name should match the machine name in Drupal, even if that machine name is truncated or misspelled. So for example:
-
    - `FEATURE_NEXT_BUILD_CONTENT_VBA_FACILITY`
    - `FEATURE_NEXT_BUILD_CONTENT_HEALTH_CARE_REGION_DETAIL_PAGE`
    - `FEATURE_NEXT_BUILD_CONTENT_VAMC_SYSTEM_MEDICAL_RECORDS_OFFI`

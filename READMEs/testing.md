@@ -74,7 +74,6 @@ This project can be tested for a11y compliance in several ways:
 
 - Individual Jest unit tests using jest-axe.
 - Individual Playwright tests using Playwright-axe. (see: `playwright/tests/newsStory.spec.js`).
-
   - Any individual test can call these commands to check a given page:
 
     ```js

@@ -7,22 +7,18 @@ Environment updates run through the following steps using GitHub Actions and Arg
 1. Passing CI workflow in main branch triggers ["Create Production Tag" workflow](https://github.com/department-of-veterans-affairs/next-build/actions/workflows/production-tag.yml)
 
 2. Tag creation triggers ["Create and Commit Next-Build Docker Image" workflow](https://github.com/department-of-veterans-affairs/next-build/actions/workflows/mirror-images.yml)
-
    - Docker image uploaded to Amazon Elastic Container Registry [dsva/next-build-node](https://us-gov-west-1.console.amazonaws-us-gov.com/ecr/repositories/dsva/next-build-node?region=us-gov-west-1).
 
 3. Successful image creation triggers ["Update infrastructure manifest" workflow](https://github.com/department-of-veterans-affairs/next-build/actions/workflows/update-manifest.yml)
-
    - This step updates the Docker image tags for the next-build-test and next-build apps, for each env, in the [vsp-infra-application-manifests repo](https://github.com/department-of-veterans-affairs/vsp-infra-application-manifests).
 
 4. ArgoCD detects change to the Docker image tag in each app env within the vsp-infra-application-manifests repo
-
    - apps/next-build-test/staging/values.yaml --> https://argocd.vfs.va.gov/applications/next-build-test-staging
    - apps/next-build-test/prod/values.yaml --> https://argocd.vfs.va.gov/applications/next-build-test-prod
    - apps/next-build/staging/values.yaml --> https://argocd.vfs.va.gov/applications/next-build-staging
    - apps/next-build/prod/values.yaml --> https://argocd.vfs.va.gov/applications/next-build-prod
 
 5. ArgoCD replaces Docker image in EKS
-
    - https://us-gov-west-1.console.amazonaws-us-gov.com/eks/home?region=us-gov-west-1#/clusters/dsva-vagov-staging-cluster
    - https://us-gov-west-1.console.amazonaws-us-gov.com/eks/home?region=us-gov-west-1#/clusters/dsva-vagov-prod-cluster
 

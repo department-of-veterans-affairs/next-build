@@ -70,7 +70,6 @@ When creating a new layout, create a new feature branch from main and use `yarn 
 - Yarn Plop > Select **Content Type**
 
   <img width="501" alt="Screenshot 2024-09-19 at 11 40 53 AM" src="https://github.com/user-attachments/assets/ca808770-50d7-4407-a236-07c45b58d83c">
-
   - **Content Type** generate these files
     - Path `src/components/<folder layout name>/`
       - Within `<folder layout name>`
@@ -107,12 +106,10 @@ This is the suggested order to approach development, to not be overwhelmed with 
 > I highly recommend starting with a layout that shares a similar structure as an existing one in Next-Build for easier transition.
 
 1. Start with api-explorer.ts and your layout query[^1] to set up and format the data that is needed for your layout
-
    - Api-explorer to see the values Drupal is sending via the JSON:API
      - `yarn dev` to turn localhost on and then navigate to [http://localhost:3999/\_playground/api-explorer/](http://localhost:3999/_playground/api-explorer/)
      - Useful for filling out mock.json and traversing through nested values
    - if properties with nested properties are required, utilize the `...getNestedIncludes()` function to traverse through the nested properties in the api-explorer and for your query file's `query param` section.
-
      - `.getResourceCollection()` is where you specify the node, paragraph, etc from Drupal to grab
      - `.addInclude([])` will return the highest level JSON of the specified node
        - Specify which fields of interests to obtain the nest property information
@@ -166,9 +163,7 @@ Most of these files will also need to be updated when you create a new layout.
 You won’t be able to commit unless:
 
 - There are no errors
-
   - Passing threshold must be 80% or above
-
     - Opening this file in the browser can identify which lines of code are not covered. `coverage/lcov-report/index.html`
 
   - To bypass with intentions to created draft PRs for code help and review you can use the -–no-verify with your commit command
