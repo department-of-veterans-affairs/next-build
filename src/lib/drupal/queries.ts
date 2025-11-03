@@ -6,12 +6,14 @@ import * as AlertNonReusable from '@/components/alertNonReusable/query'
 import * as AlertSingle from '@/components/alertSingle/query'
 import * as AudienceTopics from '@/components/audienceTopics/query'
 import * as Banners from '@/components/banner/query'
+import * as BenefitsDetailPage from '@/components/benefitsDetailPage/query'
 import * as BenefitsHub from '@/components/benefitsHub/query'
 import * as BenefitsHubLinks from '@/components/benefitsHubLinks/query'
 import * as Button from '@/components/button/query'
 import * as CollapsiblePanel from '@/components/collapsiblePanel/query'
 import * as CollapsiblePanelItem from '@/components/collapsiblePanelItem/query'
 import * as ContactInfo from '@/components/contactInfo/query'
+import * as DownloadableFile from '@/components/downloadableFile/query'
 import * as EmailContact from '@/components/emailContact/query'
 import * as Event from '../../components/event/query'
 import * as EventListing from '../../components/eventListing/query'
@@ -27,6 +29,7 @@ import * as LocationsListing from '../../components/locationsListing/query'
 import * as MediaDocument from '@/components/mediaDocument/query'
 import * as MediaImage from '@/components/mediaImage/query'
 import * as MediaVideo from '@/components/mediaVideo/query'
+import * as Media from '@/components/media/query'
 import * as NewsStory from '../../components/newsStory/query'
 import * as NewsStoryTeaser from '@/components/newsStoryTeaser/query'
 import * as NumberCallout from '@/components/numberCallout/query'
@@ -43,6 +46,7 @@ import * as QaSection from '@/components/qaSection/query'
 import * as QuestionAnswer from '../../components/questionAnswer/query'
 import * as ReactWidget from '@/components/reactWidget/query'
 import * as ResourcesSupport from '../../components/resourcesSupport/query'
+import * as StaffProfileParagraph from '@/components/staffProfileParagraph/query'
 import * as StaticPathResources from '@/components/staticPathResources/query'
 import * as StoryListing from '../../components/storyListing/query'
 import * as SupportServices from '@/components/supportServices/query'
@@ -64,7 +68,11 @@ import * as HealthServicesListing from '../../components/vamcHealthServicesListi
 import * as VamcOperatingStatusAndAlerts from '../../components/vamcOperatingStatusAndAlerts/query'
 import * as VamcSystemPoliciesPage from '../../components/vamcSystemPoliciesPage/query'
 import * as VamcSystemDetailPage from '../../components/vamcSystemDetailPage/query'
+import * as CampaignLandingPage from '../../components/campaignLandingPage/query'
 import * as ServiceLocation from '@/components/serviceLocation/query'
+import * as VaForm from '@/components/vaForm/query'
+import * as SpanishTranslationSummary from '@/components/spanishTranslationSummary/query'
+import * as HomePageHero from '@/components/homePageHero/query'
 import {
   ResourceType,
   ParagraphResourceType,
@@ -76,6 +84,7 @@ import {
 export const QUERIES_MAP = {
   // Standard Drupal entity data queries
   // Nodes
+  [RESOURCE_TYPES.BENEFITS_DETAIL_PAGE]: BenefitsDetailPage,
   [RESOURCE_TYPES.BENEFITS_HUB]: BenefitsHub, // "Benefits Hub Landing Page"
   [RESOURCE_TYPES.EVENT]: Event,
   [`${RESOURCE_TYPES.EVENT}--teaser` as const]: EventTeaser,
@@ -109,6 +118,8 @@ export const QUERIES_MAP = {
     VamcOperatingStatusAndAlerts,
   [RESOURCE_TYPES.VAMC_SYSTEM_POLICIES_PAGE]: VamcSystemPoliciesPage,
   [RESOURCE_TYPES.VAMC_SYSTEM_DETAIL_PAGE]: VamcSystemDetailPage,
+  [RESOURCE_TYPES.VA_FORM]: VaForm,
+  [RESOURCE_TYPES.CAMPAIGN_LANDING_PAGE]: CampaignLandingPage,
 
   // Paragraphs
   [PARAGRAPH_RESOURCE_TYPES.ACCORDION_ITEM]: Accordion,
@@ -120,11 +131,13 @@ export const QUERIES_MAP = {
   [PARAGRAPH_RESOURCE_TYPES.COLLAPSIBLE_PANEL]: CollapsiblePanel,
   [PARAGRAPH_RESOURCE_TYPES.COLLAPSIBLE_PANEL_ITEM]: CollapsiblePanelItem,
   [PARAGRAPH_RESOURCE_TYPES.CONTACT_INFORMATION]: ContactInfo,
+  [PARAGRAPH_RESOURCE_TYPES.DOWNLOADABLE_FILE]: DownloadableFile,
   [PARAGRAPH_RESOURCE_TYPES.EMAIL_CONTACT]: EmailContact,
   [PARAGRAPH_RESOURCE_TYPES.EXPANDABLE_TEXT]: ExpandableText,
   [PARAGRAPH_RESOURCE_TYPES.FEATURED_CONTENT]: FeaturedContent,
   [PARAGRAPH_RESOURCE_TYPES.LINK_TEASER]: LinkTeaser,
   [PARAGRAPH_RESOURCE_TYPES.LIST_OF_LINK_TEASERS]: ListOfLinkTeasers,
+  [PARAGRAPH_RESOURCE_TYPES.MEDIA]: Media,
   [PARAGRAPH_RESOURCE_TYPES.NUMBER_CALLOUT]: NumberCallout,
   [PARAGRAPH_RESOURCE_TYPES.PHONE_CONTACT]: PhoneNumber,
   [PARAGRAPH_RESOURCE_TYPES.PROCESS_LIST]: ProcessList,
@@ -134,6 +147,9 @@ export const QUERIES_MAP = {
   [PARAGRAPH_RESOURCE_TYPES.REACT_WIDGET]: ReactWidget,
   [PARAGRAPH_RESOURCE_TYPES.RICH_TEXT_CHAR_LIMIT_1000]: Wysiwyg,
   [PARAGRAPH_RESOURCE_TYPES.SERVICE_LOCATION]: ServiceLocation,
+  [PARAGRAPH_RESOURCE_TYPES.SPANISH_TRANSLATION_SUMMARY]:
+    SpanishTranslationSummary,
+  [PARAGRAPH_RESOURCE_TYPES.STAFF_PROFILE]: StaffProfileParagraph,
   [PARAGRAPH_RESOURCE_TYPES.TABLE]: Table,
   [PARAGRAPH_RESOURCE_TYPES.WYSIWYG]: Wysiwyg,
 
@@ -151,6 +167,7 @@ export const QUERIES_MAP = {
   'header-data': Header,
   'footer-data': Footer,
   'benefits-hub-links': BenefitsHubLinks,
+  'hero-data': HomePageHero,
 
   // Static Path Generation
   'static-path-resources': StaticPathResources,

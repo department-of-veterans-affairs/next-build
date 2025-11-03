@@ -1,9 +1,7 @@
 import '@testing-library/jest-dom'
 import 'jest-axe/extend-expect'
-import { back as nockBack } from 'nock'
 import { loadEnvConfig } from '@next/env'
 
-nockBack.setMode('record')
 global.setImmediate = jest.useRealTimers
 
 // Load Environment vars to Jest.

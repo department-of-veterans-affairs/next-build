@@ -1,11 +1,52 @@
-type BenefitsHubProps = {
-  title: string
-}
+import { getHubIcon } from '@/lib/utils/benefitsHub'
+import { BenefitsHub as FormattedBenefitsHub } from './formatted-type'
+import { ListOfLinkTeasers } from '@/components/listOfLinkTeasers/template'
+import { ContentFooter } from '@/components/contentFooter/template'
 
-export function BenefitsHub({ title }: BenefitsHubProps) {
+export function BenefitsHub({
+  title,
+  titleIcon,
+  intro,
+  spokes,
+  lastUpdated,
+}: FormattedBenefitsHub) {
+  const iconConfig = getHubIcon(titleIcon)
+
   return (
-    <div>
-      <p>{title}</p>
+    <div className="usa-grid usa-grid-full">
+      <article className="usa-width-two-thirds">
+        {iconConfig ? (
+          <div className="tablet:vads-u-display--flex vads-u-margin-y--1 vads-u-align-items--flex-start">
+            <span className="vads-u-margin-top--1">
+              <va-icon
+                icon={iconConfig.icon}
+                size="3"
+                class={iconConfig.className}
+              />
+            </span>
+            <h1 className="vads-u-margin-top--1 tablet:vads-u-margin-left--1 tablet:vads-u-margin-y--0">
+              {title}
+            </h1>
+          </div>
+        ) : (
+          <h1>{title}</h1>
+        )}
+        {intro && (
+          <p
+            className="va-introtext"
+            dangerouslySetInnerHTML={{ __html: intro }}
+          />
+        )}
+        {spokes?.map((spokeSection) => (
+          <div key={spokeSection.id}>
+            <section className="usa-grid">
+              <div className="va-h-ruled--stars"></div>
+            </section>
+            <ListOfLinkTeasers {...spokeSection} isHubPage={true} />
+          </div>
+        ))}
+        <ContentFooter lastUpdated={lastUpdated} />
+      </article>
     </div>
   )
 }
