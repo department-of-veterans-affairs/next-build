@@ -1,6 +1,6 @@
 import React from 'react'
 import { BenefitsDetailPage as FormattedBenefitsDetailPage } from './formatted-type'
-// import { Paragraph } from '@/components/paragraph/template'
+import { ParagraphList } from '@/components/paragraph/template'
 import { ListOfLinkTeasers } from '@/components/listOfLinkTeasers/template'
 import { AlertBlock } from '@/components/alertBlock/template'
 import { ContentFooter } from '@/components/contentFooter/template'
@@ -11,7 +11,7 @@ export function BenefitsDetailPage({
   introText,
   alert,
   showTableOfContents,
-  // featuredContent,
+  featuredContent,
   // contentBlock,
   relatedLinks,
   lastUpdated,
@@ -43,7 +43,11 @@ export function BenefitsDetailPage({
         {showTableOfContents && <va-on-this-page></va-on-this-page>}
 
         {/* Featured content */}
-        <div>TODO: Featured content component</div>
+        {featuredContent && featuredContent.length > 0 && (
+          <div className="feature">
+            <ParagraphList paragraphs={featuredContent} />
+          </div>
+        )}
 
         {/* Main content blocks */}
         <div>TODO: Main content blocks component</div>
