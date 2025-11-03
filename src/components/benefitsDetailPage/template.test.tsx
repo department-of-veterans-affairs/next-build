@@ -17,14 +17,14 @@ const mockData: FormattedBenefitsDetailPage = {
     '<p>Find out how to check the status of a VA claim or appeal online.</p>\n',
   showTableOfContents: true,
   alert: null,
-  // featuredContent: [
-  //   {
-  //     id: '07b2ad1b-9b94-464a-8961-3ca73e84c8aa',
-  //     type: 'paragraph--wysiwyg',
-  //     entityId: 3886,
-  //     html: '<h3>What you need to know</h3><p>You can check the status of your disability claim online.</p>',
-  //   },
-  // ],
+  featuredContent: [
+    {
+      id: '07b2ad1b-9b94-464a-8961-3ca73e84c8aa',
+      type: 'paragraph--wysiwyg',
+      entityId: 3886,
+      html: '<h3>What you need to know</h3><p>You can check the status of your disability claim online.</p>',
+    },
+  ],
   // contentBlock: [
   //   {
   //     id: 'b871d67e-44a1-45d7-a3c9-948795c0b10d',

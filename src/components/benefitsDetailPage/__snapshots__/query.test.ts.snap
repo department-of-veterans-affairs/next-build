@@ -22,6 +22,13 @@ exports[`BenefitsDetailPage formatter outputs formatted data with correct struct
   "description": "Find out how to check the status of a VA claim or appeal online.",
   "entityId": 298,
   "entityPath": "/check-your-va-claim-or-appeal-status",
+  "featuredContent": [
+    {
+      "html": "<h3>What you need to know</h3><p>You can check the status of your disability claim online.</p>",
+      "id": "07b2ad1b-9b94-464a-8961-3ca73e84c8aa",
+      "type": "paragraph--wysiwyg",
+    },
+  ],
   "id": "27aaaef6-0c67-4639-b7d7-84cb3c124cff",
   "introText": "<p>Find out how to check the status of a VA claim or appeal online.</p>
 ",
