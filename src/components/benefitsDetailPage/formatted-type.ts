@@ -13,7 +13,7 @@ export interface BenefitsDetailPage extends PublishedEntity {
   showTableOfContents: boolean
   alert: AlertBlock | null
   featuredContent: FormattedParagraph[] | null
-  // contentBlock: FormattedParagraph[] | null
+  mainContent: FormattedParagraph[]
   relatedLinks: ListOfLinkTeasers | null
   administration: Administration | null
   menu: SideNavMenu | null
