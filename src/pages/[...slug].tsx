@@ -110,7 +110,7 @@ import { CampaignLandingPage } from '@/components/campaignLandingPage/template'
 // Please see READMEs/layout-rollout.md for more detailed information.
 
 // RESOURCE_TYPES_TO_BUILD technically is not guaranteed to be reassigned.
-// eslint-disable-next-line prefer-const
+
 let RESOURCE_TYPES_TO_BUILD = []
 // FEATURE_NEXT_BUILD_CONTENT_ALL is checked to allow local developers to bypass flag checks.
 if (process.env.FEATURE_NEXT_BUILD_CONTENT_ALL === 'true') {
@@ -322,6 +322,20 @@ export async function getStaticPaths(
   if (process.env.SSG === 'false') {
     return {
       paths: [],
+      fallback: 'blocking',
+    }
+  }
+
+  if (process.env.CHERRY_PICKED_PATHS) {
+    log('CHERRY_PICKED_PATHS is set, returning only cherry-picked paths')
+    return {
+      paths: [
+        {
+          params: {
+            slug: ['alexandria-va-vet-center', 'locations'],
+          },
+        },
+      ],
       fallback: 'blocking',
     }
   }
