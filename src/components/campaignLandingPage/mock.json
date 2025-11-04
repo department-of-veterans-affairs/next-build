@@ -139,7 +139,7 @@
   "field_clp_video_panel_header": null,
   "field_clp_what_you_can_do_header": "Edit Heading",
   "field_clp_what_you_can_do_intro": "Edit Introduction",
-  "field_clp_why_this_matters": "Edit introduction",
+  "field_clp_why_this_matters": "Example why it matters",
   "field_hero_blurb": "This page will help answer your questions about the PACT Act and what it means for survivors.",
   "field_last_saved_by_an_editor": null,
   "links": {
@@ -5763,7 +5763,7 @@
           },
           "url": "/health-care/how-to-apply"
         },
-        "field_link_summary": null,
+        "field_link_summary": "Test link summary",
         "links": {
           "self": {
             "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/link_teaser/0c71873a-2f93-4ce3-b821-96177b174113?resourceVersion=id%3A1232695"
@@ -5791,7 +5791,127 @@
       ]
     }
   ],
-  "field_connect_with_us": null,
+  "field_connect_with_us": {
+    "type": "block_content--connect_with_us",
+    "id": "1413f4e9-053f-46a4-907f-030ddf93b45c",
+    "drupal_internal__id": 323,
+    "drupal_internal__revision_id": 1829,
+    "langcode": "en",
+    "revision_created": "2025-03-28T20:45:18+00:00",
+    "revision_log": "Updates based on https://github.com/department-of-veterans-affairs/va.gov-cms/issues/20298",
+    "status": true,
+    "info": "Veterans Affairs",
+    "changed": "2025-03-28T20:45:18+00:00",
+    "reusable": true,
+    "default_langcode": true,
+    "revision_translation_affected": true,
+    "breadcrumbs": [
+      {
+        "uri": "https://va-gov-cms.ddev.site/",
+        "title": "Home",
+        "options": []
+      },
+      {
+        "uri": "https://va-gov-cms.ddev.site/admin",
+        "title": "Administration",
+        "options": []
+      },
+      {
+        "uri": "https://va-gov-cms.ddev.site/admin/content",
+        "title": "Content",
+        "options": []
+      },
+      {
+        "uri": "https://va-gov-cms.ddev.site/admin/content/block",
+        "title": "Custom Block Library",
+        "options": []
+      },
+      {
+        "uri": "https://va-gov-cms.ddev.site/admin/content/block/323",
+        "title": "Veterans Affairs",
+        "options": []
+      }
+    ],
+    "moderation_state": "published",
+    "expiration_date": null,
+    "warning_date": null,
+    "metatag": [
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "title",
+          "content": "| Veterans Affairs"
+        }
+      }
+    ],
+    "field_email_updates_link": {
+      "uri": "https://public.govdelivery.com/accounts/USVA/subscriber/new/",
+      "title": "Veterans Affairs Email Updates",
+      "options": [],
+      "url": "https://public.govdelivery.com/accounts/USVA/subscriber/new/"
+    },
+    "field_external_link": {
+      "uri": "https://www.va.gov/",
+      "title": "Veterans Affairs",
+      "options": [],
+      "url": "https://www.va.gov/"
+    },
+    "field_social_media_links": {
+      "platform": null,
+      "value": null,
+      "platform_values": {
+        "twitter": {
+          "value": "DeptVetAffairs"
+        },
+        "facebook": {
+          "value": "VeteransAffairs"
+        },
+        "youtube": {
+          "value": "DeptVetAffairs"
+        },
+        "instagram": {
+          "value": "deptvetaffairs"
+        },
+        "linkedin": {
+          "value": ""
+        }
+      }
+    },
+    "links": {
+      "self": {
+        "href": "https://va-gov-cms.ddev.site/jsonapi/block_content/connect_with_us/1413f4e9-053f-46a4-907f-030ddf93b45c?resourceVersion=id%3A1829"
+      }
+    },
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 323
+    },
+    "block_content_type": {
+      "type": "block_content_type--block_content_type",
+      "id": "1f2e0ca0-90ff-4283-81a0-0996f13d4ee0",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "connect_with_us"
+      }
+    },
+    "revision_user": {
+      "type": "user--user",
+      "id": "db8d5f41-d18d-4203-9733-dad6d2f3615d",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 4222
+      }
+    },
+    "field_administration": {
+      "type": "taxonomy_term--administration",
+      "id": "c20f3989-e93e-49bd-8c95-ad3821042a02",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 5
+      }
+    },
+    "relationshipNames": [
+      "block_content_type",
+      "revision_user",
+      "field_administration"
+    ]
+  },
   "field_hero_image": {
     "type": "media--image",
     "id": "f2cd9371-cff5-418b-9e15-ad631e8c4686",
@@ -6565,7 +6685,54 @@
     },
     "relationshipNames": ["paragraph_type"]
   },
-  "field_secondary_call_to_action": null,
+  "field_secondary_call_to_action": {
+    "type": "paragraph--button",
+    "id": "da2352d3-0b23-43d8-8bfd-6b4c69ce0f13",
+    "drupal_internal__id": 173409,
+    "drupal_internal__revision_id": 1888642,
+    "langcode": "en",
+    "status": true,
+    "created": "2025-02-10T13:21:59+00:00",
+    "parent_id": "63686",
+    "parent_type": "node",
+    "parent_field_name": "field_secondary_call_to_action",
+    "behavior_settings": [],
+    "default_langcode": true,
+    "revision_translation_affected": true,
+    "breadcrumbs": [],
+    "content_translation_source": "und",
+    "content_translation_outdated": false,
+    "content_translation_changed": "2025-09-30T19:15:24+00:00",
+    "field_button_label": "Get support for common issues",
+    "field_button_link": {
+      "uri": "entity:node/75613",
+      "title": "",
+      "options": {
+        "href": "entity:node/75613",
+        "data-entity-type": "node",
+        "data-entity-uuid": "d5f32bdf-810c-455e-9a9b-4335a1b5a7b3",
+        "data-entity-substitution": "canonical"
+      },
+      "url": "/resources/support-for-common-logingov-and-idme-issues"
+    },
+    "links": {
+      "self": {
+        "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/button/da2352d3-0b23-43d8-8bfd-6b4c69ce0f13?resourceVersion=id%3A1888642"
+      }
+    },
+    "resourceIdObjMeta": {
+      "target_revision_id": 1888642,
+      "drupal_internal__target_id": 173409
+    },
+    "paragraph_type": {
+      "type": "paragraphs_type--paragraphs_type",
+      "id": "f2ea2f57-89da-43d4-be22-ba46d728a286",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "button"
+      }
+    },
+    "relationshipNames": ["paragraph_type"]
+  },
   "relationshipNames": [
     "node_type",
     "revision_uid",

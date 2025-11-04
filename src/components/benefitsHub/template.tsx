@@ -1,14 +1,18 @@
 import { getHubIcon } from '@/lib/utils/benefitsHub'
 import { BenefitsHub as FormattedBenefitsHub } from './formatted-type'
+import { ListOfLinkTeasers } from '@/components/listOfLinkTeasers/template'
 import { ContentFooter } from '@/components/contentFooter/template'
 
 export function BenefitsHub({
-  titleIcon,
-  lastUpdated,
   title,
+  titleIcon,
   intro,
+  spokes,
+  lastUpdated,
+  fieldLinks,
 }: FormattedBenefitsHub) {
   const iconConfig = getHubIcon(titleIcon)
+
   return (
     <div className="usa-grid usa-grid-full">
       <article className="usa-width-two-thirds">
@@ -28,11 +32,47 @@ export function BenefitsHub({
         ) : (
           <h1>{title}</h1>
         )}
-        <div className="va-introtext">
-          <p>{intro}</p>
-        </div>
+        {intro && (
+          <p
+            className="va-introtext"
+            dangerouslySetInnerHTML={{ __html: intro }}
+          />
+        )}
+        {spokes?.map((spokeSection) => (
+          <div key={spokeSection.id}>
+            <section className="usa-grid">
+              <div className="va-h-ruled--stars"></div>
+            </section>
+            <ListOfLinkTeasers {...spokeSection} isHubPage={true} />
+          </div>
+        ))}
         <ContentFooter lastUpdated={lastUpdated} />
       </article>
+      <div className="usa-width-one-third" id="hub-rail">
+        <va-accordion bordered uswds>
+          {fieldLinks && fieldLinks.length > 0 && (
+            <va-accordion-item
+              class="va-accordion-item"
+              level="2"
+              open="true"
+              header="Not a Veteran or family member?"
+              id="get-information-for"
+              bordered
+            >
+              <section>
+                <h3 className="vads-u-font-size--h4">Get information for:</h3>
+                <ul className="va-nav-linkslist-list links">
+                  {fieldLinks.map((link, index) => (
+                    <li key={index}>
+                      <va-link href={link.url.path} text={link.title} />
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            </va-accordion-item>
+          )}
+        </va-accordion>
+      </div>
     </div>
   )
 }

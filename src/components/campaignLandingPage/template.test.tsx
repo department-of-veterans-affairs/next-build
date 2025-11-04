@@ -3,24 +3,20 @@ import { render, screen } from '@testing-library/react'
 import { CampaignLandingPage, CampaignLandingPageProps } from './template'
 import { axe } from '@/test-utils'
 import { HeroBanner } from './HeroBanner'
+import { ParagraphLinkTeaser } from '@/types/drupal/paragraph'
 
 import { defineCustomElements } from '@department-of-veterans-affairs/web-components/loader'
-import { ImageProps } from 'next/image'
+import { WhyThisMatters } from './WhyThisMatters'
 import { DrupalFile } from 'next-drupal'
 import {
   MediaImage,
   MediaImageLinks,
 } from '@/components/mediaDocument/formatted-type'
+import { FieldLink } from '@/types/drupal/field_type'
 
 const mockBaseProps: Partial<CampaignLandingPageProps> = {
   title: 'Testing title',
   hero: {
-    cta: {
-      primary: {
-        label: 'primary cta label',
-        href: '#primary-cta',
-      },
-    },
     blurb: 'This is the test hero blurb',
     image: {
       alt: '',
@@ -30,6 +26,53 @@ const mockBaseProps: Partial<CampaignLandingPageProps> = {
         } as unknown as MediaImageLinks,
       },
     } as unknown as MediaImage,
+  },
+  cta: {
+    primary: {
+      label: 'primary cta label',
+      href: '#primary-cta',
+    },
+    secondary: {
+      label: 'secondary cta label',
+      href: '#secondary-cta',
+    },
+  },
+  whyThisMatters: 'test why it matters',
+  audience: [{ name: 'audience 1' }, { name: 'audience 2' }],
+  socialLinks: [
+    {
+      icon: 'social-icon-1',
+      href: '/social-href-1',
+      text: 'social text 1',
+    },
+    {
+      icon: 'social-icon-2',
+      href: '/social-href-2',
+      text: 'social text 2',
+    },
+  ],
+  whatYouCanDo: {
+    header: 'WhatYouCanDo header',
+    intro: 'WhatYouCanDo intro',
+    promos: [
+      {
+        link: {
+          field_link: {
+            url: '?promo-1',
+            title: 'Promo 1 link',
+          } as FieldLink,
+          field_link_summary: 'Summary of field link 1',
+        } as ParagraphLinkTeaser,
+        image: {
+          alt: '',
+          links: {
+            '3_2_medium_thumbnail': {
+              href: 'https://example.com/promo-1-image.png',
+            } as unknown as MediaImageLinks,
+          },
+        } as unknown as MediaImage,
+      },
+    ],
   },
 }
 
@@ -50,8 +93,8 @@ describe('CampaignLandingPage with valid data', () => {
       <CampaignLandingPage {...(mockBaseProps as CampaignLandingPageProps)} />
     )
 
-    const hero = screen.getByTestId('hero-banner')
-    expect(hero).toBeInTheDocument()
+    expect(screen.getByTestId('hero-banner')).toBeInTheDocument()
+    expect(screen.getByTestId('why-this-matters')).toBeInTheDocument()
 
     // TODO: Check that the other components rendered once they're built
   })
@@ -88,8 +131,8 @@ describe('CampaignLandingPage->HeroBanner', () => {
     const link = screen.getByTestId('primary-cta')
 
     expect(link.localName).toBe('va-link-action')
-    expect(link.href).toBe(mockBaseProps.hero.cta.primary.href)
-    expect(link.text).toBe(mockBaseProps.hero.cta.primary.label)
+    expect(link.href).toBe(mockBaseProps.cta.primary.href)
+    expect(link.text).toBe(mockBaseProps.cta.primary.label)
   })
 
   test('shows hero image with 1:1 aspect ratio', () => {
@@ -106,5 +149,31 @@ describe('CampaignLandingPage->HeroBanner', () => {
     // 1:1 aspect ratio
     expect(img.style['aspect-ratio']).toBe('1/1')
     expect(img.style['object-fit']).toBe('cover')
+  })
+})
+
+describe('CampaignLandingPage->WhyThisMatters', () => {
+  beforeEach(async () => {
+    await render(
+      <WhyThisMatters {...(mockBaseProps as CampaignLandingPageProps)} />
+    )
+  })
+
+  test('shows why it matters', () => {
+    expect(screen.getByText(mockBaseProps.whyThisMatters)).toBeInTheDocument()
+  })
+
+  test('show secondary cta', () => {
+    const link = screen.getByTestId('secondary-cta')
+
+    expect(link.localName).toBe('va-link-action')
+    expect(link.href).toBe(mockBaseProps.cta.secondary.href)
+    expect(link.text).toBe(mockBaseProps.cta.secondary.label)
+  })
+
+  test('shows audiences', () => {
+    mockBaseProps.audience.map(({ name }) => {
+      expect(screen.getByText(name)).toBeInTheDocument()
+    })
   })
 })

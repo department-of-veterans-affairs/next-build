@@ -44,6 +44,7 @@ const isExport = process.env.BUILD_OPTION === 'static'
 // Types
 import { Event as FormattedEvent } from '../components/event/formatted-type'
 import { EventListing as FormattedEventListing } from '../components/eventListing/formatted-type'
+import { BenefitsDetailPage as FormattedBenefitsDetailPage } from '../components/benefitsDetailPage/formatted-type'
 import { LocationsListing as FormattedLocationsListing } from '../components/locationsListing/formatted-type'
 import { NewsStory as FormattedNewsStory } from '../components/newsStory/formatted-type'
 import { PressRelease as FormattedPressRelease } from '../components/pressRelease/formatted-type'
@@ -71,6 +72,7 @@ import { CampaignLandingPage as FormattedCampaignLandingPage } from '@/component
 
 // Templates
 import HTMLComment from '@/components/htmlComment/template'
+import { BenefitsDetailPage } from '../components/benefitsDetailPage/template'
 import { Event } from '../components/event/template'
 import { EventListing } from '../components/eventListing/template'
 import { LocationsListing } from '../components/locationsListing/template'
@@ -110,6 +112,7 @@ import { CampaignLandingPage } from '@/components/campaignLandingPage/template'
 // Please see READMEs/layout-rollout.md for more detailed information.
 
 // RESOURCE_TYPES_TO_BUILD technically is not guaranteed to be reassigned.
+
 let RESOURCE_TYPES_TO_BUILD = []
 // FEATURE_NEXT_BUILD_CONTENT_ALL is checked to allow local developers to bypass flag checks.
 if (process.env.FEATURE_NEXT_BUILD_CONTENT_ALL === 'true') {
@@ -191,6 +194,11 @@ export default function ResourcePage({
 
       <main>
         <div id="content" className="interior">
+          {resource.type === RESOURCE_TYPES.BENEFITS_DETAIL_PAGE && (
+            <BenefitsDetailPage
+              {...(resource as FormattedBenefitsDetailPage)}
+            />
+          )}
           {resource.type === RESOURCE_TYPES.EVENT && (
             <Event {...(resource as FormattedEvent)} />
           )}

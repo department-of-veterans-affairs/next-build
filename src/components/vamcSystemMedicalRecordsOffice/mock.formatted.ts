@@ -715,10 +715,6 @@ const mockData: VamcSystemMedicalRecordsOffice = {
         },
         summary:
           'Find out how to change your address and other information in your VA.gov profile. This will update your information across several VA benefits and services.',
-        parentField: null,
-        componentParams: {
-          sectionHeader: '',
-        },
       },
       {
         type: 'paragraph--link_teaser',
@@ -734,10 +730,6 @@ const mockData: VamcSystemMedicalRecordsOffice = {
         },
         summary:
           'Update your personal, financial, or insurance information with VA Form 10-10EZR.',
-        parentField: null,
-        componentParams: {
-          sectionHeader: '',
-        },
       },
       {
         type: 'paragraph--link_teaser',
@@ -753,10 +745,6 @@ const mockData: VamcSystemMedicalRecordsOffice = {
         },
         summary:
           'Apply for a printed Veteran ID card, get your VA benefit letters and military service records, and learn how to apply for a discharge upgrade.',
-        parentField: null,
-        componentParams: {
-          sectionHeader: '',
-        },
       },
       {
         type: 'paragraph--link_teaser',
@@ -772,10 +760,6 @@ const mockData: VamcSystemMedicalRecordsOffice = {
         },
         summary:
           "Learn how we're making it easier for you to get health care through VA facilities, mobile health clinics, virtual telehealth, and community care providers.",
-        parentField: null,
-        componentParams: {
-          sectionHeader: '',
-        },
       },
     ],
   },

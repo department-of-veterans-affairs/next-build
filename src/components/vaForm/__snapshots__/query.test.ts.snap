@@ -42,9 +42,6 @@ exports[`VaForm formatter outputs formatted data with all fields 1`] = `
   "lastUpdated": "2025-06-13T18:24:11+00:00",
   "linkTeasers": [
     {
-      "componentParams": {
-        "sectionHeader": "",
-      },
       "entityId": 156599,
       "id": "91e2a267-40e5-469f-8cd2-4cb2362cf26f",
       "options": {
@@ -53,16 +50,12 @@ exports[`VaForm formatter outputs formatted data with all fields 1`] = `
         "data-entity-uuid": "414c54b9-cd5c-4d86-8203-fc2489e4be8a",
         "href": "entity:node/905",
       },
-      "parentField": "field_va_form_link_teasers",
       "summary": "Find out how to file a claim for VA disability compensation.",
       "title": "How to file a VA disability claim",
       "type": "paragraph--link_teaser",
       "uri": "/disability/how-to-file-claim",
     },
     {
-      "componentParams": {
-        "sectionHeader": "",
-      },
       "entityId": 10995,
       "id": "74e2e77d-148b-4291-8371-a03095265299",
       "options": {
@@ -71,16 +64,12 @@ exports[`VaForm formatter outputs formatted data with all fields 1`] = `
         "data-entity-uuid": "f8323733-28cd-497d-b536-349005be9b71",
         "href": "entity:node/35",
       },
-      "parentField": "field_va_form_link_teasers",
       "summary": "Find out how to apply for VA health care. This can be a first step in getting treatment and support for PTSD.",
       "title": "How to apply for VA health care",
       "type": "paragraph--link_teaser",
       "uri": "/health-care/how-to-apply",
     },
     {
-      "componentParams": {
-        "sectionHeader": "",
-      },
       "entityId": 11218,
       "id": "fad126a2-a7d7-4d8d-8993-eb10190dc45c",
       "options": {
@@ -89,16 +78,12 @@ exports[`VaForm formatter outputs formatted data with all fields 1`] = `
         "data-entity-uuid": "ec926928-4e69-47c9-9820-f41d14183b76",
         "href": "entity:node/23",
       },
-      "parentField": "field_va_form_link_teasers",
       "summary": "Learn how to get started using VA mental health services. You can use some services even if you’re not enrolled in VA health care.",
       "title": "VA mental health services",
       "type": "paragraph--link_teaser",
       "uri": "/health-care/health-needs-conditions/mental-health",
     },
     {
-      "componentParams": {
-        "sectionHeader": "",
-      },
       "entityId": 10996,
       "id": "39e60e6c-c030-4236-bd4d-c6c8a7eae608",
       "options": {
@@ -107,7 +92,6 @@ exports[`VaForm formatter outputs formatted data with all fields 1`] = `
         "data-entity-uuid": "da20e1c8-3021-4609-b0dd-766879599579",
         "href": "entity:node/19",
       },
-      "parentField": "field_va_form_link_teasers",
       "summary": "Find out how to access PTSD health services through VA. Our National Center for PTSD is the world leader in PTSD research, education, and treatment.",
       "title": "PTSD treatment",
       "type": "paragraph--link_teaser",

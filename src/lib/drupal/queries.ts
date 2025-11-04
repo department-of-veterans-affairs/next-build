@@ -6,6 +6,7 @@ import * as AlertNonReusable from '@/components/alertNonReusable/query'
 import * as AlertSingle from '@/components/alertSingle/query'
 import * as AudienceTopics from '@/components/audienceTopics/query'
 import * as Banners from '@/components/banner/query'
+import * as BenefitsDetailPage from '@/components/benefitsDetailPage/query'
 import * as BenefitsHub from '@/components/benefitsHub/query'
 import * as BenefitsHubLinks from '@/components/benefitsHubLinks/query'
 import * as Button from '@/components/button/query'
@@ -71,6 +72,7 @@ import * as CampaignLandingPage from '../../components/campaignLandingPage/query
 import * as ServiceLocation from '@/components/serviceLocation/query'
 import * as VaForm from '@/components/vaForm/query'
 import * as SpanishTranslationSummary from '@/components/spanishTranslationSummary/query'
+import * as HomePageHero from '@/components/homePageHero/query'
 import {
   ResourceType,
   ParagraphResourceType,
@@ -82,6 +84,7 @@ import {
 export const QUERIES_MAP = {
   // Standard Drupal entity data queries
   // Nodes
+  [RESOURCE_TYPES.BENEFITS_DETAIL_PAGE]: BenefitsDetailPage,
   [RESOURCE_TYPES.BENEFITS_HUB]: BenefitsHub, // "Benefits Hub Landing Page"
   [RESOURCE_TYPES.EVENT]: Event,
   [`${RESOURCE_TYPES.EVENT}--teaser` as const]: EventTeaser,
@@ -164,6 +167,7 @@ export const QUERIES_MAP = {
   'header-data': Header,
   'footer-data': Footer,
   'benefits-hub-links': BenefitsHubLinks,
+  'hero-data': HomePageHero,
 
   // Static Path Generation
   'static-path-resources': StaticPathResources,
