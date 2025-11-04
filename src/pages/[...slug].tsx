@@ -110,7 +110,6 @@ import { CampaignLandingPage } from '@/components/campaignLandingPage/template'
 // Please see READMEs/layout-rollout.md for more detailed information.
 
 // RESOURCE_TYPES_TO_BUILD technically is not guaranteed to be reassigned.
-
 let RESOURCE_TYPES_TO_BUILD = []
 // FEATURE_NEXT_BUILD_CONTENT_ALL is checked to allow local developers to bypass flag checks.
 if (process.env.FEATURE_NEXT_BUILD_CONTENT_ALL === 'true') {
