@@ -21,7 +21,11 @@ export function SideNavLayout({
   return (
     <div className={clsx('vads-grid-container', className)} {...props}>
       <div
-        className={clsx(menu && !useWidget && 'vads-grid-row vads-grid-gap-lg')}
+        className={clsx(
+          menu &&
+            !useWidget &&
+            'va-sidebarnav-wrapper vads-grid-row vads-u-flex-wrap--nowrap'
+        )}
       >
         {menu && <SideNav menu={menu} icon={menuIcon} useWidget={useWidget} />}
         <div className="vads-grid-row">

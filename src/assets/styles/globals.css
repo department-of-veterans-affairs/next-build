@@ -116,13 +116,36 @@ va-button#mdFormButton::part(button) {
   width: 100%;
 }
 
+/* This particular breakpoint is deprecated (medium-screen), so we aren't able to apply
+   utility classes at this breakpoint. We need to match it exactly to play nicely with
+   the side-nav styles that are applied at this breakpoint. */
+@media screen and (max-width: 767px) {
+  /* We don't want this to behave as a flex row while the mobile nav styles are in effect */
+  .va-sidebarnav-wrapper {
+    display: block;
+  }
+}
+@media (min-width: 768px) and (max-width: 1201px) {
+  /* This is specifically working around weird `.merger article` rules affecting article padding */
+  .va-sidebarnav {
+    padding-right: 1rem;
+  }
+}
+@media (min-width: 1202px) {
+  /* This is specifically working around weird `.merger article` rules affecting article padding */
+  .va-sidebarnav {
+    padding-right: 2rem;
+  }
+}
+
+
 #sidenav-trigger {
-  padding-left: calc(0.75rem + 0.5em);
-  padding-right: calc(0.75rem + 0.5em);
+  padding-top: 1rem;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
   width: 100%;
   /* Override existing styles and make it under the open mobile nav */
   z-index: 299;
-  margin-top: 1rem;
   margin-bottom: 1rem;
 }
 
@@ -130,8 +153,10 @@ va-button#mdFormButton::part(button) {
 #sidenav-trigger.sidenav-trigger--sticky {
   position: fixed;
   top: 0;
-  left: 0.25rem;
-  right: 0.25rem;
+  left: 0;
+  right: 0;
+  padding-left: calc(1rem + 0.5em);
+  padding-right: calc(1rem + 0.5em);
   width: initial;
 
   background-color: white;
