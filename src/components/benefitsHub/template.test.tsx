@@ -3,6 +3,9 @@ import { BenefitsHub as FormattedBenefitsHub } from './formatted-type'
 import { render, screen } from '@testing-library/react'
 import { axe } from '@/test-utils'
 import { BenefitsHub } from './template'
+import mockData from './mock.json'
+// Import the loader to register web components
+import { defineCustomElements } from '@department-of-veterans-affairs/web-components/loader'
 
 const mockBenefitsData: FormattedBenefitsHub = {
   id: '1',
@@ -14,9 +17,13 @@ const mockBenefitsData: FormattedBenefitsHub = {
   intro: 'This is a test intro for the Benefits Hub component.',
   spokes: [],
   fieldLinks: null,
+  connectWithUs: null,
 }
 
 describe('BenefitsHub with valid data', () => {
+  beforeAll(() => {
+    defineCustomElements()
+  })
   test('renders BenefitsHub component', async () => {
     const { container } = render(
       <BenefitsHub
@@ -29,6 +36,7 @@ describe('BenefitsHub with valid data', () => {
         spokes={[]}
         intro={null}
         fieldLinks={null}
+        connectWithUs={mockData.field_connect_with_us}
       />
     )
 
@@ -50,6 +58,7 @@ describe('BenefitsHub with valid data', () => {
         spokes={[]}
         intro={'This is a test intro for the Benefits Hub component.'}
         fieldLinks={null}
+        connectWithUs={mockData.field_connect_with_us}
       />
     )
 
@@ -70,6 +79,7 @@ describe('BenefitsHub with valid data', () => {
         spokes={[]}
         intro={'Learn about disability compensation.'}
         fieldLinks={null}
+        connectWithUs={null}
       />
     )
 
@@ -81,8 +91,8 @@ describe('BenefitsHub with valid data', () => {
     // Test that the va-icon element is rendered with the correct icon and styling
     const vaIcon = document.querySelector('va-icon')
     expect(vaIcon).toBeInTheDocument()
-    expect(vaIcon).toHaveAttribute('icon', 'description')
-    expect(vaIcon).toHaveAttribute('size', '3')
+    expect(vaIcon.icon).toBe('description')
+    expect(vaIcon.size).toBe(3)
     expect(vaIcon).toHaveClass('hub-icon')
     expect(vaIcon).toHaveClass('vads-u-background-color--hub-disability')
   })
@@ -124,17 +134,15 @@ describe('BenefitsHub with valid data', () => {
         intro={'Manage your VA health care.'}
         spokes={mockSpokes}
         fieldLinks={null}
+        connectWithUs={null}
       />
     )
 
     expect(screen.queryByText(/Health Care/)).toBeInTheDocument()
     expect(screen.queryByText(/Get VA health care/)).toBeInTheDocument()
 
-    // Check for va-link with text attribute
-    const vaLink = document.querySelector(
-      'va-link[text="Apply for health care"]'
-    )
-    expect(vaLink).toBeInTheDocument()
+    const vaLink = document.querySelector('va-link')
+    expect(vaLink.text).toBe('Apply for health care')
 
     // Also check for the summary text which should be visible
     expect(
@@ -179,6 +187,7 @@ describe('BenefitsHub with valid data', () => {
         intro={'Information for different audiences.'}
         spokes={[]}
         fieldLinks={mockFieldLinks}
+        connectWithUs={null}
       />
     )
 
@@ -188,28 +197,63 @@ describe('BenefitsHub with valid data', () => {
     // Check for va-accordion-item with correct header attribute
     const accordionItem = document.querySelector('va-accordion-item')
     expect(accordionItem).toBeInTheDocument()
-    expect(accordionItem).toHaveAttribute(
-      'header',
-      'Not a Veteran or family member?'
-    )
+    expect(accordionItem.header).toBe('Not a Veteran or family member?')
 
     // Check for va-link elements with correct attributes
-    const familyLink = document.querySelector(
-      'va-link[text="Family members and caregivers"]'
-    )
-    expect(familyLink).toBeInTheDocument()
-    expect(familyLink).toHaveAttribute(
-      'href',
-      '/family-and-caregiver-benefits/'
+    const familyLink = document.querySelectorAll('va-link')[0]
+    expect(familyLink.text).toBe('Family members and caregivers')
+    expect(familyLink.href).toBe('/family-and-caregiver-benefits/')
+
+    const serviceMemberLink = document.querySelectorAll('va-link')[1]
+    expect(serviceMemberLink.text).toBe('Service members')
+    expect(serviceMemberLink.href).toBe('/service-member-benefits/')
+  })
+
+  test('renders BenefitsHub component with connectWithUs (Connect with us accordion)', () => {
+    render(
+      <BenefitsHub
+        id="5"
+        type=""
+        published={true}
+        lastUpdated="2024-01-01"
+        title={'Benefits Hub'}
+        titleIcon={null}
+        intro={'Information for different audiences.'}
+        spokes={[]}
+        fieldLinks={null}
+        connectWithUs={mockData.field_connect_with_us}
+      />
     )
 
-    const serviceMemberLink = document.querySelector(
-      'va-link[text="Service members"]'
+    expect(screen.queryByText(/Get updates/)).toBeInTheDocument()
+    expect(screen.queryByText(/Follow us/)).toBeInTheDocument()
+
+    // Check for va-accordion-item with correct header attribute
+    const accordionItem = document.querySelector('va-accordion-item')
+    expect(accordionItem).toBeInTheDocument()
+    expect(accordionItem.header).toBe('Connect with us')
+
+    // Check for va-link elements with correct attributes
+    const emailLink = document.querySelectorAll('va-link')[0]
+    expect(emailLink.text).toBe('Veterans Affairs Email Updates')
+    expect(emailLink.href).toBe(
+      mockData.field_connect_with_us.field_email_updates_link.url
     )
-    expect(serviceMemberLink).toBeInTheDocument()
-    expect(serviceMemberLink).toHaveAttribute(
-      'href',
-      '/service-member-benefits/'
-    )
+
+    const twitterLink = document.querySelectorAll('va-link')[1]
+    expect(twitterLink.text).toBe('Veterans Affairs X (formerly Twitter)')
+    expect(twitterLink.href).toBe('https://twitter.com/DeptVetAffairs')
+
+    const facebookLink = document.querySelectorAll('va-link')[2]
+    expect(facebookLink.text).toBe('Veterans Affairs Facebook')
+    expect(facebookLink.href).toBe('https://facebook.com/VeteransAffairs')
+
+    const youtubeLink = document.querySelectorAll('va-link')[3]
+    expect(youtubeLink.text).toBe('Veterans Affairs YouTube')
+    expect(youtubeLink.href).toBe('https://youtube.com/DeptVetAffairs')
+
+    const instagramLink = document.querySelectorAll('va-link')[4]
+    expect(instagramLink.text).toBe('Veterans Affairs Instagram')
+    expect(instagramLink.href).toBe('https://instagram.com/deptvetaffairs')
   })
 })

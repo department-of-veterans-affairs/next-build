@@ -2,6 +2,7 @@ import { getHubIcon } from '@/lib/utils/benefitsHub'
 import { BenefitsHub as FormattedBenefitsHub } from './formatted-type'
 import { ListOfLinkTeasers } from '@/components/listOfLinkTeasers/template'
 import { ContentFooter } from '@/components/contentFooter/template'
+import { ConnectWithUsPanel } from './ConnectWithUsPanel'
 
 export function BenefitsHub({
   title,
@@ -10,6 +11,7 @@ export function BenefitsHub({
   spokes,
   lastUpdated,
   fieldLinks,
+  connectWithUs,
 }: FormattedBenefitsHub) {
   const iconConfig = getHubIcon(titleIcon)
 
@@ -70,6 +72,9 @@ export function BenefitsHub({
                 </ul>
               </section>
             </va-accordion-item>
+          )}
+          {connectWithUs && (
+            <ConnectWithUsPanel connectWithUs={connectWithUs} />
           )}
         </va-accordion>
       </div>
