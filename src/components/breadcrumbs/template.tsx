@@ -83,7 +83,9 @@ const Breadcrumbs = ({
 
   return (
     <div className="vads-grid-container">
-      <va-breadcrumbs class="row" wrapping breadcrumb-list={fcString} />
+      <va-breadcrumbs class="row" wrapping breadcrumb-list={fcString}>
+        <div style={{ height: '82px' }} />
+      </va-breadcrumbs>
     </div>
   )
 }
