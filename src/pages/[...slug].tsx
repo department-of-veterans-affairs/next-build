@@ -129,8 +129,8 @@ if (process.env.FEATURE_NEXT_BUILD_CONTENT_ALL === 'true') {
 }
 
 export const DynamicBreadcrumbs = dynamic(
-  () => import('@/components/breadcrumbs/template'),
-  { ssr: false }
+  () => import('@/components/breadcrumbs/template')
+  // { ssr: false }
 )
 
 // [[...slug]] is a catchall route. We build the appropriate layout based on the resource returned for a given path.
