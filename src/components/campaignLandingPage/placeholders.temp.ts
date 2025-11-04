@@ -1,26 +1,4 @@
 export const placeholders = {
-  // Spotlight panel
-  fieldClpSpotlightPanel: true,
-  fieldClpSpotlightHeader: 'Spotlight',
-  fieldClpSpotlightIntroText: 'Spotlight intro text',
-  fieldClpSpotlightCta: {
-    entity: {
-      fieldButtonLink: { url: { path: '#' } },
-      fieldButtonLabel: 'Learn more',
-    },
-  },
-  fieldClpSpotlightLinkTeasers: [
-    {
-      entity: {
-        fieldLink: {
-          title: 'Spotlight link 1',
-          url: { path: '#' },
-        },
-        fieldLinkSummary: 'Summary of spotlight link',
-      },
-    },
-  ],
-
   // Stories panel
   fieldClpStoriesPanel: true,
   fieldClpStoriesHeader: 'Stories',
