@@ -92,4 +92,48 @@ describe('BenefitsDetailPage with valid data', () => {
     const relatedLinks = container.querySelector('.va-nav-linkslist--related')
     expect(relatedLinks).not.toBeInTheDocument()
   })
+
+  test('renders featuredContent when provided', () => {
+    const { container } = render(<BenefitsDetailPage {...mockData} />)
+
+    const featureDiv = container.querySelector('.feature')
+    expect(featureDiv).toBeInTheDocument()
+    expect(screen.queryByText('What you need to know')).toBeInTheDocument()
+    expect(
+      screen.queryByText(
+        'You can check the status of your disability claim online.'
+      )
+    ).toBeInTheDocument()
+  })
+
+  test('does not render featuredContent when null', () => {
+    const { container } = render(
+      <BenefitsDetailPage {...mockData} featuredContent={null} />
+    )
+
+    const featureDiv = container.querySelector('.feature')
+    expect(featureDiv).not.toBeInTheDocument()
+  })
+
+  test('does not render featuredContent when empty array', () => {
+    const { container } = render(
+      <BenefitsDetailPage {...mockData} featuredContent={[]} />
+    )
+
+    const featureDiv = container.querySelector('.feature')
+    expect(featureDiv).not.toBeInTheDocument()
+  })
+
+  test('renders mainContent', () => {
+    render(<BenefitsDetailPage {...mockData} />)
+
+    expect(
+      screen.queryByText('How to check your VA claim or appeal status online')
+    ).toBeInTheDocument()
+    expect(
+      screen.queryByText(
+        'Sign in to VA.gov to check the status of your VA claim or appeal.'
+      )
+    ).toBeInTheDocument()
+  })
 })
