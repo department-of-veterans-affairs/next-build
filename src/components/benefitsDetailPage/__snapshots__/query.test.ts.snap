@@ -33,6 +33,13 @@ exports[`BenefitsDetailPage formatter outputs formatted data with correct struct
   "introText": "<p>Find out how to check the status of a VA claim or appeal online.</p>
 ",
   "lastUpdated": "2020-04-30T20:11:16+00:00",
+  "mainContent": [
+    {
+      "html": "<h2 id="how-to-check-your-va-claim-or-appeal-status-online">How to check your VA claim or appeal status online</h2><p>Sign in to VA.gov to check the status of your VA claim or appeal.</p>",
+      "id": "b871d67e-44a1-45d7-a3c9-948795c0b10d",
+      "type": "paragraph--wysiwyg",
+    },
+  ],
   "metatags": undefined,
   "moderationState": "published",
   "published": true,

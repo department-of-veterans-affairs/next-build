@@ -11,7 +11,7 @@ export function BenefitsDetailPage({
   alert,
   showTableOfContents,
   featuredContent,
-  // contentBlock,
+  mainContent,
   relatedLinks,
   lastUpdated,
 }: FormattedBenefitsDetailPage) {
@@ -43,7 +43,7 @@ export function BenefitsDetailPage({
           )}
 
           {/* Main content blocks */}
-          <div>TODO: Main content blocks component</div>
+          <ParagraphList paragraphs={mainContent} />
 
           {relatedLinks && (
             <div className="va-nav-linkslist va-nav-linkslist--related">
