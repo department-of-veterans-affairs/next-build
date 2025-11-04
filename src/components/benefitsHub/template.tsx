@@ -1,4 +1,5 @@
 import { getHubIcon } from '@/lib/utils/benefitsHub'
+import { recordEvent } from '@/lib/analytics/recordEvent'
 import { BenefitsHub as FormattedBenefitsHub } from './formatted-type'
 import { ListOfLinkTeasers } from '@/components/listOfLinkTeasers/template'
 import { ContentFooter } from '@/components/contentFooter/template'
@@ -10,6 +11,7 @@ export function BenefitsHub({
   spokes,
   lastUpdated,
   fieldLinks,
+  fieldSupportServices,
 }: FormattedBenefitsHub) {
   const iconConfig = getHubIcon(titleIcon)
 
@@ -50,9 +52,85 @@ export function BenefitsHub({
       </article>
       <div className="usa-width-one-third" id="hub-rail">
         <va-accordion bordered uswds>
+          <va-accordion-item
+            className="va-accordion-item"
+            level="2"
+            open="true"
+            header="Ask questions"
+            id="ask-questions"
+            bordered
+            uswds
+          >
+            <section>
+              <h3 className="vads-u-font-size--h4">Message us</h3>
+              <ul className="va-nav-linkslist-list social">
+                <li data-widget-type="ask-va-widget"></li>
+              </ul>
+            </section>
+
+            {fieldSupportServices && fieldSupportServices.length > 0 && (
+              <section>
+                <h3 className="vads-u-font-size--h4">Call us</h3>
+                <ul className="va-nav-linkslist-list social">
+                  {fieldSupportServices.map((service, index) => {
+                    return (
+                      <li key={service.id || index}>
+                        {service.field_phone_number ? (
+                          <a
+                            href={service.field_link?.url}
+                            onClick={() => {
+                              recordEvent({
+                                event: 'nav-hub-rail',
+                                'nav-path': 'Ask questions',
+                              })
+                            }}
+                          >
+                            <span>{service.title}</span>
+                            <br />
+                            <span>{service.field_phone_number}</span>
+                          </a>
+                        ) : service.title.includes('TTY: 711') ? (
+                          // It was requested that we hardcode in the aria-label and href for the TTY service
+                          // see: https://github.com/department-of-veterans-affairs/va.gov-team/issues/18151#issuecomment-879993959
+                          <a
+                            aria-label="TTY: 7 1 1."
+                            href="tel:711"
+                            onClick={() => {
+                              recordEvent({
+                                event: 'nav-hub-rail',
+                                'nav-path': 'Ask questions',
+                              })
+                            }}
+                          >
+                            <span>{service.title}</span>
+                            <br />
+                          </a>
+                        ) : service.field_link?.url ? (
+                          <a
+                            href={service.field_link.url}
+                            onClick={() => {
+                              recordEvent({
+                                event: 'nav-hub-rail',
+                                'nav-path': 'Ask questions',
+                              })
+                            }}
+                          >
+                            <span>{service.title}</span>
+                          </a>
+                        ) : (
+                          service.title
+                        )}
+                      </li>
+                    )
+                  })}
+                </ul>
+              </section>
+            )}
+          </va-accordion-item>
+
           {fieldLinks && fieldLinks.length > 0 && (
             <va-accordion-item
-              class="va-accordion-item"
+              className="va-accordion-item"
               level="2"
               open="true"
               header="Not a Veteran or family member?"

@@ -12,4 +12,15 @@ export interface BenefitsHub extends PublishedEntity {
       path: string
     }
   }> | null
+  fieldSupportServices?: Array<{
+    type: string
+    id: string
+    title: string
+    field_phone_number?: string
+    field_link?: {
+      uri: string
+      title: string
+      url?: string
+    }
+  }>
 }

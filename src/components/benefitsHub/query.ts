@@ -17,6 +17,7 @@ export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude([
     'field_spokes',
     'field_spokes.field_va_paragraphs',
+    'field_support_services',
   ])
 }
 
@@ -68,5 +69,6 @@ export const formatter: QueryFormatter<NodeLandingPage, BenefitsHub> = (
     titleIcon: entity.field_title_icon,
     spokes: spokes,
     fieldLinks: fieldLinks,
+    fieldSupportServices: entity.field_support_services,
   }
 }
