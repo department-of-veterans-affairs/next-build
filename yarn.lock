@@ -949,20 +949,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@department-of-veterans-affairs/component-library@npm:54.0.0":
-  version: 54.0.0
-  resolution: "@department-of-veterans-affairs/component-library@npm:54.0.0"
+"@department-of-veterans-affairs/component-library@npm:50.2.1":
+  version: 50.2.1
+  resolution: "@department-of-veterans-affairs/component-library@npm:50.2.1"
   dependencies:
     "@department-of-veterans-affairs/react-components": 28.1.0
-    "@department-of-veterans-affairs/web-components": 22.0.0
+    "@department-of-veterans-affairs/web-components": 18.1.2
     i18next: ^21.6.14
     i18next-browser-languagedetector: ^6.1.4
     react-focus-on: ^3.5.1
     react-transition-group: ^1.0.0
   peerDependencies:
-    react: ^19
+    "@department-of-veterans-affairs/formation": "*"
+    react: ^18
     react-dom: "*"
-  checksum: f7eabad59af4661d7f9728d63b9c427cb3686c9ff7ba97200379d346b10b9946babaee10e872b5209fff38a11d3c2dfcc090d3cd7806aa5fd81ed260f8fcf218
+  checksum: 69fa56bd355aea03c9e9dc71e23b812e0144175d1e5ab3c5ea953589816d41ddabd9752ee1a0e6fac1d33081857c03fcf9106975766cda995f6f2a5072df85aa
   languageName: node
   linkType: hard
 
@@ -1001,9 +1002,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@department-of-veterans-affairs/web-components@npm:22.0.0, @department-of-veterans-affairs/web-components@npm:^22.0.0":
-  version: 22.0.0
-  resolution: "@department-of-veterans-affairs/web-components@npm:22.0.0"
+"@department-of-veterans-affairs/web-components@npm:18.1.2":
+  version: 18.1.2
+  resolution: "@department-of-veterans-affairs/web-components@npm:18.1.2"
+  dependencies:
+    "@stencil/core": 4.20.0
+    aria-hidden: ^1.1.3
+    body-scroll-lock: ^4.0.0-beta.0
+    chromatic: ^11.0.4
+    classnames: ^2.3.1
+    intersection-observer: ^0.12.0
+  peerDependencies:
+    "@department-of-veterans-affairs/formation": ^11.0.6
+    i18next: "*"
+    i18next-browser-languagedetector: "*"
+  checksum: 3864a3885ea64a95b2d4631d0e7a62cec108e177fda7ef2f1e253d55bbfe60b534e9986bda9f2f1f29aac221074bb33da09140a8074e7d27c33a0a696d9ecb81
+  languageName: node
+  linkType: hard
+
+"@department-of-veterans-affairs/web-components@npm:18.4.0":
+  version: 18.4.0
+  resolution: "@department-of-veterans-affairs/web-components@npm:18.4.0"
   dependencies:
     "@stencil/core": 4.20.0
     aria-hidden: ^1.1.3
@@ -1013,9 +1032,10 @@ __metadata:
     intersection-observer: ^0.12.0
     libphonenumber-js: ^1.12.7
   peerDependencies:
+    "@department-of-veterans-affairs/formation": ^11.0.6
     i18next: "*"
     i18next-browser-languagedetector: "*"
-  checksum: 9bd546bdf21b359c2675c2f0734556f7f45e1fc63ba498bb7503090b0b872548db8e72b41f80b7d1c1ccef9b536f8d9bc46199eee62e4f14dd53251aff598d4d
+  checksum: e23df9de90cf7f7d0306554a17b9bb17eccb37e2ddecc5b881c023aab3fa362c3acfe676e053b1e495921878c69bb756f91223cdc411b0bf9f6a17fe14292881
   languageName: node
   linkType: hard
 
@@ -12733,9 +12753,9 @@ __metadata:
     "@axe-core/playwright": ^4.10.2
     "@datadog/browser-rum": ^6.19.0
     "@date-fns/tz": ^1.4.1
-    "@department-of-veterans-affairs/component-library": 54.0.0
+    "@department-of-veterans-affairs/component-library": 50.2.1
     "@department-of-veterans-affairs/formation": ^12.0.0
-    "@department-of-veterans-affairs/web-components": ^22.0.0
+    "@department-of-veterans-affairs/web-components": 18.4.0
     "@eslint/eslintrc": ^3.3.1
     "@eslint/js": ^9.38.0
     "@faker-js/faker": ^9.9.0

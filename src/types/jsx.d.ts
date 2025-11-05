@@ -19,9 +19,6 @@ declare module 'react' {
       'va-on-this-page': any
       'va-process-list': any
       'va-process-list-item': any
-      'va-sidenav': any
-      'va-sidenav-item': any
-      'va-sidenav-submenu': any
       'va-summary-box': any
       'va-telephone': any
     }
