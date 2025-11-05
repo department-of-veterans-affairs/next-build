@@ -33,7 +33,7 @@ export function ConnectWithUsPanel({ connectWithUs }: ConnectWithUsProps) {
               className="vads-u-color--link-default vads-u-padding-right--1"
             ></va-icon>
             <va-link
-              href={`${socialLinksObject.twitter.value}`}
+              href={`https://twitter.com/${socialLinksObject.twitter.value}`}
               text={'Veterans Affairs X (formerly Twitter)'}
             />
           </li>
@@ -47,7 +47,7 @@ export function ConnectWithUsPanel({ connectWithUs }: ConnectWithUsProps) {
               className="vads-u-color--link-default vads-u-padding-right--1"
             ></va-icon>
             <va-link
-              href={`${socialLinksObject.facebook.value}`}
+              href={`https://facebook.com/${socialLinksObject.facebook.value}`}
               text={'Veterans Affairs Facebook'}
             />
           </li>
@@ -61,7 +61,7 @@ export function ConnectWithUsPanel({ connectWithUs }: ConnectWithUsProps) {
               className="vads-u-color--link-default vads-u-padding-right--1"
             ></va-icon>
             <va-link
-              href={`${socialLinksObject.youtube.value}`}
+              href={`https://youtube.com/${socialLinksObject.youtube.value}`}
               text={'Veterans Affairs YouTube'}
             />
           </li>
@@ -75,7 +75,7 @@ export function ConnectWithUsPanel({ connectWithUs }: ConnectWithUsProps) {
               className="vads-u-color--link-default vads-u-padding-right--1"
             ></va-icon>
             <va-link
-              href={`${socialLinksObject.linkedin.value}`}
+              href={`https://linkedin.com/${socialLinksObject.linkedin.value}`}
               text={'Veterans Affairs LinkedIn'}
             />
           </li>
@@ -89,7 +89,7 @@ export function ConnectWithUsPanel({ connectWithUs }: ConnectWithUsProps) {
               className="vads-u-color--link-default vads-u-padding-right--1"
             ></va-icon>
             <va-link
-              href={`${socialLinksObject.instagram.value}`}
+              href={`https://instagram.com/${socialLinksObject.instagram.value}`}
               text={'Veterans Affairs Instagram'}
             />
           </li>
