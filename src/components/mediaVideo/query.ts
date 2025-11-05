@@ -39,9 +39,9 @@ export const formatter: QueryFormatter<DrupalMediaVideo, MediaVideo> = (
     id: entity.id,
     type: entity.type,
     name: entity.name,
-    field_description: entity?.field_description,
-    field_duration: entity?.field_duration,
-    field_publication_date: entity?.field_publication_date,
+    field_description: entity?.field_description ?? null,
+    field_duration: entity?.field_duration ?? null,
+    field_publication_date: entity?.field_publication_date ?? null,
     field_media_video_embed_field: normalizeEmbeddedVideoUrl(
       entity?.field_media_video_embed_field
     ),

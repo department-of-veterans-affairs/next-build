@@ -29,9 +29,13 @@ export const normalizeEmbeddedYoutubeUrl: UrlNormalizer = (url: URL) => {
 const defaultNormalizers: UrlNormalizer[] = [normalizeEmbeddedYoutubeUrl]
 
 export const normalizeEmbeddedVideoUrl = (
-  urlStr: string,
+  urlStr: string | null | undefined,
   normalizers: UrlNormalizer[] = defaultNormalizers
-) => {
+): string | null => {
+  if (urlStr === null || urlStr === undefined) {
+    return null
+  }
+
   for (const normalizer of normalizers) {
     let url: URL
     try {

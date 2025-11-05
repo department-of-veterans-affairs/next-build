@@ -99,7 +99,7 @@ jest.mock('next/image', () => ({
   },
 }))
 
-beforeAll(() => {
+beforeEach(() => {
   defineCustomElements()
 })
 
@@ -201,11 +201,23 @@ describe('CampaignLandingPage->VideoPanel', () => {
     )
   })
 
+  it('shows video header', () => {
+    expect(screen.getByText('video header')).toBeInTheDocument()
+  })
+
   it('shows correct publication date', () => {
     expect(screen.getByText(/November 3, 2025/)).toBeInTheDocument()
   })
 
   it('shows correct duration label', () => {
     expect(screen.getByText(/1:10 minutes/)).toBeInTheDocument()
+  })
+
+  it('shows cta button', () => {
+    const ctaRoot = screen.getByTestId('video-cta')
+    expect(ctaRoot).toBeInTheDocument()
+
+    expect(ctaRoot.href).toBe('https://example.com/button-url')
+    expect(ctaRoot.text).toBe('Video button')
   })
 })
