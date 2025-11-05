@@ -333,16 +333,17 @@ export async function getStaticPaths(
     }
   }
 
-  if (process.env.CHERRY_PICKED_PATHS) {
-    log('CHERRY_PICKED_PATHS is set, returning only cherry-picked paths')
+  if (process.env.SSG_CHERRY_PICKED_PATHS) {
+    log(
+      `SSG_CHERRY_PICKED_PATHS is set to ${process.env.SSG_CHERRY_PICKED_PATHS}.`
+    )
+    const paths = process.env.SSG_CHERRY_PICKED_PATHS.split(';')
+    log(`Building cherry-picked paths:\n  ${paths.join('\n  ')}\n`)
     return {
-      paths: [
-        {
-          params: {
-            slug: ['alexandria-va-vet-center', 'locations'],
-          },
-        },
-      ],
+      // Turn /alexandria-va-vet-center/locations/ into ['alexandria-va-vet-center', 'locations']
+      paths: paths.map((path) => ({
+        params: { slug: path.split('/').filter(Boolean) },
+      })),
       fallback: 'blocking',
     }
   }
