@@ -59,6 +59,7 @@ export const VideoPanel = ({ video }: CampaignLandingPageProps) => {
           {video.button && (
             <p>
               <va-link-action
+                data-testid="video-cta"
                 className="vads-u-display--block"
                 href={video.button.url}
                 text={video.button.label}

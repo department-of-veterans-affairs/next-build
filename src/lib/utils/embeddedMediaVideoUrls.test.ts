@@ -4,6 +4,17 @@ import {
 } from './embeddedMediaVideoUrls'
 
 describe('normalizeEmbeddedVideoUrl', () => {
+  test('returns null if passed null or undefined url', () => {
+    const normalizers = [
+      jest.fn((): false => false),
+      jest.fn((): false => false),
+      jest.fn(() => 'https://example.com/test-end'),
+    ]
+
+    expect(normalizeEmbeddedVideoUrl(null, normalizers)).toBe(null)
+    expect(normalizeEmbeddedVideoUrl(undefined, normalizers)).toBe(null)
+  })
+
   test('calls all normalizers until one return string', () => {
     const normalizers = [
       jest.fn((): false => false),
