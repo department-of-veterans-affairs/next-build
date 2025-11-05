@@ -89,7 +89,7 @@ export function BenefitsHub({
                             <br />
                             <span>{service.field_phone_number}</span>
                           </a>
-                        ) : service.title.includes('TTY: 711') ? (
+                        ) : service?.title?.includes('TTY: 711') ? (
                           // It was requested that we hardcode in the aria-label and href for the TTY service
                           // see: https://github.com/department-of-veterans-affairs/va.gov-team/issues/18151#issuecomment-879993959
                           <a
@@ -105,7 +105,7 @@ export function BenefitsHub({
                             <span>{service.title}</span>
                             <br />
                           </a>
-                        ) : service.field_link?.url ? (
+                        ) : service?.field_link?.url ? (
                           <a
                             href={service.field_link.url}
                             onClick={() => {
@@ -118,7 +118,7 @@ export function BenefitsHub({
                             <span>{service.title}</span>
                           </a>
                         ) : (
-                          service.title
+                          service?.title
                         )}
                       </li>
                     )
