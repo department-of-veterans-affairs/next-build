@@ -3,6 +3,7 @@ import { render, screen } from '@testing-library/react'
 import { Event } from './template'
 import { Event as FormattedEvent } from './formatted-type'
 import { NodeHealthCareLocalFacility } from '@/types/drupal/node'
+import { axe } from '@/test-utils'
 
 jest.mock('@/lib/analytics/recordEvent', () => ({
   recordEvent: jest.fn(),
@@ -67,6 +68,17 @@ const createMockFacilityLocation = (
 describe('<Event /> Component', () => {
   afterEach(() => {
     jest.clearAllMocks()
+  })
+
+  it('gives no axe violations', async () => {
+    const { container } = render(<Event {...createMockEvent()} />)
+    const axeResults = await axe(container, {
+      rules: {
+        // It's only empty because it isn't evaluating the `<va-link>` element inside it.
+        'empty-heading': { enabled: false },
+      },
+    })
+    expect(axeResults).toHaveNoViolations()
   })
 
   it('renders event details correctly', () => {
