@@ -242,18 +242,30 @@ describe('BenefitsHub with valid data', () => {
 
     const twitterLink = document.querySelectorAll('va-link')[1]
     expect(twitterLink.text).toBe('Veterans Affairs X (formerly Twitter)')
-    expect(twitterLink.href).toBe('https://twitter.com/DeptVetAffairs')
+    expect(twitterLink.href).toBe(
+      mockData.field_connect_with_us.field_social_media_links.platform_values
+        .twitter.value
+    )
 
     const facebookLink = document.querySelectorAll('va-link')[2]
     expect(facebookLink.text).toBe('Veterans Affairs Facebook')
-    expect(facebookLink.href).toBe('https://facebook.com/VeteransAffairs')
+    expect(facebookLink.href).toBe(
+      mockData.field_connect_with_us.field_social_media_links.platform_values
+        .facebook.value
+    )
 
     const youtubeLink = document.querySelectorAll('va-link')[3]
     expect(youtubeLink.text).toBe('Veterans Affairs YouTube')
-    expect(youtubeLink.href).toBe('https://youtube.com/DeptVetAffairs')
+    expect(youtubeLink.href).toBe(
+      mockData.field_connect_with_us.field_social_media_links.platform_values
+        .youtube.value
+    )
 
     const instagramLink = document.querySelectorAll('va-link')[4]
     expect(instagramLink.text).toBe('Veterans Affairs Instagram')
-    expect(instagramLink.href).toBe('https://instagram.com/deptvetaffairs')
+    expect(instagramLink.href).toBe(
+      mockData.field_connect_with_us.field_social_media_links.platform_values
+        .instagram.value
+    )
   })
 })
