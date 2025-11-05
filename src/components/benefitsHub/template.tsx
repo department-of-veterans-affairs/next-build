@@ -73,53 +73,60 @@ export function BenefitsHub({
                 <h3 className="vads-u-font-size--h4">Call us</h3>
                 <ul className="va-nav-linkslist-list social">
                   {fieldSupportServices.map((service, index) => {
-                    return (
-                      <li key={service.id || index}>
-                        {service.field_phone_number ? (
+                    const handleClick = () => {
+                      recordEvent({
+                        event: 'nav-hub-rail',
+                        'nav-path': 'Ask questions',
+                      })
+                    }
+
+                    const renderServiceContent = () => {
+                      if (service?.field_phone_number) {
+                        return (
                           <a
                             href={service.field_link?.url}
-                            onClick={() => {
-                              recordEvent({
-                                event: 'nav-hub-rail',
-                                'nav-path': 'Ask questions',
-                              })
-                            }}
+                            onClick={handleClick}
                           >
                             <span>{service.title}</span>
                             <br />
                             <span>{service.field_phone_number}</span>
                           </a>
-                        ) : service?.title?.includes('TTY: 711') ? (
-                          // It was requested that we hardcode in the aria-label and href for the TTY service
-                          // see: https://github.com/department-of-veterans-affairs/va.gov-team/issues/18151#issuecomment-879993959
+                        )
+                      }
+
+                      // TTY special case
+                      // It was requested that we hardcode in the aria-label and href for the TTY service
+                      // see: https://github.com/department-of-veterans-affairs/va.gov-team/issues/18151#issuecomment-879993959
+                      if (service?.title?.includes('TTY: 711')) {
+                        return (
                           <a
                             aria-label="TTY: 7 1 1."
                             href="tel:711"
-                            onClick={() => {
-                              recordEvent({
-                                event: 'nav-hub-rail',
-                                'nav-path': 'Ask questions',
-                              })
-                            }}
+                            onClick={handleClick}
                           >
                             <span>{service.title}</span>
                             <br />
                           </a>
-                        ) : service?.field_link?.url ? (
+                        )
+                      }
+
+                      if (service?.field_link?.url) {
+                        return (
                           <a
                             href={service.field_link.url}
-                            onClick={() => {
-                              recordEvent({
-                                event: 'nav-hub-rail',
-                                'nav-path': 'Ask questions',
-                              })
-                            }}
+                            onClick={handleClick}
                           >
                             <span>{service.title}</span>
                           </a>
-                        ) : (
-                          service?.title
-                        )}
+                        )
+                      }
+
+                      return service?.title
+                    }
+
+                    return (
+                      <li key={service.id || index}>
+                        {renderServiceContent()}
                       </li>
                     )
                   })}
