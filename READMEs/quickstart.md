@@ -30,11 +30,10 @@ A video walkthrough should be available to assist in setting up. If not compress
 > ```
 
 > [!NOTE]
-> Make sure you socks is on with `vtk socks on` if you are not using local CMS preview.
+> Make sure you have a local VA CMS instance running if you are not using cached content.
 >
-> - Without socks on, you won't be able to view tugboat, which is another area of testing that occurs after making a pull request. Un able to view tugboat prevents access to tugboats error logs.
-> - [Mac installation for sock](https://vfs.atlassian.net/wiki/spaces/~6218e48cc34549007199170b/pages/2178187323/Install+SOCKS+proxy+on+Mac)
-> - [Windos installation for socks](https://depo-platform-documentation.scrollhelp.site/getting-started/accessing-internal-tools-via-socks-proxy)
+> - Without a local CMS instance, you won't be able to view tugboat, which is another area of testing that occurs after making a pull request. Unable to view tugboat prevents access to tugboat's error logs.
+> - [Setup instructions for local VA CMS](https://github.com/department-of-veterans-affairs/va.gov-cms/blob/main/READMES/getting-started.md)
 
 ## Structure
 

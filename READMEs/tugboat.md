@@ -23,7 +23,7 @@ At VA, our lower environments are each built from a Tugboat Base Preview, in som
 ## CLI Setup
 
 Hopefully rare that you will need to do this, but if you need to troubleshoot Tugboat:
-**You need to be connected to SOCKS in order for this to work.**
+**You need to have a local VA CMS instance running in order for this to work.**
 Install `tugboat-cli` using these directions: https://docs.tugboatqa.com/tugboat-cli/install-the-cli/
 Set an access code here: https://tugboat.vfs.va.gov/access-tokens
 Add the access code to `.tugboat/.tugboat.yml` from this repo and copy it to your home directory.
