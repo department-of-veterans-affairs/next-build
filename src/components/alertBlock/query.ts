@@ -13,9 +13,7 @@ export const params: QueryParams<null> = () =>
 export const formatter: QueryFormatter<BlockAlert, AlertBlock> = (
   entity: BlockAlert
 ) => {
-  // If the entity is not found or is not published, return null. Note that it can also
-  // be the case where `status` is not even defined, in which case it's likely archived.
-  if (!entity || !entity.status) {
+  if (!entity) {
     return null
   }
 
