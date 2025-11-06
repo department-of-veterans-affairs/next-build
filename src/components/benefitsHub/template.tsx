@@ -1,9 +1,14 @@
 import { getHubIcon } from '@/lib/utils/benefitsHub'
 import { BenefitsHub as FormattedBenefitsHub } from './formatted-type'
+import { ContentFooter } from '@/components/contentFooter/template'
 
-export function BenefitsHub({ title, titleIcon, intro }: FormattedBenefitsHub) {
+export function BenefitsHub({
+  titleIcon,
+  lastUpdated,
+  title,
+  intro,
+}: FormattedBenefitsHub) {
   const iconConfig = getHubIcon(titleIcon)
-
   return (
     <div className="usa-grid usa-grid-full">
       <article className="usa-width-two-thirds">
@@ -26,6 +31,7 @@ export function BenefitsHub({ title, titleIcon, intro }: FormattedBenefitsHub) {
         <div className="va-introtext">
           <p>{intro}</p>
         </div>
+        <ContentFooter lastUpdated={lastUpdated} />
       </article>
     </div>
   )
