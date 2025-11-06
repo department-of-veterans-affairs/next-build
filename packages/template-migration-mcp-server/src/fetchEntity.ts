@@ -43,15 +43,20 @@ export async function fetchEntity(
   const { resourceType, uuid, limit = 1, includes = [] } = options
 
   try {
+    // Path to the fetch-entity script
+    const scriptPath = path.join(
+      __dirname,
+      '../../..',
+      'scripts/fetch-entity/fetch-entity.sh'
+    )
+
     // Build command args
     const args = [resourceType]
     if (uuid) {
       args.push(uuid)
     }
 
-    // Use relative path since we'll set cwd to project root
-    const scriptPath = path.join('scripts', 'fetch-entity', 'src', 'index.ts')
-    let command = `npx tsx ${scriptPath} ${args.join(' ')}`
+    let command = `${scriptPath} ${args.join(' ')}`
 
     // Add collection flag if no UUID is provided
     if (!uuid) {
@@ -67,10 +72,9 @@ export async function fetchEntity(
     // Always request JSON output and deflate to avoid circular references
     command += ' --json --deflate'
 
-    // Execute the command using child_process with cwd set to project root
+    // Execute the command using child_process
     return new Promise((resolve, reject) => {
-      const projectRoot = path.join(__dirname, '../../..')
-      const child = spawn('bash', ['-c', command], { cwd: projectRoot })
+      const child = spawn('bash', ['-c', command])
       let stdout = ''
       let stderr = ''
 
