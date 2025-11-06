@@ -64,7 +64,6 @@ import * as HealthServicesListing from '../../components/vamcHealthServicesListi
 import * as VamcOperatingStatusAndAlerts from '../../components/vamcOperatingStatusAndAlerts/query'
 import * as VamcSystemPoliciesPage from '../../components/vamcSystemPoliciesPage/query'
 import * as VamcSystemDetailPage from '../../components/vamcSystemDetailPage/query'
-import * as CampaignLandingPage from '../../components/campaignLandingPage/query'
 import * as ServiceLocation from '@/components/serviceLocation/query'
 import {
   ResourceType,
@@ -110,7 +109,6 @@ export const QUERIES_MAP = {
     VamcOperatingStatusAndAlerts,
   [RESOURCE_TYPES.VAMC_SYSTEM_POLICIES_PAGE]: VamcSystemPoliciesPage,
   [RESOURCE_TYPES.VAMC_SYSTEM_DETAIL_PAGE]: VamcSystemDetailPage,
-  [RESOURCE_TYPES.CAMPAIGN_LANDING_PAGE]: CampaignLandingPage,
 
   // Paragraphs
   [PARAGRAPH_RESOURCE_TYPES.ACCORDION_ITEM]: Accordion,
