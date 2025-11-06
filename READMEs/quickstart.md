@@ -30,9 +30,9 @@ A video walkthrough should be available to assist in setting up. If not compress
 > ```
 
 > [!NOTE]
-> Make sure you have a local VA CMS instance running if you are not using cached content.
+> Make sure you have a local VA CMS instance running.
 >
-> - Without a local CMS instance, you won't be able to view tugboat, which is another area of testing that occurs after making a pull request. Unable to view tugboat prevents access to tugboat's error logs.
+> - You won't be able to view tugboat off the VA network, which is another area of testing that occurs after making a pull request. Use a GFE on VPN or CAG to view tugboat. Unable to view tugboat prevents access to tugboat's error logs.
 > - [Setup instructions for local VA CMS](https://github.com/department-of-veterans-affairs/va.gov-cms/blob/main/READMES/getting-started.md)
 
 ## Structure
