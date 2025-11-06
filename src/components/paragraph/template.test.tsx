@@ -1,6 +1,6 @@
+import { render } from '@testing-library/react'
 import { Paragraph } from '@/components/paragraph/template'
 import { PARAGRAPH_RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
-import { render, screen } from '@testing-library/react'
 import { FormattedParagraph } from '@/lib/drupal/queries'
 
 // Define the paragraph types we're testing - testid matches the type prop

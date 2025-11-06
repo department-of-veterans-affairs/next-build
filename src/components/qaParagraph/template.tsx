@@ -1,28 +1,24 @@
 import { QaParagraph as FormattedQaParagraph } from '@/components/qaParagraph/formatted-type'
-import { ParagraphList } from '@/components/paragraph/template'
-import { WithCurrentHeadingLevel } from '@/components/heading/formatted-type'
-import { HeadingElement } from '../heading/template'
-import { incrementHeadingLevel } from '../heading/incrementHeadingLevel'
+import { Paragraph } from '@/components/paragraph/template'
 
 export function QaParagraph({
   question,
   answers,
-  currentHeadingLevel = 'h1',
-}: FormattedQaParagraph & WithCurrentHeadingLevel) {
-  const headingLevel = incrementHeadingLevel(currentHeadingLevel)
+  setHeaderh3,
+}: FormattedQaParagraph) {
+  const DynamicHeader = setHeaderh3 ? 'h3' : 'h2'
   return (
     <div data-template="paragraphs/q_a">
       <div>
         <div className="vads-u-display--flex">
-          <HeadingElement headingLevel={headingLevel}>
-            {question}
-          </HeadingElement>
+          <DynamicHeader>{question}</DynamicHeader>
         </div>
         {answers && (
-          <ParagraphList
-            paragraphs={answers}
-            currentHeadingLevel={headingLevel}
-          />
+          <div>
+            {answers.map((answer, index) => {
+              return <Paragraph key={index} {...answer} />
+            })}
+          </div>
         )}
       </div>
     </div>

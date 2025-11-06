@@ -9,19 +9,15 @@ import { escape } from '@/lib/utils/helpers'
 import { slugifyString } from '@/lib/utils/slug'
 import { ParagraphComponent } from '@/components/paragraph/formatted-type'
 import { conditionalAttr } from '@/lib/utils/helpers'
-import { WithCurrentHeadingLevel } from '@/components/heading/formatted-type'
-import { incrementHeadingLevel } from '../heading/incrementHeadingLevel'
 
 export const CollapsiblePanelItem = ({
   id,
   entityId,
   title,
   wysiwyg,
-  currentHeadingLevel = 'h3',
+  headingLevel = 'h4',
   paragraphs = [],
-}: ParagraphComponent<FormattedCollapsiblePanelItem> &
-  WithCurrentHeadingLevel) => {
-  const headingLevel = incrementHeadingLevel(currentHeadingLevel)
+}: ParagraphComponent<FormattedCollapsiblePanelItem>) => {
   return (
     <va-accordion-item
       key={entityId}
@@ -43,13 +39,7 @@ export const CollapsiblePanelItem = ({
           <WysiwygField html={wysiwyg} />
 
           {paragraphs.map((paragraph) => {
-            return (
-              <Paragraph
-                key={paragraph.id}
-                {...paragraph}
-                currentHeadingLevel={headingLevel}
-              />
-            )
+            return <Paragraph key={paragraph.id} {...paragraph} />
           })}
         </div>
       </div>
@@ -62,8 +52,8 @@ export const CollapsiblePanel = ({
   entityId,
   paragraphs,
   bordered = false,
-  currentHeadingLevel = 'h3',
-}: ParagraphComponent<FormattedCollapsiblePanel> & WithCurrentHeadingLevel) => {
+  headingLevel = 'h4',
+}: ParagraphComponent<FormattedCollapsiblePanel>) => {
   return (
     <div
       id={id}
@@ -78,7 +68,7 @@ export const CollapsiblePanel = ({
             <CollapsiblePanelItem
               key={collapsiblePanelItem.id}
               {...collapsiblePanelItem}
-              currentHeadingLevel={currentHeadingLevel}
+              headingLevel={headingLevel}
             />
           )
         })}

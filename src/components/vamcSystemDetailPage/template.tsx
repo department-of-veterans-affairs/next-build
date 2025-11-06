@@ -6,7 +6,7 @@ import { ContentFooter } from '@/components/contentFooter/template'
 import { SideNavLayout } from '@/components/sideNavLayout/template'
 import { RegionalTopTasks } from '@/components/topTasks/template'
 import { LovellSwitcher } from '@/components/lovellSwitcher/template'
-import { Paragraph, ParagraphList } from '@/components/paragraph/template'
+import { Paragraph } from '@/components/paragraph/template'
 
 export function VamcSystemDetailPage({
   entityPath,
@@ -62,12 +62,16 @@ export function VamcSystemDetailPage({
         {/* Featured content */}
         {featuredContent && featuredContent.length > 0 && (
           <div className="feature">
-            <ParagraphList paragraphs={featuredContent} />
+            {featuredContent.map((content) => (
+              <Paragraph key={content.id} {...content} />
+            ))}
           </div>
         )}
 
         {/* Main content blocks */}
-        <ParagraphList paragraphs={mainContent} />
+        {mainContent.map((paragraph, index) => (
+          <Paragraph key={paragraph?.id || index} {...paragraph} />
+        ))}
 
         {/* Related links */}
         {relatedLinks && (
