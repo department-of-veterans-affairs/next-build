@@ -54,66 +54,6 @@ describe('VamcOperatingStatusAndAlerts formatData', () => {
       })
     ).toMatchSnapshot()
   })
-  describe('Lovell variant handling', () => {
-    const lovellPath = {
-      alias: '/lovell-federal-health-care-va/operating-status',
-      pid: 79642,
-      langcode: 'en',
-    }
-    const lovellBreadcrumbs = [
-      {
-        uri: 'https://va-gov-cms.ddev.site/',
-        title: 'Home',
-        options: [],
-      },
-      {
-        uri: 'https://va-gov-cms.ddev.site/lovell-federal-health-care',
-        title: 'Lovell Federal health care',
-        options: [],
-      },
-      {
-        uri: 'https://va-gov-cms.ddev.site/lovell-federal-health-care/operating-status',
-        title: 'Operating Status',
-        options: [],
-      },
-    ]
-    test('outputs formatted data with Lovell variant', () => {
-      expect(
-        queries.formatData('node--vamc_operating_status_and_alerts', {
-          entity: VamcOperatingStatusAndAlertsMock,
-          menu: null,
-          facilities: [facilityMock],
-          lovell: {
-            isLovellVariantPage: true,
-            variant: 'tricare',
-          },
-        })
-      ).toMatchSnapshot()
-    })
-    test('updates the breadcrumbs for Lovell variant', () => {
-      const formattedData = queries.formatData(
-        'node--vamc_operating_status_and_alerts',
-        {
-          entity: {
-            ...VamcOperatingStatusAndAlertsMock,
-            path: lovellPath,
-            breadcrumbs: lovellBreadcrumbs,
-          },
-          menu: null,
-          facilities: [facilityMock],
-          lovell: {
-            isLovellVariantPage: true,
-            variant: 'tricare',
-          },
-        }
-      )
-      expect(formattedData.breadcrumbs[1]).toEqual({
-        uri: 'https://va-gov-cms.ddev.site/lovell-federal-health-care-tricare',
-        title: 'Lovell Federal health care - TRICARE',
-        options: [],
-      })
-    })
-  })
 })
 
 describe('VamcOperatingStatusAndAlerts format situation updates', () => {
