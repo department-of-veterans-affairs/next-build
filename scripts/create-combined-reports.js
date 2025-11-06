@@ -1,47 +1,8 @@
 /* eslint-disable no-console */
 import fs from 'fs'
 import chalk from 'chalk'
-import { load } from 'cheerio'
 
-// Fetch the parent page of the broken link and parse the link text.
-const resolveLinkText = async (parentUrl, targetUrl) => {
-  try {
-    const response = await fetch(parentUrl, {
-      signal: AbortSignal.timeout(10000),
-    })
-    if (!response.ok) return ''
-    const html = await response.text()
-    const $ = load(html)
-    // Try to find anchors whose href matches targetUrl (exact or relative)
-    const normTarget = targetUrl.replace(/#.*$/, '')
-    let found = ''
-    $('a').each((i, el) => {
-      if (found) return
-      const href = $(el).attr('href') || ''
-      if (!href) return
-      // Normalize potential absolute/relative hrefs by comparing pathnames when possible
-      if (href === targetUrl || href === normTarget) {
-        found = $(el).text().trim()
-        return
-      }
-      // Handle relative links that end with the target path
-      try {
-        const resolved = new URL(href, parentUrl).toString().replace(/#.*$/, '')
-        if (resolved === normTarget || resolved === targetUrl) {
-          found = $(el).text().trim()
-          return
-        }
-      } catch (e) {
-        // ignore invalid URLs
-      }
-    })
-    return found
-  } catch (e) {
-    return ''
-  }
-}
-
-const createCombinedReports = async () => {
+const createCombinedReports = () => {
   // List any report files.
   let combinedJson = {
     metrics: {
@@ -85,30 +46,6 @@ const createCombinedReports = async () => {
         )
     }
   }
-  // Iterate over combinedJson to look up link text.
-  // Batch all resolveLinkText calls for performance
-  const linkTextPromises = []
-  for (const parentLink in combinedJson.brokenLinksByParent) {
-    for (const brokenLink of combinedJson.brokenLinksByParent[parentLink]) {
-      linkTextPromises.push(
-        resolveLinkText(parentLink, brokenLink.url).then((text) => {
-          brokenLink.linkText = text
-        })
-      )
-    }
-  }
-  await Promise.all(linkTextPromises)
-  // Helper: safe CSV escape for a single field
-  const escapeCsv = (val) => {
-    if (val === null || val === undefined) return ''
-    const s = String(val)
-    // If the field contains a quote, comma, or newline, wrap in double quotes and escape inner quotes
-    if (/[",\n]/.test(s)) {
-      return '"' + s.replace(/"/g, '""') + '"'
-    }
-    return s
-  }
-
   // Write finished report to file.
   fs.writeFile(
     'broken-links-report-combined.json',
@@ -126,24 +63,13 @@ const createCombinedReports = async () => {
     )}`
   )
 
-  // Generate a CSV report with Link Text column. We'll resolve link text if available in the combined JSON entry,
-  // otherwise attempt to fetch the parent page and extract the anchor text (best-effort).
-  let csvReport = `Source,Broken Link,Link Text,Error Code\n`
-  const parents = Object.keys(combinedJson.brokenLinksByParent)
-  for (const parent of parents) {
-    const items = combinedJson.brokenLinksByParent[parent]
-    for (const child of items) {
-      // Ensure child has linkText in combined JSON (best-effort resolution)
-      // (linkText resolution already handled earlier; redundant logic removed)
-    }
-  }
-  for (const parent of parents) {
-    const sanitizedParent = escapeCsv(parent)
+  // Generate a CSV report
+  let csvReport = `Source,Broken Link,Error Code\n`
+  for (const parent of Object.keys(combinedJson.brokenLinksByParent)) {
+    const sanitizedParent = parent.replace(/,/g, ',,')
     for (const child of combinedJson.brokenLinksByParent[parent]) {
-      const sanitizedChildUrl = escapeCsv(child.url)
-      const code = escapeCsv(child.status)
-      const linkText = escapeCsv(child.linkText || '')
-      csvReport += `${sanitizedParent},${sanitizedChildUrl},${linkText},${code}\n`
+      const sanitizedChildUrl = child.url.replace(/,/g, ',,')
+      csvReport += `${sanitizedParent},${sanitizedChildUrl},${child.status}\n`
     }
   }
 
@@ -161,7 +87,4 @@ const createCombinedReports = async () => {
   )
 }
 
-// Run the async main
-;(async () => {
-  await createCombinedReports()
-})()
+createCombinedReports()
