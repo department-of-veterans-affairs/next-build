@@ -157,9 +157,6 @@ export const formatter: QueryFormatter<
     getRecordsInPersonContent: formatCcWysiwyg(
       entity.field_cc_get_records_in_person
     ),
-    howWeShareRecordsContent: formatCcWysiwyg(
-      entity.field_cc_how_we_share_records
-    ),
     reactWidget: formatReactWidget(
       normalizeEntityFetchedParagraphs(entity.field_cc_react_widget)
     ),
