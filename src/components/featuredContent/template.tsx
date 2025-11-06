@@ -1,7 +1,5 @@
 import { FeaturedContent as FormattedFeaturedContent } from '@/components/featuredContent/formatted-type'
 import { ParagraphComponent } from '@/components/paragraph/formatted-type'
-import { slugifyString } from '@/lib/utils/slug'
-import { setPTag } from '@/lib/utils/helpers'
 
 export function FeaturedContent({
   title,
@@ -17,9 +15,8 @@ export function FeaturedContent({
       )}
       {description && (
         <div
-          id={`featured-content-description${slugifyString(title)}`}
-          // Sometimes this component is being used with a non-raw html string, in those cases it should be wrapped in a <p>
-          dangerouslySetInnerHTML={{ __html: setPTag(description) }}
+          id={`featured-content-description${title}`}
+          dangerouslySetInnerHTML={{ __html: description }}
         />
       )}
       {link && link.url && (
