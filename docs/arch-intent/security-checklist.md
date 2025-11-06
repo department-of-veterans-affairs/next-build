@@ -5,29 +5,56 @@
 **Please describe a plan to monitor this code base after deployment, including the following scenarios (NOTE: If you don't (yet) have such a plan, or don't know how to get started with one, we can work on this with you!).**
 
 - We are using DataDog for monitoring
+- Using lock files for our code in Nextjs
+- No plan in place to monitor for unauthorized code changes in production servers
+- We welcome insight and direction from platform on a possible solution if this is a threat we should consider.
 
-**The code base is compromised at source- or run-time.**
+* **The code base is compromised at source- or run-time.**
+  - At source we use GitHub and monitor all changes and have security on who can merge to main
+  - Using lock files
+* **How does the code base get disabled in the product?**
+  - N/A
+* **How would you detect a compromise?**
+  - We have continuous integration tests
+  - Using lock files
 
-- No plan in place. Need feedback on how to implement a solution.
+- **What process and privilege does the code base execute under?**
 
-**How does the code base get disabled in the product?**
+  - There is no specified role defined for Nextjs or Drupal
 
-**How would you detect a compromise?**
+  * **If so, is that process isolated?**
 
-**What process and privilege does the code base execute under?**
+  * **If so, what additional credentials are available to that process?**
 
-- **If so, is that process isolated?**
+* **The code base is infiltrated or ex-filtrated.**
+  - Need guidance from Platform
 
-- **If so, what additional credentials are available to that process?**
-
-**The code base is infiltrated or ex-filtrated.**
-**Links to dashboards that help identify and debug application issues**
+- **Links to dashboards that help identify and debug application issues**
+  - [CMS Production and Staging [Drupal]](https://vagov.ddog-gov.com/dashboard/vnk-g4s-fru/cms-prod-staging?fromUser=false&offset=1&refresh_mode=daily&from_ts=1762318800000&to_ts=1762405199999&live=true)
+  - [CMS APM [Drupal]](https://vagov.ddog-gov.com/apm/entity/service%3Avagov-cms?dependencyMap.showNetworkMetrics=false&env=brd-prod&fromUser=false&graphType=flamegraph&groupMapByOperation=null&primaryTags=%3A%2A&shouldShowLegend=true&spanKind=server&traceQuery=&start=1762438001585&end=1762441601585&paused=false)
+  - [Nextjs K8s Pods Overview](https://vagov.ddog-gov.com/dashboard/6db-3rm-wui/kubernetes-pods-overview-nextjs-test-staging?fromUser=false&refresh_mode=sliding&tpl_var_cluster%5B0%5D=dsva-vagov-prod-cluster&tpl_var_namespace%5B0%5D=next-build&from_ts=1761836663179&to_ts=1762441463179&live=true)
+  - [Nextjs RUM](https://vagov.ddog-gov.com/dashboard/f9n-yzk-t5u/rum---web-app-performance-nextjs?fromUser=false&refresh_mode=sliding&tpl_var_applicationName%5B0%5D=%22Nextjs%20Frontend%22&tpl_var_env%5B0%5D=vagovprod&from_ts=1761836738454&to_ts=1762441538454&live=true)
+  - [Nextjs APM](https://vagov.ddog-gov.com/apm/entity/service%3Avagov-next-build?dependencyMap.showNetworkMetrics=false&env=eks-prod&fromUser=false&graphType=flamegraph&groupMapByOperation=null&operationName=web.request&shouldShowLegend=true&traceQuery=&start=1762438001585&end=1762441601585&paused=false)
 
 **Provide your Release Plan with the "Planning" sections completed (in each section: Phase I, Phase II, Go Live)**
 
+- Do not have a detailed planned for each phase yet
+- [Jeff add testing and talk to Grace about plans?]
+
 **Are there any new application endpoints, front- or back-end? If so, please give examples of how any of the endpoints could be abused by unauthorized parties, as well as a plan to mitigate such threats.**
 
+- The system uses an [Drupal JSON:API](https://www.drupal.org/docs/core-modules-and-themes/core-modules/jsonapi-module) endpoint to Get content data for requested pages
+  - This is a Get only request
+  - All other request types are denied by the Drupal server for this configuration
+  - This endpoitn is not public and only used internally by the Nextjs Server
+- Potential for DDOS attack
+  - We will be limiting connections and imposing time limits on responses to prevent overloading the system.
+  - Question for Platform: Are there other solutions we can implement to prevent security breaches?
+
 **Is there any new logging data being captured? If so, what data is being captured, how, and where is it stored?**
+
+- Only traffic/application monitoring information stored in Datadog
+- No user data or input data from users
 
 **Is Personal Health Information/PHI, Personal Identifiable Information/PII, or any other Personal Information/PI being captured? If so, please answer the following questions:**
 
@@ -53,9 +80,10 @@
 
 - **Is this feature authenticated or unauthenticated?**
 
-  - unauthenticated
+  - Unauthenticated
 
 - **Are there any other specific subjects that you want to highlight or focus additional attention on?**
+  - No
 
 **Artifacts**
 Please provide the following documentation as attachments.
@@ -64,7 +92,20 @@ Please provide the following documentation as attachments.
 
 - **Which implementation of security approaches were considered along with the approach that was chosen and why?**
 
-- **If there are any libraries or components that this code base will depend upon that are currently not yet part of the code base? How and why were these selected?**
+| Feature/Service/Configurations                    | Mitigated Cyber Attacks                                                                        | Notes                                                                                              |
+| ------------------------------------------------- | ---------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| Firewall (WAF)                                    | Injection Attacks                                                                              | Need to confirm if this is handled by TIC or other current infrastructure deployed with Kubernetes |
+| Content Security Policy (CSP)                     | Cross-Site Scripting (XSS) Client-Side Attacks                                                 |                                                                                                    |
+| Principle of Least Privilege                      | Security Misconfigurations, Broken Access Control, API Security Vulnerabilities                | Only using Get Requests from Nextjs to Drupal                                                      |
+| Disallow requests to private IP ranges            | Server-Side Request Forgery (SSRF)                                                             |                                                                                                    |
+| Rate limit for API and controller access          | Broken Access Control, API Security Vulnerabilities, Denial of Service (DoS) & Distributed DoS |                                                                                                    |
+| Using lock files to prevent floating dependencies | Supply Chain Attacks                                                                           |                                                                                                    |
+| Regularly audit dependencies                      | Supply Chain Attacks                                                                           | Using Dependabot                                                                                   |
+| HTTPS for all connections                         | Data Tampering / Injection                                                                     |                                                                                                    |
+
+- **Platform Question**: Guidance on if we need to schedule our own Penetration testing (pen testing)?
+
+* **If there are any libraries or components that this code base will depend upon that are currently not yet part of the code base? How and why were these selected?**
 
 **Incident Response Plan, including Points of Contact for your system and dependent VA back-ends.**
 
@@ -74,8 +115,8 @@ Please provide the following documentation as attachments.
   - PR is reviewed and automated tests are run - ~10 mins
   - PR is merged after successful review and automated testing
   - Deployment executes and updates the production environment
-    - Nextjs Env - ~10 mins
-    - Drupal Env - ~15 mins
+    - Nextjs Env - ~10 mins [Tim and Edmund to comment]
+    - Drupal Env - ~15 mins [Tim and Edmund to comment]
   - No downtime due to the deployment process.
 
 **Sequence Diagram: This diagram must include any authentication steps if this is an authenticated experience.**

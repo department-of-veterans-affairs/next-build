@@ -94,7 +94,7 @@
 
 **Are there any new scheduled/cron jobs? If so, how are their intervals and impact considered? (especially with regard to periods of higher traffic or times when Sidekiq and infrastructure is already handling a high volume of jobs?)**
 
-- {TIM NEEDS TO COMMENT}
+- N/A
 
 **Is schema validation enforced (ex: using the vets-json-schema repo)?**
 
