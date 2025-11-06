@@ -1,0 +1,43 @@
+{
+  "type": "node--landing_page",
+  "id": "fd822f25-788f-489c-a0fc-b1f7ad6c20d5",
+  "path": {
+    "alias": "/health-care",
+    "pid": 123,
+    "langcode": "en"
+  },
+  "breadcrumbs": [
+    {
+      "uri": "https://www.va.gov/",
+      "title": "Home",
+      "options": []
+    }
+  ],
+  "drupal_internal__nid": 67,
+  "drupal_internal__vid": 1234,
+  "langcode": "en",
+  "status": true,
+  "title": "VA health care",
+  "created": "2020-01-01T00:00:00+00:00",
+  "changed": "2023-12-01T12:00:00+00:00",
+  "promote": false,
+  "sticky": false,
+  "default_langcode": true,
+  "revision_translation_affected": true,
+  "moderation_state": "published",
+  "metatag": [],
+  "field_related_office": null,
+  "field_alert": null,
+  "field_title_icon": "",
+  "field_home_page_hub_label": "Health care",
+  "field_teaser_text": "Apply for and manage VA health care benefits",
+  "field_links": [],
+  "field_description": "Get VA health care coverage for preventive care, primary care, specialty care, and more.",
+  "field_meta_title": "VA Health Care | Veterans Affairs",
+  "field_intro_text": "With a VA health care plan, you're covered for regular checkups with your primary care provider and appointments with specialists (like cardiologists, gynecologists, and mental health providers).",
+  "field_plainlanguage_date": "",
+  "field_promo": null,
+  "field_related_links": null,
+  "field_spokes": null,
+  "field_support_services": []
+}

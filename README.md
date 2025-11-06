@@ -10,7 +10,7 @@ Front-end templating, build, and deploy for VA.gov CMS content.
 
 Prerequisites
 
-- [VA SOCKS access](https://depo-platform-documentation.scrollhelp.site/getting-started/Internal-tools-access-via-SOCKS-proxy.1821081710.html)
+- [a local VA CMS instance](https://github.com/department-of-veterans-affairs/va.gov-cms/blob/main/READMES/getting-started.md)
 - [NVM](https://github.com/nvm-sh/nvm) for node version management
 - [Yarn](https://yarnpkg.com/getting-started/install) for package management
 - [Docker](https://www.docker.com/products/docker-desktop/) for the redis container
@@ -30,7 +30,7 @@ You should set these up before attempting to install the repo.
 
 5. Copy `envs/.env.example` to `envs/.env.local`. This is a reasonable set of environment defaults for local development.
 
-6. Make sure your SOCKS access is running. (e.g. `vtk socks on`)
+6. Make sure you have a local VA CMS instance running. Follow [the CMS repo setup instructions](https://github.com/department-of-veterans-affairs/va.gov-cms/blob/main/READMES/getting-started.md) if needed.
 
 7. In the `next-build` directory, run `yarn setup` to pull initial built assets from the `vets-website` repo. This will grab a bunch of files from a vets-website S3 bucket and place them into the appropriate `public/` folders.
 
