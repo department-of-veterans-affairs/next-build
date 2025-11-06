@@ -130,6 +130,7 @@
     "jest-watch-typeahead": "^2.2.2",
     "lint-staged": "^16.2.3",
     "msw": "^2.4.9",
+    "nock": "^13.5.4",
     "node_extra_ca_certs_mozilla_bundle": "^1.0.7",
     "npm": "^11.6.0",
     "prettier": "^3.2.5",
