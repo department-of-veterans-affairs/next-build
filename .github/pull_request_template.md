@@ -1,3 +1,8 @@
+## Notice about main branch
+Until further notice, the main branch of this repo is locked. Pull requests should be made against the [integration-202510](https://github.com/department-of-veterans-affairs/next-build/tree/integration-202510) branch. 
+
+Merges to the main branch for critical bugs or security updates are allowed. Please contact CMS Team in the [#platform-cms-team](https://dsva.slack.com/archives/CT4GZBM8F) channel if you need assistance. 
+
 ## Description
 
 What does this PR address?
@@ -71,6 +76,6 @@ When merging a layout, you must ensure that the content type has been turned on 
 
 The layout component and matching resource type should be included in the [slug.tsx](../src/pages/[[...slug]].tsx), so that it can reviewed. Including a component in the slug.tsx does not mean a page will be viewable in production only on the tugboat for the branch.
 
-When a layout is merged to main and approved for deployment, the prod CMS will turn the toggle on for the resource type.
+When a layout is merged to main and approved for deployment, the prod CMS will turn the toggle on for the resource type. 
 
 The status of layouts should be kept up to date inside [templates.md](../READMEs/templates.md). This includes QA progress, development progress, etc. A link should be provided for where testing can occur.
