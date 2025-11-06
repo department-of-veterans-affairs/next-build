@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react'
+import { axe } from '@/test-utils'
 import { PressRelease } from './template'
 import { getByText } from '@testing-library/react'
 import { fireEvent } from '@testing-library/react'
@@ -104,7 +105,7 @@ describe('<pressRelease> with valid data', () => {
   afterEach(() => {
     spy.mockRestore()
   })
-  test('renders component', () => {
+  test('renders component', async () => {
     const { container, getByTestId } = render(<PressRelease {...data} />)
     const linkElement = getByTestId('pdf-version')
 
@@ -128,6 +129,9 @@ describe('<pressRelease> with valid data', () => {
       screen.queryByText(/Houston health care Placeholder - News release/)
     ).toBeInTheDocument()
     expect(container.querySelectorAll('button')).toBeTruthy()
+
+    const axeResults = await axe(container)
+    expect(axeResults).toHaveNoViolations()
   })
   test('renders component without pdfVersion', () => {
     data.pdfVersion = null
