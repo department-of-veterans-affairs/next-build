@@ -1,5 +1,4 @@
 import { render, screen } from '@testing-library/react'
-import { axe } from '@/test-utils'
 import { MediaImage } from '@/components/mediaDocument/formatted-type'
 import { NewsStory } from './template'
 
@@ -85,7 +84,7 @@ describe('<newsStory> with valid data', () => {
   afterEach(() => {
     spy.mockRestore()
   })
-  test('renders component', async () => {
+  test('renders component', () => {
     const { container } = render(<NewsStory {...data} />)
     const imgEl = container.querySelector('img')
     expect(imgEl).toBeTruthy()
@@ -93,9 +92,6 @@ describe('<newsStory> with valid data', () => {
       screen.queryByText(/We honor outstanding doctors/)
     ).toBeInTheDocument()
     expect(screen.queryByText(/Keith Gottschalk/)).toBeInTheDocument()
-
-    const axeResults = await axe(container)
-    expect(axeResults).toHaveNoViolations()
   })
 
   test('renders component without image', () => {

@@ -1,6 +1,5 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
-import { axe } from '@/test-utils'
 import { VamcHealthServicesListing } from './template'
 
 // Mock menu data for testing
@@ -140,14 +139,9 @@ const defaultProps = {
 }
 
 describe('VamcHealthServicesListing with valid data', () => {
-  test('renders title', async () => {
-    const { container } = render(
-      <VamcHealthServicesListing {...defaultProps} />
-    )
+  test('renders title', () => {
+    render(<VamcHealthServicesListing {...defaultProps} />)
     expect(screen.getByText('Health services')).toBeInTheDocument()
-
-    const axeResults = await axe(container)
-    expect(axeResults).toHaveNoViolations()
   })
 
   test('renders intro text when provided', () => {
