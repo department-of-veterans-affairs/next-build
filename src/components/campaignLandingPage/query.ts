@@ -13,6 +13,8 @@ import {
 import { formatter as formatImage } from '@/components/mediaImage/query'
 import { queries } from '@/lib/drupal/queries'
 
+import { formatter as teaserWithImageFormatter } from '../linkTeaserWithImage/query'
+
 // Define the query params for fetching node--campaign_landing_page.
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude([
@@ -30,6 +32,10 @@ export const params: QueryParams<null> = () => {
     'field_clp_video_panel_more_video',
     'field_clp_spotlight_cta',
     'field_clp_spotlight_link_teasers',
+    'field_clp_stories_teasers',
+    'field_clp_stories_teasers.field_link_teaser',
+    'field_clp_stories_teasers.field_media',
+    'field_clp_stories_teasers.field_media.image',
   ])
 }
 
@@ -126,6 +132,18 @@ export const formatter: QueryFormatter<
         queries.formatData('paragraph--button', entity.field_clp_spotlight_cta),
       teasers: (entity.field_clp_spotlight_link_teasers ?? []).map((teaser) =>
         queries.formatData('paragraph--link_teaser', teaser)
+      ),
+    },
+    stories: {
+      show: entity.field_clp_stories_panel,
+      header: entity.field_clp_stories_header,
+      intro: entity.field_clp_stories_intro,
+      cta: entity.field_clp_stories_cta && {
+        url: entity.field_clp_stories_cta.url,
+        label: entity.field_clp_stories_cta.title || 'See more stories',
+      },
+      teasers: (entity.field_clp_stories_teasers ?? []).map((teaser) =>
+        teaserWithImageFormatter(teaser)
       ),
     },
   }

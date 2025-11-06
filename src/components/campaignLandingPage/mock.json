@@ -131,10 +131,21 @@
   "field_clp_spotlight_header": null,
   "field_clp_spotlight_intro_text": null,
   "field_clp_spotlight_panel": false,
-  "field_clp_stories_cta": null,
-  "field_clp_stories_header": null,
-  "field_clp_stories_intro": null,
-  "field_clp_stories_panel": false,
+  "field_clp_stories_cta": {
+    "uri": "https://news.va.gov/127537/delaware-veterans-help-health-care-benefits-veac/",
+    "title": "",
+    "options": {
+      "href": "https://news.va.gov/127537/delaware-veterans-help-health-care-benefits-veac/",
+      "data-entity-type": "",
+      "data-entity-uuid": "",
+      "data-entity-substitution": ""
+    },
+    "url": "https://news.va.gov/127537/delaware-veterans-help-health-care-benefits-veac/"
+  },
+
+  "field_clp_stories_header": "stories header text",
+  "field_clp_stories_intro": "stories intro text",
+  "field_clp_stories_panel": true,
   "field_clp_video_panel": true,
   "field_clp_video_panel_header": "Video panel header",
   "field_clp_what_you_can_do_header": "Edit Heading",
@@ -4954,7 +4965,833 @@
   "field_clp_reusable_q_a": null,
   "field_clp_spotlight_cta": null,
   "field_clp_spotlight_link_teasers": [],
-  "field_clp_stories_teasers": [],
+  "field_clp_stories_teasers": [
+    {
+      "type": "paragraph--link_teaser_with_image",
+      "id": "a534f535-c537-41ca-a42f-29661047b28d",
+      "drupal_internal__id": 79752,
+      "drupal_internal__revision_id": 1624288,
+      "langcode": "en",
+      "status": true,
+      "created": "2021-08-24T18:32:01+00:00",
+      "parent_id": "27556",
+      "parent_type": "node",
+      "parent_field_name": "field_clp_stories_teasers",
+      "behavior_settings": [],
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "breadcrumbs": [],
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "content_translation_changed": null,
+      "links": {
+        "self": {
+          "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/link_teaser_with_image/a534f535-c537-41ca-a42f-29661047b28d?resourceVersion=id%3A1624288"
+        }
+      },
+      "resourceIdObjMeta": {
+        "target_revision_id": 1624288,
+        "drupal_internal__target_id": 79752
+      },
+      "paragraph_type": {
+        "type": "paragraphs_type--paragraphs_type",
+        "id": "3b2c944c-742e-462a-b163-9aa0568de0c9",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "link_teaser_with_image"
+        }
+      },
+      "field_link_teaser": {
+        "type": "paragraph--link_teaser",
+        "id": "52a784c0-4240-435b-b2ad-fb4c33b1d509",
+        "drupal_internal__id": 79751,
+        "drupal_internal__revision_id": 1624287,
+        "langcode": "en",
+        "status": true,
+        "created": "2021-08-24T18:32:01+00:00",
+        "parent_id": "79752",
+        "parent_type": "paragraph",
+        "parent_field_name": "field_link_teaser",
+        "behavior_settings": [],
+        "default_langcode": true,
+        "revision_translation_affected": true,
+        "breadcrumbs": [],
+        "content_translation_source": "und",
+        "content_translation_outdated": false,
+        "content_translation_changed": null,
+        "field_link": {
+          "uri": "https://news.va.gov/126268/women-veterans-experience-action-center/",
+          "title": "VA 1-on-1: Veteran Assistance Expo dedicated to women Veterans",
+          "options": {
+            "href": "https://news.va.gov/126268/women-veterans-experience-action-center/",
+            "data-entity-type": "",
+            "data-entity-uuid": "",
+            "data-entity-substitution": ""
+          },
+          "url": "https://news.va.gov/126268/women-veterans-experience-action-center/"
+        },
+        "field_link_summary": "VA’s Center for Women Veterans and the Veterans Experience Office held a national women Veterans VA 1-on-1: Veteran Assistance Expo that served as a call to action to embrace the diversity and service of women Veterans.",
+        "links": {
+          "self": {
+            "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/link_teaser/52a784c0-4240-435b-b2ad-fb4c33b1d509?resourceVersion=id%3A1624287"
+          }
+        },
+        "resourceIdObjMeta": {
+          "target_revision_id": 1624287,
+          "drupal_internal__target_id": 79751
+        },
+        "paragraph_type": {
+          "type": "paragraphs_type--paragraphs_type",
+          "id": "072db7a4-476e-41a6-ab49-c44184281451",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "link_teaser"
+          }
+        },
+        "relationshipNames": ["paragraph_type"]
+      },
+      "field_media": {
+        "type": "media--image",
+        "id": "c8f477da-4089-46ce-9c67-d44c244de523",
+        "drupal_internal__mid": 29591,
+        "drupal_internal__vid": 31158,
+        "status": true,
+        "name": "Her service, our mission National VEAC dedicated to women Veterans.png",
+        "created": "2024-01-04T20:38:48+00:00",
+        "changed": "2024-01-04T20:38:48+00:00",
+        "breadcrumbs": [
+          {
+            "uri": "https://va-gov-cms.ddev.site/",
+            "title": "Home",
+            "options": []
+          },
+          {
+            "uri": "https://va-gov-cms.ddev.site/media/image/29591",
+            "title": "Her Service, Our Mission National VEAC Dedicated To Women Veterans.png",
+            "options": []
+          }
+        ],
+        "path": {
+          "alias": "/media/image/29591",
+          "pid": 96284,
+          "langcode": "en"
+        },
+        "field_description": "Her service, our mission: National Veterans Experience Action Center dedicated to women Veterans",
+        "links": {
+          "self": {
+            "href": "https://va-gov-cms.ddev.site/jsonapi/media/image/c8f477da-4089-46ce-9c67-d44c244de523?resourceVersion=id%3A31158"
+          }
+        },
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29591
+        },
+        "bundle": {
+          "type": "media_type--media_type",
+          "id": "92f64a34-81e5-4094-82a9-4fe61d7f2227",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "image"
+          }
+        },
+        "uid": {
+          "type": "user--user",
+          "id": "f605215a-4126-464b-8f28-7086a7f9c9e7",
+          "display_name": "Heather.Santos@va.gov",
+          "drupal_internal__uid": 3974,
+          "langcode": "en",
+          "preferred_langcode": "en",
+          "preferred_admin_langcode": "en",
+          "name": "Heather.Santos@va.gov",
+          "mail": "user3974@example.com",
+          "timezone": "America/New_York",
+          "status": true,
+          "created": "2022-03-07T21:39:14+00:00",
+          "changed": "2025-09-04T22:50:43+00:00",
+          "access": "2025-06-24T13:59:39+00:00",
+          "login": "2025-06-24T13:59:39+00:00",
+          "init": "Heather.Santos@va.gov",
+          "default_langcode": true,
+          "breadcrumbs": [
+            {
+              "uri": "https://va-gov-cms.ddev.site/",
+              "title": "Home",
+              "options": []
+            },
+            {
+              "uri": "https://va-gov-cms.ddev.site/user/3974",
+              "title": "Heather.Santos@va.gov",
+              "options": []
+            }
+          ],
+          "metatag": [
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "title",
+                "content": "Heather.Santos@va.gov | VA.gov CMS"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "description",
+                "content": "VA.gov CMS"
+              }
+            },
+            {
+              "tag": "link",
+              "attributes": {
+                "rel": "canonical",
+                "href": "https://va-gov-cms.ddev.site/user/3974"
+              }
+            }
+          ],
+          "path": {
+            "alias": null,
+            "pid": null,
+            "langcode": "en"
+          },
+          "field_last_password_reset": "2022-03-07T16:41:11-05:00",
+          "field_password_expiration": false,
+          "field_pending_expire_sent": 0,
+          "message_subscribe_email": false,
+          "links": {
+            "self": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/user/user/f605215a-4126-464b-8f28-7086a7f9c9e7"
+            }
+          },
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 3974
+          },
+          "roles": [
+            {
+              "type": "user_role--user_role",
+              "id": "011213c4-3954-48fa-af6a-b02cebaeae2c",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": "content_creator_resources_and_support"
+              }
+            },
+            {
+              "type": "user_role--user_role",
+              "id": "550fe9cf-424b-4991-96ef-7c99d65d3040",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": "office_content_creator"
+              }
+            },
+            {
+              "type": "user_role--user_role",
+              "id": "2782bb1f-74f1-4ac9-b2f8-5dd3cc9bfec1",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": "content_publisher"
+              }
+            }
+          ],
+          "role_change": [
+            {
+              "type": "user_role--user_role",
+              "id": "missing",
+              "resourceIdObjMeta": {
+                "links": {
+                  "help": {
+                    "href": "https://www.drupal.org/docs/8/modules/json-api/core-concepts#missing",
+                    "meta": {
+                      "about": "Usage and meaning of the 'missing' resource identifier."
+                    }
+                  }
+                }
+              }
+            }
+          ],
+          "relationshipNames": ["roles", "role_change"]
+        },
+        "thumbnail": {
+          "type": "file--file",
+          "id": "73c1b93d-d5a4-4ed7-bfbe-e4046622b73c",
+          "drupal_internal__fid": 34068,
+          "langcode": "en",
+          "filename": "Her service, our mission National VEAC dedicated to women Veterans.png",
+          "uri": {
+            "value": "public://2024-01/Her service, our mission National VEAC dedicated to women Veterans.png",
+            "url": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/2024-01/Her%20service%2C%20our%20mission%20National%20VEAC%20dedicated%20to%20women%20Veterans.png"
+          },
+          "filemime": "image/png",
+          "filesize": 700690,
+          "status": true,
+          "created": "2024-01-04T20:38:48+00:00",
+          "changed": "2024-01-04T20:39:04+00:00",
+          "breadcrumbs": [],
+          "links": {
+            "1_1_square_large": {
+              "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/1_1_square_large/public/2024-01/Her%20service%2C%20our%20mission%20National%20VEAC%20dedicated%20to%20women%20Veterans.png",
+              "meta": {
+                "linkParams": {
+                  "width": "500",
+                  "rel": [
+                    "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                  ]
+                },
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              }
+            },
+            "1_1_square_medium_thumbnail": {
+              "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/1_1_square_medium_thumbnail/public/2024-01/Her%20service%2C%20our%20mission%20National%20VEAC%20dedicated%20to%20women%20Veterans.png",
+              "meta": {
+                "linkParams": {
+                  "width": "240",
+                  "rel": [
+                    "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                  ]
+                },
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              }
+            },
+            "2_1_large": {
+              "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_large/public/2024-01/Her%20service%2C%20our%20mission%20National%20VEAC%20dedicated%20to%20women%20Veterans.png",
+              "meta": {
+                "linkParams": {
+                  "width": "512",
+                  "rel": [
+                    "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                  ]
+                },
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              }
+            },
+            "2_1_medium_thumbnail": {
+              "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_medium_thumbnail/public/2024-01/Her%20service%2C%20our%20mission%20National%20VEAC%20dedicated%20to%20women%20Veterans.png",
+              "meta": {
+                "linkParams": {
+                  "width": "240",
+                  "rel": [
+                    "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                  ]
+                },
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              }
+            },
+            "2_3_medium_thumbnail": {
+              "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_3_medium_thumbnail/public/2024-01/Her%20service%2C%20our%20mission%20National%20VEAC%20dedicated%20to%20women%20Veterans.png",
+              "meta": {
+                "linkParams": {
+                  "width": "480",
+                  "rel": [
+                    "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                  ]
+                },
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              }
+            },
+            "3_2_medium_thumbnail": {
+              "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2024-01/Her%20service%2C%20our%20mission%20National%20VEAC%20dedicated%20to%20women%20Veterans.png",
+              "meta": {
+                "linkParams": {
+                  "width": "320",
+                  "rel": [
+                    "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                  ]
+                },
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              }
+            },
+            "7_2_medium_thumbnail": {
+              "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/7_2_medium_thumbnail/public/2024-01/Her%20service%2C%20our%20mission%20National%20VEAC%20dedicated%20to%20women%20Veterans.png",
+              "meta": {
+                "linkParams": {
+                  "width": "300",
+                  "rel": [
+                    "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                  ]
+                },
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              }
+            },
+            "full_content_width": {
+              "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/full_content_width/public/2024-01/Her%20service%2C%20our%20mission%20National%20VEAC%20dedicated%20to%20women%20Veterans.png",
+              "meta": {
+                "linkParams": {
+                  "rel": [
+                    "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                  ]
+                },
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              }
+            },
+            "large": {
+              "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/large/public/2024-01/Her%20service%2C%20our%20mission%20National%20VEAC%20dedicated%20to%20women%20Veterans.png",
+              "meta": {
+                "linkParams": {
+                  "rel": [
+                    "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                  ]
+                },
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              }
+            },
+            "original": {
+              "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/original/public/2024-01/Her%20service%2C%20our%20mission%20National%20VEAC%20dedicated%20to%20women%20Veterans.png",
+              "meta": {
+                "linkParams": {
+                  "rel": [
+                    "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                  ]
+                },
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              }
+            },
+            "self": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/file/file/73c1b93d-d5a4-4ed7-bfbe-e4046622b73c"
+            },
+            "viewport_width": {
+              "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/viewport_width/public/2024-01/Her%20service%2C%20our%20mission%20National%20VEAC%20dedicated%20to%20women%20Veterans.png",
+              "meta": {
+                "linkParams": {
+                  "rel": [
+                    "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                  ]
+                },
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              }
+            }
+          },
+          "resourceIdObjMeta": {
+            "alt": "Her service, our mission: National Veterans Experience Action Center dedicated to women Veterans",
+            "title": null,
+            "width": 920,
+            "height": 506,
+            "drupal_internal__target_id": 34068
+          },
+          "uid": {
+            "type": "user--user",
+            "id": "f605215a-4126-464b-8f28-7086a7f9c9e7",
+            "display_name": "Heather.Santos@va.gov",
+            "drupal_internal__uid": 3974,
+            "langcode": "en",
+            "preferred_langcode": "en",
+            "preferred_admin_langcode": "en",
+            "name": "Heather.Santos@va.gov",
+            "mail": "user3974@example.com",
+            "timezone": "America/New_York",
+            "status": true,
+            "created": "2022-03-07T21:39:14+00:00",
+            "changed": "2025-09-04T22:50:43+00:00",
+            "access": "2025-06-24T13:59:39+00:00",
+            "login": "2025-06-24T13:59:39+00:00",
+            "init": "Heather.Santos@va.gov",
+            "default_langcode": true,
+            "breadcrumbs": [
+              {
+                "uri": "https://va-gov-cms.ddev.site/",
+                "title": "Home",
+                "options": []
+              },
+              {
+                "uri": "https://va-gov-cms.ddev.site/user/3974",
+                "title": "Heather.Santos@va.gov",
+                "options": []
+              }
+            ],
+            "metatag": [
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "title",
+                  "content": "Heather.Santos@va.gov | VA.gov CMS"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "description",
+                  "content": "VA.gov CMS"
+                }
+              },
+              {
+                "tag": "link",
+                "attributes": {
+                  "rel": "canonical",
+                  "href": "https://va-gov-cms.ddev.site/user/3974"
+                }
+              }
+            ],
+            "path": {
+              "alias": null,
+              "pid": null,
+              "langcode": "en"
+            },
+            "field_last_password_reset": "2022-03-07T16:41:11-05:00",
+            "field_password_expiration": false,
+            "field_pending_expire_sent": 0,
+            "message_subscribe_email": false,
+            "links": {
+              "self": {
+                "href": "https://va-gov-cms.ddev.site/jsonapi/user/user/f605215a-4126-464b-8f28-7086a7f9c9e7"
+              }
+            },
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 3974
+            },
+            "roles": [
+              {
+                "type": "user_role--user_role",
+                "id": "011213c4-3954-48fa-af6a-b02cebaeae2c",
+                "resourceIdObjMeta": {
+                  "drupal_internal__target_id": "content_creator_resources_and_support"
+                }
+              },
+              {
+                "type": "user_role--user_role",
+                "id": "550fe9cf-424b-4991-96ef-7c99d65d3040",
+                "resourceIdObjMeta": {
+                  "drupal_internal__target_id": "office_content_creator"
+                }
+              },
+              {
+                "type": "user_role--user_role",
+                "id": "2782bb1f-74f1-4ac9-b2f8-5dd3cc9bfec1",
+                "resourceIdObjMeta": {
+                  "drupal_internal__target_id": "content_publisher"
+                }
+              }
+            ],
+            "role_change": [
+              {
+                "type": "user_role--user_role",
+                "id": "missing",
+                "resourceIdObjMeta": {
+                  "links": {
+                    "help": {
+                      "href": "https://www.drupal.org/docs/8/modules/json-api/core-concepts#missing",
+                      "meta": {
+                        "about": "Usage and meaning of the 'missing' resource identifier."
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "relationshipNames": ["roles", "role_change"]
+          },
+          "relationshipNames": ["uid"]
+        },
+        "image": {
+          "type": "file--file",
+          "id": "73c1b93d-d5a4-4ed7-bfbe-e4046622b73c",
+          "drupal_internal__fid": 34068,
+          "langcode": "en",
+          "filename": "Her service, our mission National VEAC dedicated to women Veterans.png",
+          "uri": {
+            "value": "public://2024-01/Her service, our mission National VEAC dedicated to women Veterans.png",
+            "url": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/2024-01/Her%20service%2C%20our%20mission%20National%20VEAC%20dedicated%20to%20women%20Veterans.png"
+          },
+          "filemime": "image/png",
+          "filesize": 700690,
+          "status": true,
+          "created": "2024-01-04T20:38:48+00:00",
+          "changed": "2024-01-04T20:39:04+00:00",
+          "breadcrumbs": [],
+          "links": {
+            "1_1_square_large": {
+              "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/1_1_square_large/public/2024-01/Her%20service%2C%20our%20mission%20National%20VEAC%20dedicated%20to%20women%20Veterans.png",
+              "meta": {
+                "linkParams": {
+                  "width": "500",
+                  "rel": [
+                    "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                  ]
+                },
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              }
+            },
+            "1_1_square_medium_thumbnail": {
+              "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/1_1_square_medium_thumbnail/public/2024-01/Her%20service%2C%20our%20mission%20National%20VEAC%20dedicated%20to%20women%20Veterans.png",
+              "meta": {
+                "linkParams": {
+                  "width": "240",
+                  "rel": [
+                    "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                  ]
+                },
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              }
+            },
+            "2_1_large": {
+              "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_large/public/2024-01/Her%20service%2C%20our%20mission%20National%20VEAC%20dedicated%20to%20women%20Veterans.png",
+              "meta": {
+                "linkParams": {
+                  "width": "512",
+                  "rel": [
+                    "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                  ]
+                },
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              }
+            },
+            "2_1_medium_thumbnail": {
+              "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_medium_thumbnail/public/2024-01/Her%20service%2C%20our%20mission%20National%20VEAC%20dedicated%20to%20women%20Veterans.png",
+              "meta": {
+                "linkParams": {
+                  "width": "240",
+                  "rel": [
+                    "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                  ]
+                },
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              }
+            },
+            "2_3_medium_thumbnail": {
+              "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_3_medium_thumbnail/public/2024-01/Her%20service%2C%20our%20mission%20National%20VEAC%20dedicated%20to%20women%20Veterans.png",
+              "meta": {
+                "linkParams": {
+                  "width": "480",
+                  "rel": [
+                    "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                  ]
+                },
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              }
+            },
+            "3_2_medium_thumbnail": {
+              "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2024-01/Her%20service%2C%20our%20mission%20National%20VEAC%20dedicated%20to%20women%20Veterans.png",
+              "meta": {
+                "linkParams": {
+                  "width": "320",
+                  "rel": [
+                    "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                  ]
+                },
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              }
+            },
+            "7_2_medium_thumbnail": {
+              "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/7_2_medium_thumbnail/public/2024-01/Her%20service%2C%20our%20mission%20National%20VEAC%20dedicated%20to%20women%20Veterans.png",
+              "meta": {
+                "linkParams": {
+                  "width": "300",
+                  "rel": [
+                    "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                  ]
+                },
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              }
+            },
+            "full_content_width": {
+              "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/full_content_width/public/2024-01/Her%20service%2C%20our%20mission%20National%20VEAC%20dedicated%20to%20women%20Veterans.png",
+              "meta": {
+                "linkParams": {
+                  "rel": [
+                    "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                  ]
+                },
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              }
+            },
+            "large": {
+              "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/large/public/2024-01/Her%20service%2C%20our%20mission%20National%20VEAC%20dedicated%20to%20women%20Veterans.png",
+              "meta": {
+                "linkParams": {
+                  "rel": [
+                    "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                  ]
+                },
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              }
+            },
+            "original": {
+              "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/original/public/2024-01/Her%20service%2C%20our%20mission%20National%20VEAC%20dedicated%20to%20women%20Veterans.png",
+              "meta": {
+                "linkParams": {
+                  "rel": [
+                    "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                  ]
+                },
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              }
+            },
+            "self": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/file/file/73c1b93d-d5a4-4ed7-bfbe-e4046622b73c"
+            },
+            "viewport_width": {
+              "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/viewport_width/public/2024-01/Her%20service%2C%20our%20mission%20National%20VEAC%20dedicated%20to%20women%20Veterans.png",
+              "meta": {
+                "linkParams": {
+                  "rel": [
+                    "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                  ]
+                },
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              }
+            }
+          },
+          "resourceIdObjMeta": {
+            "alt": "Her service, our mission: National Veterans Experience Action Center dedicated to women Veterans",
+            "title": "",
+            "width": 920,
+            "height": 506,
+            "drupal_internal__target_id": 34068
+          },
+          "uid": {
+            "type": "user--user",
+            "id": "f605215a-4126-464b-8f28-7086a7f9c9e7",
+            "display_name": "Heather.Santos@va.gov",
+            "drupal_internal__uid": 3974,
+            "langcode": "en",
+            "preferred_langcode": "en",
+            "preferred_admin_langcode": "en",
+            "name": "Heather.Santos@va.gov",
+            "mail": "user3974@example.com",
+            "timezone": "America/New_York",
+            "status": true,
+            "created": "2022-03-07T21:39:14+00:00",
+            "changed": "2025-09-04T22:50:43+00:00",
+            "access": "2025-06-24T13:59:39+00:00",
+            "login": "2025-06-24T13:59:39+00:00",
+            "init": "Heather.Santos@va.gov",
+            "default_langcode": true,
+            "breadcrumbs": [
+              {
+                "uri": "https://va-gov-cms.ddev.site/",
+                "title": "Home",
+                "options": []
+              },
+              {
+                "uri": "https://va-gov-cms.ddev.site/user/3974",
+                "title": "Heather.Santos@va.gov",
+                "options": []
+              }
+            ],
+            "metatag": [
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "title",
+                  "content": "Heather.Santos@va.gov | VA.gov CMS"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "description",
+                  "content": "VA.gov CMS"
+                }
+              },
+              {
+                "tag": "link",
+                "attributes": {
+                  "rel": "canonical",
+                  "href": "https://va-gov-cms.ddev.site/user/3974"
+                }
+              }
+            ],
+            "path": {
+              "alias": null,
+              "pid": null,
+              "langcode": "en"
+            },
+            "field_last_password_reset": "2022-03-07T16:41:11-05:00",
+            "field_password_expiration": false,
+            "field_pending_expire_sent": 0,
+            "message_subscribe_email": false,
+            "links": {
+              "self": {
+                "href": "https://va-gov-cms.ddev.site/jsonapi/user/user/f605215a-4126-464b-8f28-7086a7f9c9e7"
+              }
+            },
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 3974
+            },
+            "roles": [
+              {
+                "type": "user_role--user_role",
+                "id": "011213c4-3954-48fa-af6a-b02cebaeae2c",
+                "resourceIdObjMeta": {
+                  "drupal_internal__target_id": "content_creator_resources_and_support"
+                }
+              },
+              {
+                "type": "user_role--user_role",
+                "id": "550fe9cf-424b-4991-96ef-7c99d65d3040",
+                "resourceIdObjMeta": {
+                  "drupal_internal__target_id": "office_content_creator"
+                }
+              },
+              {
+                "type": "user_role--user_role",
+                "id": "2782bb1f-74f1-4ac9-b2f8-5dd3cc9bfec1",
+                "resourceIdObjMeta": {
+                  "drupal_internal__target_id": "content_publisher"
+                }
+              }
+            ],
+            "role_change": [
+              {
+                "type": "user_role--user_role",
+                "id": "missing",
+                "resourceIdObjMeta": {
+                  "links": {
+                    "help": {
+                      "href": "https://www.drupal.org/docs/8/modules/json-api/core-concepts#missing",
+                      "meta": {
+                        "about": "Usage and meaning of the 'missing' resource identifier."
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "relationshipNames": ["roles", "role_change"]
+          },
+          "relationshipNames": ["uid"]
+        },
+        "relationshipNames": ["bundle", "uid", "thumbnail", "image"]
+      },
+      "relationshipNames": [
+        "paragraph_type",
+        "field_link_teaser",
+        "field_media"
+      ]
+    }
+  ],
   "field_clp_video_panel_more_video": {
     "type": "paragraph--button",
     "id": "ad441fcf-56f3-4b58-80d9-8049ea95c6fc",
