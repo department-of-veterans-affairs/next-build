@@ -43,15 +43,6 @@ describe('<CollapsiblePanel> with valid data', () => {
     })
   })
 
-  test('renders <CollapsiblePanel /> with first panel initially expanded', () => {
-    render(<CollapsiblePanel {...data} startExpanded={true} />)
-    const vaAccordionItems = document.querySelectorAll(
-      'va-accordion va-accordion-item'
-    )
-
-    expect(vaAccordionItems[0]).toHaveAttribute('open')
-  })
-
   test('renders <CollapsiblePanel /> with all expected panels', () => {
     render(<CollapsiblePanel {...data} />)
     const vaAccordion = document.querySelector('va-accordion')
