@@ -1,17 +1,14 @@
 import { getHubIcon } from '@/lib/utils/benefitsHub'
 import { BenefitsHub as FormattedBenefitsHub } from './formatted-type'
-import { ListOfLinkTeasers } from '@/components/listOfLinkTeasers/template'
 import { ContentFooter } from '@/components/contentFooter/template'
 
 export function BenefitsHub({
-  title,
   titleIcon,
-  intro,
-  spokes,
   lastUpdated,
+  title,
+  intro,
 }: FormattedBenefitsHub) {
   const iconConfig = getHubIcon(titleIcon)
-
   return (
     <div className="usa-grid usa-grid-full">
       <article className="usa-width-two-thirds">
@@ -31,20 +28,9 @@ export function BenefitsHub({
         ) : (
           <h1>{title}</h1>
         )}
-        {intro && (
-          <p
-            className="va-introtext"
-            dangerouslySetInnerHTML={{ __html: intro }}
-          />
-        )}
-        {spokes?.map((spokeSection) => (
-          <div key={spokeSection.id}>
-            <section className="usa-grid">
-              <div className="va-h-ruled--stars"></div>
-            </section>
-            <ListOfLinkTeasers {...spokeSection} isHubPage={true} />
-          </div>
-        ))}
+        <div className="va-introtext">
+          <p>{intro}</p>
+        </div>
         <ContentFooter lastUpdated={lastUpdated} />
       </article>
     </div>

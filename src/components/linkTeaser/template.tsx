@@ -4,19 +4,15 @@ import { LinkTeaser as FormattedLinkTeaser } from '@/components/linkTeaser/forma
 import { ParagraphComponent } from '@/components/paragraph/formatted-type'
 import clsx from 'clsx'
 
-type LinkTeaserProps = ParagraphComponent<FormattedLinkTeaser> & {
-  isHubPage?: boolean
-}
-
 export const LinkTeaser = ({
   id,
   title,
   summary,
   uri,
+  parentField,
   componentParams,
   options,
-  isHubPage,
-}: LinkTeaserProps) => {
+}: ParagraphComponent<FormattedLinkTeaser>) => {
   const { sectionHeader } = componentParams
 
   const handleItemClick = () => {
@@ -27,6 +23,7 @@ export const LinkTeaser = ({
     })
   }
 
+  const isFieldSpokes = parentField === 'field_spokes'
   const target = get(options, ['target'], '')
 
   return (
@@ -34,44 +31,19 @@ export const LinkTeaser = ({
       key={id}
       className={clsx(
         'vads-u-margin-y--2',
-        isHubPage && 'hub-page-link-list__item'
+        isFieldSpokes && 'hub-page-link-list__item'
       )}
       onClick={handleItemClick}
-      data-template="paragraphs/linkTeaser"
-      data-entity-id={id}
-      data-links-list-header={title}
-      data-links-list-section-header={sectionHeader}
     >
-      {isHubPage ? (
-        <>
-          <span className="hub-page-link-list__header">
-            <va-link
-              href={uri}
-              target={target}
-              text={title}
-              active=""
-            ></va-link>
-          </span>
-          {summary && (
-            <p
-              className="va-nav-linkslist-description"
-              dangerouslySetInnerHTML={{ __html: summary }}
-            />
-          )}
-        </>
-      ) : (
-        <>
-          <p className="vads-u-margin--0 vads-u-font-weight--bold">
-            <va-link href={uri} target={target} text={title}></va-link>
-          </p>
-          {summary && (
-            <p
-              className="vads-u-margin--0"
-              dangerouslySetInnerHTML={{ __html: summary }}
-            />
-          )}
-        </>
-      )}
+      <p className="vads-u-margin--0 vads-u-font-weight--bold">
+        <va-link
+          href={uri}
+          target={target}
+          text={title}
+          active={isFieldSpokes}
+        ></va-link>
+      </p>
+      <p className="vads-u-margin--0">{summary}</p>
     </li>
   )
 }

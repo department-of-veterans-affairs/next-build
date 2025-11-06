@@ -56,6 +56,7 @@ describe('<QuestionAnswerData> component renders with data', () => {
         title: 'Request your military service records (including DD214)',
         options: [null],
         summary: null,
+        parentField: 'field_related_information',
         componentParams: {
           sectionHeader: '',
         },
@@ -67,6 +68,7 @@ describe('<QuestionAnswerData> component renders with data', () => {
         title: 'Change your address on file with VA',
         options: [null],
         summary: null,
+        parentField: 'field_related_information',
         componentParams: {
           sectionHeader: '',
         },
@@ -78,6 +80,7 @@ describe('<QuestionAnswerData> component renders with data', () => {
         title: 'Managing your VA.gov profile',
         options: [null],
         summary: null,
+        parentField: 'field_related_information',
         componentParams: {
           sectionHeader: '',
         },
