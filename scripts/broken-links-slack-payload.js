@@ -57,7 +57,7 @@ const createBrokenLinksSlackPayload = () => {
         text: `
           ${icon} *Broken link check* (Workflow run: <${RUN_URL}>)\n
           *Pages scanned:* ${brokenLinks.metrics.pagesScanned}\n
-          *Broken links:* ${brokenLinks.metrics.brokenLinkCount} out of ${brokenLinks.metrics.linksChecked} checked\n\n
+          *Broken links:* *${brokenLinks.metrics.brokenLinkCount}* out of ${brokenLinks.metrics.linksChecked} checked\n\n
           *CSV report:* ${options.csvUrl}\n\n
           cc: ${GROUP_TO_NOTIFY}`,
       },
