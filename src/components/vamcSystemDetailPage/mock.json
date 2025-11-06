@@ -194,49 +194,7 @@
       }
     }
   ],
-  "field_featured_content": [
-    {
-      "type": "paragraph--wysiwyg",
-      "id": "55e4001e-1727-4c9c-970d-f985da93dfa8",
-      "drupal_internal__id": 181829,
-      "drupal_internal__revision_id": 1864254,
-      "langcode": "en",
-      "status": true,
-      "created": "2025-09-10T19:14:18+00:00",
-      "parent_id": "55040",
-      "parent_type": "node",
-      "parent_field_name": "field_featured_content",
-      "behavior_settings": [],
-      "default_langcode": true,
-      "revision_translation_affected": true,
-      "breadcrumbs": [],
-      "content_translation_source": "und",
-      "content_translation_outdated": false,
-      "content_translation_changed": "2025-09-10T19:14:18+00:00",
-      "field_wysiwyg": {
-        "value": "<p>Beginning Sept. 6 and continuing through November, our 'Blue Canopy' entrance to Bldgs. 133CA and 134 will be closed. The adjacent parking lot will also be closed. The Metra train shuttle stop at the 'Blue Canopy' entrance will be closed starting Friday, Sept. 5, 2025. Please instead use the shuttle stop at the entrance of Bldg. 131.</p>",
-        "format": "rich_text",
-        "processed": "<p>Beginning Sept. 6 and continuing through November, our 'Blue Canopy' entrance to Bldgs. 133CA and 134 will be closed. The adjacent parking lot will also be closed. The Metra train shuttle stop at the 'Blue Canopy' entrance will be closed starting Friday, Sept. 5, 2025. Please instead use the shuttle stop at the entrance of Bldg. 131.</p>"
-      },
-      "links": {
-        "self": {
-          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/wysiwyg/55e4001e-1727-4c9c-970d-f985da93dfa8?resourceVersion=id%3A1864254"
-        }
-      },
-      "resourceIdObjMeta": {
-        "target_revision_id": 1864254,
-        "drupal_internal__target_id": 181829
-      },
-      "paragraph_type": {
-        "type": "paragraphs_type--paragraphs_type",
-        "id": "885e4b61-cfd2-44b9-94ae-f068ba2b48b6",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": "wysiwyg"
-        }
-      },
-      "relationshipNames": ["paragraph_type"]
-    }
-  ],
+  "field_featured_content": [],
   "field_office": {
     "type": "node--health_care_region_page",
     "id": "d86e1929-2284-47ce-8da8-a4e02610d7c8",

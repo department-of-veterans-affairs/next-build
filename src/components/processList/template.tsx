@@ -1,5 +1,5 @@
 import { ProcessList as FormattedProcessList } from '@/components/processList/formatted-type'
-
+import { numToWord } from '@/lib/utils/helpers'
 export function ProcessList({ steps, entityId }: FormattedProcessList) {
   if (!steps) return
   return (
@@ -8,14 +8,16 @@ export function ProcessList({ steps, entityId }: FormattedProcessList) {
       data-entity-id={entityId}
       className="process schemaform-process"
     >
-      <va-process-list>
-        {steps.map((step, index) => (
-          <va-process-list-item
-            key={index}
-            dangerouslySetInnerHTML={{ __html: step.html }}
-          ></va-process-list-item>
-        ))}
-      </va-process-list>
+      <ol>
+        {steps &&
+          steps.map((step, index) => (
+            <li
+              key={index}
+              className={`process-step list-${numToWord(index + 1)}`}
+              dangerouslySetInnerHTML={{ __html: step.html }}
+            ></li>
+          ))}
+      </ol>
     </div>
   )
 }

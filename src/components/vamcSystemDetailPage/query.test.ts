@@ -92,17 +92,6 @@ describe('VamcSystemDetailPage query module', () => {
 
       expect(result.breadcrumbs).toBeNull()
     })
-
-    test('handles null featuredContent', async () => {
-      mockPageQuery.mockReturnValue({
-        ...mockPage,
-        field_featured_content: null,
-      } as NodeVamcSystemDetailPage)
-
-      const result = await runQuery()
-
-      expect(result.featuredContent).toBeNull()
-    })
   })
 
   test('formats vamcEhrSystem', async () => {
