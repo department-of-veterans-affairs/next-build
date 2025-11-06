@@ -1,9 +1,9 @@
 import { QaSection as FormattedQaSection } from '@/components/qaSection/formatted-type'
 import { QaCollapsiblePanel } from '@/components/qaSection/QaCollapsiblePanel'
 import { QaGroup as FormattedQaGroup } from '@/components/qaGroup/formatted-type'
-import { ParagraphList } from '@/components/paragraph/template'
+import { Paragraph } from '@/components/paragraph/template'
+import { FormattedParagraph } from '@/lib/drupal/queries'
 import { slugifyString } from '@/lib/utils/slug'
-import { HeadingElement } from '@/components/heading/template'
 
 export function QaSection({
   header,
@@ -11,27 +11,23 @@ export function QaSection({
   questions,
   displayAccordion,
 }: FormattedQaSection | FormattedQaGroup) {
-  // We actually reset the heading level for QA sections instead of inheriting the
-  // current heading level from previous pragraph content.
-  const currentHeadingLevel = header ? 'h2' : 'h1'
-
+  const setHeaderh3 = header ? true : false
+  // Prepare id for use by va-on-this-page component to identify the QaSection
+  const headerId = header ? slugifyString(header) : ''
   return (
     <div data-template="paragraphs/q_a_section">
-      {header && (
-        <HeadingElement headingLevel="h2" id={slugifyString(header)}>
-          {header}
-        </HeadingElement>
-      )}
+      {header && <h2 id={headerId}>{header}</h2>}
       {intro && <p>{intro}</p>}
-      {/* Note that this doesn't properly handle the case where the QaSection is a
-          QaGroup and the displayAccordion is false */}
       {displayAccordion ? (
         <QaCollapsiblePanel questions={questions} />
       ) : (
-        <ParagraphList
-          paragraphs={questions}
-          currentHeadingLevel={currentHeadingLevel}
-        />
+        questions.map((questionContent: FormattedParagraph) => (
+          <Paragraph
+            key={questionContent.id || questionContent.entityId}
+            setHeaderh3={setHeaderh3}
+            {...questionContent}
+          />
+        ))
       )}
     </div>
   )

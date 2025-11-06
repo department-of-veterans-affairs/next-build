@@ -1,19 +1,15 @@
 import { HeadingElement as FormattedHeadingElement } from './formatted-type'
 
-// extend the FormattedHeadingElement and the html heading element attributes for jsx
-type HeadingElementProps = FormattedHeadingElement &
-  React.HTMLAttributes<HTMLHeadingElement>
-
 export const HeadingElement = ({
   headingLevel,
+  slot = '',
   children,
-  ...attributes
-}: HeadingElementProps) => {
+}: FormattedHeadingElement) => {
   const HeadingElement = headingLevel
   return (
     <HeadingElement
-      {...attributes}
+      slot={slot}
       dangerouslySetInnerHTML={{ __html: children }}
-    />
+    ></HeadingElement>
   )
 }

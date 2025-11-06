@@ -7,7 +7,3 @@ export type HeadingElement = {
   slot?: string
   children: ReactNode
 }
-
-export type WithCurrentHeadingLevel = {
-  currentHeadingLevel?: HeadingLevel
-}
