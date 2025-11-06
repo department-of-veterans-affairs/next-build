@@ -279,7 +279,7 @@ export interface NodeCampaignLandingPage extends DrupalNode {
   // What you can do section
   field_clp_what_you_can_do_header: string
   field_clp_what_you_can_do_intro: string
-  field_clp_what_you_can_do_promos: { type: string; id: string }[]
+  field_clp_what_you_can_do_promos: BlockPromo[]
 
   // Video panel
   field_clp_video_panel: boolean
