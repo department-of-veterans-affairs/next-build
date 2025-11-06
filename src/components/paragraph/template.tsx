@@ -46,8 +46,6 @@ import { Table } from '@/components/table/template'
 import { Table as FormattedTable } from '@/components/table/formatted-type'
 import { Wysiwyg } from '@/components/wysiwyg/template'
 import { Wysiwyg as FormattedWysiwyg } from '@/components/wysiwyg/formatted-type'
-import { QaParagraph } from '@/components/qaParagraph/template'
-import { QaParagraph as FormattedQaParagraph } from '@/components/qaParagraph/formatted-type'
 
 export const Paragraph = (paragraph: FormattedParagraph) => {
   switch (paragraph.type) {
@@ -110,9 +108,6 @@ export const Paragraph = (paragraph: FormattedParagraph) => {
 
     case PARAGRAPH_RESOURCE_TYPES.TABLE:
       return <Table {...(paragraph as FormattedTable)} />
-
-    case PARAGRAPH_RESOURCE_TYPES.QA:
-      return <QaParagraph {...(paragraph as FormattedQaParagraph)} />
 
     case PARAGRAPH_RESOURCE_TYPES.QA_GROUP:
       return <QaSection {...(paragraph as FormattedQaGroup)} />
