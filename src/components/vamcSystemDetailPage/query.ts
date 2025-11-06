@@ -2,10 +2,7 @@ import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { NodeVamcSystemDetailPage } from '@/types/drupal/node'
 import { VamcSystemDetailPage } from './formatted-type'
 import { formatter as formatListOfLinkTeasers } from '@/components/listOfLinkTeasers/query'
-import {
-  PARAGRAPH_RESOURCE_TYPES,
-  RESOURCE_TYPES,
-} from '@/lib/constants/resourceTypes'
+import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
   entityBaseFields,
@@ -22,24 +19,16 @@ import {
 } from '@/lib/drupal/lovell/utils'
 import { formatter as formatAdministration } from '@/components/administration/query'
 import { drupalClient } from '@/lib/drupal/drupalClient'
-import { formatParagraph } from '@/lib/drupal/paragraphs'
-import { getNestedIncludes } from '@/lib/utils/queries'
 
 export const params: QueryParams<null> = () => {
-  return new DrupalJsonApiParams().addInclude([
-    'field_administration',
-    'field_office',
-    'field_related_links',
-    'field_related_links.field_va_paragraphs',
-    ...getNestedIncludes('field_featured_content', PARAGRAPH_RESOURCE_TYPES.QA),
-  ])
-  // I would like to be able to use just these recursive fields, but it doesn't seem to
-  // work, at least with this version of Drupal. According to the documentation here
-  // https://www.drupal.org/docs/core-modules-and-themes/core-modules/jsonapi-module/fetching-resources-get#s-get-article-media-entity-reference-field-image-url-uri-by-including-references
-  // there's an "older syntax" and "new syntax" for the query string this produces.
-  // .addFields('paragraph--list_of_link_teasers', ['field_va_paragraphs'])
-  // .addFields('paragraph--collapsible_panel', ['field_va_paragraphs'])
-  // .addFields('paragraph--q_a', ['field_answer'])
+  return new DrupalJsonApiParams()
+    .addFilter('type', RESOURCE_TYPES.VAMC_SYSTEM_DETAIL_PAGE)
+    .addInclude([
+      'field_administration',
+      'field_office',
+      'field_related_links',
+      'field_related_links.field_va_paragraphs',
+    ])
 }
 
 // Define the option types for the data loader.
@@ -63,7 +52,7 @@ export const data: QueryData<
 > = async (opts): Promise<VamcSystemDetailPageData> => {
   const entity = (await fetchSingleEntityOrPreview(
     opts,
-    RESOURCE_TYPES.VAMC_SYSTEM_DETAIL_PAGE,
+    RESOURCE_TYPES.VAMC_SYSTEM_BILLING_INSURANCE,
     params
   )) as NodeVamcSystemDetailPage
 
@@ -129,10 +118,6 @@ export const formatter: QueryFormatter<
     vamcSystem: {
       path: entity.field_office?.path.alias || null,
     },
-    featuredContent:
-      entity.field_featured_content?.map((paragraph) =>
-        formatParagraph(paragraph)
-      ) || null,
     relatedLinks: entity.field_related_links
       ? formatListOfLinkTeasers(entity.field_related_links)
       : null,

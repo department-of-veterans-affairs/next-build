@@ -1,16 +1,8 @@
-import { QueryFormatter, QueryParams } from 'next-drupal-query'
+import { QueryFormatter } from 'next-drupal-query'
 import { ParagraphAlert } from '@/types/drupal/paragraph'
 import { Alert, AlertBlock, AlertType } from '@/components/alert/formatted-type'
 import { formatParagraph } from '@/lib/drupal/paragraphs'
 import { queries } from '@/lib/drupal/queries'
-import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { getNestedIncludes } from '@/lib/utils/queries'
-
-export const params: QueryParams<null> = () =>
-  new DrupalJsonApiParams().addInclude([
-    'field_va_paragraphs',
-    ...getNestedIncludes('field_alert_block_reference', 'block--alert'),
-  ])
 
 export const formatter: QueryFormatter<ParagraphAlert, Alert> = (
   entity: ParagraphAlert

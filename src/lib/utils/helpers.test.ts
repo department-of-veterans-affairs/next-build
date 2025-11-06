@@ -7,6 +7,7 @@ import {
   drupalToVaPath,
   toString,
   escape,
+  numToWord,
   formatDate,
   newlinesToBr,
   addHeadingIds,
@@ -256,6 +257,32 @@ describe('conditionalAttr', () => {
 
       expect(result).toStrictEqual({})
     })
+  })
+})
+
+describe('numToWord function', () => {
+  test('converts single digit numbers', () => {
+    expect(numToWord(1)).toBe('one')
+    expect(numToWord(5)).toBe('five')
+  })
+
+  test('converts numbers below twenty', () => {
+    expect(numToWord(13)).toBe('thirteen')
+    expect(numToWord(19)).toBe('nineteen')
+  })
+
+  test('converts tens', () => {
+    expect(numToWord(20)).toBe('twenty')
+    expect(numToWord(90)).toBe('ninety')
+  })
+
+  test('converts numbers between twenty and ninety-nine', () => {
+    expect(numToWord(21)).toBe('twenty-one')
+    expect(numToWord(99)).toBe('ninety-nine')
+  })
+
+  test('handles zero', () => {
+    expect(numToWord(0)).toBe('zero')
   })
 })
 

@@ -16,12 +16,12 @@ describe('VamcSystemDetailPage', () => {
     hasLovellCounterpart: false,
   })
 
-  test('renders the title', () => {
+  it('renders the title', () => {
     render(<VamcSystemDetailPage {...formattedMockData} />)
     expect(screen.getByText('Mission and vision')).toBeInTheDocument()
   })
 
-  test('renders intro text when provided', () => {
+  it('renders intro text when provided', () => {
     render(<VamcSystemDetailPage {...formattedMockData} />)
     expect(
       screen.getByText(
@@ -35,31 +35,8 @@ describe('VamcSystemDetailPage', () => {
     expect(window.sideNav).toEqual(formattedMockData.menu)
   })
 
-  describe('Featured content', () => {
-    test('renders featured content when provided', () => {
-      render(<VamcSystemDetailPage {...formattedMockData} />)
-      expect(
-        screen.getByText(/Beginning Sept. 6 and continuing through November/)
-      ).toBeInTheDocument()
-    })
-
-    test('does not render featured content div when featuredContent is null', () => {
-      const { container } = render(
-        <VamcSystemDetailPage {...formattedMockData} featuredContent={null} />
-      )
-      expect(container.querySelector('.feature')).not.toBeInTheDocument()
-    })
-
-    test('does not render featured content block when featuredContent is empty', () => {
-      const { container } = render(
-        <VamcSystemDetailPage {...formattedMockData} featuredContent={[]} />
-      )
-      expect(container.querySelector('.feature')).not.toBeInTheDocument()
-    })
-  })
-
   describe('Related links', () => {
-    test('renders list of link teasers when related links are provided', () => {
+    it('renders list of link teasers when related links are provided', () => {
       render(<VamcSystemDetailPage {...formattedMockData} />)
 
       // Check that the related links section is rendered
@@ -68,7 +45,7 @@ describe('VamcSystemDetailPage', () => {
       ).toBeInTheDocument()
     })
 
-    test('does not render list of link teasers when related links are null', () => {
+    it('does not render list of link teasers when related links are null', () => {
       render(
         <VamcSystemDetailPage {...formattedMockData} relatedLinks={null} />
       )
@@ -125,7 +102,7 @@ describe('VamcSystemDetailPage', () => {
     const getLink = (text: string) =>
       document.querySelector(`va-link-action[text="${text}"]`)
 
-    test('renders top tasks when this is a contact page', () => {
+    it('renders top tasks when this is a contact page', () => {
       render(
         <VamcSystemDetailPage {...formattedMockData} entityPath="/contact-us" />
       )
@@ -148,7 +125,7 @@ describe('VamcSystemDetailPage', () => {
       )
     })
 
-    test('renders the TRICARE variant with the MHS link when this is a TRICARE contact page', () => {
+    it('renders the TRICARE variant with the MHS link when this is a TRICARE contact page', () => {
       render(
         <VamcSystemDetailPage
           {...formattedMockData}

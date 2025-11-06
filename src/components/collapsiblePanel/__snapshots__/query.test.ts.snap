@@ -5,6 +5,7 @@ exports[`Collapsible Panel formatData outputs formatted data 1`] = `
   "bordered": false,
   "entityId": 2862,
   "id": "cc597ad6-123b-49b4-bf90-2edae8b355bc",
+  "multiSelect": false,
   "paragraphs": [
     {
       "entityId": 2861,
@@ -120,6 +121,7 @@ First floor, check-in area 3</p>
 <p><strong>@Shelley: </strong>Can we specify what they do/what their titles are?</p>",
     },
   ],
+  "startExpanded": false,
   "type": "paragraph--collapsible_panel",
 }
 `;
