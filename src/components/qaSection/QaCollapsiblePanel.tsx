@@ -1,5 +1,4 @@
 import { Paragraph } from '@/components/paragraph/template'
-import { slugifyString } from '@/lib/utils/slug'
 
 export const QaCollapsiblePanel = ({ questions }) => {
   return (
@@ -10,7 +9,7 @@ export const QaCollapsiblePanel = ({ questions }) => {
             key={questionObject.id || questionObject.entityId}
             class="va-accordion-item"
             header={questionObject.question}
-            id={slugifyString(questionObject.question)}
+            id={`${questionObject.question}-header`}
             level="3"
           >
             <div
