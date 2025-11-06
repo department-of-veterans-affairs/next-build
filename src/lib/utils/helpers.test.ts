@@ -10,9 +10,7 @@ import {
   numToWord,
   formatDate,
   newlinesToBr,
-  addHeadingIds,
   addH2Ids,
-  addH3Ids,
 } from './helpers'
 
 describe('truncateWordsOrChar', () => {
@@ -359,22 +357,22 @@ describe('newlinesToBr', () => {
   })
 })
 
-describe('addHeadingIds', () => {
+describe('addH2Ids', () => {
   test('should add ID to H2 element without ID', () => {
     const input = '<h2>Hello World</h2>'
-    const result = addHeadingIds(input, '2')
+    const result = addH2Ids(input)
     expect(result).toBe('<h2 id="hello-world">Hello World</h2>')
   })
 
   test('should not modify H2 element that already has an ID', () => {
     const input = '<h2 id="existing-id">Hello World</h2>'
-    const result = addHeadingIds(input, '2')
+    const result = addH2Ids(input)
     expect(result).toBe('<h2 id="existing-id">Hello World</h2>')
   })
 
   test('should preserve existing attributes when adding ID', () => {
     const input = '<h2 class="heading" data-test="value">Hello World</h2>'
-    const result = addHeadingIds(input, '2')
+    const result = addH2Ids(input)
     expect(result).toBe(
       '<h2 class="heading" data-test="value" id="hello-world">Hello World</h2>'
     )
@@ -383,7 +381,7 @@ describe('addHeadingIds', () => {
   test('should handle multiple H2 elements', () => {
     const input =
       '<h2>First Heading</h2><p>Some content</p><h2>Second Heading</h2>'
-    const result = addHeadingIds(input, '2')
+    const result = addH2Ids(input)
     expect(result).toBe(
       '<h2 id="first-heading">First Heading</h2><p>Some content</p><h2 id="second-heading">Second Heading</h2>'
     )
@@ -391,7 +389,7 @@ describe('addHeadingIds', () => {
 
   test('should handle H2 with special characters in text', () => {
     const input = '<h2>Hello & World: A Guide!</h2>'
-    const result = addHeadingIds(input, '2')
+    const result = addH2Ids(input)
     expect(result).toBe(
       '<h2 id="hello-world-a-guide">Hello & World: A Guide!</h2>'
     )
@@ -399,14 +397,14 @@ describe('addHeadingIds', () => {
 
   test('should handle empty or whitespace-only content', () => {
     const input = ''
-    const result = addHeadingIds(input, '2')
+    const result = addH2Ids(input)
     expect(result).toBe('')
   })
 
   test('should handle content without H2 elements', () => {
     const input =
       '<p>No headings here</p><h1>This is H1</h1><h3>This is H3</h3>'
-    const result = addHeadingIds(input, '2')
+    const result = addH2Ids(input)
     expect(result).toBe(
       '<p>No headings here</p><h1>This is H1</h1><h3>This is H3</h3>'
     )
@@ -414,13 +412,13 @@ describe('addHeadingIds', () => {
 
   test('should handle mixed case H2 tags', () => {
     const input = '<H2>Mixed Case Tag</H2>'
-    const result = addHeadingIds(input, '2')
+    const result = addH2Ids(input)
     expect(result).toBe('<H2 id="mixed-case-tag">Mixed Case Tag</H2>')
   })
 
   test('should handle H2 with nested HTML elements and entities', () => {
     const input = '<h2><strong>Security&nbsp;</strong></h2>'
-    const result = addHeadingIds(input, '2')
+    const result = addH2Ids(input)
     expect(result).toBe(
       '<h2 id="security"><strong>Security&nbsp;</strong></h2>'
     )
@@ -429,7 +427,7 @@ describe('addHeadingIds', () => {
   test('should handle H2 with multiple nested elements and entities', () => {
     const input =
       '<h2><em>Getting</em>&nbsp;<strong>Started&nbsp;</strong>with&nbsp;<code>Code</code></h2>'
-    const result = addHeadingIds(input, '2')
+    const result = addH2Ids(input)
     expect(result).toBe(
       '<h2 id="getting-started-with-code"><em>Getting</em>&nbsp;<strong>Started&nbsp;</strong>with&nbsp;<code>Code</code></h2>'
     )
@@ -437,38 +435,16 @@ describe('addHeadingIds', () => {
 
   test('should handle H2 with only HTML entities', () => {
     const input = '<h2>FAQ&nbsp;&amp;&nbsp;Help</h2>'
-    const result = addHeadingIds(input, '2')
+    const result = addH2Ids(input)
     expect(result).toBe('<h2 id="faq-help">FAQ&nbsp;&amp;&nbsp;Help</h2>')
   })
 
   test('should handle H2 with complex nested structure', () => {
     const input =
       '<h2><span class="icon">📋</span>&nbsp;<strong>Important</strong>&nbsp;<em>Information</em></h2>'
-    const result = addHeadingIds(input, '2')
+    const result = addH2Ids(input)
     expect(result).toBe(
       '<h2 id="important-information"><span class="icon">📋</span>&nbsp;<strong>Important</strong>&nbsp;<em>Information</em></h2>'
     )
-  })
-
-  test('should work with other heading levels', () => {
-    const input = '<h3>Hello World</h3>'
-    const result = addHeadingIds(input, '3')
-    expect(result).toBe('<h3 id="hello-world">Hello World</h3>')
-  })
-})
-
-describe('addH2Ids', () => {
-  test('adds IDs to h2s via addHeadingIds', () => {
-    const input = '<h2>Hello World</h2>'
-    const result = addH2Ids(input)
-    expect(result).toBe('<h2 id="hello-world">Hello World</h2>')
-  })
-})
-
-describe('addH3Ids', () => {
-  test('adds IDs to h3s via addHeadingIds', () => {
-    const input = '<h3>Hello World</h3>'
-    const result = addH3Ids(input)
-    expect(result).toBe('<h3 id="hello-world">Hello World</h3>')
   })
 })

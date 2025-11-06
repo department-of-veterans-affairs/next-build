@@ -119,30 +119,7 @@
   "content_translation_outdated": false,
   "field_enforce_unique_combo": false,
   "field_last_saved_by_an_editor": "2024-02-20T19:58:39+00:00",
-  "field_links": [
-    {
-      "uri": "https://www.usa.gov/disasters-and-emergencies",
-      "title": "Disasters and Emergencies - USA.gov",
-      "options": {
-        "href": "https://www.usa.gov/disasters-and-emergencies",
-        "data-entity-type": "",
-        "data-entity-uuid": "",
-        "data-entity-substitution": ""
-      },
-      "url": "https://www.usa.gov/disasters-and-emergencies"
-    },
-    {
-      "uri": "https://www.weather.gov/",
-      "title": "National Weather Service",
-      "options": {
-        "href": "https://www.weather.gov/",
-        "data-entity-type": "",
-        "data-entity-uuid": "",
-        "data-entity-substitution": ""
-      },
-      "url": "https://www.weather.gov/"
-    }
-  ],
+  "field_links": [],
   "field_meta_tags": null,
   "field_operating_status_emerg_inf": {
     "value": "<h3>Patient resources</h3><p><strong>Emergency:</strong> <a href=\"tel:911\" aria-label=\"9 1 1.\">911</a></p><p><strong>Veterans Crisis Line: </strong><a href=\"tel:988\" aria-label=\"9 8 8\">988</a>, select 1</p><p><strong>24-hour nurse:</strong> <a href=\"tel:+14054561000\" aria-label=\"4 0 5. 4 5 6. 1 0 0 0.\">405-456-1000</a>, select 3</p><p><strong>Change your appointment:</strong> <a href=\"tel:+14054561000\" aria-label=\"4 0 5. 4 5 6. 1 0 0 0.\">405-456-1000</a>, select 2</p><p><strong>Media inquires:</strong> <a href=\"tel:+14052155428\" aria-label=\"4 0 5. 2 1 5. 5 4 2 8.\">405-215-5428</a></p><p><strong>National Veterans Helpline: </strong><a href=\"tel:+18005074571\" aria-label=\"8 0 0. 5 0 7. 4 5 7 1.\">800-507-4571</a></p><p><strong>Patient locator: </strong>Not available</p><p><strong>Pharmacy refill:</strong> <a href=\"tel:+14054563700\" aria-label=\"4 0 5. 4 5 6. 3 7 0 0.\">405-456-3700</a></p><p><strong>Staff locator:</strong> Not available</p><p><strong>Telephone care: </strong>Call your provider</p>",
