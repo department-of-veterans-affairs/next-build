@@ -183,6 +183,7 @@ export default function ResourcePage({
         breadcrumbs={resource.breadcrumbs}
         entityPath={resource.entityPath}
         hideHomeBreadcrumb={shouldHideHomeBreadcrumb(resource.type)}
+        resource={resource}
       />
 
       <main>
