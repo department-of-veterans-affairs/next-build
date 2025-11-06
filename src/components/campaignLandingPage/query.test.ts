@@ -9,7 +9,6 @@ import mockData from './mock.json'
 const campaignLandingPageMock = mockData as unknown as NodeCampaignLandingPage
 
 import { CampaignLandingPage as FormattedCampaignLandingPage } from './formatted-type'
-import { BlockPromo } from '@/types/drupal/block'
 
 describe('DrupalJsonApiParams configuration', () => {
   test('params function sets the correct include fields', () => {
@@ -81,34 +80,5 @@ describe('CampaignLandingPage formatData', () => {
       `https://twitter.com/intent/tweet?text=PACT Act and survivors&url=${process.env.SITE_URL}/initiatives/pact-act-and-survivors`
     )
     expect(x.text).toBe('Share on X (formerly Twitter)')
-  })
-
-  test('filters out promos with missing link or image', () => {
-    const withoutPromoLink = queries.formatData('node--campaign_landing_page', {
-      ...campaignLandingPageMock,
-      field_clp_what_you_can_do_promos: [
-        ...campaignLandingPageMock.field_clp_what_you_can_do_promos,
-        { field_image: { image: {} } } as BlockPromo,
-      ],
-    })
-    expect(withoutPromoLink.whatYouCanDo.promos.length).toBe(1)
-
-    const withoutImage = queries.formatData('node--campaign_landing_page', {
-      ...campaignLandingPageMock,
-      field_clp_what_you_can_do_promos: [
-        ...campaignLandingPageMock.field_clp_what_you_can_do_promos,
-        { field_promo_link: {} } as BlockPromo,
-      ],
-    })
-    expect(withoutImage.whatYouCanDo.promos.length).toBe(1)
-
-    const withBoth = queries.formatData('node--campaign_landing_page', {
-      ...campaignLandingPageMock,
-      field_clp_what_you_can_do_promos: [
-        ...campaignLandingPageMock.field_clp_what_you_can_do_promos,
-        { field_promo_link: {}, field_image: { image: {} } } as BlockPromo,
-      ],
-    })
-    expect(withBoth.whatYouCanDo.promos.length).toBe(2)
   })
 })

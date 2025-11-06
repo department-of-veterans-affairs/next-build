@@ -2,7 +2,6 @@ import { SocialLink } from '@/lib/utils/social'
 import { PublishedEntity } from '@/types/formatted/publishedEntity'
 import { DrupalFile } from 'next-drupal'
 import { MediaImage } from '@/components/mediaDocument/formatted-type'
-import { ParagraphLinkTeaser } from '@/types/drupal/paragraph'
 
 type Link = {
   href: string
@@ -22,12 +21,4 @@ export interface CampaignLandingPage extends PublishedEntity {
   whyThisMatters: string
   audience: { name: string }[]
   socialLinks: SocialLink[]
-  whatYouCanDo: {
-    header: string
-    intro: string
-    promos: {
-      image: MediaImage
-      link: ParagraphLinkTeaser
-    }[]
-  }
 }

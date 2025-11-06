@@ -3,7 +3,6 @@ import { render, screen } from '@testing-library/react'
 import { CampaignLandingPage, CampaignLandingPageProps } from './template'
 import { axe } from '@/test-utils'
 import { HeroBanner } from './HeroBanner'
-import { ParagraphLinkTeaser } from '@/types/drupal/paragraph'
 
 import { defineCustomElements } from '@department-of-veterans-affairs/web-components/loader'
 import { WhyThisMatters } from './WhyThisMatters'
@@ -12,7 +11,6 @@ import {
   MediaImage,
   MediaImageLinks,
 } from '@/components/mediaDocument/formatted-type'
-import { FieldLink } from '@/types/drupal/field_type'
 
 const mockBaseProps: Partial<CampaignLandingPageProps> = {
   title: 'Testing title',
@@ -51,29 +49,6 @@ const mockBaseProps: Partial<CampaignLandingPageProps> = {
       text: 'social text 2',
     },
   ],
-  whatYouCanDo: {
-    header: 'WhatYouCanDo header',
-    intro: 'WhatYouCanDo intro',
-    promos: [
-      {
-        link: {
-          field_link: {
-            url: '?promo-1',
-            title: 'Promo 1 link',
-          } as FieldLink,
-          field_link_summary: 'Summary of field link 1',
-        } as ParagraphLinkTeaser,
-        image: {
-          alt: '',
-          links: {
-            '3_2_medium_thumbnail': {
-              href: 'https://example.com/promo-1-image.png',
-            } as unknown as MediaImageLinks,
-          },
-        } as unknown as MediaImage,
-      },
-    ],
-  },
 }
 
 jest.mock('next/image', () => ({
