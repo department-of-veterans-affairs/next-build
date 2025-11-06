@@ -5,7 +5,6 @@ import { ListOfLinkTeasers } from '@/components/listOfLinkTeasers/template'
 import { ContentFooter } from '@/components/contentFooter/template'
 import { SideNavLayout } from '@/components/sideNavLayout/template'
 import { RegionalTopTasks } from '../topTasks/template'
-import { LovellSwitcher } from '../lovellSwitcher/template'
 
 export function VamcSystemDetailPage({
   entityPath,
@@ -18,7 +17,6 @@ export function VamcSystemDetailPage({
   vamcSystem,
   lovellVariant,
   lovellSwitchPath,
-  showLovellSwitcher,
   relatedLinks,
   lastUpdated,
 }: LovellStaticPropsResource<FormattedVamcSystemDetailPage>) {
@@ -27,12 +25,11 @@ export function VamcSystemDetailPage({
   return (
     <SideNavLayout menu={menu} data-template="vamc-system-detail-page">
       <article className="usa-content">
-        {showLovellSwitcher && (
-          <LovellSwitcher
-            currentVariant={lovellVariant}
-            switchPath={lovellSwitchPath}
-          />
-        )}
+        {/* TODO: Add Lovell switcher in the right scenarios */}
+        {/* <LovellSwitcher
+              currentVariant={lovellVariant}
+              switchPath={lovellSwitchPath}
+            /> */}
 
         <h1>{title}</h1>
 

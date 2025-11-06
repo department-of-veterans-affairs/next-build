@@ -17,19 +17,6 @@ jest.mock('@/lib/drupal/query', () => ({
   getMenu: () => mockMenu,
 }))
 
-const mockTranslatePath = jest.fn()
-jest.mock('@/lib/drupal/drupalClient', () => ({
-  ...jest.requireActual('@/lib/drupal/drupalClient'),
-  drupalClient: {
-    translatePath: () => mockTranslatePath(),
-  },
-}))
-const mockTranslatePathResponse = {
-  entity: {
-    path: '/test-path',
-  },
-}
-
 function runQuery(options: Partial<VamcSystemDetailPageDataOpts> = {}) {
   return queries.getData(RESOURCE_TYPES.VAMC_SYSTEM_DETAIL_PAGE, {
     id: mockPage.id,
@@ -41,7 +28,6 @@ describe('VamcSystemDetailPage query module', () => {
   beforeEach(() => {
     // Reset to default mock data before each test
     mockPageQuery.mockReturnValue(mockPage as NodeVamcSystemDetailPage)
-    mockTranslatePath.mockReturnValue(null)
   })
 
   test('outputs formatted data', async () => {
@@ -92,6 +78,25 @@ describe('VamcSystemDetailPage query module', () => {
 
       expect(result.breadcrumbs).toBeNull()
     })
+
+    test('handles null lovell context', async () => {
+      const result = await runQuery({
+        context: {
+          path: '/test-path',
+          drupalPath: '/test-drupal-path',
+          listing: {
+            isListingPage: false,
+            firstPagePath: '/test-first-page-path',
+            page: 1,
+          },
+          lovell: null,
+        },
+      })
+
+      expect(result.lovellVariant).toBeNull()
+      expect(result.lovellSwitchPath).toBeNull()
+      expect(result.breadcrumbs).toEqual(mockPage.breadcrumbs)
+    })
   })
 
   test('formats vamcEhrSystem', async () => {
@@ -107,110 +112,5 @@ describe('VamcSystemDetailPage query module', () => {
 
     expect(result.administration).toBeDefined()
     expect(result.vamcEhrSystem).toBeDefined()
-  })
-
-  describe('Lovell variant handling', () => {
-    const lovellPath = {
-      alias:
-        '/lovell-federal-health-care-tricare/programs/electronic-health-record-modernization-ehrm/',
-      pid: 79642,
-      langcode: 'en',
-    }
-    const lovellBreadcrumbs = [
-      {
-        uri: 'https://va-gov-cms.ddev.site/',
-        title: 'Home',
-        options: [],
-      },
-      {
-        uri: 'https://va-gov-cms.ddev.site/lovell-federal-health-care',
-        title: 'Lovell Federal health care',
-        options: [],
-      },
-      {
-        uri: 'internal:#',
-        title: 'Billing and insurance',
-        options: [],
-      },
-    ]
-    const lovellContext = {
-      lovell: {
-        isLovellVariantPage: true,
-        variant: 'tricare',
-      },
-      path: lovellPath.alias,
-      drupalPath: lovellPath.alias,
-      listing: {
-        isListingPage: false,
-        firstPagePath: lovellPath.alias,
-        page: 1,
-      },
-    } as const
-
-    test('outputs formatted data with Lovell variant', async () => {
-      mockPageQuery.mockReturnValue({
-        ...mockPage,
-        path: lovellPath,
-        breadcrumbs: lovellBreadcrumbs,
-      } as NodeVamcSystemDetailPage)
-
-      const result = await runQuery({ context: lovellContext })
-
-      expect(result.lovellVariant).toBe('tricare')
-      expect(result.lovellSwitchPath).toBe(
-        '/lovell-federal-health-care-va/programs/electronic-health-record-modernization-ehrm/'
-      )
-      expect(result.showLovellSwitcher).toBe(false)
-    })
-
-    test('sets showLovellSwitcher to true if there is a lovell counterpart page', async () => {
-      mockPageQuery.mockReturnValue({
-        ...mockPage,
-        path: lovellPath,
-        breadcrumbs: lovellBreadcrumbs,
-      } as NodeVamcSystemDetailPage)
-
-      mockTranslatePath.mockReturnValue(mockTranslatePathResponse)
-
-      const result = await runQuery({ context: lovellContext })
-
-      expect(result.showLovellSwitcher).toBe(true)
-    })
-
-    test('handles errors when fetching lovell counterpart', async () => {
-      mockPageQuery.mockReturnValue({
-        ...mockPage,
-        path: lovellPath,
-        breadcrumbs: lovellBreadcrumbs,
-      } as NodeVamcSystemDetailPage)
-
-      mockTranslatePath.mockRejectedValue({
-        cause: {
-          status: 404,
-        },
-      })
-
-      const result = await runQuery({ context: lovellContext })
-
-      expect(result.showLovellSwitcher).toBe(false)
-    })
-
-    test('throws any errors that are not 404/403 errors', async () => {
-      mockPageQuery.mockReturnValue({
-        ...mockPage,
-        path: lovellPath,
-        breadcrumbs: lovellBreadcrumbs,
-      } as NodeVamcSystemDetailPage)
-
-      const error = new Error('Test error')
-      error.cause = {
-        status: 500,
-      }
-      mockTranslatePath.mockRejectedValue(error)
-
-      await expect(runQuery({ context: lovellContext })).rejects.toThrow(
-        'Test error'
-      )
-    })
   })
 })

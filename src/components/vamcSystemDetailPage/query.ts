@@ -18,7 +18,6 @@ import {
   getOppositeChildVariant,
 } from '@/lib/drupal/lovell/utils'
 import { formatter as formatAdministration } from '@/components/administration/query'
-import { drupalClient } from '@/lib/drupal/drupalClient'
 
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams()
@@ -41,7 +40,6 @@ export type VamcSystemDetailPageDataOpts = {
 type VamcSystemDetailPageData = {
   entity: NodeVamcSystemDetailPage
   menu: Menu | null
-  hasLovellCounterpart: boolean
   lovell?: ExpandedStaticPropsContext['lovell']
 }
 
@@ -64,55 +62,29 @@ export const data: QueryData<
 
   // TODO: There seems to be some difference between a "facilitySidebar" and "outreachSidebar" in the original template
 
-  // Determine if there is a Lovell counterpart to this page so we can show or hide the Lovell switcher
-  let hasLovellCounterpart = false
-  if (opts.context?.lovell?.isLovellVariantPage) {
-    try {
-      const counterpartPath = getLovellVariantOfUrl(
-        entity.path.alias,
-        getOppositeChildVariant(opts.context?.lovell?.variant)
-      )
-      hasLovellCounterpart =
-        (await drupalClient.translatePath(counterpartPath)) !== null
-    } catch (error) {
-      // If we're using proxy-fetcher, it'll actually throw an error for these
-      if ([404, 403].includes(error.cause?.status)) {
-        hasLovellCounterpart = false
-      } else {
-        throw error
-      }
-    }
-  }
-
   // Fetch the menu name dynamically off of the field_region_page reference if available.
   const menu = await getMenu(
     entity.field_office.field_system_menu.resourceIdObjMeta
       .drupal_internal__target_id
   )
 
-  return { entity, menu, lovell: opts.context?.lovell, hasLovellCounterpart }
+  return { entity, menu, lovell: opts.context?.lovell }
 }
 
 export const formatter: QueryFormatter<
   VamcSystemDetailPageData,
   VamcSystemDetailPage
-> = ({ entity, menu, lovell, hasLovellCounterpart }) => {
-  // For this particular content type, which can be bifurcated, the entity path doesn't
-  // always match the path of the page; it could be the opposite Lovell variant's path.
-  const normalizedPath = lovell?.isLovellVariantPage
-    ? getLovellVariantOfUrl(entity.path.alias, lovell.variant)
-    : entity.path.alias
-
+> = ({ entity, menu, lovell }) => {
   return {
     ...entityBaseFields(entity),
     breadcrumbs: lovell?.isLovellVariantPage
       ? getLovellVariantOfBreadcrumbs(entity.breadcrumbs, lovell.variant)
       : entity.breadcrumbs,
     title: entity.title,
-    path: normalizedPath,
+    path: entity.path.alias,
     introText: entity.field_intro_text,
     showTableOfContents: entity.field_table_of_contents_boolean,
-    menu: buildSideNavDataFromMenu(normalizedPath, menu),
+    menu: buildSideNavDataFromMenu(entity.path.alias, menu),
     administration: formatAdministration(entity.field_administration),
     vamcEhrSystem: entity.field_office?.field_vamc_ehr_system || null,
     vamcSystem: {
@@ -124,10 +96,9 @@ export const formatter: QueryFormatter<
     lovellVariant: lovell?.variant ?? null,
     lovellSwitchPath: lovell?.isLovellVariantPage
       ? getLovellVariantOfUrl(
-          normalizedPath,
+          entity.path.alias,
           getOppositeChildVariant(lovell?.variant)
         )
       : null,
-    showLovellSwitcher: hasLovellCounterpart,
   }
 }
