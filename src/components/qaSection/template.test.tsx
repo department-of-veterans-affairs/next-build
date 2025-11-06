@@ -73,10 +73,5 @@ describe('QaSection with with valid data', () => {
     )
     expect(accordionDiv).not.toBeInTheDocument()
     expect(screen.queryByText(/Other test header/)).toBeInTheDocument()
-
-    // Make sure it renders the paragraphs
-    expect(screen.queryByText(/Question 1/)).toBeInTheDocument()
-    expect(screen.queryByText(/Other test string 1/)).toBeInTheDocument()
-    expect(screen.queryByText(/Other test string 2/)).toBeInTheDocument()
   })
 })

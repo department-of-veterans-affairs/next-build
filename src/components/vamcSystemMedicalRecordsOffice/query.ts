@@ -35,7 +35,6 @@ import {
   getOppositeChildVariant,
 } from '@/lib/drupal/lovell/utils'
 import { formatter as formatReactWidget } from '@/components/reactWidget/query'
-import { formatter as formatQaSection } from '@/components/qaSection/query'
 
 // Define the query params for fetching node--vamc_system_medical_records_office.
 export const params: QueryParams<null> = () => {
@@ -160,9 +159,6 @@ export const formatter: QueryFormatter<
     ),
     howWeShareRecordsContent: formatCcWysiwyg(
       entity.field_cc_how_we_share_records
-    ),
-    faqsContent: formatQaSection(
-      normalizeEntityFetchedParagraphs(entity.field_cc_faqs)
     ),
     reactWidget: formatReactWidget(
       normalizeEntityFetchedParagraphs(entity.field_cc_react_widget)
