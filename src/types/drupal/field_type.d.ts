@@ -1,6 +1,4 @@
 import { TaxonomyTermHealthCareServiceTaxonomy } from './taxonomy_term'
-import { ParagraphReactWidget } from './paragraph'
-import { DrupalParagraph } from 'next-drupal'
 
 export interface FieldAddress {
   langcode: string
@@ -174,18 +172,6 @@ export type FieldNestedButton = {
   field_button_label: FieldNestedText[]
   field_button_link: FieldCCNestedLink[]
 }
-
-export type EntityFieldFetched<FetchedType extends DrupalParagraph> = {
-  target_type: string
-  target_id: string
-  fetched_bundle: string
-  fetched: {
-    [key in Exclude<keyof FetchedType, keyof DrupalParagraph>]: Array<
-      FetchedType[key]
-    >
-  }
-}
-
 export interface FieldCCText {
   target_type: string
   target_id: string
@@ -194,7 +180,6 @@ export interface FieldCCText {
     field_wysiwyg: FieldFormattedText[]
   }
 }
-
 export interface FieldCCPhone {
   target_type: string
   target_id: string
@@ -241,8 +226,6 @@ export interface FieldCCListOfLinkTeasers {
     field_va_paragraphs: FieldCCNestedLinkTeaser[]
   }
 }
-
-export type FieldCCReactWidget = EntityFieldFetched<ParagraphReactWidget>
 
 export interface FieldMissionExplainer {
   target_id: string
