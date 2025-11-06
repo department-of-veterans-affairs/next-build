@@ -1,0 +1,353 @@
+{
+  "jsonapi": {
+    "version": "1.0",
+    "meta": [
+      {
+        "links": {
+          "self": {
+            "href": "http://jsonapi.org/format/1.0/"
+          }
+        }
+      }
+    ]
+  },
+  "data": [
+    {
+      "type": "entity_subqueue--home_page_hero",
+      "id": "ab6de7a6-6dec-4606-a4bc-e2a295c47fbe",
+      "links": {
+        "self": {
+          "href": "https://va-gov-cms.ddev.site/jsonapi/entity_subqueue/home_page_hero/ab6de7a6-6dec-4606-a4bc-e2a295c47fbe?resourceVersion=id%3A4"
+        }
+      },
+      "attributes": {
+        "drupal_internal__name": "home_page_hero",
+        "drupal_internal__revision_id": 4,
+        "langcode": "en",
+        "revision_created": "2022-11-04T20:04:31+00:00",
+        "revision_log_message": null,
+        "status": true,
+        "title": "V2 Home page benefit promo",
+        "created": "2022-11-04T20:04:31+00:00",
+        "changed": "2022-12-09T20:43:04+00:00",
+        "default_langcode": true,
+        "revision_translation_affected": true,
+        "breadcrumbs": [
+          {
+            "uri": "https://va-gov-cms.ddev.site/",
+            "title": "Home",
+            "options": []
+          },
+          {
+            "uri": "https://va-gov-cms.ddev.site/admin",
+            "title": "Administration",
+            "options": []
+          },
+          {
+            "uri": "https://va-gov-cms.ddev.site/admin/structure",
+            "title": "Structure",
+            "options": []
+          },
+          {
+            "uri": "https://va-gov-cms.ddev.site/admin/structure/entityqueue",
+            "title": "Entityqueues",
+            "options": []
+          },
+          {
+            "uri": "https://va-gov-cms.ddev.site/admin/structure/entityqueue/home_page_hero",
+            "title": "Edit Entity Queue",
+            "options": []
+          },
+          {
+            "uri": "https://va-gov-cms.ddev.site/admin/structure/entityqueue/home_page_hero/home_page_hero",
+            "title": "Edit V2 Home Page Benefit Promo",
+            "options": []
+          }
+        ],
+        "metatag": [
+          {
+            "tag": "meta",
+            "attributes": {
+              "name": "title",
+              "content": "| Veterans Affairs"
+            }
+          }
+        ]
+      },
+      "relationships": {
+        "queue": {
+          "data": {
+            "type": "entity_queue--entity_queue",
+            "id": "45229e5d-bd7c-4dab-9838-0b05322e9e31",
+            "meta": {
+              "drupal_internal__target_id": "home_page_hero"
+            }
+          },
+          "links": {
+            "related": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/entity_subqueue/home_page_hero/ab6de7a6-6dec-4606-a4bc-e2a295c47fbe/queue?resourceVersion=id%3A4"
+            },
+            "self": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/entity_subqueue/home_page_hero/ab6de7a6-6dec-4606-a4bc-e2a295c47fbe/relationships/queue?resourceVersion=id%3A4"
+            }
+          }
+        },
+        "revision_user": {
+          "data": {
+            "type": "user--user",
+            "id": "20b2bc97-2210-4def-9a0f-46c22d250eb7",
+            "meta": {
+              "drupal_internal__target_id": 0
+            }
+          },
+          "links": {
+            "related": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/entity_subqueue/home_page_hero/ab6de7a6-6dec-4606-a4bc-e2a295c47fbe/revision_user?resourceVersion=id%3A4"
+            },
+            "self": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/entity_subqueue/home_page_hero/ab6de7a6-6dec-4606-a4bc-e2a295c47fbe/relationships/revision_user?resourceVersion=id%3A4"
+            }
+          }
+        },
+        "uid": {
+          "data": {
+            "type": "user--user",
+            "id": "20b2bc97-2210-4def-9a0f-46c22d250eb7",
+            "meta": {
+              "drupal_internal__target_id": 0
+            }
+          },
+          "links": {
+            "related": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/entity_subqueue/home_page_hero/ab6de7a6-6dec-4606-a4bc-e2a295c47fbe/uid?resourceVersion=id%3A4"
+            },
+            "self": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/entity_subqueue/home_page_hero/ab6de7a6-6dec-4606-a4bc-e2a295c47fbe/relationships/uid?resourceVersion=id%3A4"
+            }
+          }
+        },
+        "items": {
+          "data": [
+            {
+              "type": "block_content--benefit_promo",
+              "id": "a33688ee-2322-4cc6-9ac0-fca21a843b49",
+              "meta": {
+                "drupal_internal__target_id": 208
+              }
+            }
+          ],
+          "links": {
+            "related": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/entity_subqueue/home_page_hero/ab6de7a6-6dec-4606-a4bc-e2a295c47fbe/items?resourceVersion=id%3A4"
+            },
+            "self": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/entity_subqueue/home_page_hero/ab6de7a6-6dec-4606-a4bc-e2a295c47fbe/relationships/items?resourceVersion=id%3A4"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "included": [
+    {
+      "type": "block_content--benefit_promo",
+      "id": "a33688ee-2322-4cc6-9ac0-fca21a843b49",
+      "links": {
+        "self": {
+          "href": "https://va-gov-cms.ddev.site/jsonapi/block_content/benefit_promo/a33688ee-2322-4cc6-9ac0-fca21a843b49?resourceVersion=id%3A1775"
+        }
+      },
+      "attributes": {
+        "drupal_internal__id": 208,
+        "drupal_internal__revision_id": 1775,
+        "langcode": "en",
+        "revision_created": "2025-01-02T19:14:22+00:00",
+        "revision_log": "Laura checked this via screenshot. Publishing.",
+        "status": true,
+        "info": "Evergreen getting started promo",
+        "changed": "2025-01-02T19:14:22+00:00",
+        "reusable": true,
+        "default_langcode": true,
+        "revision_translation_affected": true,
+        "breadcrumbs": [
+          {
+            "uri": "https://va-gov-cms.ddev.site/",
+            "title": "Home",
+            "options": []
+          },
+          {
+            "uri": "https://va-gov-cms.ddev.site/admin",
+            "title": "Administration",
+            "options": []
+          },
+          {
+            "uri": "https://va-gov-cms.ddev.site/admin/content",
+            "title": "Content",
+            "options": []
+          },
+          {
+            "uri": "https://va-gov-cms.ddev.site/admin/content/block",
+            "title": "Custom Block Library",
+            "options": []
+          },
+          {
+            "uri": "https://va-gov-cms.ddev.site/admin/content/block/208",
+            "title": "Evergreen Getting Started Promo",
+            "options": []
+          }
+        ],
+        "moderation_state": "published",
+        "expiration_date": null,
+        "warning_date": null,
+        "metatag": [
+          {
+            "tag": "meta",
+            "attributes": {
+              "name": "title",
+              "content": "| Veterans Affairs"
+            }
+          }
+        ],
+        "field_promo_headline": "Let us help you get started",
+        "field_promo_text": "Whether you’re a Veteran, service member, or family member, we’re here to help you get the care and benefits you deserve."
+      },
+      "relationships": {
+        "block_content_type": {
+          "data": {
+            "type": "block_content_type--block_content_type",
+            "id": "26ebbaef-909a-4b3f-bdcf-b996eb8ca5a2",
+            "meta": {
+              "drupal_internal__target_id": "benefit_promo"
+            }
+          },
+          "links": {
+            "related": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/block_content/benefit_promo/a33688ee-2322-4cc6-9ac0-fca21a843b49/block_content_type?resourceVersion=id%3A1775"
+            },
+            "self": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/block_content/benefit_promo/a33688ee-2322-4cc6-9ac0-fca21a843b49/relationships/block_content_type?resourceVersion=id%3A1775"
+            }
+          }
+        },
+        "revision_user": {
+          "data": {
+            "type": "user--user",
+            "id": "985a2360-2506-4a2a-98cc-26cb1a05a178",
+            "meta": {
+              "drupal_internal__target_id": 1341
+            }
+          },
+          "links": {
+            "related": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/block_content/benefit_promo/a33688ee-2322-4cc6-9ac0-fca21a843b49/revision_user?resourceVersion=id%3A1775"
+            },
+            "self": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/block_content/benefit_promo/a33688ee-2322-4cc6-9ac0-fca21a843b49/relationships/revision_user?resourceVersion=id%3A1775"
+            }
+          }
+        },
+        "field_administration": {
+          "data": {
+            "type": "taxonomy_term--administration",
+            "id": "10e97cc5-5a5f-44cc-b462-7d1d177386fe",
+            "meta": {
+              "drupal_internal__target_id": 6
+            }
+          },
+          "links": {
+            "related": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/block_content/benefit_promo/a33688ee-2322-4cc6-9ac0-fca21a843b49/field_administration?resourceVersion=id%3A1775"
+            },
+            "self": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/block_content/benefit_promo/a33688ee-2322-4cc6-9ac0-fca21a843b49/relationships/field_administration?resourceVersion=id%3A1775"
+            }
+          }
+        },
+        "field_promo_cta": {
+          "data": {
+            "type": "paragraph--button",
+            "id": "87e5843d-be52-4440-bf60-b0d82db38062",
+            "meta": {
+              "target_revision_id": 1613239,
+              "drupal_internal__target_id": 117955
+            }
+          },
+          "links": {
+            "related": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/block_content/benefit_promo/a33688ee-2322-4cc6-9ac0-fca21a843b49/field_promo_cta?resourceVersion=id%3A1775"
+            },
+            "self": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/block_content/benefit_promo/a33688ee-2322-4cc6-9ac0-fca21a843b49/relationships/field_promo_cta?resourceVersion=id%3A1775"
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "paragraph--button",
+      "id": "87e5843d-be52-4440-bf60-b0d82db38062",
+      "links": {
+        "self": {
+          "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/button/87e5843d-be52-4440-bf60-b0d82db38062?resourceVersion=id%3A1613239"
+        }
+      },
+      "attributes": {
+        "drupal_internal__id": 117955,
+        "drupal_internal__revision_id": 1613239,
+        "langcode": "en",
+        "status": true,
+        "created": "2022-11-18T17:55:08+00:00",
+        "parent_id": "208",
+        "parent_type": "block_content",
+        "parent_field_name": "field_promo_cta",
+        "behavior_settings": [],
+        "default_langcode": true,
+        "revision_translation_affected": true,
+        "breadcrumbs": [],
+        "content_translation_source": "und",
+        "content_translation_outdated": false,
+        "content_translation_changed": null,
+        "field_button_label": "Get started with VA ",
+        "field_button_link": {
+          "uri": "entity:node/55147",
+          "title": "",
+          "options": {
+            "href": "entity:node/55147",
+            "data-entity-type": "node",
+            "data-entity-uuid": "11dd9650-992e-45ff-8326-46bbe9c015e5",
+            "data-entity-substitution": "canonical"
+          },
+          "url": "/resources/getting-started-with-va"
+        }
+      },
+      "relationships": {
+        "paragraph_type": {
+          "data": {
+            "type": "paragraphs_type--paragraphs_type",
+            "id": "f2ea2f57-89da-43d4-be22-ba46d728a286",
+            "meta": {
+              "drupal_internal__target_id": "button"
+            }
+          },
+          "links": {
+            "related": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/button/87e5843d-be52-4440-bf60-b0d82db38062/paragraph_type?resourceVersion=id%3A1613239"
+            },
+            "self": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/button/87e5843d-be52-4440-bf60-b0d82db38062/relationships/paragraph_type?resourceVersion=id%3A1613239"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "meta": {
+    "count": 1
+  },
+  "links": {
+    "self": {
+      "href": "https://va-gov-cms.ddev.site/jsonapi/entity_subqueue/home_page_hero?include=items%2Citems.field_promo_cta"
+    }
+  },
+  "errors": []
+}
