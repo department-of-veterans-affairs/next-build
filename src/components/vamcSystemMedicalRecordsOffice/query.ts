@@ -34,6 +34,7 @@ import {
   getLovellVariantOfUrl,
   getOppositeChildVariant,
 } from '@/lib/drupal/lovell/utils'
+import { formatter as formatReactWidget } from '@/components/reactWidget/query'
 
 // Define the query params for fetching node--vamc_system_medical_records_office.
 export const params: QueryParams<null> = () => {
@@ -156,8 +157,8 @@ export const formatter: QueryFormatter<
     getRecordsInPersonContent: formatCcWysiwyg(
       entity.field_cc_get_records_in_person
     ),
-    bottomOfPageContent: formatCcWysiwyg(
-      entity.field_cc_bottom_of_page_content
+    reactWidget: formatReactWidget(
+      normalizeEntityFetchedParagraphs(entity.field_cc_react_widget)
     ),
     relatedLinks: formatListOfLinkTeasers(
       normalizeEntityFetchedParagraphs(entity.field_cc_related_links)
