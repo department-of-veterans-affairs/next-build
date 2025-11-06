@@ -91,4 +91,46 @@ describe('VamcSystemDetailPage', () => {
       ).not.toBeInTheDocument()
     })
   })
+
+  describe('Top tasks', () => {
+    const getLink = (text: string) =>
+      document.querySelector(`va-link-action[text="${text}"]`)
+
+    it('renders top tasks when this is a contact page', () => {
+      render(
+        <VamcSystemDetailPage {...formattedMockData} entityPath="/contact-us" />
+      )
+      expect(getLink('Make an appointment')).toBeInTheDocument()
+      expect(getLink('View all health services')).toBeInTheDocument()
+      expect(getLink('Register for care')).toBeInTheDocument()
+
+      // Make sure the links go to the right place
+      expect(getLink('Make an appointment')).toHaveAttribute(
+        'href',
+        `${formattedMockData.vamcSystem.path}/make-an-appointment`
+      )
+      expect(getLink('View all health services')).toHaveAttribute(
+        'href',
+        `${formattedMockData.vamcSystem.path}/health-services`
+      )
+      expect(getLink('Register for care')).toHaveAttribute(
+        'href',
+        `${formattedMockData.vamcSystem.path}/register-for-care`
+      )
+    })
+
+    it('renders the TRICARE variant with the MHS link when this is a TRICARE contact page', () => {
+      render(
+        <VamcSystemDetailPage
+          {...formattedMockData}
+          entityPath="/contact-us"
+          administration={LOVELL.tricare.administration}
+          vamcEhrSystem="cerner"
+        />
+      )
+      expect(getLink('MHS Genesis Patient Portal')).toBeInTheDocument()
+      expect(getLink('View all health services')).toBeInTheDocument()
+      expect(getLink('Register for care')).toBeInTheDocument()
+    })
+  })
 })
