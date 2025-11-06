@@ -94,10 +94,9 @@ export const getFetcher = (
         )
 
         const errorMessage = `Failed request to ${response.url}: ${response.status} ${response.statusText}`
-        const urlObj = new URL(response.url)
-        const isJsonApiPath = /^\/jsonapi\//.test(urlObj.pathname)
-        // Don't retry if we shouldn't, jsonapi paths should retry
-        if ([404, 403].includes(response.status) && !isJsonApiPath) {
+
+        // Don't retry if we shouldn't
+        if ([404, 403].includes(response.status)) {
           log(`Aborting retry: ${response.status} received`)
           const { AbortError } = await import('p-retry')
           throw new AbortError(new Error(errorMessage, { cause: response }))
