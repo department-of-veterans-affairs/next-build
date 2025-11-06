@@ -1,11 +1,10 @@
 import { ContentFooter } from '@/components/contentFooter/template'
 import { PageLayout } from '@/components/pageLayout/template'
 import { queries } from '@/lib/drupal/queries'
-import { HomePageHero } from '@/components/homePageHero/template'
 import Head from 'next/head'
 import Script from 'next/script'
 
-const HomePage = ({ footerData, megaMenuData, bannerData, heroData }) => {
+const HomePage = ({ footerData, megaMenuData, bannerData }) => {
   return (
     <>
       <Head>
@@ -17,7 +16,7 @@ const HomePage = ({ footerData, megaMenuData, bannerData, heroData }) => {
         megaMenuData={megaMenuData}
       >
         <main data-template="layouts/home" id="content">
-          <HomePageHero {...heroData} />
+          <div>TODO: add HERO</div>
           <div>TODO: add Common tasks</div>
           <div>TODO: add news-spotlight</div>
           <div>TODO: add homepage-benefits</div>
@@ -49,13 +48,12 @@ export async function getStaticProps() {
     }
   }
   try {
-    const [footerData, megaMenuData, bannerData, heroData] = await Promise.all([
+    const [footerData, megaMenuData, bannerData] = await Promise.all([
       queries.getData('footer-data'),
       queries.getData('header-data'),
       queries.getData('banner-data', {
         itemPath: '/',
       }),
-      queries.getData('hero-data'),
     ])
 
     return {
@@ -63,7 +61,6 @@ export async function getStaticProps() {
         footerData,
         megaMenuData,
         bannerData,
-        heroData,
       },
     }
   } catch (error) {
