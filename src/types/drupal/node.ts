@@ -66,6 +66,8 @@ export type NodeTypes =
   | NodeBanner
   | NodeBasicLandingPage
   | NodeBannerAlertVAMCS
+  | NodeBenefitsDetailPage
+  | NodeCampaignLandingPage
   | NodeFaqMultipleQA
   | NodeHealthCareRegionPage
   | NodeHealthCareLocalFacility
@@ -714,6 +716,18 @@ export interface NodeVamcOperatingStatusAndAlerts extends DrupalNode {
   field_banner_alert?: NodeFullWidthBannerAlert[]
   field_operating_status_emerg_inf: FieldFormattedText
   field_links: FieldLink[]
+}
+
+export interface NodeBenefitsDetailPage extends DrupalNode {
+  breadcrumbs: BreadcrumbItem[]
+  field_administration: FieldAdministration
+  field_alert: BlockAlert | null
+  field_content_block: FieldContentBlock | null
+  field_description: string | null
+  field_featured_content: Array<ParagraphWysiwyg | ParagraphQA> | null
+  field_intro_text_limited_html: FieldFormattedText | null
+  field_related_links: ParagraphListOfLinkTeasers | null
+  field_table_of_contents_boolean?: boolean
 }
 
 export interface NodeVaForm extends DrupalNode {
