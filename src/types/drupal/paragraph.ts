@@ -37,6 +37,7 @@ export type ParagraphTypes =
   | ParagraphFeaturedContent
   | ParagraphHealthCareLocalFacilityService
   | ParagraphLinkTeaser
+  | ParagraphLinkTeaserWithImage
   | ParagraphListOfLinks
   | ParagraphListOfLinkTeasers
   | ParagraphMedia
@@ -174,6 +175,12 @@ export interface ParagraphLinkTeaser extends DrupalParagraph {
   type: 'paragraph--link_teaser'
   field_link: FieldLink
   field_link_summary: string
+}
+
+export interface ParagraphLinkTeaserWithImage extends DrupalParagraph {
+  type: 'paragraph--link_teaser_with_image'
+  field_link_teaser: ParagraphLinkTeaser
+  field_media: DrupalMediaImage
 }
 
 export interface ParagraphListOfLinkTeasers extends DrupalParagraph {

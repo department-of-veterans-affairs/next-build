@@ -1,0 +1,186 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`paragraph--link_teaser formatData outputs formatted data 1`] = `
+{
+  "entityId": 79752,
+  "id": "a534f535-c537-41ca-a42f-29661047b28d",
+  "image": {
+    "alt": "Her service, our mission: National Veterans Experience Action Center dedicated to women Veterans",
+    "height": 506,
+    "id": "73c1b93d-d5a4-4ed7-bfbe-e4046622b73c",
+    "links": {
+      "1_1_square_large": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/1_1_square_large/public/2024-01/Her%20service%2C%20our%20mission%20National%20VEAC%20dedicated%20to%20women%20Veterans.png",
+        "meta": {
+          "linkParams": {
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+            "width": "500",
+          },
+          "rel": [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "1_1_square_medium_thumbnail": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/1_1_square_medium_thumbnail/public/2024-01/Her%20service%2C%20our%20mission%20National%20VEAC%20dedicated%20to%20women%20Veterans.png",
+        "meta": {
+          "linkParams": {
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+            "width": "240",
+          },
+          "rel": [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "2_1_large": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_large/public/2024-01/Her%20service%2C%20our%20mission%20National%20VEAC%20dedicated%20to%20women%20Veterans.png",
+        "meta": {
+          "linkParams": {
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+            "width": "512",
+          },
+          "rel": [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "2_1_medium_thumbnail": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_medium_thumbnail/public/2024-01/Her%20service%2C%20our%20mission%20National%20VEAC%20dedicated%20to%20women%20Veterans.png",
+        "meta": {
+          "linkParams": {
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+            "width": "240",
+          },
+          "rel": [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "2_3_medium_thumbnail": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_3_medium_thumbnail/public/2024-01/Her%20service%2C%20our%20mission%20National%20VEAC%20dedicated%20to%20women%20Veterans.png",
+        "meta": {
+          "linkParams": {
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+            "width": "480",
+          },
+          "rel": [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "3_2_medium_thumbnail": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2024-01/Her%20service%2C%20our%20mission%20National%20VEAC%20dedicated%20to%20women%20Veterans.png",
+        "meta": {
+          "linkParams": {
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+            "width": "320",
+          },
+          "rel": [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "7_2_medium_thumbnail": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/7_2_medium_thumbnail/public/2024-01/Her%20service%2C%20our%20mission%20National%20VEAC%20dedicated%20to%20women%20Veterans.png",
+        "meta": {
+          "linkParams": {
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+            "width": "300",
+          },
+          "rel": [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "full_content_width": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/full_content_width/public/2024-01/Her%20service%2C%20our%20mission%20National%20VEAC%20dedicated%20to%20women%20Veterans.png",
+        "meta": {
+          "linkParams": {
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+          "rel": [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "large": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/large/public/2024-01/Her%20service%2C%20our%20mission%20National%20VEAC%20dedicated%20to%20women%20Veterans.png",
+        "meta": {
+          "linkParams": {
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+          "rel": [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "original": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/original/public/2024-01/Her%20service%2C%20our%20mission%20National%20VEAC%20dedicated%20to%20women%20Veterans.png",
+        "meta": {
+          "linkParams": {
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+          "rel": [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "self": {
+        "href": "https://va-gov-cms.ddev.site/jsonapi/file/file/73c1b93d-d5a4-4ed7-bfbe-e4046622b73c",
+      },
+      "viewport_width": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/viewport_width/public/2024-01/Her%20service%2C%20our%20mission%20National%20VEAC%20dedicated%20to%20women%20Veterans.png",
+        "meta": {
+          "linkParams": {
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+          "rel": [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+    },
+    "title": "",
+    "type": "media--image",
+    "width": 920,
+  },
+  "teaser": {
+    "entityId": 79751,
+    "id": "52a784c0-4240-435b-b2ad-fb4c33b1d509",
+    "options": {
+      "data-entity-substitution": "",
+      "data-entity-type": "",
+      "data-entity-uuid": "",
+      "href": "https://news.va.gov/126268/women-veterans-experience-action-center/",
+    },
+    "summary": "VA’s Center for Women Veterans and the Veterans Experience Office held a national women Veterans VA 1-on-1: Veteran Assistance Expo that served as a call to action to embrace the diversity and service of women Veterans.",
+    "title": "VA 1-on-1: Veteran Assistance Expo dedicated to women Veterans",
+    "type": "paragraph--link_teaser",
+    "uri": "https://news.va.gov/126268/women-veterans-experience-action-center/",
+  },
+  "type": "paragraph--link_teaser_with_image",
+}
+`;
