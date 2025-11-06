@@ -56,7 +56,6 @@ import {
   TaxonomyTermHealthCareServiceTaxonomy,
 } from './taxonomy_term'
 import { VamcEhrSystem } from './vamcEhr'
-import { Wysiwyg } from '@/components/wysiwyg/formatted-type'
 
 /** Union of all node types.  */
 export type NodeTypes =
@@ -641,6 +640,4 @@ export interface NodeVamcHealthServicesListing extends DrupalNode {
 export interface NodeVamcOperatingStatusAndAlerts extends DrupalNode {
   field_office: DrupalNode
   field_banner_alert?: NodeFullWidthBannerAlert[]
-  field_operating_status_emerg_inf: FieldFormattedText
-  field_links: FieldLink[]
 }

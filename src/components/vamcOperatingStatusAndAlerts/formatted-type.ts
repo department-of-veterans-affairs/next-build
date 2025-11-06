@@ -7,10 +7,7 @@ type Update = {
   timezone: string
   updateText: string
 }
-type Link = {
-  label: string
-  url: string
-}
+
 export type OperatingStatus = {
   title: string
   url: string
@@ -28,7 +25,4 @@ export type VamcOperatingStatusAndAlerts = PublishedEntity & {
   menu?: SideNavMenu
   situationUpdates: SituationUpdates[]
   operatingStatuses: OperatingStatus[]
-  /** Raw HTML string containing the emergency information */
-  emergencyInformation: string
-  localEmergencyLinks: Link[]
 }

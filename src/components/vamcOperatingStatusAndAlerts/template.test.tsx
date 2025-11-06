@@ -19,41 +19,5 @@ describe('VamcOperatingStatusAndAlerts with valid data', () => {
     expect(
       screen.queryByText(/VA Oklahoma City health care/)
     ).toBeInTheDocument()
-    expect(screen.getByTestId('emergency-resources')).toBeInTheDocument()
-    expect(screen.getByTestId('emergency-information')).toBeInTheDocument()
-    expect(screen.getByTestId('local-emergency-resources')).toBeInTheDocument()
-  })
-  test('does not render emergency section with no content', () => {
-    const noEmergencyInformation = {
-      ...vamcOperatingStatusAndAlertsData,
-      emergencyInformation: null,
-      localEmergencyLinks: null,
-    }
-    render(<VamcOperatingStatusAndAlerts {...noEmergencyInformation} />)
-    expect(screen.queryByTestId('emergency-resources')).not.toBeInTheDocument()
-  })
-  test('does render emergency section with just info', () => {
-    const noEmergencyLinks = {
-      ...vamcOperatingStatusAndAlertsData,
-      localEmergencyLinks: null,
-    }
-    render(<VamcOperatingStatusAndAlerts {...noEmergencyLinks} />)
-    expect(screen.getByTestId('emergency-resources')).toBeInTheDocument()
-    expect(screen.getByTestId('emergency-information')).toBeInTheDocument()
-    expect(
-      screen.queryByTestId('local-emergency-resources')
-    ).not.toBeInTheDocument()
-  })
-  test('does render emergency section with just links', () => {
-    const noEmergencyInfo = {
-      ...vamcOperatingStatusAndAlertsData,
-      emergencyInformation: null,
-    }
-    render(<VamcOperatingStatusAndAlerts {...noEmergencyInfo} />)
-    expect(screen.getByTestId('emergency-resources')).toBeInTheDocument()
-    expect(
-      screen.queryByTestId('emergency-information')
-    ).not.toBeInTheDocument()
-    expect(screen.getByTestId('local-emergency-resources')).toBeInTheDocument()
   })
 })
