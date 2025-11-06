@@ -9,11 +9,7 @@ import {
   FieldTable,
   FieldDateTimeRange,
 } from './field_type'
-import {
-  DrupalMediaImage,
-  DrupalMediaDocument,
-  DrupalMediaVideo,
-} from './media'
+import { DrupalMediaImage } from './media'
 import { NodeLandingPage, NodePersonProfile, NodeSupportService } from './node'
 import {
   TaxonomyTermAudienceBeneficiaries,
@@ -31,7 +27,6 @@ export type ParagraphTypes =
   | ParagraphCollapsiblePanel
   | ParagraphCollapsiblePanelItem
   | ParagraphContactInformation
-  | ParagraphDownloadableFile
   | ParagraphEmailContact
   | ParagraphExpandableText
   | ParagraphFeaturedContent
@@ -39,7 +34,6 @@ export type ParagraphTypes =
   | ParagraphLinkTeaser
   | ParagraphListOfLinks
   | ParagraphListOfLinkTeasers
-  | ParagraphMedia
   | ParagraphNonReusableAlert
   | ParagraphNumberCallout
   | ParagraphPhoneNumber
@@ -52,7 +46,6 @@ export type ParagraphTypes =
   | ParagraphServiceLocation
   | ParagraphServiceLocationAddress
   | ParagraphSituationUpdate
-  | ParagraphSpanishTranslationSummary
   | ParagraphStaffProfile
   | ParagraphStep
   | ParagraphStepByStep
@@ -119,13 +112,6 @@ export interface ParagraphContactInformation extends DrupalParagraph {
   field_contact_default: NodeSupportService
 }
 
-export interface ParagraphDownloadableFile extends DrupalParagraph {
-  type: 'paragraph--downloadable_file'
-  field_title: string
-  field_markup: string | null
-  field_media: DrupalMediaImage | DrupalMediaDocument | DrupalMediaVideo
-}
-
 export interface ParagraphEmailContact extends DrupalParagraph {
   type: 'paragraph--email_contact'
   field_email_address: string
@@ -187,11 +173,6 @@ export interface ParagraphListOfLinks extends DrupalParagraph {
   field_link: FieldLink
   field_links: FieldLink[]
   field_section_header: string
-}
-
-export interface ParagraphMedia extends DrupalParagraph {
-  type: 'paragraph--media'
-  field_media: DrupalMediaImage
 }
 
 export interface ParagraphNonReusableAlert extends DrupalParagraph {
@@ -347,14 +328,4 @@ export interface ParagraphSituationUpdate extends DrupalParagraph {
   field_datetime_range_timezone: FieldDateTimeRange
   field_wysiwyg: FieldFormattedText
   field_send_email_to_subscribers: boolean
-}
-
-/**
- * Note that this is not primarily used for Spanish translation on VA.gov but instead
- * for expandable blocks of additional information.
- */
-export interface ParagraphSpanishTranslationSummary extends DrupalParagraph {
-  type: 'paragraph--spanish_translation_summary'
-  field_wysiwyg: FieldFormattedText
-  field_text_expander: string
 }

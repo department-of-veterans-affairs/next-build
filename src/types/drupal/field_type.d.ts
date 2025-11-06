@@ -1,12 +1,6 @@
 import { TaxonomyTermHealthCareServiceTaxonomy } from './taxonomy_term'
+import { ParagraphReactWidget } from './paragraph'
 import { DrupalParagraph } from 'next-drupal'
-import {
-  ParagraphReactWidget,
-  ParagraphListOfLinks,
-  ParagraphTable,
-  ParagraphAlert,
-  ParagraphWysiwyg,
-} from './paragraph'
 
 export interface FieldAddress {
   langcode: string
