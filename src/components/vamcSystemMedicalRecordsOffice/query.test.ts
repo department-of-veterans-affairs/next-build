@@ -46,6 +46,12 @@ describe('VamcSystemMedicalRecordsOffice formatter', () => {
     )
   })
 
+  it('formats bottomOfPageContent field correctly', () => {
+    const result = formatter(defaultData)
+
+    expect(result.bottomOfPageContent).toBeNull()
+  })
+
   it('formats relatedLinks field correctly', () => {
     const result = formatter(defaultData)
 
@@ -210,15 +216,6 @@ describe('VamcSystemMedicalRecordsOffice formatter', () => {
       expect(result.breadcrumbs).toEqual(lovellBreadcrumbs)
       expect(result.lovellVariant).toBeNull()
       expect(result.lovellSwitchPath).toBeNull()
-    })
-
-    it('formats reactWidget field correctly', () => {
-      const result = formatter(defaultData)
-
-      expect(result.reactWidget).toBeDefined()
-      expect(result.reactWidget.widgetType).toBe(
-        'modern-get-medical-records-page'
-      )
     })
   })
 })

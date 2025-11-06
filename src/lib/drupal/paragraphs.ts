@@ -93,10 +93,6 @@ function isEntityFetchedRoot(root: unknown): root is EntityFetchedRoot {
   )
 }
 
-/**
- * These are fields that we expect to be actual arrays, so we don't want to convert them
- * to single values.
- */
 const EXPECTED_ARRAY_FIELDS = [
   'field_links',
   'field_audience_beneficiares',
@@ -104,15 +100,7 @@ const EXPECTED_ARRAY_FIELDS = [
   'field_topics',
 ]
 
-/**
- * These are fields that could be null, so if we are converting from an array to a single
- * value and get an empty array, we want to convert it back to null.
- */
-const POSSIBLY_EMPTY_FIELDS = [
-  'field_alert_block_reference',
-  'field_default_link',
-  'field_loading_message',
-]
+const POSSIBLY_EMPTY_FIELDS = ['field_alert_block_reference']
 
 /**
  * Recursively converts a paragraph that was fetched using [entity_field_fetch](https://www.drupal.org/project/entity_field_fetch)

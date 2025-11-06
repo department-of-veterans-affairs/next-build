@@ -583,19 +583,7 @@ const mockData: VamcSystemMedicalRecordsOffice = {
     id: '82639',
     html: '<h2 id="get-your-records-in-person">Get your records in person</h2><p>We can help you get copies of your VA medical records. We can also help you update your records. Call or visit one of our release of information offices.</p><p><strong>What to bring</strong></p><ul><li>A signed written request for a copy of your records to be provided to you. For your convenience you may download and complete the “Individuals’ Request For a Copy of Their Own Health Information” (VA Form 10-5345a).  <a href="https://www.va.gov/vaforms/medical/pdf/VHA%20Form%2010-5345a%20Fill-revision.pdf" hreflang="en">Download VA Form 10-5345a (PDF)</a></li><li>Your Veteran Health Identification Card (VHIC)</li></ul>',
   },
-  reactWidget: {
-    type: 'paragraph--react_widget',
-    id: '82635',
-    entityId: null,
-    widgetType: 'modern-get-medical-records-page',
-    ctaWidget: true,
-    loadingMessage: null,
-    timeout: 20,
-    errorMessage:
-      '<strong>We’re sorry. Something went wrong when we tried to load your saved application.</strong><br>Please try refreshing your browser in a few minutes.',
-    defaultLink: null,
-    buttonFormat: false,
-  },
+  bottomOfPageContent: null,
   relatedLinks: {
     type: 'paragraph--list_of_link_teasers',
     id: '82659',
