@@ -444,7 +444,7 @@ exports[`VamcSystemDetailPage query module outputs formatted data 1`] = `
         "summary": "Learn more about the VA Durham leadership team.",
         "title": "Our leadership",
         "type": "paragraph--link_teaser",
-        "uri": "/durham-health-care/about-us/leadership",
+        "uri": "entity:node/6226",
       },
       {
         "componentParams": {
@@ -457,7 +457,7 @@ exports[`VamcSystemDetailPage query module outputs formatted data 1`] = `
         "summary": "Find health care and services you need to stay healthy.",
         "title": "Health services",
         "type": "paragraph--link_teaser",
-        "uri": "/durham-health-care/health-services",
+        "uri": "entity:node/6962",
       },
     ],
     "title": "Learn more about how we serve Veterans",
