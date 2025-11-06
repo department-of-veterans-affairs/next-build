@@ -11,10 +11,10 @@ import {
 import { FacilityOperatingStatusFlags } from '@/types/drupal/node'
 import { VamcEhr } from '@/types/drupal/vamcEhr'
 import { PublishedEntity } from '@/types/formatted/publishedEntity'
-import { FormattedRelatedLinks } from '@/components/relatedLinks/formatted-type'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 import { VamcSystemSocialLinks } from '../vamcSystem/formatted-type'
 import { ServiceLocation } from '@/components/serviceLocation/formatted-type'
+import { ListOfLinkTeasers } from '../listOfLinkTeasers/formatted-type'
 
 export type VamcFacility = PublishedEntity & {
   introText: string | null
@@ -39,7 +39,7 @@ export type VamcFacility = PublishedEntity & {
    */
   mentalHealthPhoneNumber: PhoneNumber | null
   vaHealthConnectPhoneNumber: string | null
-  relatedLinks: FormattedRelatedLinks
+  relatedLinks: ListOfLinkTeasers
   locationServices: Array<{
     title: string
     /**
