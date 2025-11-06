@@ -21,7 +21,6 @@ const mockFeaturedContent = [
     title: 'Mental health at VA Black Hills health care',
     summary: 'Learn about our leading clinical mental health work',
     uri: '/mental-health',
-    parentField: 'field_featured_content_healthser',
     entityId: 1,
     options: [],
     componentParams: {
@@ -35,7 +34,6 @@ const mockFeaturedContent = [
     summary:
       'VA Black Hills health care provides compassionate care for LGBTQ+ Veterans',
     uri: '/lgbtq-care',
-    parentField: 'field_featured_content_healthser',
     entityId: 2,
     options: [],
     componentParams: {
