@@ -5763,7 +5763,7 @@
           },
           "url": "/health-care/how-to-apply"
         },
-        "field_link_summary": "Test link summary",
+        "field_link_summary": null,
         "links": {
           "self": {
             "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/link_teaser/0c71873a-2f93-4ce3-b821-96177b174113?resourceVersion=id%3A1232695"
