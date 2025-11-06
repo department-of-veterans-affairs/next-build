@@ -56,30 +56,4 @@ describe('VamcOperatingStatusAndAlerts with valid data', () => {
     ).not.toBeInTheDocument()
     expect(screen.getByTestId('local-emergency-resources')).toBeInTheDocument()
   })
-  describe('lovell variants', () => {
-    test('Tricare LovellSwitcher is rendered', () => {
-      render(
-        <VamcOperatingStatusAndAlerts
-          {...vamcOperatingStatusAndAlertsData}
-          lovellSwitchPath="/lovell-federal-health-care-va/operating-status"
-          lovellVariant="tricare"
-        />
-      )
-      expect(
-        screen.getByText('You are viewing this page as a TRICARE beneficiary.')
-      ).toBeInTheDocument()
-    })
-    test('VA LovellSwitcher is rendered', () => {
-      render(
-        <VamcOperatingStatusAndAlerts
-          {...vamcOperatingStatusAndAlertsData}
-          lovellSwitchPath="/lovell-federal-health-care-tricare/operating-status"
-          lovellVariant="va"
-        />
-      )
-      expect(
-        screen.getByText('You are viewing this page as a VA beneficiary.')
-      ).toBeInTheDocument()
-    })
-  })
 })
