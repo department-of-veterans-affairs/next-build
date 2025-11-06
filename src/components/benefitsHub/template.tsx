@@ -1,9 +1,8 @@
 import { getHubIcon } from '@/lib/utils/benefitsHub'
 import { BenefitsHub as FormattedBenefitsHub } from './formatted-type'
 
-export function BenefitsHub({ title, titleIcon, intro }: FormattedBenefitsHub) {
-  const iconConfig = getHubIcon(titleIcon)
-
+export function BenefitsHub(props: FormattedBenefitsHub) {
+  const iconConfig = getHubIcon(props.titleIcon)
   return (
     <div className="usa-grid usa-grid-full">
       <article className="usa-width-two-thirds">
@@ -17,15 +16,12 @@ export function BenefitsHub({ title, titleIcon, intro }: FormattedBenefitsHub) {
               />
             </span>
             <h1 className="vads-u-margin-top--1 tablet:vads-u-margin-left--1 tablet:vads-u-margin-y--0">
-              {title}
+              {props.title}
             </h1>
           </div>
         ) : (
-          <h1>{title}</h1>
+          <h1>{props.title}</h1>
         )}
-        <div className="va-introtext">
-          <p>{intro}</p>
-        </div>
       </article>
     </div>
   )
