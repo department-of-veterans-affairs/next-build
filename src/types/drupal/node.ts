@@ -321,9 +321,7 @@ export interface NodeCampaignLandingPage extends DrupalNode {
   field_clp_spotlight_cta: FieldLink | null
 
   // Connect with us
-  field_connect_with_us: {
-    field_external_link: FieldLink
-  } | null
+  field_connect_with_us: unknown | null // TODO: Determine type
 
   // Related fields
   field_administration: { id: string; type: string }
