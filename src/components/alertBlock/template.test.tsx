@@ -34,8 +34,11 @@ describe('<Alert> with valid data and with expandable text', () => {
   test('renders info <Alert> component', async () => {
     const { container } = render(<AlertBlock {...blockContentExpandable} />)
 
-    const vaAdditionalInfo = container.querySelector('va-additional-info')
-    expect(vaAdditionalInfo).toHaveAttribute('trigger', 'Learn how to sign in')
+    const vaAlertExpandableEl = container.querySelector('va-alert-expandable')
+    expect(vaAlertExpandableEl).toHaveAttribute(
+      'trigger',
+      'Learn how to sign in'
+    )
     expect(
       screen.queryByText(
         /Changes based on Blue Water Navy Vietnam Veterans Act of 2019/
@@ -55,8 +58,11 @@ describe('<Alert> with valid data and with expandable text', () => {
     blockContentExpandable.alertType = 'warning'
     const { container } = render(<AlertBlock {...blockContentExpandable} />)
 
-    const vaAdditionalInfo = container.querySelector('va-additional-info')
-    expect(vaAdditionalInfo).toHaveAttribute('trigger', 'Learn how to sign in')
+    const vaAlertExpandableEl = container.querySelector('va-alert-expandable')
+    expect(vaAlertExpandableEl).toHaveAttribute(
+      'trigger',
+      'Learn how to sign in'
+    )
     expect(
       screen.queryByText(
         /Changes based on Blue Water Navy Vietnam Veterans Act of 2019/
@@ -83,7 +89,7 @@ describe('<Alert> with valid data and wysiwyg', () => {
     const { container } = render(<AlertBlock {...blockContentWysiwyg} />)
 
     expect(
-      container.querySelector('va-additional-info')
+      container.querySelector('va-alert-expandable')
     ).not.toBeInTheDocument()
     expect(
       screen.queryByText(
@@ -102,7 +108,7 @@ describe('<Alert> with valid data and wysiwyg', () => {
     const { container } = render(<AlertBlock {...blockContentWysiwyg} />)
 
     expect(
-      container.querySelector('va-additional-info')
+      container.querySelector('va-alert-expandable')
     ).not.toBeInTheDocument()
     expect(
       screen.queryByText(
