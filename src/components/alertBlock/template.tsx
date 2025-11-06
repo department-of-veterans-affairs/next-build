@@ -22,10 +22,9 @@ export function AlertBlock(alertBlock: FormattedAlertBlock) {
 
         {content.type === PARAGRAPH_RESOURCE_TYPES.EXPANDABLE_TEXT && (
           <va-additional-info
-            id={`alert-with-additional-info-${id}`}
+            id={id}
             trigger={content.header}
             disable-border="true"
-            className="alert-with-additional-info"
           >
             {content.text && (
               <div
