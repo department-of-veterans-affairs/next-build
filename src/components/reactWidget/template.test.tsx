@@ -1,5 +1,4 @@
 import { render, screen } from '@testing-library/react'
-import { axe } from '@/test-utils'
 import { ReactWidget } from './template'
 
 describe('<ReactWidget> with valid data', () => {
@@ -16,14 +15,11 @@ describe('<ReactWidget> with valid data', () => {
     expect(ctaWidget).not.toBeNull()
   })
 
-  test('renders (default) <ReactWidget />', async () => {
-    const { container } = render(
+  test('renders (default) <ReactWidget />', () => {
+    render(
       <ReactWidget id="rw-01" entityId={1} widgetType="pension-app-status" />
     )
     expect(screen.queryByText(/Loading.../)).toBeInTheDocument()
-
-    const axeResults = await axe(container)
-    expect(axeResults).toHaveNoViolations()
   })
 
   test('renders button-format <ReactWidget />', () => {

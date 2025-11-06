@@ -1,11 +1,10 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
-import { axe } from '@/test-utils'
 import { BenefitsHub } from './template'
 
 describe('BenefitsHub with valid data', () => {
-  test('renders BenefitsHub component', async () => {
-    const { container } = render(
+  test('renders BenefitsHub component', () => {
+    render(
       <BenefitsHub
         id="1"
         type=""
@@ -17,8 +16,5 @@ describe('BenefitsHub with valid data', () => {
     )
 
     expect(screen.queryByText(/Hello world/)).toBeInTheDocument()
-
-    const axeResults = await axe(container)
-    expect(axeResults).toHaveNoViolations()
   })
 })

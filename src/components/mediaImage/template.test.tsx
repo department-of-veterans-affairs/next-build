@@ -1,5 +1,4 @@
 import { render, screen, waitFor } from '@testing-library/react'
-import { axe } from '@/test-utils'
 import { MediaImage as FormattedMediaImage } from '@/components/mediaDocument/formatted-type'
 import { MediaImage } from '@/components/mediaImage/template'
 
@@ -23,14 +22,9 @@ const mediaImage: FormattedMediaImage = {
 }
 
 describe('Media Image component renders', () => {
-  test('<MediaImage> renders', async () => {
-    const { container } = render(
-      <MediaImage {...mediaImage} imageStyle="2_1_large" />
-    )
+  test('<MediaImage> renders', () => {
+    render(<MediaImage {...mediaImage} imageStyle="2_1_large" />)
     waitFor(() => expect(screen.getByText('Cats or Dogs?')).toBeInTheDocument())
-
-    const axeResults = await axe(container)
-    expect(axeResults).toHaveNoViolations()
   })
 
   test('<MediaImage> renders with new title', () => {

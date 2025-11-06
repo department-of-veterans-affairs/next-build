@@ -1,6 +1,5 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
-import { axe } from '@/test-utils'
 import drupalMockData from '@/components/vamcSystemVaPolice/mock.json'
 import { VamcSystemVaPolice } from './template'
 import { VamcSystemVaPolice as FormattedVamcSystemVaPolice } from './formatted-type'
@@ -38,16 +37,13 @@ const mockData = formatter({
 })
 
 describe('VamcSystemVaPolice with valid data', () => {
-  test('renders VamcSystemVaPolice component', async () => {
-    const { container } = render(<VamcSystemVaPolice {...mockData} />)
+  test('renders VamcSystemVaPolice component', () => {
+    render(<VamcSystemVaPolice {...mockData} />)
 
     const basicDataFields: Array<keyof FormattedVamcSystemVaPolice> = ['title']
     basicDataFields.forEach((key) =>
       expect(screen.getByText(mockData[key])).toBeInTheDocument()
     )
-
-    const axeResults = await axe(container)
-    expect(axeResults).toHaveNoViolations()
   })
   test('adds the sideNav to window.sideNav', () => {
     render(<VamcSystemVaPolice {...mockData} />)

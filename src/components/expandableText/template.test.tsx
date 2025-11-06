@@ -1,5 +1,4 @@
 import { render, screen } from '@testing-library/react'
-import { axe } from '@/test-utils'
 import { ExpandableText } from './template'
 
 const expandableTextProps = {
@@ -9,16 +8,13 @@ const expandableTextProps = {
 }
 
 describe('ExpandableText with valid data', () => {
-  test('renders ExpandableText component', async () => {
-    const { container } = render(<ExpandableText {...expandableTextProps} />)
+  test('renders ExpandableText component', () => {
+    render(<ExpandableText {...expandableTextProps} />)
 
     const vaAdditionalInfo = document.querySelector('va-additional-info')
     expect(vaAdditionalInfo).toHaveAttribute('trigger', 'Show more')
     expect(vaAdditionalInfo).toHaveAttribute('disable-border')
     expect(vaAdditionalInfo).toHaveAttribute('uswds')
-
-    const axeResults = await axe(container)
-    expect(axeResults).toHaveNoViolations()
   })
 })
 

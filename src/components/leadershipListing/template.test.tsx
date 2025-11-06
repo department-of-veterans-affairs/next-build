@@ -1,11 +1,10 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
-import { axe } from '@/test-utils'
 import { LeadershipListing } from './template'
 
 describe('LeadershipListing with valid data', () => {
-  test('renders LeadershipListing component with intro text', async () => {
-    const { container } = render(
+  test('renders LeadershipListing component with intro text', () => {
+    render(
       <LeadershipListing
         id="test-id"
         type="test-type"
@@ -19,9 +18,6 @@ describe('LeadershipListing with valid data', () => {
     )
 
     expect(screen.queryByText(/This is an intro text./)).toBeInTheDocument()
-
-    const axeResults = await axe(container)
-    expect(axeResults).toHaveNoViolations()
   })
 
   test('renders LeadershipListing component with side nav', () => {

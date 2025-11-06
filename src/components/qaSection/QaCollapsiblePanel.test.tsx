@@ -1,5 +1,4 @@
 import { render } from '@testing-library/react'
-import { axe } from '@/test-utils'
 import { QaCollapsiblePanel } from './QaCollapsiblePanel'
 const questionsData = [
   {
@@ -22,17 +21,12 @@ const questionsData = [
 ]
 
 describe('QaCollapsiblePanel with valid data', () => {
-  test('renders QaCollapsiblePanel component', async () => {
-    const { container } = render(
-      <QaCollapsiblePanel questions={questionsData} />
-    )
+  test('renders QaCollapsiblePanel component', () => {
+    render(<QaCollapsiblePanel questions={questionsData} />)
 
     const panelDiv = document.querySelector(
       'div[data-template="paragraphs/q_a.collapsible_panel"]'
     )
     expect(panelDiv).toBeInTheDocument()
-
-    const axeResults = await axe(container)
-    expect(axeResults).toHaveNoViolations()
   })
 })

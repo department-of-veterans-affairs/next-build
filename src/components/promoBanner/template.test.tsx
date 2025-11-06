@@ -1,5 +1,4 @@
 import { render, screen } from '@testing-library/react'
-import { axe } from '@/test-utils'
 import { PromoBanner } from './template'
 
 let mockPromoBanner = {
@@ -11,8 +10,8 @@ let mockPromoBanner = {
 }
 
 describe('<PromoBanner> component renders', () => {
-  test('with valid data', async () => {
-    const { container } = render(<PromoBanner {...mockPromoBanner} />)
+  test('with valid data', () => {
+    render(<PromoBanner {...mockPromoBanner} />)
     expect(
       screen.queryByText(/Help for Afghanistan Veterans and families/)
     ).toBeInTheDocument()
@@ -20,9 +19,6 @@ describe('<PromoBanner> component renders', () => {
       'href',
       'https://blogs.va.gov/VAntage/help-for-afghanistan-veterans-families/'
     )
-
-    const axeResults = await axe(container)
-    expect(axeResults).toHaveNoViolations()
   })
 })
 

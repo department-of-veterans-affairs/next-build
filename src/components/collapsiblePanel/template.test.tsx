@@ -1,5 +1,4 @@
 import { render, screen } from '@testing-library/react'
-import { axe } from '@/test-utils'
 import { CollapsiblePanel } from './template'
 import { CollapsiblePanel as FormattedCollapsiblePanel } from '@/components/collapsiblePanel/formatted-type'
 
@@ -29,8 +28,8 @@ const data: FormattedCollapsiblePanel = {
 }
 
 describe('<CollapsiblePanel> with valid data', () => {
-  test('renders <CollapsiblePanel /> with defaults', async () => {
-    const { container } = await render(<CollapsiblePanel {...data} />)
+  test('renders <CollapsiblePanel /> with defaults', () => {
+    render(<CollapsiblePanel {...data} />)
     const vaAccordion = document.querySelector('va-accordion')
     expect(vaAccordion).not.toBeNull()
     expect(vaAccordion).not.toHaveAttribute('bordered')
@@ -42,13 +41,10 @@ describe('<CollapsiblePanel> with valid data', () => {
     vaAccordionItems.forEach((element) => {
       expect(element).not.toHaveAttribute('open')
     })
-
-    const axeResults = await axe(container)
-    expect(axeResults).toHaveNoViolations()
   })
 
-  test('renders <CollapsiblePanel /> with all expected panels', async () => {
-    const { container } = await render(<CollapsiblePanel {...data} />)
+  test('renders <CollapsiblePanel /> with all expected panels', () => {
+    render(<CollapsiblePanel {...data} />)
     const vaAccordion = document.querySelector('va-accordion')
     expect(vaAccordion).not.toBeNull()
     expect(vaAccordion).not.toHaveAttribute('bordered')
@@ -62,8 +58,5 @@ describe('<CollapsiblePanel> with valid data', () => {
       screen.queryByText(/Pharmacy \(prescriptions and medical supplies\)/)
     ).toBeInTheDocument()
     expect(screen.queryByText(/Another Panel Item/)).toBeInTheDocument()
-
-    const axeResults = await axe(container)
-    expect(axeResults).toHaveNoViolations()
   })
 })

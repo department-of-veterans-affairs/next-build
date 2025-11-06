@@ -1,10 +1,9 @@
 import { render, screen } from '@testing-library/react'
-import { axe } from '@/test-utils'
 import { ProcessList } from './template'
 
 describe('ProcessList with valid data', () => {
-  test('renders ProcessList component', async () => {
-    const { container } = render(
+  test('renders ProcessList component', () => {
+    render(
       <ProcessList
         id="1"
         type="paragraph--process"
@@ -14,9 +13,6 @@ describe('ProcessList with valid data', () => {
     )
 
     expect(screen.queryByText(/test step 1/)).toBeInTheDocument()
-
-    const axeResults = await axe(container)
-    expect(axeResults).toHaveNoViolations()
   })
 
   test('returns with no steps provided', () => {

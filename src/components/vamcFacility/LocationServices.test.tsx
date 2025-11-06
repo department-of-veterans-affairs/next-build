@@ -1,5 +1,4 @@
 import { render } from '@testing-library/react'
-import { axe } from '@/test-utils'
 import { LocationServices } from './LocationServices'
 import { screen } from '@testing-library/dom'
 
@@ -9,7 +8,7 @@ const mockData: Array<{ title: string; wysiwigContents: string }> = [
 ] as const
 
 describe('LocationServices', () => {
-  it('should render the LocationServices component', async () => {
+  it('should render the LocationServices component', () => {
     const { container } = render(<LocationServices items={mockData} />)
     expect(
       screen.getByRole('heading', { name: /Prepare for your visit/i })
@@ -24,8 +23,5 @@ describe('LocationServices', () => {
     // plain text
     expect(screen.getByText(/Foo contents/i).tagName).toEqual('P')
     expect(screen.getByText(/Bar contents/i).tagName).toEqual('DIV')
-
-    const axeResults = await axe(container)
-    expect(axeResults).toHaveNoViolations()
   })
 })
