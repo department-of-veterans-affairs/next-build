@@ -100,8 +100,7 @@ describe('<Breadcrumbs />', () => {
       id: 'test-id',
       published: true,
       lastUpdated: '2024-01-01',
-      spokes: [],
-    }
+    } as const
 
     // Test using BenefitsHub resource which automatically replaces last breadcrumb
     const { container } = render(

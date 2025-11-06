@@ -147,6 +147,7 @@ export const formatter: QueryFormatter<
         return {
           ...formattedItem,
           entityId: formattedItem.entityId || null,
+          parentField: formattedItem.parentField || '',
           uri: item.field_link?.url || formattedItem.uri,
         }
       }) || [],
