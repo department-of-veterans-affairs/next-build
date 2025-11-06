@@ -588,6 +588,21 @@ const mockData: VamcSystemMedicalRecordsOffice = {
     id: '82641',
     html: '<p>Per VHA Directives, we have 20 business days to process all requests. Requests are accepted in-person, through My HealtheVet, mail, and fax. Please contact the facility to verify if submission by email is available.</p><p>&nbsp;</p><h2 id="how-we-share-your-records-with">How we share your records with providers outside VA</h2><p>The Veterans Health Information Exchange (VHIE) program lets us electronically share your health information with health care providers who treat you, including&nbsp;<a href="https://www.va.gov/vhie/" hreflang="en">participating non-VA&nbsp;providers</a>&nbsp;if you receive care outside of VA.</p><p>This program is voluntary, and you can choose not to share your information (opt out of sharing).</p><p><a href="https://www.va.gov/health-care/get-medical-records/#the-veterans-health-informatio">Learn more about VHIE</a></p><h3 id="to-opt-out-of-sharing">To opt out of sharing</h3><p>Fill out, sign, and date VA Form 10-10164 (Opt Out of Sharing Protected Health Information).</p><p>Mail the signed, completed form to our ROI office. You can also bring it with you or ask for this form when you visit us.</p><p><a href="https://www.va.gov/vaforms/medical/pdf/10-10164-fill.pdf" hreflang="en">Download VA Form 10-10164 (PDF)</a></p><p><strong>Note:&nbsp;</strong>If you had revoked your permission to share, before September 30, 2019, your opt out status will stay active. You don’t need to submit form 10-10164.</p><h3 id="to-allow-sharing-after-opting-">To allow sharing after opting out</h3><p>If you change your mind and want to share your health information, you’ll need to submit VA Form 10-10163 (Request for and Permission to Participate in Sharing Protected Health Information).</p><p>Mail the signed, completed form to our ROI office. You can also bring it with you or ask for this form when you visit us.</p><p><a href="https://www.va.gov/vaforms/medical/pdf/10-10163-fill.pdf" hreflang="en">Download VA Form 10-10163 (PDF)</a></p>',
   },
+  getRecordsMailOrFaxContent: {
+    type: 'paragraph--wysiwyg',
+    id: '82640',
+    html: '<h2 id="get-your-records-by-mail-or-fa">Get your records by mail or fax</h2><p>To request a copy of your VA medical records by mail or fax, send a signed and completed VA Form 10-5345a to our Release of Information office.</p><p><a href="https://www.va.gov/vaforms/medical/pdf/VHA%20Form%2010-5345a%20Fill-revision.pdf" hreflang="en">Download VA Form 10-5345a (PDF)</a></p>',
+  },
+  mailingAddress: {
+    langcode: 'en',
+    country_code: 'US',
+    administrative_area: 'MA',
+    locality: 'Brockton',
+    postal_code: '02301-5596',
+    address_line1: 'VA Boston ATTN: HIMS Medical Records',
+    address_line2: '940 Belmont Street',
+  },
+  faxNumber: '774-826-1446',
   faqsContent: {
     header: 'Questions about medical records',
     intro: null,
