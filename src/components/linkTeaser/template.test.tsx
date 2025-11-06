@@ -3,18 +3,22 @@ import { fireEvent } from '@testing-library/dom'
 jest.mock('@/lib/analytics/recordEvent')
 import * as recordEvent from '@/lib/analytics/recordEvent'
 import { LinkTeaser } from './template'
+import { LinkTeaser as FormattedLinkTeaser } from '@/components/linkTeaser/formatted-type'
+import { ParagraphComponent } from '@/components/paragraph/formatted-type'
 
 describe('<LinkTeaser> component', () => {
-  const baseProps = {
+  const baseProps: ParagraphComponent<FormattedLinkTeaser> = {
     id: 'cb0c2019-0f48-448f-98ca-205d80c8f6fe',
     entityId: 123,
-    type: 'paragraph--link_teaser' as const,
+    type: 'paragraph--link_teaser',
     uri: '/health-care/eligibility/',
     title: 'Health Care Benefits Eligibility',
     options: null,
     summary:
       'Not sure if you qualify? Find out if you can get VA health care benefits.',
-    sectionHeader: 'Test Section Header',
+    componentParams: {
+      sectionHeader: 'Test Section Header',
+    },
   }
 
   beforeEach(() => {

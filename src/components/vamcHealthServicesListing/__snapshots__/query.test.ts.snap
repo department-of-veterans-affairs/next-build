@@ -34,6 +34,9 @@ exports[`VamcHealthServicesListing formatData outputs formatted data 1`] = `
   "entityPath": "/north-texas-health-care/health-services",
   "featuredContent": [
     {
+      "componentParams": {
+        "sectionHeader": "",
+      },
       "entityId": 63601,
       "id": "06516c6b-01ad-475d-a7d6-cd717c60c500",
       "options": [],
@@ -43,6 +46,9 @@ exports[`VamcHealthServicesListing formatData outputs formatted data 1`] = `
       "uri": "/mental-health",
     },
     {
+      "componentParams": {
+        "sectionHeader": "",
+      },
       "entityId": 63602,
       "id": "baabc376-7875-4db5-a448-d040b46c21c1",
       "options": [],
@@ -52,6 +58,9 @@ exports[`VamcHealthServicesListing formatData outputs formatted data 1`] = `
       "uri": "/lgbtq-care",
     },
     {
+      "componentParams": {
+        "sectionHeader": "",
+      },
       "entityId": 103807,
       "id": "befe7796-274b-4758-bc34-0e0bb4fc56a0",
       "options": [],

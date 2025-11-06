@@ -16,7 +16,7 @@ import {
   getMenu,
 } from '@/lib/drupal/query'
 import { formatter as formatImage } from '@/components/mediaImage/query'
-import { formatter as formatListOfLinkTeasers } from '@/components/listOfLinkTeasers/query'
+import { formatter as formatRelatedLinks } from '@/components/relatedLinks/query'
 import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'
@@ -319,7 +319,7 @@ export const formatter: QueryFormatter<VamcSystemData, VamcSystem> = ({
     featuredStories: featuredStories.map(formatNewsStoryTeaser),
     featuredEvents: featuredEvents.map(formatEventTeaser),
     fallbackEvent: fallbackEvent ? formatEventTeaser(fallbackEvent) : null,
-    relatedLinks: formatListOfLinkTeasers(entity.field_related_links),
+    relatedLinks: formatRelatedLinks(entity),
     vamcEhrSystem: entity.field_vamc_ehr_system,
     lovellVariant: lovell?.variant ?? null,
     lovellSwitchPath: lovell?.isLovellVariantPage
