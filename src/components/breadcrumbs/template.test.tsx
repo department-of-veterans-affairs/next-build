@@ -101,7 +101,6 @@ describe('<Breadcrumbs />', () => {
       published: true,
       lastUpdated: '2024-01-01',
       spokes: [],
-      fieldLinks: null,
     }
 
     // Test using BenefitsHub resource which automatically replaces last breadcrumb

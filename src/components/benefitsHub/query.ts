@@ -47,16 +47,6 @@ export const formatter: QueryFormatter<NodeLandingPage, BenefitsHub> = (
     formatListOfLinkTeasers(spoke)
   )
 
-  const fieldLinks =
-    entity.field_links?.length > 0
-      ? entity.field_links.map((link) => ({
-          title: link.title,
-          url: {
-            path: link.url || link.uri,
-          },
-        }))
-      : null
-
   return {
     ...entityBaseFields(entity),
     title: entity.title,
@@ -67,6 +57,5 @@ export const formatter: QueryFormatter<NodeLandingPage, BenefitsHub> = (
     teaserText: entity.field_teaser_text,
     titleIcon: entity.field_title_icon,
     spokes: spokes,
-    fieldLinks: fieldLinks,
   }
 }
