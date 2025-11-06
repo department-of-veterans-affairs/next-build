@@ -266,7 +266,7 @@ export interface NodeLandingPage extends DrupalNode {
 export interface NodeCampaignLandingPage extends DrupalNode {
   // Hero section
   field_hero_blurb: string
-  field_hero_image: DrupalMediaImage
+  field_hero_image: Omit<DrupalMediaImage, 'langcode'>
   field_primary_call_to_action: ParagraphButton
   field_secondary_call_to_action: ParagraphButton | null
 

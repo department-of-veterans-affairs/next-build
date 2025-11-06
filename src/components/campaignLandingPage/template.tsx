@@ -10,34 +10,24 @@ import { VideoPanel } from './VideoPanel'
 import { WhatYouCanDo } from './WhatYouCanDo'
 import { WhyThisMatters } from './WhyThisMatters'
 
-import { CampaignLandingPage as FormattedCampaignLandingPage } from './formatted-type'
-
-export interface CampaignLandingPageProps extends FormattedCampaignLandingPage {
-  // TODO: remove this once all the components are done. Used for axe testing which will fail on
-  // unfinished, scaffolded sections
-  onlyRenderFinishedComponents?: boolean
+export type CampaignLandingPageProps = {
+  title: string
 }
 
-export function CampaignLandingPage(props: CampaignLandingPageProps) {
+export function CampaignLandingPage({ title }: CampaignLandingPageProps) {
   return (
     <>
-      <HeroBanner {...props} />
-
-      {/* TODO: In-progress components: */}
-      {props.onlyRenderFinishedComponents !== true && (
-        <>
-          <WhyThisMatters {...props} />
-          <WhatYouCanDo />
-          <VideoPanel />
-          <SpotlightPanel />
-          <StoriesPanel />
-          <ResourcesPanel />
-          <EventsPanel />
-          <FaqPanel />
-          <ConnectWithUs />
-          <BenefitCategories />
-        </>
-      )}
+      <HeroBanner title={title} />
+      <WhyThisMatters title={title} />
+      <WhatYouCanDo />
+      <VideoPanel />
+      <SpotlightPanel />
+      <StoriesPanel />
+      <ResourcesPanel />
+      <EventsPanel />
+      <FaqPanel />
+      <ConnectWithUs />
+      <BenefitCategories />
     </>
   )
 }
