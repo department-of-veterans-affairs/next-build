@@ -42,6 +42,9 @@ exports[`node--q_a formatData outputs formatted data 1`] = `
     },
     "teasers": [
       {
+        "componentParams": {
+          "sectionHeader": "",
+        },
         "entityId": 13774,
         "id": "b5dc447b-5832-4a3f-9e4b-b96cf08a9207",
         "options": [],
@@ -51,6 +54,9 @@ exports[`node--q_a formatData outputs formatted data 1`] = `
         "uri": "entity:node/8520",
       },
       {
+        "componentParams": {
+          "sectionHeader": "",
+        },
         "entityId": 13778,
         "id": "7de62b28-028d-40a1-bafa-fc1113c47aeb",
         "options": [],
@@ -60,6 +66,9 @@ exports[`node--q_a formatData outputs formatted data 1`] = `
         "uri": "entity:node/3071",
       },
       {
+        "componentParams": {
+          "sectionHeader": "",
+        },
         "entityId": 14131,
         "id": "1af2cc04-07c7-4afa-86c9-6ae32b363d32",
         "options": [],
@@ -115,6 +124,9 @@ exports[`node--q_a formatData outputs formatted data 1`] = `
     },
     "teasers": [
       {
+        "componentParams": {
+          "sectionHeader": "",
+        },
         "entityId": 14153,
         "id": "be43d17b-f642-49b6-bed2-b4ea7712ed88",
         "options": [],

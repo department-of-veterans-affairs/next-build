@@ -93,7 +93,73 @@ describe('formatter', () => {
     },
   }
 
-  describe('lovellSwitchPath', () => {
+  describe('relatedLinks', () => {
+    it('should return the correct related links', () => {
+      expect(formatter(formatterParams).relatedLinks).toEqual({
+        links: [
+          {
+            title: 'Get help from a patient advocate',
+            uri: '/boston-health-care/health-services/patient-advocates',
+          },
+          {
+            title: 'Find a phone number',
+            uri: '/boston-health-care/contact-us',
+          },
+          {
+            title: 'Interactive facility maps',
+            uri: 'https://www.va.gov/boston-health-care/programs/interactive-facility-maps',
+          },
+          {
+            title: 'Check your billing, insurance and payment options',
+            uri: '/boston-health-care/billing-and-insurance',
+          },
+          {
+            title: 'Access your health records',
+            uri: '/boston-health-care/medical-records-office',
+          },
+          {
+            title: 'Compare our performance with non-VA facilities',
+            uri: '/boston-health-care/about-us/performance',
+          },
+          {
+            title: 'Learn about virtual care and service options',
+            uri: 'https://www.va.gov/boston-health-care/programs/connected-care/',
+          },
+          {
+            title: 'Volunteer or donate',
+            uri: '/boston-health-care/work-with-us/volunteer-or-donate',
+          },
+        ],
+        sectionTitle: 'Other services at VA Boston health care',
+      })
+    })
+
+    // Redundant, yes, but explicit
+    it('should limit the links to 8', () => {
+      expect(formatter(formatterParams).relatedLinks.links).toHaveLength(8)
+    })
+
+    // Also redundant, but explicit
+    it('should return the correct section title when field_region_page.title exists', () => {
+      expect(formatter(formatterParams).relatedLinks.sectionTitle).toEqual(
+        'Other services at VA Boston health care'
+      )
+    })
+
+    it('should return the correct section title when field_region_page.title does not exist', () => {
+      expect(
+        formatter({
+          ...formatterParams,
+          entity: {
+            ...mockFacilityData,
+            field_region_page: {
+              ...mockFacilityData.field_region_page,
+              title: null,
+            },
+          },
+        }).relatedLinks.sectionTitle
+      ).toEqual('In the spotlight at VA Boston health care')
+    })
     it('should set the lovellSwitchPath if this is the main Lovell facility', () => {
       expect(
         formatter({
@@ -141,6 +207,18 @@ describe('formatter', () => {
   })
 
   describe('healthServices', () => {
+    const mockPhone = {
+      number: '800-555-1212',
+      extension: '456',
+      phoneType: 'tel',
+      label: 'Main',
+    }
+
+    const mockEmail = {
+      fieldEmailAddress: 'support@va.gov',
+      fieldEmailLabel: 'Support',
+    }
+
     it('should filter out unpublished health services', () => {
       expect(mockFacilityData.field_local_health_care_service_).toHaveLength(8)
       expect(

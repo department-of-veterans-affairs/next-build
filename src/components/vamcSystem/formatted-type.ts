@@ -3,12 +3,12 @@ import { Administration } from '@/components/administration/formatted-type'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 import { PublishedEntity } from '@/types/formatted/publishedEntity'
 import { VamcFacility } from '../vamcFacility/formatted-type'
+import { FormattedRelatedLinks } from '@/components/relatedLinks/formatted-type'
 import { NodeHealthCareRegionPage } from '@/types/drupal/node'
 import { LovellChildVariant } from '@/lib/drupal/lovell/types'
 import { NewsStoryTeaser } from '../newsStory/formatted-type'
 import { EventWidgetTeaser } from '../event/formatted-type'
 import { SocialLink } from '@/lib/utils/social'
-import { ListOfLinkTeasers } from '../listOfLinkTeasers/formatted-type'
 
 export type MinimalLocalFacility = Pick<
   VamcFacility,
@@ -38,7 +38,7 @@ export type VamcSystem = PublishedEntity & {
   featuredStories: NewsStoryTeaser[]
   featuredEvents: EventWidgetTeaser[]
   fallbackEvent: EventWidgetTeaser | null
-  relatedLinks: ListOfLinkTeasers
+  relatedLinks: FormattedRelatedLinks
   vamcEhrSystem: NodeHealthCareRegionPage['field_vamc_ehr_system']
   lovellVariant?: LovellChildVariant | null
   lovellSwitchPath?: string | null

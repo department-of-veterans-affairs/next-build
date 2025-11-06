@@ -36,9 +36,11 @@ export const ListOfLinkTeasers = ({
       {linkTeasers.map((linkTeaser) => (
         <LinkTeaser
           key={linkTeaser.id}
-          sectionHeader={title}
-          isHubPage={isHubPage}
           {...linkTeaser}
+          componentParams={{
+            sectionHeader: title,
+          }}
+          isHubPage={isHubPage}
         />
       ))}
     </ul>

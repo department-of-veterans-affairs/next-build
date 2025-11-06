@@ -23,6 +23,9 @@ const mockFeaturedContent = [
     uri: '/mental-health',
     entityId: 1,
     options: [],
+    componentParams: {
+      sectionHeader: '',
+    },
   },
   {
     id: 'test-2',
@@ -33,6 +36,9 @@ const mockFeaturedContent = [
     uri: '/lgbtq-care',
     entityId: 2,
     options: [],
+    componentParams: {
+      sectionHeader: '',
+    },
   },
 ]
 

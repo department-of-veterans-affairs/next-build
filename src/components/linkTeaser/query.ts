@@ -21,5 +21,6 @@ export const formatter: QueryFormatter<
     summary: entity.field_link_summary
       ? getHtmlFromDrupalContent(entity.field_link_summary)
       : null,
+    componentParams: { sectionHeader: '' },
   }
 }

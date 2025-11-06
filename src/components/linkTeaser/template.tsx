@@ -13,15 +13,17 @@ export const LinkTeaser = ({
   title,
   summary,
   uri,
-  isHubPage,
+  componentParams,
   options,
-  sectionHeader,
-}: LinkTeaserProps & { sectionHeader?: string }) => {
+  isHubPage,
+}: LinkTeaserProps) => {
+  const { sectionHeader } = componentParams
+
   const handleItemClick = () => {
     recordEvent({
       event: 'nav-linkslist',
       'links-list-header': encodeURIComponent(title),
-      'links-list-section-header': encodeURIComponent(sectionHeader ?? ''),
+      'links-list-section-header': encodeURIComponent(sectionHeader),
     })
   }
 

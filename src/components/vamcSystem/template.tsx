@@ -97,10 +97,7 @@ export function VamcSystem({
 
           {/* Related links section */}
           <div className="vads-u-margin-top--5">
-            <RelatedLinks
-              {...relatedLinks}
-              title={`Other services at ${title}`}
-            />
+            <RelatedLinks {...relatedLinks} />
           </div>
 
           {/* Stories Section */}

@@ -42,6 +42,9 @@ exports[`VaForm formatter outputs formatted data with all fields 1`] = `
   "lastUpdated": "2025-06-13T18:24:11+00:00",
   "linkTeasers": [
     {
+      "componentParams": {
+        "sectionHeader": "",
+      },
       "entityId": 156599,
       "id": "91e2a267-40e5-469f-8cd2-4cb2362cf26f",
       "options": {
@@ -56,6 +59,9 @@ exports[`VaForm formatter outputs formatted data with all fields 1`] = `
       "uri": "/disability/how-to-file-claim",
     },
     {
+      "componentParams": {
+        "sectionHeader": "",
+      },
       "entityId": 10995,
       "id": "74e2e77d-148b-4291-8371-a03095265299",
       "options": {
@@ -70,6 +76,9 @@ exports[`VaForm formatter outputs formatted data with all fields 1`] = `
       "uri": "/health-care/how-to-apply",
     },
     {
+      "componentParams": {
+        "sectionHeader": "",
+      },
       "entityId": 11218,
       "id": "fad126a2-a7d7-4d8d-8993-eb10190dc45c",
       "options": {
@@ -84,6 +93,9 @@ exports[`VaForm formatter outputs formatted data with all fields 1`] = `
       "uri": "/health-care/health-needs-conditions/mental-health",
     },
     {
+      "componentParams": {
+        "sectionHeader": "",
+      },
       "entityId": 10996,
       "id": "39e60e6c-c030-4236-bd4d-c6c8a7eae608",
       "options": {

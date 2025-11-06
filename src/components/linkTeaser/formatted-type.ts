@@ -8,4 +8,7 @@ export type LinkTeaser = PublishedParagraph & {
   uri: string
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   options: { [key: string]: any }
+  componentParams: {
+    sectionHeader: string
+  }
 }
