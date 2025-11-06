@@ -4,16 +4,7 @@ import { BenefitsHub } from './template'
 
 describe('BenefitsHub with valid data', () => {
   test('renders BenefitsHub component', () => {
-    render(
-      <BenefitsHub
-        id="1"
-        type=""
-        published={true}
-        lastUpdated="2024-01-01"
-        title={'Hello world'}
-        titleIcon={null}
-      />
-    )
+    render(<BenefitsHub title={'Hello world'} />)
 
     expect(screen.queryByText(/Hello world/)).toBeInTheDocument()
   })
