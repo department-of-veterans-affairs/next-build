@@ -168,10 +168,29 @@ export const newlinesToBr = (content: string): string => {
  * an ID already.
  */
 export const addH2Ids = (content: string): string => {
-  if (!content) return content
+  return addHeadingIds(content, '2')
+}
 
+/**
+ * Add IDs to all H3 elements in the provided HTML content if they don't have
+ * an ID already.
+ */
+export const addH3Ids = (content: string): string => {
+  return addHeadingIds(content, '3')
+}
+
+/**
+ * Add IDs to all heading elements in the provided HTML content if they don't have
+ * an ID already at the level specified.
+ */
+export const addHeadingIds = (content: string, level: string): string => {
+  if (!content) return content
+  const regex = new RegExp(
+    `(<h${level})(?![^>]*\\sid=)([^>]*>)(.*?)(</h${level}>)`,
+    'gi'
+  )
   return content.replace(
-    /(<h2)(?![^>]*\sid=)([^>]*>)(.*?)(<\/h2>)/gi,
+    regex,
     (match, openTag, attributes, headingContent, closeTag) => {
       // Extract text content from the heading, removing HTML tags and entities
       const textContent = headingContent
@@ -185,7 +204,7 @@ export const addH2Ids = (content: string): string => {
 
       if (!id) return match // Return original if we can't generate an ID
 
-      // Construct the new h2 tag with the ID, preserving original case and structure
+      // Construct the new heading tag with the ID, preserving original case and structure
       return `${openTag}${attributes.replace('>', ` id="${id}">`)}${headingContent}${closeTag}`
     }
   )
