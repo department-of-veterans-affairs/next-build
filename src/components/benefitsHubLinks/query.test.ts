@@ -6,7 +6,7 @@ import { NodeLandingPage } from '@/types/drupal/node'
 import { queries } from '@/lib/drupal/queries'
 import mockData from './mock.json'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
-import { params, formatter } from './query'
+import { params } from './query'
 
 // field_related_office is causing issues here, I believe because the referenced node is unpublished (node/38439)
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -21,9 +21,12 @@ describe('DrupalJsonApiParams configuration', () => {
   })
 })
 
-describe('BenefitsHubLinks formatData', () => {
+describe(`${RESOURCE_TYPES.BENEFITS_HUB} formatData`, () => {
   test('outputs formatted data', () => {
-    const formattedData = formatter(nodeBenefitsHubMock)
+    const formattedData = queries.formatData(
+      RESOURCE_TYPES.BENEFITS_HUB,
+      nodeBenefitsHubMock
+    )
     expect(formattedData).toMatchSnapshot()
   })
 })
