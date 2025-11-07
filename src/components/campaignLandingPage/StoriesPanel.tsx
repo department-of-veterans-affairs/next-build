@@ -1,5 +1,4 @@
 import { MediaImage } from '../mediaImage/template'
-import { placeholders } from './placeholders.temp'
 import { CampaignLandingPageProps } from './template'
 
 import styles from './StoriesPanel.module.css'

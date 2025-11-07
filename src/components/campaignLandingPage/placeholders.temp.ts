@@ -1,37 +1,4 @@
 export const placeholders = {
-  // Stories panel
-  fieldClpStoriesPanel: true,
-  fieldClpStoriesHeader: 'Stories',
-  fieldClpStoriesIntro: 'Read stories from Veterans.',
-  fieldClpStoriesTeasers: [
-    {
-      entity: {
-        fieldMedia: {
-          entity: {
-            image: { alt: 'Story image' },
-            thumbnail: {
-              derivative: {
-                url: '/story1.jpg',
-                height: '200',
-                width: '300',
-              },
-            },
-          },
-        },
-        fieldLinkTeaser: {
-          entity: {
-            fieldLink: {
-              title: 'Story title',
-              url: { path: '#' },
-            },
-            fieldLinkSummary: 'Story summary',
-          },
-        },
-      },
-    },
-  ],
-  fieldClpStoriesCta: { uri: '#' },
-
   // Resources panel
   fieldClpResourcesPanel: true,
   fieldClpResourcesHeader: 'Resources',
