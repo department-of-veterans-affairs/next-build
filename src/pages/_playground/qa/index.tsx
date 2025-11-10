@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { useState, useEffect, useCallback, useMemo } from 'react'
 import { useRouter } from 'next/router'
-import Link from 'next/link'
 import { PAGE_RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 
 interface QAPath {
@@ -509,12 +508,12 @@ export default function QAPage() {
       </div>
 
       <div className="vads-u-margin-y--3">
-        <Link
+        <a
           href={`/_playground/qa/${encodeURIComponent(resourceType)}/review`}
           className="usa-button usa-button-secondary"
         >
           Go to review page
-        </Link>
+        </a>
       </div>
 
       {error && (
