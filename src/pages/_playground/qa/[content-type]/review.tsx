@@ -259,7 +259,7 @@ export default function QAReviewPage() {
           QA Review - {contentType}
         </h1>
         <button
-          className="usa-button usa-button--outline"
+          className="usa-button usa-button-secondary"
           onClick={handleClearReview}
           disabled={Object.keys(reviewStatus).length === 0}
         >
