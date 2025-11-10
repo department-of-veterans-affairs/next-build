@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { useState, useEffect, useCallback, useMemo } from 'react'
+import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { PAGE_RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 
@@ -157,22 +158,85 @@ const getCacheAgeInDays = (lastFetched?: string): number | null => {
   return diffDays
 }
 
-type SortOrder = 'none' | 'starred-first' | 'unstarred-first'
+type SortOrder =
+  | 'none'
+  | 'starred-first'
+  | 'unstarred-first'
+  | 'path-asc'
+  | 'path-desc'
 
 export default function QAPage() {
+  const router = useRouter()
   const [resourceType, setResourceType] = useState<string>(
-    'node--health_care_local_facility'
+    resourceTypeOptions[0]
   )
   const [cache, setCache] = useState<QACache | null>(null)
   const [loading, setLoading] = useState<boolean>(false)
   const [error, setError] = useState<string | null>(null)
   const [devMode, setDevMode] = useState<boolean>(false)
   const [sortOrder, setSortOrder] = useState<SortOrder>('none')
+  const hasInitializedFromUrl = React.useRef(false)
 
   // Check dev mode on mount
   useEffect(() => {
     setDevMode(isDevMode())
   }, [])
+
+  const loadPathsFromUrl = useCallback(async (resourceTypeParam: string) => {
+    setLoading(true)
+    setError(null)
+
+    try {
+      const response = await fetch(
+        `/api/qa/paths?resourceType=${encodeURIComponent(resourceTypeParam)}`
+      )
+
+      if (!response.ok) {
+        const errorData = await response.json()
+        throw new Error(errorData.error || 'Failed to load paths')
+      }
+
+      const data = await response.json()
+      setCache(data)
+    } catch (err) {
+      console.error('Error loading paths from URL:', err)
+      setError(err.message || 'An error occurred while loading paths')
+    } finally {
+      setLoading(false)
+    }
+  }, [])
+
+  // Initialize from URL query parameter on mount only
+  useEffect(() => {
+    if (!router.isReady || hasInitializedFromUrl.current) return
+
+    const urlResourceType = router.query.resourceType
+    if (typeof urlResourceType === 'string' && urlResourceType) {
+      hasInitializedFromUrl.current = true
+      setResourceType(urlResourceType)
+      // Pre-load paths if resourceType is in URL
+      loadPathsFromUrl(urlResourceType)
+    } else {
+      // No query param, set it to the default resource type
+      hasInitializedFromUrl.current = true
+      const urlParams = new URLSearchParams(window.location.search)
+      urlParams.set('resourceType', resourceType)
+      const newUrl = `${window.location.pathname}?${urlParams.toString()}`
+      window.history.replaceState({}, '', newUrl)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [router.isReady]) // Only run when router becomes ready, not on query changes
+
+  // Update URL when resourceType changes (but don't fetch)
+  useEffect(() => {
+    if (!router.isReady || !hasInitializedFromUrl.current) return
+
+    const urlParams = new URLSearchParams(window.location.search)
+    urlParams.set('resourceType', resourceType)
+
+    const newUrl = `${window.location.pathname}${urlParams.toString() ? '?' + urlParams.toString() : ''}`
+    window.history.pushState({}, '', newUrl)
+  }, [resourceType, router.isReady])
 
   const handleFetchPaths = async () => {
     setLoading(true)
@@ -366,6 +430,14 @@ export default function QAPage() {
     if (!cache) return []
     if (sortOrder === 'none') return cache.paths
 
+    if (sortOrder === 'path-asc' || sortOrder === 'path-desc') {
+      const sorted = [...cache.paths].sort((a, b) => {
+        const comparison = a.path.localeCompare(b.path)
+        return sortOrder === 'path-asc' ? comparison : -comparison
+      })
+      return sorted
+    }
+
     const starred = cache.paths.filter((p) => p.starred === true)
     const unstarred = cache.paths.filter((p) => p.starred !== true)
 
@@ -376,10 +448,24 @@ export default function QAPage() {
     }
   }, [cache, sortOrder])
 
-  const handleSortToggle = () => {
+  const handleStarSortToggle = () => {
     setSortOrder((prev) => {
-      if (prev === 'none') return 'starred-first'
+      if (prev === 'none' || prev === 'path-asc' || prev === 'path-desc')
+        return 'starred-first'
       if (prev === 'starred-first') return 'unstarred-first'
+      return 'none'
+    })
+  }
+
+  const handlePathSortToggle = () => {
+    setSortOrder((prev) => {
+      if (
+        prev === 'none' ||
+        prev === 'starred-first' ||
+        prev === 'unstarred-first'
+      )
+        return 'path-asc'
+      if (prev === 'path-asc') return 'path-desc'
       return 'none'
     })
   }
@@ -496,7 +582,7 @@ export default function QAPage() {
             >
               <div style={{ display: 'table-row' }}>
                 <div
-                  onClick={handleSortToggle}
+                  onClick={handleStarSortToggle}
                   style={{
                     display: 'table-cell',
                     padding: '14px 16px',
@@ -505,7 +591,7 @@ export default function QAPage() {
                     userSelect: 'none',
                     whiteSpace: 'nowrap',
                   }}
-                  title={`Click to sort: ${sortOrder === 'none' ? 'Starred First' : sortOrder === 'starred-first' ? 'Unstarred First' : 'None'}`}
+                  title={`Click to sort: ${sortOrder === 'none' || sortOrder === 'path-asc' || sortOrder === 'path-desc' ? 'Starred First' : sortOrder === 'starred-first' ? 'Unstarred First' : 'None'}`}
                 >
                   Star
                   <span
@@ -526,12 +612,33 @@ export default function QAPage() {
                   </span>
                 </div>
                 <div
+                  onClick={handlePathSortToggle}
                   style={{
                     display: 'table-cell',
                     padding: '12px 16px',
+                    cursor: 'pointer',
+                    userSelect: 'none',
+                    whiteSpace: 'nowrap',
                   }}
+                  title={`Click to sort: ${sortOrder === 'none' || sortOrder === 'starred-first' || sortOrder === 'unstarred-first' ? 'Path A-Z' : sortOrder === 'path-asc' ? 'Path Z-A' : 'None'}`}
                 >
                   Path
+                  <span
+                    style={{
+                      marginLeft: '4px',
+                      fontSize: '12px',
+                      display: 'inline-block',
+                      width: '12px',
+                      textAlign: 'left',
+                      verticalAlign: 'middle',
+                    }}
+                  >
+                    {sortOrder === 'path-asc'
+                      ? '↑'
+                      : sortOrder === 'path-desc'
+                        ? '↓'
+                        : ''}
+                  </span>
                 </div>
               </div>
             </div>
