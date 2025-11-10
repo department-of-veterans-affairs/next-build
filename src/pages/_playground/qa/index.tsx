@@ -217,30 +217,21 @@ export default function QAPage() {
       // Pre-load paths if resourceType is in URL
       loadPathsFromUrl(urlResourceType)
     } else {
-      // No query param, set it to the default resource type
+      // Mark as initialized even if no URL param, so URL updates can happen
       hasInitializedFromUrl.current = true
-      const urlParams = new URLSearchParams(window.location.search)
-      urlParams.set('resourceType', resourceType)
-      const newUrl = `${window.location.pathname}?${urlParams.toString()}`
-      window.history.replaceState({}, '', newUrl)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.isReady]) // Only run when router becomes ready, not on query changes
 
-  // Update URL when resourceType changes (but don't fetch)
-  useEffect(() => {
-    if (!router.isReady || !hasInitializedFromUrl.current) return
-
-    const urlParams = new URLSearchParams(window.location.search)
-    urlParams.set('resourceType', resourceType)
-
-    const newUrl = `${window.location.pathname}${urlParams.toString() ? '?' + urlParams.toString() : ''}`
-    window.history.pushState({}, '', newUrl)
-  }, [resourceType, router.isReady])
-
   const handleFetchPaths = async () => {
     setLoading(true)
     setError(null)
+
+    // Update URL when fetching paths
+    const urlParams = new URLSearchParams(window.location.search)
+    urlParams.set('resourceType', resourceType)
+    const newUrl = `${window.location.pathname}${urlParams.toString() ? '?' + urlParams.toString() : ''}`
+    window.history.pushState({}, '', newUrl)
 
     try {
       const response = await fetch(
