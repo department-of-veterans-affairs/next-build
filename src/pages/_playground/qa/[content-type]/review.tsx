@@ -41,7 +41,14 @@ const ReviewRow = React.memo<ReviewRowProps>(
             borderTop: '1px solid #d6d7d9',
           }}
         >
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+              position: 'relative',
+            }}
+          >
             <input
               type="checkbox"
               checked={reviewed}
