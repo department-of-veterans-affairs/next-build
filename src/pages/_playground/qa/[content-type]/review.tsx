@@ -146,6 +146,7 @@ export default function QAReviewPage() {
   const [error, setError] = useState<string | null>(null)
   const [reviewStatus, setReviewStatus] = useState<ReviewStatus>({})
   const [unstarredExpanded, setUnstarredExpanded] = useState<boolean>(false)
+  const [exportedMarkdown, setExportedMarkdown] = useState<string | null>(null)
 
   useEffect(() => {
     if (typeof contentType === 'string') {
@@ -210,6 +211,27 @@ export default function QAReviewPage() {
         console.error('Error clearing review status:', error)
       }
     }
+  }
+
+  const handleExportToMarkdown = () => {
+    if (!cache || typeof contentType !== 'string') return
+
+    const starredPaths = cache.paths.filter((p) => p.starred === true)
+    const baseUrl = typeof window !== 'undefined' ? window.location.origin : ''
+
+    const markdownLines = starredPaths.map((qaPath) => {
+      const isReviewed = reviewStatus[qaPath.path] || false
+      const checkbox = isReviewed ? '- [x]' : '- [ ]'
+      const localLink = `[${qaPath.path}](${baseUrl}${qaPath.path})`
+      const prodLink = `[prod](https://www.va.gov${qaPath.path})`
+
+      return `${checkbox} ${localLink} | ${prodLink}`
+    })
+
+    const markdown = markdownLines.join('\n')
+
+    // Display in textarea
+    setExportedMarkdown(markdown)
   }
 
   if (typeof contentType !== 'string') {
@@ -316,6 +338,50 @@ export default function QAReviewPage() {
                     />
                   ))}
                 </div>
+              </div>
+            )}
+
+            {starredPaths.length > 0 && (
+              <div style={{ marginTop: '16px' }}>
+                <button
+                  className="usa-button usa-button--outline"
+                  onClick={handleExportToMarkdown}
+                >
+                  Export to Markdown
+                </button>
+                {exportedMarkdown && (
+                  <div style={{ marginTop: '16px' }}>
+                    <label
+                      htmlFor="markdown-export"
+                      style={{
+                        display: 'block',
+                        marginBottom: '8px',
+                        fontWeight: 'bold',
+                      }}
+                    >
+                      Markdown:
+                    </label>
+                    <textarea
+                      id="markdown-export"
+                      readOnly
+                      value={exportedMarkdown}
+                      rows={Math.min(20, starredPaths.length + 2)}
+                      style={{
+                        width: '100%',
+                        maxWidth: 'unset',
+                        padding: '8px',
+                        border: '1px solid #757575',
+                        borderRadius: '4px',
+                        fontFamily: 'monospace',
+                        fontSize: '14px',
+                        resize: 'vertical',
+                      }}
+                      onClick={(e) => {
+                        e.currentTarget.select()
+                      }}
+                    />
+                  </div>
+                )}
               </div>
             )}
           </div>
