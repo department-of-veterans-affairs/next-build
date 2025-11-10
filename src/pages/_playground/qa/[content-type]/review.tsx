@@ -145,6 +145,7 @@ export default function QAReviewPage() {
   const [loading, setLoading] = useState<boolean>(false)
   const [error, setError] = useState<string | null>(null)
   const [reviewStatus, setReviewStatus] = useState<ReviewStatus>({})
+  const [unstarredExpanded, setUnstarredExpanded] = useState<boolean>(false)
 
   useEffect(() => {
     if (typeof contentType === 'string') {
@@ -292,7 +293,10 @@ export default function QAReviewPage() {
 
           {unstarredPaths.length > 0 && (
             <div style={{ marginTop: '24px' }}>
-              <details>
+              <details
+                open={unstarredExpanded}
+                onToggle={(e) => setUnstarredExpanded(e.currentTarget.open)}
+              >
                 <summary
                   style={{
                     fontSize: '18px',
@@ -303,84 +307,86 @@ export default function QAReviewPage() {
                 >
                   Unstarred Paths ({unstarredPaths.length})
                 </summary>
-                <div
-                  style={{
-                    display: 'table',
-                    width: '100%',
-                    borderCollapse: 'collapse',
-                    border: '1px solid #d6d7d9',
-                  }}
-                >
+                {unstarredExpanded && (
                   <div
                     style={{
-                      display: 'table-header-group',
-                      backgroundColor: '#f0f0f0',
-                      fontWeight: 'bold',
+                      display: 'table',
+                      width: '100%',
+                      borderCollapse: 'collapse',
+                      border: '1px solid #d6d7d9',
                     }}
                   >
-                    <div style={{ display: 'table-row' }}>
-                      <div
-                        style={{
-                          display: 'table-cell',
-                          padding: '8px 12px',
-                        }}
-                      >
-                        Path
-                      </div>
-                    </div>
-                  </div>
-                  <div style={{ display: 'table-row-group' }}>
-                    {unstarredPaths.map((qaPath) => (
-                      <div
-                        key={qaPath.path}
-                        style={{
-                          display: 'table-row',
-                        }}
-                      >
+                    <div
+                      style={{
+                        display: 'table-header-group',
+                        backgroundColor: '#f0f0f0',
+                        fontWeight: 'bold',
+                      }}
+                    >
+                      <div style={{ display: 'table-row' }}>
                         <div
                           style={{
                             display: 'table-cell',
                             padding: '8px 12px',
-                            verticalAlign: 'top',
-                            borderTop: '1px solid #d6d7d9',
+                          }}
+                        >
+                          Path
+                        </div>
+                      </div>
+                    </div>
+                    <div style={{ display: 'table-row-group' }}>
+                      {unstarredPaths.map((qaPath) => (
+                        <div
+                          key={qaPath.path}
+                          style={{
+                            display: 'table-row',
                           }}
                         >
                           <div
                             style={{
-                              display: 'flex',
-                              alignItems: 'center',
-                              gap: '8px',
+                              display: 'table-cell',
+                              padding: '8px 12px',
+                              verticalAlign: 'top',
+                              borderTop: '1px solid #d6d7d9',
                             }}
                           >
-                            <a
-                              href={qaPath.path}
-                              target="_blank"
-                              rel="noopener noreferrer"
+                            <div
                               style={{
-                                color: '#005ea2',
-                                textDecoration: 'underline',
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '8px',
                               }}
                             >
-                              {qaPath.path}
-                            </a>
-                            <span style={{ color: '#757575' }}>|</span>
-                            <a
-                              href={`https://www.va.gov${qaPath.path}`}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              style={{
-                                color: '#005ea2',
-                                textDecoration: 'underline',
-                              }}
-                            >
-                              (prod)
-                            </a>
+                              <a
+                                href={qaPath.path}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style={{
+                                  color: '#005ea2',
+                                  textDecoration: 'underline',
+                                }}
+                              >
+                                {qaPath.path}
+                              </a>
+                              <span style={{ color: '#757575' }}>|</span>
+                              <a
+                                href={`https://www.va.gov${qaPath.path}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style={{
+                                  color: '#005ea2',
+                                  textDecoration: 'underline',
+                                }}
+                              >
+                                (prod)
+                              </a>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
                   </div>
-                </div>
+                )}
               </details>
             </div>
           )}
