@@ -152,11 +152,25 @@ Please provide the following documentation as attachments.
 **Product Specifics:
 A link to the Release Plan with the "Planning" sections completed (in each section: Phase I, Phase II, Go Live)**
 
-**A link to the Product Outline
-Ensure Product Outline contains Incident Response info, including:
-Points of contact for your system and dependent VA back-ends
-Links to dashboards that help identify and debug application issues
-Is there a playbook included in your product outline, for investigating and handling likely failure modes? If so, link to your Product Playbook**
+**A link to the Product Outline**
+
+- [Accelerated Publishing Product Outline](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/cms/product-outlines/on-demand-publishing/on-demand-publishing-product-outline.md)
+
+**Links to dashboards that help identify and debug application issues**
+
+- [CMS Production and Staging [Drupal] - Datadog Dashboard](https://vagov.ddog-gov.com/dashboard/vnk-g4s-fru/cms-prod-staging?fromUser=false&offset=1&refresh_mode=daily&from_ts=1762318800000&to_ts=1762405199999&live=true)
+
+- [CMS APM [Drupal] - Datadog Dashboard](https://vagov.ddog-gov.com/apm/entity/service%3Avagov-cms?dependencyMap.showNetworkMetrics=false&env=brd-prod&fromUser=false&graphType=flamegraph&groupMapByOperation=null&primaryTags=%3A%2A&shouldShowLegend=true&spanKind=server&traceQuery=&start=1762438001585&end=1762441601585&paused=false)
+
+- [Nextjs Pods Overview - Datadog Dashboard](https://vagov.ddog-gov.com/dashboard/6db-3rm-wui/kubernetes-pods-overview-nextjs-test-staging?fromUser=false&refresh_mode=sliding&tpl_var_cluster%5B0%5D=dsva-vagov-prod-cluster&tpl_var_namespace%5B0%5D=next-build&from_ts=1761836663179&to_ts=1762441463179&live=true)
+
+- [Nextjs RUM - Datadog Dashboard](https://vagov.ddog-gov.com/dashboard/f9n-yzk-t5u/rum---web-app-performance-nextjs?fromUser=false&refresh_mode=sliding&tpl_var_applicationName%5B0%5D=%22Nextjs%20Frontend%22&tpl_var_env%5B0%5D=vagovprod&from_ts=1761836738454&to_ts=1762441538454&live=true)
+
+- [Nextjs APM - Datadog Dashboard](https://vagov.ddog-gov.com/apm/entity/service%3Avagov-next-build?dependencyMap.showNetworkMetrics=false&env=eks-prod&fromUser=false&graphType=flamegraph&groupMapByOperation=null&operationName=web.request&shouldShowLegend=true&traceQuery=&start=1762438001585&end=1762441601585&paused=false)
+
+**Is there a playbook included in your product outline, for investigating and handling likely failure modes?**
+
+- No playbook but several ReadMe files in each repo to address typical troubleshooting
 
 **Code links:** Link to relevant code directories in GitHub.
 
