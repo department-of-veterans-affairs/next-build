@@ -199,6 +199,19 @@ export default function QAReviewPage() {
     [contentType]
   )
 
+  const handleClearReview = () => {
+    if (typeof contentType !== 'string') return
+
+    if (typeof window !== 'undefined') {
+      try {
+        localStorage.removeItem(getReviewStatusKey(contentType))
+        setReviewStatus({})
+      } catch (error) {
+        console.error('Error clearing review status:', error)
+      }
+    }
+  }
+
   if (typeof contentType !== 'string') {
     return (
       <div className="vads-u-padding--3">
@@ -212,9 +225,25 @@ export default function QAReviewPage() {
 
   return (
     <div className="vads-u-padding--3">
-      <h1 className="vads-u-font-size--h2 vads-u-margin-top--0">
-        QA Review - {contentType}
-      </h1>
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          marginBottom: '16px',
+        }}
+      >
+        <h1 className="vads-u-font-size--h2 vads-u-margin-top--0">
+          QA Review - {contentType}
+        </h1>
+        <button
+          className="usa-button usa-button--outline"
+          onClick={handleClearReview}
+          disabled={Object.keys(reviewStatus).length === 0}
+        >
+          Clear Review
+        </button>
+      </div>
 
       {error && (
         <div className="usa-alert usa-alert--error vads-u-margin-y--3">
