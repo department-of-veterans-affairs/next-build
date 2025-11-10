@@ -88,7 +88,11 @@
 **Artifacts**
 Please provide the following documentation as attachments.
 
-**Architecture Diagram:** This diagram must go beyond simple boxes and lines. It must clearly indicate which portions of the architecture are within the scope of the review, which portions are dependencies within the product, and which portions are external dependencies. This diagram must also illustrate the following specifics.
+**Architecture Diagram:**
+
+[Architecture Diagram PDF](./AcceleratedPublising_ArchDiagram.pdf)
+
+![Accelerated Publishing Architecture Diagram](./AcceleratedPublising_ArchDiagram.png)
 
 - **Which implementation of security approaches were considered along with the approach that was chosen and why?**
 
