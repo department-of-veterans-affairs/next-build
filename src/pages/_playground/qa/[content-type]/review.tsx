@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
-import Link from 'next/link'
 
 interface QAPath {
   path: string
@@ -18,6 +17,92 @@ interface QACache {
 interface ReviewStatus {
   [path: string]: boolean
 }
+
+interface ReviewRowProps {
+  qaPath: QAPath
+  reviewed: boolean
+  onReviewToggle: (path: string, reviewed: boolean) => void
+}
+
+const ReviewRow = React.memo<ReviewRowProps>(
+  ({ qaPath, reviewed, onReviewToggle }) => {
+    return (
+      <div
+        style={{
+          display: 'table-row',
+        }}
+      >
+        <div
+          style={{
+            display: 'table-cell',
+            padding: '8px 12px',
+            verticalAlign: 'top',
+            width: '160px',
+            borderTop: '1px solid #d6d7d9',
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <input
+              type="checkbox"
+              checked={reviewed}
+              onChange={(e) => onReviewToggle(qaPath.path, e.target.checked)}
+              className="usa-checkbox"
+              id={`review-${qaPath.path}`}
+            />
+            <label
+              htmlFor={`review-${qaPath.path}`}
+              style={{
+                cursor: 'pointer',
+                margin: 0,
+              }}
+            >
+              Reviewed
+            </label>
+          </div>
+        </div>
+        <div
+          style={{
+            display: 'table-cell',
+            padding: '8px 12px',
+            verticalAlign: 'top',
+            borderTop: '1px solid #d6d7d9',
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <a href={qaPath.path} target="_blank" rel="noopener noreferrer">
+              {qaPath.path}
+            </a>
+            <span style={{ color: '#757575' }}>|</span>
+            <a
+              href={`https://www.va.gov${qaPath.path}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              (prod)
+            </a>
+          </div>
+          {qaPath.notes && (
+            <div
+              style={{
+                marginTop: '12px',
+                padding: '12px',
+                backgroundColor: '#f0f0f0',
+                borderRadius: '4px',
+              }}
+            >
+              <strong>Notes:</strong>
+              <p style={{ marginTop: '8px', marginBottom: 0 }}>
+                {qaPath.notes}
+              </p>
+            </div>
+          )}
+        </div>
+      </div>
+    )
+  }
+)
+
+ReviewRow.displayName = 'ReviewRow'
 
 const getReviewStatusKey = (contentType: string): string => {
   return `qa-review-${contentType}`
@@ -90,16 +175,21 @@ export default function QAReviewPage() {
     }
   }
 
-  const handleReviewToggle = (path: string, reviewed: boolean) => {
-    if (typeof contentType !== 'string') return
+  const handleReviewToggle = React.useCallback(
+    (path: string, reviewed: boolean) => {
+      if (typeof contentType !== 'string') return
 
-    const newStatus = {
-      ...reviewStatus,
-      [path]: reviewed,
-    }
-    setReviewStatus(newStatus)
-    saveReviewStatus(contentType, newStatus)
-  }
+      setReviewStatus((prev) => {
+        const newStatus = {
+          ...prev,
+          [path]: reviewed,
+        }
+        saveReviewStatus(contentType, newStatus)
+        return newStatus
+      })
+    },
+    [contentType]
+  )
 
   if (typeof contentType !== 'string') {
     return (
@@ -131,103 +221,159 @@ export default function QAReviewPage() {
 
       {cache && (
         <>
-          <div className="vads-u-margin-top--3">
-            <h2 className="vads-u-font-size--h3">
+          <div style={{ marginTop: '24px' }}>
+            <h2
+              style={{
+                fontSize: '20px',
+                fontWeight: 'bold',
+                marginBottom: '16px',
+              }}
+            >
               Starred Paths ({starredPaths.length})
             </h2>
             {starredPaths.length === 0 ? (
-              <p className="vads-u-color--gray">No starred paths to review.</p>
+              <p style={{ color: '#757575' }}>No starred paths to review.</p>
             ) : (
-              <ul
-                className="vads-u-margin-top--2"
-                style={{ listStyle: 'none' }}
+              <div
+                style={{
+                  display: 'table',
+                  width: '100%',
+                  borderCollapse: 'collapse',
+                  border: '1px solid #d6d7d9',
+                }}
               >
-                {starredPaths.map((qaPath) => (
-                  <li
-                    key={qaPath.path}
-                    className="vads-u-margin-bottom--2 vads-u-padding--2"
-                  >
-                    <div className="vads-u-display--flex vads-u-align-items--center vads-u-gap--2">
-                      <input
-                        type="checkbox"
-                        checked={reviewStatus[qaPath.path] || false}
-                        onChange={(e) =>
-                          handleReviewToggle(qaPath.path, e.target.checked)
-                        }
-                        className="usa-checkbox"
-                        id={`review-${qaPath.path}`}
-                      />
-                      <label
-                        htmlFor={`review-${qaPath.path}`}
-                        className="vads-u-margin--0"
-                      >
-                        Reviewed
-                      </label>
-                      <Link
-                        href={qaPath.path}
-                        className="vads-u-text-decoration--none"
-                      >
-                        {qaPath.path}
-                      </Link>
-                      <span className="vads-u-color--gray">|</span>
-                      <a
-                        href={`https://www.va.gov${qaPath.path}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="vads-u-text-decoration--none"
-                      >
-                        (prod)
-                      </a>
+                <div
+                  style={{
+                    display: 'table-header-group',
+                    backgroundColor: '#f0f0f0',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  <div style={{ display: 'table-row' }}>
+                    <div
+                      style={{
+                        display: 'table-cell',
+                        padding: '8px 12px',
+                        width: '160px',
+                      }}
+                    >
+                      Reviewed
                     </div>
-                    {qaPath.notes && (
-                      <div className="vads-u-margin-top--2 vads-u-padding--2 vads-u-background-color--gray-lightest">
-                        <strong>Notes:</strong>
-                        <p className="vads-u-margin-top--1 vads-u-margin-bottom--0">
-                          {qaPath.notes}
-                        </p>
-                      </div>
-                    )}
-                  </li>
-                ))}
-              </ul>
+                    <div
+                      style={{
+                        display: 'table-cell',
+                        padding: '8px 12px',
+                      }}
+                    >
+                      Path
+                    </div>
+                  </div>
+                </div>
+                <div style={{ display: 'table-row-group' }}>
+                  {starredPaths.map((qaPath) => (
+                    <ReviewRow
+                      key={qaPath.path}
+                      qaPath={qaPath}
+                      reviewed={reviewStatus[qaPath.path] || false}
+                      onReviewToggle={handleReviewToggle}
+                    />
+                  ))}
+                </div>
+              </div>
             )}
           </div>
 
           {unstarredPaths.length > 0 && (
-            <div className="vads-u-margin-top--3">
+            <div style={{ marginTop: '24px' }}>
               <details>
-                <summary className="vads-u-font-size--h4">
+                <summary
+                  style={{
+                    fontSize: '18px',
+                    fontWeight: 'bold',
+                    cursor: 'pointer',
+                    marginBottom: '16px',
+                  }}
+                >
                   Unstarred Paths ({unstarredPaths.length})
                 </summary>
-                <ul
-                  className="vads-u-margin-top--2"
-                  style={{ listStyle: 'none' }}
+                <div
+                  style={{
+                    display: 'table',
+                    width: '100%',
+                    borderCollapse: 'collapse',
+                    border: '1px solid #d6d7d9',
+                  }}
                 >
-                  {unstarredPaths.map((qaPath) => (
-                    <li
-                      key={qaPath.path}
-                      className="vads-u-margin-bottom--2 vads-u-padding--2"
-                    >
-                      <div className="vads-u-display--flex vads-u-align-items--center vads-u-gap--2">
-                        <Link
-                          href={qaPath.path}
-                          className="vads-u-text-decoration--none"
-                        >
-                          {qaPath.path}
-                        </Link>
-                        <span className="vads-u-color--gray">|</span>
-                        <a
-                          href={`https://www.va.gov${qaPath.path}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="vads-u-text-decoration--none"
-                        >
-                          (prod)
-                        </a>
+                  <div
+                    style={{
+                      display: 'table-header-group',
+                      backgroundColor: '#f0f0f0',
+                      fontWeight: 'bold',
+                    }}
+                  >
+                    <div style={{ display: 'table-row' }}>
+                      <div
+                        style={{
+                          display: 'table-cell',
+                          padding: '8px 12px',
+                        }}
+                      >
+                        Path
                       </div>
-                    </li>
-                  ))}
-                </ul>
+                    </div>
+                  </div>
+                  <div style={{ display: 'table-row-group' }}>
+                    {unstarredPaths.map((qaPath) => (
+                      <div
+                        key={qaPath.path}
+                        style={{
+                          display: 'table-row',
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: 'table-cell',
+                            padding: '8px 12px',
+                            verticalAlign: 'top',
+                            borderTop: '1px solid #d6d7d9',
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: 'flex',
+                              alignItems: 'center',
+                              gap: '8px',
+                            }}
+                          >
+                            <a
+                              href={qaPath.path}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              style={{
+                                color: '#005ea2',
+                                textDecoration: 'underline',
+                              }}
+                            >
+                              {qaPath.path}
+                            </a>
+                            <span style={{ color: '#757575' }}>|</span>
+                            <a
+                              href={`https://www.va.gov${qaPath.path}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              style={{
+                                color: '#005ea2',
+                                textDecoration: 'underline',
+                              }}
+                            >
+                              (prod)
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </details>
             </div>
           )}

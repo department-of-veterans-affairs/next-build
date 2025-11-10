@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useMemo } from 'react'
 import Link from 'next/link'
 import { PAGE_RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 
@@ -14,6 +14,126 @@ interface QACache {
   paths: QAPath[]
   lastFetched?: string
 }
+
+interface PathRowProps {
+  qaPath: QAPath
+  onStarToggle: (path: string, starred: boolean) => void
+  onNotesChange: (path: string, notes: string) => void
+}
+
+const PathRow = React.memo<PathRowProps>(
+  ({ qaPath, onStarToggle, onNotesChange }) => {
+    const isStarred = qaPath.starred === true
+    const [localNotes, setLocalNotes] = useState(qaPath.notes || '')
+
+    useEffect(() => {
+      setLocalNotes(qaPath.notes || '')
+    }, [qaPath.notes])
+
+    const handleNotesChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+      const newNotes = e.target.value
+      setLocalNotes(newNotes)
+      onNotesChange(qaPath.path, newNotes)
+    }
+
+    return (
+      <div
+        style={{
+          display: 'table-row',
+          borderLeft: isStarred
+            ? '2px solid var(--vads-color-warning-darker, #fdb81e)'
+            : 'none',
+        }}
+      >
+        <div
+          style={{
+            display: 'table-cell',
+            padding: '14px 16px 12px 20px',
+            verticalAlign: 'top',
+            width: '60px',
+          }}
+        >
+          <button
+            type="button"
+            onClick={() => onStarToggle(qaPath.path, !isStarred)}
+            style={{
+              background: 'none',
+              border: 'none',
+              cursor: 'pointer',
+              padding: 0,
+              margin: 0,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+            aria-label={isStarred ? 'Unstar path' : 'Star path'}
+          >
+            <va-icon
+              icon="star"
+              style={{
+                color: isStarred
+                  ? 'var(--vads-color-warning-darker, #fdb81e)'
+                  : 'var(--vads-color-base-lighter)',
+                fontSize: '20px',
+              }}
+            />
+          </button>
+        </div>
+        <div
+          style={{
+            display: 'table-cell',
+            padding: '12px 16px 12px 20px',
+            verticalAlign: 'top',
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <a href={qaPath.path} target="_blank" rel="noopener noreferrer">
+              {qaPath.path}
+            </a>
+            <span style={{ color: '#757575' }}>|</span>
+            <a
+              href={`https://www.va.gov${qaPath.path}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              (prod)
+            </a>
+          </div>
+          {isStarred && (
+            <div style={{ marginTop: '12px' }}>
+              <label
+                htmlFor={`notes-${qaPath.path}`}
+                style={{
+                  display: 'block',
+                  marginBottom: '4px',
+                  fontWeight: 'bold',
+                }}
+              >
+                Notes
+              </label>
+              <textarea
+                id={`notes-${qaPath.path}`}
+                value={localNotes}
+                onChange={handleNotesChange}
+                rows={3}
+                style={{
+                  width: '100%',
+                  padding: '8px',
+                  border: '1px solid #757575',
+                  borderRadius: '4px',
+                  fontFamily: 'inherit',
+                  fontSize: '14px',
+                }}
+              />
+            </div>
+          )}
+        </div>
+      </div>
+    )
+  }
+)
+
+PathRow.displayName = 'PathRow'
 
 const resourceTypeOptions = [...PAGE_RESOURCE_TYPES].sort()
 
@@ -37,6 +157,8 @@ const getCacheAgeInDays = (lastFetched?: string): number | null => {
   return diffDays
 }
 
+type SortOrder = 'none' | 'starred-first' | 'unstarred-first'
+
 export default function QAPage() {
   const [resourceType, setResourceType] = useState<string>(
     'node--health_care_local_facility'
@@ -45,6 +167,7 @@ export default function QAPage() {
   const [loading, setLoading] = useState<boolean>(false)
   const [error, setError] = useState<string | null>(null)
   const [devMode, setDevMode] = useState<boolean>(false)
+  const [sortOrder, setSortOrder] = useState<SortOrder>('none')
 
   // Check dev mode on mount
   useEffect(() => {
@@ -101,40 +224,75 @@ export default function QAPage() {
     }
   }
 
-  const handleStarToggle = async (path: string, starred: boolean) => {
-    try {
-      const response = await fetch('/api/qa/paths', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          resourceType,
-          path,
-          starred,
-        }),
-      })
-
-      if (!response.ok) {
-        const errorData = await response.json()
-        throw new Error(errorData.error || 'Failed to update path')
-      }
-
-      const updatedPath = await response.json()
-
-      // Update local state
+  const handleStarToggle = useCallback(
+    async (path: string, starred: boolean) => {
+      // Optimistically update local state immediately
       setCache((prev) => {
         if (!prev) return null
         return {
           ...prev,
-          paths: prev.paths.map((p) => (p.path === path ? updatedPath : p)),
+          paths: prev.paths.map((p) =>
+            p.path === path
+              ? {
+                  ...p,
+                  starred: starred ? true : undefined,
+                }
+              : p
+          ),
         }
       })
-    } catch (err) {
-      console.error('Error updating path:', err)
-      setError(err.message || 'An error occurred while updating path')
-    }
-  }
+
+      // Then make the API call in the background
+      try {
+        const response = await fetch('/api/qa/paths', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            resourceType,
+            path,
+            starred,
+          }),
+        })
+
+        if (!response.ok) {
+          const errorData = await response.json()
+          throw new Error(errorData.error || 'Failed to update path')
+        }
+
+        const updatedPath = await response.json()
+
+        // Update with server response to ensure consistency
+        setCache((prev) => {
+          if (!prev) return null
+          return {
+            ...prev,
+            paths: prev.paths.map((p) => (p.path === path ? updatedPath : p)),
+          }
+        })
+      } catch (err) {
+        console.error('Error updating path:', err)
+        // Revert the optimistic update on error
+        setCache((prev) => {
+          if (!prev) return null
+          return {
+            ...prev,
+            paths: prev.paths.map((p) =>
+              p.path === path
+                ? {
+                    ...p,
+                    starred: starred ? undefined : true,
+                  }
+                : p
+            ),
+          }
+        })
+        setError(err.message || 'An error occurred while updating path')
+      }
+    },
+    [resourceType]
+  )
 
   const debouncedUpdateNotes = useCallback(
     (() => {
@@ -184,22 +342,47 @@ export default function QAPage() {
     [resourceType]
   )
 
-  const handleNotesChange = (path: string, notes: string) => {
-    // Update local state immediately
-    setCache((prev) => {
-      if (!prev) return null
-      return {
-        ...prev,
-        paths: prev.paths.map((p) => (p.path === path ? { ...p, notes } : p)),
-      }
-    })
+  const handleNotesChange = useCallback(
+    (path: string, notes: string) => {
+      // Update local state immediately
+      setCache((prev) => {
+        if (!prev) return null
+        return {
+          ...prev,
+          paths: prev.paths.map((p) => (p.path === path ? { ...p, notes } : p)),
+        }
+      })
 
-    // Debounce the API call
-    debouncedUpdateNotes(path, notes)
-  }
+      // Debounce the API call
+      debouncedUpdateNotes(path, notes)
+    },
+    [debouncedUpdateNotes]
+  )
 
   const cacheAgeInDays = cache ? getCacheAgeInDays(cache.lastFetched) : null
   const isCacheOld = cacheAgeInDays !== null && cacheAgeInDays > 7
+
+  const sortedPaths = useMemo(() => {
+    if (!cache) return []
+    if (sortOrder === 'none') return cache.paths
+
+    const starred = cache.paths.filter((p) => p.starred === true)
+    const unstarred = cache.paths.filter((p) => p.starred !== true)
+
+    if (sortOrder === 'starred-first') {
+      return [...starred, ...unstarred]
+    } else {
+      return [...unstarred, ...starred]
+    }
+  }, [cache, sortOrder])
+
+  const handleSortToggle = () => {
+    setSortOrder((prev) => {
+      if (prev === 'none') return 'starred-first'
+      if (prev === 'starred-first') return 'unstarred-first'
+      return 'none'
+    })
+  }
 
   return (
     <div className="vads-u-padding--3">
@@ -286,75 +469,83 @@ export default function QAPage() {
       )}
 
       {cache && (
-        <div className="vads-u-margin-top--3">
-          <h2 className="vads-u-font-size--h3">Paths ({cache.paths.length})</h2>
-          <ul className="vads-u-margin-top--2" style={{ listStyle: 'none' }}>
-            {cache.paths.map((qaPath) => (
-              <li
-                key={qaPath.path}
-                className={`vads-u-margin-bottom--2 vads-u-padding--2 ${
-                  qaPath.starred === true
-                    ? 'vads-u-border-color--gold vads-u-border-left--2px vads-u-border-radius--2px'
-                    : ''
-                }`}
-                style={{
-                  borderLeftStyle: qaPath.starred === true ? 'solid' : 'none',
-                }}
-              >
-                <div className="vads-u-display--flex vads-u-align-items--center vads-u-gap--2">
-                  <input
-                    type="checkbox"
-                    checked={qaPath.starred === true}
-                    onChange={(e) =>
-                      handleStarToggle(qaPath.path, e.target.checked)
-                    }
-                    className="usa-checkbox"
-                    id={`star-${qaPath.path}`}
-                  />
-                  <label
-                    htmlFor={`star-${qaPath.path}`}
-                    className="vads-u-margin--0"
+        <div style={{ marginTop: '24px' }}>
+          <h2
+            style={{
+              fontSize: '20px',
+              fontWeight: 'bold',
+              marginBottom: '16px',
+            }}
+          >
+            Paths ({cache.paths.length})
+          </h2>
+          <div
+            style={{
+              display: 'table',
+              width: '100%',
+              borderCollapse: 'collapse',
+              border: '1px solid #d6d7d9',
+            }}
+          >
+            <div
+              style={{
+                display: 'table-header-group',
+                backgroundColor: '#f0f0f0',
+                fontWeight: 'bold',
+              }}
+            >
+              <div style={{ display: 'table-row' }}>
+                <div
+                  onClick={handleSortToggle}
+                  style={{
+                    display: 'table-cell',
+                    padding: '14px 16px',
+                    width: '60px',
+                    cursor: 'pointer',
+                    userSelect: 'none',
+                    whiteSpace: 'nowrap',
+                  }}
+                  title={`Click to sort: ${sortOrder === 'none' ? 'Starred First' : sortOrder === 'starred-first' ? 'Unstarred First' : 'None'}`}
+                >
+                  Star
+                  <span
+                    style={{
+                      marginLeft: '4px',
+                      fontSize: '12px',
+                      display: 'inline-block',
+                      width: '12px',
+                      textAlign: 'left',
+                      verticalAlign: 'middle',
+                    }}
                   >
-                    ⭐
-                  </label>
-                  <Link
-                    href={qaPath.path}
-                    className="vads-u-text-decoration--none"
-                  >
-                    {qaPath.path}
-                  </Link>
-                  <span className="vads-u-color--gray">|</span>
-                  <a
-                    href={`https://www.va.gov${qaPath.path}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="vads-u-text-decoration--none"
-                  >
-                    (prod)
-                  </a>
+                    {sortOrder === 'starred-first'
+                      ? '↑'
+                      : sortOrder === 'unstarred-first'
+                        ? '↓'
+                        : ''}
+                  </span>
                 </div>
-                {qaPath.starred === true && (
-                  <div className="vads-u-margin-top--2">
-                    <label
-                      htmlFor={`notes-${qaPath.path}`}
-                      className="vads-u-display--block vads-u-margin-bottom--1"
-                    >
-                      Notes
-                    </label>
-                    <textarea
-                      id={`notes-${qaPath.path}`}
-                      className="usa-textarea"
-                      value={qaPath.notes || ''}
-                      onChange={(e) =>
-                        handleNotesChange(qaPath.path, e.target.value)
-                      }
-                      rows={3}
-                    />
-                  </div>
-                )}
-              </li>
-            ))}
-          </ul>
+                <div
+                  style={{
+                    display: 'table-cell',
+                    padding: '12px 16px',
+                  }}
+                >
+                  Path
+                </div>
+              </div>
+            </div>
+            <div style={{ display: 'table-row-group' }}>
+              {sortedPaths.map((qaPath) => (
+                <PathRow
+                  key={qaPath.path}
+                  qaPath={qaPath}
+                  onStarToggle={handleStarToggle}
+                  onNotesChange={handleNotesChange}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       )}
     </div>
