@@ -22,6 +22,18 @@ export interface DrupalMediaDocument extends DrupalMedia {
   field_document: UpdatedDrupalFile
 }
 
+export interface DrupalMediaDocumentExternal extends DrupalMedia {
+  name: string
+  field_description: string | null
+  field_media_external_file: {
+    url: string
+    uri: string
+    title: string
+  }
+  field_mime_type: string
+  thumbnail: DrupalMediaImage['image']
+}
+
 export interface DrupalMediaVideo extends DrupalMedia {
   field_media_video_embed_field: string
 }
