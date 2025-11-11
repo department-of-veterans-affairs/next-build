@@ -19,6 +19,8 @@ import { LinkTeaser } from '../linkTeaser/formatted-type'
 import { LinkTeaserWithImage } from '../linkTeaserWithImage/formatted-type'
 import { StoriesPanel } from './StoriesPanel'
 import { cleanup } from '@testing-library/react'
+import { MediaDocumentExternal } from '../mediaDocumentExternal/formatted-type'
+import { ResourcesPanel } from './ResourcesPanel'
 
 const mockBaseProps: Partial<CampaignLandingPageProps> = {
   title: 'Testing title',
@@ -141,6 +143,23 @@ const mockBaseProps: Partial<CampaignLandingPageProps> = {
       } as LinkTeaserWithImage,
     ],
   },
+  resources: {
+    show: true,
+    header: 'resources header',
+    intro: 'resources intro',
+    cta: {
+      url: 'https://example.com/resources-cta',
+      label: 'resources CTA',
+    } as Button,
+    documents: [
+      {
+        name: 'resources document name',
+        description: 'resources document description',
+        url: 'https://example.com/resource-document.pdf',
+        fileName: 'resource-document.pdf',
+      } as MediaDocumentExternal,
+    ],
+  },
 }
 
 jest.mock('next/image', () => ({
@@ -166,6 +185,7 @@ describe('CampaignLandingPage with valid data', () => {
     expect(screen.getByTestId('video-panel')).toBeInTheDocument()
     expect(screen.getByTestId('spotlight-panel')).toBeInTheDocument()
     expect(screen.getByTestId('stories-panel')).toBeInTheDocument()
+    expect(screen.getByTestId('resources-panel')).toBeInTheDocument()
 
     // TODO: Check that the other components rendered once they're built
   })
@@ -327,5 +347,64 @@ describe('CampaignLandingPage->StoriesPanel', () => {
 
     // now that we know it renders with show:true, let's make sure it didn't with show:false
     expect(screen.queryByTestId('stories-panel')).not.toBeInTheDocument()
+  })
+})
+
+describe('CampaignLandingPage->ResourcesPanel', () => {
+  beforeEach(async () => {
+    await render(
+      <ResourcesPanel {...(mockBaseProps as CampaignLandingPageProps)} />
+    )
+  })
+
+  test('shows header', () => {
+    expect(screen.getByText('resources header')).toBeInTheDocument()
+  })
+
+  test('shows intro', () => {
+    expect(screen.getByText('resources intro')).toBeInTheDocument()
+  })
+
+  test('shows CTA', () => {
+    const cta = screen.getByTestId('resources-cta')
+
+    expect(cta).toBeInTheDocument()
+    expect(cta.href).toBe('https://example.com/resources-cta')
+    expect(cta.text).toBe('resources CTA')
+  })
+
+  test('shows resource document', () => {
+    expect(screen.getByText('resources document name')).toBeInTheDocument()
+    expect(
+      screen.getByText('resources document description')
+    ).toBeInTheDocument()
+
+    const link = screen.getByTestId('resource-link')
+    expect(link.getAttribute('href')).toBe(
+      'https://example.com/resource-document.pdf'
+    )
+  })
+
+  test('does not render when resources.show = false', async () => {
+    // first, test the inverse to ensure this test passing isn't a fluke & isolate the reason
+    expect(screen.getByTestId('resources-panel')).toBeInTheDocument()
+    await cleanup()
+
+    const mockWithResourcesHidden = {
+      ...mockBaseProps,
+      resources: {
+        ...mockBaseProps.resources,
+        show: false,
+      },
+    }
+
+    await render(
+      <StoriesPanel
+        {...(mockWithResourcesHidden as CampaignLandingPageProps)}
+      />
+    )
+
+    // now that we know it renders with show:true, let's make sure it didn't with show:false
+    expect(screen.queryByTestId('resources-panel')).not.toBeInTheDocument()
   })
 })
