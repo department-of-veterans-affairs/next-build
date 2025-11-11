@@ -262,6 +262,13 @@ exports[`CampaignLandingPage formatData outputs formatted data 1`] = `
   ],
   "moderationState": "draft",
   "published": false,
+  "resources": {
+    "cta": null,
+    "documents": [],
+    "header": null,
+    "intro": null,
+    "show": false,
+  },
   "socialLinks": [
     {
       "href": "https://www.facebook.com/sharer/sharer.php?href=http://127.0.0.1:8001/initiatives/pact-act-and-survivors",

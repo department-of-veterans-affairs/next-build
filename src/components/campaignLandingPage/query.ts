@@ -6,11 +6,13 @@ import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import { getFacebookLink, getXLink } from '@/lib/utils/social'
 import { fetchSingleEntityOrPreview } from '@/lib/drupal/query'
-import { formatter as formatImage } from '@/components/mediaImage/query'
 import { queries } from '@/lib/drupal/queries'
 import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
 
+import { formatter as imageFormatter } from '@/components/mediaImage/query'
 import { formatter as teaserWithImageFormatter } from '../linkTeaserWithImage/query'
+import { formatter as buttonFormatter } from '../button/query'
+import { formatter as mediaDocumentExternalFormatter } from '../mediaDocumentExternal/query'
 
 // Define the query params for fetching node--campaign_landing_page.
 export const params: QueryParams<null> = () => {
@@ -33,6 +35,9 @@ export const params: QueryParams<null> = () => {
     'field_clp_stories_teasers.field_link_teaser',
     'field_clp_stories_teasers.field_media',
     'field_clp_stories_teasers.field_media.image',
+    'field_clp_resources_cta',
+    'field_clp_resources',
+    'field_clp_resources.thumbnail',
   ])
 }
 
@@ -69,7 +74,7 @@ export const formatter: QueryFormatter<
     hero: {
       blurb: entity.field_hero_blurb,
       image: {
-        ...formatImage(entity.field_hero_image),
+        ...imageFormatter(entity.field_hero_image),
 
         /* Empty alt expected per requirements
          * https://github.com/department-of-veterans-affairs/va.gov-cms/issues/22439
@@ -103,7 +108,7 @@ export const formatter: QueryFormatter<
         // promos
         .filter((p) => p.field_promo_link && p.field_image)
         .map((block) => ({
-          image: block.field_image && formatImage(block.field_image),
+          image: block.field_image && imageFormatter(block.field_image),
           link: block.field_promo_link,
         })),
     },
@@ -115,18 +120,13 @@ export const formatter: QueryFormatter<
         queries.formatData('media--video', entity.field_media),
       button:
         entity.field_clp_video_panel_more_video &&
-        queries.formatData(
-          'paragraph--button',
-          entity.field_clp_video_panel_more_video
-        ),
+        buttonFormatter(entity.field_clp_video_panel_more_video),
     },
     spotlight: {
       show: entity.field_clp_spotlight_panel,
       header: entity.field_clp_spotlight_header,
       intro: entity.field_clp_spotlight_intro_text,
-      cta:
-        entity.field_clp_spotlight_cta &&
-        queries.formatData('paragraph--button', entity.field_clp_spotlight_cta),
+      cta: buttonFormatter(entity.field_clp_spotlight_cta),
       teasers: (entity.field_clp_spotlight_link_teasers ?? []).map((teaser) =>
         queries.formatData('paragraph--link_teaser', teaser)
       ),
@@ -141,6 +141,15 @@ export const formatter: QueryFormatter<
       },
       teasers: (entity.field_clp_stories_teasers ?? []).map((teaser) =>
         teaserWithImageFormatter(teaser)
+      ),
+    },
+    resources: {
+      show: entity.field_clp_resources_panel,
+      header: entity.field_clp_resources_header,
+      intro: entity.field_clp_resources_intro_text,
+      cta: buttonFormatter(entity.field_clp_resources_cta),
+      documents: (entity.field_clp_resources ?? []).map(
+        mediaDocumentExternalFormatter
       ),
     },
   }
