@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Media image returns formatted data outputs formatted data 1`] = `
+{
+  "description": "Buddy Check Week Outreach Kit",
+  "drupal_mid": 26627,
+  "drupal_vid": 28261,
+  "fileName": "",
+  "id": "e395aca5-7f13-44e6-87da-e5705beb9d57",
+  "mimeType": "application/pdf",
+  "name": "Buddy Check Week Outreach Kit",
+  "url": "https://www.va.gov/files/2023-09/Buddy%20Check%20Week%20Outreach%20Kit%2009282023%201045%20508.pdf",
+}
+`;
