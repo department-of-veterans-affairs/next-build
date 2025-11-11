@@ -483,7 +483,10 @@ export default function QAPage() {
         >
           Content Type
         </label>
-        <div className="vads-u-display--flex vads-u-align-items--center vads-u-gap--2">
+        <div
+          className="vads-u-display--flex vads-u-align-items--center"
+          style={{ gap: '8px' }}
+        >
           <select
             id="resourceType"
             className="usa-select"
