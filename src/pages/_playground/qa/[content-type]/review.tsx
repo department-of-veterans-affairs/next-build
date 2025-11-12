@@ -81,6 +81,14 @@ const ReviewRow = React.memo<ReviewRowProps>(
             </a>
             <span style={{ color: '#757575' }}>|</span>
             <a
+              href={`https://staging.va.gov${qaPath.path}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              (staging)
+            </a>
+            <span style={{ color: '#757575' }}>|</span>
+            <a
               href={`https://www.va.gov${qaPath.path}`}
               target="_blank"
               rel="noopener noreferrer"
@@ -223,9 +231,10 @@ export default function QAReviewPage() {
       const isReviewed = reviewStatus[qaPath.path] || false
       const checkbox = isReviewed ? '- [x]' : '- [ ]'
       const localLink = `[${qaPath.path}](${baseUrl}${qaPath.path})`
+      const stagingLink = `[staging](https://staging.va.gov${qaPath.path})`
       const prodLink = `[prod](https://www.va.gov${qaPath.path})`
 
-      return `${checkbox} ${localLink} | ${prodLink}`
+      return `${checkbox} ${localLink} | ${stagingLink} | ${prodLink}`
     })
 
     const markdown = markdownLines.join('\n')
@@ -462,6 +471,18 @@ export default function QAReviewPage() {
                                 }}
                               >
                                 {qaPath.path}
+                              </a>
+                              <span style={{ color: '#757575' }}>|</span>
+                              <a
+                                href={`https://staging.va.gov${qaPath.path}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style={{
+                                  color: '#005ea2',
+                                  textDecoration: 'underline',
+                                }}
+                              >
+                                (staging)
                               </a>
                               <span style={{ color: '#757575' }}>|</span>
                               <a

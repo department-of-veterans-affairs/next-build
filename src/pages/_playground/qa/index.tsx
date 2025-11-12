@@ -92,6 +92,14 @@ const PathRow = React.memo<PathRowProps>(
             </a>
             <span style={{ color: '#757575' }}>|</span>
             <a
+              href={`https://staging.va.gov${qaPath.path}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              (staging)
+            </a>
+            <span style={{ color: '#757575' }}>|</span>
+            <a
               href={`https://www.va.gov${qaPath.path}`}
               target="_blank"
               rel="noopener noreferrer"
