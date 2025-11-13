@@ -11,7 +11,7 @@ export function BenefitsHub({
   spokes,
   lastUpdated,
   fieldLinks,
-  fieldSupportServices,
+  supportServices,
 }: FormattedBenefitsHub) {
   const iconConfig = getHubIcon(titleIcon)
 
@@ -68,11 +68,11 @@ export function BenefitsHub({
               </ul>
             </section>
 
-            {fieldSupportServices && fieldSupportServices.length > 0 && (
+            {supportServices && supportServices.length > 0 && (
               <section>
                 <h3 className="vads-u-font-size--h4">Call us</h3>
                 <ul className="va-nav-linkslist-list social">
-                  {fieldSupportServices.map((service, index) => {
+                  {supportServices.map((service, index) => {
                     const handleClick = () => {
                       recordEvent({
                         event: 'nav-hub-rail',
@@ -81,15 +81,12 @@ export function BenefitsHub({
                     }
 
                     const renderServiceContent = () => {
-                      if (service?.field_phone_number) {
+                      if (service?.number) {
                         return (
-                          <a
-                            href={service.field_link?.url}
-                            onClick={handleClick}
-                          >
+                          <a href={service.link?.url} onClick={handleClick}>
                             <span>{service.title}</span>
                             <br />
-                            <span>{service.field_phone_number}</span>
+                            <span>{service.number}</span>
                           </a>
                         )
                       }
@@ -110,12 +107,9 @@ export function BenefitsHub({
                         )
                       }
 
-                      if (service?.field_link?.url) {
+                      if (service?.link?.url) {
                         return (
-                          <a
-                            href={service.field_link.url}
-                            onClick={handleClick}
-                          >
+                          <a href={service.link.url} onClick={handleClick}>
                             <span>{service.title}</span>
                           </a>
                         )

@@ -19,7 +19,7 @@ const mockBenefitsData: FormattedBenefitsHub = {
   intro: 'This is a test intro for the Benefits Hub component.',
   spokes: [],
   fieldLinks: null,
-  fieldSupportServices: undefined,
+  supportServices: undefined,
 }
 
 describe('BenefitsHub with valid data', () => {
@@ -35,11 +35,13 @@ describe('BenefitsHub with valid data', () => {
         spokes={[]}
         intro={null}
         fieldLinks={null}
-        fieldSupportServices={undefined}
+        supportServices={undefined}
       />
     )
 
-    expect(screen.queryByText(/Test Health Benefits Hub/)).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: /Test Health Benefits Hub/ })
+    ).toBeInTheDocument()
 
     // Skip axe test for now due to heading order issue in accordion structure
     // The va-accordion contains h3 elements which causes heading-order violations
@@ -60,7 +62,7 @@ describe('BenefitsHub with valid data', () => {
         spokes={[]}
         intro={'This is a test intro for the Benefits Hub component.'}
         fieldLinks={null}
-        fieldSupportServices={undefined}
+        supportServices={undefined}
       />
     )
 
@@ -81,11 +83,13 @@ describe('BenefitsHub with valid data', () => {
         spokes={[]}
         intro={'Learn about disability compensation.'}
         fieldLinks={null}
-        fieldSupportServices={undefined}
+        supportServices={undefined}
       />
     )
 
-    expect(screen.queryByText(/Disability/)).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: /Disability/ })
+    ).toBeInTheDocument()
     expect(
       screen.queryByText(/Learn about disability compensation./)
     ).toBeInTheDocument()
@@ -136,12 +140,16 @@ describe('BenefitsHub with valid data', () => {
         intro={'Manage your VA health care.'}
         spokes={mockSpokes}
         fieldLinks={null}
-        fieldSupportServices={undefined}
+        supportServices={undefined}
       />
     )
 
-    expect(screen.queryByText(/Health Care/)).toBeInTheDocument()
-    expect(screen.queryByText(/Get VA health care/)).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: /Health Care/ })
+    ).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: /Get VA health care/ })
+    ).toBeInTheDocument()
 
     // Check for va-link with text attribute
     const vaLink = document.querySelector(
@@ -192,12 +200,14 @@ describe('BenefitsHub with valid data', () => {
         intro={'Information for different audiences.'}
         spokes={[]}
         fieldLinks={mockFieldLinks}
-        fieldSupportServices={undefined}
+        supportServices={undefined}
       />
     )
 
-    expect(screen.queryByText(/Benefits Hub/)).toBeInTheDocument()
-    expect(screen.queryByText(/Get information for:/)).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: /Benefits Hub/ })
+    ).toBeInTheDocument()
+    expect(screen.getByText(/Get information for:/)).toBeInTheDocument()
 
     // Check for va-accordion-item with correct header attribute
     const accordionItem = document.querySelector(
@@ -235,8 +245,8 @@ describe('BenefitsHub with valid data', () => {
         type: 'node--support_service',
         id: '6ab87079-1b6c-4ef9-9a20-937f92199aef',
         title: 'Health benefits hotline:',
-        field_phone_number: '877-222-VETS (8387)',
-        field_link: {
+        number: '877-222-VETS (8387)',
+        link: {
           uri: 'tel:1-877-222-VETS(8387)',
           title: '',
           url: 'tel:1-877-222-VETS(8387)',
@@ -246,8 +256,8 @@ describe('BenefitsHub with valid data', () => {
         type: 'node--support_service',
         id: 'tty-service-id',
         title: 'TTY: 711',
-        field_phone_number: undefined,
-        field_link: {
+        number: undefined,
+        link: {
           uri: 'tel:711',
           title: '',
           url: 'tel:711',
@@ -266,12 +276,14 @@ describe('BenefitsHub with valid data', () => {
         intro="Test support services functionality"
         spokes={[]}
         fieldLinks={null}
-        fieldSupportServices={mockSupportServices}
+        supportServices={mockSupportServices}
       />
     )
 
     // Check that the "Call us" section is rendered
-    expect(screen.queryByText(/Call us/)).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: /Call us/, level: 3 })
+    ).toBeInTheDocument()
 
     // Check that the Ask questions accordion is rendered
     const askQuestionsAccordion = document.querySelector(
@@ -284,14 +296,16 @@ describe('BenefitsHub with valid data', () => {
     expect(screen.queryByText(/877-222-VETS \(8387\)/)).toBeInTheDocument()
 
     // Check that the link has the correct href
-    const hotlineLink = screen
-      .getByText('Health benefits hotline:')
-      .closest('a')
+    const hotlineLink = screen.getByRole('link', {
+      name: /Health benefits hotline:/,
+    })
     expect(hotlineLink).toHaveAttribute('href', 'tel:1-877-222-VETS(8387)')
 
     // Check that TTY service is rendered with special handling
-    expect(screen.queryByText(/TTY: 711/)).toBeInTheDocument()
-    const ttyLink = screen.getByText('TTY: 711').closest('a')
+    expect(screen.getByText(/TTY: 711/)).toBeInTheDocument()
+    const ttyLink = screen.getByRole('link', {
+      name: 'TTY: 7 1 1.',
+    })
     expect(ttyLink).toHaveAttribute('href', 'tel:711')
     expect(ttyLink).toHaveAttribute('aria-label', 'TTY: 7 1 1.')
   })
@@ -302,8 +316,8 @@ describe('BenefitsHub with valid data', () => {
         type: 'node--support_service',
         id: 'service-without-phone',
         title: 'Online Portal',
-        field_phone_number: undefined,
-        field_link: {
+        number: undefined,
+        link: {
           uri: 'https://example.com/portal',
           title: 'Online Portal',
           url: 'https://example.com/portal',
@@ -313,8 +327,8 @@ describe('BenefitsHub with valid data', () => {
         type: 'node--support_service',
         id: 'service-no-link',
         title: 'Text Only Service',
-        field_phone_number: undefined,
-        field_link: undefined,
+        number: undefined,
+        link: undefined,
       },
     ]
 
@@ -329,16 +343,20 @@ describe('BenefitsHub with valid data', () => {
         intro="Test services without phone numbers"
         spokes={[]}
         fieldLinks={null}
-        fieldSupportServices={mockSupportServicesNoPhone}
+        supportServices={mockSupportServicesNoPhone}
       />
     )
 
     // Check that the "Call us" section is rendered
-    expect(screen.queryByText(/Call us/)).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: /Call us/, level: 3 })
+    ).toBeInTheDocument()
 
     // Check that the online portal service is rendered as a link
-    expect(screen.queryByText(/Online Portal/)).toBeInTheDocument()
-    const portalLink = screen.getByText('Online Portal').closest('a')
+    expect(screen.getByText(/Online Portal/)).toBeInTheDocument()
+    const portalLink = screen.getByRole('link', {
+      name: /Online Portal/,
+    })
     expect(portalLink).toHaveAttribute('href', 'https://example.com/portal')
 
     // Check that the text-only service is rendered without a link
@@ -347,7 +365,7 @@ describe('BenefitsHub with valid data', () => {
     expect(textOnlyElement.tagName).not.toBe('A') // Should not be wrapped in an <a> tag
   })
 
-  test('does not render Call us section when fieldSupportServices is empty', () => {
+  test('does not render Call us section when supportServices is empty', () => {
     render(
       <BenefitsHub
         id="8"
@@ -359,18 +377,22 @@ describe('BenefitsHub with valid data', () => {
         intro="No support services"
         spokes={[]}
         fieldLinks={null}
-        fieldSupportServices={[]}
+        supportServices={[]}
       />
     )
 
     // Check that the "Call us" section is NOT rendered
-    expect(screen.queryByText(/Call us/)).not.toBeInTheDocument()
+    expect(
+      screen.queryByRole('heading', { name: /Call us/, level: 3 })
+    ).not.toBeInTheDocument()
 
     // But "Message us" should still be rendered
-    expect(screen.queryByText(/Message us/)).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: /Message us/, level: 3 })
+    ).toBeInTheDocument()
   })
 
-  test('does not render Call us section when fieldSupportServices is undefined', () => {
+  test('does not render Call us section when supportServices is undefined', () => {
     render(
       <BenefitsHub
         id="9"
@@ -382,15 +404,18 @@ describe('BenefitsHub with valid data', () => {
         intro="No support services defined"
         spokes={[]}
         fieldLinks={null}
-        fieldSupportServices={undefined}
       />
     )
 
     // Check that the "Call us" section is NOT rendered
-    expect(screen.queryByText(/Call us/)).not.toBeInTheDocument()
+    expect(
+      screen.queryByRole('heading', { name: /Call us/, level: 3 })
+    ).not.toBeInTheDocument()
 
     // But "Message us" should still be rendered
-    expect(screen.queryByText(/Message us/)).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: /Message us/, level: 3 })
+    ).toBeInTheDocument()
   })
 
   test('calls recordEvent when support service links are clicked', async () => {
@@ -404,8 +429,8 @@ describe('BenefitsHub with valid data', () => {
         type: 'node--support_service',
         id: 'clickable-service',
         title: 'Clickable Service',
-        field_phone_number: '123-456-7890',
-        field_link: {
+        number: '123-456-7890',
+        link: {
           uri: 'tel:123-456-7890',
           title: '',
           url: 'tel:123-456-7890',
@@ -424,12 +449,14 @@ describe('BenefitsHub with valid data', () => {
         intro="Test click functionality"
         spokes={[]}
         fieldLinks={null}
-        fieldSupportServices={mockSupportServices}
+        supportServices={mockSupportServices}
       />
     )
 
     // Find and click the service link
-    const serviceLink = screen.getByText('Clickable Service').closest('a')
+    const serviceLink = screen.getByRole('link', {
+      name: 'Clickable Service 123-456-7890',
+    })
     expect(serviceLink).toBeInTheDocument()
     expect(serviceLink).not.toBeNull()
 
