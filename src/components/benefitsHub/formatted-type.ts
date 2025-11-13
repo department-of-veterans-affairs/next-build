@@ -12,4 +12,5 @@ export interface BenefitsHub extends PublishedEntity {
       path: string
     }
   }> | null
+  relatedLinks: ListOfLinkTeasers | null
 }

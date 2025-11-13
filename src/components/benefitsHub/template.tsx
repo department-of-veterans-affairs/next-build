@@ -10,6 +10,7 @@ export function BenefitsHub({
   spokes,
   lastUpdated,
   fieldLinks,
+  relatedLinks,
 }: FormattedBenefitsHub) {
   const iconConfig = getHubIcon(titleIcon)
 
@@ -46,6 +47,11 @@ export function BenefitsHub({
             <ListOfLinkTeasers {...spokeSection} isHubPage={true} />
           </div>
         ))}
+        {relatedLinks && (
+          <section className="merger-majorlinks va-nav-linkslist va-nav-linkslist--related">
+            <ListOfLinkTeasers {...relatedLinks} isHubPage={true} />
+          </section>
+        )}
         <ContentFooter lastUpdated={lastUpdated} />
       </article>
       <div className="usa-width-one-third" id="hub-rail">

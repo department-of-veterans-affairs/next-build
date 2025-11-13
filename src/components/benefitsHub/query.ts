@@ -17,6 +17,8 @@ export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude([
     'field_spokes',
     'field_spokes.field_va_paragraphs',
+    'field_related_links',
+    'field_related_links.field_va_paragraphs',
   ])
 }
 
@@ -47,6 +49,27 @@ export const formatter: QueryFormatter<NodeLandingPage, BenefitsHub> = (
     formatListOfLinkTeasers(spoke)
   )
 
+  // Format the related links (ParagraphListOfLinks) to match ListOfLinkTeasers format
+  const relatedLinks = entity.field_related_links
+    ? {
+        id: entity.field_related_links.id,
+        type: 'paragraph--list_of_link_teasers' as const,
+        entityId: entity.field_related_links.drupal_internal__id,
+        title: entity.field_related_links.field_section_header,
+        linkTeasers: entity.field_related_links.field_links.map((link) => ({
+          type: 'paragraph--link_teaser' as const,
+          id: link.uri, // Use URI as ID since FieldLink doesn't have an ID
+          entityId: null,
+          uri: link.url || link.uri,
+          title: link.title,
+          options: [],
+          summary: null,
+          isHubPage: true,
+          componentParams: {},
+        })),
+      }
+    : null
+
   const fieldLinks =
     entity.field_links?.length > 0
       ? entity.field_links.map((link) => ({
@@ -68,5 +91,6 @@ export const formatter: QueryFormatter<NodeLandingPage, BenefitsHub> = (
     titleIcon: entity.field_title_icon,
     spokes: spokes,
     fieldLinks: fieldLinks,
+    relatedLinks: relatedLinks,
   }
 }

@@ -14,6 +14,7 @@ const mockBenefitsData: FormattedBenefitsHub = {
   intro: 'This is a test intro for the Benefits Hub component.',
   spokes: [],
   fieldLinks: null,
+  relatedLinks: null,
 }
 
 describe('BenefitsHub with valid data', () => {
@@ -29,6 +30,7 @@ describe('BenefitsHub with valid data', () => {
         spokes={[]}
         intro={null}
         fieldLinks={null}
+        relatedLinks={null}
       />
     )
 
@@ -50,6 +52,7 @@ describe('BenefitsHub with valid data', () => {
         spokes={[]}
         intro={'This is a test intro for the Benefits Hub component.'}
         fieldLinks={null}
+        relatedLinks={null}
       />
     )
 
@@ -70,6 +73,7 @@ describe('BenefitsHub with valid data', () => {
         spokes={[]}
         intro={'Learn about disability compensation.'}
         fieldLinks={null}
+        relatedLinks={null}
       />
     )
 
@@ -124,6 +128,7 @@ describe('BenefitsHub with valid data', () => {
         intro={'Manage your VA health care.'}
         spokes={mockSpokes}
         fieldLinks={null}
+        relatedLinks={null}
       />
     )
 
@@ -150,6 +155,80 @@ describe('BenefitsHub with valid data', () => {
       'dateTime',
       '2021-10-31'
     )
+  })
+
+  test('renders BenefitsHub component with relatedLinks', () => {
+    const mockRelatedLinks = {
+      id: 'related-links-1',
+      type: 'paragraph--list_of_link_teasers' as const,
+      entityId: 123,
+      title: 'Related Information',
+      linkTeasers: [
+        {
+          type: 'paragraph--link_teaser' as const,
+          id: 'related-teaser-1',
+          entityId: null,
+          uri: '/related-info-1/',
+          title: 'Related Topic 1',
+          options: [],
+          summary: null,
+          isHubPage: true,
+          componentParams: {},
+        },
+        {
+          type: 'paragraph--link_teaser' as const,
+          id: 'related-teaser-2',
+          entityId: null,
+          uri: '/related-info-2/',
+          title: 'Related Topic 2',
+          options: [],
+          summary: null,
+          isHubPage: true,
+          componentParams: {},
+        },
+      ],
+    }
+
+    render(
+      <BenefitsHub
+        id="6"
+        type=""
+        published={true}
+        lastUpdated="2024-01-01"
+        title={'Benefits Hub with Related Links'}
+        titleIcon={null}
+        intro={'Information with related links.'}
+        spokes={[]}
+        fieldLinks={null}
+        relatedLinks={mockRelatedLinks}
+      />
+    )
+
+    expect(
+      screen.getByRole('heading', { name: /Benefits Hub with Related Links/ })
+    ).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: /Related Information/ })
+    ).toBeInTheDocument()
+
+    // Check that related links section has the correct CSS classes
+    const relatedSection = document.querySelector(
+      '.merger-majorlinks.va-nav-linkslist.va-nav-linkslist--related'
+    )
+    expect(relatedSection).toBeInTheDocument()
+
+    // Check for va-link elements with correct attributes for related links
+    const relatedLink1 = document.querySelector(
+      'va-link[text="Related Topic 1"]'
+    )
+    expect(relatedLink1).toBeInTheDocument()
+    expect(relatedLink1).toHaveAttribute('href', '/related-info-1/')
+
+    const relatedLink2 = document.querySelector(
+      'va-link[text="Related Topic 2"]'
+    )
+    expect(relatedLink2).toBeInTheDocument()
+    expect(relatedLink2).toHaveAttribute('href', '/related-info-2/')
   })
 
   test('renders BenefitsHub component with fieldLinks (Not a Veteran section)', () => {
@@ -179,6 +258,7 @@ describe('BenefitsHub with valid data', () => {
         intro={'Information for different audiences.'}
         spokes={[]}
         fieldLinks={mockFieldLinks}
+        relatedLinks={null}
       />
     )
 

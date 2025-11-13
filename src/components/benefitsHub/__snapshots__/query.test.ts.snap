@@ -19,6 +19,7 @@ exports[`BenefitHubLanding formatData outputs formatted data 1`] = `
   "metatags": [],
   "moderationState": "published",
   "published": true,
+  "relatedLinks": null,
   "spokes": [],
   "teaserText": "Apply for and manage VA health care benefits",
   "title": "VA health care",
