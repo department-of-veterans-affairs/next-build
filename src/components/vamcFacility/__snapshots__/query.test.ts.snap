@@ -959,6 +959,7 @@ exports[`VamcFacility query should handle the Lovell variant page menu 1`] = `
     "type": "node--health_care_local_facility",
     "vaHealthConnectPhoneNumber": "833-933-1106",
     "vamcEhrSystem": "vista",
+    "vamcSystemTitle": "VA Boston health care",
   },
   "include": {},
 }
@@ -1934,6 +1935,7 @@ exports[`VamcFacility query should output formatted data 1`] = `
     "type": "node--health_care_local_facility",
     "vaHealthConnectPhoneNumber": "833-933-1106",
     "vamcEhrSystem": "vista",
+    "vamcSystemTitle": "VA Boston health care",
   },
   "include": {},
 }
