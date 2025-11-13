@@ -468,6 +468,21 @@ export default function QAPage() {
     })
   }
 
+  const handleDownloadStarsAndNotes = () => {
+    if (!cache) return
+
+    const jsonString = JSON.stringify(cache, null, 2)
+    const blob = new Blob([jsonString], { type: 'application/json' })
+    const url = URL.createObjectURL(blob)
+    const link = document.createElement('a')
+    link.href = url
+    link.download = `${cache.resourceType}-qa-data.json`
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+    URL.revokeObjectURL(url)
+  }
+
   return (
     <div className="vads-u-padding--3">
       <h1 className="vads-u-font-size--h2 vads-u-margin-top--0">QA Tool</h1>
@@ -519,12 +534,24 @@ export default function QAPage() {
       </div>
 
       <div className="vads-u-margin-y--3">
-        <a
-          href={`/_playground/qa/${encodeURIComponent(resourceType)}/review`}
-          className="usa-button usa-button-secondary"
+        <div
+          className="vads-u-display--flex"
+          style={{ gap: '8px', alignItems: 'center' }}
         >
-          Go to review page
-        </a>
+          <a
+            href={`/_playground/qa/${encodeURIComponent(resourceType)}/review`}
+            className="usa-button usa-button-secondary"
+          >
+            Go to review page
+          </a>
+          <button
+            className="usa-button usa-button-secondary"
+            onClick={handleDownloadStarsAndNotes}
+            disabled={!cache}
+          >
+            Download stars and notes
+          </button>
+        </div>
       </div>
 
       {error && (
