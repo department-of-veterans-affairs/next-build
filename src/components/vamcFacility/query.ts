@@ -148,6 +148,7 @@ export const formatter: QueryFormatter<VamcFacilityData, VamcFacility> = ({
             getOppositeChildVariant(lovell?.variant)
           )
         : null,
+    vamcSystemTitle: entity.field_region_page.title,
     healthServices: entity.field_local_health_care_service_
       // Make sure we're only dealing with published health services. If they're
       // not published, they'll be entity references with no actual data.
