@@ -274,6 +274,13 @@ exports[`CampaignLandingPage formatData outputs formatted data 1`] = `
       "text": "Share on X (formerly Twitter)",
     },
   ],
+  "spotlight": {
+    "cta": null,
+    "header": null,
+    "intro": null,
+    "show": false,
+    "teasers": [],
+  },
   "title": "PACT Act and survivors",
   "type": "node--campaign_landing_page",
   "video": {
