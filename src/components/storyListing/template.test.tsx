@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react'
 import { StoryListing } from './template'
 import { StoryListing as FormattedStoryListing } from './formatted-type'
 import { formattedStories } from './mock.formattedNewsStories'
+import { axe } from '@/test-utils'
 
 describe('<StoryListing> component renders', () => {
   let storyListingProps: FormattedStoryListing
@@ -45,6 +46,17 @@ describe('<StoryListing> component renders', () => {
       ],
       lastUpdated: '2021-07-01T14:00:00.000Z',
     }
+  })
+
+  test('without axe violations', async () => {
+    const { container } = render(<StoryListing {...storyListingProps} />)
+    const axeResults = await axe(container, {
+      rules: {
+        // It's only empty because it isn't evaluating the `<va-link>` element inside it.
+        'empty-heading': { enabled: false },
+      },
+    })
+    expect(axeResults).toHaveNoViolations()
   })
 
   test('with valid data', () => {
