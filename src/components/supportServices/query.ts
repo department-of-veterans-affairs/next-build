@@ -32,13 +32,13 @@ export const benefitsHubFormatter: QueryFormatter<
   return {
     type: entity.type,
     id: entity.id,
-    title: entity.title,
+    title: entity?.title,
     number: entity.field_phone_number,
     link: entity.field_link
       ? {
-          uri: entity.field_link.uri,
-          title: entity.field_link.title || '',
-          url: entity.field_link.url || entity.field_link.uri,
+          uri: entity.field_link?.uri,
+          title: entity.field_link?.title || '',
+          url: entity.field_link?.url || entity.field_link?.uri,
         }
       : undefined,
   }
