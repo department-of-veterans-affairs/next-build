@@ -4,7 +4,8 @@ import { axe } from '@/test-utils'
 import { EventListing } from './template'
 import { mockResponse } from './mock.js'
 import { formatter } from './query'
-import { EventWidgetTeaser } from '../event/formatted-type'
+import { EventWidgetTeaser } from '@/components/eventTeaser/formatted-type'
+import { formatDateObject } from '@/lib/utils/date'
 
 declare global {
   interface Window {
@@ -36,7 +37,7 @@ describe('EventListing with valid data', () => {
       delete window.allEventTeasers
       jest.clearAllMocks()
     })
-    const baseEvents = [
+    const baseEvents: EventWidgetTeaser[] = [
       {
         changed: '2025-01-07T16:59:47+00:00',
         entityBundle: 'node--event',
@@ -66,7 +67,7 @@ describe('EventListing with valid data', () => {
           processed: '<p>test body</p>',
         },
         fieldCtaEmail: null,
-        fieldDatetimeRangeTimezone: [
+        fieldDatetimeRangeTimezone: formatDateObject([
           {
             value: '2045-08-14T18:00:00+00:00',
             end_value: '2045-08-14T19:00:00+00:00',
@@ -74,11 +75,8 @@ describe('EventListing with valid data', () => {
             rrule: null,
             rrule_index: null,
             timezone: 'America/Chicago',
-            startTime: '2045-08-14T18:00:00+00:00',
-            endTime: '2045-08-14T19:00:00+00:00',
-            endValue: '2045-08-14T19:00:00+00:00',
           },
-        ],
+        ]),
         fieldDescription:
           'Patient Tele-Town-Hall in August 2025 for Lovell FHCC.',
         fieldEventCost: 'Free',
@@ -98,7 +96,6 @@ describe('EventListing with valid data', () => {
         fieldOrder: null,
         fieldUrlOfAnOnlineEvent: null,
         title: 'Patient Tele-Town Hall',
-        link: '/lovell-federal-health-care-tricare/events/76044',
       },
     ]
     it('transforms event URLs with getLovellVariantOfUrl when lovellVariant is provided', () => {
