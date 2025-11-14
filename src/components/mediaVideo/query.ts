@@ -3,6 +3,7 @@ import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { MediaVideo } from '@/components/mediaDocument/formatted-type'
 import { DrupalMediaVideo } from '@/types/drupal/media'
 import { drupalClient } from '@/lib/drupal/drupalClient'
+import { normalizeEmbeddedVideoUrl } from '@/lib/utils/embeddedMediaVideoUrls'
 
 // Define the query params for fetching node--media_video.
 export const params: QueryParams<null> = () => {
@@ -38,8 +39,11 @@ export const formatter: QueryFormatter<DrupalMediaVideo, MediaVideo> = (
     id: entity.id,
     type: entity.type,
     name: entity.name,
-    field_description: entity?.field_description,
-    field_duration: entity?.field_duration,
-    field_media_video_embed_field: entity?.field_media_video_embed_field,
+    field_description: entity?.field_description ?? null,
+    field_duration: entity?.field_duration ?? null,
+    field_publication_date: entity?.field_publication_date ?? null,
+    field_media_video_embed_field: normalizeEmbeddedVideoUrl(
+      entity?.field_media_video_embed_field
+    ),
   }
 }
