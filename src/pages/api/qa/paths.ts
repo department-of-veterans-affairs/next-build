@@ -119,12 +119,10 @@ export default async function handler(
         typeof resourceType !== 'string' ||
         !isValidResourceType(resourceType)
       ) {
-        return res
-          .status(400)
-          .json({
-            error:
-              'Resource type is required and must be a valid page resource type',
-          })
+        return res.status(400).json({
+          error:
+            'Resource type is required and must be a valid page resource type',
+        })
       }
 
       const existingCache = readCache(resourceType)
