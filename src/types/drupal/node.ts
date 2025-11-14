@@ -27,6 +27,7 @@ import {
 } from './field_type'
 import {
   DrupalMediaDocument,
+  DrupalMediaDocumentExternal,
   DrupalMediaImage,
   DrupalMediaVideo,
 } from './media'
@@ -312,8 +313,8 @@ export interface NodeCampaignLandingPage extends DrupalNode {
   field_clp_resources_panel: boolean
   field_clp_resources_header: string | null
   field_clp_resources_intro_text: string | null
-  field_clp_resources: unknown[] // TODO: Determine resource type
-  field_clp_resources_cta: FieldLink | null
+  field_clp_resources: DrupalMediaDocumentExternal[]
+  field_clp_resources_cta: ParagraphButton | null
 
   // FAQ panel
   field_clp_faq_panel: boolean
