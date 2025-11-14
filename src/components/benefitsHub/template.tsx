@@ -14,64 +14,66 @@ export function BenefitsHub({
   const iconConfig = getHubIcon(titleIcon)
 
   return (
-    <div className="usa-grid usa-grid-full">
-      <article className="usa-width-two-thirds">
-        {iconConfig ? (
-          <div className="tablet:vads-u-display--flex vads-u-margin-y--1 vads-u-align-items--flex-start">
-            <span className="vads-u-margin-top--1">
-              <va-icon
-                icon={iconConfig.icon}
-                size="3"
-                class={iconConfig.className}
-              />
-            </span>
-            <h1 className="vads-u-margin-top--1 tablet:vads-u-margin-left--1 tablet:vads-u-margin-y--0">
-              {title}
-            </h1>
-          </div>
-        ) : (
-          <h1>{title}</h1>
-        )}
-        {intro && (
-          <p
-            className="va-introtext"
-            dangerouslySetInnerHTML={{ __html: intro }}
-          />
-        )}
-        {spokes?.map((spokeSection) => (
-          <div key={spokeSection.id}>
-            <section className="usa-grid">
-              <div className="va-h-ruled--stars"></div>
-            </section>
-            <ListOfLinkTeasers {...spokeSection} isHubPage={true} />
-          </div>
-        ))}
-        <ContentFooter lastUpdated={lastUpdated} />
-      </article>
-      <div className="usa-width-one-third" id="hub-rail">
-        <va-accordion bordered uswds>
-          {fieldLinks && fieldLinks.length > 0 && (
-            <va-accordion-item
-              class="va-accordion-item"
-              level="2"
-              open="true"
-              header="Not a Veteran or family member?"
-              id="get-information-for"
-              bordered
-            >
-              <section>
-                <h3 className="vads-u-font-size--h4">Get information for:</h3>
-                <ul className="va-nav-linkslist-list links">
-                  {fieldLinks.map((link, index) => (
-                    <li key={index}>
-                      <va-link href={link.url.path} text={link.title} />
-                    </li>
-                  ))}
-                </ul>
-              </section>
-            </va-accordion-item>
+    <div className="vads-grid-container">
+      <div className="vads-grid-row">
+        <article className="vads-grid-col-12 tablet:vads-grid-col-8 vads-u-margin-bottom--3">
+          {iconConfig ? (
+            <div className="tablet:vads-u-display--flex vads-u-margin-y--1 vads-u-align-items--flex-start">
+              <span className="vads-u-margin-top--1">
+                <va-icon
+                  icon={iconConfig.icon}
+                  size="3"
+                  class={iconConfig.className}
+                />
+              </span>
+              <h1 className="vads-u-margin-top--1 tablet:vads-u-margin-left--1 tablet:vads-u-margin-y--0">
+                {title}
+              </h1>
+            </div>
+          ) : (
+            <h1>{title}</h1>
           )}
-        </va-accordion>
+          {intro && (
+            <p
+              className="va-introtext"
+              dangerouslySetInnerHTML={{ __html: intro }}
+            />
+          )}
+          {spokes?.map((spokeSection) => (
+            <div key={spokeSection.id}>
+              <section className="vads-grid-container">
+                <div className="va-h-ruled--stars"></div>
+              </section>
+              <ListOfLinkTeasers {...spokeSection} isHubPage={true} />
+            </div>
+          ))}
+          <ContentFooter lastUpdated={lastUpdated} />
+        </article>
+        <div className="vads-grid-col-12 tablet:vads-grid-col-4" id="hub-rail">
+          <va-accordion bordered uswds>
+            {fieldLinks && fieldLinks.length > 0 && (
+              <va-accordion-item
+                class="va-accordion-item"
+                level="2"
+                open="true"
+                header="Not a Veteran or family member?"
+                id="get-information-for"
+                bordered
+              >
+                <section>
+                  <h3 className="vads-u-font-size--h4">Get information for:</h3>
+                  <ul className="va-nav-linkslist-list links">
+                    {fieldLinks.map((link, index) => (
+                      <li key={index}>
+                        <va-link href={link.url.path} text={link.title} />
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              </va-accordion-item>
+            )}
+          </va-accordion>
+        </div>
       </div>
     </div>
   )
