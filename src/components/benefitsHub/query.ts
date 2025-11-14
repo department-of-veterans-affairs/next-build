@@ -55,14 +55,14 @@ export const formatter: QueryFormatter<NodeLandingPage, BenefitsHub> = (
         id: entity.field_related_links.id,
         type: 'paragraph--list_of_link_teasers' as const,
         entityId: entity.field_related_links.drupal_internal__id,
-        title: entity.field_related_links.field_section_header,
+        title: entity.field_related_links.field_section_header || '',
         linkTeasers: (entity.field_related_links.field_links || []).map(
           (link) => ({
             type: 'paragraph--link_teaser' as const,
-            id: link.uri, // Use URI as ID since FieldLink doesn't have an ID
+            id: link.uri || '', // Use URI as ID since FieldLink doesn't have an ID
             entityId: null,
-            uri: link.url || link.uri,
-            title: link.title,
+            uri: link.url || link.uri || '',
+            title: link.title || '',
             options: [],
             summary: null,
             isHubPage: true,
@@ -75,9 +75,9 @@ export const formatter: QueryFormatter<NodeLandingPage, BenefitsHub> = (
   const fieldLinks =
     entity.field_links?.length > 0
       ? entity.field_links.map((link) => ({
-          title: link.title,
+          title: link.title || '',
           url: {
-            path: link.url || link.uri,
+            path: link.url || link.uri || '',
           },
         }))
       : null

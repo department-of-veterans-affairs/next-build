@@ -31,7 +31,7 @@ export const formatter: QueryFormatter<
     type: entity.type as ListOfLinkTeasers['type'],
     id: entity.id,
     entityId: entity.drupal_internal__id ?? null,
-    title: entity.field_title,
+    title: entity.field_title || '',
     linkTeasers: linkTeasers,
   }
 }
