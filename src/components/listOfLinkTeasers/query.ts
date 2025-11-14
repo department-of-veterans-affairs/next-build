@@ -13,6 +13,14 @@ export const formatter: QueryFormatter<
 > = (entity: ParagraphListOfLinkTeasers) => {
   if (!entity) return null
 
+  // Check if field_va_paragraphs exists and is an array before mapping
+  if (
+    !entity.field_va_paragraphs ||
+    !Array.isArray(entity.field_va_paragraphs)
+  ) {
+    return null
+  }
+
   const linkTeasers = entity.field_va_paragraphs
     .map(formatLinkTeaser)
     .filter((linkTeaser) => linkTeaser !== null)
