@@ -10,6 +10,7 @@ import {
   fetchSingleEntityOrPreview,
 } from '@/lib/drupal/query'
 import { formatter as formatListOfLinkTeasers } from '@/components/listOfLinkTeasers/query'
+import { benefitsHubFormatter as formatSupportService } from '@/components/supportServices/query'
 import { getHtmlFromDrupalContent } from '@/lib/utils/getHtmlFromDrupalContent'
 
 // Define the query params for fetching node--landing_page for benefits hub.
@@ -17,6 +18,7 @@ export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude([
     'field_spokes',
     'field_spokes.field_va_paragraphs',
+    'field_support_services',
   ])
 }
 
@@ -47,6 +49,11 @@ export const formatter: QueryFormatter<NodeLandingPage, BenefitsHub> = (
     formatListOfLinkTeasers(spoke)
   )
 
+  // Format each support service using the SupportService formatter
+  const supportServices = (entity.field_support_services || []).map((service) =>
+    formatSupportService(service)
+  )
+
   const fieldLinks =
     entity.field_links?.length > 0
       ? entity.field_links.map((link) => ({
@@ -68,5 +75,6 @@ export const formatter: QueryFormatter<NodeLandingPage, BenefitsHub> = (
     titleIcon: entity.field_title_icon,
     spokes: spokes,
     fieldLinks: fieldLinks,
+    supportServices: supportServices,
   }
 }
