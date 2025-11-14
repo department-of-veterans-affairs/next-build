@@ -27,6 +27,8 @@ export function BenefitsDetailPage({
       className="va-l-detail-page"
     >
       <article className="usa-content vads-u-padding-bottom--0">
+        <div data-widget-type="i18-select" />
+
         <h1>{title}</h1>
 
         {introText && (
