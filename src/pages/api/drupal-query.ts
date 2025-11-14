@@ -18,7 +18,8 @@ export default async function handler(
   }
 
   try {
-    const { resourceType, includes, pageLimit, filters } = req.body
+    const { resourceType, includes, pageLimit, filters, useAuthentication } =
+      req.body
 
     if (!resourceType) {
       return res.status(400).json({ error: 'Resource type is required' })
@@ -57,7 +58,7 @@ export default async function handler(
 
     const data = await drupalClient.getResourceCollection(resourceType, {
       params: params.getQueryObject(),
-      withAuth,
+      withAuth: useAuthentication ? withAuth : false,
     })
 
     // Avoid circular references in the health_care_region_page node. Every item in its
