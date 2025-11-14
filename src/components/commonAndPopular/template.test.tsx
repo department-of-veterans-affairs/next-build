@@ -1,9 +1,10 @@
 import { render, screen } from '@testing-library/react'
+import { axe } from '@/test-utils'
 import { CommonAndPopular } from './template'
 
 describe('CommonAndPopular Component', () => {
-  test('renders common and popular links correctly', () => {
-    render(<CommonAndPopular />)
+  test('renders common and popular links correctly', async () => {
+    const { container } = render(<CommonAndPopular />)
 
     const commonQuestionsLinks = screen.getAllByRole('link', {
       name: /how do i /i,
@@ -22,5 +23,8 @@ describe('CommonAndPopular Component', () => {
       'href',
       expect.stringMatching(/\/find-locations\/?/)
     )
+
+    const axeResults = await axe(container)
+    expect(axeResults).toHaveNoViolations()
   })
 })
