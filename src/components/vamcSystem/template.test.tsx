@@ -10,6 +10,7 @@ import { DrupalMenuLinkContent } from 'next-drupal'
 import { LOVELL } from '@/lib/drupal/lovell/constants'
 import mockEventData from '@/components/event/mock.json'
 import { NodeNewsStory } from '@/types/drupal/node'
+import { axe } from '@/test-utils'
 
 const mockFeaturedEventData = {
   ...mockEventData,
@@ -63,6 +64,17 @@ describe('VamcSystem with valid data', () => {
     basicDataFields.forEach((key) =>
       expect(screen.getByText(mockData[key])).toBeInTheDocument()
     )
+  })
+
+  test('gives no axe violations', async () => {
+    const { container } = render(<VamcSystem {...mockData} />)
+    const axeResults = await axe(container, {
+      rules: {
+        // It's only empty because it isn't evaluating the `<va-link>` element inside it.
+        'empty-heading': { enabled: false },
+      },
+    })
+    expect(axeResults).toHaveNoViolations()
   })
 
   describe('RegionalTopTasks', () => {

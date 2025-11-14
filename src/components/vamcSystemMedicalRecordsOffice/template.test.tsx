@@ -2,8 +2,22 @@ import React from 'react'
 import { render, screen } from '@testing-library/react'
 import VamcSystemMedicalRecordsOffice from './template'
 import mockData from './mock.formatted'
+import { axe } from '@/test-utils'
 
 describe('VamcSystemMedicalRecordsOffice', () => {
+  it('gives no axe violations', async () => {
+    const { container } = render(
+      <VamcSystemMedicalRecordsOffice {...mockData} />
+    )
+    const axeResults = await axe(container, {
+      rules: {
+        // It's only empty because it isn't evaluating the `<va-link>` element inside it.
+        'empty-heading': { enabled: false },
+      },
+    })
+    expect(axeResults).toHaveNoViolations()
+  })
+
   it('renders the title', () => {
     render(<VamcSystemMedicalRecordsOffice {...mockData} />)
     expect(screen.getByText('Medical records office')).toBeInTheDocument()
