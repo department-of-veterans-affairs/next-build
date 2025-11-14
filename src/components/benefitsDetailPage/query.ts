@@ -29,8 +29,29 @@ export const params: QueryParams<null> = () => {
       PARAGRAPH_RESOURCE_TYPES.LIST_OF_LINK_TEASERS
     ),
     ...getNestedIncludes('field_alert', 'block--alert'),
-    // ...getNestedIncludes('field_content_block', PARAGRAPH_RESOURCE_TYPES.QA),
-    // ...getNestedIncludes('field_featured_content', PARAGRAPH_RESOURCE_TYPES.QA),
+    ...getNestedIncludes('field_featured_content', PARAGRAPH_RESOURCE_TYPES.QA),
+    ...getNestedIncludes(
+      'field_content_block',
+      PARAGRAPH_RESOURCE_TYPES.QA_SECTION
+    ),
+    ...getNestedIncludes(
+      'field_content_block',
+      PARAGRAPH_RESOURCE_TYPES.LIST_OF_LINK_TEASERS
+    ),
+    ...getNestedIncludes(
+      'field_content_block',
+      PARAGRAPH_RESOURCE_TYPES.COLLAPSIBLE_PANEL
+    ),
+    ...getNestedIncludes(
+      'field_content_block',
+      PARAGRAPH_RESOURCE_TYPES.DOWNLOADABLE_FILE
+    ),
+    ...getNestedIncludes('field_content_block', PARAGRAPH_RESOURCE_TYPES.ALERT),
+    // ...getNestedIncludes(
+    //   'field_content_block',
+    //   PARAGRAPH_RESOURCE_TYPES.STAFF_PROFILE
+    // ),
+    ...getNestedIncludes('field_content_block', PARAGRAPH_RESOURCE_TYPES.MEDIA),
   ])
 }
 
@@ -76,14 +97,11 @@ export const formatter: QueryFormatter<
     introText: getHtmlFromField(entity.field_intro_text_limited_html) || null,
     showTableOfContents: entity.field_table_of_contents_boolean ?? false,
     alert: entity.field_alert ? formatAlertBlock(entity.field_alert) : null,
-    // featuredContent:
-    //   entity.field_featured_content?.map((paragraph) =>
-    //     formatParagraph(paragraph)
-    //   ) || null,
-    // contentBlock:
-    //   entity.field_content_block?.map((paragraph) =>
-    //     formatParagraph(paragraph)
-    //   ) || null,
+    featuredContent:
+      entity.field_featured_content?.map((paragraph) =>
+        formatParagraph(paragraph)
+      ) || null,
+    mainContent: entity.field_content_block.map((p) => formatParagraph(p)),
     relatedLinks,
     administration: entity.field_administration
       ? formatAdministration(entity.field_administration)
