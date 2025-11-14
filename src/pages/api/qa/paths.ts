@@ -3,7 +3,11 @@ import fs from 'fs'
 import path from 'path'
 import { getStaticPathsByResourceType } from '@/lib/drupal/staticPaths'
 import { slugToPath } from '@/lib/utils/slug'
-import { ResourceType } from '@/lib/constants/resourceTypes'
+import {
+  PAGE_RESOURCE_TYPES,
+  PageResourceType,
+  ResourceType,
+} from '@/lib/constants/resourceTypes'
 
 interface QAPath {
   path: string
@@ -17,7 +21,7 @@ interface QACache {
   lastFetched?: string
 }
 
-const getCacheFilePath = (resourceType: string): string => {
+function getCacheFilePath(resourceType: string): string {
   const cacheDir = path.join(process.cwd(), '.qa-data')
   if (!fs.existsSync(cacheDir)) {
     fs.mkdirSync(cacheDir, { recursive: true })
@@ -25,7 +29,7 @@ const getCacheFilePath = (resourceType: string): string => {
   return path.join(cacheDir, `${resourceType}.json`)
 }
 
-const readCache = (resourceType: string): QACache | null => {
+function readCache(resourceType: string): QACache | null {
   const filePath = getCacheFilePath(resourceType)
   if (!fs.existsSync(filePath)) {
     return null
@@ -39,7 +43,7 @@ const readCache = (resourceType: string): QACache | null => {
   }
 }
 
-const cleanPath = (qaPath: QAPath): Partial<QAPath> => {
+function cleanPath(qaPath: QAPath): Partial<QAPath> {
   const cleaned: Partial<QAPath> = { path: qaPath.path }
   if (qaPath.starred === true) {
     cleaned.starred = true
@@ -50,7 +54,7 @@ const cleanPath = (qaPath: QAPath): Partial<QAPath> => {
   return cleaned
 }
 
-const writeCache = (cache: QACache): void => {
+function writeCache(cache: QACache): void {
   const filePath = getCacheFilePath(cache.resourceType)
   // Clean paths to only include starred/notes if they have values
   const cleanedCache: QACache = {
@@ -60,9 +64,9 @@ const writeCache = (cache: QACache): void => {
   fs.writeFileSync(filePath, JSON.stringify(cleanedCache, null, 2), 'utf-8')
 }
 
-const fetchPathsFromDrupal = async (
+async function fetchPathsFromDrupal(
   resourceType: ResourceType
-): Promise<string[]> => {
+): Promise<string[]> {
   const staticPaths = await getStaticPathsByResourceType(resourceType)
   return staticPaths.map((staticPath) => {
     if (typeof staticPath === 'string') {
@@ -73,10 +77,10 @@ const fetchPathsFromDrupal = async (
   })
 }
 
-const mergePathsWithCache = (
+function mergePathsWithCache(
   newPaths: string[],
   existingCache: QACache
-): QACache => {
+): QACache {
   const existingPathsMap = new Map<string, QAPath>()
   existingCache.paths.forEach((path) => {
     existingPathsMap.set(path.path, path)
@@ -99,6 +103,10 @@ const mergePathsWithCache = (
   }
 }
 
+function isValidResourceType(input: string): boolean {
+  return PAGE_RESOURCE_TYPES.includes(input as PageResourceType)
+}
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
@@ -107,8 +115,16 @@ export default async function handler(
     try {
       const { resourceType, revalidate } = req.query
 
-      if (!resourceType || typeof resourceType !== 'string') {
-        return res.status(400).json({ error: 'Resource type is required' })
+      if (
+        typeof resourceType !== 'string' ||
+        !isValidResourceType(resourceType)
+      ) {
+        return res
+          .status(400)
+          .json({
+            error:
+              'Resource type is required and must be a valid page resource type',
+          })
       }
 
       const existingCache = readCache(resourceType)
@@ -154,7 +170,11 @@ export default async function handler(
     try {
       const { resourceType, path: pathToUpdate, starred, notes } = req.body
 
-      if (!resourceType || !pathToUpdate) {
+      if (
+        !resourceType ||
+        !isValidResourceType(resourceType) ||
+        !pathToUpdate
+      ) {
         return res
           .status(400)
           .json({ error: 'Resource type and path are required' })
