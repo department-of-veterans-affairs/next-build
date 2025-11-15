@@ -131,8 +131,8 @@ if (process.env.FEATURE_NEXT_BUILD_CONTENT_ALL === 'true') {
 }
 
 export const DynamicBreadcrumbs = dynamic(
-  () => import('@/components/breadcrumbs/template'),
-  { ssr: false }
+  () => import('@/components/breadcrumbs/template')
+  // { ssr: false }
 )
 
 // [[...slug]] is a catchall route. We build the appropriate layout based on the resource returned for a given path.
@@ -329,6 +329,21 @@ export async function getStaticPaths(
   if (process.env.SSG === 'false') {
     return {
       paths: [],
+      fallback: 'blocking',
+    }
+  }
+
+  if (process.env.SSG_CHERRY_PICKED_PATHS) {
+    log(
+      `SSG_CHERRY_PICKED_PATHS is set to ${process.env.SSG_CHERRY_PICKED_PATHS}.`
+    )
+    const paths = process.env.SSG_CHERRY_PICKED_PATHS.split(';')
+    log(`Building cherry-picked paths:\n  ${paths.join('\n  ')}\n`)
+    return {
+      // Turn /alexandria-va-vet-center/locations/ into ['alexandria-va-vet-center', 'locations']
+      paths: paths.map((path) => ({
+        params: { slug: path.split('/').filter(Boolean) },
+      })),
       fallback: 'blocking',
     }
   }

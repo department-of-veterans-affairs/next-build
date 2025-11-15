@@ -38,12 +38,6 @@ export function VetCenter(vetCenterProps: FormattedVetCenter) {
     path,
   } = vetCenterProps
 
-  const directionsString = [
-    address?.address_line1,
-    address?.locality,
-    address?.administrative_area,
-  ]
-
   const alsoCalled =
     officialName && title !== officialName
       ? `Also called the ${officialName}`

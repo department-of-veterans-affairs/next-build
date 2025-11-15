@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 export const TopNav = () => {
   return (
@@ -102,14 +103,14 @@ export const TopNav = () => {
         id="va-header-logo-menu"
       >
         <div className="va-header-logo-wrapper">
-          <a href="/" className="va-header-logo">
+          <Link href="/" className="va-header-logo">
             <Image
               src="/img/header-logo.png"
               alt="VA logo and Seal, U.S. Department of Veterans Affairs"
               height="59"
               width="264"
             />
-          </a>
+          </Link>
         </div>
 
         {/* <div id="va-nav-controls"></div> */}
