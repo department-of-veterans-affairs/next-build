@@ -172,7 +172,11 @@ export function getDateParts(
   }
 }
 
-export const formatDateObject = (datetimeRange) => {
+export const formatDateObject = <
+  T extends Pick<FieldDateTimeRange, 'value' | 'end_value'>,
+>(
+  datetimeRange: T[]
+) => {
   if (!datetimeRange) return []
 
   return datetimeRange.map((dateObject) => {
@@ -257,6 +261,7 @@ export const deriveFormattedTimestamp = (datetime) => {
   return reformatTime(formattedTime)
 }
 
+import { FieldDateTimeRange } from '@/types/drupal/field_type'
 import { formatInTimeZone } from 'date-fns-tz'
 /**
  * Represents a time range for events or appointments using Unix timestamps.

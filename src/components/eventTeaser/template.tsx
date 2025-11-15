@@ -1,7 +1,18 @@
 import { truncateWordsOrChar } from '@/lib/utils/helpers'
-import { EventWidgetTeaser } from '@/components/event/formatted-type'
+import { EventWidgetTeaser } from '@/components/eventTeaser/formatted-type'
 import { deriveMostRecentDate, formatEventDateTime } from '@/lib/utils/date'
 import clsx from 'clsx'
+
+export type EventTeaserProps = Pick<
+  EventWidgetTeaser,
+  | 'title'
+  | 'entityUrl'
+  | 'fieldDescription'
+  | 'fieldDatetimeRangeTimezone'
+  | 'fieldFacilityLocation'
+  | 'fieldLocationHumanreadable'
+  | 'fieldFeatured'
+>
 
 /** Teaser event. */
 export const EventTeaser = ({
@@ -12,7 +23,7 @@ export const EventTeaser = ({
   fieldFacilityLocation,
   fieldLocationHumanreadable,
   fieldFeatured,
-}: EventWidgetTeaser) => {
+}: EventTeaserProps) => {
   // Use the exact same pattern as the event template
   const mostRecentDate = deriveMostRecentDate(fieldDatetimeRangeTimezone)
   const formattedDateTime = formatEventDateTime(mostRecentDate)

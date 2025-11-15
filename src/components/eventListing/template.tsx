@@ -10,7 +10,7 @@
  */
 import { useEffect } from 'react'
 import { EventListing as FormattedEventListing } from './formatted-type'
-import { EventWidgetTeaser } from '../event/formatted-type'
+import { EventWidgetTeaser } from '@/components/eventTeaser/formatted-type'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 import { ContentFooter } from '@/components/contentFooter/template'
 import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
