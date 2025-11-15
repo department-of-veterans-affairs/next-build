@@ -1,32 +1,25 @@
 import { truncateWordsOrChar } from '@/lib/utils/helpers'
-import { EventWidgetTeaser } from '@/components/eventTeaser/formatted-type'
-import { deriveMostRecentDate, formatEventDateTime } from '@/lib/utils/date'
+import { FeaturedEventTeaser } from '@/components/eventTeaser/formatted-type'
+import { formatEventDateTime } from '@/lib/utils/date'
 import clsx from 'clsx'
 
-export type EventTeaserProps = Pick<
-  EventWidgetTeaser,
-  | 'title'
-  | 'entityUrl'
-  | 'fieldDescription'
-  | 'fieldDatetimeRangeTimezone'
-  | 'fieldFacilityLocation'
-  | 'fieldLocationHumanreadable'
-  | 'fieldFeatured'
->
+export type EventTeaserProps = FeaturedEventTeaser
 
-/** Teaser event. */
+/**
+ * The other way to render a teaser is through the events widget from vets-website. This
+ * one takes a specific, stripped-down FeaturedEventTeaser object from the custom
+ * featured-events endpoint.
+ */
 export const EventTeaser = ({
   title,
   entityUrl,
-  fieldDescription,
-  fieldDatetimeRangeTimezone,
-  fieldFacilityLocation,
-  fieldLocationHumanreadable,
-  fieldFeatured,
+  description,
+  datetimeRangeTimezone,
+  facilityLocation,
+  locationHumanReadable,
+  featured,
 }: EventTeaserProps) => {
-  // Use the exact same pattern as the event template
-  const mostRecentDate = deriveMostRecentDate(fieldDatetimeRangeTimezone)
-  const formattedDateTime = formatEventDateTime(mostRecentDate)
+  const formattedDateTime = formatEventDateTime(datetimeRangeTimezone)
 
   const rowClass = 'vads-grid-row vads-grid-gap-1'
   const col1Class = 'vads-grid-col-auto'
@@ -35,14 +28,14 @@ export const EventTeaser = ({
   return (
     <div
       data-template="teasers/event"
-      data-featured={fieldFeatured}
+      data-featured={featured}
       className="vads-u-margin-bottom--3 tablet:vads-u-margin-bottom--4"
     >
       <h3 className="vads-u-margin-top--0 vads-u-margin-bottom-1 vads-u-font-size--md tablet:vads-u-font-size--lg">
-        <va-link text={title} href={entityUrl.path} />
+        <va-link text={title} href={entityUrl} />
       </h3>
       <p className="vads-u-margin-bottom--1p5 vads-u-margin-top--0">
-        {truncateWordsOrChar(fieldDescription ?? '', 60, true)}
+        {truncateWordsOrChar(description ?? '', 60, true)}
       </p>
       <div className={clsx(rowClass, 'vads-u-margin-bottom--1')}>
         <div className={col1Class}>
@@ -54,7 +47,7 @@ export const EventTeaser = ({
           <p className="vads-u-margin-y--0">{formattedDateTime}</p>
         </div>
       </div>
-      {fieldFacilityLocation && (
+      {facilityLocation && (
         <div className={rowClass}>
           <div className={col1Class}>
             <p className="vads-u-margin-y--0">
@@ -64,12 +57,12 @@ export const EventTeaser = ({
           <div className={col2Class}>
             <p className="vads-u-margin-top--0 vads-u-margin-bottom--1">
               <va-link
-                href={fieldFacilityLocation.entity.entityUrl.path}
-                text={fieldFacilityLocation.entity.title}
+                href={facilityLocation.entityUrl}
+                text={facilityLocation.title}
               />
             </p>
             <p className="vads-u-margin-y--0">
-              {fieldLocationHumanreadable && fieldLocationHumanreadable}
+              {locationHumanReadable && locationHumanReadable}
             </p>
           </div>
         </div>

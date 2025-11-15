@@ -9,14 +9,21 @@ import { formatter } from './query'
 import { DrupalMenuLinkContent } from 'next-drupal'
 import { LOVELL } from '@/lib/drupal/lovell/constants'
 import mockEventData from '@/components/event/mock.json'
-import { NodeNewsStory } from '@/types/drupal/node'
+import { NodeEvent, NodeNewsStory } from '@/types/drupal/node'
 import { axe } from '@/test-utils'
+import { convertEventToFeaturedEventTeaser } from '@/components/eventTeaser/test-utils'
 
-const mockFeaturedEventData = {
+const mockFeaturedEventData = convertEventToFeaturedEventTeaser({
   ...mockEventData,
   field_featured: true,
   title: 'Dodgeball Club',
-}
+  field_facility_location: {
+    title: 'Central Iowa Health Care',
+    path: {
+      alias: '/central-iowa-health-care',
+    },
+  } as NodeEvent['field_facility_location'],
+})
 
 const menuItem: DrupalMenuLinkContent = {
   title: 'Foo',
@@ -50,7 +57,6 @@ const mockData = formatter({
   mainFacilities: [drupalMockFacilityData],
   featuredStories: [drupalMockStoryData as NodeNewsStory],
   featuredEvents: [mockFeaturedEventData],
-  fallbackEvent: mockEventData,
 })
 
 describe('VamcSystem with valid data', () => {
@@ -406,21 +412,20 @@ describe('VamcSystem with valid data', () => {
 
     test('renders all featured events without limit', () => {
       // Create test data with multiple events (unlike stories, events don't have a MAX limit)
+      const event2 = convertEventToFeaturedEventTeaser({
+        ...mockEventData,
+        title: 'Basketball Club',
+        field_featured: true,
+      })
+      const event3 = convertEventToFeaturedEventTeaser({
+        ...mockEventData,
+        title: 'Soccer Club',
+        field_featured: true,
+      })
+
       const dataWithMultipleEvents = {
         ...mockData,
-        featuredEvents: [
-          ...mockData.featuredEvents,
-          {
-            ...mockData.featuredEvents[0],
-            entityId: 'event-2',
-            title: 'Basketball Club',
-          },
-          {
-            ...mockData.featuredEvents[0],
-            entityId: 'event-3',
-            title: 'Soccer Club',
-          },
-        ],
+        featuredEvents: [...mockData.featuredEvents, event2, event3],
       }
 
       const { container } = render(<VamcSystem {...dataWithMultipleEvents} />)
@@ -448,7 +453,8 @@ describe('VamcSystem with valid data', () => {
           `va-link[text="${event.title}"]`
         )
         expect(eventLink).toBeInTheDocument()
-        expect(eventLink).toHaveAttribute('href', event.entityUrl.path)
+        // entityUrl is now a string, not an object with a path property
+        expect(eventLink).toHaveAttribute('href', event.entityUrl)
       })
     })
 
@@ -460,17 +466,16 @@ describe('VamcSystem with valid data', () => {
       expect(screen.getByText(/Pickleball/)).toBeInTheDocument()
     })
 
+    test('renders event facility location information', () => {
+      render(<VamcSystem {...mockData} />)
+      expect(screen.getByText('Walker Johnston Park')).toBeInTheDocument()
+    })
+
     test('renders event date and time information', () => {
       // Mock timezone to Mountain Time to ensure consistent test results no matter where
       // the test is run (Pacific on my machine, Central on CI)
       mockTimeZone('America/Denver')
-
       render(<VamcSystem {...mockData} />)
-
-      // Check that "When" label appears for events
-      expect(screen.getAllByText('When').length).toBeGreaterThan(0)
-
-      // Check that formatted date appears (from our EventTeaser tests, we know this format)
       expect(
         screen.getByText('Thu. Sep 14, 2023, 8:00 a.m. – 10:00 a.m. MT')
       ).toBeInTheDocument()
@@ -492,7 +497,6 @@ describe('VamcSystem with valid data', () => {
       const dataWithoutEvents = {
         ...mockData,
         featuredEvents: [],
-        fallbackEvent: null,
       }
 
       render(<VamcSystem {...dataWithoutEvents} />)
@@ -503,26 +507,29 @@ describe('VamcSystem with valid data', () => {
       expect(screen.queryByText('See all events')).not.toBeInTheDocument()
     })
 
-    test('renders other events when no featured events exist', () => {
-      const dataWithOnlyFallbackEvent = {
+    test('renders non-featured events when no featured events exist', () => {
+      // Create a non-featured event (API handles fallback internally)
+      const nonFeaturedEvent = convertEventToFeaturedEventTeaser({
+        ...mockEventData,
+        title: 'Non-featured Event',
+        field_featured: false,
+      })
+
+      const dataWithOnlyNonFeaturedEvent = {
         ...mockData,
-        featuredEvents: [],
-        // fallbackEvent should still exist from mockData
+        featuredEvents: [nonFeaturedEvent],
       }
 
       const { container } = render(
-        <VamcSystem {...dataWithOnlyFallbackEvent} />
+        <VamcSystem {...dataWithOnlyNonFeaturedEvent} />
       )
 
-      // When no featured events exist, should render first other event
-      const otherEventLink = container.querySelector(
-        'va-link[text="Pickleball Club"]'
+      // When API returns non-featured events as fallback, they should still render
+      const eventLink = container.querySelector(
+        'va-link[text="Non-featured Event"]'
       )
-      expect(otherEventLink).toBeInTheDocument()
-      expect(otherEventLink).toHaveAttribute(
-        'href',
-        '/central-iowa-health-care/events/52265'
-      )
+      expect(eventLink).toBeInTheDocument()
+      expect(eventLink).toHaveAttribute('href', nonFeaturedEvent.entityUrl)
     })
   })
 
