@@ -22,6 +22,7 @@ export type VamcFacility = PublishedEntity & {
   menu: SideNavMenu | null
   path: string
   administration?: Administration
+  vamcSystemTitle: string
   vamcEhrSystem: VamcEhr['field_region_page']['field_vamc_ehr_system']
   officeHours: FieldOfficeHours[]
   address: FieldAddress

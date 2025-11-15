@@ -26,6 +26,7 @@ export function VamcFacility({
   menu,
   path,
   administration,
+  vamcSystemTitle,
   vamcEhrSystem,
   officeHours,
   address,
