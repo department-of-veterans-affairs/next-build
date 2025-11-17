@@ -15,7 +15,7 @@ import {
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { queries } from '@/lib/drupal/queries'
 import { LovellStaticPropsContextProps } from '@/lib/drupal/lovell/types'
-import { params } from './query'
+import { params, serviceParams } from './query'
 import { createMockServicesForGrouping } from './mockServiceDes'
 import { Menu } from '@/types/drupal/menu'
 import { DrupalMenuLinkContent } from 'next-drupal'
@@ -74,6 +74,16 @@ jest.mock('@/lib/drupal/query', () => ({
   getMenu: () => mockMenu,
 }))
 
+jest.mock('@/lib/drupal/drupalClient', () => ({
+  drupalClient: {
+    translatePath: jest.fn().mockResolvedValue({
+      entity: {
+        path: '/test-translated-path',
+      },
+    }),
+  },
+}))
+
 function runQuery(lovell: Partial<LovellStaticPropsContextProps> = {}) {
   return queries.getData(RESOURCE_TYPES.VAMC_HEALTH_SERVICES_LISTING, {
     id: mockServicesListing.id,
@@ -99,6 +109,18 @@ describe('DrupalJsonApiParams configuration', () => {
     const paramsInstance = params()
     const queryString = decodeURIComponent(paramsInstance.getQueryString())
     expect(queryString).toMatchSnapshot()
+  })
+
+  test('serviceParams function sets the correct filters and includes', () => {
+    const vamcSystemId = 'test-system-id'
+    const paramsInstance = serviceParams(vamcSystemId)
+    const queryString = decodeURIComponent(paramsInstance.getQueryString())
+    expect(queryString).toContain('field_service_name_and_descripti')
+    expect(queryString).toContain('field_local_health_care_service_')
+    expect(queryString).toContain('filter[status]=1')
+    expect(queryString).toContain(
+      `filter[field_region_page.id]=${vamcSystemId}`
+    )
   })
 })
 
@@ -137,5 +159,139 @@ describe('VamcHealthServicesListing formatter', () => {
     expect(mentalHealthGroup).toBeDefined()
     expect(mentalHealthGroup?.services).toHaveLength(1)
     expect(mentalHealthGroup?.services[0].title).toBe('Mental Health Service')
+  })
+
+  test('handles null menu when field_system_menu is missing', async () => {
+    mockPageQuery.mockReturnValue({
+      ...mockServicesListing,
+      field_office: {
+        ...mockServicesListing.field_office,
+        field_system_menu: undefined,
+      },
+    } as NodeVamcHealthServicesListing)
+
+    const result = await runQuery()
+
+    expect(result.menu).toBeNull()
+  })
+
+  describe('Lovell variant handling', () => {
+    const lovellPath = {
+      alias: '/lovell-federal-health-care-va/health-services',
+      pid: 79642,
+      langcode: 'en',
+    }
+    const lovellBreadcrumbs = [
+      {
+        uri: 'https://va-gov-cms.ddev.site/',
+        title: 'Home',
+        options: [],
+      },
+      {
+        uri: 'https://va-gov-cms.ddev.site/lovell-federal-health-care',
+        title: 'Lovell Federal health care',
+        options: [],
+      },
+      {
+        uri: 'internal:#',
+        title: 'Health services',
+        options: [],
+      },
+    ]
+
+    test('outputs formatted data with Lovell variant', async () => {
+      mockPageQuery.mockReturnValue({
+        ...mockServicesListing,
+        path: lovellPath,
+        breadcrumbs: lovellBreadcrumbs,
+      } as NodeVamcHealthServicesListing)
+
+      const result = await runQuery({
+        isLovellVariantPage: true,
+        variant: 'tricare',
+      })
+
+      expect(result.lovellVariant).toBe('tricare')
+      expect(result.lovellSwitchPath).toBeDefined()
+      expect(result.breadcrumbs).toBeDefined()
+    })
+
+    test('updates the breadcrumbs for Lovell variant', async () => {
+      mockPageQuery.mockReturnValue({
+        ...mockServicesListing,
+        path: lovellPath,
+        breadcrumbs: lovellBreadcrumbs,
+      } as NodeVamcHealthServicesListing)
+
+      const result = await runQuery({
+        isLovellVariantPage: true,
+        variant: 'tricare',
+      })
+
+      // Breadcrumbs should be transformed for Lovell variant
+      expect(result.breadcrumbs).toBeDefined()
+      expect(result.breadcrumbs).not.toEqual(lovellBreadcrumbs)
+    })
+
+    test('does not modify breadcrumbs when not a Lovell variant page', async () => {
+      mockPageQuery.mockReturnValue({
+        ...mockServicesListing,
+        path: lovellPath,
+        breadcrumbs: lovellBreadcrumbs,
+      } as NodeVamcHealthServicesListing)
+
+      const result = await runQuery({
+        isLovellVariantPage: false,
+        variant: null,
+      })
+
+      expect(result.lovellVariant).toBeNull()
+      expect(result.lovellSwitchPath).toBeNull()
+      expect(result.breadcrumbs).toEqual(lovellBreadcrumbs)
+    })
+  })
+
+  test('handles null featured content', async () => {
+    mockPageQuery.mockReturnValue({
+      ...mockServicesListing,
+      field_featured_content_healthser: null,
+    } as NodeVamcHealthServicesListing)
+
+    const result = await runQuery()
+
+    expect(result.featuredContent).toEqual([])
+  })
+
+  test('handles undefined featured content', async () => {
+    mockPageQuery.mockReturnValue({
+      ...mockServicesListing,
+      field_featured_content_healthser: undefined,
+    } as NodeVamcHealthServicesListing)
+
+    const result = await runQuery()
+
+    expect(result.featuredContent).toEqual([])
+  })
+
+  test('handles featured content with missing field_link url', async () => {
+    // Use a valid link teaser structure but with a url that falls back to formattedItem.uri
+    mockPageQuery.mockReturnValue({
+      ...mockServicesListing,
+      field_featured_content_healthser: [
+        {
+          ...mockServicesListing.field_featured_content_healthser[0],
+          field_link: {
+            title: 'Test Link',
+            uri: null, // Missing URL, should fall back to formattedItem.uri
+            options: [],
+          },
+        },
+      ],
+    } as NodeVamcHealthServicesListing)
+
+    const result = await runQuery()
+
+    expect(result.featuredContent).toBeDefined()
+    expect(result.featuredContent.length).toBeGreaterThan(0)
   })
 })
