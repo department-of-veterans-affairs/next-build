@@ -2,12 +2,14 @@
 
 - The second step to the Accelerated Publishing work will be to implement a persistent server that will allow content to be published from Drupal CMS to VA.gov much more quickly; we are estimating ~5 minutes from when content is updated in Drupal CMS to updated in VA.gov. This is because the server will be triggered to rebuild the pages after a predetermined amount of time.
 
+Please see the [engineering checklist & overview](./engineering-checklist.md) for more information.
+
 **Please describe a plan to monitor this code base after deployment, including the following scenarios (NOTE: If you don't (yet) have such a plan, or don't know how to get started with one, we can work on this with you!).**
 
 - We are using DataDog for monitoring
 - Using lock files for our code in Nextjs
 - No plan in place to monitor for unauthorized code changes in production servers
-- We welcome insight and direction from platform on a possible solution if this is a threat we should consider.
+  - We welcome insight and direction from platform on a possible solution if this is a threat we should consider.
 
 * **The code base is compromised at source- or run-time.**
   - At source we use GitHub and monitor all changes and have security on who can merge to main
@@ -38,14 +40,17 @@
 
 **Provide your Release Plan with the "Planning" sections completed (in each section: Phase I, Phase II, Go Live)**
 
-- Do not have a detailed plan for each phase yet
-- [Jeff add testing and talk to Grace about plans?]
+- We do not currently have a fully fleshed out Release Plan as described in the [Release Plan Template](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/product-management/release-plan-template.md). We will develop this in the near term.
+
+Our initial rollout is to a very small subsection of all CMS content (VA Tampa Stories and Story Listing) and has been chosen for relatively low user impact (meaning if there are failures in this section it will not adversely impact a Veteran's ability to access services) and also for relatively frequent updates, which is important for our test case.
+
+This initial validation will inform our confidence in rolling out the new architecture to larger areas of the site. Those plans will be create in cooperation with our PO (Erika Washburn) and head of Platform engineering (Steve Albers).
 
 **Are there any new application endpoints, front- or back-end? If so, please give examples of how any of the endpoints could be abused by unauthorized parties, as well as a plan to mitigate such threats.**
 
 - The system uses an [Drupal JSON:API](https://www.drupal.org/docs/core-modules-and-themes/core-modules/jsonapi-module) endpoint to Get content data for requested pages
-  - This is a Get only request
-  - All other request types are denied by the Drupal server for this configuration
+  - This is a GET request
+  - All other REST request types are denied by the Drupal server for this configuration
   - This endpoint is not public and only used internally by the Nextjs Server
 - Potential for DDOS attack
   - We will be limiting connections and imposing time limits on responses to prevent overloading the system.
@@ -100,16 +105,14 @@ Please provide the following documentation as attachments.
 | ------------------------------------------------- | ---------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
 | Firewall (WAF)                                    | Injection Attacks                                                                              | Need to confirm if this is handled by TIC or other current infrastructure deployed with Kubernetes |
 | Content Security Policy (CSP)                     | Cross-Site Scripting (XSS) Client-Side Attacks                                                 |                                                                                                    |
-| Principle of Least Privilege                      | Security Misconfigurations, Broken Access Control, API Security Vulnerabilities                | Only using Get Requests from Nextjs to Drupal                                                      |
+| Principle of Least Privilege                      | Security Misconfigurations, Broken Access Control, API Security Vulnerabilities                | Only using GET Requests from Nextjs to Drupal                                                      |
 | Disallow requests to private IP ranges            | Server-Side Request Forgery (SSRF)                                                             |                                                                                                    |
 | Rate limit for API and controller access          | Broken Access Control, API Security Vulnerabilities, Denial of Service (DoS) & Distributed DoS |                                                                                                    |
 | Using lock files to prevent floating dependencies | Supply Chain Attacks                                                                           |                                                                                                    |
 | Regularly audit dependencies                      | Supply Chain Attacks                                                                           | Using Dependabot                                                                                   |
 | HTTPS for all connections                         | Data Tampering / Injection                                                                     |                                                                                                    |
 
-- **Platform Question**: Guidance on if we need to schedule our own Penetration testing (pen testing)?
-
-* **If there are any libraries or components that this code base will depend upon that are currently not yet part of the code base? How and why were these selected?**
+- **Platform Question**: We would like to know if there is any team, software, or procedures for penetration and security readiness of our application available from Platform or VA OIT, and if so how we can request and schedule that review.
 
 **Incident Response Plan, including Points of Contact for your system and dependent VA back-ends.**
 
@@ -119,9 +122,9 @@ Please provide the following documentation as attachments.
   - PR is reviewed and automated tests are run - ~10 mins
   - PR is merged after successful review and automated testing
   - Deployment executes and updates the production environment
-    - Nextjs Env - ~10 mins [Tim and Edmund to comment]
-    - Drupal Env - ~15 mins [Tim and Edmund to comment]
-  - No downtime due to the deployment process.
+    - Nextjs Env - ~10 mins
+    - Drupal Env - ~90 mins
+  - No VA.gov downtime due to the deployment process. The CMS has some downtime as part of its deployment process, but this is not public facing.
 
 **Sequence Diagram: This diagram must include any authentication steps if this is an authenticated experience.**
 
