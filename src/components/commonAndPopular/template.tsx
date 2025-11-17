@@ -1,5 +1,3 @@
-import Link from 'next/link'
-
 export function CommonAndPopular() {
   return (
     <div className="row vads-u-padding-bottom--9">
@@ -9,19 +7,19 @@ export function CommonAndPopular() {
         </h3>
         <ul className="va-list--plain vads-u-margin-top--1">
           <li className="vads-u-padding-y--1">
-            <Link href="/health-care/how-to-apply/">
+            <a href="/health-care/how-to-apply/">
               How do I apply for health care?
-            </Link>
+            </a>
           </li>
           <li className="vads-u-padding-y--1">
-            <Link href="/disability/how-to-file-claim/">
+            <a href="/disability/how-to-file-claim/">
               How do I file for disability benefits?
-            </Link>
+            </a>
           </li>
           <li className="vads-u-padding-y--1">
-            <Link href="/education/how-to-apply/">
+            <a href="/education/how-to-apply/">
               How do I apply for education benefits?
-            </Link>
+            </a>
           </li>
         </ul>
       </div>
@@ -31,12 +29,12 @@ export function CommonAndPopular() {
         </h3>
         <ul className="va-list--plain vads-u-margin-top--1">
           <li className="vads-u-padding-y--1">
-            <Link href="/find-locations/">Find nearby VA locations</Link>
+            <a href="/find-locations/">Find nearby VA locations</a>
           </li>
           <li className="vads-u-padding-y--1">
-            <Link href="/education/gi-bill-comparison-tool">
+            <a href="/education/gi-bill-comparison-tool">
               View education benefits available by school
-            </Link>
+            </a>
           </li>
           <li className="vads-u-padding-y--1">
             <a

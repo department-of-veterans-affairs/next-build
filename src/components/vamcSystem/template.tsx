@@ -29,7 +29,6 @@ export function VamcSystem({
   relatedLinks,
   featuredStories,
   featuredEvents,
-  fallbackEvent,
   lovellVariant,
   lovellSwitchPath,
   socialLinks,
@@ -122,21 +121,14 @@ export function VamcSystem({
             </section>
           )}
           {/* Events Section */}
-          {(featuredEvents.length > 0 || fallbackEvent) && (
+          {featuredEvents.length > 0 && (
             <section>
               <h2 className="vads-u-margin-top--4 vads-u-margin-bottom--2 tablet:vads-u-margin-bottom--2p5">
                 Events
               </h2>
-              {featuredEvents.length
-                ? featuredEvents.map((event) => (
-                    <EventTeaser key={event.entityId} {...event} />
-                  ))
-                : fallbackEvent && (
-                    <EventTeaser
-                      key={fallbackEvent.entityId}
-                      {...fallbackEvent}
-                    />
-                  )}
+              {featuredEvents.map((event, index) => (
+                <EventTeaser key={`${event.title}-${index}`} {...event} />
+              ))}
               <p className="vads-u-margin-y--0">
                 <va-link
                   active

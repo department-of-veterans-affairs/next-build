@@ -4,7 +4,6 @@ import {
   NodeHealthCareLocalFacility,
   NodeHealthCareRegionPage,
   NodeNewsStory,
-  NodeEvent,
 } from '@/types/drupal/node'
 import { VamcSystem, VamcSystemSocialLinks } from './formatted-type'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
@@ -23,14 +22,13 @@ import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 import { queries } from '@/lib/drupal/queries'
 import { formatter as formatAdministration } from '@/components/administration/query'
 import { formatter as formatNewsStoryTeaser } from '@/components/newsStoryTeaser/query'
-import { formatter as formatEventTeaser } from '@/components/eventTeaser/query'
 import { formatter as formatPhone } from '@/components/phoneNumber/query'
 import {
   getLovellVariantOfUrl,
   getOppositeChildVariant,
 } from '@/lib/drupal/lovell/utils'
-import { getNextEventOccurrences } from '../event/query-utils'
 import { LOVELL } from '@/lib/drupal/lovell/constants'
+import { FeaturedEventTeaser } from '../eventTeaser/formatted-type'
 
 // Define the query params for fetching node--vamc_system.
 export const params: QueryParams<null> = () => {
@@ -60,8 +58,7 @@ type VamcSystemData = {
   lovell?: ExpandedStaticPropsContext['lovell']
   mainFacilities: NodeHealthCareLocalFacility[]
   featuredStories: NodeNewsStory[]
-  featuredEvents: NodeEvent[]
-  fallbackEvent: NodeEvent | null
+  featuredEvents: FeaturedEventTeaser[]
 }
 
 // Implement the data loader.
@@ -101,9 +98,8 @@ export const data: QueryData<VamcSystemDataOpts, VamcSystemData> = async (
   )
 
   // Fetch featured events or a fallback non-featured event for this VAMC System
-  const { featuredEvents, fallbackEvent } = await fetchSystemEvents(
-    entity.id,
-    isLovellVariantPage
+  const featuredEvents = await fetchFeaturedEvents(
+    entity.drupal_internal__nid.toString()
   )
 
   // Fetch the menu name dynamically off of the field_region_page reference if available.
@@ -117,7 +113,6 @@ export const data: QueryData<VamcSystemDataOpts, VamcSystemData> = async (
     mainFacilities,
     featuredStories,
     featuredEvents,
-    fallbackEvent,
     lovell,
   }
 }
@@ -165,75 +160,21 @@ async function fetchFeaturedStories(
   return featuredStories
 }
 
-async function fetchSystemEvents(
-  systemId: string,
-  isLovellVariantPage: boolean
-) {
-  // Helper that will fetch all featured or non-featured events and handle Lovell logic
-  const fetchAllEvents = async (featured: boolean) => {
-    const entityEvents = (
-      await fetchAndConcatAllResourceCollectionPages<NodeEvent>(
-        RESOURCE_TYPES.EVENT,
-        queries
-          .getParams(RESOURCE_TYPES.EVENT)
-          .addInclude(['field_listing'])
-          .addFilter('field_listing.field_office.id', systemId)
-          .addFilter('status', '1')
-          .addFilter('field_featured', featured ? '1' : '0'),
-        PAGE_SIZES[RESOURCE_TYPES.EVENT_LISTING]
-      )
-    ).data
+async function fetchFeaturedEvents(
+  systemNodeId: string
+): Promise<FeaturedEventTeaser[]> {
+  const url = `${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}/api/v1/vamc-system-featured-events/${systemNodeId}`
 
-    // If this is a Lovell variant page, there could be events that are shared between this
-    // variant and the other variant (Lovell bifurcated resources), so fetch those as well
-    if (isLovellVariantPage) {
-      const parentEvents = (
-        await fetchAndConcatAllResourceCollectionPages<NodeEvent>(
-          RESOURCE_TYPES.EVENT,
-          queries
-            .getParams(RESOURCE_TYPES.EVENT)
-            .addInclude([
-              'field_listing',
-              'field_listing.field_office',
-              'field_listing.field_office.field_administration',
-            ])
-            .addFilter(
-              'field_listing.field_office.field_administration.drupal_internal__tid',
-              LOVELL.federal.administration.entityId.toString()
-            )
-            .addFilter('status', '1')
-            .addFilter('field_featured', featured ? '1' : '0'),
-          PAGE_SIZES[RESOURCE_TYPES.EVENT_LISTING]
-        )
-      ).data
-      return [...entityEvents, ...parentEvents]
-    }
+  const response = await fetch(url)
 
-    return entityEvents
-  }
-
-  // Fetch all featured, published events that are in the future
-  const nowUnix = Math.floor(Date.now() / 1000)
-  const featuredEvents = getNextEventOccurrences(
-    await fetchAllEvents(true),
-    nowUnix
-  )
-
-  // If there are none, fetch all non-featured, published events that are in the future
-  let fallbackEvent: NodeEvent | null = null
-  if (featuredEvents.length === 0) {
-    const otherEvents = getNextEventOccurrences(
-      await fetchAllEvents(false),
-      nowUnix
+  if (!response.ok) {
+    throw new Error(
+      `Failed to fetch featured events: ${response.status} ${response.statusText}`
     )
-    // Take the event that is soonest in the future
-    fallbackEvent = otherEvents[0] ?? null
   }
 
-  return {
-    featuredEvents,
-    fallbackEvent,
-  }
+  const json = await response.json()
+  return json.data || []
 }
 
 export const getVamcSystemSocialLinks = (
@@ -293,7 +234,6 @@ export const formatter: QueryFormatter<VamcSystemData, VamcSystem> = ({
   mainFacilities,
   featuredStories,
   featuredEvents,
-  fallbackEvent,
   lovell,
 }) => {
   const formattedMenu = buildSideNavDataFromMenu(entity.path.alias, menu)
@@ -317,8 +257,7 @@ export const formatter: QueryFormatter<VamcSystemData, VamcSystem> = ({
     })),
     // Only show the first two featured stories
     featuredStories: featuredStories.map(formatNewsStoryTeaser),
-    featuredEvents: featuredEvents.map(formatEventTeaser),
-    fallbackEvent: fallbackEvent ? formatEventTeaser(fallbackEvent) : null,
+    featuredEvents,
     relatedLinks: formatListOfLinkTeasers(entity.field_related_links),
     vamcEhrSystem: entity.field_vamc_ehr_system,
     lovellVariant: lovell?.variant ?? null,

@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react'
 import { PressReleaseListing } from './template'
 import { PressReleaseListing as FormattedPressReleaseListing } from './formatted-type'
 import { formattedPressReleases } from './mock.formattedPressReleases'
+import { axe } from '@/test-utils'
 
 describe('PressReleaseListing component renders', () => {
   let pressReleaseListingProps: FormattedPressReleaseListing
@@ -52,6 +53,19 @@ describe('PressReleaseListing component renders', () => {
       ],
       lastUpdated: '2021-10-22T18:53:30+00:00',
     }
+  })
+
+  test('without axe violations', async () => {
+    const { container } = render(
+      <PressReleaseListing {...pressReleaseListingProps} />
+    )
+    const axeResults = await axe(container, {
+      rules: {
+        // It's only empty because it isn't evaluating the `<va-link>` element inside it.
+        'empty-heading': { enabled: false },
+      },
+    })
+    expect(axeResults).toHaveNoViolations()
   })
 
   test('with valid data', () => {
