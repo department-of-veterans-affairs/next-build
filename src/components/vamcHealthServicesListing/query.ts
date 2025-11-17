@@ -72,12 +72,10 @@ export const data: QueryData<
     params
   )) as NodeVamcHealthServicesListing
 
-  const menu = entity.field_office?.field_system_menu
-    ? await getMenu(
-        entity.field_office.field_system_menu.resourceIdObjMeta
-          .drupal_internal__target_id
-      )
-    : null
+  const menu = await getMenu(
+    entity.field_office.field_system_menu.resourceIdObjMeta
+      .drupal_internal__target_id
+  )
 
   const { data: services } =
     await fetchAndConcatAllResourceCollectionPages<NodeRegionalHealthCareServiceDes>(
@@ -102,11 +100,6 @@ export const formatter: QueryFormatter<
   if (lovell?.isLovellVariantPage) {
     breadcrumbs = getLovellVariantOfBreadcrumbs(breadcrumbs, lovell.variant)
   }
-
-  const formattedMenu =
-    menu !== null
-      ? buildSideNavDataFromMenu(entity.path?.alias || '', menu)
-      : null
 
   const administration = formatAdministration(entity.field_administration)
 
@@ -134,7 +127,7 @@ export const formatter: QueryFormatter<
     path: entity.path?.alias || null,
     administration,
     vamcEhrSystem: entity.field_office?.field_vamc_ehr_system || null,
-    menu: formattedMenu,
+    menu: buildSideNavDataFromMenu(entity.path?.alias || '', menu),
     featuredContent:
       entity.field_featured_content_healthser?.map((item) => {
         const formattedItem = queries.formatData(

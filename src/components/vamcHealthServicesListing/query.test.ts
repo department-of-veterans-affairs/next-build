@@ -161,20 +161,6 @@ describe('VamcHealthServicesListing formatter', () => {
     expect(mentalHealthGroup?.services[0].title).toBe('Mental Health Service')
   })
 
-  test('handles null menu when field_system_menu is missing', async () => {
-    mockPageQuery.mockReturnValue({
-      ...mockServicesListing,
-      field_office: {
-        ...mockServicesListing.field_office,
-        field_system_menu: undefined,
-      },
-    } as NodeVamcHealthServicesListing)
-
-    const result = await runQuery()
-
-    expect(result.menu).toBeNull()
-  })
-
   describe('Lovell variant handling', () => {
     const lovellPath = {
       alias: '/lovell-federal-health-care-va/health-services',
