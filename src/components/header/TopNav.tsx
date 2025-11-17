@@ -1,5 +1,9 @@
+// Using next/link broke sitewide scripts, so we've replaced them with standard
+// <a> elements on purpose.
+
+/* eslint-disable @next/next/no-html-link-for-pages */
+
 import Image from 'next/image'
-import Link from 'next/link'
 
 export const TopNav = () => {
   return (
@@ -103,14 +107,14 @@ export const TopNav = () => {
         id="va-header-logo-menu"
       >
         <div className="va-header-logo-wrapper">
-          <Link href="/" className="va-header-logo">
+          <a href="/" className="va-header-logo">
             <Image
               src="/img/header-logo.png"
               alt="VA logo and Seal, U.S. Department of Veterans Affairs"
               height="59"
               width="264"
             />
-          </Link>
+          </a>
         </div>
 
         {/* <div id="va-nav-controls"></div> */}
