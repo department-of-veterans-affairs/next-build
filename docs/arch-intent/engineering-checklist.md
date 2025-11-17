@@ -1,7 +1,7 @@
 **Product description**
 
 - The second step to the Accelerated Publishing work will be to implement a persistent server that will allow content to be published from Drupal CMS to VA.gov much more quickly; we are estimating ~5 minutes from when content is updated in Drupal CMS to updated in VA.gov. This is because the server will be triggered to rebuild the pages after a predetermined amount of time.
-- We will be using a Nextjs Server to performa Incremental Static Regeneration (ISR) for content pages. [Incremental Static Regeneration (ISR)](https://nextjs.org/docs/pages/guides/incremental-static-regeneration) in Next.js is a hybrid rendering strategy that combines the performance benefits of Static Site Generation (SSG) with the flexibility of dynamic content updates. It allows you to update static content on your Next.js application without requiring a full rebuild and redeployment of the entire site.
+- We will be using a Nextjs Server to perform Incremental Static Regeneration (ISR) for content pages. [Incremental Static Regeneration (ISR)](https://nextjs.org/docs/pages/guides/incremental-static-regeneration) in Next.js is a hybrid rendering strategy that combines the performance benefits of Static Site Generation (SSG) with the flexibility of dynamic content updates. It allows you to update static content on your Next.js application without requiring a full rebuild and redeployment of the entire site.
 - Additional Documentation:
   - [Static Site Generation Summary and Recommendation](https://dvagov.sharepoint.com/:w:/r/sites/CMSTeam/Shared%20Documents/Static%20Site%20Generation%20Summary%20and%20Recommendation.docx?d=w98220445f4ca467c834cde562b977d3c&csf=1&web=1&e=WZTeUn)
   - [Accelerated Publishing System Design](https://dvagov.sharepoint.com/:w:/r/sites/CMSTeam/Shared%20Documents/%5BFinal%5D%20On%20Demand%20Publishing_%20Performance%20and%20Load%20Testing.docx?d=w8e43b417534d437d927dabc7cc50f1e3&csf=1&web=1&e=1kKjId)
@@ -45,7 +45,7 @@
 
 **What information will be captured in logs or metrics?**
 
-- N/A - User data will be captured in logs or metrics since we have no user data
+- No user data will be captured in logs or metrics since we have no user data
 
 **Does this project/update involve user-uploaded data?**
 
@@ -76,17 +76,17 @@
 
 - We have Readme documentation in our Nextjs repository to assist developers in retrieving the information needed for the content types in Drupal
 - Drupal has documentation for its [JSON:API](https://www.drupal.org/docs/core-modules-and-themes/core-modules/jsonapi-module)
-- [next-drupal](https://next-drupal.org/) has documentaion for the Drupal Client
+- [next-drupal](https://next-drupal.org/) has documentation for the Drupal Client
 
 **Describe expected call patterns**
 
-- Requests made to our content pages on VA.gov will be routed thru the RevProxy. The RevProxy contains the logic for determing if the request will be successful from Nextjs or S3 Storage.
+- Requests made to our content pages on VA.gov will be routed thru the RevProxy. The RevProxy contains the logic for determining if the request will be successful from Nextjs or S3 Storage.
 - We will be using caching, Kubernetes and horizontal scaling for expected spikes in traffic
-- We are currently working on our performance montoring, configuration and testing
+- We are currently working on our performance monitoring, configuration and testing
 
 **Are there new endpoints or services that require rate limiting or throttling?**
 
-- N/A - We have no publically exposed API endpoints.
+- N/A - We have no publicly exposed API endpoints.
 
 **Are there any third party integrations, and how are they vetted?**
 
@@ -167,7 +167,7 @@ List new or updated dependencies**
 Identify key areas to monitor**
 
 - Nextjs Server - Deployed on EKS Cluster
-- Drupal Server - Deployed to EC2 Intance
+- Drupal Server - Deployed to EC2 Instance
 
 **Are you introducing any custom metric tags?**
 
@@ -192,8 +192,8 @@ List any changes or additions**
 
 - CI/CD Automated tests for frontend functionality using jest and playwright
 
-* Manual User Testing using Tugboat Preview Environments
-* Full build of all content pages for regression and integration testing prior to production deployment.
+- Manual User Testing using Tugboat Preview Environments
+- Full build of all content pages for regression and integration testing prior to production deployment.
 
 **Describe required test data and test user accounts**
 

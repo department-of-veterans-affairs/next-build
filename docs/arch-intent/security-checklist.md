@@ -38,7 +38,7 @@
 
 **Provide your Release Plan with the "Planning" sections completed (in each section: Phase I, Phase II, Go Live)**
 
-- Do not have a detailed planned for each phase yet
+- Do not have a detailed plan for each phase yet
 - [Jeff add testing and talk to Grace about plans?]
 
 **Are there any new application endpoints, front- or back-end? If so, please give examples of how any of the endpoints could be abused by unauthorized parties, as well as a plan to mitigate such threats.**
@@ -46,7 +46,7 @@
 - The system uses an [Drupal JSON:API](https://www.drupal.org/docs/core-modules-and-themes/core-modules/jsonapi-module) endpoint to Get content data for requested pages
   - This is a Get only request
   - All other request types are denied by the Drupal server for this configuration
-  - This endpoitn is not public and only used internally by the Nextjs Server
+  - This endpoint is not public and only used internally by the Nextjs Server
 - Potential for DDOS attack
   - We will be limiting connections and imposing time limits on responses to prevent overloading the system.
   - Question for Platform: Are there other solutions we can implement to prevent security breaches?
@@ -144,7 +144,7 @@ Please provide the following documentation as attachments.
 - **Who accesses the data and in what capacity (read or read-write)?**
 
   - The data is public content and is accessible via the va.gov website. Read-Only
-  - The data is updated by internal VA staff. Read-Write. The users are authenticated via Entra ID and is availbale thru the Drupal UI
+  - The data is updated by internal VA staff. Read-Write. The users are authenticated via Entra ID and is available thru the Drupal UI
 
 - **What is the audit trail of data access and manipulation?**
   - yes, Drupal provides an audit trail of all content changes/additions
@@ -181,4 +181,4 @@ A link to the Release Plan with the "Planning" sections completed (in each secti
 - [Nextjs Repo](https://github.com/department-of-veterans-affairs/next-build)
 - [Drupal Repo](https://github.com/department-of-veterans-affairs/va.gov-cms)
 - [Nextjs Infrastructure/Devops](https://github.com/department-of-veterans-affairs/vsp-infra-application-manifests/tree/main/apps/next-build)
-- [Druapl Infrastructure/Devops](https://github.com/department-of-veterans-affairs/vsp-infra-application-manifests/tree/main/apps/cms)
+- [Drupal Infrastructure/Devops](https://github.com/department-of-veterans-affairs/vsp-infra-application-manifests/tree/main/apps/cms)
