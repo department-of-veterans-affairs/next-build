@@ -268,7 +268,8 @@ describe('VamcHealthServicesListing formatter', () => {
           ...mockServicesListing.field_featured_content_healthser[0],
           field_link: {
             title: 'Test Link',
-            uri: null, // Missing URL, should fall back to formattedItem.uri
+            uri: '/test-uri',
+            url: undefined, // Missing url property, should fall back to formattedItem.uri
             options: [],
           },
         },
@@ -279,5 +280,49 @@ describe('VamcHealthServicesListing formatter', () => {
 
     expect(result.featuredContent).toBeDefined()
     expect(result.featuredContent.length).toBeGreaterThan(0)
+    // Should fall back to formattedItem.uri when field_link.url is undefined
+    expect(result.featuredContent[0].uri).toBeDefined()
+  })
+
+  test('handles null services array', async () => {
+    mockServicesQuery.mockReturnValue(null)
+
+    const result = await runQuery()
+
+    expect(result.healthServiceGroups).toBeDefined()
+    expect(result.healthServiceGroups).toHaveLength(0)
+  })
+
+  test('handles undefined lovell variant', async () => {
+    const result = await runQuery({
+      isLovellVariantPage: false,
+      variant: undefined,
+    })
+
+    expect(result.lovellVariant).toBeNull()
+  })
+
+  test('handles featured content item with falsy entityId', async () => {
+    // Mock queries.formatData to return an item with falsy entityId
+    const originalFormatData = queries.formatData
+    jest.spyOn(queries, 'formatData').mockImplementation((type, item) => {
+      const result = originalFormatData.call(queries, type, item)
+      if (result && type === 'paragraph--link_teaser') {
+        return {
+          ...result,
+          entityId: undefined, // Falsy value
+        }
+      }
+      return result
+    })
+
+    const result = await runQuery()
+
+    expect(result.featuredContent).toBeDefined()
+    expect(result.featuredContent.length).toBeGreaterThan(0)
+    // entityId should be null when falsy
+    expect(result.featuredContent[0].entityId).toBeNull()
+
+    jest.restoreAllMocks()
   })
 })

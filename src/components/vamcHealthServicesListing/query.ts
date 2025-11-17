@@ -119,15 +119,15 @@ export const formatter: QueryFormatter<
     lovellVariant: lovell?.variant ?? null,
     lovellSwitchPath: lovell?.isLovellVariantPage
       ? getLovellVariantOfUrl(
-          entity.path.alias || '',
+          entity.path.alias,
           getOppositeChildVariant(lovell?.variant)
         )
       : null,
     breadcrumbs,
-    path: entity.path.alias || null,
+    path: entity.path.alias,
     administration,
     vamcEhrSystem: entity.field_office.field_vamc_ehr_system,
-    menu: buildSideNavDataFromMenu(entity.path.alias || '', menu),
+    menu: buildSideNavDataFromMenu(entity.path.alias, menu),
     featuredContent:
       entity.field_featured_content_healthser?.map((item) => {
         const formattedItem = queries.formatData(
