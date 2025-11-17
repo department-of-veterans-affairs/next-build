@@ -90,9 +90,9 @@ Please provide the following documentation as attachments.
 
 **Architecture Diagram:**
 
-[Architecture Diagram PDF](./AcceleratedPublising_ArchDiagram.pdf)
+[Architecture Diagram PDF](./AcceleratedPublishing_ArchDiagram.pdf)
 
-![Accelerated Publishing Architecture Diagram](./AcceleratedPublising_ArchDiagram.png)
+![Accelerated Publishing Architecture Diagram](./AcceleratedPublishing_ArchDiagram.png)
 
 - **Which implementation of security approaches were considered along with the approach that was chosen and why?**
 

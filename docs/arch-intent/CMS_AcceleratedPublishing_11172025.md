@@ -316,7 +316,7 @@ Please provide the following documentation as attachments.
 
 **Architecture Diagram:**
 
-![Accelerated Publishing Architecture Diagram](./diagrams/AcceleratedPublising_ArchDiagram.png)
+![Accelerated Publishing Architecture Diagram](./diagrams/AcceleratedPublishing_ArchDiagram.png)
 
 - **Which implementation of security approaches were considered along with the approach that was chosen and why?**
 
