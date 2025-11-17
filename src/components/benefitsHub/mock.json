@@ -39,5 +39,36 @@
   "field_promo": null,
   "field_related_links": null,
   "field_spokes": null,
-  "field_support_services": []
+  "field_support_services": [],
+  "field_connect_with_us": {
+    "type": "block_content--connect_with_us",
+    "id": "1413f4e9-053f-46a4-907f-030ddf93b45c",
+    "field_email_updates_link": {
+      "uri": "https://public.govdelivery.com/accounts/USVA/subscriber/new/",
+      "title": "Veterans Affairs Email Updates",
+      "options": [],
+      "url": "https://public.govdelivery.com/accounts/USVA/subscriber/new/"
+    },
+    "field_social_media_links": {
+      "platform": null,
+      "value": null,
+      "platform_values": {
+        "twitter": {
+          "value": "DeptVetAffairs"
+        },
+        "facebook": {
+          "value": "VeteransAffairs"
+        },
+        "youtube": {
+          "value": "DeptVetAffairs"
+        },
+        "instagram": {
+          "value": "deptvetaffairs"
+        },
+        "linkedin": {
+          "value": ""
+        }
+      }
+    }
+  }
 }
