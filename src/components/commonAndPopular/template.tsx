@@ -1,8 +1,3 @@
-// Using next/link broke sitewide scripts, so we've replaced them with standard
-// <a> elements on purpose.
-
-/* eslint-disable @next/next/no-html-link-for-pages */
-
 export function CommonAndPopular() {
   return (
     <div className="row vads-u-padding-bottom--9">
