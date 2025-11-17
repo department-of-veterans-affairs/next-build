@@ -3,8 +3,8 @@
 exports[`BenefitsDetailPage formatter outputs formatted data with correct structure 1`] = `
 {
   "administration": {
-    "entityId": 1,
-    "name": "Veterans Benefits Administration",
+    "entityId": 10,
+    "name": "Health care benefits hub",
   },
   "alert": null,
   "breadcrumbs": [
@@ -15,23 +15,41 @@ exports[`BenefitsDetailPage formatter outputs formatted data with correct struct
     },
     {
       "options": [],
-      "title": "Check Your VA Claim or Appeal Status",
-      "uri": "http://va-gov-cms.ddev.site/check-your-va-claim-or-appeal-status",
+      "title": "Health care",
+      "uri": "http://va-gov-cms.ddev.site/health-care",
+    },
+    {
+      "options": [],
+      "title": "Get benefits",
+      "uri": "internal:#",
+    },
+    {
+      "options": [],
+      "title": "About VA health benefits",
+      "uri": "internal:#",
     },
   ],
-  "description": "Find out how to check the status of a VA claim or appeal online.",
-  "entityId": 298,
-  "entityPath": "/check-your-va-claim-or-appeal-status",
-  "id": "27aaaef6-0c67-4639-b7d7-84cb3c124cff",
-  "introText": "<p>Find out how to check the status of a VA claim or appeal online.</p>
+  "description": "Learn about the VA health benefits in your VA medical benefits package. Get details on Veterans medical benefits, like which services we cover, who will care for you, where you'll go for care, and how VA health care works with other insurance.",
+  "entityId": 29,
+  "entityPath": "/health-care/about-va-health-benefits",
+  "id": "588aa250-35b3-4d1d-99e6-d152bbae0775",
+  "introText": "<p>If you qualify for VA health care, you’ll receive coverage for the services you need to help you get—and stay—healthy. Learn more about your health care benefits.</p>
 ",
-  "lastUpdated": "2020-04-30T20:11:16+00:00",
-  "metatags": undefined,
+  "lastUpdated": "2025-10-06T19:59:00+00:00",
+  "menu": {
+    "data": null,
+    "rootPath": "/health-care/about-va-health-benefits/",
+  },
+  "menuIcon": {
+    "backgroundColor": "hub-health-care",
+    "name": "medical_services",
+  },
+  "metatags": [],
   "moderationState": "published",
   "published": true,
   "relatedLinks": null,
   "showTableOfContents": true,
-  "title": "Check Your VA Claim or Appeal Status",
+  "title": "About VA health benefits",
   "type": "node--page",
 }
 `;

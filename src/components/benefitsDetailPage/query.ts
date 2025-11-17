@@ -12,12 +12,15 @@ import {
   entityBaseFields,
   fetchSingleEntityOrPreview,
 } from '@/lib/drupal/query'
+import { Menu } from '@/types/drupal/menu'
 import { formatter as formatListOfLinkTeasers } from '@/components/listOfLinkTeasers/query'
 import { formatter as formatAdministration } from '@/components/administration/query'
 import { formatter as formatAlertBlock } from '@/components/alertBlock/query'
 import { formatParagraph } from '@/lib/drupal/paragraphs'
 import { getNestedIncludes } from '@/lib/utils/queries'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
+import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
+import { getBenefitsHubMenu } from './getBenefitsHubMenu'
 
 // Define the query params for fetching node--page (benefits detail page).
 export const params: QueryParams<null> = () => {
@@ -40,24 +43,38 @@ export type BenefitsDetailPageDataOpts = {
   context?: ExpandedStaticPropsContext
 }
 
+interface BenefitsDetailPageData {
+  entity: NodeBenefitsDetailPage
+  menu: Menu | null
+  menuIcon: { name: string; backgroundColor: string } | null
+}
+
 // Implement the data loader.
 export const data: QueryData<
   BenefitsDetailPageDataOpts,
-  NodeBenefitsDetailPage
-> = async (opts): Promise<NodeBenefitsDetailPage> => {
+  BenefitsDetailPageData
+> = async (opts): Promise<BenefitsDetailPageData> => {
   const entity = (await fetchSingleEntityOrPreview(
     opts,
     RESOURCE_TYPES.BENEFITS_DETAIL_PAGE,
     params
   )) as NodeBenefitsDetailPage
 
-  return entity
+  // Use the new getBenefitsHubMenu function that fetches the benefits hub node,
+  // caches it, and extracts the menu and icon from the actual hub data
+  const { menu, menuIcon } = await getBenefitsHubMenu(
+    entity.path.alias,
+    entity.field_administration?.name,
+    opts.context
+  )
+
+  return { entity, menu, menuIcon }
 }
 
 export const formatter: QueryFormatter<
-  NodeBenefitsDetailPage,
+  BenefitsDetailPageData,
   BenefitsDetailPage
-> = (entity: NodeBenefitsDetailPage) => {
+> = ({ entity, menu, menuIcon }) => {
   // TODO: There is an ownership problem with the related links for /education/benefit-rates/post-9-11-gi-bill-rates/past-rates-2021-2022.
   // This needs to be resolved in Drupal, but for now I'm just going to not show the related links
   // if it fails to fetch it.
@@ -88,5 +105,7 @@ export const formatter: QueryFormatter<
     administration: entity.field_administration
       ? formatAdministration(entity.field_administration)
       : null,
+    menu: menu ? buildSideNavDataFromMenu(entity.path.alias, menu) : null,
+    menuIcon,
   }
 }
