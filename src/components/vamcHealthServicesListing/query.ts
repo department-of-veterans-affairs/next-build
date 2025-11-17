@@ -126,7 +126,7 @@ export const formatter: QueryFormatter<
     breadcrumbs,
     path: entity.path?.alias || null,
     administration,
-    vamcEhrSystem: entity.field_office?.field_vamc_ehr_system || null,
+    vamcEhrSystem: entity.field_office.field_vamc_ehr_system,
     menu: buildSideNavDataFromMenu(entity.path?.alias || '', menu),
     featuredContent:
       entity.field_featured_content_healthser?.map((item) => {
