@@ -5,111 +5,75 @@
  * the client: "You should not call getQueryData on the client."
  */
 
-import { formatter } from './query'
-import mockData from './mock.json'
+import mockPage from './mock.json'
 import mockMenu from './mock.menu.json'
-import mockVhaServices from './mock.services.json'
-import { Menu } from '@/types/drupal/menu'
-import { NodeVhaFacilityNonclinicalService } from '@/types/drupal/node'
+import mockServices from './mock.services.json'
+import {
+  NodeVamcSystemRegisterForCare,
+  NodeVhaFacilityNonclinicalService,
+} from '@/types/drupal/node'
+import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
+import { queries } from '@/lib/drupal/queries'
+import { LovellStaticPropsContextProps } from '@/lib/drupal/lovell/types'
 
-const mockServices = mockVhaServices as NodeVhaFacilityNonclinicalService[]
+const mockPageQuery = jest.fn(() => mockPage as NodeVamcSystemRegisterForCare)
+const mockServicesQuery = jest.fn(
+  () => mockServices as NodeVhaFacilityNonclinicalService[]
+)
+
+jest.mock('@/lib/drupal/query', () => ({
+  ...jest.requireActual('@/lib/drupal/query'),
+  fetchSingleEntityOrPreview: () => mockPageQuery(),
+  fetchAndConcatAllResourceCollectionPages: () => ({
+    data: mockServicesQuery(),
+  }),
+  getMenu: () => mockMenu,
+}))
+
+jest.mock('@/lib/drupal/drupalClient', () => ({
+  drupalClient: {
+    translatePath: jest.fn().mockResolvedValue({
+      entity: {
+        path: '/test-translated-path',
+      },
+    }),
+  },
+}))
+
+function runQuery(lovell: Partial<LovellStaticPropsContextProps> = {}) {
+  return queries.getData(RESOURCE_TYPES.VAMC_SYSTEM_REGISTER_FOR_CARE, {
+    id: mockPage.id,
+    context: {
+      path: '/test-path',
+      drupalPath: '/test-drupal-path',
+      listing: {
+        isListingPage: false,
+        firstPagePath: '/test-first-page-path',
+        page: 1,
+      },
+      lovell: {
+        isLovellVariantPage: false,
+        variant: null,
+        ...lovell,
+      },
+    },
+  })
+}
 
 describe('VamcSystemRegisterForCare formatter', () => {
-  it('formats basic fields correctly', () => {
-    const result = formatter({
-      entity: mockData,
-      menu: mockMenu as unknown as Menu,
-      services: mockServices,
-    })
-
-    expect(result.title).toBe('Register for care')
-    expect(result.entityId).toBe(44606)
-    expect(result.entityPath).toBe('/richmond-health-care/register-for-care')
-    expect(result.vamcSystem.title).toBe('VA Richmond health care')
-    expect(result.menu).toBeDefined()
-    expect(result.menu.rootPath).toBe(
-      '/richmond-health-care/register-for-care/'
+  beforeEach(() => {
+    // Reset to default mock data before each test
+    mockPageQuery.mockReturnValue(mockPage as NodeVamcSystemRegisterForCare)
+    mockServicesQuery.mockReturnValue(
+      mockServices as NodeVhaFacilityNonclinicalService[]
     )
   })
 
-  it('formats topOfPageContent field correctly', () => {
-    const result = formatter({
-      entity: mockData,
-      menu: mockMenu as unknown as Menu,
-      services: mockServices,
-    })
-
-    expect(result.topOfPageContent).toBeDefined()
-    expect(result.topOfPageContent.html).toContain(
-      '<h2 id="patient-registration-admission">Patient registration (admissions)</h2>'
-    )
+  test('outputs formatted data', async () => {
+    expect(await runQuery()).toMatchSnapshot()
   })
 
-  it('formats bottomOfPageContent field correctly', () => {
-    const result = formatter({
-      entity: mockData,
-      menu: mockMenu as unknown as Menu,
-      services: mockServices,
-    })
-
-    expect(result.bottomOfPageContent).toBeDefined()
-    expect(result.bottomOfPageContent.html).toContain(
-      '<h2 id="not-yet-enrolled-in-va-health-"><strong>Not yet enrolled in VA health care?</strong></h2>'
-    )
-  })
-
-  it('formats relatedLinks field correctly', () => {
-    const result = formatter({
-      entity: mockData,
-      menu: mockMenu as unknown as Menu,
-      services: mockServices,
-    })
-
-    expect(result.relatedLinks).toBeDefined()
-    expect(result.relatedLinks.title).toBe('More information')
-    expect(result.relatedLinks.linkTeasers).toHaveLength(4)
-    expect(result.relatedLinks.linkTeasers[0].title).toBe(
-      'VA health care copay rates'
-    )
-    expect(result.relatedLinks.linkTeasers[0].summary).toBe(
-      'Review copay rates for outpatient care, hospital stays, medications, and other health services.'
-    )
-  })
-
-  it('formats services array correctly and sorts them alphabetically', () => {
-    const result = formatter({
-      entity: mockData,
-      menu: mockMenu as unknown as Menu,
-      services: mockServices,
-    })
-
-    expect(result.services).toBeDefined()
-    expect(result.services).toHaveLength(1)
-
-    const service = result.services[0]
-    expect(service.id).toBe('329cf348-dc5a-486a-8733-700703b9b35f')
-    expect(service.title).toBe(
-      "Louis A. Johnson Veterans' Administration Medical Center"
-    )
-    expect(service.path).toBe(
-      '/clarksburg-health-care/locations/louis-a-johnson-veterans-administration-medical-center'
-    )
-    expect(service.address).toEqual({
-      langcode: 'en',
-      country_code: 'US',
-      administrative_area: 'WV',
-      locality: 'Clarksburg',
-      dependent_locality: null,
-      postal_code: '26301-4155',
-      address_line1: '1 Medical Center Drive',
-      additional_name: null,
-    })
-    expect(service.phoneNumber).toBe('304-623-3461')
-    expect(service.serviceLocations).toHaveLength(1)
-    expect(service.serviceLocations[0]).toBeDefined()
-  })
-
-  it('sorts services alphabetically by title', () => {
+  test('sorts services alphabetically by title', async () => {
     const unsortedServices = [
       {
         ...mockServices[0],
@@ -127,11 +91,11 @@ describe('VamcSystemRegisterForCare formatter', () => {
       },
     ]
 
-    const result = formatter({
-      entity: mockData,
-      menu: mockMenu as unknown as Menu,
-      services: unsortedServices,
-    })
+    mockServicesQuery.mockReturnValue(
+      unsortedServices as NodeVhaFacilityNonclinicalService[]
+    )
+
+    const result = await runQuery()
 
     expect(result.services).toHaveLength(2)
     expect(result.services[0].title).toBe('Alpha Medical Center')
@@ -162,18 +126,15 @@ describe('VamcSystemRegisterForCare formatter', () => {
       },
     ]
 
-    it('outputs formatted data with Lovell variant', () => {
-      const result = formatter({
-        entity: {
-          ...mockData,
-          path: lovellPath,
-        },
-        menu: mockMenu as unknown as Menu,
-        services: mockServices,
-        lovell: {
-          isLovellVariantPage: true,
-          variant: 'tricare',
-        },
+    test('outputs formatted data with Lovell variant', async () => {
+      mockPageQuery.mockReturnValue({
+        ...mockPage,
+        path: lovellPath,
+      } as NodeVamcSystemRegisterForCare)
+
+      const result = await runQuery({
+        isLovellVariantPage: true,
+        variant: 'tricare',
       })
 
       expect(result.lovellVariant).toBe('tricare')
@@ -182,19 +143,16 @@ describe('VamcSystemRegisterForCare formatter', () => {
       )
     })
 
-    it('updates the breadcrumbs for Lovell variant', () => {
-      const result = formatter({
-        entity: {
-          ...mockData,
-          path: lovellPath,
-          breadcrumbs: lovellBreadcrumbs,
-        },
-        menu: mockMenu as unknown as Menu,
-        services: mockServices,
-        lovell: {
-          isLovellVariantPage: true,
-          variant: 'tricare',
-        },
+    test('updates the breadcrumbs for Lovell variant', async () => {
+      mockPageQuery.mockReturnValue({
+        ...mockPage,
+        path: lovellPath,
+        breadcrumbs: lovellBreadcrumbs,
+      } as NodeVamcSystemRegisterForCare)
+
+      const result = await runQuery({
+        isLovellVariantPage: true,
+        variant: 'tricare',
       })
 
       expect(result.breadcrumbs[1]).toEqual({
@@ -204,39 +162,19 @@ describe('VamcSystemRegisterForCare formatter', () => {
       })
     })
 
-    it('does not modify breadcrumbs when not a Lovell variant page', () => {
-      const result = formatter({
-        entity: {
-          ...mockData,
-          path: lovellPath,
-          breadcrumbs: lovellBreadcrumbs,
-        },
-        menu: mockMenu as unknown as Menu,
-        services: mockServices,
-        lovell: {
-          isLovellVariantPage: false,
-          variant: 'va',
-        },
+    test('does not modify breadcrumbs when not a Lovell variant page', async () => {
+      mockPageQuery.mockReturnValue({
+        ...mockPage,
+        path: lovellPath,
+        breadcrumbs: lovellBreadcrumbs,
+      } as NodeVamcSystemRegisterForCare)
+
+      const result = await runQuery({
+        isLovellVariantPage: false,
+        variant: 'va',
       })
 
       expect(result.breadcrumbs).toEqual(lovellBreadcrumbs)
-    })
-
-    it('handles null lovell context', () => {
-      const result = formatter({
-        entity: {
-          ...mockData,
-          path: lovellPath,
-          breadcrumbs: lovellBreadcrumbs,
-        },
-        menu: mockMenu as unknown as Menu,
-        services: mockServices,
-        lovell: null,
-      })
-
-      expect(result.breadcrumbs).toEqual(lovellBreadcrumbs)
-      expect(result.lovellVariant).toBeNull()
-      expect(result.lovellSwitchPath).toBeNull()
     })
   })
 })
