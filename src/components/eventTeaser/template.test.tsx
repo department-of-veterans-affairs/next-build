@@ -2,15 +2,14 @@ import React from 'react'
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import { EventTeaser } from './template'
-import { EventWidgetTeaser } from '@/components/eventTeaser/formatted-type'
-import { formatter } from '@/components/eventTeaser/query'
+import { FeaturedEventTeaser } from '@/components/eventTeaser/formatted-type'
 import mockEventData from '@/components/event/mock.json'
 import { NodeEvent } from '@/types/drupal/node'
+import { convertEventToFeaturedEventTeaser } from './test-utils'
 
 // Format the mock data using the real formatter
-const formattedEventData: EventWidgetTeaser = formatter(
-  mockEventData as NodeEvent
-)
+const formattedEventData: FeaturedEventTeaser =
+  convertEventToFeaturedEventTeaser(mockEventData as NodeEvent)
 
 describe('EventTeaser Component', () => {
   describe('Title and Link', () => {
@@ -42,7 +41,7 @@ describe('EventTeaser Component', () => {
     })
 
     test('handles null description gracefully', () => {
-      const mockEventDataWithoutDescription: EventWidgetTeaser = {
+      const mockEventDataWithoutDescription = {
         ...formattedEventData,
         fieldDescription: null,
       }
@@ -60,7 +59,7 @@ describe('EventTeaser Component', () => {
       const veryLongDescription = Array(80).fill('word').join(' ')
       const longDescriptionData = {
         ...formattedEventData,
-        fieldDescription: veryLongDescription,
+        description: veryLongDescription,
       }
 
       render(<EventTeaser {...longDescriptionData} />)
@@ -140,16 +139,16 @@ describe('EventTeaser Component', () => {
       // The mock data has "Walker Johnston Park" as human-readable location
       // But since there's no facility location, this won't be displayed in the Where section
       // However, the data is there and could be used if needed
-      expect(formattedEventData.fieldLocationHumanreadable).toBe(
+      expect(formattedEventData.locationHumanReadable).toBe(
         'Walker Johnston Park'
       )
     })
 
     test('does not render location section when fieldFacilityLocation is not provided', () => {
-      const mockEventDataWithoutFacility: EventWidgetTeaser = {
+      const mockEventDataWithoutFacility = {
         ...formattedEventData,
-        fieldFacilityLocation: null,
-        fieldLocationHumanreadable: '',
+        facilityLocation: null,
+        locationHumanReadable: '',
       }
       render(<EventTeaser {...mockEventDataWithoutFacility} />)
 
@@ -161,25 +160,13 @@ describe('EventTeaser Component', () => {
   describe('Location Section with Facility', () => {
     test('renders location section when fieldFacilityLocation is provided', () => {
       // Create mock data with a facility location
-      const mockEventWithFacility: EventWidgetTeaser = {
+      const mockEventWithFacility = {
         ...formattedEventData,
-        fieldFacilityLocation: {
-          entity: {
-            entityUrl: {
-              path: '/facility/sample-facility',
-            },
-            fieldAddress: {
-              addressLine1: '456 Facility St',
-              addressLine2: 'Suite 100',
-              administrativeArea: 'State',
-              countryCode: 'US',
-              locality: 'Facility City',
-              postalCode: '67890',
-            },
-            title: 'Sample Medical Center',
-          },
+        facilityLocation: {
+          title: 'Sample Medical Center',
+          entityUrl: '/facility/sample-facility',
         },
-        fieldLocationHumanreadable: '123 Main St, City, State 12345',
+        locationHumanReadable: '123 Main St, City, State 12345',
       }
 
       const { container } = render(<EventTeaser {...mockEventWithFacility} />)
@@ -196,23 +183,11 @@ describe('EventTeaser Component', () => {
     })
 
     test('renders facility location as a link', () => {
-      const mockEventWithFacility: EventWidgetTeaser = {
+      const mockEventWithFacility = {
         ...formattedEventData,
-        fieldFacilityLocation: {
-          entity: {
-            entityUrl: {
-              path: '/facility/sample-facility',
-            },
-            fieldAddress: {
-              addressLine1: '456 Facility St',
-              addressLine2: 'Suite 100',
-              administrativeArea: 'State',
-              countryCode: 'US',
-              locality: 'Facility City',
-              postalCode: '67890',
-            },
-            title: 'Sample Medical Center',
-          },
+        facilityLocation: {
+          title: 'Sample Medical Center',
+          entityUrl: '/facility/sample-facility',
         },
       }
 

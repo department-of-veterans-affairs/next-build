@@ -2,6 +2,39 @@ import { FieldFormattedText, FieldNestedLink } from '@/types/drupal/field_type'
 import { formatDateObject } from '@/lib/utils/date'
 
 /**
+ * A featured event from a VAMC system (same shape that the custom featured-events
+ * endpoint returns).
+ */
+export type FeaturedEventTeaser = {
+  /** Event title */
+  title: string
+  /** Full URL to the event entity */
+  entityUrl: string
+  /** Event description */
+  description: string
+  /** Date/time range with timezone information */
+  datetimeRangeTimezone: {
+    /** Unix timestamp (seconds) for the start of the event */
+    value: number
+    /** Unix timestamp (seconds) for the end of the event */
+    endValue: number
+    /** IANA timezone string (e.g., 'America/New_York') */
+    timezone: string
+  }
+  /** Facility location information, or null if not set */
+  facilityLocation: {
+    /** Facility title */
+    title: string
+    /** Full URL to the facility entity */
+    entityUrl: string
+  } | null
+  /** Human-readable location string */
+  locationHumanReadable: string
+  /** Featured flag ('0' for not featured, '1' for featured) */
+  featured: string
+}
+
+/**
  * This is specifically for the events widget from vets-website. It doesn't look like our
  * other formatted types, but it is the shape that the vets-website event widget expects.
  */
