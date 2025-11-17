@@ -166,7 +166,10 @@ export function VamcFacility({
           </div>
         </TextWithImage>
         <LocationServices items={locationServices} />
-        <RelatedLinks {...relatedLinks} title={`Other services at ${title}`} />
+        <RelatedLinks
+          {...relatedLinks}
+          title={`Other services at ${vamcSystemTitle}`}
+        />
         <HealthServices
           healthServices={healthServices}
           mentalHealthPhoneNumber={fieldTelephone}
