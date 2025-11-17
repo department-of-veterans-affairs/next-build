@@ -41,7 +41,7 @@ export function BenefitsHub({
           )}
           {spokes?.map((spokeSection) => (
             <div key={spokeSection.id}>
-              <section className="vads-grid-container">
+              <section>
                 <div className="va-h-ruled--stars"></div>
               </section>
               <ListOfLinkTeasers {...spokeSection} isHubPage={true} />
