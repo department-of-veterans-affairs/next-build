@@ -19,11 +19,11 @@ import {
 } from '@/lib/drupal/lovell/utils'
 import { formatter as formatImage } from '@/components/mediaImage/query'
 import { formatter as formatPhone } from '@/components/phoneNumber/query'
-import { ParagraphLinkTeaser } from '@/types/drupal/paragraph'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 import { formatter as formatAdministration } from '@/components/administration/query'
 import { getVamcSystemSocialLinks } from '../vamcSystem/query'
 import { formatter as formatServiceLocation } from '@/components/serviceLocation/query'
+import { formatter as formatListOfLinkTeasers } from '@/components/listOfLinkTeasers/query'
 
 const isPublished = (entity: { status: boolean }) => entity.status === true
 
@@ -132,21 +132,9 @@ export const formatter: QueryFormatter<VamcFacilityData, VamcFacility> = ({
     image: formatImage(entity.field_media),
     facilityLocatorApiId: entity.field_facility_locator_api_id,
     geoLocation: entity.field_geolocation,
-    relatedLinks: {
-      sectionTitle: entity.field_region_page.title
-        ? `Other services at ${entity.field_region_page.title}`
-        : (entity.field_region_page.field_related_links?.field_title ?? ''),
-      links:
-        entity.field_region_page.field_related_links?.field_va_paragraphs
-          .slice(0, 8)
-          // Adding the type annotation because TS doesn't apparently pick up on
-          // this since we've done an Omit<> on the parent type.
-          .map((linkTeaser: ParagraphLinkTeaser) => ({
-            title: linkTeaser.field_link.title,
-            uri: linkTeaser.field_link.url,
-            // summary: ''
-          })) ?? null,
-    },
+    relatedLinks: formatListOfLinkTeasers(
+      entity.field_region_page.field_related_links
+    ),
     locationServices: entity.field_location_services.map((service) => ({
       title: service.field_title,
       wysiwigContents: getHtmlFromField(service.field_wysiwyg),
@@ -160,6 +148,7 @@ export const formatter: QueryFormatter<VamcFacilityData, VamcFacility> = ({
             getOppositeChildVariant(lovell?.variant)
           )
         : null,
+    vamcSystemTitle: entity.field_region_page.title,
     healthServices: entity.field_local_health_care_service_
       // Make sure we're only dealing with published health services. If they're
       // not published, they'll be entity references with no actual data.

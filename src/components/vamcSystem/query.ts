@@ -16,7 +16,7 @@ import {
   getMenu,
 } from '@/lib/drupal/query'
 import { formatter as formatImage } from '@/components/mediaImage/query'
-import { formatter as formatRelatedLinks } from '@/components/relatedLinks/query'
+import { formatter as formatListOfLinkTeasers } from '@/components/listOfLinkTeasers/query'
 import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'
@@ -87,11 +87,11 @@ export const data: QueryData<VamcSystemDataOpts, VamcSystemData> = async (
   const { data: mainFacilities } =
     await fetchAndConcatAllResourceCollectionPages<NodeHealthCareLocalFacility>(
       RESOURCE_TYPES.VAMC_FACILITY,
-      queries
-        .getParams(RESOURCE_TYPES.VAMC_FACILITY)
+      new DrupalJsonApiParams()
+        .addInclude(['field_telephone', 'field_media.image'])
         .addFilter('field_region_page.id', entity.id)
         .addFilter('field_main_location', '1'),
-      PAGE_SIZES[RESOURCE_TYPES.VAMC_FACILITY]
+      PAGE_SIZES.MAX
     )
 
   // Fetch featured stories for this VAMC System
@@ -319,7 +319,7 @@ export const formatter: QueryFormatter<VamcSystemData, VamcSystem> = ({
     featuredStories: featuredStories.map(formatNewsStoryTeaser),
     featuredEvents: featuredEvents.map(formatEventTeaser),
     fallbackEvent: fallbackEvent ? formatEventTeaser(fallbackEvent) : null,
-    relatedLinks: formatRelatedLinks(entity),
+    relatedLinks: formatListOfLinkTeasers(entity.field_related_links),
     vamcEhrSystem: entity.field_vamc_ehr_system,
     lovellVariant: lovell?.variant ?? null,
     lovellSwitchPath: lovell?.isLovellVariantPage

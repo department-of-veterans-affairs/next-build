@@ -23,6 +23,7 @@ import {
   FieldVetCenterBannerImage,
   FieldCCListOfLinkTeasers,
   FieldContentBlock,
+  FieldCCReactWidget,
 } from './field_type'
 import { DrupalMediaDocument, DrupalMediaImage } from './media'
 import {
@@ -50,18 +51,23 @@ import {
   ParagraphListOfLinkTeasers,
   ParagraphSituationUpdate,
   ParagraphQA,
+  ParagraphTypes,
 } from './paragraph'
 import {
   TaxonomyTermLcCategories,
   TaxonomyTermHealthCareServiceTaxonomy,
+  TaxonomyTermAudienceBeneficiaries,
 } from './taxonomy_term'
 import { VamcEhrSystem } from './vamcEhr'
+import { Wysiwyg } from '@/components/wysiwyg/formatted-type'
 
 /** Union of all node types.  */
 export type NodeTypes =
   | NodeBanner
   | NodeBasicLandingPage
   | NodeBannerAlertVAMCS
+  | NodeBenefitsDetailPage
+  | NodeCampaignLandingPage
   | NodeFaqMultipleQA
   | NodeHealthCareRegionPage
   | NodeHealthCareLocalFacility
@@ -96,6 +102,8 @@ export type NodeTypes =
   | NodeVbaFacility
   | NodeVbaService
   | NodeVamcOperatingStatusAndAlerts
+  | NodeVaForm
+  | NodeCampaignLandingPage
 
 /** Shared type structure for resource nodes. */
 export interface NodeAbstractResource extends DrupalNode {
@@ -232,12 +240,12 @@ export interface NodeVamcSystemDetailPage extends DrupalNode {
   field_intro_text: string
   field_table_of_contents_boolean: boolean
   field_alert: BlockAlert[]
-  field_content_block: FieldContentBlock
+  field_content_block: ParagraphTypes[]
   field_featured_content: Array<ParagraphQA | ParagraphWysiwyg>
   field_related_links: ParagraphListOfLinkTeasers
   field_office: Pick<
     NodeHealthCareRegionPage,
-    'id' | 'title' | 'field_system_menu'
+    'id' | 'title' | 'field_system_menu' | 'field_vamc_ehr_system' | 'path'
   >
 }
 
@@ -256,6 +264,74 @@ export interface NodeLandingPage extends DrupalNode {
   field_related_links: ParagraphListOfLinks
   field_spokes: ParagraphListOfLinks
   field_support_services: NodeSupportService[]
+}
+
+export interface NodeCampaignLandingPage extends DrupalNode {
+  // Hero section
+  field_hero_blurb: string
+  field_hero_image: DrupalMediaImage
+  field_primary_call_to_action: ParagraphButton
+  field_secondary_call_to_action: ParagraphButton | null
+
+  // Why this matters section
+  field_clp_why_this_matters: string
+
+  // What you can do section
+  field_clp_what_you_can_do_header: string
+  field_clp_what_you_can_do_intro: string
+  field_clp_what_you_can_do_promos: BlockPromo[]
+
+  // Video panel
+  field_clp_video_panel: boolean
+  field_clp_video_panel_header: string | null
+  field_media: DrupalMediaImage | null
+  field_clp_video_panel_more_video: FieldLink | null
+
+  // Events panel
+  field_clp_events_panel: boolean
+  field_clp_events_header: string | null
+  field_clp_events_references: NodeEvent[]
+
+  // Stories panel
+  field_clp_stories_panel: boolean
+  field_clp_stories_header: string | null
+  field_clp_stories_intro: string | null
+  field_clp_stories_teasers: ParagraphLinkTeaser[]
+  field_clp_stories_cta: FieldLink | null
+
+  // Resources panel
+  field_clp_resources_panel: boolean
+  field_clp_resources_header: string | null
+  field_clp_resources_intro_text: string | null
+  field_clp_resources: unknown[] // TODO: Determine resource type
+  field_clp_resources_cta: FieldLink | null
+
+  // FAQ panel
+  field_clp_faq_panel: boolean
+  field_clp_faq_paragraphs: ParagraphQA[]
+  field_clp_faq_cta: FieldLink | null
+  field_clp_reusable_q_a: unknown | null // TODO: Determine type
+
+  // Spotlight panel
+  field_clp_audience: TaxonomyTermAudienceBeneficiaries[]
+  field_clp_spotlight_panel: boolean
+  field_clp_spotlight_header: string | null
+  field_clp_spotlight_intro_text: string | null
+  field_clp_spotlight_link_teasers: ParagraphLinkTeaser[]
+  field_clp_spotlight_cta: FieldLink | null
+
+  // Connect with us
+  field_connect_with_us: {
+    field_external_link: FieldLink
+  } | null
+
+  // Related fields
+  field_administration: { id: string; type: string }
+  field_benefit_categories: Omit<
+    NodeLandingPage,
+    'field_related_office' | 'field_meta_title'
+  >[]
+  field_last_saved_by_an_editor: string | null
 }
 
 /**
@@ -478,17 +554,17 @@ export interface NodeVamcSystemMedicalRecordsOffice extends DrupalNode {
     NodeHealthCareRegionPage,
     'id' | 'title' | 'field_system_menu'
   >
-  field_cc_top_of_page_content?: FieldCCText
-  field_cc_bottom_of_page_content?: FieldCCText
-  field_cc_related_links?: FieldCCListOfLinkTeasers
-  // TODO: Add additional centralized content fields from medical records template
-  // field_cc_react_widget?: FieldCCText
+  field_cc_top_of_page_content: FieldCCText
+  field_cc_related_links: FieldCCListOfLinkTeasers
+  field_cc_react_widget: FieldCCReactWidget
+  field_cc_how_we_share_records: FieldCCText
+  field_cc_faqs: ParagraphCCQaSection
+  field_cc_get_records_mail_or_fax: FieldCCText
+  field_vamc_med_records_mailing: FieldAddress
+  field_fax_number: string | null
+
   // field_cc_get_records_in_person?: FieldCCText
   // field_cc_get_records_mail_or_fax?: FieldCCText
-  // field_cc_how_we_share_records?: FieldCCText
-  // field_cc_faqs?: FieldCCText
-  // TODO: Add individual node fields from medical records template
-  // field_vamc_med_records_mailing?: FieldAddress
   // field_fax_number?: string
 }
 
@@ -627,8 +703,9 @@ export interface NodeVetCenterOutstation
 export interface NodeVamcHealthServicesListing extends DrupalNode {
   field_office: Pick<
     NodeHealthCareRegionPage,
-    'id' | 'title' | 'field_system_menu' | 'field_vamc_ehr_system'
-  >
+    'id' | 'title' | 'field_system_menu'
+  > &
+    Partial<Pick<NodeHealthCareRegionPage, 'field_vamc_ehr_system'>> // The field_vamc_ehr_system is optional because it's not always present
   field_description: string
   field_intro_text: string
   field_featured_content_healthser?: ParagraphLinkTeaser[]
@@ -639,4 +716,41 @@ export interface NodeVamcHealthServicesListing extends DrupalNode {
 export interface NodeVamcOperatingStatusAndAlerts extends DrupalNode {
   field_office: DrupalNode
   field_banner_alert?: NodeFullWidthBannerAlert[]
+  field_operating_status_emerg_inf: FieldFormattedText
+  field_links: FieldLink[]
+}
+
+export interface NodeBenefitsDetailPage extends DrupalNode {
+  breadcrumbs: BreadcrumbItem[]
+  field_administration: FieldAdministration
+  field_alert: BlockAlert | null
+  field_content_block: FieldContentBlock | null
+  field_description: string | null
+  field_featured_content: Array<ParagraphWysiwyg | ParagraphQA> | null
+  field_intro_text_limited_html: FieldFormattedText | null
+  field_related_links: ParagraphListOfLinkTeasers | null
+  field_table_of_contents_boolean?: boolean
+}
+
+export interface NodeVaForm extends DrupalNode {
+  field_va_form_name: string
+  field_va_form_number: string
+  field_va_form_title: string
+  field_va_form_num_pages: number
+  field_va_form_revision_date: string
+  field_va_form_issue_date?: string
+  field_va_form_url?: FieldLink
+  field_va_form_tool_url?: FieldLink
+  field_va_form_tool_intro?: string
+  field_va_form_usage?: FieldFormattedText
+  field_va_form_deleted?: boolean
+  field_va_form_deleted_date?: string
+  field_va_form_language?: string
+  field_va_form_type?: 'benefit' | 'employment' | 'non-va' | string // Unclear what else it can be
+  field_va_form_link_teasers?: ParagraphLinkTeaser[]
+  field_va_form_related_forms?: NodeVaForm[]
+  field_va_form_administration?: FieldAdministration
+  field_administration?: FieldAdministration
+  field_benefit_categories?: Array<{ field_home_page_hub_label: string }> // node--landing-page
+  breadcrumbs: BreadcrumbItem[]
 }

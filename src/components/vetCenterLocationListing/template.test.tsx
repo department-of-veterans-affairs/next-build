@@ -7,6 +7,7 @@ import mockCap from './mock.vetCenterCap.json'
 import mockOutstation from '@/components/vetCenterOutstation/mock.json'
 import { NodeVetCenterCap } from '@/types/drupal/node'
 import { NodeVetCenterOutstation } from '@/types/drupal/node'
+import { axe } from '@/test-utils'
 
 // Restructure mock data to match expected format
 const mockData = formatter({
@@ -45,6 +46,17 @@ describe('VetCenterLocationListing with valid data', () => {
     render(<VetCenterLocationListing {...mockData} />)
 
     expect(screen.queryByText(/Locations/)).toBeInTheDocument()
+  })
+
+  test('gives no axe violations', async () => {
+    const { container } = render(<VetCenterLocationListing {...mockData} />)
+    const axeResults = await axe(container, {
+      rules: {
+        // It's only empty because it isn't evaluating the `<va-link>` element inside it.
+        'empty-heading': { enabled: false },
+      },
+    })
+    expect(axeResults).toHaveNoViolations()
   })
 
   describe('Section headings', () => {

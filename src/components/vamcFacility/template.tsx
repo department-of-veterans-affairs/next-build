@@ -26,6 +26,7 @@ export function VamcFacility({
   menu,
   path,
   administration,
+  vamcSystemTitle,
   vamcEhrSystem,
   officeHours,
   address,
@@ -166,8 +167,8 @@ export function VamcFacility({
         </TextWithImage>
         <LocationServices items={locationServices} />
         <RelatedLinks
-          sectionTitle={relatedLinks.sectionTitle}
-          links={relatedLinks.links}
+          {...relatedLinks}
+          title={`Other services at ${vamcSystemTitle}`}
         />
         <HealthServices
           healthServices={healthServices}

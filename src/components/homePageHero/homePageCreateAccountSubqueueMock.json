@@ -1,0 +1,292 @@
+{
+  "jsonapi": {
+    "version": "1.0",
+    "meta": [
+      {
+        "links": {
+          "self": {
+            "href": "http://jsonapi.org/format/1.0/"
+          }
+        }
+      }
+    ]
+  },
+  "data": [
+    {
+      "type": "entity_subqueue--v2_home_page_create_account",
+      "id": "68314dc7-911d-4519-9773-8b748bd073c0",
+      "links": {
+        "self": {
+          "href": "https://va-gov-cms.ddev.site/jsonapi/entity_subqueue/v2_home_page_create_account/68314dc7-911d-4519-9773-8b748bd073c0?resourceVersion=id%3A6"
+        }
+      },
+      "attributes": {
+        "drupal_internal__name": "v2_home_page_create_account",
+        "drupal_internal__revision_id": 6,
+        "langcode": "en",
+        "revision_created": "2023-02-23T20:42:39+00:00",
+        "revision_log_message": null,
+        "status": true,
+        "title": "V2 Home page Create Account",
+        "created": "2023-02-23T20:42:39+00:00",
+        "changed": "2023-02-23T20:43:31+00:00",
+        "default_langcode": true,
+        "revision_translation_affected": true,
+        "breadcrumbs": [
+          {
+            "uri": "https://va-gov-cms.ddev.site/",
+            "title": "Home",
+            "options": []
+          },
+          {
+            "uri": "https://va-gov-cms.ddev.site/admin",
+            "title": "Administration",
+            "options": []
+          },
+          {
+            "uri": "https://va-gov-cms.ddev.site/admin/structure",
+            "title": "Structure",
+            "options": []
+          },
+          {
+            "uri": "https://va-gov-cms.ddev.site/admin/structure/entityqueue",
+            "title": "Entityqueues",
+            "options": []
+          },
+          {
+            "uri": "https://va-gov-cms.ddev.site/admin/structure/entityqueue/v2_home_page_create_account",
+            "title": "Edit Entity Queue",
+            "options": []
+          },
+          {
+            "uri": "https://va-gov-cms.ddev.site/admin/structure/entityqueue/v2_home_page_create_account/v2_home_page_create_account",
+            "title": "Edit V2 Home Page Create Account",
+            "options": []
+          }
+        ],
+        "metatag": [
+          {
+            "tag": "meta",
+            "attributes": {
+              "name": "title",
+              "content": "| Veterans Affairs"
+            }
+          }
+        ]
+      },
+      "relationships": {
+        "queue": {
+          "data": {
+            "type": "entity_queue--entity_queue",
+            "id": "0245725d-d296-4202-a97c-af0ffe0e781a",
+            "meta": {
+              "drupal_internal__target_id": "v2_home_page_create_account"
+            }
+          },
+          "links": {
+            "related": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/entity_subqueue/v2_home_page_create_account/68314dc7-911d-4519-9773-8b748bd073c0/queue?resourceVersion=id%3A6"
+            },
+            "self": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/entity_subqueue/v2_home_page_create_account/68314dc7-911d-4519-9773-8b748bd073c0/relationships/queue?resourceVersion=id%3A6"
+            }
+          }
+        },
+        "revision_user": {
+          "data": {
+            "type": "user--user",
+            "id": "20b2bc97-2210-4def-9a0f-46c22d250eb7",
+            "meta": {
+              "drupal_internal__target_id": 0
+            }
+          },
+          "links": {
+            "related": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/entity_subqueue/v2_home_page_create_account/68314dc7-911d-4519-9773-8b748bd073c0/revision_user?resourceVersion=id%3A6"
+            },
+            "self": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/entity_subqueue/v2_home_page_create_account/68314dc7-911d-4519-9773-8b748bd073c0/relationships/revision_user?resourceVersion=id%3A6"
+            }
+          }
+        },
+        "uid": {
+          "data": {
+            "type": "user--user",
+            "id": "20b2bc97-2210-4def-9a0f-46c22d250eb7",
+            "meta": {
+              "drupal_internal__target_id": 0
+            }
+          },
+          "links": {
+            "related": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/entity_subqueue/v2_home_page_create_account/68314dc7-911d-4519-9773-8b748bd073c0/uid?resourceVersion=id%3A6"
+            },
+            "self": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/entity_subqueue/v2_home_page_create_account/68314dc7-911d-4519-9773-8b748bd073c0/relationships/uid?resourceVersion=id%3A6"
+            }
+          }
+        },
+        "items": {
+          "data": [
+            {
+              "type": "block_content--cta_with_link",
+              "id": "a31010d9-a792-4b8c-be01-2600a3051aa6",
+              "meta": {
+                "drupal_internal__target_id": 227
+              }
+            }
+          ],
+          "links": {
+            "related": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/entity_subqueue/v2_home_page_create_account/68314dc7-911d-4519-9773-8b748bd073c0/items?resourceVersion=id%3A6"
+            },
+            "self": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/entity_subqueue/v2_home_page_create_account/68314dc7-911d-4519-9773-8b748bd073c0/relationships/items?resourceVersion=id%3A6"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "included": [
+    {
+      "type": "block_content--cta_with_link",
+      "id": "a31010d9-a792-4b8c-be01-2600a3051aa6",
+      "links": {
+        "self": {
+          "href": "https://va-gov-cms.ddev.site/jsonapi/block_content/cta_with_link/a31010d9-a792-4b8c-be01-2600a3051aa6?resourceVersion=id%3A1111"
+        }
+      },
+      "attributes": {
+        "drupal_internal__id": 227,
+        "drupal_internal__revision_id": 1111,
+        "langcode": "en",
+        "revision_created": "2023-03-03T21:27:35+00:00",
+        "revision_log": null,
+        "status": true,
+        "info": "Home page create account block",
+        "changed": "2023-03-03T21:27:35+00:00",
+        "reusable": true,
+        "default_langcode": true,
+        "revision_translation_affected": true,
+        "breadcrumbs": [
+          {
+            "uri": "https://va-gov-cms.ddev.site/",
+            "title": "Home",
+            "options": []
+          },
+          {
+            "uri": "https://va-gov-cms.ddev.site/admin",
+            "title": "Administration",
+            "options": []
+          },
+          {
+            "uri": "https://va-gov-cms.ddev.site/admin/content",
+            "title": "Content",
+            "options": []
+          },
+          {
+            "uri": "https://va-gov-cms.ddev.site/admin/content/block",
+            "title": "Custom Block Library",
+            "options": []
+          },
+          {
+            "uri": "https://va-gov-cms.ddev.site/admin/content/block/227",
+            "title": "Home Page Create Account Block",
+            "options": []
+          }
+        ],
+        "moderation_state": "published",
+        "expiration_date": null,
+        "warning_date": null,
+        "metatag": [
+          {
+            "tag": "meta",
+            "attributes": {
+              "name": "title",
+              "content": "| Veterans Affairs"
+            }
+          }
+        ],
+        "field_cta_summary_text": "Create an account to manage your VA benefits and care in one place — any time, from anywhere.",
+        "field_primary_cta_button_text": "Create account",
+        "field_primary_cta_button_url": {
+          "uri": "internal:/\u003Cnolink\u003E",
+          "title": "",
+          "options": [],
+          "url": "/%3Cnolink%3E"
+        },
+        "field_related_info_links": [
+          {
+            "uri": "entity:node/51915",
+            "title": "Learn how an account helps you",
+            "options": [],
+            "url": "/resources/creating-an-account-for-vagov"
+          }
+        ]
+      },
+      "relationships": {
+        "block_content_type": {
+          "data": {
+            "type": "block_content_type--block_content_type",
+            "id": "e03c282f-589c-4c13-bc2f-b1325c4891df",
+            "meta": {
+              "drupal_internal__target_id": "cta_with_link"
+            }
+          },
+          "links": {
+            "related": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/block_content/cta_with_link/a31010d9-a792-4b8c-be01-2600a3051aa6/block_content_type?resourceVersion=id%3A1111"
+            },
+            "self": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/block_content/cta_with_link/a31010d9-a792-4b8c-be01-2600a3051aa6/relationships/block_content_type?resourceVersion=id%3A1111"
+            }
+          }
+        },
+        "revision_user": {
+          "data": {
+            "type": "user--user",
+            "id": "6eb18f18-5a5a-4dad-afc8-9627095213d7",
+            "meta": {
+              "drupal_internal__target_id": 4179
+            }
+          },
+          "links": {
+            "related": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/block_content/cta_with_link/a31010d9-a792-4b8c-be01-2600a3051aa6/revision_user?resourceVersion=id%3A1111"
+            },
+            "self": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/block_content/cta_with_link/a31010d9-a792-4b8c-be01-2600a3051aa6/relationships/revision_user?resourceVersion=id%3A1111"
+            }
+          }
+        },
+        "field_administration": {
+          "data": {
+            "type": "taxonomy_term--administration",
+            "id": "7fa439fe-e278-4dc7-b88c-655949ffb69f",
+            "meta": {
+              "drupal_internal__target_id": 1109
+            }
+          },
+          "links": {
+            "related": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/block_content/cta_with_link/a31010d9-a792-4b8c-be01-2600a3051aa6/field_administration?resourceVersion=id%3A1111"
+            },
+            "self": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/block_content/cta_with_link/a31010d9-a792-4b8c-be01-2600a3051aa6/relationships/field_administration?resourceVersion=id%3A1111"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "meta": {
+    "count": 1
+  },
+  "links": {
+    "self": {
+      "href": "https://va-gov-cms.ddev.site/jsonapi/entity_subqueue/v2_home_page_create_account?include=items"
+    }
+  },
+  "errors": []
+}

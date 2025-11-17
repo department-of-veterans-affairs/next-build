@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`BenefitHubLanding formatData outputs formatted data 1`] = `
+{
+  "breadcrumbs": [
+    {
+      "options": [],
+      "title": "Home",
+      "uri": "https://www.va.gov/",
+    },
+  ],
+  "entityId": 67,
+  "entityPath": "/health-care",
+  "fieldLinks": null,
+  "hubLabel": "Health care",
+  "id": "fd822f25-788f-489c-a0fc-b1f7ad6c20d5",
+  "intro": "With a VA health care plan, you're covered for regular checkups with your primary care provider and appointments with specialists (like cardiologists, gynecologists, and mental health providers).",
+  "lastUpdated": "2023-12-01T12:00:00+00:00",
+  "metatags": [],
+  "moderationState": "published",
+  "published": true,
+  "spokes": [],
+  "teaserText": "Apply for and manage VA health care benefits",
+  "title": "VA health care",
+  "titleIcon": "",
+  "type": "node--landing_page",
+}
+`;

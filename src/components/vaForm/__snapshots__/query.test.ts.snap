@@ -1,0 +1,207 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`VaForm formatter outputs formatted data with all fields 1`] = `
+{
+  "administration": undefined,
+  "benefitCategories": [
+    undefined,
+    undefined,
+  ],
+  "breadcrumbs": [
+    {
+      "options": [],
+      "title": "Home",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+    },
+    {
+      "options": [],
+      "title": "Find a VA Form",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/find-forms",
+    },
+    {
+      "options": [],
+      "title": "About VA Form 21-0781",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/find-forms/about-form-21-0781",
+    },
+  ],
+  "entityId": 6022,
+  "entityPath": "/find-forms/about-form-21-0781",
+  "formLanguage": "en",
+  "formName": "Statement in Support of Claimed Mental Health Disorder(s) Due to an In-Service Traumatic Event(s)",
+  "formNumber": "21-0781",
+  "formTitle": "Statement in Support of Claim for Service Connection for PTSD (Fillable)",
+  "formType": "benefit",
+  "formUrl": {
+    "options": [],
+    "title": null,
+    "uri": "http://www.vba.va.gov/pubs/forms/VBA-21-0781-ARE.pdf",
+    "url": "http://www.vba.va.gov/pubs/forms/VBA-21-0781-ARE.pdf",
+  },
+  "id": "13dcf2b1-92f3-4296-9b8b-6b4b13e16c7b",
+  "issueDate": "2024-06-27",
+  "lastUpdated": "2025-06-13T18:24:11+00:00",
+  "linkTeasers": [
+    {
+      "entityId": 156599,
+      "id": "91e2a267-40e5-469f-8cd2-4cb2362cf26f",
+      "options": {
+        "data-entity-substitution": "canonical",
+        "data-entity-type": "node",
+        "data-entity-uuid": "414c54b9-cd5c-4d86-8203-fc2489e4be8a",
+        "href": "entity:node/905",
+      },
+      "summary": "Find out how to file a claim for VA disability compensation.",
+      "title": "How to file a VA disability claim",
+      "type": "paragraph--link_teaser",
+      "uri": "/disability/how-to-file-claim",
+    },
+    {
+      "entityId": 10995,
+      "id": "74e2e77d-148b-4291-8371-a03095265299",
+      "options": {
+        "data-entity-substitution": "canonical",
+        "data-entity-type": "node",
+        "data-entity-uuid": "f8323733-28cd-497d-b536-349005be9b71",
+        "href": "entity:node/35",
+      },
+      "summary": "Find out how to apply for VA health care. This can be a first step in getting treatment and support for PTSD.",
+      "title": "How to apply for VA health care",
+      "type": "paragraph--link_teaser",
+      "uri": "/health-care/how-to-apply",
+    },
+    {
+      "entityId": 11218,
+      "id": "fad126a2-a7d7-4d8d-8993-eb10190dc45c",
+      "options": {
+        "data-entity-substitution": "canonical",
+        "data-entity-type": "node",
+        "data-entity-uuid": "ec926928-4e69-47c9-9820-f41d14183b76",
+        "href": "entity:node/23",
+      },
+      "summary": "Learn how to get started using VA mental health services. You can use some services even if you’re not enrolled in VA health care.",
+      "title": "VA mental health services",
+      "type": "paragraph--link_teaser",
+      "uri": "/health-care/health-needs-conditions/mental-health",
+    },
+    {
+      "entityId": 10996,
+      "id": "39e60e6c-c030-4236-bd4d-c6c8a7eae608",
+      "options": {
+        "data-entity-substitution": "canonical",
+        "data-entity-type": "node",
+        "data-entity-uuid": "da20e1c8-3021-4609-b0dd-766879599579",
+        "href": "entity:node/19",
+      },
+      "summary": "Find out how to access PTSD health services through VA. Our National Center for PTSD is the world leader in PTSD research, education, and treatment.",
+      "title": "PTSD treatment",
+      "type": "paragraph--link_teaser",
+      "uri": "/health-care/health-needs-conditions/mental-health/ptsd",
+    },
+  ],
+  "metatags": [
+    {
+      "attributes": {
+        "content": "About VA Form 21-0781 | Veterans Affairs",
+        "name": "title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Statement in Support of Claimed Mental Health Disorder(s) Due to an In-Service Traumatic Event(s)",
+        "name": "description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "href": "https://www.va.gov/img/design/logo/va-og-image.png",
+        "rel": "image_src",
+      },
+      "tag": "link",
+    },
+    {
+      "attributes": {
+        "content": "Veterans Affairs",
+        "property": "og:site_name",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "About VA Form 21-0781 | Veterans Affairs",
+        "property": "og:title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "https://www.va.gov/img/design/logo/va-og-image.png",
+        "property": "og:image",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "U.S. Department of Veterans Affairs",
+        "property": "og:image:alt",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "summary_large_image",
+        "name": "twitter:card",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "@DeptVetAffairs",
+        "name": "twitter:site",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "About VA Form 21-0781 | Veterans Affairs",
+        "name": "twitter:title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "https://www.va.gov/img/design/logo/va-og-image.png",
+        "name": "twitter:image",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "U.S. Department of Veterans Affairs",
+        "name": "twitter:image:alt",
+      },
+      "tag": "meta",
+    },
+  ],
+  "moderationState": "published",
+  "published": true,
+  "relatedForms": [],
+  "revisionDate": "2024-03-28",
+  "title": "About VA Form 21-0781",
+  "toolIntro": "We’ll ask you to complete an online application for disability compensation (VA Form 21-526EZ) and answer questions about your mental health condition and the related events.",
+  "toolUrl": {
+    "options": {
+      "data-entity-substitution": "",
+      "data-entity-type": "",
+      "data-entity-uuid": "",
+      "href": "https://www.va.gov/disability/how-to-file-claim/",
+    },
+    "title": "",
+    "uri": "https://www.va.gov/disability/how-to-file-claim/",
+    "url": "https://www.va.gov/disability/how-to-file-claim/",
+  },
+  "type": "node--va_form",
+  "usage": "<p>Use VA Form 21-0781 if you’ve been diagnosed with a mental health condition related to a traumatic event during your military service, and you want to apply for related benefits or services.</p><p>As of June 28, 2024, we’ve discontinued a similar form, Statement in Support of Claim for Service Connection for PTSD Secondary to Personal Assault (VA Form 21-0781a). We previously used this form to get more information to support claims for posttraumatic stress disorder (PTSD) related to personal assault. Now you can report all mental health conditions, including PTSD, on Form 21-0781.</p><p>These are some examples of mental health conditions:</p><ul><li>Posttraumatic stress disorder (PTSD)</li><li>Major depressive disorder</li><li>Generalized anxiety disorder</li><li>Bipolar disorder</li></ul><p>Traumatic events during your military service can include any of these types of events:</p><ul type="square"><li>Combat events, like engaging in combat with enemy forces, experiencing fear of hostile military or terrorist activity, serving in an imminent danger area, or serving as a drone aircraft crew member</li><li>Sexual assault or harassment&nbsp;(also known as military sexual trauma or MST)</li><li>Traumatic personal events, like physical assault, battery, robbery, mugging, stalking, or harassment by a person who wasn’t part of an enemy force, or domestic abuse or harassment by a partner&nbsp;</li><li>Other traumatic events, like getting into a car accident, witnessing a natural disaster, working on burn ward or graves registration, witnessing the death, injury, or threat to another person or to yourself, that was caused by something other than a hostile military or terrorist activity, or experiencing or witnessing friendly fire that occurred on a gunnery range during a training mission</li></ul><p>This form is optional. But if you’re submitting a claim related to a mental health condition, this form could help with your claim. We’ll use the information you provide to help identify records and other evidence to support your claim.</p><p><strong>Note:</strong> If you’re submitting the PDF version of VA Form 21-0781 to support an online application for disability compensation (VA Form 21-526EZ) related to PTSD, you don’t need to answer the online application’s questions about PTSD. Select<strong> I’ve already filled out VA Form 21-0781/21-0781a and want to upload it</strong>.<strong>&nbsp;</strong></p>",
+}
+`;
