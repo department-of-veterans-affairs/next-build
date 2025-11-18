@@ -74,6 +74,9 @@ export default defineConfig([
     },
 
     rules: {
+      // The next/link client-side routing breaks site-wide scripts that rely on the
+      // document load event to add interactivity. Completely breaks the site header.
+      '@next/next/no-html-link-for-pages': 'off',
       '@typescript-eslint/no-unused-vars': 'off',
       '@typescript-eslint/no-var-requires': 'off',
       'react/display-name': 'off',
