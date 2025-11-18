@@ -80,9 +80,7 @@ export function SchemaScript({ vetCenter }: SchemaScriptProps) {
           '@type': 'PostalAddress',
           streetAddress:
             address.address_line1 +
-            (address.address_line2
-              ? `${address.address_line1}${address.address_line2}`
-              : address.address_line1),
+            (address.address_line2 ? `, ${address.address_line2}` : ''),
           addressLocality: address?.locality,
           addressRegion: address?.administrative_area,
           postalCode: address?.postal_code,
