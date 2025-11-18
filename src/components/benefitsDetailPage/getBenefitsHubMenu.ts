@@ -8,7 +8,7 @@ import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import { getHubIcon } from '@/lib/utils/benefitsHub'
 
-const HUB_NAV_NAMES = [
+export const HUB_NAV_NAMES = [
   'burials-and-memorials-benef',
   'careers-employment-benefits',
   'decision-reviews-benefits-h',
