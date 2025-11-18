@@ -182,7 +182,17 @@
       "field_product"
     ]
   },
-  "field_alert": null,
+  "field_alert": {
+    "type": "block--alert",
+    "id": "test-alert-id",
+    "status": true,
+    "field_alert_type": "information",
+    "field_alert_title": "Test Alert",
+    "field_alert_content": {
+      "type": "paragraph--wysiwyg",
+      "id": "test-content-id"
+    }
+  },
   "field_content_block": [
     {
       "type": "paragraph--wysiwyg",
