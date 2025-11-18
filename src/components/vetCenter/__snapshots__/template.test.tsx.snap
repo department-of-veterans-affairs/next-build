@@ -97,7 +97,7 @@ exports[`VetCenter with valid data renders schema.org structured data scripts co
       },
       "servicePhone": {
         "@type": "ContactPoint",
-        "telephone": null,
+        "telephone": "123-456-7890",
       },
       "serviceUrl": "https://www.va.gov",
     },
@@ -144,7 +144,7 @@ exports[`VetCenter with valid data renders schema.org structured data scripts co
       },
       "servicePhone": {
         "@type": "ContactPoint",
-        "telephone": null,
+        "telephone": "123-456-7890",
       },
       "serviceUrl": "https://www.va.gov",
     },
@@ -191,7 +191,7 @@ exports[`VetCenter with valid data renders schema.org structured data scripts co
       },
       "servicePhone": {
         "@type": "ContactPoint",
-        "telephone": null,
+        "telephone": "123-456-7890",
       },
       "serviceUrl": "https://www.va.gov",
     },
