@@ -6,7 +6,16 @@ exports[`BenefitsDetailPage formatter outputs formatted data with correct struct
     "entityId": 10,
     "name": "Health care benefits hub",
   },
-  "alert": null,
+  "alert": {
+    "alertType": "info",
+    "content": {
+      "html": "",
+      "id": "test-content-id",
+      "type": "paragraph--wysiwyg",
+    },
+    "id": "test-alert-id",
+    "title": "Test Alert",
+  },
   "breadcrumbs": [
     {
       "options": [],
