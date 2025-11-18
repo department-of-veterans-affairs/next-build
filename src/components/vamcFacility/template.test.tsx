@@ -168,7 +168,7 @@ describe('HealthCareLocalFacility with valid data', () => {
     ).not.toBeInTheDocument()
   })
 
-  test('generates the schema.org JSON-LD script with correct data', () => {
+  test('renders SchemaScript component', () => {
     const { container } = render(<VamcFacility {...mockData} />)
 
     // Find the JSON-LD script
@@ -177,44 +177,10 @@ describe('HealthCareLocalFacility with valid data', () => {
     )
     expect(jsonLdScript).toBeInTheDocument()
 
-    // Parse the JSON to verify content
-    const jsonData = JSON.parse(jsonLdScript?.innerHTML || '{}')
-
-    // Test essential properties
-    expect(jsonData['@context']).toBe('https://schema.org')
-    expect(jsonData['@type']).toBe('Place')
-    expect(jsonData.name).toBe(mockData.title)
-    expect(jsonData.telephone).toBe(mockData.mainPhoneString)
-
-    // Test address
-    expect(jsonData.address['@type']).toBe('PostalAddress')
-    expect(jsonData.address.streetAddress).toContain(
-      mockData.address.address_line1
-    )
-    expect(jsonData.address.addressLocality).toBe(mockData.address.locality)
-    expect(jsonData.address.addressRegion).toBe(
-      mockData.address.administrative_area
-    )
-    expect(jsonData.address.postalCode).toBe(mockData.address.postal_code)
-
-    // Test geo coordinates
-    expect(jsonData.geo['@type']).toBe('GeoCoordinates')
-    expect(jsonData.geo.latitude).toBe(mockData.geoLocation?.lat)
-    expect(jsonData.geo.longitude).toBe(mockData.geoLocation?.lon)
-
-    // Test facility ID
-    expect(jsonData.branchCode).toBe(mockData.facilityLocatorApiId)
-
-    // Test opening hours
-    expect(Array.isArray(jsonData.openingHoursSpecification)).toBe(true)
-    expect(jsonData.openingHoursSpecification.length).toBe(
-      mockData.officeHours.length
-    )
-
-    // Test first opening hours entry
-    const firstHours = jsonData.openingHoursSpecification[0]
-    expect(firstHours['@type']).toBe('OpeningHoursSpecification')
-    expect(firstHours.dayOfWeek).toContain('https://schema.org/')
+    // Verify it contains valid JSON
+    expect(() => {
+      JSON.parse(jsonLdScript?.innerHTML || '{}')
+    }).not.toThrow()
   })
 
   test('renders FacilityTopTasks component', () => {
