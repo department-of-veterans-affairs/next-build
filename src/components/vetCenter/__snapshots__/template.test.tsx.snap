@@ -86,7 +86,7 @@ exports[`VetCenter with valid data renders schema.org structured data scripts co
           "@type": "PostalAddress",
           "addressLocality": "Pittsburgh",
           "addressRegion": "PA",
-          "streetAddress": "1010 Delafield Road1010 Delafield Road",
+          "streetAddress": "1010 Delafield Road",
         },
         "geo": {
           "@type": "GeoCoordinates",
@@ -133,7 +133,7 @@ exports[`VetCenter with valid data renders schema.org structured data scripts co
           "@type": "PostalAddress",
           "addressLocality": "Pittsburgh",
           "addressRegion": "PA",
-          "streetAddress": "1010 Delafield Road1010 Delafield Road",
+          "streetAddress": "1010 Delafield Road",
         },
         "geo": {
           "@type": "GeoCoordinates",
@@ -180,7 +180,7 @@ exports[`VetCenter with valid data renders schema.org structured data scripts co
           "@type": "PostalAddress",
           "addressLocality": "Pittsburgh",
           "addressRegion": "PA",
-          "streetAddress": "1010 Delafield Road1010 Delafield Road",
+          "streetAddress": "1010 Delafield Road",
         },
         "geo": {
           "@type": "GeoCoordinates",
