@@ -39,8 +39,7 @@
     "test:playwright:a11y:local": "USE_PROXY=false PW_WIDTH_VALUE=768 PW_HEIGHT_VALUE=720 PW_BROWSER_VALUE=chromium yarn playwright test --project=a11y",
     "test:types": "yarn build:env-loader && APP_ENV=test tsc --noEmit",
     "fetch-entity": "node --import=tsx ./scripts/fetch-entity/src/index.ts",
-    "visualize-dependency-tree": "node --import=tsx scripts/dependency-tree-visualizer/index.ts",
-    "playwright:collect-paths": "yarn build:env-loader && node --import=tsx playwright/collect-paths.ts"
+    "visualize-dependency-tree": "node --import=tsx scripts/dependency-tree-visualizer/index.ts"
   },
   "dependencies": {
     "@actions/core": "^1.10.1",

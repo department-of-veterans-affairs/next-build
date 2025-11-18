@@ -19,9 +19,7 @@
 # testing
 /coverage
 playwright/test-results
-# playwright/test-results-breadcrumb
 playwright/test-report
-playwright/test-paths
 broken-links-*
 !broken-links-slack-payload.js
 
