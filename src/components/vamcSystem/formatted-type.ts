@@ -6,7 +6,7 @@ import { VamcFacility } from '../vamcFacility/formatted-type'
 import { NodeHealthCareRegionPage } from '@/types/drupal/node'
 import { LovellChildVariant } from '@/lib/drupal/lovell/types'
 import { NewsStoryTeaser } from '../newsStory/formatted-type'
-import { EventWidgetTeaser } from '../event/formatted-type'
+import { FeaturedEventTeaser } from '@/components/eventTeaser/formatted-type'
 import { SocialLink } from '@/lib/utils/social'
 import { ListOfLinkTeasers } from '../listOfLinkTeasers/formatted-type'
 
@@ -36,8 +36,7 @@ export type VamcSystem = PublishedEntity & {
   path: string
   mainFacilities: MinimalLocalFacility[]
   featuredStories: NewsStoryTeaser[]
-  featuredEvents: EventWidgetTeaser[]
-  fallbackEvent: EventWidgetTeaser | null
+  featuredEvents: FeaturedEventTeaser[]
   relatedLinks: ListOfLinkTeasers
   vamcEhrSystem: NodeHealthCareRegionPage['field_vamc_ehr_system']
   lovellVariant?: LovellChildVariant | null
