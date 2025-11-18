@@ -32,7 +32,7 @@ describe('Footer query', () => {
       mockGetMenu.mockResolvedValueOnce(mockFooterColumns)
       mockGetMenu.mockResolvedValueOnce(mockFooterBottomRail)
 
-      const result = await data(null)
+      const result = await data()
 
       expect(mockGetMenu).toHaveBeenCalledTimes(2)
       expect(mockGetMenu).toHaveBeenCalledWith('va-gov-footer')
