@@ -48,7 +48,6 @@ export const params: QueryParams<null> = () => {
 export const serviceParams: QueryParams<string[]> = (facilityIds: string[]) => {
   return new DrupalJsonApiParams()
     .addInclude([
-      // 'field_service_name_and_descripti',
       'field_facility_location',
       ...getNestedIncludes(
         'field_service_location',

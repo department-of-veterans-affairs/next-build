@@ -47,7 +47,6 @@ export const params: QueryParams<null> = () => {
 export const serviceParams: QueryParams<string[]> = (facilityIds: string[]) => {
   return new DrupalJsonApiParams()
     .addInclude([
-      // 'field_service_name_and_descripti', Turns out we don't actually need this for the filter to work, and we don't use the data
       'field_facility_location',
       ...getNestedIncludes(
         'field_service_location',
