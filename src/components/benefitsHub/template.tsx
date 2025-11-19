@@ -17,7 +17,7 @@ export function BenefitsHub({
 
   return (
     <div className="vads-grid-container">
-      <div className="vads-grid-row">
+      <div className="vads-grid-row vads-u-margin-bottom--4">
         <article className="vads-grid-col-12 vads-u-margin-bottom--3 tablet:vads-grid-col-8 tablet:vads-u-padding-right--4">
           {iconConfig ? (
             <div className="tablet:vads-u-display--flex vads-u-margin-y--1 vads-u-align-items--flex-start">
