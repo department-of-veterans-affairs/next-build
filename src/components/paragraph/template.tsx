@@ -23,6 +23,8 @@ import {
   ContactInfo as FormattedContactInfo,
   EmailContact as FormattedEmailContact,
 } from '@/components/contactInfo/formatted-type'
+import { DownloadableFile } from '@/components/downloadableFile/template'
+import { DownloadableFile as FormattedDownloadableFile } from '@/components/downloadableFile/formatted-type'
 import { ExpandableText } from '@/components/expandableText/template'
 import { ExpandableText as FormattedExpandableText } from '@/components/expandableText/formatted-type'
 import { FeaturedContent } from '@/components/featuredContent/template'
@@ -46,8 +48,20 @@ import { Table } from '@/components/table/template'
 import { Table as FormattedTable } from '@/components/table/formatted-type'
 import { Wysiwyg } from '@/components/wysiwyg/template'
 import { Wysiwyg as FormattedWysiwyg } from '@/components/wysiwyg/formatted-type'
+import { QaParagraph } from '@/components/qaParagraph/template'
+import { QaParagraph as FormattedQaParagraph } from '@/components/qaParagraph/formatted-type'
+import { StaffProfileParagraph } from '@/components/staffProfileParagraph/template'
+import { StaffProfileParagraph as FormattedStaffProfileParagraph } from '@/components/staffProfileParagraph/formatted-type'
+import { Media } from '@/components/media/template'
+import { Media as FormattedMedia } from '@/components/media/formatted-type'
+import { SpanishTranslationSummary } from '@/components/spanishTranslationSummary/template'
+import { SpanishTranslationSummary as FormattedSpanishTranslationSummary } from '@/components/spanishTranslationSummary/formatted-type'
+import { WithCurrentHeadingLevel } from '@/components/heading/formatted-type'
+export { ParagraphList } from './ParagraphList'
 
-export const Paragraph = (paragraph: FormattedParagraph) => {
+export const Paragraph = (
+  paragraph: FormattedParagraph & WithCurrentHeadingLevel
+) => {
   switch (paragraph.type) {
     case PARAGRAPH_RESOURCE_TYPES.ACCORDION_ITEM:
       return <AccordionItem {...(paragraph as FormattedAccordionItem)} />
@@ -77,6 +91,9 @@ export const Paragraph = (paragraph: FormattedParagraph) => {
     case PARAGRAPH_RESOURCE_TYPES.CONTACT_INFORMATION:
       return <ContactInfo {...(paragraph as FormattedContactInfo)} />
 
+    case PARAGRAPH_RESOURCE_TYPES.DOWNLOADABLE_FILE:
+      return <DownloadableFile {...(paragraph as FormattedDownloadableFile)} />
+
     case PARAGRAPH_RESOURCE_TYPES.EMAIL_CONTACT:
       return <EmailContact {...(paragraph as FormattedEmailContact)} />
 
@@ -94,6 +111,9 @@ export const Paragraph = (paragraph: FormattedParagraph) => {
         <ListOfLinkTeasers {...(paragraph as FormattedListOfLinkTeasers)} />
       )
 
+    case PARAGRAPH_RESOURCE_TYPES.MEDIA:
+      return <Media {...(paragraph as FormattedMedia)} />
+
     case PARAGRAPH_RESOURCE_TYPES.NUMBER_CALLOUT:
       return <NumberCallout {...(paragraph as FormattedNumberCallout)} />
 
@@ -106,14 +126,34 @@ export const Paragraph = (paragraph: FormattedParagraph) => {
     case PARAGRAPH_RESOURCE_TYPES.REACT_WIDGET:
       return <ReactWidget {...(paragraph as FormattedReactWidget)} />
 
+    case PARAGRAPH_RESOURCE_TYPES.SPANISH_TRANSLATION_SUMMARY:
+      return (
+        <SpanishTranslationSummary
+          {...(paragraph as FormattedSpanishTranslationSummary)}
+        />
+      )
+
+    case PARAGRAPH_RESOURCE_TYPES.STAFF_PROFILE:
+      return (
+        <StaffProfileParagraph
+          {...(paragraph as FormattedStaffProfileParagraph)}
+        />
+      )
+
     case PARAGRAPH_RESOURCE_TYPES.TABLE:
       return <Table {...(paragraph as FormattedTable)} />
+
+    case PARAGRAPH_RESOURCE_TYPES.QA:
+      return <QaParagraph {...(paragraph as FormattedQaParagraph)} />
 
     case PARAGRAPH_RESOURCE_TYPES.QA_GROUP:
       return <QaSection {...(paragraph as FormattedQaGroup)} />
 
     case PARAGRAPH_RESOURCE_TYPES.QA_SECTION:
       return <QaSection {...(paragraph as FormattedQaSection)} />
+
+    case PARAGRAPH_RESOURCE_TYPES.QA:
+      return <QaParagraph {...(paragraph as FormattedQaParagraph)} />
 
     case PARAGRAPH_RESOURCE_TYPES.WYSIWYG:
     case PARAGRAPH_RESOURCE_TYPES.RICH_TEXT_CHAR_LIMIT_1000:

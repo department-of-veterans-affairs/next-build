@@ -9,22 +9,24 @@ import { escape } from '@/lib/utils/helpers'
 import { slugifyString } from '@/lib/utils/slug'
 import { ParagraphComponent } from '@/components/paragraph/formatted-type'
 import { conditionalAttr } from '@/lib/utils/helpers'
+import { WithCurrentHeadingLevel } from '@/components/heading/formatted-type'
+import { incrementHeadingLevel } from '../heading/incrementHeadingLevel'
 
 export const CollapsiblePanelItem = ({
   id,
   entityId,
   title,
   wysiwyg,
-  headingLevel = 'h4',
-  expanded = false,
+  currentHeadingLevel = 'h3',
   paragraphs = [],
-}: ParagraphComponent<FormattedCollapsiblePanelItem>) => {
+}: ParagraphComponent<FormattedCollapsiblePanelItem> &
+  WithCurrentHeadingLevel) => {
+  const headingLevel = incrementHeadingLevel(currentHeadingLevel)
   return (
     <va-accordion-item
       key={entityId}
       class="va-accordion-item"
       id={`${slugifyString(title, 60)}-${id}`}
-      {...conditionalAttr(expanded, 'open', true)}
     >
       <HeadingElement headingLevel={headingLevel} slot="headline">
         {title}
@@ -40,8 +42,14 @@ export const CollapsiblePanelItem = ({
         <div id={`collapsible_panel_item-${entityId}`}>
           <WysiwygField html={wysiwyg} />
 
-          {paragraphs.map((paragraph, index) => {
-            return <Paragraph key={paragraph.id} {...paragraph} />
+          {paragraphs.map((paragraph) => {
+            return (
+              <Paragraph
+                key={paragraph.id}
+                {...paragraph}
+                currentHeadingLevel={headingLevel}
+              />
+            )
           })}
         </div>
       </div>
@@ -54,30 +62,23 @@ export const CollapsiblePanel = ({
   entityId,
   paragraphs,
   bordered = false,
-  startExpanded = false,
-  multiSelect = true,
-  headingLevel = 'h4',
-}: ParagraphComponent<FormattedCollapsiblePanel>) => {
+  currentHeadingLevel = 'h3',
+}: ParagraphComponent<FormattedCollapsiblePanel> & WithCurrentHeadingLevel) => {
   return (
     <div
       id={id}
       data-template="paragraphs/collapsible_panel"
       data-paragraph-type="paragraph--collapsible_panel"
       data-entity-id={entityId}
-      data-multiselectable={multiSelect}
     >
-      <va-accordion
-        {...conditionalAttr(bordered, 'bordered')}
-        {...conditionalAttr(!multiSelect, 'open-single')}
-      >
-        {paragraphs.map((collapsiblePanelItem, index) => {
+      <va-accordion {...conditionalAttr(bordered, 'bordered')}>
+        {paragraphs.map((collapsiblePanelItem) => {
           // These paragraphs will always be `paragraph--collapsible_panel_item
           return (
             <CollapsiblePanelItem
               key={collapsiblePanelItem.id}
               {...collapsiblePanelItem}
-              expanded={startExpanded && index == 0 ? true : false}
-              headingLevel={headingLevel}
+              currentHeadingLevel={currentHeadingLevel}
             />
           )
         })}

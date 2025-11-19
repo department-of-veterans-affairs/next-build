@@ -1,5 +1,6 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
+import { axe } from '@/test-utils'
 import { VamcHealthServicesListing } from './template'
 
 // Mock menu data for testing
@@ -20,12 +21,8 @@ const mockFeaturedContent = [
     title: 'Mental health at VA Black Hills health care',
     summary: 'Learn about our leading clinical mental health work',
     uri: '/mental-health',
-    parentField: 'field_featured_content_healthser',
     entityId: 1,
     options: [],
-    componentParams: {
-      sectionHeader: '',
-    },
   },
   {
     id: 'test-2',
@@ -34,12 +31,8 @@ const mockFeaturedContent = [
     summary:
       'VA Black Hills health care provides compassionate care for LGBTQ+ Veterans',
     uri: '/lgbtq-care',
-    parentField: 'field_featured_content_healthser',
     entityId: 2,
     options: [],
-    componentParams: {
-      sectionHeader: '',
-    },
   },
 ]
 
@@ -139,9 +132,14 @@ const defaultProps = {
 }
 
 describe('VamcHealthServicesListing with valid data', () => {
-  test('renders title', () => {
-    render(<VamcHealthServicesListing {...defaultProps} />)
+  test('renders title', async () => {
+    const { container } = render(
+      <VamcHealthServicesListing {...defaultProps} />
+    )
     expect(screen.getByText('Health services')).toBeInTheDocument()
+
+    const axeResults = await axe(container)
+    expect(axeResults).toHaveNoViolations()
   })
 
   test('renders intro text when provided', () => {

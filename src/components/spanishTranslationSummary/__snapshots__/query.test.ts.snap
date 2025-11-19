@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Spanish Translation Summary formatData outputs formatted data 1`] = `
+{
+  "entityId": 183011,
+  "html": "<p>Some hidden text</p>",
+  "id": "3b5269de-386a-4903-aa33-34f702ae2d90",
+  "textExpander": "Additional information",
+  "type": "paragraph--spanish_translation_summary",
+}
+`;

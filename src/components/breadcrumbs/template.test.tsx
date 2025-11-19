@@ -1,6 +1,7 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import Breadcrumbs from './template'
+import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 
 describe('<Breadcrumbs />', () => {
   const defaultProps = {
@@ -83,5 +84,44 @@ describe('<Breadcrumbs />', () => {
       <Breadcrumbs breadcrumbs={breadcrumbsWithInvalid} />
     )
     expect(queryByText('Invalid')).not.toBeInTheDocument()
+  })
+
+  it('should replace last breadcrumb with resource title when BenefitsHub resource is provided', () => {
+    const breadcrumbs = [
+      { uri: '/', title: 'Home', options: [] },
+      { uri: '/health-care', title: 'Health care', options: [] },
+    ]
+
+    const benefitsHubResource = {
+      type: RESOURCE_TYPES.BENEFITS_HUB,
+      title: 'VA health care',
+      titleIcon: 'health-care',
+      intro: 'Apply for and manage VA health care benefits',
+      id: 'test-id',
+      published: true,
+      lastUpdated: '2024-01-01',
+      spokes: [],
+      fieldLinks: null,
+    }
+
+    // Test using BenefitsHub resource which automatically replaces last breadcrumb
+    const { container } = render(
+      <Breadcrumbs
+        breadcrumbs={breadcrumbs}
+        entityPath="/health-care"
+        resource={benefitsHubResource}
+      />
+    )
+
+    // Should replace the last breadcrumb with the resource title
+    const breadcrumbsJson = container
+      .querySelector('va-breadcrumbs')
+      ?.getAttribute('breadcrumb-list')
+    expect(breadcrumbsJson).toBeTruthy()
+
+    const parsedBreadcrumbs = JSON.parse(breadcrumbsJson || '[]')
+    expect(parsedBreadcrumbs).toHaveLength(2)
+    expect(parsedBreadcrumbs[1].label).toBe('VA health care')
+    expect(parsedBreadcrumbs[1].href).toBe('/health-care')
   })
 })

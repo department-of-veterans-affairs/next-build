@@ -1,4 +1,5 @@
 export const RESOURCE_TYPES = {
+  BENEFITS_DETAIL_PAGE: 'node--page',
   BENEFITS_HUB: 'node--landing_page',
   EVENT_LISTING: 'node--event_listing',
   EVENT: 'node--event',
@@ -33,6 +34,8 @@ export const RESOURCE_TYPES = {
   VAMC_SYSTEM_POLICIES_PAGE: 'node--vamc_system_policies_page',
   VAMC_SYSTEM_SERVICE_DES: 'node--regional_health_care_service_des',
   VAMC_SYSTEM_DETAIL_PAGE: 'node--health_care_region_detail_page',
+  VA_FORM: 'node--va_form',
+  CAMPAIGN_LANDING_PAGE: 'node--campaign_landing_page',
 } as const
 
 // (Node) resources that generate full pages.
@@ -40,6 +43,8 @@ export const RESOURCE_TYPES = {
 // nodes that are entity references but that
 // do not have individual pages.
 export const PAGE_RESOURCE_TYPES = [
+  RESOURCE_TYPES.BENEFITS_DETAIL_PAGE,
+  RESOURCE_TYPES.BENEFITS_HUB,
   RESOURCE_TYPES.EVENT,
   RESOURCE_TYPES.EVENT_LISTING,
   RESOURCE_TYPES.LOCATIONS_LISTING,
@@ -64,6 +69,8 @@ export const PAGE_RESOURCE_TYPES = [
   RESOURCE_TYPES.VAMC_OPERATING_STATUS_AND_ALERTS,
   RESOURCE_TYPES.VAMC_SYSTEM_POLICIES_PAGE,
   RESOURCE_TYPES.VAMC_SYSTEM_DETAIL_PAGE,
+  RESOURCE_TYPES.VA_FORM,
+  RESOURCE_TYPES.CAMPAIGN_LANDING_PAGE,
 ]
 
 export const PARAGRAPH_RESOURCE_TYPES = {

@@ -3,21 +3,18 @@ import { fireEvent } from '@testing-library/dom'
 jest.mock('@/lib/analytics/recordEvent')
 import * as recordEvent from '@/lib/analytics/recordEvent'
 import { LinkTeaser } from './template'
-import { LinkTeaser as FormattedLinkTeaser } from '@/components/linkTeaser/formatted-type'
-import { ParagraphComponent } from '@/components/paragraph/formatted-type'
 
 describe('<LinkTeaser> component', () => {
-  const baseProps: ParagraphComponent<FormattedLinkTeaser> = {
+  const baseProps = {
     id: 'cb0c2019-0f48-448f-98ca-205d80c8f6fe',
+    entityId: 123,
+    type: 'paragraph--link_teaser' as const,
     uri: '/health-care/eligibility/',
     title: 'Health Care Benefits Eligibility',
     options: null,
     summary:
       'Not sure if you qualify? Find out if you can get VA health care benefits.',
-    parentField: 'field_va_paragraphs',
-    componentParams: {
-      sectionHeader: 'Test Section Header',
-    },
+    sectionHeader: 'Test Section Header',
   }
 
   beforeEach(() => {
@@ -52,22 +49,22 @@ describe('<LinkTeaser> component', () => {
   })
 
   test('applies correct CSS classes to li element for field_spokes', () => {
-    const propsWithFieldSpokes = {
+    const propsWithSpokes = {
       ...baseProps,
-      parentField: 'field_spokes',
+      isHubPage: true,
     }
-    const { container } = render(<LinkTeaser {...propsWithFieldSpokes} />)
+    const { container } = render(<LinkTeaser {...propsWithSpokes} />)
 
     const liEl = container.querySelector('li')
     expect(liEl).toHaveClass('hub-page-link-list__item')
   })
 
   test('sets active attribute to true for field_spokes', () => {
-    const propsWithFieldSpokes = {
+    const propsWithSpokes = {
       ...baseProps,
-      parentField: 'field_spokes',
+      isHubPage: true,
     }
-    const { container } = render(<LinkTeaser {...propsWithFieldSpokes} />)
+    const { container } = render(<LinkTeaser {...propsWithSpokes} />)
 
     const vaLink = container.querySelector('va-link')
     expect(vaLink).toHaveAttribute('active', '')

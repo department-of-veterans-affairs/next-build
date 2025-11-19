@@ -242,8 +242,8 @@ describe('formatDateObject', () => {
   it('should add startTime, endTime, value, and endValue to each date object', () => {
     const datetimeRange = [
       {
-        value: new Date('2023-09-07T14:00:00Z'),
-        end_value: new Date('2023-09-07T16:00:00Z'),
+        value: '2023-09-07T14:00:00Z',
+        end_value: '2023-09-07T16:00:00Z',
       },
     ]
     const result = formatDateObject(datetimeRange)

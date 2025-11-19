@@ -5,11 +5,15 @@ import { Button } from '@/components/button/formatted-type'
 import { Wysiwyg } from '@/components/wysiwyg/formatted-type'
 import { AudienceTopics } from '@/components/audienceTopics/formatted-type'
 import { ContactInfo } from '@/components/contactInfo/formatted-type'
+import { axe } from '@/test-utils'
 
 describe('<ResourcesSupport /> Component', () => {
   const resourcesSupportProps = {
     title: 'Test Title',
     intro: '<p>Test Intro</p>',
+    id: '',
+    type: '',
+    published: false,
     alert: null,
     buttons: [
       {
@@ -82,23 +86,22 @@ describe('<ResourcesSupport /> Component', () => {
     lastUpdated: '2024-03-22',
   }
 
-  beforeEach(() => {
-    render(
-      <ResourcesSupport
-        id={''}
-        type={''}
-        published={false}
-        {...resourcesSupportProps}
-      />
-    )
-  })
-
   it('renders all information correctly', () => {
+    render(<ResourcesSupport {...resourcesSupportProps} />)
+
     expect(screen.getByText('Test Title')).toBeInTheDocument()
     expect(screen.getByText('Test Intro')).toBeInTheDocument()
     expect(screen.getByText('If you need support...')).toBeInTheDocument()
     expect(screen.getByText('Test Audience')).toBeInTheDocument()
     expect(screen.getByText('Test Topic')).toBeInTheDocument()
     expect(screen.getByText('Need more help?')).toBeInTheDocument()
+  })
+
+  it('gives no axe violations', async () => {
+    const { container } = render(
+      <ResourcesSupport {...resourcesSupportProps} />
+    )
+    const axeResults = await axe(container)
+    expect(axeResults).toHaveNoViolations()
   })
 })
