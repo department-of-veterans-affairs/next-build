@@ -3,6 +3,7 @@ import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import {
   NodeVamcSystemMedicalRecordsOffice,
   NodeVhaFacilityNonclinicalService,
+  NodeHealthCareLocalFacility,
 } from '@/types/drupal/node'
 import { VamcSystemMedicalRecordsOffice } from './formatted-type'
 import {
@@ -44,10 +45,10 @@ export const params: QueryParams<null> = () => {
     .addInclude(['field_office'])
 }
 
-export const serviceParams: QueryParams<string> = (vamcSystemId: string) => {
+export const serviceParams: QueryParams<string[]> = (facilityIds: string[]) => {
   return new DrupalJsonApiParams()
     .addInclude([
-      'field_service_name_and_descripti',
+      // 'field_service_name_and_descripti',
       'field_facility_location',
       ...getNestedIncludes(
         'field_service_location',
@@ -56,7 +57,7 @@ export const serviceParams: QueryParams<string> = (vamcSystemId: string) => {
     ])
     .addFilter('status', '1')
     .addFilter('field_service_name_and_descripti.name', 'Medical records')
-    .addFilter('field_facility_location.field_region_page.id', vamcSystemId)
+    .addFilter('field_facility_location.id', facilityIds, 'IN')
     .addFilter('field_facility_location.status', '1')
 }
 
@@ -113,10 +114,29 @@ export const data: QueryData<
     )
   )
 
+  // Step 1: Fetch facilities for this region_page (direct filter - much faster)
+  const { data: facilities } =
+    await fetchAndConcatAllResourceCollectionPages<NodeHealthCareLocalFacility>(
+      RESOURCE_TYPES.VAMC_FACILITY,
+      new DrupalJsonApiParams()
+        .addFilter('status', '1')
+        .addFilter('field_region_page.id', entity.field_office.id),
+      PAGE_SIZES.MAX
+    )
+
+  // If no facilities found, return empty services array
+  if (facilities.length === 0) {
+    return { entity, menu, services: [], lovell: opts.context?.lovell }
+  }
+
+  // Step 2: Fetch services filtered by facility_location IDs (avoids nested relationship filter)
+  // This replaces the slow nested filter: field_facility_location.field_region_page.id
+  // with a direct filter on facility_location IDs, which should be much faster
+  const facilityIds = facilities.map((f) => f.id)
   const { data: services } =
     await fetchAndConcatAllResourceCollectionPages<NodeVhaFacilityNonclinicalService>(
       RESOURCE_TYPES.VHA_FACILITY_NONCLINICAL_SERVICE,
-      serviceParams(entity.field_office.id),
+      serviceParams(facilityIds),
       PAGE_SIZES.MAX
     )
 
