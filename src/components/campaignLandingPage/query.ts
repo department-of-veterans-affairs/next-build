@@ -40,6 +40,12 @@ export const params: QueryParams<null> = () => {
     'field_clp_resources_cta',
     'field_clp_resources',
     'field_clp_resources.thumbnail',
+    'field_clp_events_references',
+    'field_clp_events_references.field_listing',
+    'field_clp_events_references.field_listing.field_office',
+    'field_clp_events_references.field_media',
+    'field_clp_events_references.field_media.image',
+    'field_clp_events_references.field_facility_location',
   ])
 }
 
@@ -152,6 +158,13 @@ export const formatter: QueryFormatter<
       cta: buttonFormatter(entity.field_clp_resources_cta),
       documents: (entity.field_clp_resources ?? []).map(
         mediaDocumentExternalFormatter
+      ),
+    },
+    events: {
+      show: entity.field_clp_events_panel,
+      header: entity.field_clp_events_header,
+      events: (entity.field_clp_events_references ?? []).map((event) =>
+        queries.formatData('node--event', event)
       ),
     },
   }
