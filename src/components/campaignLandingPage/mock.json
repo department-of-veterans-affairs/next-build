@@ -135,8 +135,8 @@
   "field_clp_stories_header": null,
   "field_clp_stories_intro": null,
   "field_clp_stories_panel": false,
-  "field_clp_video_panel": false,
-  "field_clp_video_panel_header": null,
+  "field_clp_video_panel": true,
+  "field_clp_video_panel_header": "Video panel header",
   "field_clp_what_you_can_do_header": "Edit Heading",
   "field_clp_what_you_can_do_intro": "Edit Introduction",
   "field_clp_why_this_matters": "Example why it matters",
@@ -4955,7 +4955,54 @@
   "field_clp_spotlight_cta": null,
   "field_clp_spotlight_link_teasers": [],
   "field_clp_stories_teasers": [],
-  "field_clp_video_panel_more_video": null,
+  "field_clp_video_panel_more_video": {
+    "type": "paragraph--button",
+    "id": "ad441fcf-56f3-4b58-80d9-8049ea95c6fc",
+    "drupal_internal__id": 172453,
+    "drupal_internal__revision_id": 1888640,
+    "langcode": "en",
+    "status": true,
+    "created": "2025-01-13T17:23:40+00:00",
+    "parent_id": "63686",
+    "parent_type": "node",
+    "parent_field_name": "field_clp_video_panel_more_video",
+    "behavior_settings": [],
+    "default_langcode": true,
+    "revision_translation_affected": true,
+    "breadcrumbs": [],
+    "content_translation_source": "und",
+    "content_translation_outdated": false,
+    "content_translation_changed": "2025-09-30T19:15:24+00:00",
+    "field_button_label": "Watch more videos on creating an account",
+    "field_button_link": {
+      "uri": "entity:node/76162",
+      "title": "",
+      "options": {
+        "href": "entity:node/76162",
+        "data-entity-type": "node",
+        "data-entity-uuid": "83e71217-f708-441e-871b-0fb76d2eb55d",
+        "data-entity-substitution": "canonical"
+      },
+      "url": "/resources/videos-for-how-to-set-up-your-online-va-sign-in-account"
+    },
+    "links": {
+      "self": {
+        "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/button/ad441fcf-56f3-4b58-80d9-8049ea95c6fc?resourceVersion=id%3A1888640"
+      }
+    },
+    "resourceIdObjMeta": {
+      "target_revision_id": 1888640,
+      "drupal_internal__target_id": 172453
+    },
+    "paragraph_type": {
+      "type": "paragraphs_type--paragraphs_type",
+      "id": "f2ea2f57-89da-43d4-be22-ba46d728a286",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "button"
+      }
+    },
+    "relationshipNames": ["paragraph_type"]
+  },
   "field_clp_what_you_can_do_promos": [
     {
       "type": "block_content--promo",
@@ -6627,7 +6674,401 @@
     },
     "relationshipNames": ["bundle", "uid", "thumbnail", "image"]
   },
-  "field_media": null,
+  "field_media": {
+    "type": "media--video",
+    "id": "96ce6194-2a4e-407d-83a9-b67d2ba217c3",
+    "drupal_internal__mid": 37002,
+    "drupal_internal__vid": 38737,
+    "langcode": "en",
+    "revision_created": "2024-09-26T15:57:13+00:00",
+    "revision_log_message": "most updated",
+    "status": true,
+    "name": "VA Health Connect",
+    "created": "2024-09-26T15:57:13+00:00",
+    "changed": "2024-09-26T15:57:13+00:00",
+    "default_langcode": true,
+    "revision_translation_affected": true,
+    "breadcrumbs": [
+      {
+        "uri": "https://va-gov-cms.ddev.site/",
+        "title": "Home",
+        "options": []
+      },
+      {
+        "uri": "https://va-gov-cms.ddev.site/media/video/37002",
+        "title": "VA Health Connect",
+        "options": []
+      }
+    ],
+    "metatag": [
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "title",
+          "content": "| Veterans Affairs"
+        }
+      }
+    ],
+    "path": {
+      "alias": "/media/video/37002",
+      "pid": 113728,
+      "langcode": "en"
+    },
+    "content_translation_source": "und",
+    "content_translation_outdated": false,
+    "field_description": "VA Health Connect",
+    "field_duration": 112,
+    "field_media_in_library": true,
+    "field_media_submission_guideline": null,
+    "field_media_video_embed_field": "https://www.youtube.com/watch?v=pgUj6x4Zw_s",
+    "field_publication_date": "2024-09-26",
+    "links": {
+      "self": {
+        "href": "https://va-gov-cms.ddev.site/jsonapi/media/video/96ce6194-2a4e-407d-83a9-b67d2ba217c3?resourceVersion=id%3A38737"
+      }
+    },
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 37002
+    },
+    "bundle": {
+      "type": "media_type--media_type",
+      "id": "5a81c19e-eab0-46de-b334-b7f5027c3c5d",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "video"
+      }
+    },
+    "revision_user": {
+      "type": "user--user",
+      "id": "67f3e614-8e54-4206-b4ef-ad3649c18fac",
+      "display_name": "Justin.Warren@va.gov",
+      "drupal_internal__uid": 2046,
+      "langcode": "en",
+      "preferred_langcode": "en",
+      "preferred_admin_langcode": null,
+      "name": "Justin.Warren@va.gov",
+      "mail": "user2046@example.com",
+      "timezone": "America/New_York",
+      "status": true,
+      "created": "2021-05-27T14:36:11+00:00",
+      "changed": "2022-02-08T20:39:47+00:00",
+      "access": "2025-10-24T18:35:04+00:00",
+      "login": "2025-10-24T18:28:40+00:00",
+      "init": null,
+      "default_langcode": true,
+      "breadcrumbs": [
+        {
+          "uri": "https://va-gov-cms.ddev.site/",
+          "title": "Home",
+          "options": []
+        },
+        {
+          "uri": "https://va-gov-cms.ddev.site/user/2046",
+          "title": "Justin.Warren@va.gov",
+          "options": []
+        }
+      ],
+      "metatag": [
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "title",
+            "content": "Justin.Warren@va.gov | VA.gov CMS"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "description",
+            "content": "VA.gov CMS"
+          }
+        },
+        {
+          "tag": "link",
+          "attributes": {
+            "rel": "canonical",
+            "href": "https://va-gov-cms.ddev.site/user/2046"
+          }
+        }
+      ],
+      "path": {
+        "alias": null,
+        "pid": null,
+        "langcode": "en"
+      },
+      "field_last_password_reset": "2021-05-27T10:36:11-04:00",
+      "field_password_expiration": false,
+      "field_pending_expire_sent": null,
+      "message_subscribe_email": null,
+      "links": {
+        "self": {
+          "href": "https://va-gov-cms.ddev.site/jsonapi/user/user/67f3e614-8e54-4206-b4ef-ad3649c18fac"
+        }
+      },
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 2046
+      },
+      "roles": [
+        {
+          "type": "user_role--user_role",
+          "id": "d61bb4b4-697c-470e-b9ea-47a72730064e",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "vamc_content_creator"
+          }
+        },
+        {
+          "type": "user_role--user_role",
+          "id": "2782bb1f-74f1-4ac9-b2f8-5dd3cc9bfec1",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "content_publisher"
+          }
+        }
+      ],
+      "role_change": [
+        {
+          "type": "user_role--user_role",
+          "id": "missing",
+          "resourceIdObjMeta": {
+            "links": {
+              "help": {
+                "href": "https://www.drupal.org/docs/8/modules/json-api/core-concepts#missing",
+                "meta": {
+                  "about": "Usage and meaning of the 'missing' resource identifier."
+                }
+              }
+            }
+          }
+        }
+      ],
+      "relationshipNames": ["roles", "role_change"]
+    },
+    "uid": {
+      "type": "user--user",
+      "id": "67f3e614-8e54-4206-b4ef-ad3649c18fac",
+      "display_name": "Justin.Warren@va.gov",
+      "drupal_internal__uid": 2046,
+      "langcode": "en",
+      "preferred_langcode": "en",
+      "preferred_admin_langcode": null,
+      "name": "Justin.Warren@va.gov",
+      "mail": "user2046@example.com",
+      "timezone": "America/New_York",
+      "status": true,
+      "created": "2021-05-27T14:36:11+00:00",
+      "changed": "2022-02-08T20:39:47+00:00",
+      "access": "2025-10-24T18:35:04+00:00",
+      "login": "2025-10-24T18:28:40+00:00",
+      "init": null,
+      "default_langcode": true,
+      "breadcrumbs": [
+        {
+          "uri": "https://va-gov-cms.ddev.site/",
+          "title": "Home",
+          "options": []
+        },
+        {
+          "uri": "https://va-gov-cms.ddev.site/user/2046",
+          "title": "Justin.Warren@va.gov",
+          "options": []
+        }
+      ],
+      "metatag": [
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "title",
+            "content": "Justin.Warren@va.gov | VA.gov CMS"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "description",
+            "content": "VA.gov CMS"
+          }
+        },
+        {
+          "tag": "link",
+          "attributes": {
+            "rel": "canonical",
+            "href": "https://va-gov-cms.ddev.site/user/2046"
+          }
+        }
+      ],
+      "path": {
+        "alias": null,
+        "pid": null,
+        "langcode": "en"
+      },
+      "field_last_password_reset": "2021-05-27T10:36:11-04:00",
+      "field_password_expiration": false,
+      "field_pending_expire_sent": null,
+      "message_subscribe_email": null,
+      "links": {
+        "self": {
+          "href": "https://va-gov-cms.ddev.site/jsonapi/user/user/67f3e614-8e54-4206-b4ef-ad3649c18fac"
+        }
+      },
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 2046
+      },
+      "roles": [
+        {
+          "type": "user_role--user_role",
+          "id": "d61bb4b4-697c-470e-b9ea-47a72730064e",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "vamc_content_creator"
+          }
+        },
+        {
+          "type": "user_role--user_role",
+          "id": "2782bb1f-74f1-4ac9-b2f8-5dd3cc9bfec1",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "content_publisher"
+          }
+        }
+      ],
+      "role_change": [
+        {
+          "type": "user_role--user_role",
+          "id": "missing",
+          "resourceIdObjMeta": {
+            "links": {
+              "help": {
+                "href": "https://www.drupal.org/docs/8/modules/json-api/core-concepts#missing",
+                "meta": {
+                  "about": "Usage and meaning of the 'missing' resource identifier."
+                }
+              }
+            }
+          }
+        }
+      ],
+      "relationshipNames": ["roles", "role_change"]
+    },
+    "thumbnail": {
+      "type": "file--file",
+      "id": "2d421d32-ddc4-4c1d-a0f8-6af8da16279a",
+      "resourceIdObjMeta": {
+        "alt": "",
+        "title": null,
+        "width": 1280,
+        "height": 720,
+        "drupal_internal__target_id": 42379
+      }
+    },
+    "field_owner": {
+      "type": "taxonomy_term--administration",
+      "id": "de31dbcc-5c0f-41e8-aa7f-f63c7eaff373",
+      "drupal_internal__tid": 1023,
+      "drupal_internal__revision_id": 2320,
+      "langcode": "en",
+      "revision_created": "2024-08-13T20:05:29+00:00",
+      "revision_log_message": null,
+      "status": true,
+      "name": "VHA Campaign Landing Pages",
+      "description": null,
+      "weight": 1,
+      "changed": "2024-08-13T20:05:29+00:00",
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "breadcrumbs": [
+        {
+          "uri": "https://va-gov-cms.ddev.site/",
+          "title": "Home",
+          "options": []
+        },
+        {
+          "uri": "https://va-gov-cms.ddev.site/section/vha",
+          "title": "VHA",
+          "options": []
+        },
+        {
+          "uri": "internal:#",
+          "title": "VHA Campaign Landing Pages",
+          "options": []
+        }
+      ],
+      "moderation_state": null,
+      "metatag": [
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "title",
+            "content": "VHA Campaign Landing Pages | VA.gov CMS"
+          }
+        },
+        {
+          "tag": "link",
+          "attributes": {
+            "rel": "canonical",
+            "href": "https://va-gov-cms.ddev.site/section/vha-campaign-landing-pages"
+          }
+        }
+      ],
+      "path": {
+        "alias": "/section/vha-campaign-landing-pages",
+        "pid": 44481,
+        "langcode": "en"
+      },
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "content_translation_created": null,
+      "field_description": null,
+      "links": {
+        "self": {
+          "href": "https://va-gov-cms.ddev.site/jsonapi/taxonomy_term/administration/de31dbcc-5c0f-41e8-aa7f-f63c7eaff373?resourceVersion=id%3A2320"
+        }
+      },
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 1023
+      },
+      "vid": {
+        "type": "taxonomy_vocabulary--taxonomy_vocabulary",
+        "id": "645055c5-e567-4683-b6db-459ce04522ce",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "administration"
+        }
+      },
+      "revision_user": {
+        "type": "user--user",
+        "id": "3ad0956c-0561-4c79-a25c-b6bf3a6fe05c",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 4942
+        }
+      },
+      "parent": [
+        {
+          "type": "taxonomy_term--administration",
+          "id": "e5820ec7-83b0-4d03-8ebf-ed50fa8cc211",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 3
+          }
+        }
+      ],
+      "content_translation_uid": null,
+      "field_product": {
+        "type": "taxonomy_term--products",
+        "id": "fad117c4-34f1-4914-8f10-afb2c7a6db02",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 997
+        }
+      },
+      "relationshipNames": [
+        "vid",
+        "revision_user",
+        "parent",
+        "content_translation_uid",
+        "field_product"
+      ]
+    },
+    "relationshipNames": [
+      "bundle",
+      "revision_user",
+      "uid",
+      "thumbnail",
+      "field_owner"
+    ]
+  },
   "field_primary_call_to_action": {
     "type": "paragraph--button",
     "id": "8b849a21-d0af-49ed-92e4-ff19598d5851",
