@@ -14,9 +14,9 @@ export function BenefitsHub({
   const iconConfig = getHubIcon(titleIcon)
 
   return (
-    <div className="vads-grid-container">
+    <div className="vads-grid-container vads-u-padding-x--2">
       <div className="vads-grid-row">
-        <article className="vads-grid-col-12 tablet:vads-grid-col-8 vads-u-margin-bottom--3">
+        <article className="vads-grid-col-12 vads-u-margin-bottom--3 tablet:vads-grid-col-8 tablet:vads-u-padding-right--4">
           {iconConfig ? (
             <div className="tablet:vads-u-display--flex vads-u-margin-y--1 vads-u-align-items--flex-start">
               <span className="vads-u-margin-top--1">
