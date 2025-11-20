@@ -176,11 +176,8 @@ describe('HealthCareLocalFacility with valid data', () => {
       'script[type="application/ld+json"]'
     )
     expect(jsonLdScript).toBeInTheDocument()
-
-    // Verify it contains valid JSON
-    expect(() => {
-      JSON.parse(jsonLdScript?.innerHTML || '{}')
-    }).not.toThrow()
+    const json = JSON.parse(jsonLdScript?.innerHTML)
+    expect(json.name).toBe(mockData.title)
   })
 
   test('renders FacilityTopTasks component', () => {
