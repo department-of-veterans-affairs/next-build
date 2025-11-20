@@ -24,12 +24,15 @@ const EventDate = ({ dates }: { dates: FieldDateTimeRange[] }) => {
 }
 
 export const EventsPanel = ({ events }: CampaignLandingPageProps) => {
-  if (!events.show) {
+  if (!events?.show) {
     return null
   }
 
   return (
-    <div className="vads-l-grid-container vads-u-padding-y--3 vads-u-padding-x--4 desktop-lg:vads-u-padding-x--0">
+    <div
+      className="vads-l-grid-container vads-u-padding-y--3 vads-u-padding-x--4 desktop-lg:vads-u-padding-x--0"
+      data-testid="events-panel"
+    >
       <div className="vads-l-row">
         <div className="vads-l-col--12 medium-screen:vads-l-col--9">
           <p className="va-u-text-transform--uppercase vads-u-color--gray-medium vads-u-font-size--sm vads-u-margin-bottom--0">
@@ -46,9 +49,14 @@ export const EventsPanel = ({ events }: CampaignLandingPageProps) => {
             className={`vads-l-col--12 medium-screen:vads-l-col--6 ${index > 0 ? 'vads-u-margin-top--4 medium-screen:vads-u-margin-top--0' : ''}`}
           >
             <div className="medium-screen:vads-u-margin-x--6">
-              <h3 className="vads-u-margin-top--0">
+              <h3
+                className="vads-u-margin-top--0"
+                aria-label={event.title}
+                data-testid="event-header"
+              >
                 {event.title && event.urlOfOnlineEvent ? (
                   <va-link
+                    data-testid="event-header-link"
                     href={
                       event.urlOfOnlineEvent.url ?? event.urlOfOnlineEvent.uri
                     }
@@ -70,33 +78,39 @@ export const EventsPanel = ({ events }: CampaignLandingPageProps) => {
                 </p>
               </div>
 
-              {(event.facilityLocation.path.alias ||
+              {(event.facilityLocation?.path?.alias ||
                 event.locationHumanReadable ||
-                event.link.url) && (
-                <div className="vads-u-display--flex vads-u-flex-direction--column medium-screen:vads-u-flex-direction--row vads-u-margin-top--2">
+                event.link?.url) && (
+                <div
+                  className="vads-u-display--flex vads-u-flex-direction--column medium-screen:vads-u-flex-direction--row vads-u-margin-top--2"
+                  data-testid="event-location"
+                >
                   <p className="vads-u-font-weight--bold vads-u-margin--0 vads-u-margin-right--2">
                     Where
                   </p>
 
                   <div className="vads-u-display--flex vads-u-flex-direction--column">
-                    {event.facilityLocation.path.alias &&
-                      event.facilityLocation.title && (
+                    {event.facilityLocation?.path?.alias &&
+                      event.facilityLocation?.title && (
                         <va-link
-                          href={event.facilityLocation.path.alias}
-                          text={event.facilityLocation.title}
+                          data-testid="event-location-link"
+                          href={event.facilityLocation?.path?.alias}
+                          text={event.facilityLocation?.title}
                         />
                       )}
 
                     {event.eventCTA && (
                       <va-link
+                        data-testid="event-cta-link"
                         active
-                        href={event.link.url}
+                        href={event.link?.url}
                         text={event.eventCTA}
                       ></va-link>
                     )}
 
                     {event.urlOfOnlineEvent ? (
                       <va-link
+                        data-testid="event-online-link"
                         href={event.urlOfOnlineEvent.url}
                         text={event.locationHumanReadable}
                       />
