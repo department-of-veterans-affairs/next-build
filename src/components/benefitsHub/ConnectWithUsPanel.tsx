@@ -34,7 +34,7 @@ export function ConnectWithUsPanel({ connectWithUs }: ConnectWithUsProps) {
             ></va-icon>
             <va-link
               href={`https://www.twitter.com/${socialLinksObject.twitter.value}`}
-              text={'Veterans Affairs X (formerly Twitter)'}
+              text="Veterans Affairs X (formerly Twitter)"
             />
           </li>
         )}
@@ -48,7 +48,7 @@ export function ConnectWithUsPanel({ connectWithUs }: ConnectWithUsProps) {
             ></va-icon>
             <va-link
               href={`https://www.facebook.com/${socialLinksObject.facebook.value}`}
-              text={'Veterans Affairs Facebook'}
+              text="Veterans Affairs Facebook"
             />
           </li>
         )}
@@ -62,7 +62,7 @@ export function ConnectWithUsPanel({ connectWithUs }: ConnectWithUsProps) {
             ></va-icon>
             <va-link
               href={`https://www.youtube.com/${socialLinksObject.youtube.value}`}
-              text={'Veterans Affairs YouTube'}
+              text="Veterans Affairs YouTube"
             />
           </li>
         )}
@@ -76,7 +76,7 @@ export function ConnectWithUsPanel({ connectWithUs }: ConnectWithUsProps) {
             ></va-icon>
             <va-link
               href={`https://www.linkedin.com/${socialLinksObject.linkedin.value}`}
-              text={'Veterans Affairs LinkedIn'}
+              text="Veterans Affairs LinkedIn"
             />
           </li>
         )}
@@ -90,7 +90,7 @@ export function ConnectWithUsPanel({ connectWithUs }: ConnectWithUsProps) {
             ></va-icon>
             <va-link
               href={`https://www.instagram.com/${socialLinksObject.instagram.value}`}
-              text={'Veterans Affairs Instagram'}
+              text="Veterans Affairs Instagram"
             />
           </li>
         )}
