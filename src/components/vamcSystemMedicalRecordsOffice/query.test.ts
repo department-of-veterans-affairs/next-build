@@ -7,7 +7,6 @@
 
 import mockPage from './mock.json'
 import mockMenu from './mock.menu.json'
-import mockServices from './mock.services.json'
 import {
   NodeVamcSystemMedicalRecordsOffice,
   NodeVhaFacilityNonclinicalService,
@@ -15,22 +14,30 @@ import {
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { queries } from '@/lib/drupal/queries'
 import { LovellStaticPropsContextProps } from '@/lib/drupal/lovell/types'
+import {
+  createMedicalRecordsServiceQueryMocks,
+  mockMedicalRecordsServices,
+} from '@/components/vhaFacilityNonclinicalService/query.test-utils'
 
 const mockPageQuery = jest.fn(
   () => mockPage as NodeVamcSystemMedicalRecordsOffice
-)
-const mockServicesQuery = jest.fn(
-  () => mockServices as NodeVhaFacilityNonclinicalService[]
 )
 
 jest.mock('@/lib/drupal/query', () => ({
   ...jest.requireActual('@/lib/drupal/query'),
   fetchSingleEntityOrPreview: () => mockPageQuery(),
-  fetchAndConcatAllResourceCollectionPages: () => ({
-    data: mockServicesQuery(),
-  }),
+  fetchAndConcatAllResourceCollectionPages: jest.fn(),
   getMenu: () => mockMenu,
 }))
+
+const serviceMocks = createMedicalRecordsServiceQueryMocks()
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const {
+  fetchAndConcatAllResourceCollectionPages,
+} = require('@/lib/drupal/query')
+fetchAndConcatAllResourceCollectionPages.mockImplementation(
+  serviceMocks.mockFetchAndConcatAllResourceCollectionPages
+)
 
 jest.mock('@/lib/drupal/drupalClient', () => ({
   drupalClient: {
@@ -68,9 +75,7 @@ describe('VamcSystemMedicalRecordsOffice formatter', () => {
     mockPageQuery.mockReturnValue(
       mockPage as NodeVamcSystemMedicalRecordsOffice
     )
-    mockServicesQuery.mockReturnValue(
-      mockServices as NodeVhaFacilityNonclinicalService[]
-    )
+    serviceMocks.reset()
   })
 
   test('outputs formatted data', async () => {
@@ -107,22 +112,22 @@ describe('VamcSystemMedicalRecordsOffice formatter', () => {
   test('sorts services alphabetically by title', async () => {
     const unsortedServices = [
       {
-        ...mockServices[0],
+        ...mockMedicalRecordsServices[0],
         field_facility_location: {
-          ...mockServices[0].field_facility_location,
+          ...mockMedicalRecordsServices[0].field_facility_location,
           title: 'Zebra Medical Center',
         },
       },
       {
-        ...mockServices[0],
+        ...mockMedicalRecordsServices[0],
         field_facility_location: {
-          ...mockServices[0].field_facility_location,
+          ...mockMedicalRecordsServices[0].field_facility_location,
           title: 'Alpha Medical Center',
         },
       },
     ]
 
-    mockServicesQuery.mockReturnValue(
+    serviceMocks.mockServicesQuery.mockResolvedValue(
       unsortedServices as NodeVhaFacilityNonclinicalService[]
     )
 
