@@ -192,6 +192,117 @@ describe('CustomSideNav', () => {
       const currentLink = screen.getByRole('link', { name: 'Item 1' })
       expect(currentLink).toHaveClass('usa-current')
     })
+
+    it('renders three-level nested structure with sub-sub-list', () => {
+      const menu = createMenu([
+        createNavItem('Section 1', '/test/section1', [
+          createNavItem('Subsection 1', '/test/section1/subsection1', [
+            createNavItem('Item 1', '/test/section1/subsection1/item1'),
+            createNavItem('Item 2', '/test/section1/subsection1/item2'),
+          ]),
+        ]),
+      ])
+      mockUsePathname.mockReturnValue('/test/section1/subsection1/item1')
+
+      render(<CustomSideNav menu={menu} />)
+
+      // Should render sub-sub-list items (renderSubSubList is called from renderSubList)
+      expect(screen.getByRole('link', { name: 'Item 1' })).toBeInTheDocument()
+      expect(screen.getByRole('link', { name: 'Item 2' })).toBeInTheDocument()
+    })
+
+    it('applies usa-current class to matching item in sub-sub-list', () => {
+      const menu = createMenu([
+        createNavItem('Section 1', '/test/section1', [
+          createNavItem('Subsection 1', '/test/section1/subsection1', [
+            createNavItem('Item 1', '/test/section1/subsection1/item1'),
+            createNavItem('Item 2', '/test/section1/subsection1/item2'),
+          ]),
+        ]),
+      ])
+      mockUsePathname.mockReturnValue('/test/section1/subsection1/item1')
+
+      render(<CustomSideNav menu={menu} />)
+
+      const currentLink = screen.getByRole('link', { name: 'Item 1' })
+      expect(currentLink).toHaveClass('usa-current')
+
+      const nonCurrentLink = screen.getByRole('link', { name: 'Item 2' })
+      expect(nonCurrentLink).not.toHaveClass('usa-current')
+    })
+
+    it('does not apply usa-current class to non-matching items in sub-sub-list', () => {
+      const menu = createMenu([
+        createNavItem('Section 1', '/test/section1', [
+          createNavItem('Subsection 1', '/test/section1/subsection1', [
+            createNavItem('Item 1', '/test/section1/subsection1/item1'),
+            createNavItem('Item 2', '/test/section1/subsection1/item2'),
+          ]),
+        ]),
+      ])
+      mockUsePathname.mockReturnValue('/test/other/path')
+
+      render(<CustomSideNav menu={menu} />)
+
+      const item1Link = screen.getByRole('link', { name: 'Item 1' })
+      expect(item1Link).not.toHaveClass('usa-current')
+
+      const item2Link = screen.getByRole('link', { name: 'Item 2' })
+      expect(item2Link).not.toHaveClass('usa-current')
+    })
+
+    it('renders sub-list items without sub-items', () => {
+      const menu = createMenu([
+        createNavItem('Section 1', '/test/section1', [
+          createNavItem('Item with children', '/test/section1/with-children', [
+            createNavItem('Child 1', '/test/section1/with-children/child1'),
+          ]),
+          createNavItem('Item without children', '/test/section1/no-children'),
+        ]),
+      ])
+      mockUsePathname.mockReturnValue('/test/section1/no-children')
+
+      render(<CustomSideNav menu={menu} />)
+
+      // Both items should be rendered
+      expect(
+        screen.getByRole('link', { name: 'Item with children' })
+      ).toBeInTheDocument()
+      expect(
+        screen.getByRole('link', { name: 'Item without children' })
+      ).toBeInTheDocument()
+
+      // Item without children should not have a sub-list
+      const noChildrenLink = screen.getByRole('link', {
+        name: 'Item without children',
+      })
+      const noChildrenLi = noChildrenLink.closest('li')
+      const subList = noChildrenLi?.querySelector('.usa-sidenav-sub_list')
+      expect(subList).toBeNull()
+    })
+
+    it('does not apply active-level class when path does not contain current path in sub-list', () => {
+      const menu = createMenu([
+        createNavItem('Section 1', '/test/section1', [
+          createNavItem('Item 1', '/test/section1/item1', [
+            createNavItem('Sub item', '/test/section1/item1/sub'),
+          ]),
+          createNavItem('Item 2', '/test/section1/item2'),
+        ]),
+      ])
+      mockUsePathname.mockReturnValue('/test/other/path')
+
+      // Item 1 should not have active-level since current path doesn't contain its path
+      const { container } = render(<CustomSideNav menu={menu} />)
+      const allLis = container.querySelectorAll('li')
+      const item1Li = Array.from(allLis).find(
+        (li): li is HTMLElement =>
+          li instanceof HTMLElement &&
+          li.querySelector('a[href="/test/section1/item1"]') !== null
+      )
+      expect(item1Li).not.toBeNull()
+      expect(item1Li).not.toHaveClass('active-level')
+    })
   })
 
   describe('Deep Navigation (depth > 2)', () => {
