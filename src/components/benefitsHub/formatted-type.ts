@@ -4,7 +4,7 @@ import { ListOfLinkTeasers } from '@/components/listOfLinkTeasers/formatted-type
 export interface BenefitsHub extends PublishedEntity {
   title: string
   titleIcon: string | null
-  spokes: ListOfLinkTeasers[]
+  spokes: ListOfLinkTeasers[] | null
   intro: string | null
   fieldLinks: Array<{
     title: string

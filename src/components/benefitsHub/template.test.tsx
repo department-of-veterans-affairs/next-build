@@ -212,4 +212,89 @@ describe('BenefitsHub with valid data', () => {
       '/service-member-benefits/'
     )
   })
+
+  test('renders on-this-page component when spokes exist', () => {
+    const mockSpokes = [
+      {
+        type: 'paragraph--list_of_link_teasers' as const,
+        id: 'spoke-1',
+        entityId: 1,
+        title: 'Get VA health care',
+        isHubPage: true,
+        linkTeasers: [
+          {
+            type: 'paragraph--link_teaser' as const,
+            id: 'teaser-1',
+            entityId: 2,
+            uri: '/health-care/apply/',
+            title: 'Apply for health care',
+            options: [],
+            summary: 'Apply for VA health care benefits',
+            isHubPage: true,
+            componentParams: {
+              sectionHeader: 'Get VA health care',
+            },
+          },
+        ],
+      },
+    ]
+
+    render(
+      <BenefitsHub
+        id="6"
+        type=""
+        published={true}
+        lastUpdated="2024-01-01"
+        title={'Benefits Hub with On This Page'}
+        titleIcon={null}
+        intro={'Testing on-this-page component.'}
+        spokes={mockSpokes}
+        fieldLinks={null}
+      />
+    )
+
+    // Check that the va-on-this-page element is rendered
+    const onThisPageElement = document.querySelector('va-on-this-page')
+    expect(onThisPageElement).toBeInTheDocument()
+  })
+
+  test('does not render on-this-page component when no spokes exist', () => {
+    render(
+      <BenefitsHub
+        id="7"
+        type=""
+        published={true}
+        lastUpdated="2024-01-01"
+        title={'Benefits Hub without Spokes'}
+        titleIcon={null}
+        intro={'Testing without spokes.'}
+        spokes={[]}
+        fieldLinks={null}
+      />
+    )
+
+    // Check that the va-on-this-page element is not rendered when spokes is empty
+    const onThisPageElement = document.querySelector('va-on-this-page')
+    expect(onThisPageElement).not.toBeInTheDocument()
+  })
+
+  test('does not render on-this-page component when spokes is null', () => {
+    render(
+      <BenefitsHub
+        id="8"
+        type=""
+        published={true}
+        lastUpdated="2024-01-01"
+        title={'Benefits Hub with Null Spokes'}
+        titleIcon={null}
+        intro={'Testing with null spokes.'}
+        spokes={null}
+        fieldLinks={null}
+      />
+    )
+
+    // Check that the va-on-this-page element is not rendered when spokes is null
+    const onThisPageElement = document.querySelector('va-on-this-page')
+    expect(onThisPageElement).not.toBeInTheDocument()
+  })
 })
