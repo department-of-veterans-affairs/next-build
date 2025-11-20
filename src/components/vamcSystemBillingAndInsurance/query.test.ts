@@ -32,10 +32,8 @@ jest.mock('@/lib/drupal/query', () => ({
 
 const serviceMocks = createBillingAndInsuranceServiceQueryMocks()
 // eslint-disable-next-line @typescript-eslint/no-require-imports
-const {
-  fetchAndConcatAllResourceCollectionPages,
-} = require('@/lib/drupal/query')
-fetchAndConcatAllResourceCollectionPages.mockImplementation(
+const queryModule = require('@/lib/drupal/query')
+queryModule.fetchAndConcatAllResourceCollectionPages.mockImplementation(
   serviceMocks.mockFetchAndConcatAllResourceCollectionPages
 )
 
