@@ -1,81 +1,16 @@
 import React from 'react'
 import { render, screen, fireEvent, waitFor, act } from '@testing-library/react'
+import { observerInstances, triggerIntersection } from '@/test-utils'
 import { MobileNavTrigger } from './MobileNavTrigger'
 
-// Enhanced IntersectionObserver mock that can trigger callbacks
-type ObserverInstance = {
-  callback: IntersectionObserverCallback
-  elements: Element[]
-  disconnect: () => void
-  unobserve: () => void
-}
-
-const observerInstances: ObserverInstance[] = []
-
-class MockIntersectionObserver {
-  callback: IntersectionObserverCallback
-  elements: Element[] = []
-  instance: ObserverInstance
-
-  constructor(callback: IntersectionObserverCallback) {
-    this.callback = callback
-    this.instance = {
-      callback,
-      elements: this.elements,
-      disconnect: this.disconnect.bind(this),
-      unobserve: this.unobserve.bind(this),
-    }
-    observerInstances.push(this.instance)
-  }
-
-  observe(element: Element) {
-    this.elements.push(element)
-    this.instance.elements.push(element)
-  }
-
-  unobserve() {
-    // Mock implementation
-  }
-
-  disconnect() {
-    const index = observerInstances.indexOf(this.instance)
-    if (index > -1) {
-      observerInstances.splice(index, 1)
-    }
-    this.elements = []
-    this.instance.elements = []
-  }
-
-  // Helper method to simulate intersection changes
-  simulateIntersection(entries: IntersectionObserverEntry[]) {
-    this.callback(entries, this as unknown as IntersectionObserver)
-  }
-}
-
-// Helper function to trigger intersection observer callbacks
-function triggerIntersection(element: Element, isIntersecting: boolean): void {
-  const instance = observerInstances.find((inst) =>
-    inst.elements.includes(element)
-  )
-  if (instance) {
-    const mockEntry = {
-      isIntersecting,
-      target: element,
-      boundingClientRect: {} as DOMRectReadOnly,
-      intersectionRatio: isIntersecting ? 1 : 0,
-      intersectionRect: {} as DOMRectReadOnly,
-      rootBounds: null as DOMRectReadOnly | null,
-      time: Date.now(),
-    } as IntersectionObserverEntry
-
-    // Wrap callback in act() to handle React state updates
-    act(() => {
-      instance.callback(
-        [mockEntry],
-        instance as unknown as IntersectionObserver
-      )
-    })
-  }
+// Helper function to trigger intersection observer callbacks with act() wrapper
+function triggerIntersectionWithAct(
+  element: Element,
+  isIntersecting: boolean
+): void {
+  act(() => {
+    triggerIntersection(element, isIntersecting)
+  })
 }
 
 describe('MobileNavTrigger', () => {
@@ -85,12 +20,6 @@ describe('MobileNavTrigger', () => {
     jest.clearAllMocks()
     mockOnToggle.mockClear()
     observerInstances.length = 0
-
-    // Replace the global IntersectionObserver with our mock
-    ;(
-      global as { IntersectionObserver: typeof IntersectionObserver }
-    ).IntersectionObserver =
-      MockIntersectionObserver as unknown as typeof IntersectionObserver
   })
 
   afterEach(() => {
@@ -179,7 +108,7 @@ describe('MobileNavTrigger', () => {
       })
 
       // Simulate sentinel leaving viewport (scrolled past)
-      triggerIntersection(sentinel!, false)
+      triggerIntersectionWithAct(sentinel!, false)
 
       // Wait for state update
       await waitFor(() => {
@@ -202,14 +131,14 @@ describe('MobileNavTrigger', () => {
       })
 
       // First, make it sticky
-      triggerIntersection(sentinel!, false)
+      triggerIntersectionWithAct(sentinel!, false)
       await waitFor(() => {
         const trigger = container.querySelector('#sidenav-trigger')
         expect(trigger).toHaveClass('sidenav-trigger--sticky')
       })
 
       // Then, make it intersecting again (scrolled back up)
-      triggerIntersection(sentinel!, true)
+      triggerIntersectionWithAct(sentinel!, true)
       await waitFor(() => {
         const trigger = container.querySelector('#sidenav-trigger')
         expect(trigger).not.toHaveClass('sidenav-trigger--sticky')
@@ -246,7 +175,7 @@ describe('MobileNavTrigger', () => {
       })
 
       // Make it sticky
-      triggerIntersection(sentinel!, false)
+      triggerIntersectionWithAct(sentinel!, false)
 
       // Wait for placeholder to appear
       await waitFor(() => {
@@ -280,7 +209,7 @@ describe('MobileNavTrigger', () => {
       })
 
       // Make it sticky
-      triggerIntersection(sentinel!, false)
+      triggerIntersectionWithAct(sentinel!, false)
       await waitFor(() => {
         const placeholder = container.querySelector(
           '.sidenav-trigger-placeholder'
@@ -295,7 +224,7 @@ describe('MobileNavTrigger', () => {
       })
 
       // Make it not sticky, then sticky again
-      triggerIntersection(sentinel!, true)
+      triggerIntersectionWithAct(sentinel!, true)
       await waitFor(() => {
         const placeholder = container.querySelector(
           '.sidenav-trigger-placeholder'
@@ -303,7 +232,7 @@ describe('MobileNavTrigger', () => {
         expect(placeholder).not.toBeInTheDocument()
       })
 
-      triggerIntersection(sentinel!, false)
+      triggerIntersectionWithAct(sentinel!, false)
       await waitFor(() => {
         const placeholder = container.querySelector(
           '.sidenav-trigger-placeholder'
