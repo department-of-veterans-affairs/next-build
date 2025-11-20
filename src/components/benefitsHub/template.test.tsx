@@ -232,12 +232,12 @@ describe('BenefitsHub with valid data', () => {
     const accordionItem = document.querySelector('va-accordion-item')
     expect(accordionItem).toBeInTheDocument()
     expect(accordionItem.header).toBe('Connect with us')
-    const mockEmailValue =
-      'https://public.govdelivery.com/accounts/USVA/subscriber/new/'
     // Check for va-link elements with correct attributes
     const emailLink = document.querySelectorAll('va-link')[0]
     expect(emailLink.text).toBe('Veterans Affairs Email Updates')
-    expect(emailLink.href).toBe(mockEmailValue)
+    expect(emailLink.href).toBe(
+      'https://public.govdelivery.com/accounts/USVA/subscriber/new/'
+    )
 
     const twitterLink = document.querySelectorAll('va-link')[1]
     expect(twitterLink.text).toBe('Veterans Affairs X (formerly Twitter)')
