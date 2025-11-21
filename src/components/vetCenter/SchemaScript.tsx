@@ -48,70 +48,56 @@ export function SchemaScript({ vetCenter }: SchemaScriptProps) {
     },
   }
 
-  const generateStructuredDataForHealthServices = (
-    healthServices,
-    title,
-    fieldAddress
-  ) => {
-    return healthServices.map((service) => ({
-      '@context': 'https://schema.org',
-      '@type': 'GovernmentService',
-      name: title,
-      alternateName: service?.fieldVetCenterFriendlyName || null,
-      serviceType: service?.vetCenterTypeOfCare || null,
-      serviceOperator: {
-        '@type': 'GovernmentOrganization',
-        name: 'US Department of Veterans Affairs',
+  const structuredDataHealthServices = healthServices.map((service) => ({
+    '@context': 'https://schema.org',
+    '@type': 'GovernmentService',
+    name: title,
+    alternateName: service?.vetCenterFriendlyName || null,
+    serviceType: service?.vetCenterTypeOfCare || null,
+    serviceOperator: {
+      '@type': 'GovernmentOrganization',
+      name: 'US Department of Veterans Affairs',
+    },
+    areaServed: {
+      '@type': 'AdministrativeArea',
+      name: address?.administrative_area || null,
+    },
+    audience: {
+      '@type': 'Audience',
+      audienceType: 'Veteran',
+    },
+    availableChannel: {
+      '@type': 'ServiceChannel',
+      serviceUrl: 'https://www.va.gov',
+      servicePhone: {
+        '@type': 'ContactPoint',
+        telephone: phoneNumber || null,
       },
-      areaServed: {
-        '@type': 'AdministrativeArea',
-        name: fieldAddress?.administrative_area || null,
-      },
-      audience: {
-        '@type': 'Audience',
-        audienceType: 'Veteran',
-      },
-      availableChannel: {
-        '@type': 'ServiceChannel',
-        serviceUrl: 'https://www.va.gov',
-        servicePhone: {
-          '@type': 'ContactPoint',
-          telephone: service?.phoneNumber || null,
+      serviceLocation: {
+        '@type': 'Place', // Changed from 'GovernmentOffice' in production
+        name: title,
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress:
+            address.address_line1 +
+            (address.address_line2 ? `, ${address.address_line2}` : ''),
+          addressLocality: address?.locality,
+          addressRegion: address?.administrative_area,
+          postalCode: address?.postal_code,
         },
-        serviceLocation: {
-          '@type': 'Place', // Changed from 'GovernmentOffice' in production
-          name: title,
-          address: {
-            '@type': 'PostalAddress',
-            streetAddress:
-              fieldAddress.address_line1 +
-              (address.address_line2
-                ? `${address.address_line1}${address.address_line2}`
-                : address.address_line1),
-            addressLocality: fieldAddress?.locality,
-            addressRegion: fieldAddress?.administrative_area,
-            postalCode: fieldAddress?.postal_code,
-          },
-          geo: {
-            '@type': 'GeoCoordinates',
-            latitude: geolocation.lat.toString(),
-            longitude: geolocation.lon.toString(),
-          },
+        geo: {
+          '@type': 'GeoCoordinates',
+          latitude: geolocation.lat.toString(),
+          longitude: geolocation.lon.toString(),
         },
       },
-      provider: {
-        '@type': 'GovernmentOrganization',
-        name: 'Veterans Affairs',
-        url: 'https://www.va.gov',
-      },
-    }))
-  }
-
-  const structuredDataHealthServices = generateStructuredDataForHealthServices(
-    healthServices,
-    title,
-    address
-  )
+    },
+    provider: {
+      '@type': 'GovernmentOrganization',
+      name: 'Veterans Affairs',
+      url: 'https://www.va.gov',
+    },
+  }))
 
   return (
     <>

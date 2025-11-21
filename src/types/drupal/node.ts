@@ -25,7 +25,11 @@ import {
   FieldContentBlock,
   FieldCCReactWidget,
 } from './field_type'
-import { DrupalMediaDocument, DrupalMediaImage } from './media'
+import {
+  DrupalMediaDocument,
+  DrupalMediaImage,
+  DrupalMediaVideo,
+} from './media'
 import {
   ParagraphAccordion,
   ParagraphAlert,
@@ -284,8 +288,8 @@ export interface NodeCampaignLandingPage extends DrupalNode {
   // Video panel
   field_clp_video_panel: boolean
   field_clp_video_panel_header: string | null
-  field_media: DrupalMediaImage | null
-  field_clp_video_panel_more_video: FieldLink | null
+  field_media: DrupalMediaVideo | null
+  field_clp_video_panel_more_video: ParagraphButton | null
 
   // Events panel
   field_clp_events_panel: boolean
