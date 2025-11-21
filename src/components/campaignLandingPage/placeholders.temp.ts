@@ -1,23 +1,4 @@
 export const placeholders = {
-  // Video panel
-  fieldClpVideoPanel: true,
-  fieldClpVideoPanelHeader: 'Watch this video',
-  fieldMedia: {
-    entity: {
-      fieldMediaVideoEmbedField: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-      name: 'Video title',
-      fieldDuration: '120',
-      fieldPublicationDate: { date: '2024-01-01' },
-      fieldDescription: 'Video description',
-    },
-  },
-  fieldClpVideoPanelMoreVideo: {
-    entity: {
-      fieldButtonLink: { url: { path: '#' } },
-      fieldButtonLabel: 'See more videos',
-    },
-  },
-
   // Spotlight panel
   fieldClpSpotlightPanel: true,
   fieldClpSpotlightHeader: 'Spotlight',

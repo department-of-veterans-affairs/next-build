@@ -47,6 +47,8 @@ const mockData: FormattedBenefitsDetailPage = {
     },
   ],
   administration: null,
+  menu: null,
+  menuIcon: undefined,
 }
 
 describe('BenefitsDetailPage with valid data', () => {

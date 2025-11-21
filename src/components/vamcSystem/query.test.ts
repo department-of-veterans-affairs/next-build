@@ -13,13 +13,14 @@ import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { LOVELL } from '@/lib/drupal/lovell/constants'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import { NodeHealthCareRegionPage } from '@/types/drupal/node'
+import { convertEventToFeaturedEventTeaser } from '@/components/eventTeaser/test-utils'
 
-const mockFeaturedEventData = {
+const mockFeaturedEventData = convertEventToFeaturedEventTeaser({
   ...mockEventData,
   // Just to differentiate in the snapshot
   field_featured: true,
   title: 'Dodgeball Club',
-}
+})
 
 // Mock story data for parent stories (Lovell federal)
 const mockParentStoryData = {
@@ -29,25 +30,16 @@ const mockParentStoryData = {
 }
 
 // Mock event data for parent events (Lovell federal)
-const mockParentEventData = {
+const mockParentEventData = convertEventToFeaturedEventTeaser({
   ...mockEventData,
   title: 'Parent Federal Event',
   id: 'parent-event-id',
   field_featured: true,
-}
-
-// Mock non-featured event for fallback testing
-const mockNonFeaturedEventData = {
-  ...mockEventData,
-  title: 'Non-featured Event',
-  id: 'non-featured-event-id',
-  field_featured: false,
-}
+})
 
 // Individual mock functions for each resource type
 const mockVamcFacilityQuery = jest.fn()
 const mockStoryQuery = jest.fn()
-const mockEventQuery = jest.fn()
 
 jest.mock('@/lib/drupal/query', () => ({
   ...jest.requireActual('@/lib/drupal/query'),
@@ -61,8 +53,6 @@ jest.mock('@/lib/drupal/query', () => ({
         return mockVamcFacilityQuery(params)
       case RESOURCE_TYPES.STORY:
         return mockStoryQuery(params)
-      case RESOURCE_TYPES.EVENT:
-        return mockEventQuery(params)
       default:
         return { data: [] }
     }
@@ -72,6 +62,14 @@ jest.mock('@/lib/drupal/query', () => ({
     tree: [],
   }),
 }))
+
+jest.mock('@/lib/drupal/drupalClient', () => ({
+  drupalClient: {
+    fetch: jest.fn(),
+  },
+}))
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const { drupalClient } = require('@/lib/drupal/drupalClient')
 
 describe('DrupalJsonApiParams configuration', () => {
   test('params function sets the correct include fields', () => {
@@ -106,29 +104,13 @@ describe('VamcSystem formatData', () => {
       return { data: [mockStoryData] }
     })
 
-    mockEventQuery.mockImplementation((params: DrupalJsonApiParams) => {
-      const queryObj = params.getQueryObject()
-      const isLovellParentEventQuery =
-        queryObj.filter &&
-        Object.keys(queryObj.filter).some((key) =>
-          key.includes('field_administration.drupal_internal__tid')
-        )
-      const isFeatured = queryObj.filter?.field_featured === '1'
-
-      if (isLovellParentEventQuery) {
-        if (isFeatured) {
-          return { data: [mockParentEventData] }
-        } else {
-          return { data: [{ ...mockParentEventData, field_featured: false }] }
-        }
-      }
-
-      if (isFeatured) {
-        return { data: [mockFeaturedEventData] }
-      } else {
-        return { data: [mockNonFeaturedEventData] }
-      }
-    })
+    // Mock fetch for featured events API - default to returning featured events
+    drupalClient.fetch.mockResolvedValue({
+      ok: true,
+      json: async () => ({
+        data: [mockFeaturedEventData],
+      }),
+    } as Response)
   })
 
   afterAll(() => {
@@ -143,6 +125,14 @@ describe('VamcSystem formatData', () => {
 
   describe('Lovell variant functionality', () => {
     test('outputs formatted data with Lovell VA variant context', async () => {
+      // Mock fetch to return both system and parent events for Lovell variant
+      drupalClient.fetch.mockResolvedValue({
+        ok: true,
+        json: async () => ({
+          data: [mockFeaturedEventData, mockParentEventData],
+        }),
+      } as Response)
+
       const lovellContext: ExpandedStaticPropsContext = {
         path: '',
         drupalPath: '',
@@ -186,6 +176,14 @@ describe('VamcSystem formatData', () => {
     })
 
     test('outputs formatted data with Lovell TRICARE variant context', async () => {
+      // Mock fetch to return both system and parent events for Lovell variant
+      drupalClient.fetch.mockResolvedValue({
+        ok: true,
+        json: async () => ({
+          data: [mockFeaturedEventData, mockParentEventData],
+        }),
+      } as Response)
+
       const lovellContext: ExpandedStaticPropsContext = {
         path: '',
         drupalPath: '',
@@ -277,24 +275,13 @@ describe('VamcSystem formatData', () => {
         return { data: [] } // No system stories
       })
 
-      mockEventQuery.mockImplementation((params: DrupalJsonApiParams) => {
-        const queryObj = params.getQueryObject()
-        const isLovellParentEventQuery =
-          queryObj.filter &&
-          Object.keys(queryObj.filter).some((key) =>
-            key.includes('field_administration.drupal_internal__tid')
-          )
-        const isFeatured = queryObj.filter?.field_featured === '1'
-
-        if (isLovellParentEventQuery) {
-          if (isFeatured) {
-            return { data: [mockParentEventData] }
-          } else {
-            return { data: [{ ...mockParentEventData, field_featured: false }] }
-          }
-        }
-        return { data: [] } // No system events
-      })
+      // Mock fetch to return only parent events (API handles fallback internally)
+      drupalClient.fetch.mockResolvedValue({
+        ok: true,
+        json: async () => ({
+          data: [mockParentEventData],
+        }),
+      } as Response)
 
       const lovellContext: ExpandedStaticPropsContext = {
         path: '',
@@ -317,55 +304,6 @@ describe('VamcSystem formatData', () => {
 
       expect(result.featuredEvents).toHaveLength(1)
       expect(result.featuredEvents[0].title).toBe(mockParentEventData.title)
-
-      // Should have no fallback event since we found featured events from parent
-      expect(result.fallbackEvent).toBeNull()
-    })
-  })
-
-  describe('Event fallback functionality', () => {
-    test('uses fallback event when no featured events exist', async () => {
-      // Override event mock to return no featured events but have non-featured events
-      mockEventQuery.mockImplementation((params: DrupalJsonApiParams) => {
-        const queryObj = params.getQueryObject()
-        const isFeatured = queryObj.filter?.field_featured === '1'
-
-        if (isFeatured) {
-          return { data: [] } // No featured events
-        } else {
-          return { data: [mockNonFeaturedEventData] } // Non-featured events exist
-        }
-      })
-
-      const result = await queries.getData(RESOURCE_TYPES.VAMC_SYSTEM, {
-        id: mockData.id,
-      })
-
-      expect(result.featuredEvents).toHaveLength(0)
-      expect(result.fallbackEvent).toBeTruthy()
-      expect(result.fallbackEvent?.title).toBe(mockNonFeaturedEventData.title)
-    })
-
-    test('has no fallback event when featured events exist', async () => {
-      // Use default mock behavior (has featured events)
-      const result = await queries.getData(RESOURCE_TYPES.VAMC_SYSTEM, {
-        id: mockData.id,
-      })
-
-      expect(result.featuredEvents.length).toBeGreaterThan(0)
-      expect(result.fallbackEvent).toBeNull()
-    })
-
-    test('has no fallback event when no events exist at all', async () => {
-      // Override event mock to return no events at all
-      mockEventQuery.mockReturnValue({ data: [] })
-
-      const result = await queries.getData(RESOURCE_TYPES.VAMC_SYSTEM, {
-        id: mockData.id,
-      })
-
-      expect(result.featuredEvents).toHaveLength(0)
-      expect(result.fallbackEvent).toBeNull()
     })
   })
 })
