@@ -1,0 +1,5 @@
+path,resourceType,localhostBreadcrumb,localhostTitle,prodBreadcrumb,prodTitle,localhostMatch,prodMatch,localhostProdDiff,localhostProdBreadcrumbDiff,localhostProdTitleDiff
+/family-member-benefits,node--landing_page,"VA benefits for spouses, dependents, survivors, and family caregivers","VA benefits for spouses, dependents, survivors, and family caregivers",VA Benefits For Family and Caregivers,VA benefits for family and caregivers,true,true,different,different,different
+/resources/request-a-discharge-upgrade-or-correction,node--support_resources_detail_page,Request a discharge upgrade or correction,Request a discharge upgrade or correction,Request a Discharge Upgrade or Correction,Request a discharge upgrade or correction,true,true,casing-whitespace,casing-whitespace,none
+/durham-health-care/news-releases,node--press_releases_listing,News and Press Releases,News and Press Releases,News releases,News and Press Releases,true,false,different,different,none
+/durham-health-care/stories,node--story_listing,Local Features,Local Features,Stories,Local Features,true,false,different,different,none
