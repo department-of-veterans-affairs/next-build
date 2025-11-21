@@ -276,6 +276,26 @@ exports[`CampaignLandingPage formatData outputs formatted data 1`] = `
   ],
   "title": "PACT Act and survivors",
   "type": "node--campaign_landing_page",
+  "video": {
+    "button": {
+      "entityId": 172453,
+      "id": "ad441fcf-56f3-4b58-80d9-8049ea95c6fc",
+      "label": "Watch more videos on creating an account",
+      "type": "paragraph--button",
+      "url": "/resources/videos-for-how-to-set-up-your-online-va-sign-in-account",
+    },
+    "header": "Video panel header",
+    "media": {
+      "field_description": "VA Health Connect",
+      "field_duration": 112,
+      "field_media_video_embed_field": "https://www.youtube.com/embed/pgUj6x4Zw_s",
+      "field_publication_date": "2024-09-26",
+      "id": "96ce6194-2a4e-407d-83a9-b67d2ba217c3",
+      "name": "VA Health Connect",
+      "type": "media--video",
+    },
+    "show": true,
+  },
   "whatYouCanDo": {
     "header": "Edit Heading",
     "intro": "Edit Introduction",
