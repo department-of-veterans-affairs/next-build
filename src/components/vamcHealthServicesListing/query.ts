@@ -16,7 +16,6 @@ import {
 import {
   getLovellVariantOfUrl,
   getOppositeChildVariant,
-  getLovellVariantOfBreadcrumbs,
 } from '@/lib/drupal/lovell/utils'
 import { formatter as formatAdministration } from '@/components/administration/query'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
@@ -96,11 +95,6 @@ export const formatter: QueryFormatter<
   VamcHealthServicesListingData,
   VamcHealthServicesListing
 > = ({ entity, services, menu, lovell }) => {
-  let { breadcrumbs } = entity
-  if (lovell?.isLovellVariantPage) {
-    breadcrumbs = getLovellVariantOfBreadcrumbs(breadcrumbs, lovell.variant)
-  }
-
   const administration = formatAdministration(entity.field_administration)
 
   // Process health services - these come from the reverse relationship
@@ -113,8 +107,7 @@ export const formatter: QueryFormatter<
   const healthServiceGroups = groupHealthServicesByType(healthServices)
 
   return {
-    ...entityBaseFields(entity),
-    title: entity.title,
+    ...entityBaseFields(entity, lovell),
     introText: entity.field_intro_text,
     lovellVariant: lovell?.variant ?? null,
     lovellSwitchPath: lovell?.isLovellVariantPage
@@ -123,7 +116,6 @@ export const formatter: QueryFormatter<
           getOppositeChildVariant(lovell?.variant)
         )
       : null,
-    breadcrumbs,
     path: entity.path.alias,
     administration,
     vamcEhrSystem: entity.field_office.field_vamc_ehr_system,

@@ -7,7 +7,7 @@ exports[`Person profile returns formatted data outputs formatted data 1`] = `
     "name": null,
   },
   "body": null,
-  "breadcrumbs": undefined,
+  "breadcrumbs": null,
   "completeBiography": null,
   "completeBiographyCreate": 1,
   "description": "Director, Audiology and Speech Pathology Program Associate Director for Research, GRECC",

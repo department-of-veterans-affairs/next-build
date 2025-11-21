@@ -31,7 +31,6 @@ import { getNestedIncludes } from '@/lib/utils/queries'
 import { formatter as formatServiceLocation } from '@/components/serviceLocation/query'
 import { formatter as formatPhoneNumber } from '@/components/phoneNumber/query'
 import {
-  getLovellVariantOfBreadcrumbs,
   getLovellVariantOfUrl,
   getOppositeChildVariant,
 } from '@/lib/drupal/lovell/utils'
@@ -143,11 +142,7 @@ export const formatter: QueryFormatter<
   formattedServices.sort((a, b) => a.title.localeCompare(b.title))
 
   return {
-    ...entityBaseFields(entity),
-    breadcrumbs: lovell?.isLovellVariantPage
-      ? getLovellVariantOfBreadcrumbs(entity.breadcrumbs, lovell.variant)
-      : entity.breadcrumbs,
-    title: entity.title,
+    ...entityBaseFields(entity, lovell),
     vamcSystem: {
       id: entity.field_office.id,
       title: entity.field_office.title,

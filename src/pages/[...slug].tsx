@@ -14,7 +14,6 @@ import dynamic from 'next/dynamic'
 import Script from 'next/script'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { queries } from '@/lib/drupal/queries'
-import { shouldHideHomeBreadcrumb } from '@/lib/utils/breadcrumbs'
 import { writeWarningToFile } from '@/lib/utils/writeWarningToFile'
 import { getStaticPathsByResourceType } from '@/lib/drupal/staticPaths'
 import {
@@ -185,12 +184,7 @@ export default function ResourcePage({
 
       {preview && <PreviewCrumb entityId={resource.entityId} />}
 
-      <DynamicBreadcrumbs
-        breadcrumbs={resource.breadcrumbs}
-        entityPath={resource.entityPath}
-        hideHomeBreadcrumb={shouldHideHomeBreadcrumb(resource.type)}
-        resource={resource}
-      />
+      <DynamicBreadcrumbs breadcrumbs={resource.breadcrumbs} />
 
       <main>
         <div id="content" className="interior">

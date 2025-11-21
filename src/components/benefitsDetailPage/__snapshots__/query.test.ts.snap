@@ -18,24 +18,19 @@ exports[`BenefitsDetailPage formatter outputs formatted data with correct struct
   },
   "breadcrumbs": [
     {
+      "href": "/",
+      "label": "Home",
       "options": [],
-      "title": "Home",
-      "uri": "http://va-gov-cms.ddev.site/",
     },
     {
+      "href": "/health-care",
+      "label": "Health care",
       "options": [],
-      "title": "Health care",
-      "uri": "http://va-gov-cms.ddev.site/health-care",
     },
     {
+      "href": "",
+      "label": "About VA health benefits",
       "options": [],
-      "title": "Get benefits",
-      "uri": "internal:#",
-    },
-    {
-      "options": [],
-      "title": "About VA health benefits",
-      "uri": "internal:#",
     },
   ],
   "description": "Learn about the VA health benefits in your VA medical benefits package. Get details on Veterans medical benefits, like which services we cover, who will care for you, where you'll go for care, and how VA health care works with other insurance.",

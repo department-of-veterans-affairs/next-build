@@ -11,10 +11,10 @@ describe('PressReleaseListing component renders', () => {
     pressReleaseListingProps = {
       id: '7134a789-abc0-4583-8795-70d65a3e03fd',
       breadcrumbs: [
-        { title: 'Home', uri: '/', options: [] },
+        { label: 'Home', href: '/', options: [] },
         {
-          title: 'VA Birmingham health care',
-          uri: '/birmingham-health-care',
+          label: 'VA Birmingham health care',
+          href: '/birmingham-health-care',
           options: [],
         },
       ],

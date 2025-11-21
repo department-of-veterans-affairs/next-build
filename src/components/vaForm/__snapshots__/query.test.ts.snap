@@ -9,19 +9,19 @@ exports[`VaForm formatter outputs formatted data with all fields 1`] = `
   ],
   "breadcrumbs": [
     {
+      "href": "/",
+      "label": "Home",
       "options": [],
-      "title": "Home",
-      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
     },
     {
+      "href": "/find-forms",
+      "label": "Find a VA Form",
       "options": [],
-      "title": "Find a VA Form",
-      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/find-forms",
     },
     {
+      "href": "",
+      "label": "About VA Form 21-0781",
       "options": [],
-      "title": "About VA Form 21-0781",
-      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/find-forms/about-form-21-0781",
     },
   ],
   "entityId": 6022,

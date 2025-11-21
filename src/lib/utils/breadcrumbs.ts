@@ -1,82 +1,101 @@
-import { BreadcrumbItem, BreadCrumbLink } from '@/types/drupal/field_type'
-import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
+import { Breadcrumb } from '@/components/breadcrumbs/formatted-types'
 
-export function deriveLastBreadcrumbFromPath(
-  breadcrumbs: BreadcrumbItem[],
-  breadcrumbTitle: string,
-  currentPath: string,
-  replaceLastItem: boolean
-): BreadcrumbItem[] {
-  const last: BreadcrumbItem = {
-    uri: currentPath,
-    title: breadcrumbTitle,
-    options: [],
-  }
-
-  if (replaceLastItem) {
-    breadcrumbs.splice(breadcrumbs.length - 1, 1, last)
-  } else {
-    breadcrumbs.push(last)
-  }
-
-  return breadcrumbs
+/**
+ * Normalizes a path for comparison by ensuring it has a leading slash
+ * and removing trailing slashes (except for root path).
+ */
+function normalizePath(path: string): string {
+  const normalized = path.startsWith('/') ? path : `/${path}`
+  return normalized.endsWith('/') && normalized !== '/'
+    ? normalized.slice(0, -1)
+    : normalized
 }
 
-// Intended for handling breadcrumbs for resource center content types
-export function deriveRcBreadcrumbs(
-  breadcrumbs: BreadcrumbItem[],
-  breadcrumbTitle: string,
-  currentPath: string,
-  rcBreadcrumbsTitleInclude?: boolean
-): BreadcrumbItem[] {
-  const filteredCrumbs: BreadcrumbItem[] = breadcrumbs.filter(
-    (crumb) => crumb.uri !== '/resources'
-  )
+/**
+ * Normalizes breadcrumbs by:
+ * 1. Setting href to "" for all breadcrumbs that match the current path
+ * 2. Filtering out all breadcrumbs with href: "" except the last one
+ *
+ * @param breadcrumbs - Array of formatted breadcrumbs
+ * @param currentPath - The current page path to match against
+ * @returns A normalized array of breadcrumbs
+ */
+export function normalizeBreadcrumbs(
+  breadcrumbs: Breadcrumb[],
+  currentPath: string
+): Breadcrumb[] {
+  if (breadcrumbs.length === 0) {
+    return []
+  }
 
-  filteredCrumbs.push({
-    uri: currentPath,
-    title: 'Resources and support',
-    options: [],
+  const normalizedCurrentPath = normalizePath(currentPath)
+
+  // Step 1: Change all breadcrumbs matching current path to href: ""
+  const withEmptyHrefs = breadcrumbs.map((crumb) => {
+    const normalizedHref = normalizePath(crumb.href)
+    if (normalizedHref === normalizedCurrentPath) {
+      return {
+        ...crumb,
+        href: '',
+      }
+    }
+    return crumb
   })
 
-  if (rcBreadcrumbsTitleInclude) {
-    filteredCrumbs.push({
-      uri: currentPath,
-      title: breadcrumbTitle,
+  // Step 2: Filter out all breadcrumbs with href: "" except the last one
+  return withEmptyHrefs.filter((crumb, index, arr) => {
+    // Keep the last breadcrumb even if href is ""
+    if (index === arr.length - 1) {
+      return true
+    }
+    // Filter out all other breadcrumbs with empty href
+    return crumb.href !== ''
+  })
+}
+
+/**
+ * Replaces the title of the last breadcrumb if it has an empty href,
+ * otherwise appends a new breadcrumb with empty href and the provided title.
+ *
+ * @param breadcrumbs - Array of normalized breadcrumbs
+ * @param title - The title to use for the last breadcrumb
+ * @returns A new array of breadcrumbs with the last breadcrumb updated or added
+ */
+export function replaceLastBreadcrumbWithTitle(
+  breadcrumbs: Breadcrumb[],
+  title: string
+): Breadcrumb[] {
+  if (breadcrumbs.length === 0) {
+    // If no breadcrumbs exist, add one with empty href and page title
+    return [
+      {
+        href: '',
+        label: title,
+        options: [],
+      },
+    ]
+  }
+
+  const lastBreadcrumb = breadcrumbs[breadcrumbs.length - 1]
+
+  // If last breadcrumb has empty href, replace its title
+  if (lastBreadcrumb.href === '') {
+    return [
+      ...breadcrumbs.slice(0, -1),
+      {
+        ...lastBreadcrumb,
+        label: title,
+      },
+    ]
+  }
+
+  // Otherwise, append a new breadcrumb with empty href
+  return [
+    ...breadcrumbs,
+    {
+      href: '',
+      label: title,
       options: [],
-    })
-  }
-
-  return filteredCrumbs
-}
-
-function getRelativePathFromURL(uri) {
-  return new URL(uri, 'http://va.gov').pathname
-}
-
-export function transformBreadcrumbs(breadcrumbs: BreadcrumbItem[]) {
-  return breadcrumbs.map((crumb) => ({
-    href: getRelativePathFromURL(crumb.uri),
-    label: crumb.title,
-    options: crumb.options,
-  }))
-}
-
-// Filters out breadcrumbs with no relavant href, excluding the last which would represent the current page
-export function filterInvalidCrumbs(
-  crumbs: BreadCrumbLink[]
-): BreadCrumbLink[] {
-  return crumbs.filter((crumb, index, arr) => {
-    return crumb.href !== '' || index === arr.length - 1
-  })
-}
-
-export const shouldHideHomeBreadcrumb = (resourceType) => {
-  const typesToShowHomeBreadcrumb = [
-    RESOURCE_TYPES.EVENT,
-    RESOURCE_TYPES.EVENT_LISTING,
-    RESOURCE_TYPES.VET_CENTER,
+    },
   ]
-
-  return !typesToShowHomeBreadcrumb.includes(resourceType)
 }

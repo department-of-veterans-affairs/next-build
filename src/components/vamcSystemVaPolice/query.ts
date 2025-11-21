@@ -12,7 +12,6 @@ import {
 import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
-import { getLovellVariantOfBreadcrumbs } from '@/lib/drupal/lovell/utils'
 import { ParagraphCCQaSection } from '@/types/drupal/paragraph'
 import {
   normalizeEntityFetchedParagraphs,
@@ -77,16 +76,10 @@ export const formatter: QueryFormatter<
   VamcSystemVaPoliceData,
   VamcSystemVaPolice
 > = ({ entity, menu, lovell }) => {
-  let { breadcrumbs } = entity
-  if (lovell?.isLovellVariantPage) {
-    breadcrumbs = getLovellVariantOfBreadcrumbs(breadcrumbs, lovell.variant)
-  }
   const formattedMenu = buildSideNavDataFromMenu(entity.path.alias, menu)
 
   return {
-    ...entityBaseFields(entity),
-    title: entity.title,
-    breadcrumbs,
+    ...entityBaseFields(entity, lovell),
     path: entity.path.alias,
     menu: formattedMenu,
     policeOverview: {

@@ -13,6 +13,7 @@ import {
   getMenu,
   fetchAndConcatAllResourceCollectionPages,
 } from '@/lib/drupal/query'
+import { replaceLastBreadcrumbWithTitle } from '@/lib/utils/breadcrumbs'
 import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import { getHtmlFromDrupalContent } from '@/lib/utils/getHtmlFromDrupalContent'
@@ -21,9 +22,8 @@ import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 import {
   getLovellVariantOfUrl,
   getOppositeChildVariant,
-  getLovellVariantOfBreadcrumbs,
+  getLovellVariantOfTitle,
 } from '@/lib/drupal/lovell/utils'
-import { getLovellVariantOfTitle } from '@/lib/drupal/lovell/utils'
 
 // Define the query params for fetching node--vamc_operating_status_and_alerts.
 export const params: QueryParams<null> = () => {
@@ -81,10 +81,10 @@ export const formatter: QueryFormatter<
   VamcOperatingStatusAndAlertsData,
   VamcOperatingStatusAndAlerts
 > = ({ entity, menu, facilities, lovell }) => {
-  let { breadcrumbs } = entity
+  // Get title from menu label, handling Lovell variant transformation
+  // Note: This uses facilityName, not the entity title, so we handle it separately
   let title = entity.field_office.field_system_menu.label
   if (lovell?.isLovellVariantPage) {
-    breadcrumbs = getLovellVariantOfBreadcrumbs(breadcrumbs, lovell.variant)
     title = getLovellVariantOfTitle(
       entity.field_office.field_system_menu.label,
       lovell.variant
@@ -138,8 +138,7 @@ export const formatter: QueryFormatter<
   }
 
   return {
-    ...entityBaseFields(entity),
-    breadcrumbs,
+    ...entityBaseFields(entity, lovell),
     facilityName: title,
     situationUpdates: buildSituationUpdates(entity.field_banner_alert),
     operatingStatuses: facilities

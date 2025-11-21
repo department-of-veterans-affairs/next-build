@@ -5,6 +5,17 @@ import { ResourceType } from '@/lib/constants/resourceTypes'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { NodeTypes } from '@/types/drupal/node'
 import { PublishedEntity } from '@/types/formatted/publishedEntity'
+import { LovellStaticPropsContextProps } from '@/lib/drupal/lovell/types'
+import {
+  getLovellVariantOfTitle,
+  getLovellVariantOfBreadcrumbs,
+} from '@/lib/drupal/lovell/utils'
+import { formatBreadcrumbs } from '@/components/breadcrumbs/formatBreadcrumbs'
+import { Breadcrumb } from '@/components/breadcrumbs/formatted-types'
+import {
+  normalizeBreadcrumbs,
+  replaceLastBreadcrumbWithTitle,
+} from '@/lib/utils/breadcrumbs'
 
 type ResourceCollection<T> = {
   data: T[]
@@ -124,23 +135,56 @@ export async function fetchSingleEntityOrPreview(opts, type, params) {
 }
 
 // Helper function to return a consistent set of base fields for resources.
-export const entityBaseFields = (entity: NodeTypes): PublishedEntity | null => {
+export const entityBaseFields = (
+  entity: NodeTypes,
+  lovell?: LovellStaticPropsContextProps
+): PublishedEntity | null => {
   if (!entity) {
     return null
   }
-  return {
+
+  // Determine the final title, handling Lovell variant transformation
+  let title = entity.title
+  if (lovell?.isLovellVariantPage) {
+    title = getLovellVariantOfTitle(title, lovell.variant)
+  }
+
+  // Process breadcrumbs:
+  // 1. Format breadcrumbs to final form
+  // 2. Normalize breadcrumbs (set current path to empty href, filter invalid)
+  // 3. Replace last breadcrumb with page title
+  // 4. Apply Lovell variant transformation if needed
+  let breadcrumbs: Breadcrumb[] | null = null
+  if (entity.breadcrumbs) {
+    // Step 1: Format breadcrumbs
+    breadcrumbs = formatBreadcrumbs(entity.breadcrumbs)
+
+    // Step 2: Normalize breadcrumbs
+    breadcrumbs = normalizeBreadcrumbs(breadcrumbs, entity.path.alias)
+
+    // Step 3: Replace last breadcrumb with page title
+    breadcrumbs = replaceLastBreadcrumbWithTitle(breadcrumbs, title)
+
+    // Step 4: Apply Lovell variant transformation if needed
+    if (lovell?.isLovellVariantPage) {
+      breadcrumbs = getLovellVariantOfBreadcrumbs(breadcrumbs, lovell.variant)
+    }
+  }
+
+  const result: PublishedEntity = {
     id: entity.id,
     entityId: entity.drupal_internal__nid,
     entityPath: entity.path.alias,
     type: entity.type,
     published: entity.status,
     moderationState: entity.moderation_state,
-    title: entity.title,
+    title,
     metatags: entity.metatag,
-    breadcrumbs: entity.breadcrumbs,
+    breadcrumbs,
     lastUpdated:
       entity.field_last_saved_by_an_editor || entity.changed || entity.created,
   }
+  return result
 }
 
 /**

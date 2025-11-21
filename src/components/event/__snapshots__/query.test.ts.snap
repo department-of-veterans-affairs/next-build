@@ -31,24 +31,24 @@ exports[`node--event formatData outputs formatted data 1`] = `
   },
   "breadcrumbs": [
     {
+      "href": "/",
+      "label": "Home",
       "options": [],
-      "title": "Home",
-      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
     },
     {
+      "href": "/central-iowa-health-care",
+      "label": "VA Central Iowa health care",
       "options": [],
-      "title": "VA Central Iowa health care",
-      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/central-iowa-health-care",
     },
     {
+      "href": "/central-iowa-health-care/events",
+      "label": "Events",
       "options": [],
-      "title": "Events",
-      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/central-iowa-health-care/events",
     },
     {
+      "href": "",
+      "label": "Pickleball Club",
       "options": [],
-      "title": "Pickleball Club",
-      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/central-iowa-health-care/events/52265",
     },
   ],
   "cost": "Free",

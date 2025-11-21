@@ -21,7 +21,6 @@ import { formatter as formatPhone } from '@/components/phoneNumber/query'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 import { queries } from '@/lib/drupal/queries'
 import {
-  getLovellVariantOfBreadcrumbs,
   getLovellVariantOfUrl,
   getOppositeChildVariant,
 } from '@/lib/drupal/lovell/utils'
@@ -113,11 +112,6 @@ export const formatter: QueryFormatter<
   lovell,
   otherVaLocationIds,
 }) => {
-  let { breadcrumbs } = entity
-  if (lovell?.isLovellVariantPage) {
-    breadcrumbs = getLovellVariantOfBreadcrumbs(breadcrumbs, lovell.variant)
-  }
-
   const formattedMenu = buildSideNavDataFromMenu(entity.path.alias, menu)
   // Mobile clinics don't include VA Health Connect phone numbers in production so we add a flag to exclude them
   const formatFacility = (
@@ -137,10 +131,8 @@ export const formatter: QueryFormatter<
   })
 
   const baseResult = {
-    ...entityBaseFields(entity),
+    ...entityBaseFields(entity, lovell),
     administration: formatAdministration(entity.field_administration),
-    title: entity.title,
-    breadcrumbs,
     path: entity.field_office.path.alias,
     menu: formattedMenu,
     vamcEhrSystem: entity.field_office.field_vamc_ehr_system,

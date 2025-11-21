@@ -238,8 +238,7 @@ export const formatter: QueryFormatter<VamcSystemData, VamcSystem> = ({
 }) => {
   const formattedMenu = buildSideNavDataFromMenu(entity.path.alias, menu)
   return {
-    ...entityBaseFields(entity),
-    title: entity.title,
+    ...entityBaseFields(entity, lovell),
     introText: entity.field_intro_text,
     image: formatImage(entity.field_media),
     administration: formatAdministration(entity.field_administration),
