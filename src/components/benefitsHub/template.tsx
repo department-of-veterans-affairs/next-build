@@ -49,7 +49,6 @@ export function BenefitsHub({
               <ListOfLinkTeasers {...spokeSection} isHubPage={true} />
             </div>
           ))}
-          <ContentFooter lastUpdated={lastUpdated} />
         </article>
         <div className="vads-grid-col-12 tablet:vads-grid-col-4" id="hub-rail">
           <va-accordion bordered uswds>
@@ -80,6 +79,7 @@ export function BenefitsHub({
           </va-accordion>
         </div>
       </div>
+      <ContentFooter lastUpdated={lastUpdated} />
     </div>
   )
 }
