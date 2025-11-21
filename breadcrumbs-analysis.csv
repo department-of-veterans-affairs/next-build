@@ -1,0 +1,113 @@
+UUID,Resource Type,Entity Path,Last Breadcrumb URI,Last Breadcrumb Title,Breadcrumbs Length
+27aaaef6-0c67-4639-b7d7-84cb3c124cff,node--page,/check-your-va-claim-or-appeal-status,http://va-gov-cms.ddev.site/check-your-va-claim-or-appeal-status,Check Your VA Claim or Appeal Status,2
+17724fb5-0387-4a0b-afaa-8667a98bec07,node--page,/change-your-va-direct-deposit-and-contact-information,http://va-gov-cms.ddev.site/change-your-va-direct-deposit-and-contact-information,Change Your VA Direct Deposit and Contact Information,2
+b73412c9-7821-4afe-b154-c217eeade8f3,node--page,/disability/file-an-appeal,http://va-gov-cms.ddev.site/disability/file-an-appeal,Manage a Legacy VA Appeal,3
+8dffc5eb-ae2e-4f4a-af8b-dd0ca669e425,node--page,/disability/file-an-appeal/request-priority-review,internal:#,Request a priority review,5
+c22ecd0c-6d40-4e02-8323-fa3f5fa00d12,node--landing_page,/family-member-benefits,internal:#,Family member benefits,2
+833f0459-059f-40f2-ba25-a68505ef917f,node--landing_page,/housing-assistance,internal:#,Housing assistance,2
+33cd69ba-e93c-460a-bf9e-41aaf8ff67af,node--landing_page,/life-insurance,internal:#,Life insurance,2
+ef71edfa-9fe8-4d31-b84c-270af94539c4,node--landing_page,/service-member-benefits,internal:#,Service member benefits,2
+31269b5d-da18-497b-9fd4-42b77104ecd1,node--event,/outreach-and-events/events/homestead-pennsylvania-vba-outreach-event,http://va-gov-cms.ddev.site/outreach-and-events/events/homestead-pennsylvania-vba-outreach-event,Homestead Pennsylvania VBA Outreach Event,4
+613b2426-619d-43ea-b2bf-59656551bf54,node--event,/outreach-and-events/events/craven-county-north-carolina-veterans-stand-down,http://va-gov-cms.ddev.site/outreach-and-events/events/craven-county-north-carolina-veterans-stand-down,"Craven County, North Carolina Veterans Stand Down",4
+8190f870-34c6-435b-ae44-6b990a313bd8,node--event,/outreach-and-events/events/peoria-arizona-veteran-resource-seminars,http://va-gov-cms.ddev.site/outreach-and-events/events/peoria-arizona-veteran-resource-seminars,"Peoria, Arizona Veteran Resource Seminars",4
+77dd7d2e-b52a-4f0f-a804-9f21020dc08b,node--event,/outreach-and-events/events/santa-rosa-california-free-legal-clinic-for-veterans,http://va-gov-cms.ddev.site/outreach-and-events/events/santa-rosa-california-free-legal-clinic-for-veterans,"Santa Rosa, California Free Legal Clinic For Veterans",4
+4568a38e-f210-444f-8639-0e2e2c8a3cc1,node--event_listing,/lebanon-health-care/events,internal:#,Events,4
+4099c92a-a09e-48a6-ac9b-4c5e5ab0af5e,node--event_listing,/alaska-health-care/events,internal:#,Events,4
+2918cc15-e484-4edc-932c-75949d1ce2f7,node--event_listing,/richmond-health-care/events,internal:#,Events,4
+3981e0cf-92f2-4f83-8fa2-adb16d4e2abb,node--event_listing,/north-texas-health-care/events,internal:#,Events,4
+eb0c10d2-b199-4665-82db-6241eb6bae56,node--locations_listing,/lebanon-health-care/locations,internal:#,Locations,4
+44b6757f-e21d-4892-9c59-a288312f7e53,node--locations_listing,/amarillo-health-care/locations,internal:#,Locations,4
+a5fadf31-f266-4e7d-ac5c-203158a1c498,node--locations_listing,/portland-health-care/locations,internal:#,Locations,4
+4ccfb9c7-5dff-4cd6-a119-4634fae38d8e,node--locations_listing,/north-texas-health-care/locations,internal:#,Locations,4
+1da0be57-165c-4bec-be53-d63306cb18f2,node--support_resources_detail_page,/resources/request-a-discharge-upgrade-or-correction,http://va-gov-cms.ddev.site/resources/request-a-discharge-upgrade-or-correction,Request a Discharge Upgrade or Correction,3
+5b4943dc-764e-454c-a698-dd3f0bc0df32,node--support_resources_detail_page,/resources/closed-life-insurance-programs,http://va-gov-cms.ddev.site/resources/closed-life-insurance-programs,Closed Life Insurance Programs,3
+2d3965e8-bc12-489e-b692-44075825bbee,node--support_resources_detail_page,/resources/duplicate-how-va-education-benefit-payments-affect-your-taxes,http://va-gov-cms.ddev.site/resources/duplicate-how-va-education-benefit-payments-affect-your-taxes,DUPLICATE How VA Education Benefit Payments Affect Your Taxes,3
+ea8dcde5-15ad-4437-a374-403f9e0f9cee,node--support_resources_detail_page,/resources/test-about-account-information-sample-text,http://va-gov-cms.ddev.site/resources/test-about-account-information-sample-text,TEST About Account Information Sample Text,3
+6153ed5b-85c2-4ead-9893-3d656ad5d758,node--press_release,/wilmington-health-care/news-releases/wilmington-vamc-2019-annual-report,http://va-gov-cms.ddev.site/wilmington-health-care/news-releases/wilmington-vamc-2019-annual-report,Wilmington VAMC 2019 Annual Report,4
+7944e9dd-7a8c-4a4a-bc72-992b2088b8ba,node--press_release,/houston-health-care/news-releases/houston-health-care-placeholder-news-release,http://va-gov-cms.ddev.site/houston-health-care/news-releases/houston-health-care-placeholder-news-release,Houston Health Care Placeholder - News Release,4
+f731e5a9-7cc3-4706-858b-06d04d61df76,node--press_release,/central-arkansas-health-care/news-releases/virtual-town-hall-discusses-vaccine-hesitancy-for-bipoc-veterans,http://va-gov-cms.ddev.site/central-arkansas-health-care/news-releases/virtual-town-hall-discusses-vaccine-hesitancy-for-bipoc-veterans,Virtual Town Hall Discusses Vaccine Hesitancy For BIPOC Veterans,4
+6836c044-37f6-4434-ab1c-f8710991ec53,node--press_release,/minneapolis-health-care/news-releases/minneapolis-health-care-placeholder-news-release,http://va-gov-cms.ddev.site/minneapolis-health-care/news-releases/minneapolis-health-care-placeholder-news-release,Minneapolis Health Care Placeholder - News Release,4
+c56246c6-4a86-4b06-b576-241eb01a5e0e,node--press_releases_listing,/coatesville-health-care/news-releases,internal:#,News releases,4
+1c5ef865-2d04-4167-ac3c-46cfc7063307,node--press_releases_listing,/durham-health-care/news-releases,internal:#,News releases,4
+7134a789-abc0-4583-8795-70d65a3e03fd,node--press_releases_listing,/birmingham-health-care/news-releases,internal:#,News Releases,4
+063d9a51-58cf-42c2-8cd3-f875fb7a675e,node--press_releases_listing,/augusta-health-care/news-releases,internal:#,News releases,4
+e4089902-04cc-4664-a2cd-33edc3142dc1,node--person_profile,/office-public-and-intergovernmental-affairs/pamela-j-powers,http://va-gov-cms.ddev.site/office-public-and-intergovernmental-affairs/pamela-j-powers,Pamela J. Powers,2
+897a5201-c600-43d0-9a01-62456d0efeed,node--person_profile,/office-public-and-intergovernmental-affairs/james-byrne,http://va-gov-cms.ddev.site/office-public-and-intergovernmental-affairs/james-byrne,James Byrne,2
+235e8c13-0e4a-4d94-b55c-a480021a83f9,node--person_profile,/office-public-and-intergovernmental-affairs/robert-wilkie,http://va-gov-cms.ddev.site/office-public-and-intergovernmental-affairs/robert-wilkie,Robert Wilkie,2
+737111b8-403e-4174-a506-980de83177dc,node--person_profile,/pittsburgh-health-care/staff-profiles/anna-mechling,http://va-gov-cms.ddev.site/pittsburgh-health-care/staff-profiles/anna-mechling,Anna Mechling,3
+1dbd5b1e-0fb2-43fb-8581-a2f9edfe3c83,node--news_story,/pittsburgh-health-care/stories/vaphs-foreman-fights-covid-19-in-new-jersey-0,http://va-gov-cms.ddev.site/pittsburgh-health-care/stories/vaphs-foreman-fights-covid-19-in-new-jersey-0,VAPHS Foreman Fights COVID-19 In New Jersey,4
+0460c81e-086c-4459-b5f1-e88be17fb96f,node--news_story,/lebanon-health-care/stories/nine-days-to-a-more-independent-veteran,http://va-gov-cms.ddev.site/lebanon-health-care/stories/nine-days-to-a-more-independent-veteran,Nine Days To a More Independent Veteran,4
+09773744-bd7b-422e-b8be-f49cd5643adf,node--news_story,/lebanon-health-care/stories/va-social-worker-helps-vietnam-vet-receive-badge,http://va-gov-cms.ddev.site/lebanon-health-care/stories/va-social-worker-helps-vietnam-vet-receive-badge,VA Social Worker Helps Vietnam Vet Receive Badge,4
+352d21ca-d2cc-49c7-8d02-b5f44dd713d5,node--news_story,/houston-health-care/stories/houston-health-care-placeholder-story,http://va-gov-cms.ddev.site/houston-health-care/stories/houston-health-care-placeholder-story,Houston Health Care Placeholder - Story,4
+ca12bbb6-fee9-4f28-a03a-e5966b131575,node--story_listing,/durham-health-care/stories,internal:#,Stories,4
+0f2a23bc-d0e4-437d-858c-c1a89410606b,node--story_listing,/central-western-massachusetts-health-care/stories,internal:#,Stories,4
+c49ab88e-7368-47a6-a39d-7d0ec7d4eea9,node--story_listing,/amarillo-health-care/stories,internal:#,Stories,4
+7de94255-3817-4b99-93d9-82c6dfdcaa8b,node--story_listing,/alaska-health-care/stories,internal:#,Stories,4
+d26a3a23-54f5-4761-a890-dd2854a9c88f,node--vet_center,/secaucus-vet-center,http://va-gov-cms.ddev.site/secaucus-vet-center,Secaucus Vet Center,2
+8d728167-bd5b-44c4-930e-a1033eb5b26a,node--vet_center,/norwich-vet-center,http://va-gov-cms.ddev.site/norwich-vet-center,Norwich Vet Center,2
+8c7933fa-3876-4f51-b023-52767728e082,node--vet_center,/lakewood-vet-center,http://va-gov-cms.ddev.site/lakewood-vet-center,Lakewood Vet Center,2
+c7c88b42-f407-4e95-9a7c-637ef9ed59e4,node--vet_center,/harrisburg-vet-center,http://va-gov-cms.ddev.site/harrisburg-vet-center,Harrisburg Vet Center,2
+4ffbbbc7-c241-4695-aa27-eece9428fac1,node--vet_center_outstation,/charleston-wv-vet-center/logan-outstation,http://va-gov-cms.ddev.site/charleston-wv-vet-center/logan-outstation,Logan Outstation,3
+8a27a2a5-ab34-4298-8618-b5f8898bf199,node--vet_center_outstation,/manchester-vet-center/portsmouth-vet-center-outstation,http://va-gov-cms.ddev.site/manchester-vet-center/portsmouth-vet-center-outstation,Portsmouth Vet Center Outstation,3
+4ff23c98-03b5-41c5-975a-d687d5d25fc0,node--vet_center_outstation,/white-river-junction-vet-center/keene-outstation,http://va-gov-cms.ddev.site/white-river-junction-vet-center/keene-outstation,Keene Vet Center Outstation,3
+492d4e45-4854-438b-b50e-3be6d860df5b,node--vet_center_outstation,/anoka-vet-center/st-cloud-vet-center-outstation,http://va-gov-cms.ddev.site/anoka-vet-center/st-cloud-vet-center-outstation,St. Cloud Vet Center Outstation,3
+c6faef32-5044-4bb8-8d18-66ae699e489e,node--health_care_local_facility,/hudson-valley-health-care/locations/montrose-1-va-mobile-clinic,internal:#,Montrose 1 VA Mobile Clinic,5
+6ffd0974-d99e-42a9-a952-fe078f8542cf,node--health_care_local_facility,/hudson-valley-health-care/locations/montrose-2-va-mobile-clinic,internal:#,Montrose 2 VA Mobile Clinic,5
+be07ac46-1ff3-4bda-8975-aaa0e54dd0a3,node--health_care_local_facility,/hudson-valley-health-care/locations/montrose-3-va-mobile-clinic,internal:#,Montrose 3 VA Mobile Clinic,5
+db669af5-7d0c-47a6-9dc3-0749e0db1e7e,node--health_care_local_facility,/northeast-ohio-health-care/locations/cleveland-2-va-mobile-clinic,internal:#,Cleveland 2 VA Mobile Clinic,5
+7f748566-5fe7-4b48-83c3-b83b7ed1d3df,node--vamc_system_va_police,/asheville-health-care/va-police,internal:#,VA police,4
+b32c6d11-81a8-4865-a885-2a65bf29f4bf,node--vamc_system_va_police,/durham-health-care/va-police,internal:#,VA police,4
+f40ccad7-9232-414a-be0b-0f40fad412c0,node--vamc_system_va_police,/richmond-health-care/va-police,internal:#,VA police,4
+360416a0-891e-4595-bd82-b3f60537c3fe,node--vamc_system_va_police,/salem-health-care/va-police,internal:#,VA police,4
+17bfe247-9df5-4217-a48a-973f8676d6e4,node--health_care_region_page,/new-york-harbor-health-care,internal:#,VA New York Harbor health care,2
+70253921-7d78-4dfe-bd8f-f254511a5284,node--health_care_region_page,/northport-health-care,internal:#,VA Northport health care,2
+0b03635d-75ef-45bb-b737-7be3a66713f7,node--health_care_region_page,/miami-health-care,internal:#,VA Miami health care,2
+4181b914-db03-452c-b7d0-ebe4ee19d5b5,node--health_care_region_page,/central-california-health-care,internal:#,VA Central California health care,2
+116e00eb-8208-4bdc-8952-e3c9bc509327,node--vamc_system_register_for_care,/richmond-health-care/register-for-care,internal:#,Register for care,3
+b59698af-bf7d-4267-98cd-acebe95d9eb9,node--vamc_system_register_for_care,/atlanta-health-care/register-for-care,internal:#,Register for care,3
+6b80d1f6-2e63-413b-882b-5f04a77eeb53,node--vamc_system_register_for_care,/portland-health-care/register-for-care,internal:#,Register for care,3
+b392a500-1b29-41a7-82b1-449173c12ad2,node--vamc_system_register_for_care,/charleston-health-care/register-for-care,internal:#,Register for care,3
+cc1f662c-44bf-4cf2-b331-1d96a36baa7e,node--vamc_system_billing_insurance,/louisville-health-care/billing-and-insurance,internal:#,Billing and insurance,3
+672bd92a-ca59-40f7-aaa7-200210e7ad90,node--vamc_system_billing_insurance,/salisbury-health-care/billing-and-insurance,internal:#,Billing and insurance,3
+c63f48f1-8f5a-4372-9a10-1c8dc45072a9,node--vamc_system_billing_insurance,/hampton-health-care/billing-and-insurance,internal:#,Billing and insurance,3
+545a7932-b561-49b6-9ec3-b28b549b7075,node--vamc_system_billing_insurance,/asheville-health-care/billing-and-insurance,internal:#,Billing and insurance,3
+a2123e95-9605-4988-af58-5946129b0e5d,node--vamc_system_medical_records_offi,/beckley-health-care/medical-records-office,internal:#,Medical records office,3
+d1e4137e-de21-4344-a41c-e778245abb1a,node--vamc_system_medical_records_offi,/portland-health-care/medical-records-office,internal:#,Medical records office,3
+aced7d1c-02fd-4450-bb89-6258eec66f04,node--vamc_system_medical_records_offi,/salem-health-care/medical-records-office,internal:#,Medical records office,3
+3866f84e-0e4e-43fc-80fc-7925d8bb3f7e,node--vamc_system_medical_records_offi,/el-paso-health-care/medical-records-office,internal:#,Medical records office,3
+a08da437-55a4-451c-8f90-af498f38a297,node--vba_facility,/st-petersburg-va-regional-benefit-office/locations/veteran-readiness-and-employment-office-at-west-palm-beach-va-medical-center,http://va-gov-cms.ddev.site/st-petersburg-va-regional-benefit-office/locations/veteran-readiness-and-employment-office-at-west-palm-beach-va-medical-center,Veteran Readiness and Employment Office At West Palm Beach VA Medical Center,3
+5d76ff04-37a0-4ca3-b34f-7402f7bcd018,node--vba_facility,/vba-facilities/locations/va-regional-benefit-satellite-office-at-fort-wayne-va-medical-center,http://va-gov-cms.ddev.site/vba-facilities/locations/va-regional-benefit-satellite-office-at-fort-wayne-va-medical-center,VA Regional Benefit Satellite Office At Fort Wayne VA Medical Center,2
+8247be09-f783-42d0-890f-a2315118c204,node--vba_facility,/vba-facilities/locations/fort-bliss-vocational-rehabilitation-and-employment-office,http://va-gov-cms.ddev.site/vba-facilities/locations/fort-bliss-vocational-rehabilitation-and-employment-office,Veteran Readiness and Employment Office At Fort Bliss,2
+960bc282-2472-4707-84e3-0724cd5283f1,node--vba_facility,/vba-facilities/locations/veteran-readiness-and-employment-office-at-grand-junction-va-medical-center,http://va-gov-cms.ddev.site/vba-facilities/locations/veteran-readiness-and-employment-office-at-grand-junction-va-medical-center,Veteran Readiness and Employment Office At Grand Junction VA Medical Center,2
+7e25df39-0315-4373-874c-4f97d148b2ae,node--leadership_listing,/amarillo-health-care/about-us/leadership,internal:#,Leadership,5
+ccb99c90-15aa-4d38-83b4-97d25394f257,node--leadership_listing,/walla-walla-health-care/about-us/leadership,http://va-gov-cms.ddev.site/walla-walla-health-care/about-us/leadership,Leadership,4
+52855707-0855-447d-b1a1-7b83b1441ffe,node--leadership_listing,/texas-valley-health-care/about-us/leadership,internal:#,Leadership,5
+5c3532be-49d9-4919-9eb3-61bf0850b2e3,node--leadership_listing,/boise-health-care/about-us/leadership,internal:#,Leadership,5
+93fde050-0972-447f-89ac-8f2298c97386,node--vet_center_locations_list,/colorado-springs-vet-center/locations,http://va-gov-cms.ddev.site/colorado-springs-vet-center/locations,Locations,3
+735e85d0-1693-46bd-b943-dc6a08a27058,node--vet_center_locations_list,/escanaba-vet-center/locations,http://va-gov-cms.ddev.site/escanaba-vet-center/locations,Locations,3
+9ee2bce0-73b2-464c-837f-8aac202517fc,node--vet_center_locations_list,/reno-vet-center/locations,http://va-gov-cms.ddev.site/reno-vet-center/locations,Locations,3
+b0dddcaa-6269-4d14-a387-62807ee22123,node--vet_center_locations_list,/springfield-ma-vet-center/locations,http://va-gov-cms.ddev.site/springfield-ma-vet-center/locations,Locations,3
+c4b7d94a-f7ba-4812-acf8-52d36d27e27c,node--health_services_listing,/texas-valley-health-care/health-services,internal:#,Health services,4
+37c63b9d-ca34-4e63-ad33-7b06aaaa6600,node--health_services_listing,/amarillo-health-care/health-services,internal:#,Health services,4
+62b39db6-1958-4d0c-b1bb-b83656120362,node--health_services_listing,/sierra-nevada-health-care/health-services,internal:#,Health services,4
+59464bf4-3553-455f-b48a-b767ebc933e8,node--health_services_listing,/marion-health-care/health-services,internal:#,Health services,4
+809eff11-4ce6-4149-9a8d-6e5b7f7e97da,node--vamc_operating_status_and_alerts,/alexandria-health-care/operating-status,internal:#,Operating Status,3
+14348b2f-766c-45be-8bf8-12d42a38953c,node--vamc_operating_status_and_alerts,/minneapolis-health-care/operating-status,internal:#,Operating Status,3
+8dd78c48-1249-40fa-8844-bd3e6cc531b3,node--vamc_operating_status_and_alerts,/fayetteville-arkansas-health-care/operating-status,internal:#,Operating Status,2
+0ffe349d-ba49-45cb-87ef-910c487c8407,node--vamc_operating_status_and_alerts,/maine-health-care/operating-status,internal:#,Operating status,3
+f96d7422-3742-40bc-aa88-c90f509bf511,node--vamc_system_policies_page,/augusta-health-care/policies,internal:#,Policies,4
+c653b5b3-a308-4586-8c3c-a2501ef4ad49,node--vamc_system_policies_page,/alaska-health-care/policies,internal:#,Policies,4
+153da8c0-727b-4d5a-9353-a35846c75505,node--vamc_system_policies_page,/birmingham-health-care/policies,internal:#,Policies,4
+5c70e08a-5dae-4f52-969a-edbba101c6b7,node--vamc_system_policies_page,/mountain-home-health-care/policies,internal:#,Policies,4
+d95d8029-159b-49a1-ac16-0c124adff3ca,node--health_care_region_detail_page,/bronx-health-care/research,internal:#,Research,4
+972f8367-4c74-4d8f-b17d-6c5997dde235,node--health_care_region_detail_page,/eastern-oklahoma-health-care/programs/ernest-childers-va-health-care-center-progress,internal:#,Ernest Childers VA Health Care Center Progress,5
+2dfe70b0-56fc-4082-8e44-76d5288a5458,node--health_care_region_detail_page,/eastern-colorado-health-care/about-us/history-0,http://va-gov-cms.ddev.site/eastern-colorado-health-care/about-us/history-0,History,4
+b06a1b7f-7d76-4cef-84d3-068dcba0c9b5,node--health_care_region_detail_page,/houston-health-care/work-with-us/internships-and-fellowships/pharmacy-practice-residencies/pgy1pgy2ms-health-system-pharmacy-administration-residency,http://va-gov-cms.ddev.site/houston-health-care/work-with-us/internships-and-fellowships/pharmacy-practice-residencies/pgy1pgy2ms-health-system-pharmacy-administration-residency,PGY1/PGY2/MS Health-System Pharmacy Administration Residency,6
+fb6f4b24-1150-4a8b-9dac-de706306a60a,node--va_form,/find-forms/about-form-10-5345a-mhv,http://va-gov-cms.ddev.site/find-forms/about-form-10-5345a-mhv,About VA Form 10-5345a-MHV,3
+4a3db074-476f-40ba-bb47-71096470dcee,node--va_form,/find-forms/about-form-va4107c,http://va-gov-cms.ddev.site/find-forms/about-form-va4107c,About VA Form VA4107c,3
+e51e769a-af6d-4651-aea4-0eba4d4872eb,node--va_form,/find-forms/about-form-5655blank,http://va-gov-cms.ddev.site/find-forms/about-form-5655blank,About VA Form 5655blank,3
+b813cc4a-3845-46a2-b7b9-13d812f0846a,node--va_form,/find-forms/about-form-10-493b-0,http://va-gov-cms.ddev.site/find-forms/about-form-10-493b-0,About VA Form 10-493b,3
+7f375d16-00c5-4aed-a1ff-c01e4c4254c3,node--campaign_landing_page,/initiatives/pact-act-and-survivors,http://va-gov-cms.ddev.site/initiatives/pact-act-and-survivors,PACT Act and Survivors,2
+bb3febd7-5b35-4637-9598-f04a4cbcfd0b,node--campaign_landing_page,/initiatives/pact-act-and-burn-pits,http://va-gov-cms.ddev.site/initiatives/pact-act-and-burn-pits,PACT Act and Burn Pits,2
+25e3e385-9d5a-4acf-a82e-5dc25182dc72,node--campaign_landing_page,/initiatives/pact-act-information-for-vietnam-era-veterans,http://va-gov-cms.ddev.site/initiatives/pact-act-information-for-vietnam-era-veterans,PACT Act Information For Vietnam-era Veterans,2
+56f5956b-7c7a-4db6-8d15-75d334046487,node--campaign_landing_page,/initiatives/national-buddy-check-week-talk-to-10-veterans,http://va-gov-cms.ddev.site/initiatives/national-buddy-check-week-talk-to-10-veterans,National Buddy Check Week,2

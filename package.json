@@ -39,6 +39,7 @@
     "test:playwright:a11y:local": "USE_PROXY=false PW_WIDTH_VALUE=768 PW_HEIGHT_VALUE=720 PW_BROWSER_VALUE=chromium yarn playwright test --project=a11y",
     "test:types": "yarn build:env-loader && APP_ENV=test tsc --noEmit",
     "fetch-entity": "node --import=tsx ./scripts/fetch-entity/src/index.ts",
+    "analyze-breadcrumbs": "node --import=tsx scripts/analyze-breadcrumbs/index.ts",
     "visualize-dependency-tree": "node --import=tsx scripts/dependency-tree-visualizer/index.ts"
   },
   "dependencies": {
