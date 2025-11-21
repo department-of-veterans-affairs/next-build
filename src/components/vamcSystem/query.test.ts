@@ -40,7 +40,6 @@ const mockParentEventData = convertEventToFeaturedEventTeaser({
 // Individual mock functions for each resource type
 const mockVamcFacilityQuery = jest.fn()
 const mockStoryQuery = jest.fn()
-const mockFetch = jest.fn()
 
 jest.mock('@/lib/drupal/query', () => ({
   ...jest.requireActual('@/lib/drupal/query'),
@@ -64,8 +63,13 @@ jest.mock('@/lib/drupal/query', () => ({
   }),
 }))
 
-// Mock global fetch
-global.fetch = mockFetch as jest.MockedFunction<typeof fetch>
+jest.mock('@/lib/drupal/drupalClient', () => ({
+  drupalClient: {
+    fetch: jest.fn(),
+  },
+}))
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const { drupalClient } = require('@/lib/drupal/drupalClient')
 
 describe('DrupalJsonApiParams configuration', () => {
   test('params function sets the correct include fields', () => {
@@ -101,7 +105,7 @@ describe('VamcSystem formatData', () => {
     })
 
     // Mock fetch for featured events API - default to returning featured events
-    mockFetch.mockResolvedValue({
+    drupalClient.fetch.mockResolvedValue({
       ok: true,
       json: async () => ({
         data: [mockFeaturedEventData],
@@ -122,7 +126,7 @@ describe('VamcSystem formatData', () => {
   describe('Lovell variant functionality', () => {
     test('outputs formatted data with Lovell VA variant context', async () => {
       // Mock fetch to return both system and parent events for Lovell variant
-      mockFetch.mockResolvedValue({
+      drupalClient.fetch.mockResolvedValue({
         ok: true,
         json: async () => ({
           data: [mockFeaturedEventData, mockParentEventData],
@@ -173,7 +177,7 @@ describe('VamcSystem formatData', () => {
 
     test('outputs formatted data with Lovell TRICARE variant context', async () => {
       // Mock fetch to return both system and parent events for Lovell variant
-      mockFetch.mockResolvedValue({
+      drupalClient.fetch.mockResolvedValue({
         ok: true,
         json: async () => ({
           data: [mockFeaturedEventData, mockParentEventData],
@@ -272,7 +276,7 @@ describe('VamcSystem formatData', () => {
       })
 
       // Mock fetch to return only parent events (API handles fallback internally)
-      mockFetch.mockResolvedValue({
+      drupalClient.fetch.mockResolvedValue({
         ok: true,
         json: async () => ({
           data: [mockParentEventData],

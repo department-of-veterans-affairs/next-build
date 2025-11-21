@@ -14,6 +14,7 @@ import {
   fetchSingleEntityOrPreview,
   getMenu,
 } from '@/lib/drupal/query'
+import { drupalClient } from '@/lib/drupal/drupalClient'
 import { formatter as formatImage } from '@/components/mediaImage/query'
 import { formatter as formatListOfLinkTeasers } from '@/components/listOfLinkTeasers/query'
 import { Menu } from '@/types/drupal/menu'
@@ -165,7 +166,7 @@ async function fetchFeaturedEvents(
 ): Promise<FeaturedEventTeaser[]> {
   const url = `${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}/api/v1/vamc-system-featured-events/${systemNodeId}`
 
-  const response = await fetch(url)
+  const response = await drupalClient.fetch(url)
 
   if (!response.ok) {
     throw new Error(
