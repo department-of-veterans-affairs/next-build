@@ -155,16 +155,15 @@ export const entityBaseFields = (
   // 3. Replace last breadcrumb with page title
   // 4. Apply Lovell variant transformation if needed
   let breadcrumbs: Breadcrumb[] | null = null
-  if (entity.breadcrumbs) {
+  // NOTE: This function is sometimes used on entities that don't have a path.alias, like
+  // processing entities on some listing pages. We don't want to process breadcrumbs then
+  if (entity.breadcrumbs && entity.path.alias) {
     // Step 1: Format breadcrumbs
     breadcrumbs = formatBreadcrumbs(entity.breadcrumbs)
-
     // Step 2: Normalize breadcrumbs
     breadcrumbs = normalizeBreadcrumbs(breadcrumbs, entity.path.alias)
-
     // Step 3: Replace last breadcrumb with page title
     breadcrumbs = replaceLastBreadcrumbWithTitle(breadcrumbs, title)
-
     // Step 4: Apply Lovell variant transformation if needed
     if (lovell?.isLovellVariantPage) {
       breadcrumbs = getLovellVariantOfBreadcrumbs(breadcrumbs, lovell.variant)
