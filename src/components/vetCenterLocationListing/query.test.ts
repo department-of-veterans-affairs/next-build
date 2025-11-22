@@ -20,13 +20,16 @@ mockDrupalQuery.setSingleEntityMock(
   RESOURCE_TYPES.VET_CENTER_LOCATION_LISTING,
   mockVetCenterLocationListingQuery
 )
-mockDrupalQuery.setResourceCollectionMock('node--vet_center_cap', mockCapQuery)
 mockDrupalQuery.setResourceCollectionMock(
-  'node--vet_center_outstation',
+  RESOURCE_TYPES.VET_CENTER_CAP,
+  mockCapQuery
+)
+mockDrupalQuery.setResourceCollectionMock(
+  RESOURCE_TYPES.VET_CENTER_OUTSTATION,
   mockOutstationQuery
 )
 mockDrupalQuery.setResourceCollectionMock(
-  'node--vet_center_mobile_vet_center',
+  RESOURCE_TYPES.VET_CENTER_MOBILE_VET_CENTER,
   mockMobileVetCentersQuery
 )
 
