@@ -41,27 +41,24 @@ const mockParentEventData = convertEventToFeaturedEventTeaser({
 const mockVamcFacilityQuery = jest.fn()
 const mockStoryQuery = jest.fn()
 
-jest.mock('@/lib/drupal/query', () => ({
-  ...jest.requireActual('@/lib/drupal/query'),
-  fetchSingleEntityOrPreview: () => mockData,
-  fetchAndConcatAllResourceCollectionPages: (
-    nodeType: string,
-    params: DrupalJsonApiParams
-  ) => {
-    switch (nodeType) {
-      case RESOURCE_TYPES.VAMC_FACILITY:
-        return mockVamcFacilityQuery(params)
-      case RESOURCE_TYPES.STORY:
-        return mockStoryQuery(params)
-      default:
-        return { data: [] }
-    }
-  },
-  getMenu: () => ({
-    items: [],
-    tree: [],
-  }),
-}))
+jest.mock('@/lib/drupal/query')
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const mockDrupalQuery = require('@/lib/drupal/query')
+
+mockDrupalQuery.setSingleEntityMock(RESOURCE_TYPES.VAMC_SYSTEM, () => mockData)
+mockDrupalQuery.setResourceCollectionMock(
+  RESOURCE_TYPES.VAMC_FACILITY,
+  (nodeType: string, params: DrupalJsonApiParams) =>
+    mockVamcFacilityQuery(params)
+)
+mockDrupalQuery.setResourceCollectionMock(
+  RESOURCE_TYPES.STORY,
+  (nodeType: string, params: DrupalJsonApiParams) => mockStoryQuery(params)
+)
+mockDrupalQuery.getMenu.mockReturnValue({
+  items: [],
+  tree: [],
+})
 
 jest.mock('@/lib/drupal/drupalClient', () => ({
   drupalClient: {
