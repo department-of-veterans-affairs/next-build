@@ -55,12 +55,6 @@ export const data: QueryData<
     params
   )) as NodeVamcSystemPoliciesPage
 
-  if (!entity) {
-    throw new Error(
-      `NodeVamcSystemPoliciesPage entity not found for id: ${opts.id}`
-    )
-  }
-
   // Fetch the menu name dynamically off of the field_office reference
   const menu = entity.field_office.field_system_menu
     ? await getMenu(
