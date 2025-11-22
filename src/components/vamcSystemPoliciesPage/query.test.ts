@@ -40,10 +40,6 @@ mockDrupalQuery.setSingleEntityMock(
   RESOURCE_TYPES.VAMC_SYSTEM_POLICIES_PAGE,
   () => mockData
 )
-mockDrupalQuery.getMenu.mockReturnValue({
-  items: [],
-  tree: [],
-})
 
 describe('VamcSystemPoliciesPage params configuration', () => {
   test('params function sets the correct include fields', () => {

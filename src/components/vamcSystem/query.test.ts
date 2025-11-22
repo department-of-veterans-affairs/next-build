@@ -55,10 +55,6 @@ mockDrupalQuery.setResourceCollectionMock(
   RESOURCE_TYPES.STORY,
   (nodeType: string, params: DrupalJsonApiParams) => mockStoryQuery(params)
 )
-mockDrupalQuery.getMenu.mockReturnValue({
-  items: [],
-  tree: [],
-})
 
 jest.mock('@/lib/drupal/drupalClient', () => ({
   drupalClient: {

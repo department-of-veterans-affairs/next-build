@@ -31,11 +31,6 @@ const mockEntity = {
   },
 }
 
-const mockMenu = {
-  items: [],
-  tree: [],
-}
-
 mockDrupalQuery.setSingleEntityMock(
   RESOURCE_TYPES.STORY_LISTING,
   jest.fn().mockResolvedValue(mockEntity)
@@ -44,7 +39,6 @@ mockDrupalQuery.setResourceCollectionMock(
   RESOURCE_TYPES.STORY,
   jest.fn().mockResolvedValue({ data: [], totalItems: 0, totalPages: 0 })
 )
-mockDrupalQuery.getMenu.mockResolvedValue(mockMenu)
 
 describe('data function for StoryListing', () => {
   test('invokes data function with mocked dependencies', async () => {

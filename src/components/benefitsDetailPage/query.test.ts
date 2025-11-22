@@ -37,10 +37,6 @@ mockDrupalQuery.setSingleEntityMock(
   RESOURCE_TYPES.BENEFITS_HUB,
   mockBenefitsHubQuery
 )
-mockDrupalQuery.getMenu.mockReturnValue({
-  items: [],
-  tree: [],
-})
 
 function runQuery(options: Partial<BenefitsDetailPageDataOpts> = {}) {
   return queries.getData(RESOURCE_TYPES.BENEFITS_DETAIL_PAGE, {

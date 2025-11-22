@@ -14,10 +14,6 @@ mockDrupalQuery.setSingleEntityMock(
   RESOURCE_TYPES.VAMC_SYSTEM_VA_POLICE,
   () => mockData
 )
-mockDrupalQuery.getMenu.mockReturnValue({
-  items: [],
-  tree: [],
-})
 
 describe('VamcSystemVaPolice formatData', () => {
   test('outputs formatted data', async () => {

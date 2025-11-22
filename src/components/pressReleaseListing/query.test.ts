@@ -30,11 +30,6 @@ const mockEntity = {
   },
 }
 
-const mockMenu = {
-  items: [],
-  tree: [],
-}
-
 mockDrupalQuery.setSingleEntityMock(
   RESOURCE_TYPES.PRESS_RELEASE_LISTING,
   jest.fn().mockResolvedValue(mockEntity)
@@ -43,7 +38,6 @@ mockDrupalQuery.setResourceCollectionMock(
   RESOURCE_TYPES.PRESS_RELEASE,
   jest.fn().mockResolvedValue({ data: [], totalItems: 0, totalPages: 0 })
 )
-mockDrupalQuery.getMenu.mockResolvedValue(mockMenu)
 
 // mocking the queries object to return a mock params object
 jest.mock('@/lib/drupal/queries', () => {

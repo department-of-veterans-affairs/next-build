@@ -49,10 +49,6 @@ mockDrupalQuery.setResourceCollectionMock(
   RESOURCE_TYPES.VAMC_FACILITY,
   mockVamcFacilityQuery
 )
-mockDrupalQuery.getMenu.mockReturnValue({
-  items: [],
-  tree: [],
-})
 
 describe('DrupalJsonApiParams configuration', () => {
   test('params function sets the correct include fields', () => {

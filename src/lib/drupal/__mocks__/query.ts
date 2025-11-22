@@ -16,6 +16,8 @@
  *   fetchSingleEntityOrPreview.mockResolvedValue(mockData)
  */
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 const originalModule = jest.requireActual('@/lib/drupal/query')
 
 export const fetchSingleResourceCollectionPage = jest.fn()
@@ -23,7 +25,6 @@ export const fetchSingleResourceCollectionPage = jest.fn()
 // Re-export the original entityBaseFields
 export const { entityBaseFields } = originalModule
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type ResourceCollectionMock = jest.Mock | ((...args: any[]) => any)
 
 const collectionResourceMocks = new Map<string, ResourceCollectionMock>()
@@ -40,7 +41,6 @@ export function setResourceCollectionMock(
   collectionResourceMocks.set(nodeType, mock)
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const fetchAndConcatAllResourceCollectionPages = jest.fn(
   (nodeType: string, ...args: any[]) => {
     if (collectionResourceMocks.has(nodeType)) {
@@ -54,7 +54,6 @@ export const fetchAndConcatAllResourceCollectionPages = jest.fn(
   }
 )
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type SingleEntityMock = jest.Mock | ((...args: any[]) => any)
 
 const singleEntityMocks = new Map<string, SingleEntityMock>()
@@ -68,7 +67,6 @@ export function setSingleEntityMock(nodeType: string, mock: SingleEntityMock) {
   singleEntityMocks.set(nodeType, mock)
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const fetchSingleEntityOrPreview = jest.fn(
   (opts: any, type: string, ...args: any[]) => {
     if (singleEntityMocks.has(type)) {
@@ -78,4 +76,7 @@ export const fetchSingleEntityOrPreview = jest.fn(
   }
 )
 
-export const getMenu = jest.fn()
+export const getMenu = jest.fn(() => ({
+  items: [],
+  tree: [],
+}))
