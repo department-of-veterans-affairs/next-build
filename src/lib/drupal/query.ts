@@ -6,7 +6,7 @@ import { drupalClient } from '@/lib/drupal/drupalClient'
 import { NodeTypes } from '@/types/drupal/node'
 import { PublishedEntity } from '@/types/formatted/publishedEntity'
 
-type ResourceCollection<T> = {
+export type ResourceCollection<T> = {
   data: T[]
   totalItems: number
   totalPages: number

@@ -13,23 +13,22 @@ const mockCapQuery = jest.fn()
 const mockOutstationQuery = jest.fn()
 const mockMobileVetCentersQuery = jest.fn()
 
-jest.mock('@/lib/drupal/query', () => ({
-  ...jest.requireActual('@/lib/drupal/query'),
-  fetchSingleEntityOrPreview: (...args) =>
-    mockVetCenterLocationListingQuery(...args),
-  fetchAndConcatAllResourceCollectionPages: (nodeType: string) => {
-    if (nodeType === 'node--vet_center_cap') {
-      return mockCapQuery()
-    }
-    if (nodeType === 'node--vet_center_outstation') {
-      return mockOutstationQuery()
-    }
-    if (nodeType === 'node--vet_center_mobile_vet_center') {
-      return mockMobileVetCentersQuery()
-    }
-    return { data: [] }
-  },
-}))
+jest.mock('@/lib/drupal/query')
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const mockDrupalQuery = require('@/lib/drupal/query')
+mockDrupalQuery.setSingleEntityMock(
+  RESOURCE_TYPES.VET_CENTER_LOCATION_LISTING,
+  mockVetCenterLocationListingQuery
+)
+mockDrupalQuery.setResourceCollectionMock('node--vet_center_cap', mockCapQuery)
+mockDrupalQuery.setResourceCollectionMock(
+  'node--vet_center_outstation',
+  mockOutstationQuery
+)
+mockDrupalQuery.setResourceCollectionMock(
+  'node--vet_center_mobile_vet_center',
+  mockMobileVetCentersQuery
+)
 
 function getData() {
   return queries.getData(RESOURCE_TYPES.VET_CENTER_LOCATION_LISTING, {
