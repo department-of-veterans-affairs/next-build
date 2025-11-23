@@ -48,12 +48,11 @@ const mockDrupalQuery = require('@/lib/drupal/query')
 mockDrupalQuery.setSingleEntityMock(RESOURCE_TYPES.VAMC_SYSTEM, () => mockData)
 mockDrupalQuery.setResourceCollectionMock(
   RESOURCE_TYPES.VAMC_FACILITY,
-  (nodeType: string, params: DrupalJsonApiParams) =>
-    mockVamcFacilityQuery(params)
+  mockVamcFacilityQuery
 )
 mockDrupalQuery.setResourceCollectionMock(
   RESOURCE_TYPES.STORY,
-  (nodeType: string, params: DrupalJsonApiParams) => mockStoryQuery(params)
+  (_nodeType: string, params: DrupalJsonApiParams) => mockStoryQuery(params)
 )
 
 jest.mock('@/lib/drupal/drupalClient', () => ({

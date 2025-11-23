@@ -10,10 +10,9 @@
  * It also re-exports the original:
  * - entityBaseFields
  *
- * Usage in tests:
- *   jest.mock('@/lib/drupal/query')
- *   import { fetchSingleEntityOrPreview } from '@/lib/drupal/query'
- *   fetchSingleEntityOrPreview.mockResolvedValue(mockData)
+ * It also provides these helper functions for setting various mock functions:
+ * - setSingleEntityMock
+ * - setResourceCollectionMock
  */
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -31,8 +30,8 @@ const collectionResourceMocks = new Map<string, ResourceCollectionMock>()
 
 /**
  * The default mock implementation for the fetchAndConcatAllResourceCollectionPages
- * function will call a specific mock function based on the node type. You can provide a
- * custom mock function for a specific node type by calling this function.
+ * function will call a specific mock function based on the node type. Use this function
+ * to set the mock function that all requests for a specific node type will be routed to.
  */
 export function setResourceCollectionMock(
   nodeType: string,
@@ -60,8 +59,8 @@ const singleEntityMocks = new Map<string, SingleEntityMock>()
 
 /**
  * The default mock implementation for the fetchSingleEntityOrPreview function will call
- * a specific mock function based on the node type. You can provide a default mock
- * mock function by calling this function.
+ * a specific mock function based on the node type. Use this function to set the mock
+ * function that all requests for a specific node type will be routed to.
  */
 export function setSingleEntityMock(nodeType: string, mock: SingleEntityMock) {
   singleEntityMocks.set(nodeType, mock)
