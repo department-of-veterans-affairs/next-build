@@ -68,6 +68,8 @@ export const formatter: QueryFormatter<
   const host = process.env.SITE_URL || 'https://www.va.gov/'
   const pageUrl = new URL(entity.path.alias, host).href
 
+  console.log('#'.repeat(300), entity.id)
+
   return {
     ...entityBaseFields(entity),
     breadcrumbs: null, // hide breadcrumb on the page
