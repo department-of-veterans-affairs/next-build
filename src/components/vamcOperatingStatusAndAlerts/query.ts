@@ -8,12 +8,10 @@ import { VamcOperatingStatusAndAlerts } from './formatted-type'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
-  entityBaseFields,
   fetchSingleEntityOrPreview,
   getMenu,
   fetchAndConcatAllResourceCollectionPages,
 } from '@/lib/drupal/query'
-import { replaceLastBreadcrumbWithTitle } from '@/lib/utils/breadcrumbs'
 import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import { getHtmlFromDrupalContent } from '@/lib/utils/getHtmlFromDrupalContent'
@@ -24,6 +22,7 @@ import {
   getOppositeChildVariant,
   getLovellVariantOfTitle,
 } from '@/lib/drupal/lovell/utils'
+import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
 
 // Define the query params for fetching node--vamc_operating_status_and_alerts.
 export const params: QueryParams<null> = () => {

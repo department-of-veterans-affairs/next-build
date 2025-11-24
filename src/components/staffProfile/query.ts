@@ -7,11 +7,11 @@ import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
   DoNotPublishError,
-  entityBaseFields,
   fetchSingleEntityOrPreview,
 } from '@/lib/drupal/query'
 import { buildStaffProfileSidebarData } from '@/lib/drupal/staffProfileSideNav'
 import { formatter as formatAdministration } from '@/components/administration/query'
+import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
 
 // Define the query params for fetching node--person_profile.
 export const params: QueryParams<null> = () => {

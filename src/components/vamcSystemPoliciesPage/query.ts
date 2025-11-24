@@ -4,11 +4,7 @@ import { NodeVamcSystemPoliciesPage } from '@/types/drupal/node'
 import { VamcSystemPoliciesPage } from './formatted-type'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
-import {
-  entityBaseFields,
-  fetchSingleEntityOrPreview,
-  getMenu,
-} from '@/lib/drupal/query'
+import { fetchSingleEntityOrPreview, getMenu } from '@/lib/drupal/query'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 import {
   formatParagraph,
@@ -22,6 +18,7 @@ import {
   getLovellVariantOfUrl,
   getOppositeChildVariant,
 } from '@/lib/drupal/lovell/utils'
+import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
 
 // Define the query params for fetching node--vamc_system_policies_page.
 export const params: QueryParams<null> = () => {

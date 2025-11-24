@@ -8,7 +8,6 @@ import { VamcHealthServicesListing, HealthService } from './formatted-type'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
-  entityBaseFields,
   fetchAndConcatAllResourceCollectionPages,
   fetchSingleEntityOrPreview,
   getMenu,
@@ -24,6 +23,7 @@ import { queries } from '@/lib/drupal/queries'
 import { PARAGRAPH_RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { formatHealthService, groupHealthServicesByType } from './query-utils'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'
+import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
 
 // Define the query params for fetching node--health_services_listing.
 export const params: QueryParams<null> = () => {

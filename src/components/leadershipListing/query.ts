@@ -13,12 +13,9 @@ import {
   getOppositeChildVariant,
 } from '@/lib/drupal/lovell/utils'
 
-import {
-  entityBaseFields,
-  fetchSingleEntityOrPreview,
-  getMenu,
-} from '@/lib/drupal/query'
+import { fetchSingleEntityOrPreview, getMenu } from '@/lib/drupal/query'
 import { Menu } from '@/types/drupal/menu'
+import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
 
 // Define the query params for fetching node--leadership_listing.
 export const params: QueryParams<null> = () => {

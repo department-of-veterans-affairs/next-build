@@ -9,7 +9,6 @@ import { VamcSystem, VamcSystemSocialLinks } from './formatted-type'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
-  entityBaseFields,
   fetchAndConcatAllResourceCollectionPages,
   fetchSingleEntityOrPreview,
   getMenu,
@@ -30,6 +29,7 @@ import {
 } from '@/lib/drupal/lovell/utils'
 import { LOVELL } from '@/lib/drupal/lovell/constants'
 import { FeaturedEventTeaser } from '../eventTeaser/formatted-type'
+import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
 
 // Define the query params for fetching node--vamc_system.
 export const params: QueryParams<null> = () => {

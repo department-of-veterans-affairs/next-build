@@ -4,11 +4,7 @@ import { NodeHealthCareLocalFacility } from '@/types/drupal/node'
 import { VamcFacility } from './formatted-type'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
-import {
-  entityBaseFields,
-  fetchSingleEntityOrPreview,
-  getMenu,
-} from '@/lib/drupal/query'
+import { fetchSingleEntityOrPreview, getMenu } from '@/lib/drupal/query'
 import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import {
@@ -22,6 +18,7 @@ import { formatter as formatAdministration } from '@/components/administration/q
 import { getVamcSystemSocialLinks } from '../vamcSystem/query'
 import { formatter as formatServiceLocation } from '@/components/serviceLocation/query'
 import { formatter as formatListOfLinkTeasers } from '@/components/listOfLinkTeasers/query'
+import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
 
 const isPublished = (entity: { status: boolean }) => entity.status === true
 

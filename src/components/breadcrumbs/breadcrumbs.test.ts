@@ -1,8 +1,256 @@
 import {
+  formatBreadcrumbs,
   normalizeBreadcrumbs,
   replaceLastBreadcrumbWithTitle,
 } from './breadcrumbs'
 import { Breadcrumb } from '@/components/breadcrumbs/formatted-types'
+import { BreadcrumbItem } from '@/types/drupal/field_type'
+
+describe('formatBreadcrumbs', () => {
+  describe('basic functionality', () => {
+    it('should format a single breadcrumb correctly', () => {
+      const breadcrumbs: BreadcrumbItem[] = [
+        {
+          uri: 'http://va.gov/home',
+          title: 'Home',
+          options: [],
+        },
+      ]
+
+      const result = formatBreadcrumbs(breadcrumbs)
+
+      expect(result).toEqual([
+        {
+          href: '/home',
+          label: 'Home',
+          options: [],
+        },
+      ])
+    })
+
+    it('should format multiple breadcrumbs correctly', () => {
+      const breadcrumbs: BreadcrumbItem[] = [
+        {
+          uri: 'http://va.gov/home',
+          title: 'Home',
+          options: [],
+        },
+        {
+          uri: 'http://va.gov/about',
+          title: 'About',
+          options: [],
+        },
+        {
+          uri: 'http://va.gov/about/team',
+          title: 'Team',
+          options: [],
+        },
+      ]
+
+      const result = formatBreadcrumbs(breadcrumbs)
+
+      expect(result).toEqual([
+        {
+          href: '/home',
+          label: 'Home',
+          options: [],
+        },
+        {
+          href: '/about',
+          label: 'About',
+          options: [],
+        },
+        {
+          href: '/about/team',
+          label: 'Team',
+          options: [],
+        },
+      ])
+    })
+  })
+
+  describe('URI path extraction', () => {
+    it('should extract pathname from URI with query parameters', () => {
+      const breadcrumbs: BreadcrumbItem[] = [
+        {
+          uri: 'http://va.gov/page?param=value',
+          title: 'Page',
+          options: [],
+        },
+      ]
+
+      const result = formatBreadcrumbs(breadcrumbs)
+
+      expect(result[0].href).toBe('/page')
+    })
+
+    it('should extract pathname from URI with hash fragment', () => {
+      const breadcrumbs: BreadcrumbItem[] = [
+        {
+          uri: 'http://va.gov/page#section',
+          title: 'Page',
+          options: [],
+        },
+      ]
+
+      const result = formatBreadcrumbs(breadcrumbs)
+
+      expect(result[0].href).toBe('/page')
+    })
+
+    it('should handle root path correctly', () => {
+      const breadcrumbs: BreadcrumbItem[] = [
+        {
+          uri: 'http://va.gov/',
+          title: 'Home',
+          options: [],
+        },
+      ]
+
+      const result = formatBreadcrumbs(breadcrumbs)
+
+      expect(result[0].href).toBe('/')
+    })
+
+    it('should handle nested paths correctly', () => {
+      const breadcrumbs: BreadcrumbItem[] = [
+        {
+          uri: 'http://va.gov/level1/level2/level3',
+          title: 'Deep Page',
+          options: [],
+        },
+      ]
+
+      const result = formatBreadcrumbs(breadcrumbs)
+
+      expect(result[0].href).toBe('/level1/level2/level3')
+    })
+
+    it('should handle paths with trailing slashes', () => {
+      const breadcrumbs: BreadcrumbItem[] = [
+        {
+          uri: 'http://va.gov/page/',
+          title: 'Page',
+          options: [],
+        },
+      ]
+
+      const result = formatBreadcrumbs(breadcrumbs)
+
+      expect(result[0].href).toBe('/page/')
+    })
+  })
+
+  describe('options preservation', () => {
+    it('should preserve options array', () => {
+      const breadcrumbs: BreadcrumbItem[] = [
+        {
+          uri: 'http://va.gov/page',
+          title: 'Page',
+          options: [{ key: 'value' }, { another: 'option' }],
+        },
+      ]
+
+      const result = formatBreadcrumbs(breadcrumbs)
+
+      expect(result[0].options).toEqual([
+        { key: 'value' },
+        { another: 'option' },
+      ])
+    })
+
+    it('should preserve empty options array', () => {
+      const breadcrumbs: BreadcrumbItem[] = [
+        {
+          uri: 'http://va.gov/page',
+          title: 'Page',
+          options: [],
+        },
+      ]
+
+      const result = formatBreadcrumbs(breadcrumbs)
+
+      expect(result[0].options).toEqual([])
+    })
+  })
+
+  describe('edge cases', () => {
+    it('should handle empty array', () => {
+      const breadcrumbs: BreadcrumbItem[] = []
+      const result = formatBreadcrumbs(breadcrumbs)
+      expect(result).toEqual([])
+    })
+
+    it('should preserve title exactly as provided', () => {
+      const breadcrumbs: BreadcrumbItem[] = [
+        {
+          uri: 'http://va.gov/page',
+          title: '  Page with spaces  ',
+          options: [],
+        },
+      ]
+
+      const result = formatBreadcrumbs(breadcrumbs)
+
+      expect(result[0].label).toBe('  Page with spaces  ')
+    })
+
+    it('should handle special characters in paths', () => {
+      const breadcrumbs: BreadcrumbItem[] = [
+        {
+          uri: 'http://va.gov/page-with-dashes',
+          title: 'Page',
+          options: [],
+        },
+        {
+          uri: 'http://va.gov/page_with_underscores',
+          title: 'Page',
+          options: [],
+        },
+        {
+          uri: 'http://va.gov/page123',
+          title: 'Page',
+          options: [],
+        },
+      ]
+
+      const result = formatBreadcrumbs(breadcrumbs)
+
+      expect(result[0].href).toBe('/page-with-dashes')
+      expect(result[1].href).toBe('/page_with_underscores')
+      expect(result[2].href).toBe('/page123')
+    })
+
+    it('should not mutate the original array', () => {
+      const breadcrumbs: BreadcrumbItem[] = [
+        {
+          uri: 'http://va.gov/page',
+          title: 'Page',
+          options: [],
+        },
+      ]
+
+      const originalUri = breadcrumbs[0].uri
+      formatBreadcrumbs(breadcrumbs)
+
+      expect(breadcrumbs[0].uri).toBe(originalUri)
+    })
+
+    it('should return a new array instance', () => {
+      const breadcrumbs: BreadcrumbItem[] = [
+        {
+          uri: 'http://va.gov/page',
+          title: 'Page',
+          options: [],
+        },
+      ]
+
+      const result = formatBreadcrumbs(breadcrumbs)
+
+      expect(result).not.toBe(breadcrumbs)
+    })
+  })
+})
 
 describe('normalizeBreadcrumbs', () => {
   describe('when breadcrumbs match current path', () => {

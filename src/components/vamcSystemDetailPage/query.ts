@@ -7,11 +7,7 @@ import {
   RESOURCE_TYPES,
 } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
-import {
-  entityBaseFields,
-  fetchSingleEntityOrPreview,
-  getMenu,
-} from '@/lib/drupal/query'
+import { fetchSingleEntityOrPreview, getMenu } from '@/lib/drupal/query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
@@ -23,6 +19,7 @@ import { formatter as formatAdministration } from '@/components/administration/q
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { formatParagraph } from '@/lib/drupal/paragraphs'
 import { getNestedIncludes } from '@/lib/utils/queries'
+import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
 
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude([
