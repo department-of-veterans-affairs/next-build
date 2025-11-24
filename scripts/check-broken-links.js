@@ -59,7 +59,7 @@ const LINKS_TO_SKIP = [
   /fb\.(com|me|watch)/,
   /www\.facebook\.com/,
   /^www.va.gov\/img\/*/,
-  /www.va.gov/,
+  /www.va.gov$/,
   /www\.va\.gov\/_next\/static\/*/,
   'www.move.va.gov/',
   'www.myhealth.va.gov/',
