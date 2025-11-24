@@ -3,6 +3,20 @@ import fs from 'fs'
 import chalk from 'chalk'
 import { load } from 'cheerio'
 
+// Normalize URLs to a canonical form for comparison/storage. Resolve relative
+// URLs against SITE_URL (or default https://www.va.gov/) and force https.
+const normalizeUrl = (u) => {
+  if (!u) return u
+  try {
+    const base = process.env.SITE_URL || 'https://www.va.gov/'
+    const resolved = new URL(u, base)
+    if (resolved.protocol === 'http:') resolved.protocol = 'https:'
+    return resolved.toString().replace(/#.*$/, '')
+  } catch (e) {
+    return String(u).replace(/#.*$/, '')
+  }
+}
+
 // Fetch the parent page of the broken link and parse the link text.
 const resolveLinkText = async (parentUrl, targetUrl) => {
   try {
@@ -65,24 +79,30 @@ const createCombinedReports = async () => {
       }
     }
     // Iterate over source pages and then destination, making sure to not lose
-    // any data in the combination.
-    for (const parentLink in fileJson.brokenLinksByParent) {
-      if (!combinedJson.brokenLinksByParent[parentLink]) {
-        combinedJson.brokenLinksByParent[parentLink] = []
+    // any data in the combination. Normalize keys so relative URLs and
+    // http/https mismatches don't prevent merging.
+    for (const rawParent in fileJson.brokenLinksByParent) {
+      const parentKey = normalizeUrl(rawParent)
+      if (!combinedJson.brokenLinksByParent[parentKey]) {
+        combinedJson.brokenLinksByParent[parentKey] = []
       }
-      combinedJson.brokenLinksByParent[parentLink] =
-        combinedJson.brokenLinksByParent[parentLink].concat(
-          fileJson.brokenLinksByParent[parentLink]
-        )
+      // Normalize each child entry's URL before merging
+      const normalizedChildren = (
+        fileJson.brokenLinksByParent[rawParent] || []
+      ).map((c) => ({ ...c, url: normalizeUrl(c.url) }))
+      combinedJson.brokenLinksByParent[parentKey] =
+        combinedJson.brokenLinksByParent[parentKey].concat(normalizedChildren)
     }
-    for (const parentLink in fileJson.brokenLinksByLink) {
-      if (!combinedJson.brokenLinksByLink[parentLink]) {
-        combinedJson.brokenLinksByLink[parentLink] = []
+    for (const rawLink in fileJson.brokenLinksByLink) {
+      const linkKey = normalizeUrl(rawLink)
+      if (!combinedJson.brokenLinksByLink[linkKey]) {
+        combinedJson.brokenLinksByLink[linkKey] = []
       }
-      combinedJson.brokenLinksByLink[parentLink] =
-        combinedJson.brokenLinksByLink[parentLink].concat(
-          fileJson.brokenLinksByLink[parentLink]
-        )
+      const normalizedParents = (fileJson.brokenLinksByLink[rawLink] || []).map(
+        (p) => ({ ...p, parent: normalizeUrl(p.parent) })
+      )
+      combinedJson.brokenLinksByLink[linkKey] =
+        combinedJson.brokenLinksByLink[linkKey].concat(normalizedParents)
     }
   }
   // Iterate over combinedJson to look up link text.
