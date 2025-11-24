@@ -36,6 +36,19 @@ const PathRow = React.memo<PathRowProps>(
       onNotesChange(qaPath.path, newNotes)
     }
 
+    const vrtHost = process.env.QA_VRT_HOST || 'localhost:5173'
+    const devUrl =
+      typeof window !== 'undefined'
+        ? `${window.location.origin}${qaPath.path}`
+        : qaPath.path
+    const stagingUrl = `https://staging.va.gov${qaPath.path}`
+    const prodUrl = `https://www.va.gov${qaPath.path}`
+
+    const createComparisonUrl = (url1: string, url2: string) => {
+      const params = new URLSearchParams({ url1, url2 })
+      return `http://${vrtHost}?${params.toString()}`
+    }
+
     return (
       <div
         style={{
@@ -105,6 +118,42 @@ const PathRow = React.memo<PathRowProps>(
               rel="noopener noreferrer"
             >
               (prod)
+            </a>
+          </div>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+              marginTop: '8px',
+            }}
+          >
+            <span style={{ color: '#757575', fontSize: '14px' }}>Compare:</span>
+            <a
+              href={createComparisonUrl(devUrl, stagingUrl)}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ fontSize: '14px' }}
+            >
+              dev+staging
+            </a>
+            <span style={{ color: '#757575' }}>|</span>
+            <a
+              href={createComparisonUrl(devUrl, prodUrl)}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ fontSize: '14px' }}
+            >
+              dev+prod
+            </a>
+            <span style={{ color: '#757575' }}>|</span>
+            <a
+              href={createComparisonUrl(stagingUrl, prodUrl)}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ fontSize: '14px' }}
+            >
+              staging+prod
             </a>
           </div>
           {isStarred && (

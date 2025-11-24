@@ -26,6 +26,19 @@ interface ReviewRowProps {
 
 const ReviewRow = React.memo<ReviewRowProps>(
   ({ qaPath, reviewed, onReviewToggle }) => {
+    const vrtHost = process.env.QA_VRT_HOST || 'localhost:5173'
+    const devUrl =
+      typeof window !== 'undefined'
+        ? `${window.location.origin}${qaPath.path}`
+        : qaPath.path
+    const stagingUrl = `https://staging.va.gov${qaPath.path}`
+    const prodUrl = `https://www.va.gov${qaPath.path}`
+
+    const createComparisonUrl = (url1: string, url2: string) => {
+      const params = new URLSearchParams({ url1, url2 })
+      return `http://${vrtHost}?${params.toString()}`
+    }
+
     return (
       <div
         style={{
@@ -94,6 +107,42 @@ const ReviewRow = React.memo<ReviewRowProps>(
               rel="noopener noreferrer"
             >
               (prod)
+            </a>
+          </div>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+              marginTop: '8px',
+            }}
+          >
+            <span style={{ color: '#757575', fontSize: '14px' }}>Compare:</span>
+            <a
+              href={createComparisonUrl(devUrl, stagingUrl)}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ fontSize: '14px' }}
+            >
+              dev+staging
+            </a>
+            <span style={{ color: '#757575' }}>|</span>
+            <a
+              href={createComparisonUrl(devUrl, prodUrl)}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ fontSize: '14px' }}
+            >
+              dev+prod
+            </a>
+            <span style={{ color: '#757575' }}>|</span>
+            <a
+              href={createComparisonUrl(stagingUrl, prodUrl)}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ fontSize: '14px' }}
+            >
+              staging+prod
             </a>
           </div>
           {qaPath.notes && (
@@ -439,67 +488,141 @@ export default function QAReviewPage() {
                       </div>
                     </div>
                     <div style={{ display: 'table-row-group' }}>
-                      {unstarredPaths.map((qaPath) => (
-                        <div
-                          key={qaPath.path}
-                          style={{
-                            display: 'table-row',
-                          }}
-                        >
+                      {unstarredPaths.map((qaPath) => {
+                        const vrtHost =
+                          process.env.NEXT_PUBLIC_VRT_HOST || 'localhost:5173'
+                        const devUrl =
+                          typeof window !== 'undefined'
+                            ? `${window.location.origin}${qaPath.path}`
+                            : qaPath.path
+                        const stagingUrl = `https://staging.va.gov${qaPath.path}`
+                        const prodUrl = `https://www.va.gov${qaPath.path}`
+
+                        const createComparisonUrl = (
+                          url1: string,
+                          url2: string
+                        ) => {
+                          const params = new URLSearchParams({ url1, url2 })
+                          return `http://${vrtHost}?${params.toString()}`
+                        }
+
+                        return (
                           <div
+                            key={qaPath.path}
                             style={{
-                              display: 'table-cell',
-                              padding: '8px 12px',
-                              verticalAlign: 'top',
-                              borderTop: '1px solid #d6d7d9',
+                              display: 'table-row',
                             }}
                           >
                             <div
                               style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: '8px',
+                                display: 'table-cell',
+                                padding: '8px 12px',
+                                verticalAlign: 'top',
+                                borderTop: '1px solid #d6d7d9',
                               }}
                             >
-                              <a
-                                href={qaPath.path}
-                                target="_blank"
-                                rel="noopener noreferrer"
+                              <div
                                 style={{
-                                  color: '#005ea2',
-                                  textDecoration: 'underline',
+                                  display: 'flex',
+                                  alignItems: 'center',
+                                  gap: '8px',
                                 }}
                               >
-                                {qaPath.path}
-                              </a>
-                              <span style={{ color: '#757575' }}>|</span>
-                              <a
-                                href={`https://staging.va.gov${qaPath.path}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                <a
+                                  href={qaPath.path}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  style={{
+                                    color: '#005ea2',
+                                    textDecoration: 'underline',
+                                  }}
+                                >
+                                  {qaPath.path}
+                                </a>
+                                <span style={{ color: '#757575' }}>|</span>
+                                <a
+                                  href={`https://staging.va.gov${qaPath.path}`}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  style={{
+                                    color: '#005ea2',
+                                    textDecoration: 'underline',
+                                  }}
+                                >
+                                  (staging)
+                                </a>
+                                <span style={{ color: '#757575' }}>|</span>
+                                <a
+                                  href={`https://www.va.gov${qaPath.path}`}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  style={{
+                                    color: '#005ea2',
+                                    textDecoration: 'underline',
+                                  }}
+                                >
+                                  (prod)
+                                </a>
+                              </div>
+                              <div
                                 style={{
-                                  color: '#005ea2',
-                                  textDecoration: 'underline',
+                                  display: 'flex',
+                                  alignItems: 'center',
+                                  gap: '8px',
+                                  marginTop: '8px',
                                 }}
                               >
-                                (staging)
-                              </a>
-                              <span style={{ color: '#757575' }}>|</span>
-                              <a
-                                href={`https://www.va.gov${qaPath.path}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                style={{
-                                  color: '#005ea2',
-                                  textDecoration: 'underline',
-                                }}
-                              >
-                                (prod)
-                              </a>
+                                <span
+                                  style={{ color: '#757575', fontSize: '14px' }}
+                                >
+                                  Compare:
+                                </span>
+                                <a
+                                  href={createComparisonUrl(devUrl, stagingUrl)}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  style={{
+                                    color: '#005ea2',
+                                    textDecoration: 'underline',
+                                    fontSize: '14px',
+                                  }}
+                                >
+                                  dev+staging
+                                </a>
+                                <span style={{ color: '#757575' }}>|</span>
+                                <a
+                                  href={createComparisonUrl(devUrl, prodUrl)}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  style={{
+                                    color: '#005ea2',
+                                    textDecoration: 'underline',
+                                    fontSize: '14px',
+                                  }}
+                                >
+                                  dev+prod
+                                </a>
+                                <span style={{ color: '#757575' }}>|</span>
+                                <a
+                                  href={createComparisonUrl(
+                                    stagingUrl,
+                                    prodUrl
+                                  )}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  style={{
+                                    color: '#005ea2',
+                                    textDecoration: 'underline',
+                                    fontSize: '14px',
+                                  }}
+                                >
+                                  staging+prod
+                                </a>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      ))}
+                        )
+                      })}
                     </div>
                   </div>
                 )}
