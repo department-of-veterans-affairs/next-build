@@ -58,7 +58,12 @@ const LINKS_TO_SKIP = [
   /visn\d+.*?\.va\.gov/,
   /fb\.(com|me|watch)/,
   /www\.facebook\.com/,
-  /^\//,
+  /^www.va.gov\/img\/*/,
+  /www.va.gov/,
+  /www\.va\.gov\/_next\/static\/*/,
+  'www.move.va.gov/',
+  'www.myhealth.va.gov/',
+
   // process.env.SKIP_IMAGES ? '' : null
 ]
 
