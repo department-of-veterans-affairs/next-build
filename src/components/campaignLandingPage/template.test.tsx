@@ -1,0 +1,248 @@
+import React from 'react'
+import { render, screen } from '@testing-library/react'
+import { CampaignLandingPage, CampaignLandingPageProps } from './template'
+import { axe } from '@/test-utils'
+import { HeroBanner } from './HeroBanner'
+import { ParagraphLinkTeaser } from '@/types/drupal/paragraph'
+
+import { defineCustomElements } from '@department-of-veterans-affairs/web-components/loader'
+import { WhyThisMatters } from './WhyThisMatters'
+import {
+  MediaImage,
+  MediaImageLinks,
+  MediaVideo,
+} from '@/components/mediaDocument/formatted-type'
+import { FieldLink } from '@/types/drupal/field_type'
+import { Button } from '../button/formatted-type'
+import { VideoPanel } from './VideoPanel'
+import { LinkTeaser } from '../linkTeaser/formatted-type'
+
+const mockBaseProps: Partial<CampaignLandingPageProps> = {
+  title: 'Testing title',
+  hero: {
+    blurb: 'This is the test hero blurb',
+    image: {
+      alt: '',
+      links: {
+        '1_1_square_large': {
+          href: 'https://example.com/hero-image.png',
+        } as unknown as MediaImageLinks,
+      },
+    } as unknown as MediaImage,
+  },
+  cta: {
+    primary: {
+      label: 'primary cta label',
+      href: '#primary-cta',
+    },
+    secondary: {
+      label: 'secondary cta label',
+      href: '#secondary-cta',
+    },
+  },
+  whyThisMatters: 'test why it matters',
+  audience: [{ name: 'audience 1' }, { name: 'audience 2' }],
+  socialLinks: [
+    {
+      icon: 'social-icon-1',
+      href: '/social-href-1',
+      text: 'social text 1',
+    },
+    {
+      icon: 'social-icon-2',
+      href: '/social-href-2',
+      text: 'social text 2',
+    },
+  ],
+  whatYouCanDo: {
+    header: 'WhatYouCanDo header',
+    intro: 'WhatYouCanDo intro',
+    promos: [
+      {
+        link: {
+          field_link: {
+            url: '?promo-1',
+            title: 'Promo 1 link',
+          } as FieldLink,
+          field_link_summary: 'Summary of field link 1',
+        } as ParagraphLinkTeaser,
+        image: {
+          alt: '',
+          links: {
+            '3_2_medium_thumbnail': {
+              href: 'https://example.com/promo-1-image.png',
+            } as unknown as MediaImageLinks,
+          },
+        } as unknown as MediaImage,
+      },
+    ],
+  },
+  video: {
+    show: true,
+    header: 'video header',
+    media: {
+      field_media_video_embed_field: 'https://example.com/video',
+      name: 'some video',
+      field_duration: 70,
+      field_publication_date: '2025-11-03',
+    } as MediaVideo,
+    button: {
+      url: 'https://example.com/button-url',
+      label: 'Video button',
+    } as Button,
+  },
+  spotlight: {
+    show: true,
+    header: 'spotlight header',
+    intro: 'spotlight intro',
+    cta: {
+      url: 'https://example.com/spotlight-cta-url',
+      label: 'spotlight CTA',
+    } as Button,
+    teasers: [
+      {
+        uri: '?teaser-1',
+        title: 'Teaser 1 link',
+        summary: 'Summary for teaser 1',
+      } as LinkTeaser,
+      {
+        uri: '?teaser-2',
+        title: 'Teaser 2 link',
+        summary: 'Summary for teaser 2',
+      } as LinkTeaser,
+    ],
+  },
+}
+
+jest.mock('next/image', () => ({
+  __esModule: true,
+  default: (props: Record<string, unknown>) => {
+    return <img {...props} />
+  },
+}))
+
+beforeEach(() => {
+  defineCustomElements()
+})
+
+describe('CampaignLandingPage with valid data', () => {
+  test('CampaignLandingPage component renders all sub components', async () => {
+    const { container } = await render(
+      <CampaignLandingPage {...(mockBaseProps as CampaignLandingPageProps)} />
+    )
+
+    expect(screen.getByTestId('hero-banner')).toBeInTheDocument()
+    expect(screen.getByTestId('why-this-matters')).toBeInTheDocument()
+    expect(screen.getByTestId('what-you-can-do')).toBeInTheDocument()
+    expect(screen.getByTestId('video-panel')).toBeInTheDocument()
+    expect(screen.getByTestId('spotlight-panel')).toBeInTheDocument()
+
+    // TODO: Check that the other components rendered once they're built
+  })
+
+  test('CampaignLandingPage component renders with no axe violations', async () => {
+    const { container } = await render(
+      <CampaignLandingPage
+        onlyRenderFinishedComponents
+        {...(mockBaseProps as CampaignLandingPageProps)}
+      />
+    )
+
+    const axeResults = await axe(container)
+    expect(axeResults).toHaveNoViolations()
+  })
+})
+
+describe('CampaignLandingPage->HeroBanner', () => {
+  beforeEach(async () => {
+    await render(
+      <HeroBanner {...(mockBaseProps as CampaignLandingPageProps)} />
+    )
+  })
+
+  test('shows page title', () => {
+    expect(screen.getByText(mockBaseProps.title)).toBeInTheDocument()
+  })
+
+  test('shows blurb', () => {
+    expect(screen.getByText(mockBaseProps.hero.blurb)).toBeInTheDocument()
+  })
+
+  test('shows primary cta link', () => {
+    const link = screen.getByTestId('primary-cta')
+
+    expect(link.localName).toBe('va-link-action')
+    expect(link.href).toBe(mockBaseProps.cta.primary.href)
+    expect(link.text).toBe(mockBaseProps.cta.primary.label)
+  })
+
+  test('shows hero image with 1:1 aspect ratio', () => {
+    const img = screen.getByTestId('hero-image')
+
+    expect(img.src).toBe(
+      mockBaseProps.hero.image.links['1_1_square_large'].href
+    )
+
+    // Empty alt intentional
+    // See https://github.com/department-of-veterans-affairs/va.gov-cms/issues/22439
+    expect(img.alt).toBe('')
+
+    // 1:1 aspect ratio
+    expect(img.style['aspect-ratio']).toBe('1/1')
+    expect(img.style['object-fit']).toBe('cover')
+  })
+})
+
+describe('CampaignLandingPage->WhyThisMatters', () => {
+  beforeEach(async () => {
+    await render(
+      <WhyThisMatters {...(mockBaseProps as CampaignLandingPageProps)} />
+    )
+  })
+
+  test('shows why it matters', () => {
+    expect(screen.getByText(mockBaseProps.whyThisMatters)).toBeInTheDocument()
+  })
+
+  test('show secondary cta', () => {
+    const link = screen.getByTestId('secondary-cta')
+
+    expect(link.localName).toBe('va-link-action')
+    expect(link.href).toBe(mockBaseProps.cta.secondary.href)
+    expect(link.text).toBe(mockBaseProps.cta.secondary.label)
+  })
+
+  test('shows audiences', () => {
+    mockBaseProps.audience.map(({ name }) => {
+      expect(screen.getByText(name)).toBeInTheDocument()
+    })
+  })
+})
+
+describe('CampaignLandingPage->VideoPanel', () => {
+  beforeEach(async () => {
+    await render(
+      <VideoPanel {...(mockBaseProps as CampaignLandingPageProps)} />
+    )
+  })
+
+  it('shows video header', () => {
+    expect(screen.getByText('video header')).toBeInTheDocument()
+  })
+
+  it('shows correct publication date', () => {
+    expect(screen.getByText(/November 3, 2025/)).toBeInTheDocument()
+  })
+
+  it('shows correct duration label', () => {
+    expect(screen.getByText(/1:10 minutes/)).toBeInTheDocument()
+  })
+
+  it('shows cta button', () => {
+    const ctaRoot = screen.getByTestId('video-cta')
+    expect(ctaRoot).toBeInTheDocument()
+
+    expect(ctaRoot.href).toBe('https://example.com/button-url')
+    expect(ctaRoot.text).toBe('Video button')
+  })
+})

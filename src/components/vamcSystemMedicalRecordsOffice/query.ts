@@ -5,14 +5,10 @@ import {
   NodeVhaFacilityNonclinicalService,
 } from '@/types/drupal/node'
 import { VamcSystemMedicalRecordsOffice } from './formatted-type'
-import {
-  PARAGRAPH_RESOURCE_TYPES,
-  RESOURCE_TYPES,
-} from '@/lib/constants/resourceTypes'
+import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
   entityBaseFields,
-  fetchAndConcatAllResourceCollectionPages,
   fetchSingleEntityOrPreview,
   getMenu,
 } from '@/lib/drupal/query'
@@ -26,36 +22,23 @@ import { Wysiwyg } from '../wysiwyg/formatted-type'
 import { FieldCCText } from '@/types/drupal/field_type'
 import { formatter as formatListOfLinkTeasers } from '@/components/listOfLinkTeasers/query'
 import { drupalClient } from '@/lib/drupal/drupalClient'
-import { PAGE_SIZES } from '@/lib/constants/pageSizes'
-import { getNestedIncludes } from '@/lib/utils/queries'
-import { formatter as formatServiceLocation } from '@/components/serviceLocation/query'
+import {
+  fetchVhaFacilityNonclinicalServices,
+  formatter as formatVhaFacilityNonclinicalServices,
+} from '@/components/vhaFacilityNonclinicalService/query'
 import {
   getLovellVariantOfBreadcrumbs,
   getLovellVariantOfUrl,
   getOppositeChildVariant,
 } from '@/lib/drupal/lovell/utils'
+import { formatter as formatReactWidget } from '@/components/reactWidget/query'
+import { formatter as formatQaSection } from '@/components/qaSection/query'
 
 // Define the query params for fetching node--vamc_system_medical_records_office.
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams()
     .addFilter('type', RESOURCE_TYPES.VAMC_SYSTEM_MEDICAL_RECORDS_OFFICE)
     .addInclude(['field_office'])
-}
-
-export const serviceParams: QueryParams<string> = (vamcSystemId: string) => {
-  return new DrupalJsonApiParams()
-    .addInclude([
-      'field_service_name_and_descripti',
-      'field_facility_location',
-      ...getNestedIncludes(
-        'field_service_location',
-        PARAGRAPH_RESOURCE_TYPES.SERVICE_LOCATION
-      ),
-    ])
-    .addFilter('status', '1')
-    .addFilter('field_service_name_and_descripti.name', 'Medical records')
-    .addFilter('field_facility_location.field_region_page.id', vamcSystemId)
-    .addFilter('field_facility_location.status', '1')
 }
 
 // Define the option types for the data loader.
@@ -111,12 +94,10 @@ export const data: QueryData<
     )
   )
 
-  const { data: services } =
-    await fetchAndConcatAllResourceCollectionPages<NodeVhaFacilityNonclinicalService>(
-      RESOURCE_TYPES.VHA_FACILITY_NONCLINICAL_SERVICE,
-      serviceParams(entity.field_office.id),
-      PAGE_SIZES.MAX
-    )
+  const services = await fetchVhaFacilityNonclinicalServices(
+    entity.field_office.id,
+    'Medical records'
+  )
 
   return { entity, menu, services, lovell: opts.context?.lovell }
 }
@@ -128,18 +109,6 @@ export const formatter: QueryFormatter<
 > = ({ entity, menu, services, lovell }) => {
   const formatCcWysiwyg = (field: FieldCCText) =>
     formatParagraph(normalizeEntityFetchedParagraphs(field)) as Wysiwyg
-
-  const formattedServices = services.map((service) => ({
-    id: service.id,
-    title: service.field_facility_location.title,
-    path: service.field_facility_location.path.alias,
-    serviceLocations: service.field_service_location.map(formatServiceLocation),
-    address: service.field_facility_location.field_address,
-    phoneNumber: service.field_facility_location.field_phone_number,
-  }))
-
-  // The old page didn't sort them, but we want the order to be predictable
-  formattedServices.sort((a, b) => a.title.localeCompare(b.title))
 
   return {
     ...entityBaseFields(entity),
@@ -156,13 +125,24 @@ export const formatter: QueryFormatter<
     getRecordsInPersonContent: formatCcWysiwyg(
       entity.field_cc_get_records_in_person
     ),
-    bottomOfPageContent: formatCcWysiwyg(
-      entity.field_cc_bottom_of_page_content
+    howWeShareRecordsContent: formatCcWysiwyg(
+      entity.field_cc_how_we_share_records
+    ),
+    faqsContent: formatQaSection(
+      normalizeEntityFetchedParagraphs(entity.field_cc_faqs)
+    ),
+    reactWidget: formatReactWidget(
+      normalizeEntityFetchedParagraphs(entity.field_cc_react_widget)
     ),
     relatedLinks: formatListOfLinkTeasers(
       normalizeEntityFetchedParagraphs(entity.field_cc_related_links)
     ),
-    services: formattedServices,
+    services: formatVhaFacilityNonclinicalServices(services),
+    getRecordsMailOrFaxContent: formatCcWysiwyg(
+      entity.field_cc_get_records_mail_or_fax
+    ),
+    mailingAddress: entity.field_vamc_med_records_mailing,
+    faxNumber: entity.field_fax_number,
     lovellVariant: lovell?.variant ?? null,
     lovellSwitchPath: lovell?.isLovellVariantPage
       ? getLovellVariantOfUrl(

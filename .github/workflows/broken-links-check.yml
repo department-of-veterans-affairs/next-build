@@ -32,7 +32,7 @@ jobs:
         uses: actions/checkout@ff7abcd0c3c05ccf6adc123a8cd1fd4fb30fb493
 
       - name: Set up node
-        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444
+        uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903
         with:
           node-version-file: .nvmrc
 
@@ -55,7 +55,7 @@ jobs:
       # this to restrict the link checking to a slice.
       - name: Run broken link check
         run: |
-          TOTAL_INSTANCES=${{ env.TOTAL_INSTANCES }} INSTANCE_NUMBER=${{ matrix.instance_number }} APP_ENV=gha NODE_EXTRA_CA_CERTS=certs/VA-mozilla-combined.pem SITE_URL=https://va.gov/ node --max-old-space-size=4000 scripts/check-broken-links.js
+          TOTAL_INSTANCES=${{ env.TOTAL_INSTANCES }} INSTANCE_NUMBER=${{ matrix.instance_number }} SAMPLE_SIZE=-1 APP_ENV=gha NODE_EXTRA_CA_CERTS=certs/VA-mozilla-combined.pem SITE_URL=https://va.gov/ node --max-old-space-size=4000 scripts/check-broken-links.js
 
       - name: Rename broken link json
         id: rename-report-file
@@ -64,7 +64,7 @@ jobs:
 
       - name: Upload individual report json
         id: upload-report-json
-        uses: actions/upload-artifact@5d5d22a31266ced268874388b861e4b58bb5c2f3
+        uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4
         with:
           name: "broken-links-report-run-${{github.run_id}}-instance-${{ matrix.instance_number }}.json"
           path: broken-links-report-run-${{github.run_id}}-instance-${{ matrix.instance_number }}.json
@@ -81,7 +81,7 @@ jobs:
         uses: actions/checkout@ff7abcd0c3c05ccf6adc123a8cd1fd4fb30fb493
 
       - name: Set up node
-        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444
+        uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903
         with:
           node-version-file: .nvmrc
 
@@ -92,7 +92,7 @@ jobs:
 
       # This grabs all currently created artifacts i.e. individual json reports.
       - name: Download link reports
-        uses: actions/download-artifact@de96f4613b77ec03b5cf633e7c350c32bd3c5660
+        uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53
         with:
           merge-multiple: true
 
@@ -111,7 +111,7 @@ jobs:
 
       - name: Upload report json
         id: upload-report-json
-        uses: actions/upload-artifact@5d5d22a31266ced268874388b861e4b58bb5c2f3
+        uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4
         with:
           name: "broken-links-report-combined-run-${{github.run_id}}.json"
           path: broken-links-report-combined-run-${{github.run_id}}.json
@@ -119,7 +119,7 @@ jobs:
 
       - name: Upload report CSV
         id: upload-report-csv
-        uses: actions/upload-artifact@5d5d22a31266ced268874388b861e4b58bb5c2f3
+        uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4
         with:
           name: "broken-links-report-run-${{github.run_id}}.csv"
           path: broken-links-report-run-${{github.run_id}}.csv
@@ -133,8 +133,6 @@ jobs:
       - name: Export Slack payload
         id: export-slack-payload
         run: echo SLACK_PAYLOAD=$(cat broken-links-slack-payload.json) >> $GITHUB_OUTPUT
-
-
 
   notify-success:
     name: Notify Success

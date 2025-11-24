@@ -87,12 +87,13 @@ interface QueryState {
   availableRelationships: string[]
   viewMode: 'tree' | 'raw'
   filters: Filter[]
+  useAuthentication: boolean
 }
 
-const AVAILABLE_RESOURCE_TYPES = {
+const resourceTypeOptions = Object.values({
   ...RESOURCE_TYPES,
   ...PARAGRAPH_RESOURCE_TYPES,
-}
+}).sort()
 
 // Helper functions for URL state management
 const serializeFilters = (filters: Filter[]): string => {
@@ -166,6 +167,7 @@ export default function ApiExplorer() {
     availableRelationships: [],
     viewMode: 'tree',
     filters: [],
+    useAuthentication: false,
   })
 
   // Initialize state from URL parameters on first render
@@ -250,6 +252,7 @@ export default function ApiExplorer() {
       includes: queryState.includes.filter((i) => i.trim()),
       pageLimit: queryState.pageLimit,
       filters: queryState.filters,
+      useAuthentication: queryState.useAuthentication,
     }
 
     try {
@@ -339,7 +342,7 @@ export default function ApiExplorer() {
             value={queryState.resourceType}
             onChange={handleResourceTypeChange}
           >
-            {Object.entries(AVAILABLE_RESOURCE_TYPES).map(([key, value]) => (
+            {resourceTypeOptions.map((value) => (
               <option key={value} value={value}>
                 {value}
               </option>
@@ -473,6 +476,27 @@ export default function ApiExplorer() {
           >
             Add Filter
           </button>
+        </div>
+
+        <div className="vads-u-margin-y--3">
+          {/* The `vads-u-position--relative` fixes not actually having USWDS classes. TODO: Use VADS components for these pages. */}
+          <div className="usa-checkbox vads-u-position--relative">
+            <input
+              className="usa-checkbox__input"
+              id="useAuthentication"
+              type="checkbox"
+              checked={queryState.useAuthentication}
+              onChange={(e) =>
+                setQueryState((prev) => ({
+                  ...prev,
+                  useAuthentication: e.target.checked,
+                }))
+              }
+            />
+            <label className="usa-checkbox__label" htmlFor="useAuthentication">
+              Use authentication
+            </label>
+          </div>
         </div>
 
         <button

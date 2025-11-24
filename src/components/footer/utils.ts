@@ -2,6 +2,7 @@ import { convertLinkToAbsolute } from '@/lib/utils/header'
 import { FOOTER_LINKS } from '@/lib/constants/footer-links'
 import { FooterLink } from './formatted-type'
 import { RawFooterData } from './query'
+import { Menu, MenuItem } from '@/types/drupal/menu'
 
 // Helper functions to format footer menu items
 const formatLink = (link, linkIndex, columnId, hostUrl): FooterLink => {
@@ -14,19 +15,14 @@ const formatLink = (link, linkIndex, columnId, hostUrl): FooterLink => {
   }
 }
 
-const formatColumn = (data, columnId, hostUrl): FooterLink[] => {
-  return data?.items?.map((link, linkIndex) => {
-    return formatLink(link, linkIndex, columnId, hostUrl)
-  })
-}
-
-const formatFooterColumns = (data, hostUrl): FooterLink[] => {
-  const columns = data?.tree.map((column, index) => {
-    return formatColumn(column, index + 1, hostUrl)
-  })
-
-  return columns.flat()
-}
+const formatColumn = (
+  data: Menu | MenuItem,
+  columnId: string | number,
+  hostUrl: string
+): FooterLink[] =>
+  data.items.map((link, linkIndex) =>
+    formatLink(link, linkIndex, columnId, hostUrl)
+  )
 
 // This function assembles footer data from drupal menus into the shape vets-website component expects
 export const buildFooterData = ({
@@ -37,9 +33,14 @@ export const buildFooterData = ({
   const hostUrl = 'https://www.va.gov/'
 
   // Assemble footer menu data from Drupal
-  const footerBottomRailData =
-    formatColumn(footerBottomRail, 'bottom_rail', hostUrl) || []
-  const footerColumnsData = formatFooterColumns(footerColumns, hostUrl) || []
+  const footerBottomRailData = formatColumn(
+    footerBottomRail,
+    'bottom_rail',
+    hostUrl
+  )
+  const footerColumnsData = footerColumns.tree
+    .map((column, index) => formatColumn(column, index + 1, hostUrl))
+    .flat()
 
   const footerData = [
     ...footerBottomRailData,

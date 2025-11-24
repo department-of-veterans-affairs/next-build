@@ -1,0 +1,375 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`CampaignLandingPage formatData outputs formatted data 1`] = `
+{
+  "audience": [
+    {
+      "name": "All Veterans",
+    },
+  ],
+  "breadcrumbs": null,
+  "cta": {
+    "primary": {
+      "href": "https://www.va.gov/disability/file-disability-claim-form-21-526ez/",
+      "label": "File a disability claim online",
+    },
+    "secondary": {
+      "href": "/resources/support-for-common-logingov-and-idme-issues",
+      "label": "Get support for common issues",
+    },
+  },
+  "entityId": 48974,
+  "entityPath": "/initiatives/pact-act-and-survivors",
+  "hero": {
+    "blurb": "This page will help answer your questions about the PACT Act and what it means for survivors.",
+    "image": {
+      "alt": "",
+      "height": 370,
+      "id": "a5f76ccd-b235-4f4b-8e2d-b6c519304540",
+      "links": {
+        "1_1_square_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/1_1_square_medium_thumbnail/public/2021-03/Listening-Session-Website-Graphic-730x370.jpg?h=e092120c",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+              "width": "240",
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+        },
+        "2_1_large": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_large/public/2021-03/Listening-Session-Website-Graphic-730x370.jpg",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+              "width": "512",
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+        },
+        "2_1_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_medium_thumbnail/public/2021-03/Listening-Session-Website-Graphic-730x370.jpg",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+              "width": "240",
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+        },
+        "2_3_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_3_medium_thumbnail/public/2021-03/Listening-Session-Website-Graphic-730x370.jpg",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+              "width": "480",
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+        },
+        "3_2_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2021-03/Listening-Session-Website-Graphic-730x370.jpg",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+              "width": "320",
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+        },
+        "7_2_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/7_2_medium_thumbnail/public/2021-03/Listening-Session-Website-Graphic-730x370.jpg",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+              "width": "300",
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+        },
+        "full_content_width": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/full_content_width/public/2021-03/Listening-Session-Website-Graphic-730x370.jpg",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+        },
+        "large": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/large/public/2021-03/Listening-Session-Website-Graphic-730x370.jpg",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+        },
+        "original": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/original/public/2021-03/Listening-Session-Website-Graphic-730x370.jpg",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+        },
+        "self": {
+          "href": "https://va-gov-cms.ddev.site/jsonapi/file/file/a5f76ccd-b235-4f4b-8e2d-b6c519304540",
+        },
+        "viewport_width": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/viewport_width/public/2021-03/Listening-Session-Website-Graphic-730x370.jpg",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+        },
+      },
+      "title": "",
+      "type": "media--image",
+      "width": 730,
+    },
+  },
+  "id": "7f375d16-00c5-4aed-a1ff-c01e4c4254c3",
+  "lastUpdated": "2022-09-01T23:13:15+00:00",
+  "metatags": [
+    {
+      "attributes": {
+        "content": "PACT Act and survivors | Veterans Affairs",
+        "name": "title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Edit introduction",
+        "name": "description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "href": "https://www.va.gov/img/design/logo/va-og-image.png",
+        "rel": "image_src",
+      },
+      "tag": "link",
+    },
+    {
+      "attributes": {
+        "content": "Veterans Affairs",
+        "property": "og:site_name",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "PACT Act and survivors | Veterans Affairs",
+        "property": "og:title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2021-03/Listening-Session-Website-Graphic-730x370.jpg",
+        "property": "og:image",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "U.S. Department of Veterans Affairs",
+        "property": "og:image:alt",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "summary_large_image",
+        "name": "twitter:card",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "@DeptVetAffairs",
+        "name": "twitter:site",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "PACT Act and survivors | Veterans Affairs",
+        "name": "twitter:title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2021-03/Listening-Session-Website-Graphic-730x370.jpg",
+        "name": "twitter:image",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "U.S. Department of Veterans Affairs",
+        "name": "twitter:image:alt",
+      },
+      "tag": "meta",
+    },
+  ],
+  "moderationState": "draft",
+  "published": false,
+  "socialLinks": [
+    {
+      "href": "https://www.facebook.com/sharer/sharer.php?href=http://127.0.0.1:8001/initiatives/pact-act-and-survivors",
+      "icon": "facebook",
+      "text": "Share on Facebook",
+    },
+    {
+      "href": "https://twitter.com/intent/tweet?text=PACT Act and survivors&url=http://127.0.0.1:8001/initiatives/pact-act-and-survivors",
+      "icon": "x",
+      "text": "Share on X (formerly Twitter)",
+    },
+  ],
+  "spotlight": {
+    "cta": null,
+    "header": null,
+    "intro": null,
+    "show": false,
+    "teasers": [],
+  },
+  "title": "PACT Act and survivors",
+  "type": "node--campaign_landing_page",
+  "video": {
+    "button": {
+      "entityId": 172453,
+      "id": "ad441fcf-56f3-4b58-80d9-8049ea95c6fc",
+      "label": "Watch more videos on creating an account",
+      "type": "paragraph--button",
+      "url": "/resources/videos-for-how-to-set-up-your-online-va-sign-in-account",
+    },
+    "header": "Video panel header",
+    "media": {
+      "field_description": "VA Health Connect",
+      "field_duration": 112,
+      "field_media_video_embed_field": "https://www.youtube.com/embed/pgUj6x4Zw_s",
+      "field_publication_date": "2024-09-26",
+      "id": "96ce6194-2a4e-407d-83a9-b67d2ba217c3",
+      "name": "VA Health Connect",
+      "type": "media--video",
+    },
+    "show": true,
+  },
+  "whatYouCanDo": {
+    "header": "Edit Heading",
+    "intro": "Edit Introduction",
+    "promos": [
+      {
+        "image": {
+          "alt": "Icon of medical bag with cross to indicate health care benefits",
+          "height": 304,
+          "id": "90040a9c-5e99-415e-b662-192f71b27e83",
+          "links": undefined,
+          "title": "",
+          "type": "media--image",
+          "width": 456,
+        },
+        "link": {
+          "behavior_settings": [],
+          "breadcrumbs": [],
+          "content_translation_changed": null,
+          "content_translation_outdated": false,
+          "content_translation_source": "und",
+          "created": "2021-03-09T19:11:18+00:00",
+          "default_langcode": true,
+          "drupal_internal__id": 30595,
+          "drupal_internal__revision_id": 1232695,
+          "field_link": {
+            "options": {
+              "data-entity-substitution": "canonical",
+              "data-entity-type": "node",
+              "data-entity-uuid": "f8323733-28cd-497d-b536-349005be9b71",
+              "href": "/node/35",
+            },
+            "title": "Apply for VA health care",
+            "uri": "entity:node/35",
+            "url": "/health-care/how-to-apply",
+          },
+          "field_link_summary": "Test link summary",
+          "id": "0c71873a-2f93-4ce3-b821-96177b174113",
+          "langcode": "en",
+          "links": {
+            "self": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/link_teaser/0c71873a-2f93-4ce3-b821-96177b174113?resourceVersion=id%3A1232695",
+            },
+          },
+          "paragraph_type": {
+            "id": "072db7a4-476e-41a6-ab49-c44184281451",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": "link_teaser",
+            },
+            "type": "paragraphs_type--paragraphs_type",
+          },
+          "parent_field_name": "field_promo_link",
+          "parent_id": "65",
+          "parent_type": "block_content",
+          "relationshipNames": [
+            "paragraph_type",
+          ],
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 30595,
+            "target_revision_id": 1232695,
+          },
+          "revision_translation_affected": null,
+          "status": true,
+          "type": "paragraph--link_teaser",
+        },
+      },
+    ],
+  },
+  "whyThisMatters": "Example why it matters",
+}
+`;

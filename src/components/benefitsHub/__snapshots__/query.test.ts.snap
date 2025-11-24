@@ -9,8 +9,40 @@ exports[`BenefitHubLanding formatData outputs formatted data 1`] = `
       "uri": "https://www.va.gov/",
     },
   ],
+  "connectWithUs": {
+    "field_email_updates_link": {
+      "options": [],
+      "title": "Veterans Affairs Email Updates",
+      "uri": "https://public.govdelivery.com/accounts/USVA/subscriber/new/",
+      "url": "https://public.govdelivery.com/accounts/USVA/subscriber/new/",
+    },
+    "field_social_media_links": {
+      "platform": null,
+      "platform_values": {
+        "facebook": {
+          "value": "VeteransAffairs",
+        },
+        "instagram": {
+          "value": "deptvetaffairs",
+        },
+        "linkedin": {
+          "value": "",
+        },
+        "twitter": {
+          "value": "DeptVetAffairs",
+        },
+        "youtube": {
+          "value": "DeptVetAffairs",
+        },
+      },
+      "value": null,
+    },
+    "id": "1413f4e9-053f-46a4-907f-030ddf93b45c",
+    "type": "block_content--connect_with_us",
+  },
   "entityId": 67,
   "entityPath": "/health-care",
+  "fieldLinks": null,
   "hubLabel": "Health care",
   "id": "fd822f25-788f-489c-a0fc-b1f7ad6c20d5",
   "intro": "With a VA health care plan, you're covered for regular checkups with your primary care provider and appointments with specialists (like cardiologists, gynecologists, and mental health providers).",
@@ -18,6 +50,7 @@ exports[`BenefitHubLanding formatData outputs formatted data 1`] = `
   "metatags": [],
   "moderationState": "published",
   "published": true,
+  "spokes": [],
   "teaserText": "Apply for and manage VA health care benefits",
   "title": "VA health care",
   "titleIcon": "",

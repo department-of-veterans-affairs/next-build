@@ -1,5 +1,6 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
+import { axe } from '@/test-utils'
 import { VamcSystemPoliciesPage } from './template'
 import { formatter, VamcSystemPoliciesPageData } from './query'
 import mockData from './mock'
@@ -23,10 +24,13 @@ const formattedData = formatter(mockDataStructure)
  * Pretty verbose for what they are, but it should be pretty thorough.
  */
 describe('VamcSystemPoliciesPage with valid data', () => {
-  test('renders VamcSystemPoliciesPage component', () => {
-    render(<VamcSystemPoliciesPage {...formattedData} />)
+  test('renders VamcSystemPoliciesPage component', async () => {
+    const { container } = render(<VamcSystemPoliciesPage {...formattedData} />)
 
     expect(screen.queryByText(formattedData.title)).toBeInTheDocument()
+
+    const axeResults = await axe(container)
+    expect(axeResults).toHaveNoViolations()
   })
 
   test('renders intro text when provided', () => {

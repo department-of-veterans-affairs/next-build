@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`BenefitsDetailPage formatter outputs formatted data with correct structure 1`] = `
+{
+  "administration": {
+    "entityId": 10,
+    "name": "Health care benefits hub",
+  },
+  "alert": {
+    "alertType": "info",
+    "content": {
+      "html": "",
+      "id": "test-content-id",
+      "type": "paragraph--wysiwyg",
+    },
+    "id": "test-alert-id",
+    "title": "Test Alert",
+  },
+  "breadcrumbs": [
+    {
+      "options": [],
+      "title": "Home",
+      "uri": "http://va-gov-cms.ddev.site/",
+    },
+    {
+      "options": [],
+      "title": "Health care",
+      "uri": "http://va-gov-cms.ddev.site/health-care",
+    },
+    {
+      "options": [],
+      "title": "Get benefits",
+      "uri": "internal:#",
+    },
+    {
+      "options": [],
+      "title": "About VA health benefits",
+      "uri": "internal:#",
+    },
+  ],
+  "description": "Learn about the VA health benefits in your VA medical benefits package. Get details on Veterans medical benefits, like which services we cover, who will care for you, where you'll go for care, and how VA health care works with other insurance.",
+  "entityId": 29,
+  "entityPath": "/health-care/about-va-health-benefits",
+  "id": "588aa250-35b3-4d1d-99e6-d152bbae0775",
+  "introText": "<p>If you qualify for VA health care, you’ll receive coverage for the services you need to help you get—and stay—healthy. Learn more about your health care benefits.</p>
+",
+  "lastUpdated": "2025-10-06T19:59:00+00:00",
+  "menu": {
+    "data": null,
+    "rootPath": "/health-care/about-va-health-benefits/",
+  },
+  "menuIcon": {
+    "backgroundColor": "hub-health-care",
+    "name": "medical_services",
+  },
+  "metatags": [],
+  "moderationState": "published",
+  "published": true,
+  "relatedLinks": null,
+  "showTableOfContents": true,
+  "title": "About VA health benefits",
+  "type": "node--page",
+}
+`;

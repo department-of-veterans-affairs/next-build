@@ -5,14 +5,10 @@ import {
   NodeVhaFacilityNonclinicalService,
 } from '@/types/drupal/node'
 import { VamcSystemBillingAndInsurance } from './formatted-type'
-import {
-  PARAGRAPH_RESOURCE_TYPES,
-  RESOURCE_TYPES,
-} from '@/lib/constants/resourceTypes'
+import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
   entityBaseFields,
-  fetchAndConcatAllResourceCollectionPages,
   fetchSingleEntityOrPreview,
   getMenu,
 } from '@/lib/drupal/query'
@@ -26,10 +22,11 @@ import { Wysiwyg } from '../wysiwyg/formatted-type'
 import { FieldCCText } from '@/types/drupal/field_type'
 import { formatter as formatListOfLinkTeasers } from '@/components/listOfLinkTeasers/query'
 import { drupalClient } from '@/lib/drupal/drupalClient'
-import { PAGE_SIZES } from '@/lib/constants/pageSizes'
-import { getNestedIncludes } from '@/lib/utils/queries'
-import { formatter as formatServiceLocation } from '@/components/serviceLocation/query'
 import { formatter as formatPhoneNumber } from '@/components/phoneNumber/query'
+import {
+  fetchVhaFacilityNonclinicalServices,
+  formatter as formatVhaFacilityNonclinicalServices,
+} from '@/components/vhaFacilityNonclinicalService/query'
 import {
   getLovellVariantOfBreadcrumbs,
   getLovellVariantOfUrl,
@@ -41,22 +38,6 @@ export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams()
     .addFilter('type', RESOURCE_TYPES.VAMC_SYSTEM_BILLING_INSURANCE)
     .addInclude(['field_office', 'field_telephone'])
-}
-
-export const serviceParams: QueryParams<string> = (vamcSystemId: string) => {
-  return new DrupalJsonApiParams()
-    .addInclude([
-      'field_service_name_and_descripti',
-      'field_facility_location',
-      ...getNestedIncludes(
-        'field_service_location',
-        PARAGRAPH_RESOURCE_TYPES.SERVICE_LOCATION
-      ),
-    ])
-    .addFilter('status', '1')
-    .addFilter('field_service_name_and_descripti.name', 'Billing and insurance')
-    .addFilter('field_facility_location.field_region_page.id', vamcSystemId)
-    .addFilter('field_facility_location.status', '1')
 }
 
 // Define the option types for the data loader.
@@ -112,12 +93,10 @@ export const data: QueryData<
     )
   )
 
-  const { data: services } =
-    await fetchAndConcatAllResourceCollectionPages<NodeVhaFacilityNonclinicalService>(
-      RESOURCE_TYPES.VHA_FACILITY_NONCLINICAL_SERVICE,
-      serviceParams(entity.field_office.id),
-      PAGE_SIZES.MAX
-    )
+  const services = await fetchVhaFacilityNonclinicalServices(
+    entity.field_office.id,
+    'Billing and insurance'
+  )
 
   return { entity, menu, services, lovell: opts.context?.lovell }
 }
@@ -129,18 +108,6 @@ export const formatter: QueryFormatter<
 > = ({ entity, menu, services, lovell }) => {
   const formatCcWysiwyg = (field: FieldCCText) =>
     formatParagraph(normalizeEntityFetchedParagraphs(field)) as Wysiwyg
-
-  const formattedServices = services.map((service) => ({
-    id: service.id,
-    title: service.field_facility_location.title,
-    path: service.field_facility_location.path.alias,
-    serviceLocations: service.field_service_location.map(formatServiceLocation),
-    address: service.field_facility_location.field_address,
-    phoneNumber: service.field_facility_location.field_phone_number,
-  }))
-
-  // The old page didn't sort them, but we want the order to be predictable
-  formattedServices.sort((a, b) => a.title.localeCompare(b.title))
 
   return {
     ...entityBaseFields(entity),
@@ -163,7 +130,7 @@ export const formatter: QueryFormatter<
     relatedLinks: formatListOfLinkTeasers(
       normalizeEntityFetchedParagraphs(entity.field_cc_related_links)
     ),
-    services: formattedServices,
+    services: formatVhaFacilityNonclinicalServices(services),
     officeHours: entity.field_office_hours,
     phoneNumber: formatPhoneNumber(entity.field_telephone),
     lovellVariant: lovell?.variant ?? null,

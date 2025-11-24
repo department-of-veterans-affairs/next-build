@@ -5,6 +5,9 @@ import {
   filterInvalidCrumbs,
 } from '@/lib/utils/breadcrumbs'
 import { BreadcrumbItem, BreadCrumbLink } from '@/types/drupal/field_type'
+import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
+import { StaticPropsResource } from '@/lib/drupal/staticProps'
+import { FormattedPageResource } from '@/lib/drupal/queries'
 
 interface BreadcrumbProps {
   breadcrumbs?: BreadcrumbItem[]
@@ -17,6 +20,7 @@ interface BreadcrumbProps {
   hideHomeBreadcrumb?: boolean
   customCrumbHomeText?: string
   entityPath?: string
+  resource?: StaticPropsResource<FormattedPageResource>
 }
 const Breadcrumbs = ({
   breadcrumbs,
@@ -29,6 +33,7 @@ const Breadcrumbs = ({
   RcBreadcrumbsTitleInclude,
   hideHomeBreadcrumb,
   customCrumbHomeText,
+  resource,
 }: BreadcrumbProps) => {
   if (!breadcrumbs) return null
 
@@ -62,13 +67,27 @@ const Breadcrumbs = ({
     )
   }
 
+  // Handle BenefitsHub breadcrumbs automatically if resource is provided
+  if (resource && resource.type === RESOURCE_TYPES.BENEFITS_HUB) {
+    breadcrumbs = deriveLastBreadcrumbFromPath(
+      breadcrumbs,
+      resource.title,
+      entityPath,
+      true
+    )
+  }
+
   const breadcrumbList: BreadCrumbLink[] = transformBreadcrumbs(breadcrumbs)
   const filteredCrumbs: BreadCrumbLink[] = filterInvalidCrumbs(breadcrumbList)
   const fcString = JSON.stringify(filteredCrumbs)
 
   return (
-    <div className="vads-grid-container">
-      <va-breadcrumbs class="row" wrapping breadcrumb-list={fcString} />
+    <div className="vads-grid-container" style={{ minHeight: '5.125rem' }}>
+      <va-breadcrumbs
+        class="row"
+        wrapping
+        breadcrumb-list={fcString}
+      ></va-breadcrumbs>
     </div>
   )
 }

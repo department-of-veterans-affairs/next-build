@@ -72,12 +72,10 @@ export const data: QueryData<
     params
   )) as NodeVamcHealthServicesListing
 
-  const menu = entity.field_office?.field_system_menu
-    ? await getMenu(
-        entity.field_office.field_system_menu.resourceIdObjMeta
-          .drupal_internal__target_id
-      )
-    : null
+  const menu = await getMenu(
+    entity.field_office.field_system_menu.resourceIdObjMeta
+      .drupal_internal__target_id
+  )
 
   const { data: services } =
     await fetchAndConcatAllResourceCollectionPages<NodeRegionalHealthCareServiceDes>(
@@ -103,11 +101,6 @@ export const formatter: QueryFormatter<
     breadcrumbs = getLovellVariantOfBreadcrumbs(breadcrumbs, lovell.variant)
   }
 
-  const formattedMenu =
-    menu !== null
-      ? buildSideNavDataFromMenu(entity.path?.alias || '', menu)
-      : null
-
   const administration = formatAdministration(entity.field_administration)
 
   // Process health services - these come from the reverse relationship
@@ -126,15 +119,15 @@ export const formatter: QueryFormatter<
     lovellVariant: lovell?.variant ?? null,
     lovellSwitchPath: lovell?.isLovellVariantPage
       ? getLovellVariantOfUrl(
-          entity.path?.alias || '',
+          entity.path.alias,
           getOppositeChildVariant(lovell?.variant)
         )
       : null,
     breadcrumbs,
-    path: entity.path?.alias || null,
+    path: entity.path.alias,
     administration,
-    vamcEhrSystem: entity.field_office?.field_vamc_ehr_system || null,
-    menu: formattedMenu,
+    vamcEhrSystem: entity.field_office.field_vamc_ehr_system,
+    menu: buildSideNavDataFromMenu(entity.path.alias, menu),
     featuredContent:
       entity.field_featured_content_healthser?.map((item) => {
         const formattedItem = queries.formatData(
@@ -147,7 +140,6 @@ export const formatter: QueryFormatter<
         return {
           ...formattedItem,
           entityId: formattedItem.entityId || null,
-          parentField: formattedItem.parentField || '',
           uri: item.field_link?.url || formattedItem.uri,
         }
       }) || [],

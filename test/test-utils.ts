@@ -12,8 +12,6 @@ import { configureAxe } from 'jest-axe'
 import 'range-getclientrects-polyfill'
 import 'window-computedstyle-polyfill'
 import 'window-matchmedia-polyfill'
-import nock, { back as nockBack } from 'nock'
-export { nock, nockBack }
 
 export const axe = configureAxe({
   runOnly: {
@@ -33,3 +31,13 @@ export const axe = configureAxe({
     },
   },
 })
+
+// Re-export IntersectionObserver mock utilities
+// The actual implementation is in intersection-observer-mock.ts to avoid
+// importing polyfills that require window to be available in jest.setup.js
+export {
+  observerInstances,
+  triggerIntersection,
+  MockIntersectionObserver,
+  type ObserverInstance,
+} from './intersection-observer-mock'
