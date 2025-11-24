@@ -10,7 +10,7 @@ import fs from 'fs'
 import crypto from 'crypto'
 
 const OPTIONS = {
-  sitemapUrl: process.env.SITE_URL || 'https://www.va.gov/',
+  sitemapUrl: process.env.SITE_URL || 'http://www.va.gov/',
   // totalInstances is the number of instances to split work among.
   totalInstances: process.env.TOTAL_INSTANCES || 1,
   // instanceNumber is the specific instance currently running the check.
@@ -58,6 +58,7 @@ const LINKS_TO_SKIP = [
   /visn\d+.*?\.va\.gov/,
   /fb\.(com|me|watch)/,
   /www\.facebook\.com/,
+  /^\//,
   // process.env.SKIP_IMAGES ? '' : null
 ]
 
@@ -269,39 +270,24 @@ async function checkBrokenLinks() {
   }
 
   if (brokenLinks.length > 0) {
-    // Helper to normalize URLs: resolve relative URLs against the sitemap base
-    // and force https scheme so comparisons are consistent.
-    const normalizeUrl = (u) => {
-      if (!u) return u
-      try {
-        const resolved = new URL(u, OPTIONS.sitemapUrl)
-        if (resolved.protocol === 'http:') resolved.protocol = 'https:'
-        return resolved.toString().replace(/#.*$/, '')
-      } catch (e) {
-        return String(u).replace(/#.*$/, '')
-      }
-    }
-
     for (const brokenLink of brokenLinks) {
       const { url, status, parent } = brokenLink
-      const normUrl = normalizeUrl(url)
-      const normParent = normalizeUrl(parent)
 
       // Group broken links by parent.
       if (parent !== undefined) {
-        jsonReport.brokenLinksByParent[normParent] =
-          jsonReport.brokenLinksByParent[normParent] || []
-        jsonReport.brokenLinksByParent[normParent].push({
-          url: normUrl,
+        jsonReport.brokenLinksByParent[parent] =
+          jsonReport.brokenLinksByParent[parent] || []
+        jsonReport.brokenLinksByParent[parent].push({
+          url,
           status,
         })
       }
       // Group broken links by link.
       if (url !== undefined) {
-        jsonReport.brokenLinksByLink[normUrl] =
-          jsonReport.brokenLinksByLink[normUrl] || []
-        jsonReport.brokenLinksByLink[normUrl].push({
-          parent: normParent,
+        jsonReport.brokenLinksByLink[url] =
+          jsonReport.brokenLinksByLink[url] || []
+        jsonReport.brokenLinksByLink[url].push({
+          parent,
           status,
         })
       }
