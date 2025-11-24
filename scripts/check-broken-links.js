@@ -118,8 +118,13 @@ async function checkBrokenLinks() {
 
       linksChecked.push(result)
 
-      // 403 errors returned to the crawler by and large work for web users.
-      if (result.state === 'BROKEN' && result.status !== 403) {
+      // 403, 0 and blank errors returned to the crawler by and large work for web users.
+      if (
+        result.state === 'BROKEN' &&
+        result.status !== 403 &&
+        result.status !== 0 &&
+        result.status !== null
+      ) {
         brokenLinks.push(result)
       }
     })
