@@ -25,11 +25,11 @@ export function CampaignLandingPage(props: CampaignLandingPageProps) {
       <WhyThisMatters {...props} />
       <WhatYouCanDo {...props} />
       <VideoPanel {...props} />
+      <SpotlightPanel {...props} />
 
       {/* TODO: In-progress components: */}
       {props.onlyRenderFinishedComponents !== true && (
         <>
-          <SpotlightPanel />
           <StoriesPanel />
           <ResourcesPanel />
           <EventsPanel />
