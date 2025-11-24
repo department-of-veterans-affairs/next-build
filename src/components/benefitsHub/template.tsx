@@ -2,6 +2,7 @@ import { getHubIcon } from '@/lib/utils/benefitsHub'
 import { BenefitsHub as FormattedBenefitsHub } from './formatted-type'
 import { ListOfLinkTeasers } from '@/components/listOfLinkTeasers/template'
 import { ContentFooter } from '@/components/contentFooter/template'
+import { ConnectWithUsPanel } from './ConnectWithUsPanel'
 
 export function BenefitsHub({
   title,
@@ -10,12 +11,13 @@ export function BenefitsHub({
   spokes,
   lastUpdated,
   fieldLinks,
+  connectWithUs,
 }: FormattedBenefitsHub) {
   const iconConfig = getHubIcon(titleIcon)
 
   return (
     <div className="vads-grid-container">
-      <div className="vads-grid-row">
+      <div className="vads-grid-row vads-u-margin-bottom--4">
         <article className="vads-grid-col-12 vads-u-margin-bottom--3 tablet:vads-grid-col-8 tablet:vads-u-padding-right--4">
           {iconConfig ? (
             <div className="tablet:vads-u-display--flex vads-u-margin-y--1 vads-u-align-items--flex-start">
@@ -47,7 +49,6 @@ export function BenefitsHub({
               <ListOfLinkTeasers {...spokeSection} isHubPage={true} />
             </div>
           ))}
-          <ContentFooter lastUpdated={lastUpdated} />
         </article>
         <div className="vads-grid-col-12 tablet:vads-grid-col-4" id="hub-rail">
           <va-accordion bordered uswds>
@@ -72,9 +73,13 @@ export function BenefitsHub({
                 </section>
               </va-accordion-item>
             )}
+            {connectWithUs && (
+              <ConnectWithUsPanel connectWithUs={connectWithUs} />
+            )}
           </va-accordion>
         </div>
       </div>
+      <ContentFooter lastUpdated={lastUpdated} />
     </div>
   )
 }
