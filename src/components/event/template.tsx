@@ -237,7 +237,7 @@ export const Event = ({
         {/* CTA */}
         {(link || additionalInfo || eventCTA) && (
           <div className="registration vads-u-margin-top--4 vads-u-margin-bottom--1">
-            {isEventInPast(mostRecentDate?.value) ? (
+            {isEventInPast(mostRecentDate?.endValue) ? (
               <p className="vads-u-margin--0 vads-u-color--secondary vads-u-font-weight--bold">
                 This event already happened.
               </p>
