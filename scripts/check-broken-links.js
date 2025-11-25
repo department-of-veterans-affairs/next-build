@@ -72,7 +72,6 @@ const LINKS_TO_SKIP = [
   /www\.va\.gov\/_next\/static\/.*/,
   /www\.va\.gov\/?$/,
   /www\.va\.gov\/img\/*/,
-
   // process.env.SKIP_IMAGES ? '' : null
 ]
 
