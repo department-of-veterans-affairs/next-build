@@ -6,9 +6,6 @@ import { Button } from '@/components/button/formatted-type'
 export const formatter: QueryFormatter<ParagraphButton, Button> = (
   entity: ParagraphButton
 ) => {
-  if (entity === null || entity === undefined) {
-    return null
-  }
   return {
     type: entity.type as Button['type'],
     id: entity.id || null,

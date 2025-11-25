@@ -68,8 +68,6 @@ export const formatter: QueryFormatter<
   const host = process.env.SITE_URL || 'https://www.va.gov/'
   const pageUrl = new URL(entity.path.alias, host).href
 
-  console.log('#'.repeat(300), entity.id)
-
   return {
     ...entityBaseFields(entity),
     breadcrumbs: null, // hide breadcrumb on the page
@@ -149,7 +147,9 @@ export const formatter: QueryFormatter<
       show: entity.field_clp_resources_panel,
       header: entity.field_clp_resources_header,
       intro: entity.field_clp_resources_intro_text,
-      cta: buttonFormatter(entity.field_clp_resources_cta),
+      cta: entity.field_clp_resources_cta
+        ? buttonFormatter(entity.field_clp_resources_cta)
+        : null,
       documents: (entity.field_clp_resources ?? []).map(
         mediaDocumentExternalFormatter
       ),
