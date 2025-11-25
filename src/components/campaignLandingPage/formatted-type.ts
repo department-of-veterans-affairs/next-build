@@ -11,6 +11,8 @@ import { LinkTeaser } from '../linkTeaser/formatted-type'
 import { LinkTeaserWithImage } from '../linkTeaserWithImage/formatted-type'
 import { MediaDocumentExternal } from '../mediaDocumentExternal/formatted-type'
 import { Event } from '../event/formatted-type'
+import { QaParagraph } from '../qaParagraph/formatted-type'
+import { QaGroup } from '../qaGroup/formatted-type'
 
 type Link = {
   href: string
@@ -67,5 +69,11 @@ export interface CampaignLandingPage extends PublishedEntity {
   }
   events: Omit<Panel, 'intro'> & {
     events: Event[]
+  }
+  faq: {
+    show: boolean
+    cta: Button | null
+    faqs: QaParagraph[] | null
+    reusable: QaGroup | null
   }
 }
