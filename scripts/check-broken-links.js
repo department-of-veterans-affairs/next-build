@@ -58,11 +58,18 @@ const LINKS_TO_SKIP = [
   /visn\d+.*?\.va\.gov/,
   /fb\.(com|me|watch)/,
   /www\.facebook\.com/,
-  /^www.va.gov\/img\/*/,
-  /www.va.gov$/,
+  // Relative links and same-origin absolute links
+  /www\.va\.gov\/img\/*/,
+  /www\.va\.gov$/,
   /www\.va\.gov\/_next\/static\/*/,
-  'www.move.va.gov/',
-  'www.myhealth.va.gov/',
+  // Always return 0s
+  'www.move.va.gov',
+  'www.myhealth.va.gov',
+  'www.myplate.gov',
+  // Always return 429
+  'pubmed.ncbi.nlm.nih.gov',
+  'pmc.ncbi.nlm.nih.gov',
+  'vapihcspao.podbean.com',
 
   // process.env.SKIP_IMAGES ? '' : null
 ]
