@@ -23,7 +23,7 @@ export const formatter: QueryFormatter<NodeSupportService, Contact> = (
 }
 
 // takes a Support Service and returns it formatted for benefits hub
-export const benefitsHubFormatter: QueryFormatter<
+export const supportServiceFormatter: QueryFormatter<
   NodeSupportService,
   SupportService
 > = (entity: NodeSupportService) => {

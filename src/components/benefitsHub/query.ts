@@ -10,7 +10,7 @@ import {
   fetchSingleEntityOrPreview,
 } from '@/lib/drupal/query'
 import { formatter as formatListOfLinkTeasers } from '@/components/listOfLinkTeasers/query'
-import { benefitsHubFormatter as formatSupportService } from '@/components/supportServices/query'
+import { supportServiceFormatter as formatSupportService } from '@/components/supportServices/query'
 import { getHtmlFromDrupalContent } from '@/lib/utils/getHtmlFromDrupalContent'
 
 // Define the query params for fetching node--landing_page for benefits hub.
