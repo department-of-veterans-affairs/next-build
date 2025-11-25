@@ -61,11 +61,15 @@ const LINKS_TO_SKIP = [
   // Relative links and same-origin absolute links
   /www\.va\.gov\/img\/*/,
   /www\.va\.gov$/,
+  /www\.va\.gov\/$/,
   /www\.va\.gov\/_next\/static\/*/,
   // Always return 0
   'www.move.va.gov',
+  'move.va.gov',
   'www.myplate.gov',
   'mobile.va.gov',
+  'youtu.be',
+  'www.youtube.com',
   // Always return 429
   'pubmed.ncbi.nlm.nih.gov',
   'pmc.ncbi.nlm.nih.gov',
