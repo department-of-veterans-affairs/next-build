@@ -1,5 +1,7 @@
 import { hashReference } from '@/lib/utils/hashReference'
 import { CampaignLandingPageProps } from './template'
+import { QaParagraph } from '../qaParagraph/template'
+import { Wysiwyg } from '../wysiwyg/template'
 
 export const FaqPanel = ({ faq }: CampaignLandingPageProps) => {
   if (!faq.show) {
@@ -21,13 +23,7 @@ export const FaqPanel = ({ faq }: CampaignLandingPageProps) => {
 
           <h2 className="vads-u-margin-top--0">{sectionHeader}</h2>
 
-          {faq.reusable?.html && (
-            <div
-              dangerouslySetInnerHTML={{
-                __html: faq.reusable.html,
-              }}
-            />
-          )}
+          <Wysiwyg {...faq.reusable} />
 
           <va-accordion bordered uswds>
             {faq.faqs?.map((faqParagraph, index) => (
@@ -40,14 +36,7 @@ export const FaqPanel = ({ faq }: CampaignLandingPageProps) => {
                 id={hashReference(faqParagraph.question, 60)}
                 uswds
               >
-                {faqParagraph.answers?.[0] &&
-                  'html' in faqParagraph.answers[0] && (
-                    <div
-                      dangerouslySetInnerHTML={{
-                        __html: faqParagraph.answers[0].html,
-                      }}
-                    />
-                  )}
+                <QaParagraph {...faqParagraph} currentHeadingLevel="h2" />
               </va-accordion-item>
             ))}
 
@@ -68,27 +57,16 @@ export const FaqPanel = ({ faq }: CampaignLandingPageProps) => {
                         data-analytics-faq-section={sectionHeader}
                         data-analytics-faq-text={item.question}
                       >
-                        {item.answers?.[0] && 'html' in item.answers[0] && (
-                          <div
-                            dangerouslySetInnerHTML={{
-                              __html: item.answers[0].html,
-                            }}
-                          />
-                        )}
+                        <QaParagraph {...item} currentHeadingLevel="h2" />
                       </div>
                     </va-accordion-item>
                   ))
                 : (faq.reusable.questions ?? []).map((fieldQA, index) => (
-                    <div key={index}>
-                      <h3>{fieldQA.question}</h3>
-                      {fieldQA.answers?.[0] && 'html' in fieldQA.answers[0] && (
-                        <div
-                          dangerouslySetInnerHTML={{
-                            __html: fieldQA.answers[0].html,
-                          }}
-                        />
-                      )}
-                    </div>
+                    <QaParagraph
+                      key={fieldQA.id}
+                      {...fieldQA}
+                      currentHeadingLevel="h2"
+                    />
                   )))}
           </va-accordion>
         </div>
