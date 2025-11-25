@@ -62,10 +62,10 @@ const LINKS_TO_SKIP = [
   /www\.va\.gov\/img\/*/,
   /www\.va\.gov$/,
   /www\.va\.gov\/_next\/static\/*/,
-  // Always return 0s
+  // Always return 0
   'www.move.va.gov',
-  'www.myhealth.va.gov',
   'www.myplate.gov',
+  'mobile.va.gov',
   // Always return 429
   'pubmed.ncbi.nlm.nih.gov',
   'pmc.ncbi.nlm.nih.gov',
