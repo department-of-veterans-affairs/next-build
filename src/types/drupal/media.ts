@@ -1,4 +1,5 @@
 import { DrupalMedia, DrupalFile } from 'next-drupal'
+import { FieldLink } from './field_type'
 
 /** Media resource types. */
 export const enum MediaResourceType {
@@ -25,11 +26,7 @@ export interface DrupalMediaDocument extends DrupalMedia {
 export interface DrupalMediaDocumentExternal extends DrupalMedia {
   name: string
   field_description: string | null
-  field_media_external_file: {
-    url: string
-    uri: string
-    title: string
-  }
+  field_media_external_file: FieldLink
   field_mime_type: string
   thumbnail: DrupalMediaImage['image']
 }

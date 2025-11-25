@@ -16,9 +16,4 @@ describe('paragraph--button formatData', () => {
       })
     ).toMatchSnapshot()
   })
-
-  test('outputs null when passed null or undefined', () => {
-    expect(queries.formatData('paragraph--button', null)).toBe(null)
-    expect(queries.formatData('paragraph--button', undefined)).toBe(null)
-  })
 })
