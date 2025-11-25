@@ -9,7 +9,10 @@ export const FaqPanel = ({ faq }: CampaignLandingPageProps) => {
   const sectionHeader = faq.reusable?.header ?? 'Frequently asked questions'
 
   return (
-    <div className="vads-l-grid-container vads-u-padding-y--3 vads-u-padding-x--4 desktop-lg:vads-u-padding-x--0">
+    <div
+      className="vads-l-grid-container vads-u-padding-y--3 vads-u-padding-x--4 desktop-lg:vads-u-padding-x--0"
+      data-testid="faq-panel"
+    >
       <div className="vads-l-row">
         <div className="vads-l-col--12 medium-screen:vads-l-col--8">
           <p className="va-u-text-transform--uppercase vads-u-color--gray-medium vads-u-font-size--sm vads-u-margin-bottom--0">

@@ -23,6 +23,8 @@ import { MediaDocumentExternal } from '../mediaDocumentExternal/formatted-type'
 import { ResourcesPanel } from './ResourcesPanel'
 import { Event } from '../event/formatted-type'
 import { EventsPanel } from './EventsPanel'
+import { FaqPanel } from './FaqPanel'
+import { hashReference } from '@/lib/utils/hashReference'
 
 const mockBaseProps: Partial<CampaignLandingPageProps> = {
   title: 'Testing title',
@@ -186,6 +188,50 @@ const mockBaseProps: Partial<CampaignLandingPageProps> = {
       } as unknown as Event,
     ],
   },
+  faq: {
+    show: true,
+    cta: {
+      url: 'https://example.com/faq-cta',
+      label: 'faq CTA',
+    } as Button,
+    faqs: [
+      {
+        type: 'paragraph--q_a',
+        question: 'How can I attend an event?',
+        answers: [
+          {
+            type: 'paragraph--wysiwyg',
+            id: 'abc123',
+            html: '<p>Some html</p>',
+          },
+        ],
+        id: 'e7f9fe15-c607-444c-a7cc-72319973d088',
+      },
+    ],
+    reusable: {
+      questions: [
+        {
+          question: 'Reusable container question',
+          answers: [
+            {
+              type: 'paragraph--rich_text_char_limit_1000',
+              id: '',
+              html: '<p>reusable question html</p>',
+            },
+          ],
+          type: 'node--q_a',
+          id: '',
+        },
+      ],
+      type: 'paragraph--q_a_group',
+      id: '',
+      entityId: 184606,
+      intro: null,
+      header: 'Reusable container header',
+      displayAccordion: true,
+      html: '<p>Reusable container answer</p>\n',
+    },
+  },
 }
 
 jest.mock('next/image', () => ({
@@ -213,6 +259,7 @@ describe('CampaignLandingPage with valid data', () => {
     expect(screen.getByTestId('stories-panel')).toBeInTheDocument()
     expect(screen.getByTestId('resources-panel')).toBeInTheDocument()
     expect(screen.getByTestId('events-panel')).toBeInTheDocument()
+    expect(screen.getByTestId('faq-panel')).toBeInTheDocument()
 
     // TODO: Check that the other components rendered once they're built
   })
@@ -533,5 +580,132 @@ describe('CampaignLandingPage->EventsPanel', () => {
 
     // now that we know it renders with show:true, let's make sure it didn't with show:false
     expect(screen.queryByTestId('events-panel')).not.toBeInTheDocument()
+  })
+})
+
+describe('CampaignLandingPage->FaqPanel', () => {
+  beforeEach(async () => {
+    await render(<FaqPanel {...(mockBaseProps as CampaignLandingPageProps)} />)
+  })
+
+  test('displays correct header and content', () => {
+    expect(screen.getByText('Reusable container header')).toBeInTheDocument()
+    expect(screen.getByText('Reusable container answer')).toBeInTheDocument()
+  })
+
+  test('displays correct default header when not specified', async () => {
+    await cleanup()
+
+    const mockWithoutReusableHeader = {
+      ...mockBaseProps,
+      faq: {
+        ...mockBaseProps.faq,
+        reusable: {
+          ...mockBaseProps.faq.reusable,
+          header: null,
+        },
+      },
+    }
+
+    await render(
+      <FaqPanel {...(mockWithoutReusableHeader as CampaignLandingPageProps)} />
+    )
+
+    expect(screen.getByText('Frequently asked questions')).toBeInTheDocument()
+  })
+
+  test('renders FAQ accordion items with correct attributes', () => {
+    const questionText = 'How can I attend an event?'
+    const accordionItem = screen
+      .getByTestId('faq-panel')
+      .querySelector(
+        `va-accordion-item[id="${hashReference(questionText, 60)}"]`
+      )
+
+    expect(accordionItem).toBeInTheDocument()
+    expect(accordionItem.getAttribute('data-faq-entity-id')).toBe(
+      'e7f9fe15-c607-444c-a7cc-72319973d088'
+    )
+  })
+
+  test('renders reusable question accordion items when displayAccordion is true', () => {
+    const questionText = 'Reusable container question'
+    const accordionItem = screen
+      .getByTestId('faq-panel')
+      .querySelector(
+        `va-accordion-item[id="${hashReference(questionText, 60)}"]`
+      )
+
+    expect(accordionItem).toBeInTheDocument()
+  })
+
+  test('displays CTA button', () => {
+    const cta = screen.getByTestId('faq-panel').querySelector('va-link-action')
+
+    expect(cta).toBeInTheDocument()
+    expect(cta.href).toBe('https://example.com/faq-cta')
+    expect(cta.text).toBe('faq CTA')
+  })
+
+  test('does not render when faq.show = false', async () => {
+    expect(screen.getByTestId('faq-panel')).toBeInTheDocument()
+    await cleanup()
+
+    const mockWithFaqHidden = {
+      ...mockBaseProps,
+      faq: {
+        ...mockBaseProps.faq,
+        show: false,
+      },
+    }
+
+    await render(
+      <FaqPanel {...(mockWithFaqHidden as CampaignLandingPageProps)} />
+    )
+
+    expect(screen.queryByTestId('faq-panel')).not.toBeInTheDocument()
+  })
+
+  test('renders reusable questions as plain elements when displayAccordion is false', async () => {
+    await cleanup()
+
+    const mockWithoutAccordion = {
+      ...mockBaseProps,
+      faq: {
+        ...mockBaseProps.faq,
+        reusable: {
+          ...mockBaseProps.faq.reusable,
+          displayAccordion: false,
+        },
+      },
+    }
+
+    await render(
+      <FaqPanel {...(mockWithoutAccordion as CampaignLandingPageProps)} />
+    )
+
+    // Should NOT render reusable question as va-accordion-item
+    const reusableQuestionText = 'Reusable container question'
+    const reusableAccordionItem = screen
+      .getByTestId('faq-panel')
+      .querySelector(
+        `va-accordion-item[id="${hashReference(reusableQuestionText, 60)}"]`
+      )
+
+    expect(reusableAccordionItem).not.toBeInTheDocument()
+
+    // Regular FAQ should still be an accordion item
+    const regularFaqQuestionText = 'How can I attend an event?'
+    const regularFaqItem = screen
+      .getByTestId('faq-panel')
+      .querySelector(
+        `va-accordion-item[id="${hashReference(regularFaqQuestionText, 60)}"]`
+      )
+
+    expect(regularFaqItem).toBeInTheDocument()
+
+    // Reusable content should still be rendered as plain elements
+    expect(screen.getByText('Reusable container question')).toBeInTheDocument()
+    expect(screen.getByText('reusable question html')).toBeInTheDocument()
   })
 })
