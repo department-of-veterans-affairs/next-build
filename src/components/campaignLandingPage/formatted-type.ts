@@ -8,6 +8,7 @@ import {
 import { ParagraphLinkTeaser } from '@/types/drupal/paragraph'
 import { Button } from '../button/formatted-type'
 import { LinkTeaser } from '../linkTeaser/formatted-type'
+import { LinkTeaserWithImage } from '../linkTeaserWithImage/formatted-type'
 
 type Link = {
   href: string
@@ -47,5 +48,15 @@ export interface CampaignLandingPage extends PublishedEntity {
     intro: string | null
     cta: Button | null
     teasers: LinkTeaser[]
+  }
+  stories: {
+    show: boolean
+    header: string | null
+    intro: string | null
+    cta: {
+      url: string
+      label: string
+    } | null
+    teasers: LinkTeaserWithImage[]
   }
 }
