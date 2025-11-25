@@ -69,7 +69,7 @@ const LINKS_TO_SKIP = [
   'youtu.be',
   /fb\.(com|me|watch)/,
   /visn\d+.*?\.va\.gov/,
-  /www\.va\.gov\/_next\/static\/*/,
+  /www\.va\.gov\/_next\/static\/.*/,
   /www\.va\.gov\/$/,
   /www\.va\.gov\/img\/.*$/,
   /www\.va\.gov$/,
