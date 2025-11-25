@@ -1,28 +1,4 @@
 export const placeholders = {
-  // Events panel
-  fieldClpEventsPanel: true,
-  fieldClpEventsHeader: 'Events',
-  fieldClpEventsReferences: [
-    {
-      entity: {
-        entityUrl: { path: '#' },
-        title: 'Event title',
-        fieldDescription: 'Event description',
-        fieldDatetimeRangeTimezone: [],
-        fieldFacilityLocation: {
-          entity: {
-            entityUrl: { path: '#' },
-            title: 'VA Medical Center',
-          },
-        },
-        fieldLocationHumanreadable: 'Online',
-        fieldUrlOfAnOnlineEvent: { uri: '#' },
-        fieldLink: { uri: '#', url: { path: '#' } },
-        fieldEventCta: 'Register now',
-      },
-    },
-  ],
-
   // FAQ panel
   fieldClpFaqPanel: true,
   fieldClpFaqParagraphs: [

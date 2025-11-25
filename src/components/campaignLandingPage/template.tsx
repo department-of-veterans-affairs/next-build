@@ -30,6 +30,7 @@ export function CampaignLandingPage(props: CampaignLandingPageProps) {
     SpotlightPanel,
     StoriesPanel,
     ResourcesPanel,
+    EventsPanel,
   ]
 
   const pageSectionCount = sections.length
@@ -47,7 +48,6 @@ export function CampaignLandingPage(props: CampaignLandingPageProps) {
       {/* TODO: In-progress components: */}
       {props.onlyRenderFinishedComponents !== true && (
         <>
-          <EventsPanel />
           <FaqPanel />
           <ConnectWithUs />
           <BenefitCategories />
