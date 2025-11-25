@@ -42,31 +42,27 @@ export const FaqPanel = ({ faq }: CampaignLandingPageProps) => {
 
             {faq.reusable &&
               (faq.reusable.displayAccordion
-                ? (faq.reusable?.questions ?? []).map((item) => (
+                ? (faq.reusable?.questions ?? []).map((qa) => (
                     <va-accordion-item
-                      key={item.id}
+                      key={qa.id}
                       bordered
                       className="va-accordion-item"
-                      header={item.question}
-                      id={hashReference(item.question, 60)}
+                      header={qa.question}
+                      id={hashReference(qa.question, 60)}
                       level="3"
                     >
                       <div
-                        id={item.id}
-                        data-entity-id={item.id}
+                        id={qa.id}
+                        data-entity-id={qa.id}
                         data-analytics-faq-section={sectionHeader}
-                        data-analytics-faq-text={item.question}
+                        data-analytics-faq-text={qa.question}
                       >
-                        <QaParagraph {...item} currentHeadingLevel="h2" />
+                        <QaParagraph {...qa} currentHeadingLevel="h2" />
                       </div>
                     </va-accordion-item>
                   ))
-                : (faq.reusable.questions ?? []).map((fieldQA, index) => (
-                    <QaParagraph
-                      key={fieldQA.id}
-                      {...fieldQA}
-                      currentHeadingLevel="h2"
-                    />
+                : (faq.reusable.questions ?? []).map((qa) => (
+                    <QaParagraph key={qa.id} {...qa} currentHeadingLevel="h2" />
                   )))}
           </va-accordion>
         </div>
