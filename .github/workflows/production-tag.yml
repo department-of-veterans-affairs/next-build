@@ -68,7 +68,7 @@ jobs:
       - name: Install Npm Dependencies
         run: |
           yarn set version 3.6.1
-          HUSKY=0 yarn install --immutable
+          HUSKY=0 yarn install --immutable --ignore-scripts
 
       - name: Get current ref
         id: get-current-ref

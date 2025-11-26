@@ -52,7 +52,7 @@ jobs:
           echo "Using random values: $PW_BROWSER_VALUE, $PW_WIDTH_VALUE, $PW_HEIGHT_VALUE"
 
       - name: Install dependencies
-        run: yarn install
+        run: yarn install --immutable --ignore-scripts
 
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
@@ -94,7 +94,7 @@ jobs:
         with:
           node-version: 24
       - name: Install dependencies
-        run: yarn install
+        run: yarn install --immutable --ignore-scripts
 
       - name: Download blob reports from GitHub Actions Artifacts
         uses: actions/download-artifact@v6
@@ -133,7 +133,7 @@ jobs:
         with:
           node-version: 24
       - name: Install dependencies
-        run: yarn install
+        run: yarn install --immutable --ignore-scripts
 
       - name: Download blob reports from GitHub Actions Artifacts
         uses: actions/download-artifact@v6
