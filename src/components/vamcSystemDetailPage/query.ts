@@ -89,12 +89,6 @@ export const data: QueryData<
     params
   )) as NodeVamcSystemDetailPage
 
-  if (!entity) {
-    throw new Error(
-      `NodeVamcSystemDetailPage entity not found for id: ${opts.id}`
-    )
-  }
-
   // TODO: There seems to be some difference between a "facilitySidebar" and "outreachSidebar" in the original template
 
   // Determine if there is a Lovell counterpart to this page so we can show or hide the Lovell switcher

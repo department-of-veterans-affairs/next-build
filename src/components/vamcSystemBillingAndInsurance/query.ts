@@ -65,12 +65,6 @@ export const data: QueryData<
     params
   )) as NodeVamcSystemBillingAndInsurance
 
-  if (!entity) {
-    throw new Error(
-      `NodeVamcSystemBillingAndInsurance entity not found for id: ${opts.id}`
-    )
-  }
-
   // Fetch the menu name dynamically off of the field_region_page reference if available.
   const menu = await getMenu(
     entity.field_office.field_system_menu.resourceIdObjMeta

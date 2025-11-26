@@ -72,12 +72,6 @@ export const data: QueryData<VamcSystemDataOpts, VamcSystemData> = async (
     params
   )) as NodeHealthCareRegionPage
 
-  if (!entity) {
-    throw new Error(
-      `NodeHealthCareRegionPage entity not found for id: ${opts.id}`
-    )
-  }
-
   const lovell = opts.context?.lovell
   const isLovellVariantPage = lovell?.isLovellVariantPage ?? false
 
