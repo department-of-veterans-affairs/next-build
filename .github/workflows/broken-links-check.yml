@@ -39,7 +39,7 @@ jobs:
       - name: Install Npm Dependencies
         run: |
           yarn set version 3.6.1
-          HUSKY=0 yarn install --immutable
+          HUSKY=0 yarn install --immutable --ignore-scripts
 
       # This is necessary in order for fetch to work.
       - name: Build proxy-fetcher dist
@@ -88,7 +88,7 @@ jobs:
       - name: Install Npm Dependencies
         run: |
           yarn set version 3.6.1
-          HUSKY=0 yarn install --immutable
+          HUSKY=0 yarn install --immutable --ignore-scripts
 
       # This grabs all currently created artifacts i.e. individual json reports.
       - name: Download link reports
