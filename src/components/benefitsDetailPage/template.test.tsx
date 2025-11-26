@@ -36,13 +36,13 @@ const mockData: FormattedBenefitsDetailPage = {
   relatedLinks: null,
   breadcrumbs: [
     {
-      uri: 'http://va-gov-cms.ddev.site/',
-      title: 'Home',
+      href: '/',
+      label: 'Home',
       options: [],
     },
     {
-      uri: 'http://va-gov-cms.ddev.site/check-your-va-claim-or-appeal-status',
-      title: 'Check Your VA Claim or Appeal Status',
+      href: '',
+      label: 'Check Your VA Claim or Appeal Status',
       options: [],
     },
   ],

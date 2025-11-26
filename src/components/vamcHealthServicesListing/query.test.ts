@@ -240,7 +240,23 @@ describe('VamcHealthServicesListing formatter', () => {
 
       expect(result.lovellVariant).toBeNull()
       expect(result.lovellSwitchPath).toBeNull()
-      expect(result.breadcrumbs).toEqual(lovellBreadcrumbs)
+      expect(result.breadcrumbs).toEqual([
+        {
+          href: '/',
+          label: 'Home',
+          options: [],
+        },
+        {
+          href: '/lovell-federal-health-care',
+          label: 'Lovell Federal health care',
+          options: [],
+        },
+        {
+          href: '',
+          label: 'Health services',
+          options: [],
+        },
+      ])
     })
   })
 

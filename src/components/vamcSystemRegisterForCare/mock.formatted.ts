@@ -95,18 +95,18 @@ const mockData: VamcSystemRegisterForCare = {
   ],
   breadcrumbs: [
     {
-      uri: 'https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/',
-      title: 'Home',
+      href: '/',
+      label: 'Home',
       options: [],
     },
     {
-      uri: 'https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/richmond-health-care',
-      title: 'VA Richmond health care',
+      href: '/richmond-health-care',
+      label: 'VA Richmond health care',
       options: [],
     },
     {
-      uri: 'internal:#',
-      title: 'Register for care',
+      href: '',
+      label: 'Register for care',
       options: [],
     },
   ],

@@ -253,8 +253,14 @@ describe('LocationsListing formatData', () => {
 
       expect(result.breadcrumbs).toEqual([
         {
-          title: 'Lovell Federal health care - VA',
-          uri: 'https://va.gov/lovell-federal-health-care-va',
+          href: '/lovell-federal-health-care-va',
+          label: 'Lovell Federal health care - VA',
+          options: undefined,
+        },
+        {
+          href: '',
+          label: 'Locations',
+          options: [],
         },
       ])
     })

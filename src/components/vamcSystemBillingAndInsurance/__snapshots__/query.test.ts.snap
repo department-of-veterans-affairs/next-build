@@ -14,19 +14,19 @@ exports[`VamcSystemBillingAndInsurance formatter outputs formatted data 1`] = `
   },
   "breadcrumbs": [
     {
+      "href": "/",
+      "label": "Home",
       "options": [],
-      "title": "Home",
-      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
     },
     {
+      "href": "/louisville-health-care",
+      "label": "VA Louisville health care",
       "options": [],
-      "title": "VA Louisville health care",
-      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/louisville-health-care",
     },
     {
+      "href": "",
+      "label": "Billing and insurance",
       "options": [],
-      "title": "Billing and insurance",
-      "uri": "internal:#",
     },
   ],
   "entityId": 45617,

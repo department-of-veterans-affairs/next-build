@@ -7,11 +7,7 @@ import {
 import { VamcSystemBillingAndInsurance } from './formatted-type'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
-import {
-  entityBaseFields,
-  fetchSingleEntityOrPreview,
-  getMenu,
-} from '@/lib/drupal/query'
+import { fetchSingleEntityOrPreview, getMenu } from '@/lib/drupal/query'
 import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import {
@@ -28,10 +24,10 @@ import {
   formatter as formatVhaFacilityNonclinicalServices,
 } from '@/components/vhaFacilityNonclinicalService/query'
 import {
-  getLovellVariantOfBreadcrumbs,
   getLovellVariantOfUrl,
   getOppositeChildVariant,
 } from '@/lib/drupal/lovell/utils'
+import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
 
 // Define the query params for fetching node--vamc_system_billing_and_insurance.
 export const params: QueryParams<null> = () => {
@@ -64,12 +60,6 @@ export const data: QueryData<
     RESOURCE_TYPES.VAMC_SYSTEM_BILLING_INSURANCE,
     params
   )) as NodeVamcSystemBillingAndInsurance
-
-  if (!entity) {
-    throw new Error(
-      `NodeVamcSystemBillingAndInsurance entity not found for id: ${opts.id}`
-    )
-  }
 
   // Fetch the menu name dynamically off of the field_region_page reference if available.
   const menu = await getMenu(
@@ -110,11 +100,7 @@ export const formatter: QueryFormatter<
     formatParagraph(normalizeEntityFetchedParagraphs(field)) as Wysiwyg
 
   return {
-    ...entityBaseFields(entity),
-    breadcrumbs: lovell?.isLovellVariantPage
-      ? getLovellVariantOfBreadcrumbs(entity.breadcrumbs, lovell.variant)
-      : entity.breadcrumbs,
-    title: entity.title,
+    ...entityBaseFields(entity, lovell),
     vamcSystem: {
       id: entity.field_office.id,
       title: entity.field_office.title,

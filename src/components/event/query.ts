@@ -9,13 +9,11 @@ import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodeEvent } from '@/types/drupal/node'
 import { Event } from './formatted-type'
 import { GetServerSidePropsContext } from 'next'
-import {
-  entityBaseFields,
-  fetchSingleEntityOrPreview,
-} from '@/lib/drupal/query'
+import { fetchSingleEntityOrPreview } from '@/lib/drupal/query'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { getNestedIncludes } from '@/lib/utils/queries'
 import { formatter as formatAdministration } from '@/components/administration/query'
+import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
 
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude([

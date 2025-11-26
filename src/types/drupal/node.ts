@@ -56,6 +56,7 @@ import {
   ParagraphSituationUpdate,
   ParagraphQA,
   ParagraphTypes,
+  ParagraphLinkTeaserWithImage,
 } from './paragraph'
 import {
   TaxonomyTermLcCategories,
@@ -300,8 +301,12 @@ export interface NodeCampaignLandingPage extends DrupalNode {
   field_clp_stories_panel: boolean
   field_clp_stories_header: string | null
   field_clp_stories_intro: string | null
-  field_clp_stories_teasers: ParagraphLinkTeaser[]
-  field_clp_stories_cta: FieldLink | null
+  field_clp_stories_teasers: ParagraphLinkTeaserWithImage[]
+  field_clp_stories_cta: {
+    uri: string
+    url: string
+    title: string
+  } | null
 
   // Resources panel
   field_clp_resources_panel: boolean
@@ -322,7 +327,7 @@ export interface NodeCampaignLandingPage extends DrupalNode {
   field_clp_spotlight_header: string | null
   field_clp_spotlight_intro_text: string | null
   field_clp_spotlight_link_teasers: ParagraphLinkTeaser[]
-  field_clp_spotlight_cta: FieldLink | null
+  field_clp_spotlight_cta: ParagraphButton | null
 
   // Connect with us
   field_connect_with_us: {

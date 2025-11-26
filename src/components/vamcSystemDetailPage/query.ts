@@ -7,16 +7,11 @@ import {
   RESOURCE_TYPES,
 } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
-import {
-  entityBaseFields,
-  fetchSingleEntityOrPreview,
-  getMenu,
-} from '@/lib/drupal/query'
+import { fetchSingleEntityOrPreview, getMenu } from '@/lib/drupal/query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import {
-  getLovellVariantOfBreadcrumbs,
   getLovellVariantOfUrl,
   getOppositeChildVariant,
 } from '@/lib/drupal/lovell/utils'
@@ -24,6 +19,7 @@ import { formatter as formatAdministration } from '@/components/administration/q
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { formatParagraph } from '@/lib/drupal/paragraphs'
 import { getNestedIncludes } from '@/lib/utils/queries'
+import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
 
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude([
@@ -89,12 +85,6 @@ export const data: QueryData<
     params
   )) as NodeVamcSystemDetailPage
 
-  if (!entity) {
-    throw new Error(
-      `NodeVamcSystemDetailPage entity not found for id: ${opts.id}`
-    )
-  }
-
   // TODO: There seems to be some difference between a "facilitySidebar" and "outreachSidebar" in the original template
 
   // Determine if there is a Lovell counterpart to this page so we can show or hide the Lovell switcher
@@ -137,11 +127,7 @@ export const formatter: QueryFormatter<
     : entity.path.alias
 
   return {
-    ...entityBaseFields(entity),
-    breadcrumbs: lovell?.isLovellVariantPage
-      ? getLovellVariantOfBreadcrumbs(entity.breadcrumbs, lovell.variant)
-      : entity.breadcrumbs,
-    title: entity.title,
+    ...entityBaseFields(entity, lovell),
     path: normalizedPath,
     introText: entity.field_intro_text,
     showTableOfContents: entity.field_table_of_contents_boolean,
