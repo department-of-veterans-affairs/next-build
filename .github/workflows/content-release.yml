@@ -70,7 +70,7 @@ jobs:
         run: echo APPROX_WORKFLOW_START_TIME=$(date +"%s") >> $GITHUB_OUTPUT
 
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - uses: actions/setup-node@v6
         with:
@@ -98,7 +98,7 @@ jobs:
     needs: validate-build-status
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Notify Slack
         uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4 # main
@@ -149,7 +149,7 @@ jobs:
       run: echo SETUP_START_TIME=$(date +"%s") >> $GITHUB_OUTPUT
 
     - name: Checkout next-build
-      uses: actions/checkout@v5
+      uses: actions/checkout@v6
       with:
         repository: department-of-veterans-affairs/next-build
         #ref: ${{ needs.validate-build-status.outputs.TAG }}
@@ -158,7 +158,7 @@ jobs:
         sparse-checkout-cone-mode: false
 
     - name: Checkout vets-website
-      uses: actions/checkout@v5
+      uses: actions/checkout@v6
       with:
         repository: department-of-veterans-affairs/vets-website
         path: vets-website
@@ -338,7 +338,7 @@ jobs:
 
     steps:
       - name: Check out repo
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Notify Slack
         uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4 # main
@@ -402,7 +402,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Notify Slack
         uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4 # main
@@ -458,7 +458,7 @@ jobs:
         METRIC_NAMESPACE: dsva_vagov.next_build
       steps:
         - name: Checkout
-          uses: actions/checkout@v5
+          uses: actions/checkout@v6
         #uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
         - name: Get current timestamp
