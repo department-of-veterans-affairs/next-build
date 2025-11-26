@@ -55,7 +55,7 @@ services:
 
         - yarn --version
         # Install dependencies. These are included in .yarn/cache, shouldn't add significant time or network requests.
-        - yarn install --immutable --ignore-scripts
+        - yarn install --immutable
 
         # Get vets-website assets in the right place
         - BUILD_TYPE=tugboat node ./scripts/yarn/vets-website-assets.js

@@ -81,7 +81,7 @@ jobs:
           corepack install -g --cache-only .yarn/releases/corepack.tgz
 
       - name: Install dependencies
-        run: yarn install --immutable --ignore-scripts
+        run: yarn install --immutable
 
       - name: Get latest release
         id: get-latest-release
@@ -179,7 +179,7 @@ jobs:
         corepack install -g --cache-only .yarn/releases/corepack.tgz
 
     - name: Install dependencies
-      run: cd main && yarn install --immutable --ignore-scripts
+      run: cd main && yarn install --immutable
 
     - name: Export setup end time
       id: export-setup-end-time

@@ -58,7 +58,7 @@ jobs:
         corepack install -g --cache-only .yarn/releases/corepack.tgz
     - name: Install dependencies
       run: |
-        yarn install --immutable --ignore-scripts
+        yarn install --immutable
     - name: Install Playwright
       run: |
         yarn playwright install --with-deps
