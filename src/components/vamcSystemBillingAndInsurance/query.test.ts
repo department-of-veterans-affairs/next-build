@@ -161,8 +161,8 @@ describe('VamcSystemBillingAndInsurance formatter', () => {
       })
 
       expect(result.breadcrumbs[1]).toEqual({
-        uri: 'https://va-gov-cms.ddev.site/lovell-federal-health-care-tricare',
-        title: 'Lovell Federal health care - TRICARE',
+        href: '/lovell-federal-health-care-tricare',
+        label: 'Lovell Federal health care - TRICARE',
         options: [],
       })
     })
@@ -179,7 +179,23 @@ describe('VamcSystemBillingAndInsurance formatter', () => {
         variant: 'va',
       })
 
-      expect(result.breadcrumbs).toEqual(lovellBreadcrumbs)
+      expect(result.breadcrumbs).toEqual([
+        {
+          href: '/',
+          label: 'Home',
+          options: [],
+        },
+        {
+          href: '/lovell-federal-health-care',
+          label: 'Lovell Federal health care',
+          options: [],
+        },
+        {
+          href: '',
+          label: 'Billing and insurance',
+          options: [],
+        },
+      ])
     })
   })
 })

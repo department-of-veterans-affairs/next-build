@@ -11,18 +11,18 @@ const mockData: VamcSystemMedicalRecordsOffice = {
   metatags: [],
   breadcrumbs: [
     {
-      uri: 'https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/',
-      title: 'Home',
+      href: '/',
+      label: 'Home',
       options: [],
     },
     {
-      uri: 'https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/boston-health-care',
-      title: 'VA Beckley health care',
+      href: '/boston-health-care',
+      label: 'VA Beckley health care',
       options: [],
     },
     {
-      uri: 'internal:#',
-      title: 'Medical records office',
+      href: '',
+      label: 'Medical records office',
       options: [],
     },
   ],

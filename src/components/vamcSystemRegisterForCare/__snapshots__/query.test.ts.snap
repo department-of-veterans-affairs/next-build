@@ -37,19 +37,19 @@ To get a faster decision on your application, bring these documents and informat
   },
   "breadcrumbs": [
     {
+      "href": "/",
+      "label": "Home",
       "options": [],
-      "title": "Home",
-      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
     },
     {
+      "href": "/richmond-health-care",
+      "label": "VA Richmond health care",
       "options": [],
-      "title": "VA Richmond health care",
-      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/richmond-health-care",
     },
     {
+      "href": "",
+      "label": "Register for care",
       "options": [],
-      "title": "Register for care",
-      "uri": "internal:#",
     },
   ],
   "entityId": 44606,

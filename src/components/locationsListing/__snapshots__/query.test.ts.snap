@@ -10,24 +10,19 @@ exports[`LocationsListing formatData outputs formatted data 1`] = `
   },
   "breadcrumbs": [
     {
+      "href": "/",
+      "label": "Home",
       "options": [],
-      "title": "Home",
-      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
     },
     {
+      "href": "/lebanon-health-care",
+      "label": "VA Lebanon health care",
       "options": [],
-      "title": "VA Lebanon health care",
-      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/lebanon-health-care",
     },
     {
+      "href": "",
+      "label": "Locations",
       "options": [],
-      "title": "Services and locations",
-      "uri": "internal:#",
-    },
-    {
-      "options": [],
-      "title": "Locations",
-      "uri": "internal:#",
     },
   ],
   "entityId": 3097,
@@ -255,24 +250,19 @@ exports[`LocationsListing formatData outputs formatted data via getData 1`] = `
   },
   "breadcrumbs": [
     {
+      "href": "/",
+      "label": "Home",
       "options": [],
-      "title": "Home",
-      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
     },
     {
+      "href": "/lebanon-health-care",
+      "label": "VA Lebanon health care",
       "options": [],
-      "title": "VA Lebanon health care",
-      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/lebanon-health-care",
     },
     {
+      "href": "",
+      "label": "Locations",
       "options": [],
-      "title": "Services and locations",
-      "uri": "internal:#",
-    },
-    {
-      "options": [],
-      "title": "Locations",
-      "uri": "internal:#",
     },
   ],
   "entityId": 3097,

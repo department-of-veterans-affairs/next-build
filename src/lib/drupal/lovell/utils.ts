@@ -14,7 +14,7 @@ import { FormattedPageResource } from '@/lib/drupal/queries'
 import { ResourceType } from '@/lib/constants/resourceTypes'
 import { slugToPath } from '@/lib/utils/slug'
 import { SideNavItem, SideNavMenu } from '@/types/formatted/sideNav'
-import { BreadcrumbItem } from '@/types/drupal/field_type'
+import { Breadcrumb } from '@/components/breadcrumbs/formatted-types'
 
 export function isLovellResourceType(resourceType: ResourceType): boolean {
   return (LOVELL_RESOURCE_TYPES as readonly string[]).includes(resourceType)
@@ -169,43 +169,43 @@ export function getLovellVariantOfTitle(
 /**
  * Updates breadcrumb entries according to `variant`.
  * Non-Lovell entries are unchanged. Lovell entries
- * have title and uri updated.
+ * have label and href updated.
  * E.g.
  *   Input:
- *     breacrumbs: [
+ *     breadcrumbs: [
  *       {
- *         uri: 'https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/',
- *         title: 'Home',
+ *         href: '/',
+ *         label: 'Home',
  *         options: [],
  *       },
  *       {
- *         uri: 'https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/lovell-federal-health-care',
- *         title: 'Lovell Federal health care',
+ *         href: '/lovell-federal-health-care',
+ *         label: 'Lovell Federal health care',
  *         options: [],
  *       },
  *     ],
  *     variant: `va`
  *   Output: [
  *     {
- *        uri: 'https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/',
- *        title: 'Home',
+ *        href: '/',
+ *        label: 'Home',
  *        options: [],
  *      },
  *      {
- *        uri: 'https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/lovell-federal-health-care-va',
- *        title: 'Lovell Federal health care - VA',
+ *        href: '/lovell-federal-health-care-va',
+ *        label: 'Lovell Federal health care - VA',
  *        options: [],
  *      },
  *   ]
  */
 export function getLovellVariantOfBreadcrumbs(
-  breadcrumbs: BreadcrumbItem[],
+  breadcrumbs: Breadcrumb[],
   variant: LovellVariant
-): BreadcrumbItem[] {
+): Breadcrumb[] {
   return breadcrumbs.map((breadcrumb) => ({
     ...breadcrumb,
-    title: getLovellVariantOfTitle(breadcrumb.title, variant),
-    uri: getLovellVariantOfUrl(breadcrumb.uri, variant),
+    label: getLovellVariantOfTitle(breadcrumb.label, variant),
+    href: getLovellVariantOfUrl(breadcrumb.href, variant),
   }))
 }
 

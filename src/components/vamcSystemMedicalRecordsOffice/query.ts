@@ -7,11 +7,7 @@ import {
 import { VamcSystemMedicalRecordsOffice } from './formatted-type'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
-import {
-  entityBaseFields,
-  fetchSingleEntityOrPreview,
-  getMenu,
-} from '@/lib/drupal/query'
+import { fetchSingleEntityOrPreview, getMenu } from '@/lib/drupal/query'
 import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import {
@@ -27,12 +23,12 @@ import {
   formatter as formatVhaFacilityNonclinicalServices,
 } from '@/components/vhaFacilityNonclinicalService/query'
 import {
-  getLovellVariantOfBreadcrumbs,
   getLovellVariantOfUrl,
   getOppositeChildVariant,
 } from '@/lib/drupal/lovell/utils'
 import { formatter as formatReactWidget } from '@/components/reactWidget/query'
 import { formatter as formatQaSection } from '@/components/qaSection/query'
+import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
 
 // Define the query params for fetching node--vamc_system_medical_records_office.
 export const params: QueryParams<null> = () => {
@@ -105,11 +101,7 @@ export const formatter: QueryFormatter<
     formatParagraph(normalizeEntityFetchedParagraphs(field)) as Wysiwyg
 
   return {
-    ...entityBaseFields(entity),
-    breadcrumbs: lovell?.isLovellVariantPage
-      ? getLovellVariantOfBreadcrumbs(entity.breadcrumbs, lovell.variant)
-      : entity.breadcrumbs,
-    title: entity.title,
+    ...entityBaseFields(entity, lovell),
     vamcSystem: {
       id: entity.field_office.id,
       title: entity.field_office.title,

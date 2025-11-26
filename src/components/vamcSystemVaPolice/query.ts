@@ -4,21 +4,17 @@ import { NodeVamcSystemVaPolice } from '@/types/drupal/node'
 import { VamcSystemVaPolice } from './formatted-type'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
-import {
-  entityBaseFields,
-  fetchSingleEntityOrPreview,
-  getMenu,
-} from '@/lib/drupal/query'
+import { fetchSingleEntityOrPreview, getMenu } from '@/lib/drupal/query'
 import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
-import { getLovellVariantOfBreadcrumbs } from '@/lib/drupal/lovell/utils'
 import { ParagraphCCQaSection } from '@/types/drupal/paragraph'
 import {
   normalizeEntityFetchedParagraphs,
   formatParagraph,
 } from '@/lib/drupal/paragraphs'
 import { QaSection } from '@/components/qaSection/formatted-type'
+import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
 
 // Define the query params for fetching node--vamc_system_va_police.
 export const params: QueryParams<null> = () => {
@@ -71,16 +67,10 @@ export const formatter: QueryFormatter<
   VamcSystemVaPoliceData,
   VamcSystemVaPolice
 > = ({ entity, menu, lovell }) => {
-  let { breadcrumbs } = entity
-  if (lovell?.isLovellVariantPage) {
-    breadcrumbs = getLovellVariantOfBreadcrumbs(breadcrumbs, lovell.variant)
-  }
   const formattedMenu = buildSideNavDataFromMenu(entity.path.alias, menu)
 
   return {
-    ...entityBaseFields(entity),
-    title: entity.title,
-    breadcrumbs,
+    ...entityBaseFields(entity, lovell),
     path: entity.path.alias,
     menu: formattedMenu,
     policeOverview: {

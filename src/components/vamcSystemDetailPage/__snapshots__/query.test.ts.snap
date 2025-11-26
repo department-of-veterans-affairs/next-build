@@ -8,29 +8,24 @@ exports[`VamcSystemDetailPage query module outputs formatted data 1`] = `
   },
   "breadcrumbs": [
     {
+      "href": "/",
+      "label": "Home",
       "options": [],
-      "title": "Home",
-      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
     },
     {
+      "href": "/durham-health-care",
+      "label": "VA Durham health care",
       "options": [],
-      "title": "VA Durham health care",
-      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/durham-health-care",
     },
     {
+      "href": "/durham-health-care/about-us",
+      "label": "About us",
       "options": [],
-      "title": "ABOUT VA DURHAM",
-      "uri": "internal:#",
     },
     {
+      "href": "",
+      "label": "Mission and vision",
       "options": [],
-      "title": "About us",
-      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/durham-health-care/about-us",
-    },
-    {
-      "options": [],
-      "title": "Mission and vision",
-      "uri": "internal:#",
     },
   ],
   "entityId": 6983,

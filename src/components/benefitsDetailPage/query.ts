@@ -8,19 +8,16 @@ import {
   // PARAGRAPH_RESOURCE_TYPES,
 } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
-import {
-  entityBaseFields,
-  fetchSingleEntityOrPreview,
-} from '@/lib/drupal/query'
+import { fetchSingleEntityOrPreview } from '@/lib/drupal/query'
 import { Menu } from '@/types/drupal/menu'
 import { formatter as formatListOfLinkTeasers } from '@/components/listOfLinkTeasers/query'
 import { formatter as formatAdministration } from '@/components/administration/query'
 import { formatter as formatAlertBlock } from '@/components/alertBlock/query'
-import { formatParagraph } from '@/lib/drupal/paragraphs'
 import { getNestedIncludes } from '@/lib/utils/queries'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import { getBenefitsHubMenu } from './getBenefitsHubMenu'
+import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
 
 // Define the query params for fetching node--page (benefits detail page).
 export const params: QueryParams<null> = () => {

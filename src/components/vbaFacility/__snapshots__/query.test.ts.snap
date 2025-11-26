@@ -764,14 +764,14 @@ If you need help with the IDES process, we may refer you to your Physical Evalua
   },
   "breadcrumbs": [
     {
+      "href": "/",
+      "label": "Home",
       "options": [],
-      "title": "Home",
-      "uri": "https://va-gov-cms.ddev.site/",
     },
     {
+      "href": "",
+      "label": "Togus VA Regional Benefit Office at Togus VA Medical Center",
       "options": [],
-      "title": "Togus VA Regional Benefit Office At Togus VA Medical Center",
-      "uri": "https://va-gov-cms.ddev.site/togus-va-regional-benefit-office-at-togus-va-medical-center",
     },
   ],
   "ccBenefitsHotline": {

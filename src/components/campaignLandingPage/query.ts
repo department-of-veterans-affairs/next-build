@@ -1,17 +1,14 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { drupalClient } from '@/lib/drupal/drupalClient'
 import { NodeCampaignLandingPage } from '@/types/drupal/node'
 import { CampaignLandingPage } from './formatted-type'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import { getFacebookLink, getXLink } from '@/lib/utils/social'
-import {
-  entityBaseFields,
-  fetchSingleEntityOrPreview,
-} from '@/lib/drupal/query'
+import { fetchSingleEntityOrPreview } from '@/lib/drupal/query'
 import { formatter as formatImage } from '@/components/mediaImage/query'
 import { queries } from '@/lib/drupal/queries'
+import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
 
 import { formatter as teaserWithImageFormatter } from '../linkTeaserWithImage/query'
 
