@@ -50,10 +50,6 @@ export const params: QueryParams<null> = () => {
       PARAGRAPH_RESOURCE_TYPES.DOWNLOADABLE_FILE
     ),
     ...getNestedIncludes('field_content_block', PARAGRAPH_RESOURCE_TYPES.ALERT),
-    // ...getNestedIncludes(
-    //   'field_content_block',
-    //   PARAGRAPH_RESOURCE_TYPES.STAFF_PROFILE
-    // ),
     ...getNestedIncludes('field_content_block', PARAGRAPH_RESOURCE_TYPES.MEDIA),
   ])
 }
