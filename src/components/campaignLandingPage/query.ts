@@ -126,7 +126,9 @@ export const formatter: QueryFormatter<
       show: entity.field_clp_spotlight_panel,
       header: entity.field_clp_spotlight_header,
       intro: entity.field_clp_spotlight_intro_text,
-      cta: buttonFormatter(entity.field_clp_spotlight_cta),
+      cta:
+        entity.field_clp_spotlight_cta &&
+        buttonFormatter(entity.field_clp_spotlight_cta),
       teasers: (entity.field_clp_spotlight_link_teasers ?? []).map((teaser) =>
         queries.formatData('paragraph--link_teaser', teaser)
       ),
