@@ -7,9 +7,6 @@
  * - getMenu
  * - fetchSingleEntityOrPreview
  *
- * It also re-exports the original:
- * - entityBaseFields
- *
  * It also provides these helper functions for setting various mock functions:
  * - setSingleEntityMock
  * - setResourceCollectionMock
@@ -17,12 +14,7 @@
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-const originalModule = jest.requireActual('@/lib/drupal/query')
-
 export const fetchSingleResourceCollectionPage = jest.fn()
-
-// Re-export the original entityBaseFields
-export const { entityBaseFields } = originalModule
 
 type ResourceCollectionMock = jest.Mock | ((...args: any[]) => any)
 
