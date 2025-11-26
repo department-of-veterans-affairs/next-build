@@ -1,11 +1,9 @@
-type Link = {
-  url: {
-    path: string
-  }
-  label: string
+export type Link = {
+  url: string
+  title: string
 }
 
-export type HomePageCommonTasks = {
+export type CommonTasksData = {
   searchLinks: Link[]
   popularLinks: Link[]
 }

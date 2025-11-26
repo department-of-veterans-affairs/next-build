@@ -1,11 +1,15 @@
-import { HomePageCommonTasks as FormattedHomePageCommonTasks } from './formatted-type'
+import { CommonTasksData } from './formatted-type'
 
 export function HomePageCommonTasks({
   searchLinks,
   popularLinks,
-}: FormattedHomePageCommonTasks) {
+}: CommonTasksData) {
   return (
-    <div className="homepage-common-tasks__wrapper" data-e2e="common">
+    <div
+      className="homepage-common-tasks__wrapper"
+      data-e2e="common"
+      data-testid="common-tasks"
+    >
       <div className="vads-l-grid-container vads-u-padding-x--0 homepage-common-tasks">
         <div className="vads-l-row">
           {/* start first column */}
@@ -25,24 +29,16 @@ export function HomePageCommonTasks({
               </h3>
               <div className="homepage-common-tasks__search-tools">
                 <ul className="vads-u-padding-left--0" role="list">
-                  {searchLinks?.map((link, index) => {
-                    if (link.url?.path && link.label) {
-                      return (
-                        <li key={index}>
-                          <va-icon
-                            icon="arrow_forward"
-                            className="vads-u-color--link-default vads-u-margin-right--1"
-                            size="3"
-                          ></va-icon>
-                          <va-link
-                            href={link.url.path}
-                            text={link.label}
-                          ></va-link>
-                        </li>
-                      )
-                    }
-                    return null
-                  })}
+                  {searchLinks?.map((link, index) => (
+                    <li key={index}>
+                      <va-icon
+                        icon="arrow_forward"
+                        className="vads-u-color--link-default vads-u-margin-right--1"
+                        size="3"
+                      ></va-icon>
+                      <va-link href={link.url} text={link.title}></va-link>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -59,19 +55,11 @@ export function HomePageCommonTasks({
                 className="homepage-common-tasks__list vads-u-padding-left--0"
                 role="list"
               >
-                {popularLinks?.map((link, index) => {
-                  if (link.url?.path && link.label) {
-                    return (
-                      <li key={index}>
-                        <va-link
-                          href={link.url.path}
-                          text={link.label}
-                        ></va-link>
-                      </li>
-                    )
-                  }
-                  return null
-                })}
+                {popularLinks?.map((link, index) => (
+                  <li key={index}>
+                    <va-link href={link.url} text={link.title}></va-link>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
