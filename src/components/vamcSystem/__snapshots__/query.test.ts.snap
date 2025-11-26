@@ -10,14 +10,14 @@ exports[`VamcSystem formatData outputs formatted data 1`] = `
   },
   "breadcrumbs": [
     {
+      "href": "/",
+      "label": "Home",
       "options": [],
-      "title": "Home",
-      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
     },
     {
+      "href": "",
+      "label": "VA New York Harbor health care",
       "options": [],
-      "title": "VA New York Harbor health care",
-      "uri": "internal:#",
     },
   ],
   "entityId": 8525,

@@ -4,13 +4,10 @@ import { NodePressRelease } from '@/types/drupal/node'
 import { PressRelease } from './formatted-type'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
-import {
-  entityBaseFields,
-  fetchSingleEntityOrPreview,
-} from '@/lib/drupal/query'
-import { get } from 'lodash'
+import { fetchSingleEntityOrPreview } from '@/lib/drupal/query'
 import { getNestedIncludes } from '@/lib/utils/queries'
 import { formatter as formatAdministration } from '@/components/administration/query'
+import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
 
 // Define the query params for fetching node--press_release.
 export const params: QueryParams<null> = () => {

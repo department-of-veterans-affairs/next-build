@@ -4,9 +4,14 @@ exports[`BenefitHubLanding formatData outputs formatted data 1`] = `
 {
   "breadcrumbs": [
     {
+      "href": "/",
+      "label": "Home",
       "options": [],
-      "title": "Home",
-      "uri": "https://www.va.gov/",
+    },
+    {
+      "href": "",
+      "label": "VA health care",
+      "options": [],
     },
   ],
   "connectWithUs": {

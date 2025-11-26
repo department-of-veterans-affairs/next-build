@@ -47,8 +47,8 @@ export const newsStoryPartialResource = {
   published: true,
   title: 'Title',
   breadcrumbs: [
-    { title: 'Home', uri: '/', options: [] },
-    { title: 'News', uri: '/news', options: [] },
+    { label: 'Home', href: '/', options: [] },
+    { label: 'News', href: '/news', options: [] },
   ],
   image: {
     alt: 'alt-text',

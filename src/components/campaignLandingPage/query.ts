@@ -1,17 +1,16 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { drupalClient } from '@/lib/drupal/drupalClient'
 import { NodeCampaignLandingPage } from '@/types/drupal/node'
 import { CampaignLandingPage } from './formatted-type'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import { getFacebookLink, getXLink } from '@/lib/utils/social'
-import {
-  entityBaseFields,
-  fetchSingleEntityOrPreview,
-} from '@/lib/drupal/query'
+import { fetchSingleEntityOrPreview } from '@/lib/drupal/query'
 import { formatter as formatImage } from '@/components/mediaImage/query'
 import { queries } from '@/lib/drupal/queries'
+import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
+
+import { formatter as teaserWithImageFormatter } from '../linkTeaserWithImage/query'
 
 // Define the query params for fetching node--campaign_landing_page.
 export const params: QueryParams<null> = () => {
@@ -30,6 +29,10 @@ export const params: QueryParams<null> = () => {
     'field_clp_video_panel_more_video',
     'field_clp_spotlight_cta',
     'field_clp_spotlight_link_teasers',
+    'field_clp_stories_teasers',
+    'field_clp_stories_teasers.field_link_teaser',
+    'field_clp_stories_teasers.field_media',
+    'field_clp_stories_teasers.field_media.image',
   ])
 }
 
@@ -126,6 +129,18 @@ export const formatter: QueryFormatter<
         queries.formatData('paragraph--button', entity.field_clp_spotlight_cta),
       teasers: (entity.field_clp_spotlight_link_teasers ?? []).map((teaser) =>
         queries.formatData('paragraph--link_teaser', teaser)
+      ),
+    },
+    stories: {
+      show: entity.field_clp_stories_panel,
+      header: entity.field_clp_stories_header,
+      intro: entity.field_clp_stories_intro,
+      cta: entity.field_clp_stories_cta && {
+        url: entity.field_clp_stories_cta.url,
+        label: entity.field_clp_stories_cta.title || 'See more stories',
+      },
+      teasers: (entity.field_clp_stories_teasers ?? []).map((teaser) =>
+        teaserWithImageFormatter(teaser)
       ),
     },
   }

@@ -16,6 +16,9 @@ import { FieldLink } from '@/types/drupal/field_type'
 import { Button } from '../button/formatted-type'
 import { VideoPanel } from './VideoPanel'
 import { LinkTeaser } from '../linkTeaser/formatted-type'
+import { LinkTeaserWithImage } from '../linkTeaserWithImage/formatted-type'
+import { StoriesPanel } from './StoriesPanel'
+import { cleanup } from '@testing-library/react'
 
 const mockBaseProps: Partial<CampaignLandingPageProps> = {
   title: 'Testing title',
@@ -112,6 +115,32 @@ const mockBaseProps: Partial<CampaignLandingPageProps> = {
       } as LinkTeaser,
     ],
   },
+  stories: {
+    show: true,
+    header: 'stories header',
+    intro: 'stories intro',
+    cta: {
+      url: '?stories-1',
+      label: 'the stories header',
+    },
+    teasers: [
+      {
+        teaser: {
+          uri: '?stories-teaser-1',
+          title: 'Stories easer 1 link',
+          summary: 'Summary for stories teaser 1',
+        } as LinkTeaser,
+        image: {
+          alt: '',
+          links: {
+            '3_2_medium_thumbnail': {
+              href: 'https://example.com/stories-teaser-1-image.png',
+            } as unknown as MediaImageLinks,
+          },
+        } as unknown as MediaImage,
+      } as LinkTeaserWithImage,
+    ],
+  },
 }
 
 jest.mock('next/image', () => ({
@@ -136,6 +165,7 @@ describe('CampaignLandingPage with valid data', () => {
     expect(screen.getByTestId('what-you-can-do')).toBeInTheDocument()
     expect(screen.getByTestId('video-panel')).toBeInTheDocument()
     expect(screen.getByTestId('spotlight-panel')).toBeInTheDocument()
+    expect(screen.getByTestId('stories-panel')).toBeInTheDocument()
 
     // TODO: Check that the other components rendered once they're built
   })
@@ -244,5 +274,58 @@ describe('CampaignLandingPage->VideoPanel', () => {
 
     expect(ctaRoot.href).toBe('https://example.com/button-url')
     expect(ctaRoot.text).toBe('Video button')
+  })
+})
+
+describe('CampaignLandingPage->StoriesPanel', () => {
+  beforeEach(async () => {
+    await render(
+      <StoriesPanel {...(mockBaseProps as CampaignLandingPageProps)} />
+    )
+  })
+
+  test('shows header', () => {
+    expect(screen.getByText('stories header')).toBeInTheDocument()
+  })
+
+  test('shows intro', () => {
+    expect(screen.getByText('stories intro')).toBeInTheDocument()
+  })
+
+  test('shows teaser summary', () => {
+    expect(screen.getByText('Summary for stories teaser 1')).toBeInTheDocument()
+  })
+
+  test('shows teaser link', () => {
+    const link = screen.getByTestId('stories-teaser-link')
+
+    expect(link.href).toBe('?stories-teaser-1')
+    expect(link.text).toBe('Stories easer 1 link')
+  })
+
+  test('shows teaser image', () => {
+    const img = screen.getByTestId('stories-teaser-image')
+    expect(img.src).toBe('https://example.com/stories-teaser-1-image.png')
+  })
+
+  test('does not render when stories.show = false', async () => {
+    // first, test the inverse to ensure this test passing isn't a fluke & isolate the reason
+    expect(screen.getByTestId('stories-panel')).toBeInTheDocument()
+    await cleanup()
+
+    const mockWithStoriesHidden = {
+      ...mockBaseProps,
+      stories: {
+        ...mockBaseProps.stories,
+        show: false,
+      },
+    }
+
+    await render(
+      <StoriesPanel {...(mockWithStoriesHidden as CampaignLandingPageProps)} />
+    )
+
+    // now that we know it renders with show:true, let's make sure it didn't with show:false
+    expect(screen.queryByTestId('stories-panel')).not.toBeInTheDocument()
   })
 })

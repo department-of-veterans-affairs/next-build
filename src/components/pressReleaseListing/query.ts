@@ -11,11 +11,11 @@ import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 import {
   fetchAndConcatAllResourceCollectionPages,
   fetchSingleResourceCollectionPage,
-  entityBaseFields,
   fetchSingleEntityOrPreview,
   getMenu,
 } from '@/lib/drupal/query'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
+import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
 
 const PAGE_SIZE = PAGE_SIZES[RESOURCE_TYPES.PRESS_RELEASE_LISTING]
 
