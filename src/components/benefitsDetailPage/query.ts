@@ -18,6 +18,7 @@ import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import { getBenefitsHubMenu } from './getBenefitsHubMenu'
 import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
+import { formatParagraph } from '@/lib/drupal/paragraphs'
 
 // Define the query params for fetching node--page (benefits detail page).
 export const params: QueryParams<null> = () => {
