@@ -29,7 +29,7 @@ export function HomePageCommonTasks({
               </h3>
               <div className="homepage-common-tasks__search-tools">
                 <ul className="vads-u-padding-left--0" role="list">
-                  {searchLinks?.map((link, index) => (
+                  {searchLinks.map((link, index) => (
                     <li key={index}>
                       <va-icon
                         icon="arrow_forward"
@@ -55,7 +55,7 @@ export function HomePageCommonTasks({
                 className="homepage-common-tasks__list vads-u-padding-left--0"
                 role="list"
               >
-                {popularLinks?.map((link, index) => (
+                {popularLinks.map((link, index) => (
                   <li key={index}>
                     <va-link href={link.url} text={link.title}></va-link>
                   </li>
