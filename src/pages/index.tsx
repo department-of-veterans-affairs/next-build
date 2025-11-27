@@ -2,10 +2,17 @@ import { ContentFooter } from '@/components/contentFooter/template'
 import { PageLayout } from '@/components/pageLayout/template'
 import { queries } from '@/lib/drupal/queries'
 import { HomePageHero } from '@/components/homePageHero/template'
+import { HomePageCommonTasks } from '@/components/homePageCommonTasks/template'
 import Head from 'next/head'
 import Script from 'next/script'
 
-const HomePage = ({ footerData, megaMenuData, bannerData, heroData }) => {
+const HomePage = ({
+  footerData,
+  megaMenuData,
+  bannerData,
+  heroData,
+  commonTasksData,
+}) => {
   return (
     <>
       <Head>
@@ -18,7 +25,7 @@ const HomePage = ({ footerData, megaMenuData, bannerData, heroData }) => {
       >
         <main data-template="layouts/home" id="content">
           <HomePageHero {...heroData} />
-          <div>TODO: add Common tasks</div>
+          <HomePageCommonTasks {...commonTasksData} />
           <div>TODO: add news-spotlight</div>
           <div>TODO: add homepage-benefits</div>
           <div className="usa-grid usa-grid-full">
@@ -49,14 +56,16 @@ export async function getStaticProps() {
     }
   }
   try {
-    const [footerData, megaMenuData, bannerData, heroData] = await Promise.all([
-      queries.getData('footer-data'),
-      queries.getData('header-data'),
-      queries.getData('banner-data', {
-        itemPath: '/',
-      }),
-      queries.getData('hero-data'),
-    ])
+    const [footerData, megaMenuData, bannerData, heroData, commonTasksData] =
+      await Promise.all([
+        queries.getData('footer-data'),
+        queries.getData('header-data'),
+        queries.getData('banner-data', {
+          itemPath: '/',
+        }),
+        queries.getData('hero-data'),
+        queries.getData('home-page-common-tasks'),
+      ])
 
     return {
       props: {
@@ -64,6 +73,7 @@ export async function getStaticProps() {
         megaMenuData,
         bannerData,
         heroData,
+        commonTasksData,
       },
     }
   } catch (error) {

@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`HomePageCommonTasks query outputs formatted data 1`] = `
+{
+  "popularLinks": [
+    {
+      "title": "Health Care",
+      "url": "/health-care",
+    },
+    {
+      "title": "Benefits",
+      "url": "/benefits",
+    },
+  ],
+  "searchLinks": [
+    {
+      "title": "Find Locations",
+      "url": "/find-locations",
+    },
+    {
+      "title": "Contact Us",
+      "url": "/contact-us",
+    },
+  ],
+}
+`;
