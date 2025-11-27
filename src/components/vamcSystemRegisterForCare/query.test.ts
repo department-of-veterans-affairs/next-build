@@ -21,19 +21,20 @@ import {
 
 const mockPageQuery = jest.fn(() => mockPage as NodeVamcSystemRegisterForCare)
 
-jest.mock('@/lib/drupal/query', () => ({
-  ...jest.requireActual('@/lib/drupal/query'),
-  fetchSingleEntityOrPreview: () => mockPageQuery(),
-  fetchAndConcatAllResourceCollectionPages: jest.fn(),
-  getMenu: () => mockMenu,
-}))
+jest.mock('@/lib/drupal/query')
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const mockDrupalQuery = require('@/lib/drupal/query')
 
 const serviceMocks = createRegisterForCareServiceQueryMocks()
-// eslint-disable-next-line @typescript-eslint/no-require-imports
-const queryModule = require('@/lib/drupal/query')
-queryModule.fetchAndConcatAllResourceCollectionPages.mockImplementation(
+
+mockDrupalQuery.setSingleEntityMock(
+  RESOURCE_TYPES.VAMC_SYSTEM_REGISTER_FOR_CARE,
+  mockPageQuery
+)
+mockDrupalQuery.fetchAndConcatAllResourceCollectionPages.mockImplementation(
   serviceMocks.mockFetchAndConcatAllResourceCollectionPages
 )
+mockDrupalQuery.getMenu.mockReturnValue(mockMenu)
 
 jest.mock('@/lib/drupal/drupalClient', () => ({
   drupalClient: {

@@ -10,36 +10,35 @@ import {
   StoryListingData,
 } from './query'
 import * as queryModule from '@/lib/drupal/query'
+import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 
-jest.mock('@/lib/drupal/query', () => {
-  const mockEntity = {
-    id: 'test-story-listing-id',
-    type: 'node--story_listing',
-    attributes: {},
-    langcode: 'en',
-    status: true,
-    field_office: {
-      field_system_menu: {
-        resourceIdObjMeta: {
-          drupal_internal__target_id: '1111-1111-1111',
-        },
+jest.mock('@/lib/drupal/query')
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const mockDrupalQuery = require('@/lib/drupal/query')
+
+const mockEntity = {
+  id: 'test-story-listing-id',
+  type: 'node--story_listing',
+  attributes: {},
+  langcode: 'en',
+  status: true,
+  field_office: {
+    field_system_menu: {
+      resourceIdObjMeta: {
+        drupal_internal__target_id: '1111-1111-1111',
       },
     },
-  }
+  },
+}
 
-  const mockMenu = {
-    items: [],
-    tree: [],
-  }
-
-  return {
-    fetchSingleEntityOrPreview: jest.fn().mockResolvedValue(mockEntity),
-    fetchAndConcatAllResourceCollectionPages: jest
-      .fn()
-      .mockResolvedValue({ data: [], totalItems: 0, totalPages: 0 }),
-    getMenu: jest.fn().mockResolvedValue(mockMenu),
-  }
-})
+mockDrupalQuery.setSingleEntityMock(
+  RESOURCE_TYPES.STORY_LISTING,
+  jest.fn().mockResolvedValue(mockEntity)
+)
+mockDrupalQuery.setResourceCollectionMock(
+  RESOURCE_TYPES.STORY,
+  jest.fn().mockResolvedValue({ data: [], totalItems: 0, totalPages: 0 })
+)
 
 describe('data function for StoryListing', () => {
   test('invokes data function with mocked dependencies', async () => {

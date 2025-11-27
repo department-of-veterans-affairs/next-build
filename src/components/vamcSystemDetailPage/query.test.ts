@@ -11,11 +11,15 @@ import { NodeVamcSystemDetailPage } from '@/types/drupal/node'
 
 const mockPageQuery = jest.fn(() => mockPage as NodeVamcSystemDetailPage)
 
-jest.mock('@/lib/drupal/query', () => ({
-  ...jest.requireActual('@/lib/drupal/query'),
-  fetchSingleEntityOrPreview: () => mockPageQuery(),
-  getMenu: () => mockMenu,
-}))
+jest.mock('@/lib/drupal/query')
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const mockDrupalQuery = require('@/lib/drupal/query')
+
+mockDrupalQuery.setSingleEntityMock(
+  RESOURCE_TYPES.VAMC_SYSTEM_DETAIL_PAGE,
+  mockPageQuery
+)
+mockDrupalQuery.getMenu.mockReturnValue(mockMenu)
 
 const mockTranslatePath = jest.fn()
 jest.mock('@/lib/drupal/drupalClient', () => ({

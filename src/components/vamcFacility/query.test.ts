@@ -33,22 +33,28 @@ const mockMenu = {
 
 const TRICARE_TEST_ID = 'lovel tricare test'
 
-jest.mock('@/lib/drupal/query', () => ({
-  ...jest.requireActual('@/lib/drupal/query'),
-  fetchSingleEntityOrPreview: (opts: { id: string }) => {
-    if (opts.id === TRICARE_TEST_ID) {
-      return {
-        ...mockFacilityData,
-        path: {
-          alias:
-            '/lovell-federal-health-care-tricare/locations/causeway-va-clinic',
-        },
-      }
+jest.mock('@/lib/drupal/query')
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const mockDrupalQuery = require('@/lib/drupal/query')
+
+const mockFacilityQuery = jest.fn((opts: { id: string }) => {
+  if (opts.id === TRICARE_TEST_ID) {
+    return {
+      ...mockFacilityData,
+      path: {
+        alias:
+          '/lovell-federal-health-care-tricare/locations/causeway-va-clinic',
+      },
     }
-    return mockFacilityData
-  },
-  getMenu: jest.fn(() => mockMenu),
-}))
+  }
+  return mockFacilityData
+})
+
+mockDrupalQuery.setSingleEntityMock(
+  RESOURCE_TYPES.VAMC_FACILITY,
+  mockFacilityQuery
+)
+mockDrupalQuery.getMenu.mockReturnValue(mockMenu)
 
 describe('DrupalJsonApiParams configuration', () => {
   it('should use the correct include fields', () => {
