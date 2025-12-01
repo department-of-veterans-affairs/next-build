@@ -42,13 +42,11 @@ export function HomePageNewsSpotlight({
           {/* start first column */}
           <div className="vads-l-col--12 vads-u-display--none desktop:vads-u-display--block medium-screen:vads-l-col--4">
             <div className="homepage-blog__image">
-              {image && (
-                <MediaImage
-                  {...image}
-                  imageStyle="1_1_square_large"
-                  // style={{ objectFit: 'cover', aspectRatio: '1/1' }}
-                />
-              )}
+              <MediaImage
+                {...image}
+                imageStyle="1_1_square_large"
+                // style={{ objectFit: 'cover', aspectRatio: '1/1' }}
+              />
             </div>
           </div>
           {/* end first column */}
@@ -59,22 +57,18 @@ export function HomePageNewsSpotlight({
               <h2 className="vads-u-font-size--base vads-u-margin-top--0 vads-u-font-weight--normal vads-u-font-family--sans">
                 VA NEWS
               </h2>
-              {link && headline && (
-                <h3 className="vads-u-font-family--serif vads-u-margin-top--0 vads-u-font-size--xl">
-                  <va-link href={link.url} text={headline} reverse></va-link>
-                </h3>
-              )}
+              <h3 className="vads-u-font-family--serif vads-u-margin-top--0 vads-u-font-size--xl">
+                <va-link href={link.url} text={headline} reverse></va-link>
+              </h3>
 
               <p className="vads-u-padding-right--0 desktop:vads-u-padding-right--8 vads-u-margin-bottom--3 desktop:vads-u-margin-bottom--6">
                 {promoText}
-                {link && headline && (
-                  <va-link
-                    reverse
-                    label={`${link.text} about ${headline}`}
-                    href={link.url}
-                    text={link.text}
-                  />
-                )}
+                <va-link
+                  reverse
+                  label={`${link.text} about ${headline}`}
+                  href={link.url}
+                  text={link.text}
+                />
               </p>
 
               <div>
