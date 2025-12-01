@@ -1,0 +1,558 @@
+{
+  "jsonapi": {
+    "version": "1.0",
+    "meta": {
+      "links": {
+        "self": {
+          "href": "http://jsonapi.org/format/1.0/"
+        }
+      }
+    }
+  },
+  "data": [
+    {
+      "type": "entity_subqueue--home_page_news_spotlight",
+      "id": "98da33af-ffc1-46f7-afdf-9cfc50efd306",
+      "links": {
+        "self": {
+          "href": "http://va-gov-cms.ddev.site/jsonapi/entity_subqueue/home_page_news_spotlight/98da33af-ffc1-46f7-afdf-9cfc50efd306?resourceVersion=id%3A5"
+        }
+      },
+      "attributes": {
+        "drupal_internal__name": "home_page_news_spotlight",
+        "drupal_internal__revision_id": 5,
+        "langcode": "en",
+        "revision_created": "2022-11-04T20:04:31+00:00",
+        "status": true,
+        "title": "V2 Home page news spotlight",
+        "created": "2022-11-04T20:04:31+00:00",
+        "changed": "2025-04-07T20:04:27+00:00",
+        "default_langcode": true,
+        "revision_translation_affected": true,
+        "breadcrumbs": [
+          {
+            "uri": "http://va-gov-cms.ddev.site/",
+            "title": "Home",
+            "options": []
+          }
+        ],
+        "metatag": [
+          {
+            "tag": "meta",
+            "attributes": {
+              "name": "title",
+              "content": "| Veterans Affairs"
+            }
+          }
+        ]
+      },
+      "relationships": {
+        "queue": {
+          "data": {
+            "type": "entity_queue--entity_queue",
+            "id": "94a2b406-5f2d-4c83-9cd6-3b20a9e7c98f",
+            "meta": {
+              "drupal_internal__target_id": "home_page_news_spotlight"
+            }
+          },
+          "links": {
+            "related": {
+              "href": "http://va-gov-cms.ddev.site/jsonapi/entity_subqueue/home_page_news_spotlight/98da33af-ffc1-46f7-afdf-9cfc50efd306/queue?resourceVersion=id%3A5"
+            },
+            "self": {
+              "href": "http://va-gov-cms.ddev.site/jsonapi/entity_subqueue/home_page_news_spotlight/98da33af-ffc1-46f7-afdf-9cfc50efd306/relationships/queue?resourceVersion=id%3A5"
+            }
+          }
+        },
+        "revision_user": {
+          "data": {
+            "type": "user--user",
+            "id": "20b2bc97-2210-4def-9a0f-46c22d250eb7",
+            "meta": {
+              "drupal_internal__target_id": 0
+            }
+          },
+          "links": {
+            "related": {
+              "href": "http://va-gov-cms.ddev.site/jsonapi/entity_subqueue/home_page_news_spotlight/98da33af-ffc1-46f7-afdf-9cfc50efd306/revision_user?resourceVersion=id%3A5"
+            },
+            "self": {
+              "href": "http://va-gov-cms.ddev.site/jsonapi/entity_subqueue/home_page_news_spotlight/98da33af-ffc1-46f7-afdf-9cfc50efd306/relationships/revision_user?resourceVersion=id%3A5"
+            }
+          }
+        },
+        "uid": {
+          "data": {
+            "type": "user--user",
+            "id": "20b2bc97-2210-4def-9a0f-46c22d250eb7",
+            "meta": {
+              "drupal_internal__target_id": 0
+            }
+          },
+          "links": {
+            "related": {
+              "href": "http://va-gov-cms.ddev.site/jsonapi/entity_subqueue/home_page_news_spotlight/98da33af-ffc1-46f7-afdf-9cfc50efd306/uid?resourceVersion=id%3A5"
+            },
+            "self": {
+              "href": "http://va-gov-cms.ddev.site/jsonapi/entity_subqueue/home_page_news_spotlight/98da33af-ffc1-46f7-afdf-9cfc50efd306/relationships/uid?resourceVersion=id%3A5"
+            }
+          }
+        },
+        "items": {
+          "data": [
+            {
+              "type": "block_content--news_promo",
+              "id": "30145474-b3c1-443c-b921-ecf1b8bc6ea0",
+              "meta": {
+                "drupal_internal__target_id": 341
+              }
+            }
+          ],
+          "links": {
+            "related": {
+              "href": "http://va-gov-cms.ddev.site/jsonapi/entity_subqueue/home_page_news_spotlight/98da33af-ffc1-46f7-afdf-9cfc50efd306/items?resourceVersion=id%3A5"
+            },
+            "self": {
+              "href": "http://va-gov-cms.ddev.site/jsonapi/entity_subqueue/home_page_news_spotlight/98da33af-ffc1-46f7-afdf-9cfc50efd306/relationships/items?resourceVersion=id%3A5"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "included": [
+    {
+      "type": "block_content--news_promo",
+      "id": "30145474-b3c1-443c-b921-ecf1b8bc6ea0",
+      "links": {
+        "self": {
+          "href": "http://va-gov-cms.ddev.site/jsonapi/block_content/news_promo/30145474-b3c1-443c-b921-ecf1b8bc6ea0?resourceVersion=id%3A1834"
+        }
+      },
+      "attributes": {
+        "drupal_internal__id": 341,
+        "drupal_internal__revision_id": 1834,
+        "langcode": "en",
+        "revision_created": "2025-04-07T20:04:27+00:00",
+        "status": true,
+        "info": "Download the VA Health and Benefits App",
+        "changed": "2025-11-20T00:24:01+00:00",
+        "reusable": true,
+        "default_langcode": true,
+        "revision_translation_affected": true,
+        "breadcrumbs": [
+          {
+            "uri": "http://va-gov-cms.ddev.site/",
+            "title": "Home",
+            "options": []
+          }
+        ],
+        "moderation_state": "published",
+        "expiration_date": "2025-12-03T05:00:00+00:00",
+        "warning_date": "2025-11-30T05:00:00+00:00",
+        "metatag": [
+          {
+            "tag": "meta",
+            "attributes": {
+              "name": "title",
+              "content": "| Veterans Affairs"
+            }
+          }
+        ],
+        "field_link": {
+          "uri": "https://news.va.gov/138519/download-the-va-health-and-benefits-app/",
+          "title": null,
+          "options": [],
+          "url": "https://news.va.gov/138519/download-the-va-health-and-benefits-app/"
+        },
+        "field_link_label": "Read the full article",
+        "field_promo_headline": "Download the VA Health and Benefits App",
+        "field_promo_text": "With the VA Health and Benefits App, you can refill prescriptions, message your care team or check your VA benefits using your smartphone."
+      },
+      "relationships": {
+        "block_content_type": {
+          "data": {
+            "type": "block_content_type--block_content_type",
+            "id": "8366569b-90ea-44d0-b444-421c27486102",
+            "meta": {
+              "drupal_internal__target_id": "news_promo"
+            }
+          },
+          "links": {
+            "related": {
+              "href": "http://va-gov-cms.ddev.site/jsonapi/block_content/news_promo/30145474-b3c1-443c-b921-ecf1b8bc6ea0/block_content_type?resourceVersion=id%3A1834"
+            },
+            "self": {
+              "href": "http://va-gov-cms.ddev.site/jsonapi/block_content/news_promo/30145474-b3c1-443c-b921-ecf1b8bc6ea0/relationships/block_content_type?resourceVersion=id%3A1834"
+            }
+          }
+        },
+        "revision_user": {
+          "data": {
+            "type": "user--user",
+            "id": "c564bd69-e8da-4ac3-905c-dd94f4bf7b35",
+            "meta": {
+              "drupal_internal__target_id": 1317
+            }
+          },
+          "links": {
+            "related": {
+              "href": "http://va-gov-cms.ddev.site/jsonapi/block_content/news_promo/30145474-b3c1-443c-b921-ecf1b8bc6ea0/revision_user?resourceVersion=id%3A1834"
+            },
+            "self": {
+              "href": "http://va-gov-cms.ddev.site/jsonapi/block_content/news_promo/30145474-b3c1-443c-b921-ecf1b8bc6ea0/relationships/revision_user?resourceVersion=id%3A1834"
+            }
+          }
+        },
+        "field_administration": {
+          "data": {
+            "type": "taxonomy_term--administration",
+            "id": "10e97cc5-5a5f-44cc-b462-7d1d177386fe",
+            "meta": {
+              "drupal_internal__target_id": 6
+            }
+          },
+          "links": {
+            "related": {
+              "href": "http://va-gov-cms.ddev.site/jsonapi/block_content/news_promo/30145474-b3c1-443c-b921-ecf1b8bc6ea0/field_administration?resourceVersion=id%3A1834"
+            },
+            "self": {
+              "href": "http://va-gov-cms.ddev.site/jsonapi/block_content/news_promo/30145474-b3c1-443c-b921-ecf1b8bc6ea0/relationships/field_administration?resourceVersion=id%3A1834"
+            }
+          }
+        },
+        "field_image": {
+          "data": {
+            "type": "media--image",
+            "id": "e783a6c6-61f5-4adf-943a-ebd1bc8a4de2",
+            "meta": {
+              "drupal_internal__target_id": 42091
+            }
+          },
+          "links": {
+            "related": {
+              "href": "http://va-gov-cms.ddev.site/jsonapi/block_content/news_promo/30145474-b3c1-443c-b921-ecf1b8bc6ea0/field_image?resourceVersion=id%3A1834"
+            },
+            "self": {
+              "href": "http://va-gov-cms.ddev.site/jsonapi/block_content/news_promo/30145474-b3c1-443c-b921-ecf1b8bc6ea0/relationships/field_image?resourceVersion=id%3A1834"
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "media--image",
+      "id": "e783a6c6-61f5-4adf-943a-ebd1bc8a4de2",
+      "links": {
+        "self": {
+          "href": "http://va-gov-cms.ddev.site/jsonapi/media/image/e783a6c6-61f5-4adf-943a-ebd1bc8a4de2?resourceVersion=id%3A44063"
+        }
+      },
+      "attributes": {
+        "drupal_internal__mid": 42091,
+        "drupal_internal__vid": 44063,
+        "status": true,
+        "name": "Health-and-benefits-distro-graphics_sq.jpg",
+        "created": "2025-04-07T20:04:27+00:00",
+        "changed": "2025-11-20T00:24:01+00:00",
+        "breadcrumbs": [
+          {
+            "uri": "http://va-gov-cms.ddev.site/",
+            "title": "Home",
+            "options": []
+          },
+          {
+            "uri": "http://va-gov-cms.ddev.site/media/image/42091",
+            "title": "Health-and-benefits-distro-graphics_sq.jpg",
+            "options": []
+          }
+        ],
+        "path": {
+          "alias": "/media/image/42091",
+          "pid": 124852,
+          "langcode": "en"
+        },
+        "field_description": null
+      },
+      "relationships": {
+        "bundle": {
+          "data": {
+            "type": "media_type--media_type",
+            "id": "92f64a34-81e5-4094-82a9-4fe61d7f2227",
+            "meta": {
+              "drupal_internal__target_id": "image"
+            }
+          },
+          "links": {
+            "related": {
+              "href": "http://va-gov-cms.ddev.site/jsonapi/media/image/e783a6c6-61f5-4adf-943a-ebd1bc8a4de2/bundle?resourceVersion=id%3A44063"
+            },
+            "self": {
+              "href": "http://va-gov-cms.ddev.site/jsonapi/media/image/e783a6c6-61f5-4adf-943a-ebd1bc8a4de2/relationships/bundle?resourceVersion=id%3A44063"
+            }
+          }
+        },
+        "uid": {
+          "data": {
+            "type": "user--user",
+            "id": "b02c2ff5-dfe1-4542-beec-3fd410a3f267",
+            "meta": {
+              "drupal_internal__target_id": 1
+            }
+          },
+          "links": {
+            "related": {
+              "href": "http://va-gov-cms.ddev.site/jsonapi/media/image/e783a6c6-61f5-4adf-943a-ebd1bc8a4de2/uid?resourceVersion=id%3A44063"
+            },
+            "self": {
+              "href": "http://va-gov-cms.ddev.site/jsonapi/media/image/e783a6c6-61f5-4adf-943a-ebd1bc8a4de2/relationships/uid?resourceVersion=id%3A44063"
+            }
+          }
+        },
+        "thumbnail": {
+          "data": {
+            "type": "file--file",
+            "id": "0675eb94-ae21-4150-941a-0d3eef71bb24",
+            "meta": {
+              "alt": "Benefits app graphic",
+              "title": null,
+              "width": 628,
+              "height": 628,
+              "drupal_internal__target_id": 48173
+            }
+          },
+          "links": {
+            "related": {
+              "href": "http://va-gov-cms.ddev.site/jsonapi/media/image/e783a6c6-61f5-4adf-943a-ebd1bc8a4de2/thumbnail?resourceVersion=id%3A44063"
+            },
+            "self": {
+              "href": "http://va-gov-cms.ddev.site/jsonapi/media/image/e783a6c6-61f5-4adf-943a-ebd1bc8a4de2/relationships/thumbnail?resourceVersion=id%3A44063"
+            }
+          }
+        },
+        "image": {
+          "data": {
+            "type": "file--file",
+            "id": "0675eb94-ae21-4150-941a-0d3eef71bb24",
+            "meta": {
+              "alt": "Benefits app graphic",
+              "title": null,
+              "width": 628,
+              "height": 628,
+              "drupal_internal__target_id": 48173
+            }
+          },
+          "links": {
+            "related": {
+              "href": "http://va-gov-cms.ddev.site/jsonapi/media/image/e783a6c6-61f5-4adf-943a-ebd1bc8a4de2/image?resourceVersion=id%3A44063"
+            },
+            "self": {
+              "href": "http://va-gov-cms.ddev.site/jsonapi/media/image/e783a6c6-61f5-4adf-943a-ebd1bc8a4de2/relationships/image?resourceVersion=id%3A44063"
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "file--file",
+      "id": "0675eb94-ae21-4150-941a-0d3eef71bb24",
+      "links": {
+        "1_1_square_large": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/1_1_square_large/public/news_promos/Health-and-benefits-distro-graphics_sq.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "500",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "1_1_square_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/1_1_square_medium_thumbnail/public/news_promos/Health-and-benefits-distro-graphics_sq.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "240",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "2_1_large": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_large/public/news_promos/Health-and-benefits-distro-graphics_sq.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "512",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "2_1_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_medium_thumbnail/public/news_promos/Health-and-benefits-distro-graphics_sq.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "240",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "2_3_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_3_medium_thumbnail/public/news_promos/Health-and-benefits-distro-graphics_sq.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "480",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "3_2_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/news_promos/Health-and-benefits-distro-graphics_sq.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "320",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "7_2_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/7_2_medium_thumbnail/public/news_promos/Health-and-benefits-distro-graphics_sq.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "300",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "full_content_width": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/full_content_width/public/news_promos/Health-and-benefits-distro-graphics_sq.jpg",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "large": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/large/public/news_promos/Health-and-benefits-distro-graphics_sq.jpg",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "original": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/original/public/news_promos/Health-and-benefits-distro-graphics_sq.jpg",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "self": {
+          "href": "http://va-gov-cms.ddev.site/jsonapi/file/file/0675eb94-ae21-4150-941a-0d3eef71bb24"
+        },
+        "viewport_width": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/viewport_width/public/news_promos/Health-and-benefits-distro-graphics_sq.jpg",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        }
+      },
+      "attributes": {
+        "drupal_internal__fid": 48173,
+        "langcode": "en",
+        "filename": "Health-and-benefits-distro-graphics_sq.jpg",
+        "uri": {
+          "value": "public://news_promos/Health-and-benefits-distro-graphics_sq.jpg",
+          "url": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/news_promos/Health-and-benefits-distro-graphics_sq.jpg"
+        },
+        "filemime": "image/jpeg",
+        "filesize": 65014,
+        "status": true,
+        "created": "2025-04-07T20:04:27+00:00",
+        "changed": "2025-03-28T12:15:45+00:00",
+        "breadcrumbs": []
+      },
+      "relationships": {
+        "uid": {
+          "data": {
+            "type": "user--user",
+            "id": "c564bd69-e8da-4ac3-905c-dd94f4bf7b35",
+            "meta": {
+              "drupal_internal__target_id": 1317
+            }
+          },
+          "links": {
+            "related": {
+              "href": "http://va-gov-cms.ddev.site/jsonapi/file/file/0675eb94-ae21-4150-941a-0d3eef71bb24/uid"
+            },
+            "self": {
+              "href": "http://va-gov-cms.ddev.site/jsonapi/file/file/0675eb94-ae21-4150-941a-0d3eef71bb24/relationships/uid"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "meta": {
+    "count": 1
+  },
+  "links": {
+    "self": {
+      "href": "http://va-gov-cms.ddev.site/jsonapi/entity_subqueue/home_page_news_spotlight?include=items%2Citems.field_image%2Citems.field_image.image"
+    }
+  }
+}

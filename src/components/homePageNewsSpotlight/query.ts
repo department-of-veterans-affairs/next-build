@@ -27,11 +27,17 @@ export const formatter: QueryFormatter<JsonApiResponse, NewsSpotlightData> = (
   // Since we are using fetch we need to manually deserialize the JSON
   const deserializedPromoBlockData = deserialize(jsonData)
   // This should only have one thing and if there are more we should use the first
-  const firstPromoBlock = deserializedPromoBlockData[0].items[0]
+  const promoBlock = deserializedPromoBlockData[0].items[0]
+
+  const image = formatImage(promoBlock.field_image)
+  if (!image) {
+    throw new Error('Missing promo image')
+  }
+
   return {
-    image: formatImage(firstPromoBlock.field_image),
-    headline: firstPromoBlock.field_promo_headline,
-    link: firstPromoBlock.field_link,
-    promoText: firstPromoBlock.field_promo_text,
+    image,
+    headline: promoBlock.field_promo_headline,
+    link: promoBlock.field_link,
+    promoText: promoBlock.field_promo_text,
   }
 }
