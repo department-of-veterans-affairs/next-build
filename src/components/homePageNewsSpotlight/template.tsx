@@ -1,30 +1,6 @@
 import { NewsSpotlightData } from './formatted-type'
 import { MediaImage } from '@/components/mediaImage/template'
 
-// Mock data - will be replaced with query module later
-// const MOCK_DATA: NewsSpotlightData = {
-//   image: {
-//     id: 'mock-image-id',
-//     alt: 'VA News Spotlight Image',
-//     title: 'VA News',
-//     width: 628,
-//     height: 628,
-//     links: {
-//       derivative: {
-//         href: 'https://s3-us-gov-west-1.amazonaws.com/content.www.va.gov/img/styles/crop_square/public/news_promos/Health-and-benefits-distro-graphics_sq.jpg',
-//       },
-//     },
-//     loading: 'lazy',
-//   },
-//   headline: 'VA announces new benefits for Veterans',
-//   link: {
-//     url: '/news/va-announces-new-benefits',
-//     text: 'Read the full article',
-//   },
-//   promoText:
-//     'The Department of Veterans Affairs is expanding access to healthcare services for millions of Veterans across the country.',
-// }
-
 export function HomePageNewsSpotlight({
   image,
   headline,
