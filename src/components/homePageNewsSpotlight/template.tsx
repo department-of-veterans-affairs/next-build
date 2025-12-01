@@ -1,0 +1,95 @@
+import { NewsSpotlightData } from './formatted-type'
+import { MediaImage } from '@/components/mediaImage/template'
+
+// Mock data - will be replaced with query module later
+// const MOCK_DATA: NewsSpotlightData = {
+//   image: {
+//     id: 'mock-image-id',
+//     alt: 'VA News Spotlight Image',
+//     title: 'VA News',
+//     width: 628,
+//     height: 628,
+//     links: {
+//       derivative: {
+//         href: 'https://s3-us-gov-west-1.amazonaws.com/content.www.va.gov/img/styles/crop_square/public/news_promos/Health-and-benefits-distro-graphics_sq.jpg',
+//       },
+//     },
+//     loading: 'lazy',
+//   },
+//   headline: 'VA announces new benefits for Veterans',
+//   link: {
+//     url: '/news/va-announces-new-benefits',
+//     text: 'Read the full article',
+//   },
+//   promoText:
+//     'The Department of Veterans Affairs is expanding access to healthcare services for millions of Veterans across the country.',
+// }
+
+export function HomePageNewsSpotlight({
+  image,
+  headline,
+  link,
+  promoText,
+}: NewsSpotlightData) {
+  return (
+    <div
+      className="vads-u-background-color--primary-dark"
+      data-e2e="news"
+      data-testid="news-spotlight"
+    >
+      <div className="vads-l-grid-container vads-u-padding-x--0 homepage-blog">
+        <div className="vads-l-row">
+          {/* start first column */}
+          <div className="vads-l-col--12 vads-u-display--none desktop:vads-u-display--block medium-screen:vads-l-col--4">
+            <div className="homepage-blog__image">
+              {image && (
+                <MediaImage
+                  {...image}
+                  imageStyle="1_1_square_large"
+                  // style={{ objectFit: 'cover', aspectRatio: '1/1' }}
+                />
+              )}
+            </div>
+          </div>
+          {/* end first column */}
+
+          {/* start second column */}
+          <div className="vads-l-col--12 medium-screen:vads-l-col--8">
+            <div className="vads-u-padding--2p5 desktop:vads-u-padding--6 desktop:vads-u-padding-right--0 vads-u-color--white">
+              <h2 className="vads-u-font-size--base vads-u-margin-top--0 vads-u-font-weight--normal vads-u-font-family--sans">
+                VA NEWS
+              </h2>
+              {link && headline && (
+                <h3 className="vads-u-font-family--serif vads-u-margin-top--0 vads-u-font-size--xl">
+                  <va-link href={link.url} text={headline} reverse></va-link>
+                </h3>
+              )}
+
+              <p className="vads-u-padding-right--0 desktop:vads-u-padding-right--8 vads-u-margin-bottom--3 desktop:vads-u-margin-bottom--6">
+                {promoText}
+                {link && headline && (
+                  <va-link
+                    reverse
+                    label={`${link.text} about ${headline}`}
+                    href={link.url}
+                    text={link.text}
+                  />
+                )}
+              </p>
+
+              <div>
+                <va-link
+                  href="https://news.va.gov/"
+                  text="More VA news"
+                  active
+                  reverse
+                ></va-link>
+              </div>
+            </div>
+          </div>
+          {/* end second column */}
+        </div>
+      </div>
+    </div>
+  )
+}
