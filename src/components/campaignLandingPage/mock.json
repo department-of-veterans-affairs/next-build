@@ -125,9 +125,9 @@
   "field_clp_events_header": null,
   "field_clp_events_panel": false,
   "field_clp_faq_panel": true,
-  "field_clp_resources_header": null,
-  "field_clp_resources_intro_text": null,
-  "field_clp_resources_panel": false,
+  "field_clp_resources_header": "Intro header",
+  "field_clp_resources_intro_text": "Intro text",
+  "field_clp_resources_panel": true,
   "field_clp_spotlight_header": null,
   "field_clp_spotlight_intro_text": null,
   "field_clp_spotlight_panel": false,
@@ -4960,7 +4960,851 @@
       "relationshipNames": ["paragraph_type", "field_answer"]
     }
   ],
-  "field_clp_resources": [],
+  "field_clp_resources": [
+    {
+      "type": "media--document_external",
+      "id": "c18a4030-c763-45b4-98dc-3ebd4541c3af",
+      "drupal_internal__mid": 34965,
+      "drupal_internal__vid": 42497,
+      "langcode": "en",
+      "revision_created": "2025-02-10T16:09:24+00:00",
+      "status": true,
+      "name": "Set up your online sign-in account for VA",
+      "created": "2024-07-29T17:26:34+00:00",
+      "changed": "2025-02-10T16:09:42+00:00",
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "breadcrumbs": [
+        {
+          "uri": "https://va-gov-cms.ddev.site/",
+          "title": "Home",
+          "options": []
+        },
+        {
+          "uri": "https://va-gov-cms.ddev.site/media/documentexternal/34965",
+          "title": "Set Up Your Online Sign-in Account For VA",
+          "options": []
+        }
+      ],
+      "metatag": [
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "title",
+            "content": "| Veterans Affairs"
+          }
+        }
+      ],
+      "path": {
+        "alias": "/media/documentexternal/34965",
+        "pid": 109317,
+        "langcode": "en"
+      },
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "field_description": null,
+      "field_media_external_file": {
+        "uri": "https://prod.cms.va.gov/sites/default/files/2025-02/Set%20up%20your%20online%20sign-in%20account%20for%20VA-rem.pdf",
+        "title": "",
+        "options": [],
+        "url": "https://prod.cms.va.gov/sites/default/files/2025-02/Set%20up%20your%20online%20sign-in%20account%20for%20VA-rem.pdf"
+      },
+      "field_media_in_library": true,
+      "field_mime_type": "application/pdf",
+      "links": {
+        "self": {
+          "href": "https://va-gov-cms.ddev.site/jsonapi/media/document_external/c18a4030-c763-45b4-98dc-3ebd4541c3af?resourceVersion=id%3A42497"
+        }
+      },
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 34965
+      },
+      "bundle": {
+        "type": "media_type--media_type",
+        "id": "65ab963a-33e3-4570-b6ae-72daf715d728",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "document_external"
+        }
+      },
+      "revision_user": {
+        "type": "user--user",
+        "id": "38daa8d4-3d05-48a3-bb95-a9c75988e382",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 295
+        }
+      },
+      "uid": {
+        "type": "user--user",
+        "id": "985a2360-2506-4a2a-98cc-26cb1a05a178",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 1341
+        }
+      },
+      "thumbnail": {
+        "type": "file--file",
+        "id": "bd3b1fc6-cb65-4def-9c2e-21cca6aa48d1",
+        "drupal_internal__fid": 11,
+        "langcode": "en",
+        "filename": "generic.png",
+        "uri": {
+          "value": "public://media-icons/generic/generic.png",
+          "url": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/media-icons/generic/generic.png"
+        },
+        "filemime": "image/png",
+        "filesize": null,
+        "status": true,
+        "created": "2019-02-07T19:04:32+00:00",
+        "changed": "2019-02-07T19:04:32+00:00",
+        "breadcrumbs": [],
+        "links": {
+          "1_1_square_large": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/1_1_square_large/public/media-icons/generic/generic.png",
+            "meta": {
+              "linkParams": {
+                "width": "500",
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "1_1_square_medium_thumbnail": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/1_1_square_medium_thumbnail/public/media-icons/generic/generic.png",
+            "meta": {
+              "linkParams": {
+                "width": "240",
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "2_1_large": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_large/public/media-icons/generic/generic.png",
+            "meta": {
+              "linkParams": {
+                "width": "512",
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "2_1_medium_thumbnail": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_medium_thumbnail/public/media-icons/generic/generic.png",
+            "meta": {
+              "linkParams": {
+                "width": "240",
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "2_3_medium_thumbnail": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_3_medium_thumbnail/public/media-icons/generic/generic.png",
+            "meta": {
+              "linkParams": {
+                "width": "480",
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "3_2_medium_thumbnail": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/media-icons/generic/generic.png",
+            "meta": {
+              "linkParams": {
+                "width": "320",
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "7_2_medium_thumbnail": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/7_2_medium_thumbnail/public/media-icons/generic/generic.png",
+            "meta": {
+              "linkParams": {
+                "width": "300",
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "full_content_width": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/full_content_width/public/media-icons/generic/generic.png",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "large": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/large/public/media-icons/generic/generic.png",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "original": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/original/public/media-icons/generic/generic.png",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "self": {
+            "href": "https://va-gov-cms.ddev.site/jsonapi/file/file/bd3b1fc6-cb65-4def-9c2e-21cca6aa48d1"
+          },
+          "viewport_width": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/viewport_width/public/media-icons/generic/generic.png",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          }
+        },
+        "resourceIdObjMeta": {
+          "alt": "",
+          "title": null,
+          "width": 180,
+          "height": 180,
+          "drupal_internal__target_id": 11
+        },
+        "uid": {
+          "type": "user--user",
+          "id": "b02c2ff5-dfe1-4542-beec-3fd410a3f267",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 1
+          }
+        },
+        "relationshipNames": ["uid"]
+      },
+      "field_owner": {
+        "type": "taxonomy_term--administration",
+        "id": "40ef8d64-fa92-41b6-88c0-4d85dc24e191",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 194
+        }
+      },
+      "relationshipNames": [
+        "bundle",
+        "revision_user",
+        "uid",
+        "thumbnail",
+        "field_owner"
+      ]
+    },
+    {
+      "type": "media--document_external",
+      "id": "5cc75ca4-6151-4010-b7bb-510fb23960b2",
+      "drupal_internal__mid": 37220,
+      "drupal_internal__vid": 42498,
+      "langcode": "en",
+      "revision_created": "2025-02-10T16:09:17+00:00",
+      "status": true,
+      "name": "Sign-in changes flyer",
+      "created": "2024-10-02T12:52:37+00:00",
+      "changed": "2025-02-10T16:09:42+00:00",
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "breadcrumbs": [
+        {
+          "uri": "https://va-gov-cms.ddev.site/",
+          "title": "Home",
+          "options": []
+        },
+        {
+          "uri": "https://va-gov-cms.ddev.site/media/documentexternal/37220",
+          "title": "Sign-in Changes Flyer",
+          "options": []
+        }
+      ],
+      "metatag": [
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "title",
+            "content": "| Veterans Affairs"
+          }
+        }
+      ],
+      "path": {
+        "alias": "/media/documentexternal/37220",
+        "pid": 114132,
+        "langcode": "en"
+      },
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "field_description": null,
+      "field_media_external_file": {
+        "uri": "https://prod.cms.va.gov/sites/default/files/2025-02/Sign-in%20Transition%20Flyer%20March%20013125-rem.pdf",
+        "title": "",
+        "options": [],
+        "url": "https://prod.cms.va.gov/sites/default/files/2025-02/Sign-in%20Transition%20Flyer%20March%20013125-rem.pdf"
+      },
+      "field_media_in_library": true,
+      "field_mime_type": "application/pdf",
+      "links": {
+        "self": {
+          "href": "https://va-gov-cms.ddev.site/jsonapi/media/document_external/5cc75ca4-6151-4010-b7bb-510fb23960b2?resourceVersion=id%3A42498"
+        }
+      },
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 37220
+      },
+      "bundle": {
+        "type": "media_type--media_type",
+        "id": "65ab963a-33e3-4570-b6ae-72daf715d728",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "document_external"
+        }
+      },
+      "revision_user": {
+        "type": "user--user",
+        "id": "38daa8d4-3d05-48a3-bb95-a9c75988e382",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 295
+        }
+      },
+      "uid": {
+        "type": "user--user",
+        "id": "38daa8d4-3d05-48a3-bb95-a9c75988e382",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 295
+        }
+      },
+      "thumbnail": {
+        "type": "file--file",
+        "id": "bd3b1fc6-cb65-4def-9c2e-21cca6aa48d1",
+        "drupal_internal__fid": 11,
+        "langcode": "en",
+        "filename": "generic.png",
+        "uri": {
+          "value": "public://media-icons/generic/generic.png",
+          "url": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/media-icons/generic/generic.png"
+        },
+        "filemime": "image/png",
+        "filesize": null,
+        "status": true,
+        "created": "2019-02-07T19:04:32+00:00",
+        "changed": "2019-02-07T19:04:32+00:00",
+        "breadcrumbs": [],
+        "links": {
+          "1_1_square_large": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/1_1_square_large/public/media-icons/generic/generic.png",
+            "meta": {
+              "linkParams": {
+                "width": "500",
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "1_1_square_medium_thumbnail": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/1_1_square_medium_thumbnail/public/media-icons/generic/generic.png",
+            "meta": {
+              "linkParams": {
+                "width": "240",
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "2_1_large": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_large/public/media-icons/generic/generic.png",
+            "meta": {
+              "linkParams": {
+                "width": "512",
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "2_1_medium_thumbnail": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_medium_thumbnail/public/media-icons/generic/generic.png",
+            "meta": {
+              "linkParams": {
+                "width": "240",
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "2_3_medium_thumbnail": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_3_medium_thumbnail/public/media-icons/generic/generic.png",
+            "meta": {
+              "linkParams": {
+                "width": "480",
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "3_2_medium_thumbnail": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/media-icons/generic/generic.png",
+            "meta": {
+              "linkParams": {
+                "width": "320",
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "7_2_medium_thumbnail": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/7_2_medium_thumbnail/public/media-icons/generic/generic.png",
+            "meta": {
+              "linkParams": {
+                "width": "300",
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "full_content_width": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/full_content_width/public/media-icons/generic/generic.png",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "large": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/large/public/media-icons/generic/generic.png",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "original": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/original/public/media-icons/generic/generic.png",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "self": {
+            "href": "https://va-gov-cms.ddev.site/jsonapi/file/file/bd3b1fc6-cb65-4def-9c2e-21cca6aa48d1"
+          },
+          "viewport_width": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/viewport_width/public/media-icons/generic/generic.png",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          }
+        },
+        "resourceIdObjMeta": {
+          "alt": "",
+          "title": null,
+          "width": 180,
+          "height": 180,
+          "drupal_internal__target_id": 11
+        },
+        "uid": {
+          "type": "user--user",
+          "id": "b02c2ff5-dfe1-4542-beec-3fd410a3f267",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 1
+          }
+        },
+        "relationshipNames": ["uid"]
+      },
+      "field_owner": {
+        "type": "taxonomy_term--administration",
+        "id": "7aa5ff14-4c3e-416b-b351-da0c1cb3d7e6",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 313
+        }
+      },
+      "relationshipNames": [
+        "bundle",
+        "revision_user",
+        "uid",
+        "thumbnail",
+        "field_owner"
+      ]
+    },
+    {
+      "type": "media--document_external",
+      "id": "f540bf22-2b5b-4c74-8d53-d07b5fa7bc0f",
+      "drupal_internal__mid": 39948,
+      "drupal_internal__vid": 42499,
+      "langcode": "en",
+      "revision_created": "2025-02-10T16:09:09+00:00",
+      "status": true,
+      "name": "Video guides to create and verify your sign-in account",
+      "created": "2025-01-13T22:01:12+00:00",
+      "changed": "2025-02-10T16:09:42+00:00",
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "breadcrumbs": [
+        {
+          "uri": "https://va-gov-cms.ddev.site/",
+          "title": "Home",
+          "options": []
+        },
+        {
+          "uri": "https://va-gov-cms.ddev.site/media/documentexternal/39948",
+          "title": "Video Guides To Create and Verify Your Sign-in Account",
+          "options": []
+        }
+      ],
+      "metatag": [
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "title",
+            "content": "| Veterans Affairs"
+          }
+        }
+      ],
+      "path": {
+        "alias": "/media/documentexternal/39948",
+        "pid": 120083,
+        "langcode": "en"
+      },
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "field_description": null,
+      "field_media_external_file": {
+        "uri": "https://prod.cms.va.gov/sites/default/files/2025-02/How%20to%20verify%20identity%20online-rem.pdf",
+        "title": "",
+        "options": [],
+        "url": "https://prod.cms.va.gov/sites/default/files/2025-02/How%20to%20verify%20identity%20online-rem.pdf"
+      },
+      "field_media_in_library": true,
+      "field_mime_type": "application/pdf",
+      "links": {
+        "self": {
+          "href": "https://va-gov-cms.ddev.site/jsonapi/media/document_external/f540bf22-2b5b-4c74-8d53-d07b5fa7bc0f?resourceVersion=id%3A42499"
+        }
+      },
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 39948
+      },
+      "bundle": {
+        "type": "media_type--media_type",
+        "id": "65ab963a-33e3-4570-b6ae-72daf715d728",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "document_external"
+        }
+      },
+      "revision_user": {
+        "type": "user--user",
+        "id": "38daa8d4-3d05-48a3-bb95-a9c75988e382",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 295
+        }
+      },
+      "uid": {
+        "type": "user--user",
+        "id": "985a2360-2506-4a2a-98cc-26cb1a05a178",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 1341
+        }
+      },
+      "thumbnail": {
+        "type": "file--file",
+        "id": "bd3b1fc6-cb65-4def-9c2e-21cca6aa48d1",
+        "drupal_internal__fid": 11,
+        "langcode": "en",
+        "filename": "generic.png",
+        "uri": {
+          "value": "public://media-icons/generic/generic.png",
+          "url": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/media-icons/generic/generic.png"
+        },
+        "filemime": "image/png",
+        "filesize": null,
+        "status": true,
+        "created": "2019-02-07T19:04:32+00:00",
+        "changed": "2019-02-07T19:04:32+00:00",
+        "breadcrumbs": [],
+        "links": {
+          "1_1_square_large": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/1_1_square_large/public/media-icons/generic/generic.png",
+            "meta": {
+              "linkParams": {
+                "width": "500",
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "1_1_square_medium_thumbnail": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/1_1_square_medium_thumbnail/public/media-icons/generic/generic.png",
+            "meta": {
+              "linkParams": {
+                "width": "240",
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "2_1_large": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_large/public/media-icons/generic/generic.png",
+            "meta": {
+              "linkParams": {
+                "width": "512",
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "2_1_medium_thumbnail": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_medium_thumbnail/public/media-icons/generic/generic.png",
+            "meta": {
+              "linkParams": {
+                "width": "240",
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "2_3_medium_thumbnail": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_3_medium_thumbnail/public/media-icons/generic/generic.png",
+            "meta": {
+              "linkParams": {
+                "width": "480",
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "3_2_medium_thumbnail": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/media-icons/generic/generic.png",
+            "meta": {
+              "linkParams": {
+                "width": "320",
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "7_2_medium_thumbnail": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/7_2_medium_thumbnail/public/media-icons/generic/generic.png",
+            "meta": {
+              "linkParams": {
+                "width": "300",
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "full_content_width": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/full_content_width/public/media-icons/generic/generic.png",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "large": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/large/public/media-icons/generic/generic.png",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "original": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/original/public/media-icons/generic/generic.png",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "self": {
+            "href": "https://va-gov-cms.ddev.site/jsonapi/file/file/bd3b1fc6-cb65-4def-9c2e-21cca6aa48d1"
+          },
+          "viewport_width": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/viewport_width/public/media-icons/generic/generic.png",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          }
+        },
+        "resourceIdObjMeta": {
+          "alt": "",
+          "title": null,
+          "width": 180,
+          "height": 180,
+          "drupal_internal__target_id": 11
+        },
+        "uid": {
+          "type": "user--user",
+          "id": "b02c2ff5-dfe1-4542-beec-3fd410a3f267",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 1
+          }
+        },
+        "relationshipNames": ["uid"]
+      },
+      "field_owner": {
+        "type": "taxonomy_term--administration",
+        "id": "40ef8d64-fa92-41b6-88c0-4d85dc24e191",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 194
+        }
+      },
+      "relationshipNames": [
+        "bundle",
+        "revision_user",
+        "uid",
+        "thumbnail",
+        "field_owner"
+      ]
+    }
+  ],
   "field_clp_resources_cta": null,
   "field_clp_reusable_q_a": null,
   "field_clp_spotlight_cta": null,
