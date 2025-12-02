@@ -320,7 +320,7 @@ export interface NodeCampaignLandingPage extends DrupalNode {
   field_clp_faq_panel: boolean
   field_clp_faq_paragraphs: ParagraphQA[]
   field_clp_faq_cta: ParagraphButton | null
-  field_clp_reusable_q_a: ParagraphQaGroup | null // TODO: Determine type
+  field_clp_reusable_q_a: ParagraphQaGroup | null
 
   // Spotlight panel
   field_clp_audience: TaxonomyTermAudienceBeneficiaries[]

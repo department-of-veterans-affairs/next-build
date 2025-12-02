@@ -28,7 +28,7 @@ export const FaqPanel = ({ faq }: CampaignLandingPageProps) => {
           <va-accordion bordered uswds>
             {faq.faqs?.map((faqParagraph, index) => (
               <va-accordion-item
-                key={index}
+                key={faqParagraph.id}
                 bordered
                 header={faqParagraph.question}
                 level="3"
