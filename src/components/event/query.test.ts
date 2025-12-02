@@ -63,6 +63,8 @@ describe('event formatter applies content formatting', () => {
     }
     const formattedData = formatter(mockWithH2)
     // Verify H2 IDs are added (proves formatting is applied)
-    expect(formattedData.additionalInfo).toContain('id="additional-info-heading"')
+    expect(formattedData.additionalInfo).toContain(
+      'id="additional-info-heading"'
+    )
   })
 })
