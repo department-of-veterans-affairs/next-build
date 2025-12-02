@@ -24,6 +24,7 @@ import { ResourcesPanel } from './ResourcesPanel'
 import { Event } from '../event/formatted-type'
 import { EventsPanel } from './EventsPanel'
 import { FaqPanel } from './FaqPanel'
+import { ConnectWithUs } from './ConnectWithUs'
 import { hashReference } from '@/lib/utils/hashReference'
 
 const mockBaseProps: CampaignLandingPageProps = {
@@ -232,6 +233,20 @@ const mockBaseProps: CampaignLandingPageProps = {
       html: '<p>Reusable container answer</p>\n',
     },
   },
+  connectWithUs: {
+    organizationTitle: 'Veterans Affairs',
+    emailLink: {
+      href: 'https://public.govdelivery.com/accounts/USVA/subscriber/new/',
+      title: 'Veterans Affairs Email Updates',
+    },
+    socialLinks: {
+      twitter: 'DeptVetAffairs',
+      facebook: 'VeteransAffairs',
+      youtube: 'DeptVetAffairs',
+      instagram: 'deptvetaffairs',
+      linkedin: 'company/department-of-veterans-affairs',
+    },
+  },
 } as CampaignLandingPageProps
 
 jest.mock('next/image', () => ({
@@ -260,6 +275,7 @@ describe('CampaignLandingPage with valid data', () => {
     expect(screen.getByTestId('resources-panel')).toBeInTheDocument()
     expect(screen.getByTestId('events-panel')).toBeInTheDocument()
     expect(screen.getByTestId('faq-panel')).toBeInTheDocument()
+    expect(screen.getByTestId('connect-with-us')).toBeInTheDocument()
 
     // TODO: Check that the other components rendered once they're built
   })
@@ -696,5 +712,129 @@ describe('CampaignLandingPage->FaqPanel', () => {
     // Reusable content should still be rendered as plain elements
     expect(screen.getByText('Reusable container question')).toBeInTheDocument()
     expect(screen.getByText('reusable question html')).toBeInTheDocument()
+  })
+})
+
+describe('CampaignLandingPage->ConnectWithUs', () => {
+  test('shows section header', () => {
+    render(<ConnectWithUs {...mockBaseProps} />)
+
+    expect(screen.getByText('Connect with us')).toBeInTheDocument()
+    expect(
+      screen.getByText('Get updates from Veterans Affairs')
+    ).toBeInTheDocument()
+  })
+
+  test('renders all social links and icons', () => {
+    render(<ConnectWithUs {...mockBaseProps} />)
+
+    const container = screen.getByTestId('connect-with-us')
+
+    // Check for va-icon elements (6 total: mail + 5 social)
+    const icons = container.querySelectorAll('va-icon')
+    expect(icons.length).toBe(6)
+
+    // Check for va-link elements (6 total: email + 5 social)
+    const links = container.querySelectorAll('va-link')
+    expect(links.length).toBe(6)
+
+    // Check that links have expected href values
+    const hrefs = Array.from(links).map(
+      (link) => (link as HTMLAnchorElement).href
+    )
+    expect(hrefs).toContain(
+      'https://public.govdelivery.com/accounts/USVA/subscriber/new/'
+    )
+    expect(hrefs).toContain('https://twitter.com/DeptVetAffairs')
+    expect(hrefs).toContain('https://facebook.com/VeteransAffairs')
+    expect(hrefs).toContain('https://youtube.com/DeptVetAffairs')
+    expect(hrefs).toContain(
+      'https://linkedin.com/company/department-of-veterans-affairs'
+    )
+    expect(hrefs).toContain('https://instagram.com/deptvetaffairs')
+
+    // Check that links have expected text values
+    const texts = Array.from(links).map(
+      (link) => (link as HTMLAnchorElement).text
+    )
+    expect(texts).toContain('Veterans Affairs Email Updates')
+    expect(texts).toContain('Veterans Affairs X (formerly Twitter)')
+    expect(texts).toContain('Veterans Affairs Facebook')
+    expect(texts).toContain('Veterans Affairs YouTube')
+    expect(texts).toContain('Veterans Affairs LinkedIn')
+    expect(texts).toContain('Veterans Affairs Instagram')
+  })
+
+  test('does not render when connectWithUs is null', async () => {
+    const mockWithoutConnectWithUs = {
+      ...mockBaseProps,
+      connectWithUs: null,
+    }
+
+    await render(<ConnectWithUs {...mockWithoutConnectWithUs} />)
+
+    expect(screen.queryByTestId('connect-with-us')).not.toBeInTheDocument()
+  })
+
+  test('does not render when organizationTitle is empty', async () => {
+    const mockWithEmptyTitle = {
+      ...mockBaseProps,
+      connectWithUs: {
+        ...mockBaseProps.connectWithUs,
+        organizationTitle: '',
+      },
+    }
+
+    await render(<ConnectWithUs {...mockWithEmptyTitle} />)
+
+    expect(screen.queryByTestId('connect-with-us')).not.toBeInTheDocument()
+  })
+
+  test('does not render email link when emailLink is null', async () => {
+    const mockWithoutEmailLink = {
+      ...mockBaseProps,
+      connectWithUs: {
+        ...mockBaseProps.connectWithUs,
+        emailLink: null,
+      },
+    }
+
+    await render(<ConnectWithUs {...mockWithoutEmailLink} />)
+
+    const container = screen.getByTestId('connect-with-us')
+    // Should have 5 icons (social only) instead of 6
+    const icons = container.querySelectorAll('va-icon')
+    expect(icons.length).toBe(5)
+
+    // Should have 5 links (social only) instead of 6
+    const links = container.querySelectorAll('va-link')
+    expect(links.length).toBe(5)
+  })
+
+  test('does not render social links when values are null', async () => {
+    const mockWithoutSocialLinks = {
+      ...mockBaseProps,
+      connectWithUs: {
+        ...mockBaseProps.connectWithUs,
+        socialLinks: {
+          twitter: null,
+          facebook: null,
+          youtube: null,
+          instagram: null,
+          linkedin: null,
+        },
+      },
+    }
+
+    await render(<ConnectWithUs {...mockWithoutSocialLinks} />)
+
+    const container = screen.getByTestId('connect-with-us')
+
+    // Should have only 1 icon (mail) and 1 link (email)
+    const icons = container.querySelectorAll('va-icon')
+    expect(icons.length).toBe(1)
+
+    const links = container.querySelectorAll('va-link')
+    expect(links.length).toBe(1)
   })
 })
