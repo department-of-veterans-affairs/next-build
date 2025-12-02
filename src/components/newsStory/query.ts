@@ -9,6 +9,7 @@ import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { getNestedIncludes } from '@/lib/utils/queries'
 import { formatter as formatAdministration } from '@/components/administration/query'
 import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
+import { getHtmlFromDrupalContent } from '@/lib/utils/getHtmlFromDrupalContent'
 
 // Define the query params for fetching node--news_story.
 export const params: QueryParams<null> = () => {
@@ -48,7 +49,7 @@ export const formatter: QueryFormatter<NodeNewsStory, NewsStory> = (
     caption: entity.field_image_caption,
     author: entity.field_author,
     introText: entity.field_intro_text,
-    bodyContent: entity.field_full_story,
+    bodyContent: getHtmlFromDrupalContent(entity.field_full_story),
     date: entity.created,
     socialLinks: {
       path: `${process.env.SITE_URL}${entity.path.alias}`,
