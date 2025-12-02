@@ -2384,6 +2384,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@neshca/cache-handler@npm:^1.9.0":
+  version: 1.9.0
+  resolution: "@neshca/cache-handler@npm:1.9.0"
+  dependencies:
+    cluster-key-slot: 1.1.2
+    lru-cache: 10.4.3
+  peerDependencies:
+    next: ">= 13.5.1 < 15"
+    redis: ">= 4.6"
+  checksum: 41a16988eff4a4184c7b90fdfef4daae21ddb68256e27fcf6567647c0d31f04b1230f770f6750fde217e5d4637124f7a82a48640a9822caa0dab5c84d7d2c9a2
+  languageName: node
+  linkType: hard
+
 "@next/env@npm:13.5.7, @next/env@npm:^13.4.3":
   version: 13.5.7
   resolution: "@next/env@npm:13.5.7"
@@ -12251,7 +12264,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lru-cache@npm:^10.0.1, lru-cache@npm:^10.2.0, lru-cache@npm:^10.2.2, lru-cache@npm:^10.4.3":
+"lru-cache@npm:10.4.3, lru-cache@npm:^10.0.1, lru-cache@npm:^10.2.0, lru-cache@npm:^10.2.2, lru-cache@npm:^10.4.3":
   version: 10.4.3
   resolution: "lru-cache@npm:10.4.3"
   checksum: 6476138d2125387a6d20f100608c2583d415a4f64a0fecf30c9e2dda976614f09cad4baa0842447bd37dd459a7bd27f57d9d8f8ce558805abd487c583f3d774a
@@ -12896,6 +12909,7 @@ __metadata:
     "@eslint/js": ^9.38.0
     "@faker-js/faker": ^9.9.0
     "@fortawesome/fontawesome-free": ^5.15.4
+    "@neshca/cache-handler": ^1.9.0
     "@next/env": 15.5.0
     "@octokit/rest": ^21.0.1
     "@playwright/test": ^1.55.0

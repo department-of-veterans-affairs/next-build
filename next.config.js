@@ -1,3 +1,9 @@
+import path from 'path'
+import { fileURLToPath } from 'url'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+
 const isProd = process.env.APP_ENV === 'prod'
 const isExport = process.env.BUILD_OPTION === 'static'
 
@@ -6,6 +12,13 @@ const isExport = process.env.BUILD_OPTION === 'static'
  */
 const nextConfig = {
   compress: false,
+
+  // Adding this for shared caching
+  cacheHandler: path.resolve(
+    __dirname,
+    'scripts/shared-cache/local-cache-handler.js'
+  ),
+  cacheMaxMemorySize: 0, // disable default in-memory caching
 
   serverExternalPackages: ['dd-trace'],
 

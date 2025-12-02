@@ -81,3 +81,8 @@ urls.txt
 lychee-pages/*
 lychee-pages-combined.*
 
+# Shared Cache Exports
+html-cache/
+local-cache/
+
+
