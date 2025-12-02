@@ -23,7 +23,7 @@ exports[`CampaignLandingPage formatData outputs formatted data 1`] = `
   "events": {
     "events": [
       {
-        "additionalInfo": null,
+        "additionalInfo": "",
         "address": {
           "address_line1": "",
           "address_line2": "",
@@ -36,11 +36,7 @@ exports[`CampaignLandingPage formatData outputs formatted data 1`] = `
           "entityId": null,
           "name": null,
         },
-        "body": {
-          "format": "rich_text",
-          "processed": "<p>Western Carolina University will host Brothers and Sisters Like These, a program featuring veterans reading their original work. The event will include a public reading followed by a question-and-answer session with the participating veterans.</p><p>This program highlights veterans’ personal experiences and perspectives through their writing. The event is open to the public.</p>",
-          "value": "<p>Western Carolina University will host Brothers and Sisters Like These, a program featuring veterans reading their original work. The event will include a public reading followed by a question-and-answer session with the participating veterans.</p><p>This program highlights veterans’ personal experiences and perspectives through their writing. The event is open to the public.</p>",
-        },
+        "body": "<p>Western Carolina University will host Brothers and Sisters Like These, a program featuring veterans reading their original work. The event will include a public reading followed by a question-and-answer session with the participating veterans.</p><p>This program highlights veterans’ personal experiences and perspectives through their writing. The event is open to the public.</p>",
         "breadcrumbs": [
           {
             "href": "/",
@@ -601,7 +597,7 @@ exports[`CampaignLandingPage formatData outputs formatted data 1`] = `
         "urlOfOnlineEvent": null,
       },
       {
-        "additionalInfo": null,
+        "additionalInfo": "",
         "address": {
           "address_line1": "",
           "address_line2": "",
@@ -614,11 +610,7 @@ exports[`CampaignLandingPage formatData outputs formatted data 1`] = `
           "entityId": null,
           "name": null,
         },
-        "body": {
-          "format": "rich_text",
-          "processed": "<p><strong>The Great American Smokeout &amp; Lung Cancer Screening Day is Nov. 20, 2025!</strong></p><p>VA Boston Healthcare system will have resource tables at our three main campuses – Brockton, Jamaica Plain, and West Roxbury – and our community outpatient clinics, 8:00 a.m. to 12:00 p.m. on Thursday, Nov. 20, to help connect Veterans and employees with tobacco treatment services at VA Boston.&nbsp;</p><p>We're encouraging Veterans to learn how to <a href="https://veterans.smokefree.gov/build-your-quit-plan">Quit Like a Pro</a>. Here are three pro tips:&nbsp;</p><ol><li>Explore all VA tobacco treatments available to you, including prescription medications, nicotine replacement therapies, and counseling;</li><li>Use medication and counseling together — real-life results show that this gives you the best chance of stopping for good; and</li><li>Understand that, as with any skill, every attempt you make to stop teaches you something that can help you quit later.&nbsp;</li></ol><p>Veterans can talk with their VA health care team or call 1-855-QUIT-VET (1-855-784-8838) to get started today.</p><p>We're combining the Great American Smokeout with Lung Cancer Screening Awareness Day, to promote enrollment in Lung Cancer Screening for eligible Veterans. Early detection saves lives!</p>",
-          "value": "<p><strong>The Great American Smokeout &amp; Lung Cancer Screening Day is Nov. 20, 2025!</strong></p><p>VA Boston Healthcare system will have resource tables at our three main campuses – Brockton, Jamaica Plain, and West Roxbury – and our community outpatient clinics, 8:00 a.m. to 12:00 p.m. on Thursday, Nov. 20, to help connect Veterans and employees with tobacco treatment services at VA Boston.&nbsp;</p><p>We're encouraging Veterans to learn how to <a href="/admin/content/linky/16737">Quit Like a Pro</a>. Here are three pro tips:&nbsp;</p><ol><li>Explore all VA tobacco treatments available to you, including prescription medications, nicotine replacement therapies, and counseling;</li><li>Use medication and counseling together — real-life results show that this gives you the best chance of stopping for good; and</li><li>Understand that, as with any skill, every attempt you make to stop teaches you something that can help you quit later.&nbsp;</li></ol><p>Veterans can talk with their VA health care team or call 1-855-QUIT-VET (1-855-784-8838) to get started today.</p><p>We're combining the Great American Smokeout with Lung Cancer Screening Awareness Day, to promote enrollment in Lung Cancer Screening for eligible Veterans. Early detection saves lives!</p>",
-        },
+        "body": "<p><strong>The Great American Smokeout &amp; Lung Cancer Screening Day is Nov. 20, 2025!</strong></p><p>VA Boston Healthcare system will have resource tables at our three main campuses – Brockton, Jamaica Plain, and West Roxbury – and our community outpatient clinics, 8:00 a.m. to 12:00 p.m. on Thursday, Nov. 20, to help connect Veterans and employees with tobacco treatment services at VA Boston.&nbsp;</p><p>We're encouraging Veterans to learn how to <a href="https://veterans.smokefree.gov/build-your-quit-plan">Quit Like a Pro</a>. Here are three pro tips:&nbsp;</p><ol><li>Explore all VA tobacco treatments available to you, including prescription medications, nicotine replacement therapies, and counseling;</li><li>Use medication and counseling together — real-life results show that this gives you the best chance of stopping for good; and</li><li>Understand that, as with any skill, every attempt you make to stop teaches you something that can help you quit later.&nbsp;</li></ol><p>Veterans can talk with their VA health care team or call 1-855-QUIT-VET (1-<va-telephone contact="855-784-8838" extension=""></va-telephone>) to get started today.</p><p>We're combining the Great American Smokeout with Lung Cancer Screening Awareness Day, to promote enrollment in Lung Cancer Screening for eligible Veterans. Early detection saves lives!</p>",
         "breadcrumbs": [
           {
             "href": "/",

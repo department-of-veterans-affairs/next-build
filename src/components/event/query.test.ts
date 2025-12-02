@@ -6,7 +6,7 @@ import { NodeEvent } from '@/types/drupal/node'
 import { queries } from '@/lib/drupal/queries'
 import mockData from '@/components/event/mock.json'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
-import { params } from './query'
+import { params, formatter } from './query'
 
 const nodeEventMock: NodeEvent = mockData
 
@@ -34,5 +34,35 @@ describe(`${RESOURCE_TYPES.EVENT} formatData`, () => {
       nodeEventMock
     )
     expect(formattedData).toMatchSnapshot()
+  })
+})
+
+describe('event formatter applies content formatting', () => {
+  test('applies getHtmlFromField to body', () => {
+    const mockWithH2 = {
+      ...nodeEventMock,
+      field_body: {
+        value: '<h2>Test Heading</h2><p>Some content</p>',
+        format: 'rich_text',
+        processed: '<h2>Test Heading</h2><p>Some content</p>',
+      },
+    }
+    const formattedData = formatter(mockWithH2)
+    // Verify H2 IDs are added (proves formatting is applied)
+    expect(formattedData.body).toContain('id="test-heading"')
+  })
+
+  test('applies getHtmlFromField to additionalInfo', () => {
+    const mockWithH2 = {
+      ...nodeEventMock,
+      field_additional_information_abo: {
+        value: '<h2>Additional Info Heading</h2><p>Some content</p>',
+        format: 'rich_text',
+        processed: '<h2>Additional Info Heading</h2><p>Some content</p>',
+      },
+    }
+    const formattedData = formatter(mockWithH2)
+    // Verify H2 IDs are added (proves formatting is applied)
+    expect(formattedData.additionalInfo).toContain('id="additional-info-heading"')
   })
 })
