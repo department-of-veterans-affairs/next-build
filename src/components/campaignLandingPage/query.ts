@@ -165,9 +165,9 @@ export const formatter: QueryFormatter<
     events: {
       show: entity.field_clp_events_panel,
       header: entity.field_clp_events_header,
-      events: (entity.field_clp_events_references ?? []).map((event) =>
-        queries.formatData('node--event', event)
-      ),
+      events: (entity.field_clp_events_references ?? [])
+        .filter((e) => e.path)
+        .map((event) => queries.formatData('node--event', event)),
     },
   }
 }
