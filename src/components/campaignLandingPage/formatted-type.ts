@@ -76,4 +76,18 @@ export interface CampaignLandingPage extends PublishedEntity {
     faqs: QaParagraph[] | null
     reusable: QaGroup | null
   }
+  connectWithUs: {
+    organizationTitle: string
+    emailLink: {
+      href: string
+      title: string
+    } | null
+    socialLinks: {
+      twitter: string | null
+      facebook: string | null
+      youtube: string | null
+      instagram: string | null
+      linkedin: string | null
+    }
+  } | null
 }
