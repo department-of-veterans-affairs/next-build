@@ -32,17 +32,14 @@ const mockMenu = {
   tree: [menuItem],
 }
 
-// Mock the drupal query functions
-jest.mock('@/lib/drupal/query', () => ({
-  ...jest.requireActual('@/lib/drupal/query'),
-  fetchSingleEntityOrPreview: () => mockData,
-  getMenu: jest.fn(
-    (): Menu => ({
-      items: [],
-      tree: [],
-    })
-  ),
-}))
+jest.mock('@/lib/drupal/query')
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const mockDrupalQuery = require('@/lib/drupal/query')
+
+mockDrupalQuery.setSingleEntityMock(
+  RESOURCE_TYPES.VAMC_SYSTEM_POLICIES_PAGE,
+  () => mockData
+)
 
 describe('VamcSystemPoliciesPage params configuration', () => {
   test('params function sets the correct include fields', () => {
