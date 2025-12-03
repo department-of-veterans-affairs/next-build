@@ -4,19 +4,19 @@ exports[`VamcSystemMedicalRecordsOffice formatter outputs formatted data 1`] = `
 {
   "breadcrumbs": [
     {
+      "href": "/",
+      "label": "Home",
       "options": [],
-      "title": "Home",
-      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
     },
     {
+      "href": "/beckley-health-care",
+      "label": "VA Beckley health care",
       "options": [],
-      "title": "VA Beckley health care",
-      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/beckley-health-care",
     },
     {
+      "href": "",
+      "label": "Medical records office",
       "options": [],
-      "title": "Medical records office",
-      "uri": "internal:#",
     },
   ],
   "entityId": 45806,

@@ -111,4 +111,28 @@ describe('CampaignLandingPage formatData', () => {
     })
     expect(withBoth.whatYouCanDo.promos.length).toBe(2)
   })
+
+  test('stories cta label is title when non-empty or else "See more stories"', () => {
+    const makeDataWithStoriesCtaTitle = (title: string | null | undefined) => {
+      return queries.formatData('node--campaign_landing_page', {
+        ...campaignLandingPageMock,
+        field_clp_stories_cta: {
+          ...campaignLandingPageMock.field_clp_stories_cta,
+          title,
+        },
+      })
+    }
+
+    const withTitle = makeDataWithStoriesCtaTitle('specific test title')
+    expect(withTitle.stories.cta.label).toBe('specific test title')
+
+    const withEmpty = makeDataWithStoriesCtaTitle('')
+    expect(withEmpty.stories.cta.label).toBe('See more stories')
+
+    const withNull = makeDataWithStoriesCtaTitle(null)
+    expect(withNull.stories.cta.label).toBe('See more stories')
+
+    const withUndefined = makeDataWithStoriesCtaTitle(undefined)
+    expect(withUndefined.stories.cta.label).toBe('See more stories')
+  })
 })

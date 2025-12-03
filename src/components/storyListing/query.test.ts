@@ -38,7 +38,6 @@ jest.mock('@/lib/drupal/query', () => {
       .fn()
       .mockResolvedValue({ data: [], totalItems: 0, totalPages: 0 }),
     getMenu: jest.fn().mockResolvedValue(mockMenu),
-    entityBaseFields: jest.fn().mockReturnValue({}),
   }
 })
 

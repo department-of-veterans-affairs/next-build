@@ -1,17 +1,14 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { drupalClient } from '@/lib/drupal/drupalClient'
 import { NodeLandingPage } from '@/types/drupal/node'
 import { BenefitsHub } from './formatted-type'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
-import {
-  entityBaseFields,
-  fetchSingleEntityOrPreview,
-} from '@/lib/drupal/query'
+import { fetchSingleEntityOrPreview } from '@/lib/drupal/query'
 import { formatter as formatListOfLinkTeasers } from '@/components/listOfLinkTeasers/query'
 import { supportServiceFormatter as formatSupportService } from '@/components/supportServices/query'
 import { getHtmlFromDrupalContent } from '@/lib/utils/getHtmlFromDrupalContent'
+import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
 
 // Define the query params for fetching node--landing_page for benefits hub.
 export const params: QueryParams<null> = () => {
