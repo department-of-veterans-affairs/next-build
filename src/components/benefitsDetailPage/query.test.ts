@@ -20,26 +20,23 @@ jest.mock('@/lib/drupal/drupalClient', () => ({
   },
 }))
 
-const mockFetchSingle = jest.fn((options: { id: string }) => {
-  if (options.id === BENEFITS_HUB_UUID) {
-    return {
-      field_title_icon: 'health-care',
-    }
-  }
-  return mockData
-})
-
-const mockGetMenu = jest.fn(() => ({
-  items: [],
-  tree: [],
+const mockBenefitsHubQuery = jest.fn(() => ({
+  field_title_icon: 'health-care',
 }))
+const mockBenefitsDetailPageQuery = jest.fn(() => mockData)
 
-jest.mock('@/lib/drupal/query', () => ({
-  ...jest.requireActual('@/lib/drupal/query'),
-  fetchSingleEntityOrPreview: (options: { id: string }) =>
-    mockFetchSingle(options),
-  getMenu: () => mockGetMenu(),
-}))
+jest.mock('@/lib/drupal/query')
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const mockDrupalQuery = require('@/lib/drupal/query')
+
+mockDrupalQuery.setSingleEntityMock(
+  RESOURCE_TYPES.BENEFITS_DETAIL_PAGE,
+  mockBenefitsDetailPageQuery
+)
+mockDrupalQuery.setSingleEntityMock(
+  RESOURCE_TYPES.BENEFITS_HUB,
+  mockBenefitsHubQuery
+)
 
 function runQuery(options: Partial<BenefitsDetailPageDataOpts> = {}) {
   return queries.getData(RESOURCE_TYPES.BENEFITS_DETAIL_PAGE, {
@@ -61,15 +58,8 @@ describe('BenefitsDetailPage params', () => {
 describe('BenefitsDetailPage formatter', () => {
   beforeEach(() => {
     jest.clearAllMocks()
-    mockFetchSingle.mockImplementation((options: { id: string }) => {
-      if (options.id === BENEFITS_HUB_UUID) {
-        return {
-          field_title_icon: 'health-care',
-        }
-      }
-      return mockData
-    })
-    mockGetMenu.mockReturnValue({
+    mockBenefitsDetailPageQuery.mockReturnValue(mockData)
+    mockDrupalQuery.getMenu.mockReturnValue({
       items: [],
       tree: [],
     })
@@ -81,16 +71,9 @@ describe('BenefitsDetailPage formatter', () => {
   })
 
   test('handles null alert', async () => {
-    mockFetchSingle.mockImplementation((options: { id: string }) => {
-      if (options.id === BENEFITS_HUB_UUID) {
-        return {
-          field_title_icon: 'health-care',
-        }
-      }
-      return {
-        ...mockData,
-        field_alert: null,
-      }
+    mockBenefitsDetailPageQuery.mockReturnValue({
+      ...mockData,
+      field_alert: null,
     })
 
     const result = await runQuery()
@@ -103,16 +86,9 @@ describe('BenefitsDetailPage formatter', () => {
   })
 
   test('handles null administration', async () => {
-    mockFetchSingle.mockImplementation((options: { id: string }) => {
-      if (options.id === BENEFITS_HUB_UUID) {
-        return {
-          field_title_icon: 'health-care',
-        }
-      }
-      return {
-        ...mockData,
-        field_administration: null,
-      }
+    mockBenefitsDetailPageQuery.mockReturnValue({
+      ...mockData,
+      field_administration: null,
     })
 
     const result = await runQuery()
@@ -122,19 +98,12 @@ describe('BenefitsDetailPage formatter', () => {
   test('handles null menu when administration name does not match hub menu', async () => {
     // Use a different administration name that won't match any hub menu name
     // This will cause getBenefitsHubMenu to return NULL_RESULT with menu: null
-    mockFetchSingle.mockImplementation((options: { id: string }) => {
-      if (options.id === BENEFITS_HUB_UUID) {
-        return {
-          field_title_icon: 'health-care',
-        }
-      }
-      return {
-        ...mockData,
-        field_administration: {
-          ...mockData.field_administration,
-          name: 'Non-existent Hub Name That Does Not Match',
-        },
-      }
+    mockBenefitsDetailPageQuery.mockReturnValue({
+      ...mockData,
+      field_administration: {
+        ...mockData.field_administration,
+        name: 'Non-existent Hub Name That Does Not Match',
+      },
     })
 
     const result = await runQuery()
@@ -142,7 +111,7 @@ describe('BenefitsDetailPage formatter', () => {
   })
 
   test('builds side nav data from menu when menu exists', async () => {
-    mockGetMenu.mockReturnValue({
+    mockDrupalQuery.getMenu.mockReturnValue({
       items: [
         {
           title: 'Test Item',
@@ -158,16 +127,9 @@ describe('BenefitsDetailPage formatter', () => {
   })
 
   test('handles null description', async () => {
-    mockFetchSingle.mockImplementation((options: { id: string }) => {
-      if (options.id === BENEFITS_HUB_UUID) {
-        return {
-          field_title_icon: 'health-care',
-        }
-      }
-      return {
-        ...mockData,
-        field_description: null,
-      }
+    mockBenefitsDetailPageQuery.mockReturnValue({
+      ...mockData,
+      field_description: null,
     })
 
     const result = await runQuery()
@@ -175,16 +137,9 @@ describe('BenefitsDetailPage formatter', () => {
   })
 
   test('handles null introText when field_intro_text_limited_html is null', async () => {
-    mockFetchSingle.mockImplementation((options: { id: string }) => {
-      if (options.id === BENEFITS_HUB_UUID) {
-        return {
-          field_title_icon: 'health-care',
-        }
-      }
-      return {
-        ...mockData,
-        field_intro_text_limited_html: null,
-      }
+    mockBenefitsDetailPageQuery.mockReturnValue({
+      ...mockData,
+      field_intro_text_limited_html: null,
     })
 
     const result = await runQuery()
@@ -192,16 +147,9 @@ describe('BenefitsDetailPage formatter', () => {
   })
 
   test('handles null showTableOfContents when field_table_of_contents_boolean is null', async () => {
-    mockFetchSingle.mockImplementation((options: { id: string }) => {
-      if (options.id === BENEFITS_HUB_UUID) {
-        return {
-          field_title_icon: 'health-care',
-        }
-      }
-      return {
-        ...mockData,
-        field_table_of_contents_boolean: null,
-      }
+    mockBenefitsDetailPageQuery.mockReturnValue({
+      ...mockData,
+      field_table_of_contents_boolean: null,
     })
 
     const result = await runQuery()

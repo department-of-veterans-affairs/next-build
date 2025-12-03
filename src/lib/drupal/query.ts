@@ -4,7 +4,7 @@ import { QueryParams } from 'next-drupal-query'
 import { ResourceType } from '@/lib/constants/resourceTypes'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 
-type ResourceCollection<T> = {
+export type ResourceCollection<T> = {
   data: T[]
   totalItems: number
   totalPages: number
