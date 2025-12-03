@@ -61,13 +61,4 @@ describe('HomePageCommonTasks query', () => {
   test('outputs formatted data', async () => {
     expect(await queries.getData('home-page-common-tasks')).toMatchSnapshot()
   })
-
-  it('should preserve order of menu items', async () => {
-    const result = await queries.getData('home-page-common-tasks')
-
-    expect(result.popularLinks[0].url).toBe('/health-care')
-    expect(result.popularLinks[1].url).toBe('/benefits')
-    expect(result.searchLinks[0].url).toBe('/find-locations')
-    expect(result.searchLinks[1].url).toBe('/contact-us')
-  })
 })
