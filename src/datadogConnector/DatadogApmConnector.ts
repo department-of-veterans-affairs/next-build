@@ -8,7 +8,10 @@ tracer.init({
   service: process.env.DD_SERVICE || 'next-build',
   version: process.env.GIT_HASH || 'unknown',
   sampleRate: process.env.DD_SAMPLE_RATE
-    ? parseFloat(process.env.DD_SAMPLE_RATE)
+    ? (() => {
+        const rate = parseFloat(process.env.DD_SAMPLE_RATE as string)
+        return !isNaN(rate) && rate >= 0 && rate <= 1 ? rate : 0.1
+      })()
     : 0.1,
 })
 
