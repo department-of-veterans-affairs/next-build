@@ -293,6 +293,7 @@ describe('BenefitsHub with valid data', () => {
         intro={'Testing on-this-page component.'}
         spokes={mockSpokes}
         fieldLinks={null}
+        connectWithUs={null}
       />
     )
 
@@ -313,6 +314,7 @@ describe('BenefitsHub with valid data', () => {
         intro={'Testing without spokes.'}
         spokes={[]}
         fieldLinks={null}
+        connectWithUs={null}
       />
     )
 
@@ -333,6 +335,7 @@ describe('BenefitsHub with valid data', () => {
         intro={'Testing with null spokes.'}
         spokes={null}
         fieldLinks={null}
+        connectWithUs={null}
       />
     )
 
