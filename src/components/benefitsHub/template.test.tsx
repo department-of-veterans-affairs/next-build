@@ -385,6 +385,7 @@ test('renders BenefitsHub component with support services (Call us section)', ()
         uri: 'tel:1-877-222-VETS(8387)',
         title: '',
         url: 'tel:1-877-222-VETS(8387)',
+        options: {},
       },
     },
     {
@@ -396,6 +397,7 @@ test('renders BenefitsHub component with support services (Call us section)', ()
         uri: 'tel:711',
         title: '',
         url: 'tel:711',
+        options: {},
       },
     },
   ]
@@ -451,6 +453,7 @@ test('renders BenefitsHub component with support services without phone numbers'
         uri: 'https://example.com/portal',
         title: 'Online Portal',
         url: 'https://example.com/portal',
+        options: {},
       },
     },
     {
@@ -552,6 +555,7 @@ test('calls recordEvent when support service links are clicked', async () => {
         uri: 'tel:123-456-7890',
         title: '',
         url: 'tel:123-456-7890',
+        options: {},
       },
     },
   ]

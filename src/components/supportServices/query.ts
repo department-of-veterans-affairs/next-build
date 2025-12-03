@@ -39,6 +39,7 @@ export const supportServiceFormatter: QueryFormatter<
           uri: entity.field_link?.uri || '',
           title: entity.field_link?.title || '',
           url: entity.field_link?.url || entity.field_link?.uri || '',
+          options: entity.field_link?.options || {},
         }
       : null,
   }
