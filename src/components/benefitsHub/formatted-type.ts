@@ -6,7 +6,7 @@ import { NodeOffice } from '@/types/drupal/node'
 export interface BenefitsHub extends PublishedEntity {
   title: string
   titleIcon: string | null
-  spokes: ListOfLinkTeasers[]
+  spokes: ListOfLinkTeasers[] | null
   intro: string | null
   fieldLinks: Array<{
     title: string

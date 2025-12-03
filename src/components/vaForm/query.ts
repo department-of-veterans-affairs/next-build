@@ -4,12 +4,10 @@ import { NodeVaForm } from '@/types/drupal/node'
 import { VaForm } from './formatted-type'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
-import {
-  entityBaseFields,
-  fetchSingleEntityOrPreview,
-} from '@/lib/drupal/query'
+import { fetchSingleEntityOrPreview } from '@/lib/drupal/query'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 import { formatter as formatLinkTeaser } from '@/components/linkTeaser/query'
+import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
 
 // Define the query params for fetching node--va_form.
 export const params: QueryParams<null> = () => {

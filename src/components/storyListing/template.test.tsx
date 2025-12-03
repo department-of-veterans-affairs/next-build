@@ -11,8 +11,8 @@ describe('<StoryListing> component renders', () => {
     storyListingProps = {
       id: 'f421578b-0add-405c-ac0c-1b1d146a360f',
       breadcrumbs: [
-        { title: 'Home', uri: '/', options: [] },
-        { title: 'News', uri: '/news', options: [] },
+        { label: 'Home', href: '/', options: [] },
+        { label: 'News', href: '/news', options: [] },
       ],
       title: 'Stories',
       entityId: 1234,

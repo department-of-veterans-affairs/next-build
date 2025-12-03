@@ -19,13 +19,13 @@ import {
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
-  entityBaseFields,
   fetchSingleEntityOrPreview,
   fetchAndConcatAllResourceCollectionPages,
 } from '@/lib/drupal/query'
 import { getHtmlFromDrupalContent } from '@/lib/utils/getHtmlFromDrupalContent'
 import { formatter as formatImage } from '@/components/mediaImage/query'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'
+import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
 
 // Define the query params for fetching node--vet_center_locations_list.
 export const params: QueryParams<null> = () => {

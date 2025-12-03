@@ -8,12 +8,12 @@ import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
-  entityBaseFields,
   fetchAndConcatAllResourceCollectionPages,
   fetchSingleEntityOrPreview,
   getMenu,
 } from '@/lib/drupal/query'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
+import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
 
 const PAGE_SIZE = PAGE_SIZES[RESOURCE_TYPES.EVENT_LISTING]
 // See listingParams for more information about this value and its use.
