@@ -1,49 +1,4 @@
 export const placeholders = {
-  // Resources panel
-  fieldClpResourcesPanel: true,
-  fieldClpResourcesHeader: 'Resources',
-  fieldClpResourcesIntroText: 'Download these resources.',
-  fieldClpResources: [
-    {
-      entity: {
-        name: 'Resource 1',
-        fieldDescription: 'Resource description',
-        fieldMediaExternalFile: { uri: '/resource1.pdf' },
-      },
-    },
-  ],
-  fieldClpResourcesCta: {
-    entity: {
-      fieldButtonLink: { url: { path: '#' } },
-      fieldButtonLabel: 'See all resources',
-    },
-  },
-  clpTotalSections: '8',
-
-  // Events panel
-  fieldClpEventsPanel: true,
-  fieldClpEventsHeader: 'Events',
-  fieldClpEventsReferences: [
-    {
-      entity: {
-        entityUrl: { path: '#' },
-        title: 'Event title',
-        fieldDescription: 'Event description',
-        fieldDatetimeRangeTimezone: [],
-        fieldFacilityLocation: {
-          entity: {
-            entityUrl: { path: '#' },
-            title: 'VA Medical Center',
-          },
-        },
-        fieldLocationHumanreadable: 'Online',
-        fieldUrlOfAnOnlineEvent: { uri: '#' },
-        fieldLink: { uri: '#', url: { path: '#' } },
-        fieldEventCta: 'Register now',
-      },
-    },
-  ],
-
   // FAQ panel
   fieldClpFaqPanel: true,
   fieldClpFaqParagraphs: [

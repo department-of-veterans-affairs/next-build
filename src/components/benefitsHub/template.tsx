@@ -41,6 +41,7 @@ export function BenefitsHub({
               dangerouslySetInnerHTML={{ __html: intro }}
             />
           )}
+          {spokes && spokes.length > 0 && <va-on-this-page></va-on-this-page>}
           {spokes?.map((spokeSection) => (
             <div key={spokeSection.id}>
               <section>
