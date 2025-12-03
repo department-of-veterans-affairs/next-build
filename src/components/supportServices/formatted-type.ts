@@ -3,9 +3,5 @@ export interface SupportService {
   id: string
   title: string
   number?: string
-  link?: {
-    uri: string
-    title: string
-    url?: string
-  }
+  link?: FieldLink
 }

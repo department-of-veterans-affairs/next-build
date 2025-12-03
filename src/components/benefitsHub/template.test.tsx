@@ -575,9 +575,8 @@ test('calls recordEvent when support service links are clicked', async () => {
   // Find and click the service link - look for the clickable service text
   const serviceLink = screen.getByText(/Clickable Service/).closest('a')
   expect(serviceLink).toBeInTheDocument()
-  expect(serviceLink).not.toBeNull()
 
-  fireEvent.click(serviceLink!)
+  fireEvent.click(serviceLink)
 
   // Verify that recordEvent was called with the correct parameters
   expect(mockRecordEvent).toHaveBeenCalledWith({
