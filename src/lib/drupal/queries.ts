@@ -27,6 +27,7 @@ import * as LinkTeaser from '@/components/linkTeaser/query'
 import * as ListOfLinkTeasers from '@/components/listOfLinkTeasers/query'
 import * as LocationsListing from '../../components/locationsListing/query'
 import * as MediaDocument from '@/components/mediaDocument/query'
+import * as MediaDocumentExternal from '@/components/mediaDocumentExternal/query'
 import * as MediaImage from '@/components/mediaImage/query'
 import * as MediaVideo from '@/components/mediaVideo/query'
 import * as Media from '@/components/media/query'
@@ -161,6 +162,7 @@ export const QUERIES_MAP = {
   // Media
   'media--image': MediaImage,
   'media--document': MediaDocument,
+  'media--document_external': MediaDocumentExternal,
   'media--video': MediaVideo,
 
   // Custom queries

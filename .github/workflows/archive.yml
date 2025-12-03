@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v5.1.0
+      uses: aws-actions/configure-aws-credentials@v5.1.1
       with:
         aws-region: us-gov-west-1
         role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
@@ -51,7 +51,7 @@ jobs:
         run: echo APPROX_WORKFLOW_START_TIME=$(date +"%s") >> $GITHUB_OUTPUT
 
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - uses: actions/setup-node@v6
         with:
@@ -94,14 +94,14 @@ jobs:
     steps:
 
     - name: Checkout next-build
-      uses: actions/checkout@v5
+      uses: actions/checkout@v6
       with:
         repository: department-of-veterans-affairs/next-build
         ref: ${{ needs.validate-build-status.outputs.TAG }}
         path: main
 
     - name: Checkout vets-website
-      uses: actions/checkout@v5
+      uses: actions/checkout@v6
       with:
         repository: department-of-veterans-affairs/vets-website
         path: vets-website
@@ -142,7 +142,7 @@ jobs:
       run: tar -c main/out/ -cf ${{ env.BUILD_TYPE }}.tar.bz2 .
 
     - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v5.1.0
+      uses: aws-actions/configure-aws-credentials@v5.1.1
       with:
         aws-region: us-gov-west-1
         role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
@@ -161,7 +161,7 @@ jobs:
 
     steps:
       - name: Check out repo
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Notify Slack
         uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4 # main
@@ -180,7 +180,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Notify Slack
         uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4 # main
