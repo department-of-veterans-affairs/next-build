@@ -20,7 +20,7 @@ export function HomePageNewsSpotlight({
             <div className="homepage-blog__image">
               <MediaImage
                 {...image}
-                imageStyle="1_1_square_large"
+                imageStyle="crop_square"
                 // style={{ objectFit: 'cover', aspectRatio: '1/1' }}
               />
             </div>

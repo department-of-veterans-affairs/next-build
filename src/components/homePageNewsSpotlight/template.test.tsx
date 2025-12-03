@@ -12,7 +12,7 @@ const mockImage: FormattedMediaImage = {
   width: 628,
   height: 628,
   links: {
-    '1_1_square_large': {
+    crop_square: {
       href: 'https://s3-us-gov-west-1.amazonaws.com/content.www.va.gov/img/styles/crop_square/public/news_promos/Health-and-benefits-distro-graphics_sq.jpg',
       meta: {
         linkParams: {
