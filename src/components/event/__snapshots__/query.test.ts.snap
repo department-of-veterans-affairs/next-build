@@ -2,7 +2,7 @@
 
 exports[`node--event formatData outputs formatted data 1`] = `
 {
-  "additionalInfo": null,
+  "additionalInfo": "",
   "address": {
     "address_line1": "9000 Douglas Ave",
     "address_line2": "",
@@ -15,20 +15,11 @@ exports[`node--event formatData outputs formatted data 1`] = `
     "entityId": null,
     "name": null,
   },
-  "body": {
-    "format": "rich_text",
-    "processed": "<p>Pickleball Club</p>
+  "body": "<p>Pickleball Club</p>
 
 <p>Meets Thursdays from 9 to 11 a.m. </p>
 
-<p>Contact Kay Queck (515) 214-4578</p>",
-    "value": "<p>Pickleball Club</p>
-
-<p>Meets Thursdays from 9 to 11 a.m.&nbsp;</p>
-
-<p>Contact Kay Queck (515) 214-4578</p>
-",
-  },
+<p>Contact Kay Queck <va-telephone contact="515-214-4578" extension=""></va-telephone></p>",
   "breadcrumbs": [
     {
       "href": "/",
