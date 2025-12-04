@@ -1,6 +1,4 @@
 import { CampaignLandingPageProps } from './template'
-/*
- */
 
 const SocialMediaLink = ({
   icon,
@@ -17,7 +15,7 @@ const SocialMediaLink = ({
         <va-icon
           icon={icon}
           size="3"
-          class="vads-u-color--link-default vads-u-padding-right--1"
+          className="vads-u-color--link-default vads-u-padding-right--1"
         />
         &nbsp;
         <va-link href={href} text={text} />
@@ -44,7 +42,7 @@ export const ConnectWithUs = ({ connectWithUs }: CampaignLandingPageProps) => {
             Connect with us
           </p>
           <h2 className="vads-u-margin-top--0">
-            Get updates from {organizationTitle}
+            {`Get updates from ${organizationTitle}`}
           </h2>
         </div>
       </div>
@@ -61,7 +59,7 @@ export const ConnectWithUs = ({ connectWithUs }: CampaignLandingPageProps) => {
         {socialLinks.twitter && (
           <SocialMediaLink
             icon="x"
-            href={`https://twitter.com/${socialLinks.twitter}`}
+            href={`https://www.twitter.com/${socialLinks.twitter}`}
             text={`${organizationTitle} X (formerly Twitter)`}
           />
         )}
@@ -69,7 +67,7 @@ export const ConnectWithUs = ({ connectWithUs }: CampaignLandingPageProps) => {
         {socialLinks.facebook && (
           <SocialMediaLink
             icon="facebook"
-            href={`https://facebook.com/${socialLinks.facebook}`}
+            href={`https://www.facebook.com/${socialLinks.facebook}`}
             text={`${organizationTitle} Facebook`}
           />
         )}
@@ -77,7 +75,7 @@ export const ConnectWithUs = ({ connectWithUs }: CampaignLandingPageProps) => {
         {socialLinks.youtube && (
           <SocialMediaLink
             icon="youtube"
-            href={`https://youtube.com/${socialLinks.youtube}`}
+            href={`https://www.youtube.com/${socialLinks.youtube}`}
             text={`${organizationTitle} YouTube`}
           />
         )}
@@ -85,7 +83,7 @@ export const ConnectWithUs = ({ connectWithUs }: CampaignLandingPageProps) => {
         {socialLinks.linkedin && (
           <SocialMediaLink
             icon="linkedin"
-            href={`https://linkedin.com/${socialLinks.linkedin}`}
+            href={`https://www.linkedin.com/${socialLinks.linkedin}`}
             text={`${organizationTitle} LinkedIn`}
           />
         )}
@@ -93,7 +91,7 @@ export const ConnectWithUs = ({ connectWithUs }: CampaignLandingPageProps) => {
         {socialLinks.instagram && (
           <SocialMediaLink
             icon="instagram"
-            href={`https://instagram.com/${socialLinks.instagram}`}
+            href={`https://www.instagram.com/${socialLinks.instagram}`}
             text={`${organizationTitle} Instagram`}
           />
         )}
