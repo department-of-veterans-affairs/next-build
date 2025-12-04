@@ -270,7 +270,7 @@ export const Event = ({
                   <div
                     className="vads-u-margin--0"
                     dangerouslySetInnerHTML={{
-                      __html: additionalInfo?.processed,
+                      __html: additionalInfo,
                     }}
                   />
                 )}
@@ -280,7 +280,7 @@ export const Event = ({
         )}
 
         {/* Body */}
-        {body && <div dangerouslySetInnerHTML={{ __html: body?.processed }} />}
+        {body && <div dangerouslySetInnerHTML={{ __html: body }} />}
 
         {/* Recurring Events */}
         {currentFormattedDates.length > 1 && (
