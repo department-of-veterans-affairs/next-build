@@ -33,7 +33,7 @@ export const supportServiceFormatter: QueryFormatter<
     type: entity.type,
     id: entity.id,
     title: entity?.title || '',
-    number: entity?.field_phone_number,
+    number: entity?.field_phone_number || '',
     link: entity.field_link
       ? {
           uri: entity.field_link?.uri || '',
