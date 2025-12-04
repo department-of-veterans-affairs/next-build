@@ -3,10 +3,20 @@ import { useState, useEffect, useCallback, useMemo } from 'react'
 import { useRouter } from 'next/router'
 import { PAGE_RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 
+interface ComparisonRecord {
+  env1: string
+  env2: string
+  selector: string
+  success: boolean
+  message: string
+  timestamp: string
+}
+
 interface QAPath {
   path: string
   starred?: boolean
   notes?: string
+  comparisons?: ComparisonRecord[]
 }
 
 interface QACache {
