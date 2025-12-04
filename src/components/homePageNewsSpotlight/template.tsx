@@ -18,11 +18,7 @@ export function HomePageNewsSpotlight({
           {/* start first column */}
           <div className="vads-l-col--12 vads-u-display--none desktop:vads-u-display--block medium-screen:vads-l-col--4">
             <div className="homepage-blog__image">
-              <MediaImage
-                {...image}
-                imageStyle="crop_square"
-                // style={{ objectFit: 'cover', aspectRatio: '1/1' }}
-              />
+              <MediaImage {...image} imageStyle="crop_square" />
             </div>
           </div>
           {/* end first column */}
