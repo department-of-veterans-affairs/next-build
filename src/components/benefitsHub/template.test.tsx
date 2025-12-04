@@ -18,6 +18,7 @@ const mockBenefitsData: FormattedBenefitsHub = {
   spokes: [],
   fieldLinks: null,
   connectWithUs: null,
+  relatedLinks: null,
 }
 
 describe('BenefitsHub with valid data', () => {
@@ -37,6 +38,7 @@ describe('BenefitsHub with valid data', () => {
         intro={null}
         fieldLinks={null}
         connectWithUs={mockData.field_connect_with_us}
+        relatedLinks={null}
       />
     )
 
@@ -59,6 +61,7 @@ describe('BenefitsHub with valid data', () => {
         intro={'This is a test intro for the Benefits Hub component.'}
         fieldLinks={null}
         connectWithUs={mockData.field_connect_with_us}
+        relatedLinks={null}
       />
     )
 
@@ -80,6 +83,7 @@ describe('BenefitsHub with valid data', () => {
         intro={'Learn about disability compensation.'}
         fieldLinks={null}
         connectWithUs={null}
+        relatedLinks={null}
       />
     )
 
@@ -135,6 +139,7 @@ describe('BenefitsHub with valid data', () => {
         spokes={mockSpokes}
         fieldLinks={null}
         connectWithUs={null}
+        relatedLinks={null}
       />
     )
 
@@ -188,6 +193,7 @@ describe('BenefitsHub with valid data', () => {
         spokes={[]}
         fieldLinks={mockFieldLinks}
         connectWithUs={null}
+        relatedLinks={null}
       />
     )
 
@@ -222,6 +228,7 @@ describe('BenefitsHub with valid data', () => {
         spokes={[]}
         fieldLinks={null}
         connectWithUs={mockData.field_connect_with_us}
+        relatedLinks={null}
       />
     )
 
@@ -294,6 +301,7 @@ describe('BenefitsHub with valid data', () => {
         spokes={mockSpokes}
         fieldLinks={null}
         connectWithUs={null}
+        relatedLinks={null}
       />
     )
 
@@ -315,6 +323,7 @@ describe('BenefitsHub with valid data', () => {
         spokes={[]}
         fieldLinks={null}
         connectWithUs={null}
+        relatedLinks={null}
       />
     )
 
@@ -336,11 +345,100 @@ describe('BenefitsHub with valid data', () => {
         spokes={null}
         fieldLinks={null}
         connectWithUs={null}
+        relatedLinks={null}
       />
     )
 
     // Check that the va-on-this-page element is not rendered when spokes is null
     const onThisPageElement = document.querySelector('va-on-this-page')
     expect(onThisPageElement).not.toBeInTheDocument()
+  })
+  test('renders BenefitsHub component with relatedLinks', () => {
+    const mockRelatedLinks = {
+      id: 'related-links-1',
+      type: 'paragraph--list_of_link_teasers' as const,
+      entityId: 123,
+      title: 'Related Information',
+      linkTeasers: [
+        {
+          type: 'paragraph--link_teaser' as const,
+          id: 'related-teaser-1',
+          entityId: 456,
+          uri: '/related-info-1/',
+          title: 'Related Topic 1',
+          options: [],
+          summary: 'This is a summary for topic 1',
+        },
+        {
+          type: 'paragraph--link_teaser' as const,
+          id: 'related-teaser-2',
+          entityId: 457,
+          uri: '/related-info-2/',
+          title: 'Related Topic 2',
+          options: [],
+          summary: 'This is a summary for topic 2',
+        },
+      ],
+    }
+
+    const { container } = render(
+      <BenefitsHub
+        id="6"
+        type=""
+        published={true}
+        lastUpdated="2024-01-01"
+        title={'Benefits Hub with Related Links'}
+        titleIcon={null}
+        intro={'Information with related links.'}
+        spokes={[]}
+        fieldLinks={null}
+        connectWithUs={null}
+        relatedLinks={mockRelatedLinks}
+      />
+    )
+
+    expect(
+      screen.getByRole('heading', { name: /Benefits Hub with Related Links/ })
+    ).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: /Related Information/ })
+    ).toBeInTheDocument()
+
+    // Check that related links section has the correct CSS classes
+    const relatedSection = container.querySelector(
+      '.merger-majorlinks.va-nav-linkslist.va-nav-linkslist--related'
+    )
+    expect(relatedSection).toBeInTheDocument()
+
+    // Check that related link teasers are rendered with correct data attributes
+    const linkTeaser1 = container.querySelector(
+      '[data-entity-id="related-teaser-1"]'
+    )
+    expect(linkTeaser1).toBeInTheDocument()
+    expect(linkTeaser1).toHaveAttribute(
+      'data-links-list-header',
+      'Related Topic 1'
+    )
+    expect(linkTeaser1).toHaveAttribute(
+      'data-links-list-section-header',
+      'Related Information'
+    )
+
+    const linkTeaser2 = container.querySelector(
+      '[data-entity-id="related-teaser-2"]'
+    )
+    expect(linkTeaser2).toBeInTheDocument()
+    expect(linkTeaser2).toHaveAttribute(
+      'data-links-list-header',
+      'Related Topic 2'
+    )
+
+    // Check that summaries are rendered
+    expect(
+      screen.getByText('This is a summary for topic 1')
+    ).toBeInTheDocument()
+    expect(
+      screen.getByText('This is a summary for topic 2')
+    ).toBeInTheDocument()
   })
 })

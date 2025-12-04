@@ -15,6 +15,8 @@ export const params: QueryParams<null> = () => {
     'field_spokes',
     'field_spokes.field_va_paragraphs',
     'field_connect_with_us',
+    'field_related_links',
+    'field_related_links.field_va_paragraphs',
   ])
 }
 
@@ -55,6 +57,28 @@ export const formatter: QueryFormatter<NodeLandingPage, BenefitsHub> = (
         }))
       : null
 
+  const relatedLinks = entity.field_related_links
+    ? {
+        id: entity.field_related_links.id,
+        type: 'paragraph--list_of_link_teasers' as const,
+        entityId: entity.field_related_links.drupal_internal__id,
+        title: entity.field_related_links.field_title || '',
+        linkTeasers: (entity.field_related_links.field_va_paragraphs || []).map(
+          (paragraph) => ({
+            type: 'paragraph--link_teaser' as const,
+            id: paragraph?.id?.toString() || '',
+            entityId: paragraph?.entityId || null,
+            uri: paragraph?.field_link?.url?.path || '',
+            title: paragraph?.field_link?.title || '',
+            options: paragraph?.field_link?.options || [],
+            summary: paragraph?.field_link_summary || null,
+            isHubPage: true,
+            componentParams: {},
+          })
+        ),
+      }
+    : null
+
   return {
     ...entityBaseFields(entity),
     title: entity.title,
@@ -67,5 +91,6 @@ export const formatter: QueryFormatter<NodeLandingPage, BenefitsHub> = (
     spokes: spokes,
     fieldLinks: fieldLinks,
     connectWithUs: entity.field_connect_with_us,
+    relatedLinks: relatedLinks,
   }
 }
