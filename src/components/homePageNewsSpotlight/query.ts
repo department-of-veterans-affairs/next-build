@@ -37,7 +37,10 @@ export const formatter: QueryFormatter<JsonApiResponse, NewsSpotlightData> = (
   return {
     image,
     headline: promoBlock.field_promo_headline,
-    link: promoBlock.field_link,
+    link: {
+      ...promoBlock.field_link,
+      text: promoBlock.field_link_label,
+    },
     promoText: promoBlock.field_promo_text,
   }
 }

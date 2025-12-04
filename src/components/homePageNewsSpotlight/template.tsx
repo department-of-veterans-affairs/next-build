@@ -38,7 +38,7 @@ export function HomePageNewsSpotlight({
               </h3>
 
               <p className="vads-u-padding-right--0 desktop:vads-u-padding-right--8 vads-u-margin-bottom--3 desktop:vads-u-margin-bottom--6">
-                {promoText}
+                {promoText}{' '}
                 <va-link
                   reverse
                   label={`${link.text} about ${headline}`}

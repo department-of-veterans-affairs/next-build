@@ -60,6 +60,7 @@ exports[`homePageNewsSpotlight query formatter should format valid data correctl
   },
   "link": {
     "options": [],
+    "text": "Read the full article",
     "title": null,
     "uri": "https://news.va.gov/138519/download-the-va-health-and-benefits-app/",
     "url": "https://news.va.gov/138519/download-the-va-health-and-benefits-app/",
