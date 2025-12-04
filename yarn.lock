@@ -12943,6 +12943,9 @@ __metadata:
     uswds: ^2.14.0
     uuid: ^9.0.1
     validator: ^13.15.0
+  dependenciesMeta:
+    node_extra_ca_certs_mozilla_bundle:
+      built: true
   languageName: unknown
   linkType: soft
 

@@ -151,5 +151,10 @@
     "@types/react": "19.1.11",
     "@types/react-dom": "19.1.7"
   },
+  "dependenciesMeta": {
+    "node_extra_ca_certs_mozilla_bundle": {
+      "built": true
+    }
+  },
   "packageManager": "yarn@3.6.1"
 }
