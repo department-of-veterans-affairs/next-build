@@ -9,10 +9,20 @@ import {
   ResourceType,
 } from '@/lib/constants/resourceTypes'
 
+interface ComparisonRecord {
+  env1: string
+  env2: string
+  selector: string
+  success: boolean
+  message: string
+  timestamp: string
+}
+
 interface QAPath {
   path: string
   starred?: boolean
   notes?: string
+  comparisons?: ComparisonRecord[]
 }
 
 interface QACache {
@@ -50,6 +60,9 @@ function cleanPath(qaPath: QAPath): Partial<QAPath> {
   }
   if (qaPath.notes && qaPath.notes.trim() !== '') {
     cleaned.notes = qaPath.notes
+  }
+  if (qaPath.comparisons && qaPath.comparisons.length > 0) {
+    cleaned.comparisons = qaPath.comparisons
   }
   return cleaned
 }
@@ -166,7 +179,14 @@ export default async function handler(
 
   if (req.method === 'POST') {
     try {
-      const { resourceType, path: pathToUpdate, starred, notes } = req.body
+      const {
+        resourceType,
+        path: pathToUpdate,
+        starred,
+        notes,
+        addComparison,
+        deleteComparisonIndex,
+      } = req.body
 
       if (
         !resourceType ||
@@ -204,6 +224,34 @@ export default async function handler(
           cache.paths[pathIndex].notes = notes
         } else {
           delete cache.paths[pathIndex].notes
+        }
+      }
+      if (addComparison && typeof addComparison === 'object') {
+        // Add or replace comparison (replace if same env1 and env2 exist)
+        if (!cache.paths[pathIndex].comparisons) {
+          cache.paths[pathIndex].comparisons = []
+        }
+
+        const newComp = addComparison as ComparisonRecord
+        const existingIndex = cache.paths[pathIndex].comparisons.findIndex(
+          (c) => c.env1 === newComp.env1 && c.env2 === newComp.env2
+        )
+
+        if (existingIndex !== -1) {
+          // Replace existing comparison
+          cache.paths[pathIndex].comparisons[existingIndex] = newComp
+        } else {
+          // Add new comparison
+          cache.paths[pathIndex].comparisons.push(newComp)
+        }
+      }
+      if (typeof deleteComparisonIndex === 'number') {
+        // Delete a comparison by index
+        if (cache.paths[pathIndex].comparisons) {
+          cache.paths[pathIndex].comparisons.splice(deleteComparisonIndex, 1)
+          if (cache.paths[pathIndex].comparisons.length === 0) {
+            delete cache.paths[pathIndex].comparisons
+          }
         }
       }
 
