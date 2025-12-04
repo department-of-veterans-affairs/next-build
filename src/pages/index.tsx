@@ -3,6 +3,7 @@ import { PageLayout } from '@/components/pageLayout/template'
 import { queries } from '@/lib/drupal/queries'
 import { HomePageHero } from '@/components/homePageHero/template'
 import { HomePageCommonTasks } from '@/components/homePageCommonTasks/template'
+import { HomePageNewsSpotlight } from '@/components/homePageNewsSpotlight/template'
 import Head from 'next/head'
 import Script from 'next/script'
 
@@ -12,6 +13,7 @@ const HomePage = ({
   bannerData,
   heroData,
   commonTasksData,
+  newsSpotlightData,
 }) => {
   return (
     <>
@@ -26,7 +28,7 @@ const HomePage = ({
         <main data-template="layouts/home" id="content">
           <HomePageHero {...heroData} />
           <HomePageCommonTasks {...commonTasksData} />
-          <div>TODO: add news-spotlight</div>
+          <HomePageNewsSpotlight {...newsSpotlightData} />
           <div>TODO: add homepage-benefits</div>
           <div className="usa-grid usa-grid-full">
             <ContentFooter />
@@ -56,16 +58,23 @@ export async function getStaticProps() {
     }
   }
   try {
-    const [footerData, megaMenuData, bannerData, heroData, commonTasksData] =
-      await Promise.all([
-        queries.getData('footer-data'),
-        queries.getData('header-data'),
-        queries.getData('banner-data', {
-          itemPath: '/',
-        }),
-        queries.getData('hero-data'),
-        queries.getData('home-page-common-tasks'),
-      ])
+    const [
+      footerData,
+      megaMenuData,
+      bannerData,
+      heroData,
+      commonTasksData,
+      newsSpotlightData,
+    ] = await Promise.all([
+      queries.getData('footer-data'),
+      queries.getData('header-data'),
+      queries.getData('banner-data', {
+        itemPath: '/',
+      }),
+      queries.getData('hero-data'),
+      queries.getData('home-page-common-tasks'),
+      queries.getData('home-page-news-spotlight'),
+    ])
 
     return {
       props: {
@@ -74,6 +83,7 @@ export async function getStaticProps() {
         bannerData,
         heroData,
         commonTasksData,
+        newsSpotlightData,
       },
     }
   } catch (error) {
