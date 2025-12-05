@@ -8,6 +8,7 @@ jest.mock('next/navigation', () => ({
     toString: () => '',
   }),
 }))
+
 describe('FrontPage', () => {
   const mockProps = {
     footerData: { test: 'footer' },
@@ -66,6 +67,9 @@ describe('FrontPage', () => {
     expect(screen.getByTestId('common-tasks')).toBeInTheDocument()
     expect(screen.getByTestId('news-spotlight')).toBeInTheDocument()
     expect(screen.getByTestId('home-page-benefits')).toBeInTheDocument()
-    expect(screen.getByText('TODO: add email signup')).toBeInTheDocument()
+    expect(
+      document.querySelector('[data-widget-type="homepage-email-signup"]')
+    ).toBeInTheDocument()
+    expect(document.querySelector('#vets-banner-1')).toBeInTheDocument()
   })
 })
