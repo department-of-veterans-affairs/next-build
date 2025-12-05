@@ -7,6 +7,14 @@ exports[`CampaignLandingPage formatData outputs formatted data 1`] = `
       "name": "All Veterans",
     },
   ],
+  "benefitCategories": [
+    {
+      "path": "/service-member-benefits",
+      "teaserText": "Find out what benefits you may be eligible for during service and which time-sensitive benefits to consider when separating or retiring.",
+      "title": "VA benefits for service members",
+      "titleIcon": "service-member",
+    },
+  ],
   "breadcrumbs": null,
   "connectWithUs": {
     "emailLink": {
