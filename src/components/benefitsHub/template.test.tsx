@@ -17,7 +17,11 @@ const mockBenefitsData: FormattedBenefitsHub = {
   intro: 'This is a test intro for the Benefits Hub component.',
   spokes: [],
   fieldLinks: null,
-  connectWithUs: null,
+  connectWithUs: mockData.field_connect_with_us,
+  alertTitle: null,
+  alertType: null,
+  alertExpandText: null,
+  alertContent: null,
 }
 
 describe('BenefitsHub with valid data', () => {
@@ -26,18 +30,7 @@ describe('BenefitsHub with valid data', () => {
   })
   test('renders BenefitsHub component', async () => {
     const { container } = render(
-      <BenefitsHub
-        id="1"
-        type=""
-        published={true}
-        lastUpdated="2024-01-01"
-        title={'Test Health Benefits Hub'}
-        titleIcon={null}
-        spokes={[]}
-        intro={null}
-        fieldLinks={null}
-        connectWithUs={mockData.field_connect_with_us}
-      />
+      <BenefitsHub {...mockBenefitsData} title={'Test Health Benefits Hub'} />
     )
 
     expect(screen.queryByText(/Test Health Benefits Hub/)).toBeInTheDocument()
@@ -49,16 +42,8 @@ describe('BenefitsHub with valid data', () => {
   test('renders BenefitsHub component with intro text', () => {
     render(
       <BenefitsHub
-        id="2"
-        type=""
-        published={true}
-        lastUpdated="2024-01-01"
-        title={'Health Care'}
-        titleIcon={null}
-        spokes={[]}
+        {...mockBenefitsData}
         intro={'This is a test intro for the Benefits Hub component.'}
-        fieldLinks={null}
-        connectWithUs={mockData.field_connect_with_us}
       />
     )
 
@@ -70,16 +55,10 @@ describe('BenefitsHub with valid data', () => {
   test('renders BenefitsHub component with icon', () => {
     render(
       <BenefitsHub
-        id="3"
-        type=""
-        published={true}
-        lastUpdated="2024-01-01"
+        {...mockBenefitsData}
         title={'Disability'}
         titleIcon={'disability'}
-        spokes={[]}
         intro={'Learn about disability compensation.'}
-        fieldLinks={null}
-        connectWithUs={null}
       />
     )
 
@@ -125,16 +104,11 @@ describe('BenefitsHub with valid data', () => {
 
     render(
       <BenefitsHub
-        id="4"
-        type=""
-        published={true}
-        lastUpdated="2024-01-01"
+        {...mockBenefitsData}
         title={'Health Care'}
         titleIcon={'health-care'}
         intro={'Manage your VA health care.'}
         spokes={mockSpokes}
-        fieldLinks={null}
-        connectWithUs={null}
       />
     )
 
@@ -178,16 +152,10 @@ describe('BenefitsHub with valid data', () => {
 
     render(
       <BenefitsHub
-        id="5"
-        type=""
-        published={true}
-        lastUpdated="2024-01-01"
+        {...mockBenefitsData}
         title={'Benefits Hub'}
-        titleIcon={null}
         intro={'Information for different audiences.'}
-        spokes={[]}
         fieldLinks={mockFieldLinks}
-        connectWithUs={null}
       />
     )
 
@@ -212,16 +180,8 @@ describe('BenefitsHub with valid data', () => {
   test('renders BenefitsHub component with connectWithUs (Connect with us accordion)', () => {
     render(
       <BenefitsHub
-        id="5"
-        type=""
-        published={true}
-        lastUpdated="2024-01-01"
-        title={'Benefits Hub'}
-        titleIcon={null}
+        {...mockBenefitsData}
         intro={'Information for different audiences.'}
-        spokes={[]}
-        fieldLinks={null}
-        connectWithUs={mockData.field_connect_with_us}
       />
     )
 
@@ -284,16 +244,10 @@ describe('BenefitsHub with valid data', () => {
 
     render(
       <BenefitsHub
-        id="6"
-        type=""
-        published={true}
-        lastUpdated="2024-01-01"
+        {...mockBenefitsData}
         title={'Benefits Hub with On This Page'}
-        titleIcon={null}
         intro={'Testing on-this-page component.'}
         spokes={mockSpokes}
-        fieldLinks={null}
-        connectWithUs={null}
       />
     )
 
@@ -305,16 +259,9 @@ describe('BenefitsHub with valid data', () => {
   test('does not render on-this-page component when no spokes exist', () => {
     render(
       <BenefitsHub
-        id="7"
-        type=""
-        published={true}
-        lastUpdated="2024-01-01"
+        {...mockBenefitsData}
         title={'Benefits Hub without Spokes'}
-        titleIcon={null}
         intro={'Testing without spokes.'}
-        spokes={[]}
-        fieldLinks={null}
-        connectWithUs={null}
       />
     )
 
@@ -326,21 +273,51 @@ describe('BenefitsHub with valid data', () => {
   test('does not render on-this-page component when spokes is null', () => {
     render(
       <BenefitsHub
-        id="8"
-        type=""
-        published={true}
-        lastUpdated="2024-01-01"
+        {...mockBenefitsData}
         title={'Benefits Hub with Null Spokes'}
-        titleIcon={null}
         intro={'Testing with null spokes.'}
         spokes={null}
-        fieldLinks={null}
-        connectWithUs={null}
       />
     )
 
     // Check that the va-on-this-page element is not rendered when spokes is null
     const onThisPageElement = document.querySelector('va-on-this-page')
     expect(onThisPageElement).not.toBeInTheDocument()
+  })
+
+  test('should render alert when alertTitle, alertType, alertExpandText, and alertContent are present', () => {
+    render(
+      <BenefitsHub
+        {...mockBenefitsData}
+        alertTitle={mockData.field_alert.field_alert_title}
+        alertContent={
+          mockData.field_alert.field_alert_content.field_wysiwyg.processed
+        }
+        alertExpandText={
+          mockData.field_alert.field_alert_content.field_text_expander
+        }
+        alertType={mockData.field_alert.field_alert_type}
+      />
+    )
+
+    // Check that the va-alert element is rendered
+    const alertElement = document.querySelector('va-alert')
+    expect(alertElement).toBeInTheDocument()
+  })
+
+  test('should not render alert when all alert props are not present', () => {
+    render(
+      <BenefitsHub
+        {...mockBenefitsData}
+        alertTitle={mockData.field_alert.field_alert_title}
+        alertContent={
+          mockData.field_alert.field_alert_content.field_wysiwyg.processed
+        }
+      />
+    )
+
+    // Check that the va-alert element is rendered
+    const alertElement = document.querySelector('va-alert')
+    expect(alertElement).not.toBeInTheDocument()
   })
 })

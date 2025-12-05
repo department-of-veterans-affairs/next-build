@@ -3,6 +3,7 @@ import { BenefitsHub as FormattedBenefitsHub } from './formatted-type'
 import { ListOfLinkTeasers } from '@/components/listOfLinkTeasers/template'
 import { ContentFooter } from '@/components/contentFooter/template'
 import { ConnectWithUsPanel } from './ConnectWithUsPanel'
+import { WysiwygField } from '@/components/wysiwyg/template'
 
 export function BenefitsHub({
   title,
@@ -12,8 +13,14 @@ export function BenefitsHub({
   lastUpdated,
   fieldLinks,
   connectWithUs,
+  alertContent,
+  alertExpandText,
+  alertTitle,
+  alertType,
 }: FormattedBenefitsHub) {
   const iconConfig = getHubIcon(titleIcon)
+  const alert =
+    alertTitle && alertType && alertExpandText && alertContent ? true : false
 
   return (
     <div className="vads-grid-container">
@@ -42,6 +49,19 @@ export function BenefitsHub({
             />
           )}
           {spokes && spokes.length > 0 && <va-on-this-page></va-on-this-page>}
+          {alert && (
+            <div className="vads-u-margin-y--4">
+              <va-alert
+                status={alertType || 'info'}
+                close-btn-aria-label="Close notification"
+              >
+                <h2 slot="headline">{alertTitle}</h2>
+                <va-additional-info disable-border trigger={alertExpandText}>
+                  <WysiwygField html={alertContent} />
+                </va-additional-info>
+              </va-alert>
+            </div>
+          )}
           {spokes?.map((spokeSection) => (
             <div key={spokeSection.id}>
               <section>

@@ -1,13 +1,14 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
+import { drupalClient } from '@/lib/drupal/drupalClient'
 import { NodeLandingPage } from '@/types/drupal/node'
 import { BenefitsHub } from './formatted-type'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
+import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import { fetchSingleEntityOrPreview } from '@/lib/drupal/query'
 import { formatter as formatListOfLinkTeasers } from '@/components/listOfLinkTeasers/query'
 import { getHtmlFromDrupalContent } from '@/lib/utils/getHtmlFromDrupalContent'
-import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
 
 // Define the query params for fetching node--landing_page for benefits hub.
 export const params: QueryParams<null> = () => {
@@ -15,6 +16,8 @@ export const params: QueryParams<null> = () => {
     'field_spokes',
     'field_spokes.field_va_paragraphs',
     'field_connect_with_us',
+    'field_alert',
+    'field_alert.field_alert_content',
   ])
 }
 
@@ -67,5 +70,12 @@ export const formatter: QueryFormatter<NodeLandingPage, BenefitsHub> = (
     spokes: spokes,
     fieldLinks: fieldLinks,
     connectWithUs: entity.field_connect_with_us,
+    // alert: entity.field_alert,
+    alertTitle: entity.field_alert_title,
+    alertType: entity.field_alert_type,
+    alertExpandText:
+      entity.field_alert?.field_alert_content.field_text_expander,
+    alertContent:
+      entity.field_alert?.field_alert_content.field_wysiwyg.processed,
   }
 }
