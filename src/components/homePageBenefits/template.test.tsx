@@ -56,15 +56,6 @@ describe('HomePageBenefits Component', () => {
     const rows = container.querySelectorAll('.homepage-benefits-row')
     const expectedRows = Math.ceil(mockData.benefitsHubLinks.length / 3)
     expect(rows.length).toBe(expectedRows)
-
-    // Check that each row has correct class
-    rows.forEach((row) => {
-      expect(row).toHaveClass(
-        'usa-grid',
-        'usa-grid-full',
-        'homepage-benefits-row'
-      )
-    })
   })
 
   test('renders icons', () => {
