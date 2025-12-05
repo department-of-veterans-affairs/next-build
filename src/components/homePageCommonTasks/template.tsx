@@ -1,4 +1,6 @@
+import clsx from 'clsx'
 import { CommonTasksData } from './formatted-type'
+import styles from './template.module.css'
 
 export function HomePageCommonTasks({
   searchLinks,
@@ -6,7 +8,7 @@ export function HomePageCommonTasks({
 }: CommonTasksData) {
   return (
     <div
-      className="homepage-common-tasks"
+      className={styles.wrapper}
       data-e2e="common"
       data-testid="common-tasks"
     >
@@ -14,7 +16,12 @@ export function HomePageCommonTasks({
       <div className="vads-grid-container vads-u-padding-x--0">
         <div className="vads-grid-row">
           {/* start first column */}
-          <div className="vads-grid-col-12 tablet:vads-grid-col-6 homepage-common-tasks__column-left">
+          <div
+            className={clsx(
+              'vads-grid-col-12 tablet:vads-grid-col-6',
+              styles.columnLeft
+            )}
+          >
             <div className="vads-u-margin-x--2 desktop:vads-u-margin-x--0 desktop:vads-u-padding-right--9 vads-u-padding-bottom--5">
               <h2
                 className="vads-u-color--gray-dark vads-u-font-family--serif"
@@ -47,7 +54,12 @@ export function HomePageCommonTasks({
           {/* end first column */}
 
           {/* start second column */}
-          <div className="vads-grid-col-12 tablet:vads-grid-col-6 homepage-common-tasks__column-right">
+          <div
+            className={clsx(
+              'vads-grid-col-12 tablet:vads-grid-col-6',
+              styles.columnRight
+            )}
+          >
             <div className="vads-u-padding-left--2p5 tablet:vads-u-padding-right--2p5 vads-u-padding-bottom--5">
               <h2 className="vads-u-color--gray-dark vads-u-font-family--serif">
                 Top pages
@@ -67,32 +79,6 @@ export function HomePageCommonTasks({
           {/* end second column */}
         </div>
       </div>
-
-      <style>{`
-        .homepage-common-tasks__column-left {
-          background-color: white;
-        }
-
-        .homepage-common-tasks__column-right {
-          background-color: var(--vads-color-primary-alt-lightest);
-        }
-
-        /* tablet breakpoint */
-        @media (min-width: 40em) {
-          .homepage-common-tasks {
-            background: linear-gradient(
-              to right,
-              white 0 50%,
-              var(--vads-color-primary-alt-lightest) 50% 100%
-            );
-          }
-
-          .homepage-common-tasks__column-left,
-          .homepage-common-tasks__column-right {
-            background-color: none;
-          }
-        }
-      `}</style>
     </div>
   )
 }
