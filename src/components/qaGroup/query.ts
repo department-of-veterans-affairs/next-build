@@ -6,6 +6,7 @@ import { formatParagraph } from '@/lib/drupal/paragraphs'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { getNestedIncludes } from '@/lib/utils/queries'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
+import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 
 // Define the query params for fetching paragraph--q_a_group.
 export const params: QueryParams<null> = () => {
@@ -35,5 +36,6 @@ export const formatter: QueryFormatter<ParagraphQaGroup, QaGroup> = (
     intro: entity.field_section_intro || null,
     header: entity.field_section_header || null,
     displayAccordion: entity.field_accordion_display || false,
+    html: getHtmlFromField(entity.field_rich_wysiwyg),
   }
 }

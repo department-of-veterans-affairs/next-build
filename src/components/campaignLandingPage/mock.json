@@ -8422,17 +8422,64 @@
       ]
     }
   ],
-  "field_clp_faq_cta": null,
+  "field_clp_faq_cta": {
+    "type": "paragraph--button",
+    "id": "12c98f73-43b6-46b6-a2fa-33a4e5800802",
+    "drupal_internal__id": 184603,
+    "drupal_internal__revision_id": 1930522,
+    "langcode": "en",
+    "status": true,
+    "created": "2025-11-23T23:13:53+00:00",
+    "parent_id": "27556",
+    "parent_type": "node",
+    "parent_field_name": "field_clp_faq_cta",
+    "behavior_settings": [],
+    "default_langcode": true,
+    "revision_translation_affected": true,
+    "breadcrumbs": [],
+    "content_translation_source": "und",
+    "content_translation_outdated": false,
+    "content_translation_changed": "2025-11-23T23:13:53+00:00",
+    "field_button_label": "a call to action",
+    "field_button_link": {
+      "uri": "https://example.com/faq-example",
+      "title": "",
+      "options": {
+        "href": "https://example.com/faq-example",
+        "data-entity-type": "",
+        "data-entity-uuid": "",
+        "data-entity-substitution": ""
+      },
+      "url": "https://example.com/faq-example"
+    },
+    "links": {
+      "self": {
+        "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/button/12c98f73-43b6-46b6-a2fa-33a4e5800802?resourceVersion=id%3A1930522"
+      }
+    },
+    "resourceIdObjMeta": {
+      "target_revision_id": 1930522,
+      "drupal_internal__target_id": 184603
+    },
+    "paragraph_type": {
+      "type": "paragraphs_type--paragraphs_type",
+      "id": "f2ea2f57-89da-43d4-be22-ba46d728a286",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "button"
+      }
+    },
+    "relationshipNames": ["paragraph_type"]
+  },
   "field_clp_faq_paragraphs": [
     {
       "type": "paragraph--q_a",
-      "id": "eb782434-d0c6-4df8-9bf0-908bf70b7508",
-      "drupal_internal__id": 114124,
-      "drupal_internal__revision_id": 727810,
+      "id": "e7f9fe15-c607-444c-a7cc-72319973d088",
+      "drupal_internal__id": 79927,
+      "drupal_internal__revision_id": 1930524,
       "langcode": "en",
       "status": true,
-      "created": "2022-09-01T21:15:19+00:00",
-      "parent_id": "48974",
+      "created": "2021-08-25T17:25:28+00:00",
+      "parent_id": "27556",
       "parent_type": "node",
       "parent_field_name": "field_clp_faq_paragraphs",
       "behavior_settings": [],
@@ -8442,33 +8489,19 @@
       "content_translation_source": "und",
       "content_translation_outdated": false,
       "content_translation_changed": null,
-      "field_question": "What’s the PACT Act and how will it affect my VA benefits and care?",
+      "field_question": "How can I attend an event?",
       "links": {
         "self": {
-          "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/q_a/eb782434-d0c6-4df8-9bf0-908bf70b7508?resourceVersion=id%3A727810"
+          "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/q_a/e7f9fe15-c607-444c-a7cc-72319973d088?resourceVersion=id%3A1930524"
         }
       },
       "resourceIdObjMeta": {
-        "target_revision_id": 727810,
-        "drupal_internal__target_id": 114124
+        "target_revision_id": 1930524,
+        "drupal_internal__target_id": 79927
       },
       "paragraph_type": {
         "type": "paragraphs_type--paragraphs_type",
         "id": "525c8535-c6fa-4e64-8824-82c889785a6a",
-        "langcode": "en",
-        "status": true,
-        "dependencies": [],
-        "drupal_internal__id": "q_a",
-        "label": "Page-Specific Q&A",
-        "icon_uuid": null,
-        "icon_default": null,
-        "description": "Page-specific (non-reusable) content formatted as a question and answer.",
-        "behavior_plugins": [],
-        "links": {
-          "self": {
-            "href": "https://va-gov-cms.ddev.site/jsonapi/paragraphs_type/paragraphs_type/525c8535-c6fa-4e64-8824-82c889785a6a"
-          }
-        },
         "resourceIdObjMeta": {
           "drupal_internal__target_id": "q_a"
         }
@@ -8476,13 +8509,13 @@
       "field_answer": [
         {
           "type": "paragraph--wysiwyg",
-          "id": "890b7f18-2d94-4b19-99fc-9bd59424c232",
-          "drupal_internal__id": 114123,
-          "drupal_internal__revision_id": 727809,
+          "id": "56058e5d-57ad-4e91-b2ec-03680e080104",
+          "drupal_internal__id": 79926,
+          "drupal_internal__revision_id": 1930523,
           "langcode": "en",
           "status": true,
-          "created": "2022-09-01T21:15:19+00:00",
-          "parent_id": "114124",
+          "created": "2021-08-25T17:25:28+00:00",
+          "parent_id": "79927",
           "parent_type": "paragraph",
           "parent_field_name": "field_answer",
           "behavior_settings": [],
@@ -8493,18 +8526,18 @@
           "content_translation_outdated": false,
           "content_translation_changed": null,
           "field_wysiwyg": {
-            "value": "<p>The PACT Act is perhaps the largest health care and benefit expansion in VA history. The full name of the law is&nbsp;The Sergeant First Class (SFC) Heath Robinson Honoring our Promise to Address Comprehensive Toxics (PACT) Act.</p>\r\n\r\n<p><strong>The PACT Act will bring these changes:</strong></p>\r\n\r\n<ul>\r\n\t<li>Expands and extends eligibility for&nbsp;VA health care for Veterans with toxic exposures and Veterans of the&nbsp;Vietnam, Gulf War,&nbsp;and post-9/11 eras</li>\r\n\t<li>Adds more than 20&nbsp;new presumptive conditions for&nbsp;burn pits&nbsp;and other toxic exposures</li>\r\n\t<li>Adds more&nbsp;presumptive-exposure locations for Agent Orange and radiation</li>\r\n\t<li>Requires VA to provide a&nbsp;toxic exposure screening&nbsp;to every Veteran enrolled in VA health care</li>\r\n\t<li>Helps us improve research, staff education, and treatment related to toxic exposures</li>\r\n</ul>\r\n\r\n<p>If you’re a Veteran or survivor, you can file claims now to apply for PACT Act-related benefits.</p>\r\n",
+            "value": "<p>Join an event for conversation, resources, and information about VA health care and benefits. <a href=\"/admin/content/linky/16980\">FInd an event near you</a>.</p>",
             "format": "rich_text_limited",
-            "processed": "<p>The PACT Act is perhaps the largest health care and benefit expansion in VA history. The full name of the law is&nbsp;The Sergeant First Class (SFC) Heath Robinson Honoring our Promise to Address Comprehensive Toxics (PACT) Act.</p>\n<p><strong>The PACT Act will bring these changes:</strong></p>\n<ul>\n<li>Expands and extends eligibility for&nbsp;VA health care for Veterans with toxic exposures and Veterans of the&nbsp;Vietnam, Gulf War,&nbsp;and post-9/11 eras</li>\n<li>Adds more than 20&nbsp;new presumptive conditions for&nbsp;burn pits&nbsp;and other toxic exposures</li>\n<li>Adds more&nbsp;presumptive-exposure locations for Agent Orange and radiation</li>\n<li>Requires VA to provide a&nbsp;toxic exposure screening&nbsp;to every Veteran enrolled in VA health care</li>\n<li>Helps us improve research, staff education, and treatment related to toxic exposures</li>\n</ul>\n<p>If you’re a Veteran or survivor, you can file claims now to apply for PACT Act-related benefits.</p>\n"
+            "processed": "<p>Join an event for conversation, resources, and information about VA health care and benefits. <a href=\"https://www.va.gov/outreach-and-events/events/\">FInd an event near you</a>.</p>\n"
           },
           "links": {
             "self": {
-              "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/wysiwyg/890b7f18-2d94-4b19-99fc-9bd59424c232?resourceVersion=id%3A727809"
+              "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/wysiwyg/56058e5d-57ad-4e91-b2ec-03680e080104?resourceVersion=id%3A1930523"
             }
           },
           "resourceIdObjMeta": {
-            "target_revision_id": 727809,
-            "drupal_internal__target_id": 114123
+            "target_revision_id": 1930523,
+            "drupal_internal__target_id": 79926
           },
           "paragraph_type": {
             "type": "paragraphs_type--paragraphs_type",
@@ -8520,13 +8553,13 @@
     },
     {
       "type": "paragraph--q_a",
-      "id": "bab5963c-fe40-4c90-a785-7724c6272f65",
-      "drupal_internal__id": 114126,
-      "drupal_internal__revision_id": 727812,
+      "id": "93aa66f3-6dd9-4ea0-bcf5-8361e669dfea",
+      "drupal_internal__id": 79931,
+      "drupal_internal__revision_id": 1930526,
       "langcode": "en",
       "status": true,
-      "created": "2022-09-01T21:54:21+00:00",
-      "parent_id": "48974",
+      "created": "2021-08-25T17:35:15+00:00",
+      "parent_id": "27556",
       "parent_type": "node",
       "parent_field_name": "field_clp_faq_paragraphs",
       "behavior_settings": [],
@@ -8536,33 +8569,19 @@
       "content_translation_source": "und",
       "content_translation_outdated": false,
       "content_translation_changed": null,
-      "field_question": "What does it mean to have a presumptive condition for toxic exposure?",
+      "field_question": "I have a question for your team. How can I contact you?",
       "links": {
         "self": {
-          "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/q_a/bab5963c-fe40-4c90-a785-7724c6272f65?resourceVersion=id%3A727812"
+          "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/q_a/93aa66f3-6dd9-4ea0-bcf5-8361e669dfea?resourceVersion=id%3A1930526"
         }
       },
       "resourceIdObjMeta": {
-        "target_revision_id": 727812,
-        "drupal_internal__target_id": 114126
+        "target_revision_id": 1930526,
+        "drupal_internal__target_id": 79931
       },
       "paragraph_type": {
         "type": "paragraphs_type--paragraphs_type",
         "id": "525c8535-c6fa-4e64-8824-82c889785a6a",
-        "langcode": "en",
-        "status": true,
-        "dependencies": [],
-        "drupal_internal__id": "q_a",
-        "label": "Page-Specific Q&A",
-        "icon_uuid": null,
-        "icon_default": null,
-        "description": "Page-specific (non-reusable) content formatted as a question and answer.",
-        "behavior_plugins": [],
-        "links": {
-          "self": {
-            "href": "https://va-gov-cms.ddev.site/jsonapi/paragraphs_type/paragraphs_type/525c8535-c6fa-4e64-8824-82c889785a6a"
-          }
-        },
         "resourceIdObjMeta": {
           "drupal_internal__target_id": "q_a"
         }
@@ -8570,13 +8589,13 @@
       "field_answer": [
         {
           "type": "paragraph--wysiwyg",
-          "id": "5db8e2be-aaa9-4a3f-bcc8-18f1315a8b9a",
-          "drupal_internal__id": 114125,
-          "drupal_internal__revision_id": 727811,
+          "id": "083ba7cc-66b4-4037-af3f-3810ac20e564",
+          "drupal_internal__id": 79930,
+          "drupal_internal__revision_id": 1930525,
           "langcode": "en",
           "status": true,
-          "created": "2022-09-01T21:54:21+00:00",
-          "parent_id": "114126",
+          "created": "2021-08-25T17:35:15+00:00",
+          "parent_id": "79931",
           "parent_type": "paragraph",
           "parent_field_name": "field_answer",
           "behavior_settings": [],
@@ -8587,18 +8606,18 @@
           "content_translation_outdated": false,
           "content_translation_changed": null,
           "field_wysiwyg": {
-            "value": "<p>To get a VA disability rating, your disability must connect to your military service. For many health conditions, you need to prove that your service caused your condition.&nbsp;</p>\r\n\r\n<p>But for some conditions, we automatically assume (or “presume”) that your service caused your condition. We call these “presumptive conditions.”</p>\r\n\r\n<p>We consider a condition presumptive when it's established by law or regulation.</p>\r\n\r\n<p>If you have a presumptive condition, you don’t need to prove that your service caused the condition. You only need to meet the service requirements for the presumption.</p>\r\n",
+            "value": "<p>Send us an email at&nbsp;<a href=\"mailto:ActionCenter@va.gov\" aria-label=\"Link ActionCenter@va.gov\" title=\"mailto:actioncenter@va.gov\">ActionCenter@va.gov</a>. You can also sign up for the <a href=\"/admin/content/linky/20534\">VetResources Newsletter</a> and get connected with your <a href=\"/admin/content/linky/24\">local VA facility</a> to stay current on information and events in your community.</p>",
             "format": "rich_text_limited",
-            "processed": "<p>To get a VA disability rating, your disability must connect to your military service. For many health conditions, you need to prove that your service caused your condition.&nbsp;</p>\n<p>But for some conditions, we automatically assume (or “presume”) that your service caused your condition. We call these “presumptive conditions.”</p>\n<p>We consider a condition presumptive when it's established by law or regulation.</p>\n<p>If you have a presumptive condition, you don’t need to prove that your service caused the condition. You only need to meet the service requirements for the presumption.</p>\n"
+            "processed": "<p>Send us an email at&nbsp;<a href=\"mailto:ActionCenter@va.gov\" aria-label=\"Link ActionCenter@va.gov\" title=\"mailto:actioncenter@va.gov\">ActionCenter@va.gov</a>. You can also sign up for the <a href=\"https://www.va.gov/VetResources/\">VetResources Newsletter</a> and get connected with your <a href=\"https://www.va.gov/find-locations/\">local VA facility</a> to stay current on information and events in your community.</p>\n"
           },
           "links": {
             "self": {
-              "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/wysiwyg/5db8e2be-aaa9-4a3f-bcc8-18f1315a8b9a?resourceVersion=id%3A727811"
+              "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/wysiwyg/083ba7cc-66b4-4037-af3f-3810ac20e564?resourceVersion=id%3A1930525"
             }
           },
           "resourceIdObjMeta": {
-            "target_revision_id": 727811,
-            "drupal_internal__target_id": 114125
+            "target_revision_id": 1930525,
+            "drupal_internal__target_id": 79930
           },
           "paragraph_type": {
             "type": "paragraphs_type--paragraphs_type",
@@ -8614,13 +8633,13 @@
     },
     {
       "type": "paragraph--q_a",
-      "id": "75d9a2b3-a193-441f-b3e9-b06e06cff59b",
-      "drupal_internal__id": 114128,
-      "drupal_internal__revision_id": 727814,
+      "id": "91492811-0896-466a-ac27-8e57ba2ff4f9",
+      "drupal_internal__id": 79933,
+      "drupal_internal__revision_id": 1930528,
       "langcode": "en",
       "status": true,
-      "created": "2022-09-01T21:55:07+00:00",
-      "parent_id": "48974",
+      "created": "2021-08-25T17:36:42+00:00",
+      "parent_id": "27556",
       "parent_type": "node",
       "parent_field_name": "field_clp_faq_paragraphs",
       "behavior_settings": [],
@@ -8630,33 +8649,19 @@
       "content_translation_source": "und",
       "content_translation_outdated": false,
       "content_translation_changed": null,
-      "field_question": "Can Veterans’ survivors get compensation payments under the PACT Act?",
+      "field_question": "How do VA 1on-1: Veteran Assistance Expo events work?",
       "links": {
         "self": {
-          "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/q_a/75d9a2b3-a193-441f-b3e9-b06e06cff59b?resourceVersion=id%3A727814"
+          "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/q_a/91492811-0896-466a-ac27-8e57ba2ff4f9?resourceVersion=id%3A1930528"
         }
       },
       "resourceIdObjMeta": {
-        "target_revision_id": 727814,
-        "drupal_internal__target_id": 114128
+        "target_revision_id": 1930528,
+        "drupal_internal__target_id": 79933
       },
       "paragraph_type": {
         "type": "paragraphs_type--paragraphs_type",
         "id": "525c8535-c6fa-4e64-8824-82c889785a6a",
-        "langcode": "en",
-        "status": true,
-        "dependencies": [],
-        "drupal_internal__id": "q_a",
-        "label": "Page-Specific Q&A",
-        "icon_uuid": null,
-        "icon_default": null,
-        "description": "Page-specific (non-reusable) content formatted as a question and answer.",
-        "behavior_plugins": [],
-        "links": {
-          "self": {
-            "href": "https://va-gov-cms.ddev.site/jsonapi/paragraphs_type/paragraphs_type/525c8535-c6fa-4e64-8824-82c889785a6a"
-          }
-        },
         "resourceIdObjMeta": {
           "drupal_internal__target_id": "q_a"
         }
@@ -8664,13 +8669,13 @@
       "field_answer": [
         {
           "type": "paragraph--wysiwyg",
-          "id": "a73177b5-b5dd-409e-8a24-2428d6e2c530",
-          "drupal_internal__id": 114127,
-          "drupal_internal__revision_id": 727813,
+          "id": "f6858360-88c1-4a61-9b31-7fb2ed12a46d",
+          "drupal_internal__id": 79932,
+          "drupal_internal__revision_id": 1930527,
           "langcode": "en",
           "status": true,
-          "created": "2022-09-01T21:55:07+00:00",
-          "parent_id": "114128",
+          "created": "2021-08-25T17:36:42+00:00",
+          "parent_id": "79933",
           "parent_type": "paragraph",
           "parent_field_name": "field_answer",
           "behavior_settings": [],
@@ -8681,18 +8686,18 @@
           "content_translation_outdated": false,
           "content_translation_changed": null,
           "field_wysiwyg": {
-            "value": "<p>Yes. If you’re a surviving family member of a Veteran, you may be eligible for these benefits:</p>\r\n\r\n<ul>\r\n\t<li><strong>A monthly VA Dependency and Indemnity Compensation (VA DIC) payment.</strong>&nbsp;You may qualify if you’re the&nbsp;surviving spouse, dependent child, or parent of a&nbsp;Veteran who died from a service-connected disability.&nbsp;<br />\r\n\t<a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"f1b60834-09d6-4004-833e-2d432ef413ac\" href=\"https://www.va.gov/disability/dependency-indemnity-compensation\" title=\"About VA DIC for spouses, dependents, and parents\">Learn how to apply for&nbsp;VA DIC</a></li>\r\n\t<li><strong>A one-time accrued benefits payment.</strong>&nbsp;You may qualify if you’re the surviving spouse, dependent child,&nbsp;or dependent parent&nbsp;of a Veteran who we owed unpaid benefits at the time of their death.<br />\r\n\t<a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"33ef9f4c-bf8c-411e-8490-893433565675\" href=\"https://www.va.gov/resources/evidence-to-support-va-pension-dic-or-accrued-benefits-claims\" title=\"Evidence to support VA pension, DIC, or accrued benefits claims\">Learn&nbsp;about evidence needed for accrued benefits</a></li>\r\n\t<li><strong>A Survivors Pension.</strong>&nbsp;You may qualify if&nbsp;you’re the&nbsp;surviving spouse or child of a Veteran with wartime service.<br />\r\n\t<a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"ef05c64c-5825-4a68-bb8b-b42475185ce0\" href=\"https://www.va.gov/pension/survivors-pension\" title=\"VA Survivors Pension\">Learn how to apply for a Survivors Pension</a></li>\r\n</ul>\r\n",
+            "value": "<p><strong>VA 1-on-1: Veteran Assistance Expo&nbsp;events </strong>are collaborative efforts that include representation from&nbsp;<a href=\"/admin/content/linky/604\" title=\"https://www.va.gov/health/\">Veterans Health Administration</a>,&nbsp;<a href=\"/admin/content/linky/605\" title=\"https://www.benefits.va.gov/benefits/\">Veterans Benefits Administration</a>,&nbsp;<a href=\"/admin/content/linky/606\" title=\"https://www.cem.va.gov/\">National Cemetery Administration</a>,&nbsp;<a href=\"/admin/content/linky/607\" title=\"https://www.bva.va.gov/\">Board of Veterans’ Appeals,</a>&nbsp;state departments of Veterans Affairs, and community partners working together to offer one-on-one personalized assistance for VA benefits and health care, crisis support, memorial affairs, community services, and peer-to-peer connections.&nbsp;</p>",
             "format": "rich_text_limited",
-            "processed": "<p>Yes. If you’re a surviving family member of a Veteran, you may be eligible for these benefits:</p>\n<ul>\n<li><strong>A monthly VA Dependency and Indemnity Compensation (VA DIC) payment.</strong>&nbsp;You may qualify if you’re the&nbsp;surviving spouse, dependent child, or parent of a&nbsp;Veteran who died from a service-connected disability.&nbsp;<br><br>\n\t<a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"f1b60834-09d6-4004-833e-2d432ef413ac\" href=\"/disability/dependency-indemnity-compensation\" title=\"About VA DIC for spouses, dependents, and parents\">Learn how to apply for&nbsp;VA DIC</a></li>\n<li><strong>A one-time accrued benefits payment.</strong>&nbsp;You may qualify if you’re the surviving spouse, dependent child,&nbsp;or dependent parent&nbsp;of a Veteran who we owed unpaid benefits at the time of their death.<br><br>\n\t<a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"33ef9f4c-bf8c-411e-8490-893433565675\" href=\"/resources/evidence-to-support-va-pension-dic-or-accrued-benefits-claims\" title=\"Evidence to support VA pension, DIC, or accrued benefits claims\">Learn&nbsp;about evidence needed for accrued benefits</a></li>\n<li><strong>A Survivors Pension.</strong>&nbsp;You may qualify if&nbsp;you’re the&nbsp;surviving spouse or child of a Veteran with wartime service.<br><br>\n\t<a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"ef05c64c-5825-4a68-bb8b-b42475185ce0\" href=\"/pension/survivors-pension\" title=\"VA Survivors Pension\">Learn how to apply for a Survivors Pension</a></li>\n</ul>\n"
+            "processed": "<p><strong>VA 1-on-1: Veteran Assistance Expo&nbsp;events </strong>are collaborative efforts that include representation from&nbsp;<a href=\"https://www.va.gov/health/\" title=\"https://www.va.gov/health/\">Veterans Health Administration</a>,&nbsp;<a href=\"https://www.benefits.va.gov/benefits/\" title=\"https://www.benefits.va.gov/benefits/\">Veterans Benefits Administration</a>,&nbsp;<a href=\"https://www.cem.va.gov/\" title=\"https://www.cem.va.gov/\">National Cemetery Administration</a>,&nbsp;<a href=\"https://www.bva.va.gov/\" title=\"https://www.bva.va.gov/\">Board of Veterans’ Appeals,</a>&nbsp;state departments of Veterans Affairs, and community partners working together to offer one-on-one personalized assistance for VA benefits and health care, crisis support, memorial affairs, community services, and peer-to-peer connections.&nbsp;</p>\n"
           },
           "links": {
             "self": {
-              "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/wysiwyg/a73177b5-b5dd-409e-8a24-2428d6e2c530?resourceVersion=id%3A727813"
+              "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/wysiwyg/f6858360-88c1-4a61-9b31-7fb2ed12a46d?resourceVersion=id%3A1930527"
             }
           },
           "resourceIdObjMeta": {
-            "target_revision_id": 727813,
-            "drupal_internal__target_id": 114127
+            "target_revision_id": 1930527,
+            "drupal_internal__target_id": 79932
           },
           "paragraph_type": {
             "type": "paragraphs_type--paragraphs_type",
@@ -8708,13 +8713,13 @@
     },
     {
       "type": "paragraph--q_a",
-      "id": "707b8f59-2e59-45e9-82e2-75148d901f88",
-      "drupal_internal__id": 114130,
-      "drupal_internal__revision_id": 727816,
+      "id": "3e78afc7-7cd1-44d6-81ed-e2a3dccdcae8",
+      "drupal_internal__id": 184605,
+      "drupal_internal__revision_id": 1930530,
       "langcode": "en",
       "status": true,
-      "created": "2022-09-01T21:55:47+00:00",
-      "parent_id": "48974",
+      "created": "2025-11-23T23:17:46+00:00",
+      "parent_id": "27556",
       "parent_type": "node",
       "parent_field_name": "field_clp_faq_paragraphs",
       "behavior_settings": [],
@@ -8723,34 +8728,20 @@
       "breadcrumbs": [],
       "content_translation_source": "und",
       "content_translation_outdated": false,
-      "content_translation_changed": null,
-      "field_question": "What if VA denied my DIC claim and I think I’m now eligible?",
+      "content_translation_changed": "2025-11-23T23:17:46+00:00",
+      "field_question": "Page specific",
       "links": {
         "self": {
-          "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/q_a/707b8f59-2e59-45e9-82e2-75148d901f88?resourceVersion=id%3A727816"
+          "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/q_a/3e78afc7-7cd1-44d6-81ed-e2a3dccdcae8?resourceVersion=id%3A1930530"
         }
       },
       "resourceIdObjMeta": {
-        "target_revision_id": 727816,
-        "drupal_internal__target_id": 114130
+        "target_revision_id": 1930530,
+        "drupal_internal__target_id": 184605
       },
       "paragraph_type": {
         "type": "paragraphs_type--paragraphs_type",
         "id": "525c8535-c6fa-4e64-8824-82c889785a6a",
-        "langcode": "en",
-        "status": true,
-        "dependencies": [],
-        "drupal_internal__id": "q_a",
-        "label": "Page-Specific Q&A",
-        "icon_uuid": null,
-        "icon_default": null,
-        "description": "Page-specific (non-reusable) content formatted as a question and answer.",
-        "behavior_plugins": [],
-        "links": {
-          "self": {
-            "href": "https://va-gov-cms.ddev.site/jsonapi/paragraphs_type/paragraphs_type/525c8535-c6fa-4e64-8824-82c889785a6a"
-          }
-        },
         "resourceIdObjMeta": {
           "drupal_internal__target_id": "q_a"
         }
@@ -8758,13 +8749,13 @@
       "field_answer": [
         {
           "type": "paragraph--wysiwyg",
-          "id": "a70baed1-11f6-4b98-91b7-0e8fbaaf2565",
-          "drupal_internal__id": 114129,
-          "drupal_internal__revision_id": 727815,
+          "id": "8e110cb6-a6f4-4b92-b4f3-5273f3c864e5",
+          "drupal_internal__id": 184604,
+          "drupal_internal__revision_id": 1930529,
           "langcode": "en",
           "status": true,
-          "created": "2022-09-01T21:55:47+00:00",
-          "parent_id": "114130",
+          "created": "2025-11-23T23:17:46+00:00",
+          "parent_id": "184605",
           "parent_type": "paragraph",
           "parent_field_name": "field_answer",
           "behavior_settings": [],
@@ -8773,584 +8764,20 @@
           "breadcrumbs": [],
           "content_translation_source": "und",
           "content_translation_outdated": false,
-          "content_translation_changed": null,
+          "content_translation_changed": "2025-11-23T23:19:51+00:00",
           "field_wysiwyg": {
-            "value": "<p>You can submit a new application for VA dependency and indemnity compensation (VA DIC).&nbsp;</p>\r\n\r\n<p><a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"f1b60834-09d6-4004-833e-2d432ef413ac\" href=\"https://www.va.gov/disability/dependency-indemnity-compensation\" title=\"About VA DIC for spouses, dependents, and parents\">Learn about VA DIC and how to apply</a></p>\r\n\r\n<p><strong>Note:&nbsp;</strong>If we denied your claim in the past and we think you may be eligible now, we’ll try to contact you. We may be able to reevaluate your claim. But you don’t need to wait for us to contact you before you reapply.</p>\r\n",
+            "value": "<p>page specific answer</p>",
             "format": "rich_text_limited",
-            "processed": "<p>You can submit a new application for VA dependency and indemnity compensation (VA DIC).&nbsp;</p>\n<p><a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"f1b60834-09d6-4004-833e-2d432ef413ac\" href=\"/disability/dependency-indemnity-compensation\" title=\"About VA DIC for spouses, dependents, and parents\">Learn about VA DIC and how to apply</a></p>\n<p><strong>Note:&nbsp;</strong>If we denied your claim in the past and we think you may be eligible now, we’ll try to contact you. We may be able to reevaluate your claim. But you don’t need to wait for us to contact you before you reapply.</p>\n"
+            "processed": "<p>page specific answer</p>\n"
           },
           "links": {
             "self": {
-              "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/wysiwyg/a70baed1-11f6-4b98-91b7-0e8fbaaf2565?resourceVersion=id%3A727815"
+              "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/wysiwyg/8e110cb6-a6f4-4b92-b4f3-5273f3c864e5?resourceVersion=id%3A1930529"
             }
           },
           "resourceIdObjMeta": {
-            "target_revision_id": 727815,
-            "drupal_internal__target_id": 114129
-          },
-          "paragraph_type": {
-            "type": "paragraphs_type--paragraphs_type",
-            "id": "885e4b61-cfd2-44b9-94ae-f068ba2b48b6",
-            "resourceIdObjMeta": {
-              "drupal_internal__target_id": "wysiwyg"
-            }
-          },
-          "relationshipNames": ["paragraph_type"]
-        }
-      ],
-      "relationshipNames": ["paragraph_type", "field_answer"]
-    },
-    {
-      "type": "paragraph--q_a",
-      "id": "e7314214-96f1-406b-aead-241c3a68cd3c",
-      "drupal_internal__id": 114132,
-      "drupal_internal__revision_id": 727818,
-      "langcode": "en",
-      "status": true,
-      "created": "2022-09-01T21:56:08+00:00",
-      "parent_id": "48974",
-      "parent_type": "node",
-      "parent_field_name": "field_clp_faq_paragraphs",
-      "behavior_settings": [],
-      "default_langcode": true,
-      "revision_translation_affected": true,
-      "breadcrumbs": [],
-      "content_translation_source": "und",
-      "content_translation_outdated": false,
-      "content_translation_changed": null,
-      "field_question": "What other VA benefits are survivors eligible for?",
-      "links": {
-        "self": {
-          "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/q_a/e7314214-96f1-406b-aead-241c3a68cd3c?resourceVersion=id%3A727818"
-        }
-      },
-      "resourceIdObjMeta": {
-        "target_revision_id": 727818,
-        "drupal_internal__target_id": 114132
-      },
-      "paragraph_type": {
-        "type": "paragraphs_type--paragraphs_type",
-        "id": "525c8535-c6fa-4e64-8824-82c889785a6a",
-        "langcode": "en",
-        "status": true,
-        "dependencies": [],
-        "drupal_internal__id": "q_a",
-        "label": "Page-Specific Q&A",
-        "icon_uuid": null,
-        "icon_default": null,
-        "description": "Page-specific (non-reusable) content formatted as a question and answer.",
-        "behavior_plugins": [],
-        "links": {
-          "self": {
-            "href": "https://va-gov-cms.ddev.site/jsonapi/paragraphs_type/paragraphs_type/525c8535-c6fa-4e64-8824-82c889785a6a"
-          }
-        },
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": "q_a"
-        }
-      },
-      "field_answer": [
-        {
-          "type": "paragraph--wysiwyg",
-          "id": "e6f41153-ec3a-4cf0-b45a-fbce671cfdd1",
-          "drupal_internal__id": 114131,
-          "drupal_internal__revision_id": 727817,
-          "langcode": "en",
-          "status": true,
-          "created": "2022-09-01T21:56:08+00:00",
-          "parent_id": "114132",
-          "parent_type": "paragraph",
-          "parent_field_name": "field_answer",
-          "behavior_settings": [],
-          "default_langcode": true,
-          "revision_translation_affected": true,
-          "breadcrumbs": [],
-          "content_translation_source": "und",
-          "content_translation_outdated": false,
-          "content_translation_changed": null,
-          "field_wysiwyg": {
-            "value": "<p>You may be eligible for these VA benefits as the surviving family member of a Veteran:</p>\r\n\r\n<ul>\r\n\t<li><strong>Burial benefits and memorial items</strong>&nbsp;such as a gravesite in a VA national cemetery or a free headstone, marker, or medallion.</li>\r\n\t<li><strong>A burial allowance</strong>&nbsp;to help with&nbsp;the Veteran’s burial and funeral costs. You may qualify if you’re the Veteran’s surviving spouse, partner, child, or parent.</li>\r\n\t<li><strong>Education and training.</strong>&nbsp;You may qualify if you’re the survivor&nbsp;of a Veteran who died in the line of duty or as a result of service-connected disabilities.</li>\r\n\t<li><strong>Health care&nbsp;through the Civilian Health and Medical Program of the Department of Veterans Affairs (CHAMPVA).</strong>&nbsp;You may qualify if you’re the survivor or dependent of a Veteran with a service-connected disability.</li>\r\n\t<li><strong>A VA-backed home loan.</strong>&nbsp;You may qualify if you’re the surviving spouse of a&nbsp;Veteran.</li>\r\n</ul>\r\n\r\n<p><a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"c22ecd0c-6d40-4e02-8323-fa3f5fa00d12\" href=\"https://www.va.gov/family-member-benefits\" title=\"VA benefits for spouses, dependents, survivors, and family caregivers\">Learn more about family member benefits</a></p>\r\n",
-            "format": "rich_text_limited",
-            "processed": "<p>You may be eligible for these VA benefits as the surviving family member of a Veteran:</p>\n<ul>\n<li><strong>Burial benefits and memorial items</strong>&nbsp;such as a gravesite in a VA national cemetery or a free headstone, marker, or medallion.</li>\n<li><strong>A burial allowance</strong>&nbsp;to help with&nbsp;the Veteran’s burial and funeral costs. You may qualify if you’re the Veteran’s surviving spouse, partner, child, or parent.</li>\n<li><strong>Education and training.</strong>&nbsp;You may qualify if you’re the survivor&nbsp;of a Veteran who died in the line of duty or as a result of service-connected disabilities.</li>\n<li><strong>Health care&nbsp;through the Civilian Health and Medical Program of the Department of Veterans Affairs (CHAMPVA).</strong>&nbsp;You may qualify if you’re the survivor or dependent of a Veteran with a service-connected disability.</li>\n<li><strong>A VA-backed home loan.</strong>&nbsp;You may qualify if you’re the surviving spouse of a&nbsp;Veteran.</li>\n</ul>\n<p><a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"c22ecd0c-6d40-4e02-8323-fa3f5fa00d12\" href=\"/family-member-benefits\" title=\"VA benefits for spouses, dependents, survivors, and family caregivers\">Learn more about family member benefits</a></p>\n"
-          },
-          "links": {
-            "self": {
-              "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/wysiwyg/e6f41153-ec3a-4cf0-b45a-fbce671cfdd1?resourceVersion=id%3A727817"
-            }
-          },
-          "resourceIdObjMeta": {
-            "target_revision_id": 727817,
-            "drupal_internal__target_id": 114131
-          },
-          "paragraph_type": {
-            "type": "paragraphs_type--paragraphs_type",
-            "id": "885e4b61-cfd2-44b9-94ae-f068ba2b48b6",
-            "resourceIdObjMeta": {
-              "drupal_internal__target_id": "wysiwyg"
-            }
-          },
-          "relationshipNames": ["paragraph_type"]
-        }
-      ],
-      "relationshipNames": ["paragraph_type", "field_answer"]
-    },
-    {
-      "type": "paragraph--q_a",
-      "id": "cd49e354-81fe-4dbd-b2f0-cd03b7210fb6",
-      "drupal_internal__id": 114134,
-      "drupal_internal__revision_id": 727820,
-      "langcode": "en",
-      "status": true,
-      "created": "2022-09-01T21:57:51+00:00",
-      "parent_id": "48974",
-      "parent_type": "node",
-      "parent_field_name": "field_clp_faq_paragraphs",
-      "behavior_settings": [],
-      "default_langcode": true,
-      "revision_translation_affected": true,
-      "breadcrumbs": [],
-      "content_translation_source": "und",
-      "content_translation_outdated": false,
-      "content_translation_changed": null,
-      "field_question": "How do I file a disability claim for a new presumptive condition?",
-      "links": {
-        "self": {
-          "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/q_a/cd49e354-81fe-4dbd-b2f0-cd03b7210fb6?resourceVersion=id%3A727820"
-        }
-      },
-      "resourceIdObjMeta": {
-        "target_revision_id": 727820,
-        "drupal_internal__target_id": 114134
-      },
-      "paragraph_type": {
-        "type": "paragraphs_type--paragraphs_type",
-        "id": "525c8535-c6fa-4e64-8824-82c889785a6a",
-        "langcode": "en",
-        "status": true,
-        "dependencies": [],
-        "drupal_internal__id": "q_a",
-        "label": "Page-Specific Q&A",
-        "icon_uuid": null,
-        "icon_default": null,
-        "description": "Page-specific (non-reusable) content formatted as a question and answer.",
-        "behavior_plugins": [],
-        "links": {
-          "self": {
-            "href": "https://va-gov-cms.ddev.site/jsonapi/paragraphs_type/paragraphs_type/525c8535-c6fa-4e64-8824-82c889785a6a"
-          }
-        },
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": "q_a"
-        }
-      },
-      "field_answer": [
-        {
-          "type": "paragraph--wysiwyg",
-          "id": "32df2a29-d8a7-4faf-9665-cdb14a102bc0",
-          "drupal_internal__id": 114133,
-          "drupal_internal__revision_id": 727819,
-          "langcode": "en",
-          "status": true,
-          "created": "2022-09-01T21:57:51+00:00",
-          "parent_id": "114134",
-          "parent_type": "paragraph",
-          "parent_field_name": "field_answer",
-          "behavior_settings": [],
-          "default_langcode": true,
-          "revision_translation_affected": true,
-          "breadcrumbs": [],
-          "content_translation_source": "und",
-          "content_translation_outdated": false,
-          "content_translation_changed": null,
-          "field_wysiwyg": {
-            "value": "<p><strong>If you haven’t filed a claim yet for the presumptive condition,&nbsp;</strong>you can file a new claim online now. You can also file by mail, in person, or with the help of a trained professional.</p>\r\n\r\n<p><a href=\"https://www.va.gov/disability/file-disability-claim-form-21-526ez/\">File for VA disability compensation online</a></p>\r\n\r\n<p><a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"414c54b9-cd5c-4d86-8203-fc2489e4be8a\" href=\"https://www.va.gov/disability/how-to-file-claim\" title=\"How to file a VA disability claim\">Learn more about how to file a disability compensation claim</a></p>\r\n\r\n<p><strong>If we denied your disability claim in the past and we now consider your condition presumptive,</strong>&nbsp;you can submit a Supplemental Claim. We’ll review your case again.</p>\r\n\r\n<p><a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"078b0e6c-d6f9-486d-8cbd-625410a3cced\" href=\"https://www.va.gov/decision-reviews/supplemental-claim\" title=\"Supplemental Claims\">Find out how to file a Supplemental Claim</a></p>\r\n",
-            "format": "rich_text_limited",
-            "processed": "<p><strong>If you haven’t filed a claim yet for the presumptive condition,&nbsp;</strong>you can file a new claim online now. You can also file by mail, in person, or with the help of a trained professional.</p>\n<p><a href=\"https://www.va.gov/disability/file-disability-claim-form-21-526ez/\">File for VA disability compensation online</a></p>\n<p><a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"414c54b9-cd5c-4d86-8203-fc2489e4be8a\" href=\"/disability/how-to-file-claim\" title=\"How to file a VA disability claim\">Learn more about how to file a disability compensation claim</a></p>\n<p><strong>If we denied your disability claim in the past and we now consider your condition presumptive,</strong>&nbsp;you can submit a Supplemental Claim. We’ll review your case again.</p>\n<p><a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"078b0e6c-d6f9-486d-8cbd-625410a3cced\" href=\"/decision-reviews/supplemental-claim\" title=\"Supplemental Claims\">Find out how to file a Supplemental Claim</a></p>\n"
-          },
-          "links": {
-            "self": {
-              "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/wysiwyg/32df2a29-d8a7-4faf-9665-cdb14a102bc0?resourceVersion=id%3A727819"
-            }
-          },
-          "resourceIdObjMeta": {
-            "target_revision_id": 727819,
-            "drupal_internal__target_id": 114133
-          },
-          "paragraph_type": {
-            "type": "paragraphs_type--paragraphs_type",
-            "id": "885e4b61-cfd2-44b9-94ae-f068ba2b48b6",
-            "resourceIdObjMeta": {
-              "drupal_internal__target_id": "wysiwyg"
-            }
-          },
-          "relationshipNames": ["paragraph_type"]
-        }
-      ],
-      "relationshipNames": ["paragraph_type", "field_answer"]
-    },
-    {
-      "type": "paragraph--q_a",
-      "id": "109816a4-8f6d-4035-bd04-6dcc8b246b4d",
-      "drupal_internal__id": 114136,
-      "drupal_internal__revision_id": 727822,
-      "langcode": "en",
-      "status": true,
-      "created": "2022-09-01T21:59:25+00:00",
-      "parent_id": "48974",
-      "parent_type": "node",
-      "parent_field_name": "field_clp_faq_paragraphs",
-      "behavior_settings": [],
-      "default_langcode": true,
-      "revision_translation_affected": true,
-      "breadcrumbs": [],
-      "content_translation_source": "und",
-      "content_translation_outdated": false,
-      "content_translation_changed": null,
-      "field_question": "What if VA denied my claim but now considers my condition presumptive?",
-      "links": {
-        "self": {
-          "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/q_a/109816a4-8f6d-4035-bd04-6dcc8b246b4d?resourceVersion=id%3A727822"
-        }
-      },
-      "resourceIdObjMeta": {
-        "target_revision_id": 727822,
-        "drupal_internal__target_id": 114136
-      },
-      "paragraph_type": {
-        "type": "paragraphs_type--paragraphs_type",
-        "id": "525c8535-c6fa-4e64-8824-82c889785a6a",
-        "langcode": "en",
-        "status": true,
-        "dependencies": [],
-        "drupal_internal__id": "q_a",
-        "label": "Page-Specific Q&A",
-        "icon_uuid": null,
-        "icon_default": null,
-        "description": "Page-specific (non-reusable) content formatted as a question and answer.",
-        "behavior_plugins": [],
-        "links": {
-          "self": {
-            "href": "https://va-gov-cms.ddev.site/jsonapi/paragraphs_type/paragraphs_type/525c8535-c6fa-4e64-8824-82c889785a6a"
-          }
-        },
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": "q_a"
-        }
-      },
-      "field_answer": [
-        {
-          "type": "paragraph--wysiwyg",
-          "id": "d2f4dfbb-7e93-498d-89ea-4be2d378037a",
-          "drupal_internal__id": 114135,
-          "drupal_internal__revision_id": 727821,
-          "langcode": "en",
-          "status": true,
-          "created": "2022-09-01T21:59:25+00:00",
-          "parent_id": "114136",
-          "parent_type": "paragraph",
-          "parent_field_name": "field_answer",
-          "behavior_settings": [],
-          "default_langcode": true,
-          "revision_translation_affected": true,
-          "breadcrumbs": [],
-          "content_translation_source": "und",
-          "content_translation_outdated": false,
-          "content_translation_changed": null,
-          "field_wysiwyg": {
-            "value": "<p>We encourage you to file a Supplemental Claim. When we receive a Supplemental Claim, we’ll review the claim again.</p>\r\n\r\n<p><a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"078b0e6c-d6f9-486d-8cbd-625410a3cced\" href=\"https://www.va.gov/decision-reviews/supplemental-claim\" title=\"Supplemental Claims\">Find out how to file a Supplemental Claim</a></p>\r\n\r\n<p><strong>Note:&nbsp;</strong>If we denied your claim in the past and we think you may be eligible now, we’ll try to contact you. But you don’t need to wait for us to contact you before you file a Supplemental Claim.</p>\r\n",
-            "format": "rich_text_limited",
-            "processed": "<p>We encourage you to file a Supplemental Claim. When we receive a Supplemental Claim, we’ll review the claim again.</p>\n<p><a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"078b0e6c-d6f9-486d-8cbd-625410a3cced\" href=\"/decision-reviews/supplemental-claim\" title=\"Supplemental Claims\">Find out how to file a Supplemental Claim</a></p>\n<p><strong>Note:&nbsp;</strong>If we denied your claim in the past and we think you may be eligible now, we’ll try to contact you. But you don’t need to wait for us to contact you before you file a Supplemental Claim.</p>\n"
-          },
-          "links": {
-            "self": {
-              "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/wysiwyg/d2f4dfbb-7e93-498d-89ea-4be2d378037a?resourceVersion=id%3A727821"
-            }
-          },
-          "resourceIdObjMeta": {
-            "target_revision_id": 727821,
-            "drupal_internal__target_id": 114135
-          },
-          "paragraph_type": {
-            "type": "paragraphs_type--paragraphs_type",
-            "id": "885e4b61-cfd2-44b9-94ae-f068ba2b48b6",
-            "resourceIdObjMeta": {
-              "drupal_internal__target_id": "wysiwyg"
-            }
-          },
-          "relationshipNames": ["paragraph_type"]
-        }
-      ],
-      "relationshipNames": ["paragraph_type", "field_answer"]
-    },
-    {
-      "type": "paragraph--q_a",
-      "id": "95378d3c-77cd-4acf-aa57-34d5d0bd149a",
-      "drupal_internal__id": 114138,
-      "drupal_internal__revision_id": 727824,
-      "langcode": "en",
-      "status": true,
-      "created": "2022-09-01T21:59:47+00:00",
-      "parent_id": "48974",
-      "parent_type": "node",
-      "parent_field_name": "field_clp_faq_paragraphs",
-      "behavior_settings": [],
-      "default_langcode": true,
-      "revision_translation_affected": true,
-      "breadcrumbs": [],
-      "content_translation_source": "und",
-      "content_translation_outdated": false,
-      "content_translation_changed": null,
-      "field_question": "What if I have a pending claim for a condition that’s now presumptive?",
-      "links": {
-        "self": {
-          "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/q_a/95378d3c-77cd-4acf-aa57-34d5d0bd149a?resourceVersion=id%3A727824"
-        }
-      },
-      "resourceIdObjMeta": {
-        "target_revision_id": 727824,
-        "drupal_internal__target_id": 114138
-      },
-      "paragraph_type": {
-        "type": "paragraphs_type--paragraphs_type",
-        "id": "525c8535-c6fa-4e64-8824-82c889785a6a",
-        "langcode": "en",
-        "status": true,
-        "dependencies": [],
-        "drupal_internal__id": "q_a",
-        "label": "Page-Specific Q&A",
-        "icon_uuid": null,
-        "icon_default": null,
-        "description": "Page-specific (non-reusable) content formatted as a question and answer.",
-        "behavior_plugins": [],
-        "links": {
-          "self": {
-            "href": "https://va-gov-cms.ddev.site/jsonapi/paragraphs_type/paragraphs_type/525c8535-c6fa-4e64-8824-82c889785a6a"
-          }
-        },
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": "q_a"
-        }
-      },
-      "field_answer": [
-        {
-          "type": "paragraph--wysiwyg",
-          "id": "46110d04-d7bb-406c-8289-354516bd58de",
-          "drupal_internal__id": 114137,
-          "drupal_internal__revision_id": 727823,
-          "langcode": "en",
-          "status": true,
-          "created": "2022-09-01T21:59:47+00:00",
-          "parent_id": "114138",
-          "parent_type": "paragraph",
-          "parent_field_name": "field_answer",
-          "behavior_settings": [],
-          "default_langcode": true,
-          "revision_translation_affected": true,
-          "breadcrumbs": [],
-          "content_translation_source": "und",
-          "content_translation_outdated": false,
-          "content_translation_changed": null,
-          "field_wysiwyg": {
-            "value": "<p>You don’t need to do anything. If we added your condition after you filed your claim, we’ll still consider it presumptive. We’ll send you a decision notice when we complete our review.</p>\r\n",
-            "format": "rich_text_limited",
-            "processed": "<p>You don’t need to do anything. If we added your condition after you filed your claim, we’ll still consider it presumptive. We’ll send you a decision notice when we complete our review.</p>\n"
-          },
-          "links": {
-            "self": {
-              "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/wysiwyg/46110d04-d7bb-406c-8289-354516bd58de?resourceVersion=id%3A727823"
-            }
-          },
-          "resourceIdObjMeta": {
-            "target_revision_id": 727823,
-            "drupal_internal__target_id": 114137
-          },
-          "paragraph_type": {
-            "type": "paragraphs_type--paragraphs_type",
-            "id": "885e4b61-cfd2-44b9-94ae-f068ba2b48b6",
-            "resourceIdObjMeta": {
-              "drupal_internal__target_id": "wysiwyg"
-            }
-          },
-          "relationshipNames": ["paragraph_type"]
-        }
-      ],
-      "relationshipNames": ["paragraph_type", "field_answer"]
-    },
-    {
-      "type": "paragraph--q_a",
-      "id": "23a24ae2-99c3-4b7a-915c-d37a2cf3de2f",
-      "drupal_internal__id": 114140,
-      "drupal_internal__revision_id": 727826,
-      "langcode": "en",
-      "status": true,
-      "created": "2022-09-01T22:00:15+00:00",
-      "parent_id": "48974",
-      "parent_type": "node",
-      "parent_field_name": "field_clp_faq_paragraphs",
-      "behavior_settings": [],
-      "default_langcode": true,
-      "revision_translation_affected": true,
-      "breadcrumbs": [],
-      "content_translation_source": "und",
-      "content_translation_outdated": false,
-      "content_translation_changed": null,
-      "field_question": "Can I apply now?",
-      "links": {
-        "self": {
-          "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/q_a/23a24ae2-99c3-4b7a-915c-d37a2cf3de2f?resourceVersion=id%3A727826"
-        }
-      },
-      "resourceIdObjMeta": {
-        "target_revision_id": 727826,
-        "drupal_internal__target_id": 114140
-      },
-      "paragraph_type": {
-        "type": "paragraphs_type--paragraphs_type",
-        "id": "525c8535-c6fa-4e64-8824-82c889785a6a",
-        "langcode": "en",
-        "status": true,
-        "dependencies": [],
-        "drupal_internal__id": "q_a",
-        "label": "Page-Specific Q&A",
-        "icon_uuid": null,
-        "icon_default": null,
-        "description": "Page-specific (non-reusable) content formatted as a question and answer.",
-        "behavior_plugins": [],
-        "links": {
-          "self": {
-            "href": "https://va-gov-cms.ddev.site/jsonapi/paragraphs_type/paragraphs_type/525c8535-c6fa-4e64-8824-82c889785a6a"
-          }
-        },
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": "q_a"
-        }
-      },
-      "field_answer": [
-        {
-          "type": "paragraph--wysiwyg",
-          "id": "1e9eab17-846f-4108-bfdb-a757445fb544",
-          "drupal_internal__id": 114139,
-          "drupal_internal__revision_id": 727825,
-          "langcode": "en",
-          "status": true,
-          "created": "2022-09-01T22:00:15+00:00",
-          "parent_id": "114140",
-          "parent_type": "paragraph",
-          "parent_field_name": "field_answer",
-          "behavior_settings": [],
-          "default_langcode": true,
-          "revision_translation_affected": true,
-          "breadcrumbs": [],
-          "content_translation_source": "und",
-          "content_translation_outdated": false,
-          "content_translation_changed": null,
-          "field_wysiwyg": {
-            "value": "<p>Yes. We’re considering all presumptive conditions established by the PACT Act presumptive on the date the bill becomes law.</p>\r\n\r\n<p>If you think you may be eligible for VA health care or benefits, we encourage you to apply now.</p>\r\n",
-            "format": "rich_text_limited",
-            "processed": "<p>Yes. We’re considering all presumptive conditions established by the PACT Act presumptive on the date the bill becomes law.</p>\n<p>If you think you may be eligible for VA health care or benefits, we encourage you to apply now.</p>\n"
-          },
-          "links": {
-            "self": {
-              "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/wysiwyg/1e9eab17-846f-4108-bfdb-a757445fb544?resourceVersion=id%3A727825"
-            }
-          },
-          "resourceIdObjMeta": {
-            "target_revision_id": 727825,
-            "drupal_internal__target_id": 114139
-          },
-          "paragraph_type": {
-            "type": "paragraphs_type--paragraphs_type",
-            "id": "885e4b61-cfd2-44b9-94ae-f068ba2b48b6",
-            "resourceIdObjMeta": {
-              "drupal_internal__target_id": "wysiwyg"
-            }
-          },
-          "relationshipNames": ["paragraph_type"]
-        }
-      ],
-      "relationshipNames": ["paragraph_type", "field_answer"]
-    },
-    {
-      "type": "paragraph--q_a",
-      "id": "d75ad221-0b9b-4e1d-b3f8-c6a305bfde25",
-      "drupal_internal__id": 114142,
-      "drupal_internal__revision_id": 727828,
-      "langcode": "en",
-      "status": true,
-      "created": "2022-09-01T22:00:55+00:00",
-      "parent_id": "48974",
-      "parent_type": "node",
-      "parent_field_name": "field_clp_faq_paragraphs",
-      "behavior_settings": [],
-      "default_langcode": true,
-      "revision_translation_affected": true,
-      "breadcrumbs": [],
-      "content_translation_source": "und",
-      "content_translation_outdated": false,
-      "content_translation_changed": null,
-      "field_question": "When can I expect VA to make a decision on my PACT Act claim?",
-      "links": {
-        "self": {
-          "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/q_a/d75ad221-0b9b-4e1d-b3f8-c6a305bfde25?resourceVersion=id%3A727828"
-        }
-      },
-      "resourceIdObjMeta": {
-        "target_revision_id": 727828,
-        "drupal_internal__target_id": 114142
-      },
-      "paragraph_type": {
-        "type": "paragraphs_type--paragraphs_type",
-        "id": "525c8535-c6fa-4e64-8824-82c889785a6a",
-        "langcode": "en",
-        "status": true,
-        "dependencies": [],
-        "drupal_internal__id": "q_a",
-        "label": "Page-Specific Q&A",
-        "icon_uuid": null,
-        "icon_default": null,
-        "description": "Page-specific (non-reusable) content formatted as a question and answer.",
-        "behavior_plugins": [],
-        "links": {
-          "self": {
-            "href": "https://va-gov-cms.ddev.site/jsonapi/paragraphs_type/paragraphs_type/525c8535-c6fa-4e64-8824-82c889785a6a"
-          }
-        },
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": "q_a"
-        }
-      },
-      "field_answer": [
-        {
-          "type": "paragraph--wysiwyg",
-          "id": "0399133e-f26b-4f93-aac2-05193f3989ce",
-          "drupal_internal__id": 114141,
-          "drupal_internal__revision_id": 727827,
-          "langcode": "en",
-          "status": true,
-          "created": "2022-09-01T22:00:55+00:00",
-          "parent_id": "114142",
-          "parent_type": "paragraph",
-          "parent_field_name": "field_answer",
-          "behavior_settings": [],
-          "default_langcode": true,
-          "revision_translation_affected": true,
-          "breadcrumbs": [],
-          "content_translation_source": "und",
-          "content_translation_outdated": false,
-          "content_translation_changed": null,
-          "field_wysiwyg": {
-            "value": "<p>We encourage all Veterans and survivors to file for benefits now. We’ll start to process PACT Act-related benefits in January 2023. We must wait for funding approval from Congress and put the needed systems in place before we can process these claims.</p>\r\n\r\n<p>If you apply for benefits at any time in the next year and we grant your application, we’ll likely backdate your benefits to the date of the bill signing. This means we’ll pay you the amount you would have received from August 10, 2022, to the date we grant your application.</p>\r\n",
-            "format": "rich_text_limited",
-            "processed": "<p>We encourage all Veterans and survivors to file for benefits now. We’ll start to process PACT Act-related benefits in January 2023. We must wait for funding approval from Congress and put the needed systems in place before we can process these claims.</p>\n<p>If you apply for benefits at any time in the next year and we grant your application, we’ll likely backdate your benefits to the date of the bill signing. This means we’ll pay you the amount you would have received from August 10, 2022, to the date we grant your application.</p>\n"
-          },
-          "links": {
-            "self": {
-              "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/wysiwyg/0399133e-f26b-4f93-aac2-05193f3989ce?resourceVersion=id%3A727827"
-            }
-          },
-          "resourceIdObjMeta": {
-            "target_revision_id": 727827,
-            "drupal_internal__target_id": 114141
+            "target_revision_id": 1930529,
+            "drupal_internal__target_id": 184604
           },
           "paragraph_type": {
             "type": "paragraphs_type--paragraphs_type",
@@ -10211,7 +9638,328 @@
     }
   ],
   "field_clp_resources_cta": null,
-  "field_clp_reusable_q_a": null,
+  "field_clp_reusable_q_a": {
+    "type": "paragraph--q_a_group",
+    "id": "6c92afba-05cd-4974-a85f-41934ed3a274",
+    "drupal_internal__id": 184606,
+    "drupal_internal__revision_id": 1930531,
+    "langcode": "en",
+    "status": true,
+    "created": "2025-11-23T23:18:00+00:00",
+    "parent_id": "27556",
+    "parent_type": "node",
+    "parent_field_name": "field_clp_reusable_q_a",
+    "behavior_settings": [],
+    "default_langcode": true,
+    "revision_translation_affected": true,
+    "breadcrumbs": [],
+    "content_translation_source": "und",
+    "content_translation_outdated": false,
+    "content_translation_changed": "2025-11-25T02:05:57+00:00",
+    "field_accordion_display": true,
+    "field_rich_wysiwyg": {
+      "value": "<p>Reusable answer</p>",
+      "format": "rich_text_limited",
+      "processed": "<p>Reusable answer</p>\n"
+    },
+    "field_section_header": "Reusable",
+    "links": {
+      "self": {
+        "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/q_a_group/6c92afba-05cd-4974-a85f-41934ed3a274?resourceVersion=id%3A1930531"
+      }
+    },
+    "resourceIdObjMeta": {
+      "target_revision_id": 1930531,
+      "drupal_internal__target_id": 184606
+    },
+    "paragraph_type": {
+      "type": "paragraphs_type--paragraphs_type",
+      "id": "cc3b3e2c-a7f5-4f62-a1ce-fcf307fbc28b",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "q_a_group"
+      }
+    },
+    "field_q_as": [
+      {
+        "type": "node--q_a",
+        "id": "e8b79c10-643f-4b95-9d61-5c26e6e47245",
+        "drupal_internal__nid": 8243,
+        "drupal_internal__vid": 1028011,
+        "langcode": "en",
+        "revision_timestamp": "2025-11-18T17:50:55+00:00",
+        "status": true,
+        "title": "What’s the 6-digit security code that ID.me is asking me for?",
+        "created": "2020-10-09T16:02:24+00:00",
+        "changed": "2025-11-18T17:50:55+00:00",
+        "promote": false,
+        "sticky": false,
+        "default_langcode": true,
+        "revision_translation_affected": true,
+        "breadcrumbs": [
+          {
+            "uri": "https://va-gov-cms.ddev.site/",
+            "title": "Home",
+            "options": []
+          },
+          {
+            "uri": "https://va-gov-cms.ddev.site/resources",
+            "title": "Resources and Support",
+            "options": []
+          },
+          {
+            "uri": "https://va-gov-cms.ddev.site/resources/whats-the-6-digit-security-code-that-idme-is-asking-me-for",
+            "title": "What’s The 6-digit Security Code That ID.me Is Asking Me For?",
+            "options": []
+          }
+        ],
+        "moderation_state": "published",
+        "expiration_date": null,
+        "warning_date": null,
+        "metatag": [
+          {
+            "tag": "meta",
+            "attributes": {
+              "name": "title",
+              "content": "What’s the 6-digit security code that ID.me is asking me for? | Veterans Affairs"
+            }
+          },
+          {
+            "tag": "link",
+            "attributes": {
+              "rel": "image_src",
+              "href": "https://www.va.gov/img/design/logo/va-og-image.png"
+            }
+          },
+          {
+            "tag": "meta",
+            "attributes": {
+              "property": "og:site_name",
+              "content": "Veterans Affairs"
+            }
+          },
+          {
+            "tag": "meta",
+            "attributes": {
+              "property": "og:title",
+              "content": "What’s the 6-digit security code that ID.me is asking me for? | Veterans Affairs"
+            }
+          },
+          {
+            "tag": "meta",
+            "attributes": {
+              "property": "og:image",
+              "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+            }
+          },
+          {
+            "tag": "meta",
+            "attributes": {
+              "property": "og:image:alt",
+              "content": "U.S. Department of Veterans Affairs"
+            }
+          },
+          {
+            "tag": "meta",
+            "attributes": {
+              "name": "twitter:card",
+              "content": "summary_large_image"
+            }
+          },
+          {
+            "tag": "meta",
+            "attributes": {
+              "name": "twitter:site",
+              "content": "@DeptVetAffairs"
+            }
+          },
+          {
+            "tag": "meta",
+            "attributes": {
+              "name": "twitter:title",
+              "content": "What’s the 6-digit security code that ID.me is asking me for? | Veterans Affairs"
+            }
+          },
+          {
+            "tag": "meta",
+            "attributes": {
+              "name": "twitter:image",
+              "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+            }
+          },
+          {
+            "tag": "meta",
+            "attributes": {
+              "name": "twitter:image:alt",
+              "content": "U.S. Department of Veterans Affairs"
+            }
+          }
+        ],
+        "path": {
+          "alias": "/resources/whats-the-6-digit-security-code-that-idme-is-asking-me-for",
+          "pid": 11222,
+          "langcode": "en"
+        },
+        "content_translation_source": "und",
+        "content_translation_outdated": false,
+        "field_last_saved_by_an_editor": "2025-11-18T17:50:56+00:00",
+        "field_standalone_page": false,
+        "links": {
+          "self": {
+            "href": "https://va-gov-cms.ddev.site/jsonapi/node/q_a/e8b79c10-643f-4b95-9d61-5c26e6e47245?resourceVersion=id%3A1028011"
+          }
+        },
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 8243
+        },
+        "node_type": {
+          "type": "node_type--node_type",
+          "id": "e1c04503-bcc8-4285-b2be-fa27af3634e4",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "q_a"
+          }
+        },
+        "revision_uid": {
+          "type": "user--user",
+          "id": "b94ae059-340a-4dfb-90de-1676d024ef3d",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5326
+          }
+        },
+        "uid": {
+          "type": "user--user",
+          "id": "ee1fb49c-70d5-4e82-9b0d-e6c73dde0489",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 1343
+          }
+        },
+        "field_administration": {
+          "type": "taxonomy_term--administration",
+          "id": "40ef8d64-fa92-41b6-88c0-4d85dc24e191",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 194
+          }
+        },
+        "field_alert_single": {
+          "type": "paragraph--alert_single",
+          "id": "982cf4c7-8cac-4f8d-ba89-04268b3afed9",
+          "resourceIdObjMeta": {
+            "target_revision_id": 1929815,
+            "drupal_internal__target_id": 13280
+          }
+        },
+        "field_answer": {
+          "type": "paragraph--rich_text_char_limit_1000",
+          "id": "44035bf2-7fd1-4184-b0e9-77657c8bfd5d",
+          "drupal_internal__id": 13952,
+          "drupal_internal__revision_id": 1929816,
+          "langcode": "en",
+          "status": true,
+          "created": "2020-10-19T22:47:23+00:00",
+          "parent_id": "8243",
+          "parent_type": "node",
+          "parent_field_name": "field_answer",
+          "behavior_settings": [],
+          "default_langcode": true,
+          "revision_translation_affected": true,
+          "breadcrumbs": [],
+          "content_translation_source": "und",
+          "content_translation_outdated": false,
+          "content_translation_changed": null,
+          "field_wysiwyg": {
+            "value": "<p>This code is part of the multifactor authentication process.</p><p>When you set up a verified VA.gov account through<strong> ID.me</strong>, you need to set up multifactor authentication. Authentication gives you an extra layer of security by letting you into your account only after you’ve signed in with a password and a 6-digit code sent directly to your mobile or home phone. This helps to make sure that no one but you can access your account—even if they get your password.</p>",
+            "format": "rich_text_limited",
+            "processed": "<p>This code is part of the multifactor authentication process.</p>\n<p>When you set up a verified VA.gov account through<strong> ID.me</strong>, you need to set up multifactor authentication. Authentication gives you an extra layer of security by letting you into your account only after you’ve signed in with a password and a 6-digit code sent directly to your mobile or home phone. This helps to make sure that no one but you can access your account—even if they get your password.</p>\n"
+          },
+          "links": {
+            "self": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/rich_text_char_limit_1000/44035bf2-7fd1-4184-b0e9-77657c8bfd5d?resourceVersion=id%3A1929816"
+            }
+          },
+          "resourceIdObjMeta": {
+            "target_revision_id": 1929816,
+            "drupal_internal__target_id": 13952
+          },
+          "paragraph_type": {
+            "type": "paragraphs_type--paragraphs_type",
+            "id": "3ffc29ff-5b72-4f6a-a51b-7076c3f62f22",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": "rich_text_char_limit_1000"
+            }
+          },
+          "relationshipNames": ["paragraph_type"]
+        },
+        "field_buttons": [
+          {
+            "type": "paragraph--button",
+            "id": "17087958-e230-4586-b6d5-0cf665678008",
+            "resourceIdObjMeta": {
+              "target_revision_id": 1929817,
+              "drupal_internal__target_id": 13282
+            }
+          }
+        ],
+        "field_contact_information": {
+          "type": "paragraph--contact_information",
+          "id": "9ff8cf42-e09d-4960-a6a9-082e1008142a",
+          "resourceIdObjMeta": {
+            "target_revision_id": 1929818,
+            "drupal_internal__target_id": 13283
+          }
+        },
+        "field_other_categories": [],
+        "field_primary_category": {
+          "type": "taxonomy_term--lc_categories",
+          "id": "5414620f-a6bd-4e05-bafb-c8efde0e3fea",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 282
+          }
+        },
+        "field_related_benefit_hubs": [
+          {
+            "type": "node--landing_page",
+            "id": "fd822f25-788f-489c-a0fc-b1f7ad6c20d5",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 67
+            }
+          }
+        ],
+        "field_related_information": [
+          {
+            "type": "paragraph--link_teaser",
+            "id": "0fdc7b2d-fa5a-438b-8d5e-4603c8dc0631",
+            "resourceIdObjMeta": {
+              "target_revision_id": 1929819,
+              "drupal_internal__target_id": 13284
+            }
+          }
+        ],
+        "field_tags": {
+          "type": "paragraph--audience_topics",
+          "id": "bca60c4c-7fae-458c-822a-af5f63207c29",
+          "resourceIdObjMeta": {
+            "target_revision_id": 1929820,
+            "drupal_internal__target_id": 13285
+          }
+        },
+        "relationshipNames": [
+          "node_type",
+          "revision_uid",
+          "uid",
+          "field_administration",
+          "field_alert_single",
+          "field_answer",
+          "field_buttons",
+          "field_contact_information",
+          "field_other_categories",
+          "field_primary_category",
+          "field_related_benefit_hubs",
+          "field_related_information",
+          "field_tags"
+        ]
+      }
+    ],
+    "relationshipNames": ["paragraph_type", "field_q_as"]
+  },
   "field_clp_spotlight_cta": null,
   "field_clp_spotlight_link_teasers": [],
   "field_clp_stories_teasers": [
