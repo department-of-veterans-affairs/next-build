@@ -1,0 +1,24 @@
+.columnLeft {
+  background-color: white;
+}
+
+.columnRight {
+  background-color: var(--vads-color-primary-alt-lightest);
+}
+
+/* tablet breakpoint */
+@media (min-width: 40em) {
+  .wrapper {
+    background: linear-gradient(
+      to right,
+      white 0 50%,
+      var(--vads-color-primary-alt-lightest) 50% 100%
+    );
+  }
+
+  .columnLeft,
+  .columnRight {
+    background-color: transparent;
+  }
+}
+
