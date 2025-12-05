@@ -29,7 +29,7 @@ const createMockEvent = (
   administration: { entityId: 0, name: '' },
   image: null,
   socialLinks: null,
-  additionalInfo: null,
+  additionalInfo: '',
   // Provide empty address object to prevent addressToString from crashing
   address: {
     langcode: 'en',
@@ -41,7 +41,7 @@ const createMockEvent = (
   emailCTA: null,
   howToSignUp: null,
   datetimeRange: null,
-  body: null,
+  body: '',
   link: null,
   urlOfOnlineEvent: null,
   facilityLocation: null,
@@ -89,11 +89,7 @@ describe('<Event /> Component', () => {
           description: 'Test Description',
           locationHumanReadable: 'Test Location',
           cost: '$10',
-          body: {
-            processed: '<p>Event Body</p>',
-            value: '<p>Event Body</p>',
-            format: 'text',
-          },
+          body: '<p>Event Body</p>',
           datetimeRange: [
             {
               value: '2024-03-22T10:00:00',
