@@ -13,10 +13,10 @@ export function HomePageNewsSpotlight({
       data-e2e="news"
       data-testid="news-spotlight"
     >
-      <div className="vads-l-grid-container vads-u-padding-x--0 homepage-blog">
-        <div className="vads-l-row">
+      <div className="vads-grid-container vads-u-padding-x--0 homepage-blog">
+        <div className="vads-grid-row">
           {/* start first column */}
-          <div className="vads-l-col--12 vads-u-display--none desktop:vads-u-display--block medium-screen:vads-l-col--4">
+          <div className="vads-grid-col-12 vads-u-display--none desktop:vads-u-display--block tablet:vads-grid-col-4">
             <div className="homepage-blog__image">
               <MediaImage {...image} imageStyle="crop_square" />
             </div>
@@ -24,7 +24,7 @@ export function HomePageNewsSpotlight({
           {/* end first column */}
 
           {/* start second column */}
-          <div className="vads-l-col--12 medium-screen:vads-l-col--8">
+          <div className="vads-grid-col-12 tablet:vads-grid-col-8">
             <div className="vads-u-padding--2p5 desktop:vads-u-padding--6 desktop:vads-u-padding-right--0 vads-u-color--white">
               <h2 className="vads-u-font-size--base vads-u-margin-top--0 vads-u-font-weight--normal vads-u-font-family--sans">
                 VA NEWS
