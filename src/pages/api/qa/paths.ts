@@ -13,9 +13,11 @@ interface ComparisonRecord {
   env1: string
   env2: string
   selector: string
-  success: boolean
-  message: string
   timestamp: string
+  html1?: string // Raw HTML from env1
+  html2?: string // Raw HTML from env2
+  acceptedDifferences?: string[] // Array of "nodeId:differenceIndex"
+  comments?: Record<string, string> // Map of nodeId -> comment text
 }
 
 interface QAPath {
@@ -186,6 +188,7 @@ export default async function handler(
         notes,
         addComparison,
         deleteComparisonIndex,
+        updateComparisonMetadata,
       } = req.body
 
       if (
@@ -251,6 +254,28 @@ export default async function handler(
           cache.paths[pathIndex].comparisons.splice(deleteComparisonIndex, 1)
           if (cache.paths[pathIndex].comparisons.length === 0) {
             delete cache.paths[pathIndex].comparisons
+          }
+        }
+      }
+      if (
+        updateComparisonMetadata &&
+        typeof updateComparisonMetadata === 'object'
+      ) {
+        // Update comparison metadata (accepted differences and comments)
+        const { comparisonIndex, acceptedDifferences, comments } =
+          updateComparisonMetadata
+        if (
+          typeof comparisonIndex === 'number' &&
+          cache.paths[pathIndex].comparisons
+        ) {
+          const comparison = cache.paths[pathIndex].comparisons[comparisonIndex]
+          if (comparison) {
+            if (acceptedDifferences) {
+              comparison.acceptedDifferences = acceptedDifferences
+            }
+            if (comments) {
+              comparison.comments = comments
+            }
           }
         }
       }
