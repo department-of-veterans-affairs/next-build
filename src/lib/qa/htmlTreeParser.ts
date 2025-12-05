@@ -1,100 +1,127 @@
-export interface HtmlTreeNode {
-  type: 'element' | 'text'
-  tagName?: string
-  attributes?: Record<string, string>
-  textContent?: string
-  children?: HtmlTreeNode[]
-  // Used for matching and rendering
-  id?: string
-  matchKey?: string // Unique key for element matching
+/**
+ * HTML Tree Parser
+ *
+ * Parses HTML DOM elements into a hierarchical tree structure for comparison.
+ * Returns rich data structures with lookup tables for efficient access.
+ */
+
+// =============================================================================
+// Type Definitions (Discriminated Unions)
+// =============================================================================
+
+interface BaseNode {
+  /** Unique key for matching between trees (tag + id + classes + important attrs) */
+  matchKey: string
+  /** Reference to parent node's matchKey for ancestry checks */
+  parentMatchKey?: string
+  /** Depth in the tree (0 = root) */
   depth: number
 }
 
+export interface ElementNode extends BaseNode {
+  type: 'element'
+  tagName: string
+  attributes: Record<string, string>
+  children: HtmlTreeNode[]
+  id?: string
+}
+
+export interface TextNode extends BaseNode {
+  type: 'text'
+  textContent: string
+}
+
+export type HtmlTreeNode = ElementNode | TextNode
+
+// =============================================================================
+// Flat Node (for matching algorithm)
+// =============================================================================
+
+export interface FlatNode {
+  node: HtmlTreeNode
+  /** Path from root as array of child indices, e.g., [0, 2, 1] */
+  path: number[]
+  /** Sequential index in flattened array */
+  index: number
+}
+
+// =============================================================================
+// Parser Options & Return Type
+// =============================================================================
+
+export interface ParseHtmlOptions {
+  /** Trim and skip whitespace-only text nodes */
+  collapseWhitespace?: boolean
+  /** Include data-testid in attributes (default: true) */
+  includeDataTestId?: boolean
+}
+
+export interface ParsedHtmlTree {
+  /** Root node of the tree */
+  root: HtmlTreeNode
+  /** Pre-flattened nodes for matching algorithm */
+  flatNodes: FlatNode[]
+  /** O(1) lookup by matchKey */
+  nodesByMatchKey: Map<string, HtmlTreeNode>
+}
+
+// =============================================================================
+// Path Utilities
+// =============================================================================
+
 /**
- * Parses an HTML Element into a hierarchical tree structure
+ * Converts a path array to a string key for lookups
  */
-export function parseHtmlToTree(
-  element: Element,
-  depth: number = 0,
-  pathPrefix: string = ''
-): HtmlTreeNode {
-  const node: HtmlTreeNode = {
-    type: 'element',
-    tagName: element.tagName.toLowerCase(),
-    attributes: {},
-    children: [],
-    depth,
-  }
-
-  // Collect attributes
-  for (let i = 0; i < element.attributes.length; i++) {
-    const attr = element.attributes[i]
-    node.attributes![attr.name] = attr.value
-  }
-
-  // Store ID for matching
-  if (element.id) {
-    node.id = element.id
-  }
-
-  // Generate match key for intelligent matching with path to ensure uniqueness
-  const baseMatchKey = generateMatchKey(node)
-  node.matchKey = pathPrefix ? `${pathPrefix}/${baseMatchKey}` : baseMatchKey
-
-  // Process children
-  // Track tree child index separately from DOM childNodes index to ensure path consistency
-  let treeChildIndex = 0
-
-  for (let i = 0; i < element.childNodes.length; i++) {
-    const child = element.childNodes[i]
-
-    if (child.nodeType === 1) {
-      // Element node
-      const childElement = child as Element
-      node.children!.push(
-        parseHtmlToTree(
-          childElement,
-          depth + 1,
-          `${node.matchKey}[${treeChildIndex}]`
-        )
-      )
-      treeChildIndex++
-    } else if (child.nodeType === 3) {
-      // Text node - preserve ALL text nodes, including whitespace-only
-      // This ensures 1:1 representation of the original HTML
-      const textMatchKey = `${node.matchKey}[${treeChildIndex}]text`
-      node.children!.push({
-        type: 'text',
-        textContent: child.textContent || '',
-        depth: depth + 1,
-        matchKey: textMatchKey,
-      })
-      treeChildIndex++
-    }
-    // Note: Comment nodes (nodeType === 8) and other node types are intentionally
-    // ignored as they are not useful for QA comparison purposes
-  }
-
-  return node
+export function pathToString(path: number[]): string {
+  return path.join('/')
 }
 
 /**
- * Generates a match key for intelligent element matching.
- * Uses ID, classes, and other attributes as clues.
+ * Checks if two paths are equal
  */
-function generateMatchKey(node: HtmlTreeNode): string {
+export function pathsEqual(a: number[], b: number[]): boolean {
+  return a.length === b.length && a.every((v, i) => v === b[i])
+}
+
+/**
+ * Checks if `ancestor` path is an ancestor of `descendant` path
+ */
+export function isAncestorPath(
+  ancestor: number[],
+  descendant: number[]
+): boolean {
+  return (
+    ancestor.length < descendant.length &&
+    ancestor.every((v, i) => v === descendant[i])
+  )
+}
+
+// =============================================================================
+// Match Key Generation
+// =============================================================================
+
+/**
+ * Generates a match key for intelligent element matching.
+ * Uses ID, classes, and important attributes as identity signals.
+ * Does NOT include path information - that's tracked separately.
+ */
+function generateMatchKey(
+  tagName: string,
+  attributes: Record<string, string>,
+  id?: string
+): string {
   const parts: string[] = []
 
   // Tag name is always included
-  parts.push(node.tagName || 'text')
+  parts.push(tagName)
 
   // ID is the strongest match signal
-  if (node.id) {
-    parts.push(`#${node.id}`)
+  if (id) {
+    parts.push(`#${id}`)
   }
 
   // Classes are good match signals (normalized to ignore order)
-  const classes = node.attributes?.class
+  const classes = attributes.class
   if (classes) {
     const sortedClasses = classes.split(/\s+/).filter(Boolean).sort().join('.')
     parts.push(`.${sortedClasses}`)
@@ -103,7 +130,7 @@ function generateMatchKey(node: HtmlTreeNode): string {
   // Other important attributes
   const importantAttrs = ['name', 'data-template', 'data-testid', 'role']
   for (const attrName of importantAttrs) {
-    const attrValue = node.attributes?.[attrName]
+    const attrValue = attributes[attrName]
     if (attrValue) {
       parts.push(`[${attrName}="${attrValue}"]`)
     }
@@ -113,35 +140,141 @@ function generateMatchKey(node: HtmlTreeNode): string {
 }
 
 /**
- * Flattens a tree into an array of nodes with their paths
+ * Generates a unique match key by combining element identity with path
  */
-export interface FlatNode {
-  node: HtmlTreeNode
-  path: number[] // Path from root, e.g., [0, 2, 1] means root->child[0]->child[2]->child[1]
-  index: number // Sequential index in flattened array
+function generateUniqueMatchKey(baseMatchKey: string, path: number[]): string {
+  if (path.length === 0) {
+    return baseMatchKey
+  }
+  return `${pathToString(path)}:${baseMatchKey}`
 }
 
-export function flattenTree(
-  tree: HtmlTreeNode,
-  path: number[] = []
-): FlatNode[] {
-  const result: FlatNode[] = []
-  let index = 0
+// =============================================================================
+// Main Parser
+// =============================================================================
 
-  function traverse(node: HtmlTreeNode, currentPath: number[]) {
-    result.push({
+/**
+ * Parses an HTML Element into a hierarchical tree structure with lookup tables.
+ *
+ * @param element - The DOM element to parse
+ * @param options - Parser options
+ * @returns ParsedHtmlTree with root, flatNodes, and lookup maps
+ */
+export function parseHtmlToTree(
+  element: Element,
+  options: ParseHtmlOptions = {}
+): ParsedHtmlTree {
+  const { collapseWhitespace = false, includeDataTestId = true } = options
+
+  const flatNodes: FlatNode[] = []
+  const nodesByMatchKey = new Map<string, HtmlTreeNode>()
+  let flatIndex = 0
+
+  /**
+   * Recursively traverses the DOM and builds the tree
+   */
+  function traverse(
+    el: Element,
+    depth: number,
+    path: number[],
+    parentMatchKey?: string
+  ): ElementNode {
+    // Collect attributes
+    const attributes: Record<string, string> = {}
+    for (let i = 0; i < el.attributes.length; i++) {
+      const attr = el.attributes[i]
+      // Skip data-testid if option is disabled
+      if (!includeDataTestId && attr.name === 'data-testid') {
+        continue
+      }
+      attributes[attr.name] = attr.value
+    }
+
+    const tagName = el.tagName.toLowerCase()
+    const id = el.id || undefined
+    const baseMatchKey = generateMatchKey(tagName, attributes, id)
+    const matchKey = generateUniqueMatchKey(baseMatchKey, path)
+
+    // Create the element node
+    const node: ElementNode = {
+      type: 'element',
+      tagName,
+      attributes,
+      children: [],
+      depth,
+      matchKey,
+      parentMatchKey,
+      ...(id && { id }),
+    }
+
+    // Add to lookup map
+    nodesByMatchKey.set(matchKey, node)
+
+    // Add to flat list
+    flatNodes.push({
       node,
-      path: currentPath,
-      index: index++,
+      path: [...path],
+      index: flatIndex++,
     })
 
-    if (node.children) {
-      node.children.forEach((child, i) => {
-        traverse(child, [...currentPath, i])
-      })
+    // Process children
+    let childIndex = 0
+
+    for (let i = 0; i < el.childNodes.length; i++) {
+      const child = el.childNodes[i]
+
+      if (child.nodeType === 1) {
+        // Element node
+        const childElement = child as Element
+        const childPath = [...path, childIndex]
+        const childNode = traverse(childElement, depth + 1, childPath, matchKey)
+        node.children.push(childNode)
+        childIndex++
+      } else if (child.nodeType === 3) {
+        // Text node
+        let textContent = child.textContent?.replace(/\s+/g, ' ') ?? ''
+
+        if (collapseWhitespace) {
+          textContent = textContent.trim()
+          if (textContent === '') {
+            continue
+          }
+        }
+
+        const childPath = [...path, childIndex]
+        const textMatchKey = generateUniqueMatchKey('text', childPath)
+
+        const textNode: TextNode = {
+          type: 'text',
+          textContent,
+          depth: depth + 1,
+          matchKey: textMatchKey,
+          parentMatchKey: matchKey,
+        }
+
+        node.children.push(textNode)
+        nodesByMatchKey.set(textMatchKey, textNode)
+
+        flatNodes.push({
+          node: textNode,
+          path: childPath,
+          index: flatIndex++,
+        })
+
+        childIndex++
+      }
+      // Note: Comment nodes (nodeType === 8) and other node types are intentionally
+      // ignored as they are not useful for QA comparison purposes
     }
+
+    return node
   }
 
-  traverse(tree, path)
-  return result
+  const root = traverse(element, 0, [], undefined)
+
+  return {
+    root,
+    flatNodes,
+    nodesByMatchKey,
+  }
 }

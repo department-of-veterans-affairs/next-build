@@ -395,6 +395,20 @@ const ComparisonItem: React.FC<ComparisonItemProps> = ({
   )
   const router = useRouter()
   const contentType = router.query['content-type'] as string
+  const comparisonRef = React.useRef<HTMLDivElement>(null)
+
+  // Scroll to comparison when it's expanded
+  React.useEffect(() => {
+    if (isExpanded && comparisonRef.current) {
+      // Small delay to ensure DOM is fully rendered
+      setTimeout(() => {
+        comparisonRef.current?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center',
+        })
+      }, 100)
+    }
+  }, [isExpanded])
 
   const handleAcceptDifference = React.useCallback(
     async (nodeId: string, differenceIndex: number) => {
@@ -423,6 +437,32 @@ const ComparisonItem: React.FC<ComparisonItemProps> = ({
     [acceptedDifferences, comparisonIndex, contentType, path]
   )
 
+  const handleAcceptMultiple = React.useCallback(
+    async (keys: string[]) => {
+      const newAccepted = [...acceptedDifferences, ...keys]
+      setAcceptedDifferences(newAccepted)
+
+      // Persist to server
+      try {
+        await fetch('/api/qa/paths', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            resourceType: contentType,
+            path,
+            updateComparisonMetadata: {
+              comparisonIndex,
+              acceptedDifferences: newAccepted,
+            },
+          }),
+        })
+      } catch (error) {
+        console.error('Error saving accepted differences:', error)
+      }
+    },
+    [acceptedDifferences, comparisonIndex, contentType, path]
+  )
+
   const handleUnacceptDifference = React.useCallback(
     async (nodeId: string, differenceIndex: number) => {
       const key = `${nodeId}:${differenceIndex}`
@@ -445,6 +485,35 @@ const ComparisonItem: React.FC<ComparisonItemProps> = ({
         })
       } catch (error) {
         console.error('Error un-accepting difference:', error)
+      }
+    },
+    [acceptedDifferences, comparisonIndex, contentType, path]
+  )
+
+  const handleUnacceptMultiple = React.useCallback(
+    async (keys: string[]) => {
+      const keysToRemove = new Set(keys)
+      const newAccepted = acceptedDifferences.filter(
+        (k) => !keysToRemove.has(k)
+      )
+      setAcceptedDifferences(newAccepted)
+
+      // Persist to server
+      try {
+        await fetch('/api/qa/paths', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            resourceType: contentType,
+            path,
+            updateComparisonMetadata: {
+              comparisonIndex,
+              acceptedDifferences: newAccepted,
+            },
+          }),
+        })
+      } catch (error) {
+        console.error('Error un-accepting differences:', error)
       }
     },
     [acceptedDifferences, comparisonIndex, contentType, path]
@@ -546,6 +615,7 @@ const ComparisonItem: React.FC<ComparisonItemProps> = ({
 
       {isExpanded && comparison.html1 && comparison.html2 && (
         <div
+          ref={comparisonRef}
           style={{ marginTop: '12px', maxWidth: '100%', overflow: 'hidden' }}
         >
           <SideBySideCompare
@@ -558,6 +628,8 @@ const ComparisonItem: React.FC<ComparisonItemProps> = ({
             onAddComment={handleAddComment}
             acceptedDifferences={acceptedDifferences}
             comments={comments}
+            onAcceptMultiple={handleAcceptMultiple}
+            onUnacceptMultiple={handleUnacceptMultiple}
           />
         </div>
       )}
@@ -633,9 +705,6 @@ export default function QAReviewPage() {
   const [checklistStatus, setChecklistStatus] = useState<ChecklistStatus>({})
   const [unstarredExpanded, setUnstarredExpanded] = useState<boolean>(false)
   const [exportedMarkdown, setExportedMarkdown] = useState<string | null>(null)
-  const [exportedComparisons, setExportedComparisons] = useState<string | null>(
-    null
-  )
   const [cssSelector, setCssSelector] = useState<string>(
     DEFAULT_COMPARISON_SELECTOR
   )
@@ -749,43 +818,6 @@ export default function QAReviewPage() {
 
     // Display in textarea
     setExportedMarkdown(markdown)
-  }
-
-  const handleExportComparisons = () => {
-    if (!cache) return
-
-    const pathsWithComparisons = cache.paths.filter(
-      (p) => p.starred && p.comparisons && p.comparisons.length > 0
-    )
-
-    if (pathsWithComparisons.length === 0) {
-      setExportedComparisons('No comparison results to export')
-      return
-    }
-
-    const markdownLines: string[] = ['# QA Comparison Results\n']
-
-    pathsWithComparisons.forEach((qaPath) => {
-      markdownLines.push(`## ${qaPath.path}\n`)
-
-      qaPath.comparisons?.forEach((comp, index) => {
-        const date = new Date(comp.timestamp).toLocaleString()
-        const acceptedCount = comp.acceptedDifferences?.length || 0
-        const commentCount = Object.keys(comp.comments || {}).length
-
-        markdownLines.push(`### Comparison ${index + 1}`)
-        markdownLines.push(`- **Environments:** ${comp.env1} vs ${comp.env2}`)
-        markdownLines.push(`- **Selector:** \`${comp.selector}\``)
-        markdownLines.push(`- **Accepted Differences:** ${acceptedCount}`)
-        markdownLines.push(`- **Comments:** ${commentCount}`)
-        markdownLines.push(`- **Date:** ${date}\n`)
-      })
-
-      markdownLines.push('')
-    })
-
-    const markdown = markdownLines.join('\n')
-    setExportedComparisons(markdown)
   }
 
   const handleCompare = React.useCallback(
@@ -1067,12 +1099,6 @@ export default function QAReviewPage() {
                   >
                     Export Review Checklist
                   </button>
-                  <button
-                    className="usa-button usa-button--outline"
-                    onClick={handleExportComparisons}
-                  >
-                    Export Comparisons
-                  </button>
                 </div>
                 {exportedMarkdown && (
                   <div style={{ marginTop: '16px' }}>
@@ -1091,42 +1117,6 @@ export default function QAReviewPage() {
                       readOnly
                       value={exportedMarkdown}
                       rows={Math.min(20, starredPaths.length + 2)}
-                      style={{
-                        width: '100%',
-                        maxWidth: 'unset',
-                        padding: '8px',
-                        border: '1px solid #757575',
-                        borderRadius: '4px',
-                        fontFamily: 'monospace',
-                        fontSize: '14px',
-                        resize: 'vertical',
-                      }}
-                      onClick={(e) => {
-                        e.currentTarget.select()
-                      }}
-                    />
-                  </div>
-                )}
-                {exportedComparisons && (
-                  <div style={{ marginTop: '16px' }}>
-                    <label
-                      htmlFor="comparisons-export"
-                      style={{
-                        display: 'block',
-                        marginBottom: '8px',
-                        fontWeight: 'bold',
-                      }}
-                    >
-                      Comparison Results Markdown:
-                    </label>
-                    <textarea
-                      id="comparisons-export"
-                      readOnly
-                      value={exportedComparisons}
-                      rows={Math.min(
-                        30,
-                        exportedComparisons.split('\n').length
-                      )}
                       style={{
                         width: '100%',
                         maxWidth: 'unset',
