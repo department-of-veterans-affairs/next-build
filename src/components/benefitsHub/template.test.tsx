@@ -513,6 +513,7 @@ test('renders BenefitsHub component with support services (Call us section)', ()
       fieldLinks={null}
       supportServices={mockSupportServices}
       connectWithUs={null}
+      relatedLinks={null}
     />
   )
 
@@ -576,6 +577,7 @@ test('renders BenefitsHub component with support services without phone numbers'
       fieldLinks={null}
       supportServices={mockSupportServicesNoPhone}
       connectWithUs={null}
+      relatedLinks={null}
     />
   )
 
@@ -607,6 +609,7 @@ test('does not render Call us section when supportServices is empty', () => {
       fieldLinks={null}
       supportServices={[]}
       connectWithUs={null}
+      relatedLinks={null}
     />
   )
 
@@ -629,6 +632,7 @@ test('does not render Call us section when supportServices is undefined', () => 
       spokes={[]}
       fieldLinks={null}
       connectWithUs={null}
+      relatedLinks={null}
     />
   )
 
@@ -671,6 +675,7 @@ test('calls recordEvent when support service links are clicked', async () => {
       fieldLinks={null}
       supportServices={mockSupportServices}
       connectWithUs={null}
+      relatedLinks={null}
     />
   )
 
