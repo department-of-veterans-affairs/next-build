@@ -42,6 +42,22 @@ describe('FrontPage', () => {
         title: 'VA News',
       },
     },
+    benefitsData: {
+      benefitsHubLinks: [
+        {
+          url: '/health-care',
+          title: 'Health Care',
+          description: 'Find out how to access your health care benefits.',
+          icon: 'health-care',
+        },
+        {
+          url: '/disability',
+          title: 'Disability',
+          description: 'Find out how to access your disability benefits.',
+          icon: 'disability',
+        },
+      ],
+    },
   }
 
   it('renders the page layout and main content', () => {
@@ -49,7 +65,7 @@ describe('FrontPage', () => {
     expect(screen.getByTestId('hero')).toBeInTheDocument()
     expect(screen.getByTestId('common-tasks')).toBeInTheDocument()
     expect(screen.getByTestId('news-spotlight')).toBeInTheDocument()
-    expect(screen.getByText('TODO: add homepage-benefits')).toBeInTheDocument()
+    expect(screen.getByTestId('home-page-benefits')).toBeInTheDocument()
     expect(screen.getByText('TODO: add email signup')).toBeInTheDocument()
   })
 })
