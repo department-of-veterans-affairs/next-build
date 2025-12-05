@@ -4,6 +4,7 @@ import { queries } from '@/lib/drupal/queries'
 import { HomePageHero } from '@/components/homePageHero/template'
 import { HomePageCommonTasks } from '@/components/homePageCommonTasks/template'
 import { HomePageNewsSpotlight } from '@/components/homePageNewsSpotlight/template'
+import { HomePageBenefits } from '@/components/homePageBenefits/template'
 import Head from 'next/head'
 import Script from 'next/script'
 
@@ -14,6 +15,7 @@ const HomePage = ({
   heroData,
   commonTasksData,
   newsSpotlightData,
+  benefitsData,
 }) => {
   return (
     <>
@@ -29,7 +31,7 @@ const HomePage = ({
           <HomePageHero {...heroData} />
           <HomePageCommonTasks {...commonTasksData} />
           <HomePageNewsSpotlight {...newsSpotlightData} />
-          <div>TODO: add homepage-benefits</div>
+          <HomePageBenefits {...benefitsData} />
           <div className="usa-grid usa-grid-full">
             <ContentFooter />
           </div>
@@ -65,6 +67,7 @@ export async function getStaticProps() {
       heroData,
       commonTasksData,
       newsSpotlightData,
+      benefitsData,
     ] = await Promise.all([
       queries.getData('footer-data'),
       queries.getData('header-data'),
@@ -74,6 +77,7 @@ export async function getStaticProps() {
       queries.getData('hero-data'),
       queries.getData('home-page-common-tasks'),
       queries.getData('home-page-news-spotlight'),
+      queries.getData('home-page-benefits'),
     ])
 
     return {
@@ -84,6 +88,7 @@ export async function getStaticProps() {
         heroData,
         commonTasksData,
         newsSpotlightData,
+        benefitsData,
       },
     }
   } catch (error) {
