@@ -1,16 +1,17 @@
 import * as React from 'react'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
+import { SideBySideCompare } from '@/components/qa/SideBySideCompare'
 
 interface ComparisonRecord {
   env1: string
   env2: string
   selector: string
-  success: boolean
-  message: string
   timestamp: string
-  culprits?: [string, string]
-  testName?: string
+  html1?: string
+  html2?: string
+  acceptedDifferences?: string[]
+  comments?: Record<string, string>
 }
 
 interface QAPath {
@@ -149,6 +150,8 @@ const ReviewRow = React.memo<ReviewRowProps>(
             padding: '8px 12px',
             verticalAlign: 'top',
             borderTop: '1px solid #d6d7d9',
+            maxWidth: '100%',
+            overflow: 'hidden',
           }}
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -165,7 +168,7 @@ const ReviewRow = React.memo<ReviewRowProps>(
             </a>
             {comparisons &&
               comparisons.some(
-                (c) => c.success && c.env1 === 'dev' && c.env2 === 'staging'
+                (c) => c.env1 === 'dev' && c.env2 === 'staging'
               ) && (
                 <va-icon
                   icon="check_circle"
@@ -183,7 +186,7 @@ const ReviewRow = React.memo<ReviewRowProps>(
             </a>
             {comparisons &&
               comparisons.some(
-                (c) => c.success && c.env1 === 'dev' && c.env2 === 'prod'
+                (c) => c.env1 === 'dev' && c.env2 === 'prod'
               ) && (
                 <va-icon
                   icon="check_circle"
@@ -352,127 +355,13 @@ const ReviewRow = React.memo<ReviewRowProps>(
             >
               <strong>Comparisons ({comparisons.length}):</strong>
               {comparisons.map((comp, index) => (
-                <div
+                <ComparisonItem
                   key={index}
-                  style={{
-                    marginTop: '8px',
-                    paddingTop: '8px',
-                    borderTop: index > 0 ? '1px solid #97d4ea' : 'none',
-                    position: 'relative',
-                  }}
-                >
-                  <div
-                    style={{
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                      alignItems: 'flex-start',
-                    }}
-                  >
-                    <div style={{ flex: 1 }}>
-                      <div
-                        style={{
-                          fontSize: '14px',
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: '8px',
-                        }}
-                      >
-                        <va-icon
-                          icon={comp.success ? 'check_circle' : 'warning'}
-                          size={3}
-                          style={{
-                            color: comp.success ? '#00a91c' : '#ffbe2e',
-                          }}
-                        />
-                        <strong>
-                          {comp.env1} vs {comp.env2}
-                        </strong>
-                        {' - '}
-                        <code style={{ fontSize: '12px' }}>
-                          {comp.selector}
-                        </code>
-                      </div>
-                      <div
-                        style={{
-                          fontSize: '13px',
-                          marginTop: '4px',
-                          color: '#565c65',
-                        }}
-                      >
-                        {comp.message}
-                      </div>
-                      {comp.culprits && comp.culprits.length === 2 && (
-                        <div
-                          style={{
-                            fontSize: '12px',
-                            marginTop: '8px',
-                            padding: '8px',
-                            backgroundColor: '#fef3cd',
-                            borderRadius: '4px',
-                            border: '1px solid #ffbe2e',
-                          }}
-                        >
-                          <div
-                            style={{ fontWeight: 'bold', marginBottom: '4px' }}
-                          >
-                            Culprits:
-                          </div>
-                          <div style={{ marginBottom: '4px' }}>
-                            <strong>{comp.env1}:</strong>{' '}
-                            <code
-                              style={{
-                                backgroundColor: '#fff',
-                                padding: '2px 4px',
-                                borderRadius: '2px',
-                                fontSize: '11px',
-                              }}
-                            >
-                              {comp.culprits[0]}
-                            </code>
-                          </div>
-                          <div>
-                            <strong>{comp.env2}:</strong>{' '}
-                            <code
-                              style={{
-                                backgroundColor: '#fff',
-                                padding: '2px 4px',
-                                borderRadius: '2px',
-                                fontSize: '11px',
-                              }}
-                            >
-                              {comp.culprits[1]}
-                            </code>
-                          </div>
-                        </div>
-                      )}
-                      <div
-                        style={{
-                          fontSize: '12px',
-                          marginTop: '4px',
-                          color: '#757575',
-                        }}
-                      >
-                        {new Date(comp.timestamp).toLocaleString()}
-                      </div>
-                    </div>
-                    <button
-                      type="button"
-                      onClick={() => onDeleteComparison(qaPath.path, index)}
-                      style={{
-                        background: 'none',
-                        border: 'none',
-                        cursor: 'pointer',
-                        color: '#b50909',
-                        fontSize: '12px',
-                        padding: '4px 8px',
-                        marginLeft: '8px',
-                      }}
-                      title="Delete this comparison"
-                    >
-                      Delete
-                    </button>
-                  </div>
-                </div>
+                  comparison={comp}
+                  comparisonIndex={index}
+                  path={qaPath.path}
+                  onDelete={() => onDeleteComparison(qaPath.path, index)}
+                />
               ))}
             </div>
           )}
@@ -483,6 +372,198 @@ const ReviewRow = React.memo<ReviewRowProps>(
 )
 
 ReviewRow.displayName = 'ReviewRow'
+
+interface ComparisonItemProps {
+  comparison: ComparisonRecord
+  comparisonIndex: number
+  path: string
+  onDelete: () => void
+}
+
+const ComparisonItem: React.FC<ComparisonItemProps> = ({
+  comparison,
+  comparisonIndex,
+  path,
+  onDelete,
+}) => {
+  const [isExpanded, setIsExpanded] = useState(false)
+  const [acceptedDifferences, setAcceptedDifferences] = useState<string[]>(
+    comparison.acceptedDifferences || []
+  )
+  const [comments, setComments] = useState<Record<string, string>>(
+    comparison.comments || {}
+  )
+  const router = useRouter()
+  const contentType = router.query['content-type'] as string
+
+  const handleAcceptDifference = React.useCallback(
+    async (nodeId: string, differenceIndex: number) => {
+      const key = `${nodeId}:${differenceIndex}`
+      const newAccepted = [...acceptedDifferences, key]
+      setAcceptedDifferences(newAccepted)
+
+      // Persist to server
+      try {
+        await fetch('/api/qa/paths', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            resourceType: contentType,
+            path,
+            updateComparisonMetadata: {
+              comparisonIndex,
+              acceptedDifferences: newAccepted,
+            },
+          }),
+        })
+      } catch (error) {
+        console.error('Error saving accepted difference:', error)
+      }
+    },
+    [acceptedDifferences, comparisonIndex, contentType, path]
+  )
+
+  const handleUnacceptDifference = React.useCallback(
+    async (nodeId: string, differenceIndex: number) => {
+      const key = `${nodeId}:${differenceIndex}`
+      const newAccepted = acceptedDifferences.filter((k) => k !== key)
+      setAcceptedDifferences(newAccepted)
+
+      // Persist to server
+      try {
+        await fetch('/api/qa/paths', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            resourceType: contentType,
+            path,
+            updateComparisonMetadata: {
+              comparisonIndex,
+              acceptedDifferences: newAccepted,
+            },
+          }),
+        })
+      } catch (error) {
+        console.error('Error un-accepting difference:', error)
+      }
+    },
+    [acceptedDifferences, comparisonIndex, contentType, path]
+  )
+
+  const handleAddComment = React.useCallback(
+    async (nodeId: string, comment: string) => {
+      const newComments = { ...comments, [nodeId]: comment }
+      setComments(newComments)
+
+      // Persist to server
+      try {
+        await fetch('/api/qa/paths', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            resourceType: contentType,
+            path,
+            updateComparisonMetadata: {
+              comparisonIndex,
+              comments: newComments,
+            },
+          }),
+        })
+      } catch (error) {
+        console.error('Error saving comment:', error)
+      }
+    },
+    [comments, comparisonIndex, contentType, path]
+  )
+
+  return (
+    <div
+      style={{
+        marginTop: '8px',
+        paddingTop: '8px',
+        borderTop: '1px solid #97d4ea',
+      }}
+    >
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          marginBottom: '8px',
+        }}
+      >
+        <div style={{ flex: 1 }}>
+          <div
+            style={{
+              fontSize: '14px',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+            }}
+          >
+            <strong>
+              {comparison.env1} vs {comparison.env2}
+            </strong>
+            {' - '}
+            <code style={{ fontSize: '12px' }}>{comparison.selector}</code>
+          </div>
+          <div
+            style={{
+              fontSize: '12px',
+              marginTop: '4px',
+              color: '#757575',
+            }}
+          >
+            {new Date(comparison.timestamp).toLocaleString()}
+          </div>
+        </div>
+        <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+          <button
+            type="button"
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="usa-button usa-button--outline"
+            style={{ fontSize: '12px', padding: '4px 8px' }}
+          >
+            {isExpanded ? 'Hide' : 'View'} Comparison
+          </button>
+          <button
+            type="button"
+            onClick={onDelete}
+            style={{
+              background: 'none',
+              border: 'none',
+              cursor: 'pointer',
+              color: '#b50909',
+              fontSize: '12px',
+              padding: '4px 8px',
+            }}
+            title="Delete this comparison"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+
+      {isExpanded && comparison.html1 && comparison.html2 && (
+        <div
+          style={{ marginTop: '12px', maxWidth: '100%', overflow: 'hidden' }}
+        >
+          <SideBySideCompare
+            html1={comparison.html1}
+            html2={comparison.html2}
+            env1Label={comparison.env1}
+            env2Label={comparison.env2}
+            onAcceptDifference={handleAcceptDifference}
+            onUnacceptDifference={handleUnacceptDifference}
+            onAddComment={handleAddComment}
+            acceptedDifferences={acceptedDifferences}
+            comments={comments}
+          />
+        </div>
+      )}
+    </div>
+  )
+}
 
 const getReviewStatusKey = (contentType: string): string => {
   return `qa-review-${contentType}`
@@ -688,20 +769,15 @@ export default function QAReviewPage() {
       markdownLines.push(`## ${qaPath.path}\n`)
 
       qaPath.comparisons?.forEach((comp, index) => {
-        const statusIcon = comp.success ? '✓' : '⚠'
-        const statusText = comp.success ? 'PASS' : 'FAIL'
         const date = new Date(comp.timestamp).toLocaleString()
-        markdownLines.push(
-          `### Comparison ${index + 1} [${statusIcon} ${statusText}]`
-        )
+        const acceptedCount = comp.acceptedDifferences?.length || 0
+        const commentCount = Object.keys(comp.comments || {}).length
+
+        markdownLines.push(`### Comparison ${index + 1}`)
         markdownLines.push(`- **Environments:** ${comp.env1} vs ${comp.env2}`)
         markdownLines.push(`- **Selector:** \`${comp.selector}\``)
-        markdownLines.push(`- **Result:** ${comp.message}`)
-        if (comp.culprits && comp.culprits.length === 2) {
-          markdownLines.push(`- **Culprits:**`)
-          markdownLines.push(`  - **${comp.env1}:** \`${comp.culprits[0]}\``)
-          markdownLines.push(`  - **${comp.env2}:** \`${comp.culprits[1]}\``)
-        }
+        markdownLines.push(`- **Accepted Differences:** ${acceptedCount}`)
+        markdownLines.push(`- **Comments:** ${commentCount}`)
         markdownLines.push(`- **Date:** ${date}\n`)
       })
 
@@ -747,11 +823,11 @@ export default function QAReviewPage() {
           env1,
           env2,
           selector: cssSelector,
-          success: fetchData.success,
-          message: fetchData.message,
           timestamp: new Date().toISOString(),
-          culprits: fetchData.culprits,
-          testName: fetchData.testName,
+          html1: fetchData.html1,
+          html2: fetchData.html2,
+          acceptedDifferences: [],
+          comments: {},
         }
 
         const saveResponse = await fetch('/api/qa/paths', {
@@ -851,7 +927,10 @@ export default function QAReviewPage() {
     Object.keys(reviewStatus).length > 0 || hasAnyChecklistItems
 
   return (
-    <div className="vads-u-padding--3">
+    <div
+      className="vads-u-padding--3"
+      style={{ maxWidth: '100%', overflow: 'hidden' }}
+    >
       <div
         style={{
           display: 'flex',
@@ -927,6 +1006,7 @@ export default function QAReviewPage() {
                 style={{
                   display: 'table',
                   width: '100%',
+                  tableLayout: 'fixed',
                   borderCollapse: 'collapse',
                   border: '1px solid #d6d7d9',
                 }}
@@ -1088,6 +1168,7 @@ export default function QAReviewPage() {
                     style={{
                       display: 'table',
                       width: '100%',
+                      tableLayout: 'fixed',
                       borderCollapse: 'collapse',
                       border: '1px solid #d6d7d9',
                     }}

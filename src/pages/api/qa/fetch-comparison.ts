@@ -1,10 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { chromium } from 'playwright'
-import { JSDOM } from 'jsdom'
-import {
-  compareHtmlElements,
-  ComparisonResult,
-} from '@/lib/qa/compareHtmlElements'
 
 interface CompareRequest {
   path: string
@@ -13,13 +8,13 @@ interface CompareRequest {
   selector: string
 }
 
-interface FetchComparisonResult extends ComparisonResult {
+interface FetchComparisonResult {
+  success: boolean
+  message?: string
   html1?: string
   html2?: string
   url1?: string
   url2?: string
-  culprits?: [string, string]
-  testName?: string
 }
 
 function getUrlForEnvironment(
@@ -66,18 +61,6 @@ async function fetchPageElementHtml(
       await browser.close()
     }
   }
-}
-
-/**
- * Parses an HTML string into a DOM Element using JSDOM
- */
-function parseHtmlToElement(html: string): Element {
-  const dom = new JSDOM(html)
-  const element = dom.window.document.body.firstElementChild
-  if (!element) {
-    throw new Error('Failed to parse HTML into element')
-  }
-  return element
 }
 
 export default async function handler(
@@ -152,15 +135,9 @@ export default async function handler(
       })
     }
 
-    // Parse HTML strings into DOM elements
-    const element1 = parseHtmlToElement(html1)
-    const element2 = parseHtmlToElement(html2)
-
-    // Compare the elements
-    const comparisonResult = compareHtmlElements(element1, element2)
-
+    // Return the HTML for both environments
     return res.status(200).json({
-      ...comparisonResult,
+      success: true,
       html1,
       html2,
       url1,
