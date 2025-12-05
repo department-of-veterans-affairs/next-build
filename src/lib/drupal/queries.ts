@@ -75,6 +75,7 @@ import * as VaForm from '@/components/vaForm/query'
 import * as SpanishTranslationSummary from '@/components/spanishTranslationSummary/query'
 import * as HomePageHero from '@/components/homePageHero/query'
 import * as HomePageCommonTasks from '@/components/homePageCommonTasks/query'
+import * as HomePageNewsSpotlight from '@/components/homePageNewsSpotlight/query'
 import {
   ResourceType,
   ParagraphResourceType,
@@ -172,6 +173,7 @@ export const QUERIES_MAP = {
   'benefits-hub-links': BenefitsHubLinks,
   'hero-data': HomePageHero,
   'home-page-common-tasks': HomePageCommonTasks,
+  'home-page-news-spotlight': HomePageNewsSpotlight,
 
   // Static Path Generation
   'static-path-resources': StaticPathResources,

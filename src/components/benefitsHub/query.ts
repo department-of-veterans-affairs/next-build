@@ -6,6 +6,7 @@ import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import { fetchSingleEntityOrPreview } from '@/lib/drupal/query'
 import { formatter as formatListOfLinkTeasers } from '@/components/listOfLinkTeasers/query'
+import { supportServiceFormatter as formatSupportService } from '@/components/supportServices/query'
 import { getHtmlFromDrupalContent } from '@/lib/utils/getHtmlFromDrupalContent'
 import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
 
@@ -14,6 +15,7 @@ export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude([
     'field_spokes',
     'field_spokes.field_va_paragraphs',
+    'field_support_services',
     'field_connect_with_us',
     'field_related_links',
     'field_related_links.field_va_paragraphs',
@@ -46,6 +48,10 @@ export const formatter: QueryFormatter<NodeLandingPage, BenefitsHub> = (
   const spokes = (entity.field_spokes || []).map((spoke) =>
     formatListOfLinkTeasers(spoke)
   )
+
+  const supportServices = (entity.field_support_services || [])
+    .filter((service) => service !== null)
+    .map((service) => formatSupportService(service))
 
   const fieldLinks =
     entity.field_links?.length > 0
@@ -90,6 +96,7 @@ export const formatter: QueryFormatter<NodeLandingPage, BenefitsHub> = (
     titleIcon: entity.field_title_icon,
     spokes: spokes,
     fieldLinks: fieldLinks,
+    supportServices: supportServices,
     connectWithUs: entity.field_connect_with_us,
     relatedLinks: relatedLinks,
   }
