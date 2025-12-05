@@ -78,8 +78,6 @@ export const formatter: QueryFormatter<NodeLandingPage, BenefitsHub> = (
             title: paragraph?.field_link?.title || '',
             options: paragraph?.field_link?.options || [],
             summary: paragraph?.field_link_summary || null,
-            isHubPage: true,
-            componentParams: {},
           })
         ),
       }

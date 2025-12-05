@@ -20,36 +20,31 @@ export const ListOfLinkTeasers = ({
   linkTeasers,
   isHubPage,
   isRelatedLinks,
-}: ListOfLinkTeasersProps) => {
-  return (
-    <section
-      data-template="paragraphs/list_of_link_teasers"
-      data-entity-id={id}
-    >
-      {title && (
-        <h2
-          id={hashReference(title)}
-          className={
-            isHubPage
-              ? isRelatedLinks
-                ? 'va-nav-linkslist-heading'
-                : ''
-              : 'vads-u-border-bottom--1px vads-u-border-color--base-light vads-u-margin--0 vads-u-padding-top--2 vads-u-padding-bottom--0p5'
-          }
-        >
-          {title}
-        </h2>
-      )}
-      <ul className="usa-unstyled-list">
-        {linkTeasers.map((linkTeaser) => (
-          <LinkTeaser
-            key={linkTeaser.id}
-            sectionHeader={title}
-            isHubPage={isHubPage}
-            {...linkTeaser}
-          />
-        ))}
-      </ul>
-    </section>
-  )
-}
+}: ListOfLinkTeasersProps) => (
+  <section data-template="paragraphs/list_of_link_teasers" data-entity-id={id}>
+    {title && (
+      <h2
+        id={hashReference(title)}
+        className={
+          isHubPage
+            ? isRelatedLinks
+              ? 'va-nav-linkslist-heading'
+              : ''
+            : 'vads-u-border-bottom--1px vads-u-border-color--base-light vads-u-margin--0 vads-u-padding-top--2 vads-u-padding-bottom--0p5'
+        }
+      >
+        {title}
+      </h2>
+    )}
+    <ul className="usa-unstyled-list">
+      {linkTeasers.map((linkTeaser) => (
+        <LinkTeaser
+          key={linkTeaser.id}
+          sectionHeader={title}
+          isHubPage={isHubPage}
+          {...linkTeaser}
+        />
+      ))}
+    </ul>
+  </section>
+)
