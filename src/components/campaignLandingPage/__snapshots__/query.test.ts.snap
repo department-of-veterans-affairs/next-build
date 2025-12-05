@@ -7,7 +7,29 @@ exports[`CampaignLandingPage formatData outputs formatted data 1`] = `
       "name": "All Veterans",
     },
   ],
+  "benefitCategories": [
+    {
+      "path": "/service-member-benefits",
+      "teaserText": "Find out what benefits you may be eligible for during service and which time-sensitive benefits to consider when separating or retiring.",
+      "title": "VA benefits for service members",
+      "titleIcon": "service-member",
+    },
+  ],
   "breadcrumbs": null,
+  "connectWithUs": {
+    "emailLink": {
+      "href": "https://public.govdelivery.com/accounts/USVA/subscriber/new/",
+      "title": "Veterans Affairs Email Updates",
+    },
+    "organizationTitle": "Veterans Affairs",
+    "socialLinks": {
+      "facebook": "VeteransAffairs",
+      "instagram": "deptvetaffairs",
+      "linkedin": null,
+      "twitter": "DeptVetAffairs",
+      "youtube": "DeptVetAffairs",
+    },
+  },
   "cta": {
     "primary": {
       "href": "https://www.va.gov/disability/file-disability-claim-form-21-526ez/",

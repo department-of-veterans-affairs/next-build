@@ -333,6 +333,8 @@ export interface NodeCampaignLandingPage extends DrupalNode {
   // Connect with us
   field_connect_with_us: {
     field_external_link: FieldLink
+    field_email_updates_link: FieldLink
+    field_social_media_links: FieldSocialMediaLinks
   } | null
 
   // Related fields

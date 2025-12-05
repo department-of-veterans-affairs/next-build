@@ -1,5 +1,3 @@
-import { getFacebookLink, getXLink } from '@/lib/utils/social'
-import { placeholders } from './placeholders.temp'
 import { CampaignLandingPageProps } from './template'
 
 export const WhyThisMatters = ({
