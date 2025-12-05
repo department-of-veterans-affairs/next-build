@@ -23,9 +23,8 @@ describe('HomePageBenefits Component', () => {
   test('renders the heading correctly', () => {
     render(<HomePageBenefits {...mockData} />)
 
-    const heading = screen.getByText('Explore VA benefits and health care')
+    const heading = screen.getByRole('heading', { level: 2, name: 'Explore VA benefits and health care' })
     expect(heading).toBeInTheDocument()
-    expect(heading.tagName).toBe('H2')
   })
 
   test('renders all hub links correctly', () => {
