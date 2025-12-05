@@ -2,6 +2,10 @@
 
 exports[`BenefitHubLanding formatData outputs formatted data 1`] = `
 {
+  "alertContent": "<p>If you’re concerned about a Veteran in crisis, connect with our caring, qualified Veterans Crisis Line responders for confidential help. Many of them are Veterans themselves. This service is private, free, and available 24/7.</p><p><strong>To connect with a Veterans Crisis Line responder anytime, day or night:</strong></p><ul><li>Call <a href="tel:988" aria-label="9 8 8.">988</a></li><li>Text <a href="sms:838255">838255</a></li><li><a href="https://www.veteranscrisisline.net/ChatTermsOfService.aspx?account=Veterans%20Chat">Start a confidential chat</a></li><li>For TTY, call <a href="tel:988" aria-label="7 1 1.">711</a> then <a href="tel:988" aria-label="9 8 8.">988</a></li></ul><p><strong>If you</strong>’<strong>re concerned about a Veteran who</strong>’<strong>s homeless or at risk of becoming homeless</strong></p><p>Call the National Call Center for Homeless Veterans at <a href="tel:+18774243838">877-424-3838</a> for help 24 hours a day, 7 days a week. You or the Veteran can talk privately with a trained VA counselor for free.</p>",
+  "alertExpandText": "Find out how to get support anytime, day or night",
+  "alertTitle": undefined,
+  "alertType": undefined,
   "breadcrumbs": [
     {
       "href": "/",

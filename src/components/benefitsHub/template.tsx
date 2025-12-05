@@ -4,6 +4,7 @@ import { BenefitsHub as FormattedBenefitsHub } from './formatted-type'
 import { ListOfLinkTeasers } from '@/components/listOfLinkTeasers/template'
 import { ContentFooter } from '@/components/contentFooter/template'
 import { ConnectWithUsPanel } from './ConnectWithUsPanel'
+import { WysiwygField } from '@/components/wysiwyg/template'
 
 export function BenefitsHub({
   title,
@@ -17,6 +18,8 @@ export function BenefitsHub({
   relatedLinks,
 }: FormattedBenefitsHub) {
   const iconConfig = getHubIcon(titleIcon)
+  const alert =
+    alertTitle && alertType && alertExpandText && alertContent ? true : false
 
   return (
     <div className="vads-grid-container">
