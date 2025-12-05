@@ -13,10 +13,6 @@ import { WhyThisMatters } from './WhyThisMatters'
 import { CampaignLandingPage as FormattedCampaignLandingPage } from './formatted-type'
 
 export interface CampaignLandingPageProps extends FormattedCampaignLandingPage {
-  // TODO: remove this once all the components are done. Used for axe testing which will fail on
-  // unfinished, scaffolded sections
-  onlyRenderFinishedComponents?: boolean
-
   // used for analytics which needs to know the number of page sections
   pageSectionCount?: number
 }
@@ -33,6 +29,7 @@ export function CampaignLandingPage(props: CampaignLandingPageProps) {
     EventsPanel,
     FaqPanel,
     ConnectWithUs,
+    BenefitCategories,
   ]
 
   const pageSectionCount = sections.length
@@ -46,13 +43,6 @@ export function CampaignLandingPage(props: CampaignLandingPageProps) {
           key={index}
         />
       ))}
-
-      {/* TODO: In-progress components: */}
-      {props.onlyRenderFinishedComponents !== true && (
-        <>
-          <BenefitCategories />
-        </>
-      )}
     </>
   )
 }

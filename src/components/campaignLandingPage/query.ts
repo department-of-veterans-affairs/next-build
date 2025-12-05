@@ -50,6 +50,7 @@ export const params: QueryParams<null> = () => {
     'field_clp_reusable_q_a',
     'field_clp_reusable_q_a.field_q_as',
     'field_clp_reusable_q_a.field_q_as.field_answer',
+    'field_benefit_categories',
   ])
 }
 
@@ -222,5 +223,13 @@ export const formatter: QueryFormatter<
           },
         }
       : null,
+    benefitCategories: (entity.field_benefit_categories ?? []).map(
+      (category) => ({
+        title: category.title,
+        path: category.path.alias,
+        titleIcon: category.field_title_icon,
+        teaserText: category.field_teaser_text,
+      })
+    ),
   }
 }

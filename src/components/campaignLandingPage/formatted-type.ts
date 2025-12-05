@@ -90,4 +90,10 @@ export interface CampaignLandingPage extends PublishedEntity {
       linkedin: string | null
     }
   } | null
+  benefitCategories: {
+    title: string
+    path: string
+    titleIcon: string
+    teaserText: string
+  }[]
 }
