@@ -47,7 +47,6 @@ export const formatter: QueryFormatter<NodeLandingPage, BenefitsHub> = (
     formatListOfLinkTeasers(spoke)
   )
 
-  // Format each support service using the SupportService formatter
   const supportServices = (entity.field_support_services || [])
     .filter((service) => service !== null)
     .map((service) => formatSupportService(service))

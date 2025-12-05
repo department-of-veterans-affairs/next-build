@@ -70,7 +70,6 @@ export function BenefitsHub({
                   <li data-widget-type="ask-va-widget"></li>
                 </ul>
               </section>
-
               {supportServices && supportServices.length > 0 && (
                 <section>
                   <h3 className="vads-u-font-size--h4">Call us</h3>
@@ -119,6 +118,11 @@ export function BenefitsHub({
                         }
 
                         return service?.title
+                      }
+
+                      // Skip rendering if service is not published
+                      if (!service || !service.title) {
+                        return null
                       }
 
                       return (
