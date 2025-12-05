@@ -19,4 +19,5 @@ export interface BenefitsHub extends PublishedEntity {
     NodeOffice,
     'field_email_updates_link' | 'field_social_media_links'
   > | null
+  relatedLinks: ListOfLinkTeasers | null
 }
