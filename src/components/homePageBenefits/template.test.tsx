@@ -3,7 +3,7 @@ import { axe } from '@/test-utils'
 import { HomePageBenefits } from './template'
 import { formatter } from './query'
 import mockMenu from './mock.json'
-import { BenefitsData } from './formatted-type'
+import { filterViolations } from '../../test/test-helpers'
 
 const mockData = formatter(mockMenu)
 
@@ -11,19 +11,22 @@ describe('HomePageBenefits Component', () => {
   test('has no accessibility violations', async () => {
     const { container } = render(<HomePageBenefits {...mockData} />)
 
-    const axeResults = await axe(container, {
-      rules: {
-        // It's only empty because it isn't evaluating the `<va-link>` element inside it.
-        'empty-heading': { enabled: false },
-      },
-    })
-    expect(axeResults).toHaveNoViolations()
+    const [emptyHeadingViolations, filteredResults] = filterViolations(
+      await axe(container),
+      'empty-heading'
+    )
+    expect(filteredResults).toHaveNoViolations()
+    // There's one empty heading due to an unhydrated `<va-link>`
+    expect(emptyHeadingViolations).toHaveLength(1)
   })
 
   test('renders the heading correctly', () => {
     render(<HomePageBenefits {...mockData} />)
 
-    const heading = screen.getByRole('heading', { level: 2, name: 'Explore VA benefits and health care' })
+    const heading = screen.getByRole('heading', {
+      level: 2,
+      name: 'Explore VA benefits and health care',
+    })
     expect(heading).toBeInTheDocument()
   })
 
