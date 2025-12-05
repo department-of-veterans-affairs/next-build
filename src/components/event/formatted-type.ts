@@ -3,7 +3,6 @@ import { MediaImage } from '@/components/mediaDocument/formatted-type'
 import { PublishedEntity } from '@/types/formatted/publishedEntity'
 import {
   FieldAddress,
-  FieldFormattedText,
   SocialLinksProps,
   FieldLink,
   FieldDateTimeRange,
@@ -17,7 +16,7 @@ export type Event = PublishedEntity & {
   socialLinks: SocialLinksProps
   listing: string
   listingOffice: string
-  additionalInfo: FieldFormattedText | null
+  additionalInfo: string
   address: FieldAddress
   locationHumanReadable: string
   eventCTA: string | null
@@ -27,7 +26,7 @@ export type Event = PublishedEntity & {
   registrationRequired: boolean
   datetimeRange: FieldDateTimeRange[]
   facilityLocation: NodeHealthCareLocalFacility | null
-  body: FieldFormattedText | null
+  body: string
   locationType: string
   description: string
   link: FieldNestedLink | null

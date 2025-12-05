@@ -10,24 +10,19 @@ exports[`VamcHealthServicesListing formatter outputs formatted data 1`] = `
   },
   "breadcrumbs": [
     {
+      "href": "/",
+      "label": "Home",
       "options": [],
-      "title": "Home",
-      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
     },
     {
+      "href": "/north-texas-health-care",
+      "label": "VA North Texas health care",
       "options": [],
-      "title": "VA North Texas health care",
-      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/north-texas-health-care",
     },
     {
+      "href": "",
+      "label": "Health services",
       "options": [],
-      "title": "SERVICES AND LOCATIONS",
-      "uri": "internal:#",
-    },
-    {
-      "options": [],
-      "title": "Health services",
-      "uri": "internal:#",
     },
   ],
   "entityId": 18495,

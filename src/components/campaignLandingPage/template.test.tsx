@@ -19,6 +19,10 @@ import { LinkTeaser } from '../linkTeaser/formatted-type'
 import { LinkTeaserWithImage } from '../linkTeaserWithImage/formatted-type'
 import { StoriesPanel } from './StoriesPanel'
 import { cleanup } from '@testing-library/react'
+import { MediaDocumentExternal } from '../mediaDocumentExternal/formatted-type'
+import { ResourcesPanel } from './ResourcesPanel'
+import { Event } from '../event/formatted-type'
+import { EventsPanel } from './EventsPanel'
 
 const mockBaseProps: Partial<CampaignLandingPageProps> = {
   title: 'Testing title',
@@ -141,6 +145,47 @@ const mockBaseProps: Partial<CampaignLandingPageProps> = {
       } as LinkTeaserWithImage,
     ],
   },
+  resources: {
+    show: true,
+    header: 'resources header',
+    intro: 'resources intro',
+    cta: {
+      url: 'https://example.com/resources-cta',
+      label: 'resources CTA',
+    } as Button,
+    documents: [
+      {
+        name: 'resources document name',
+        description: 'resources document description',
+        url: 'https://example.com/resource-document.pdf',
+        fileName: 'resource-document.pdf',
+      } as MediaDocumentExternal,
+    ],
+  },
+  events: {
+    show: true,
+    header: 'events header',
+    events: [
+      {
+        title: 'event name',
+        description: 'event description',
+        facilityLocation: {
+          title: 'facility title',
+          path: {
+            alias: '?location-link',
+          },
+        },
+        locationHumanReadable: 'human-readable-location',
+        link: {
+          url: '?cta-link',
+        },
+        eventCTA: 'event CTA label',
+        urlOfOnlineEvent: {
+          url: '?online-link',
+        },
+      } as unknown as Event,
+    ],
+  },
 }
 
 jest.mock('next/image', () => ({
@@ -166,6 +211,8 @@ describe('CampaignLandingPage with valid data', () => {
     expect(screen.getByTestId('video-panel')).toBeInTheDocument()
     expect(screen.getByTestId('spotlight-panel')).toBeInTheDocument()
     expect(screen.getByTestId('stories-panel')).toBeInTheDocument()
+    expect(screen.getByTestId('resources-panel')).toBeInTheDocument()
+    expect(screen.getByTestId('events-panel')).toBeInTheDocument()
 
     // TODO: Check that the other components rendered once they're built
   })
@@ -327,5 +374,164 @@ describe('CampaignLandingPage->StoriesPanel', () => {
 
     // now that we know it renders with show:true, let's make sure it didn't with show:false
     expect(screen.queryByTestId('stories-panel')).not.toBeInTheDocument()
+  })
+})
+
+describe('CampaignLandingPage->ResourcesPanel', () => {
+  beforeEach(async () => {
+    await render(
+      <ResourcesPanel {...(mockBaseProps as CampaignLandingPageProps)} />
+    )
+  })
+
+  test('shows header', () => {
+    expect(screen.getByText('resources header')).toBeInTheDocument()
+  })
+
+  test('shows intro', () => {
+    expect(screen.getByText('resources intro')).toBeInTheDocument()
+  })
+
+  test('shows CTA', () => {
+    const cta = screen.getByTestId('resources-cta')
+
+    expect(cta).toBeInTheDocument()
+    expect(cta.href).toBe('https://example.com/resources-cta')
+    expect(cta.text).toBe('resources CTA')
+  })
+
+  test('shows resource document', () => {
+    expect(screen.getByText('resources document name')).toBeInTheDocument()
+    expect(
+      screen.getByText('resources document description')
+    ).toBeInTheDocument()
+
+    const link = screen.getByTestId('resource-link')
+    expect(link.getAttribute('href')).toBe(
+      'https://example.com/resource-document.pdf'
+    )
+  })
+
+  test('does not render when resources.show = false', async () => {
+    // first, test the inverse to ensure this test passing isn't a fluke & isolate the reason
+    expect(screen.getByTestId('resources-panel')).toBeInTheDocument()
+    await cleanup()
+
+    const mockWithResourcesHidden = {
+      ...mockBaseProps,
+      resources: {
+        ...mockBaseProps.resources,
+        show: false,
+      },
+    }
+
+    await render(
+      <StoriesPanel
+        {...(mockWithResourcesHidden as CampaignLandingPageProps)}
+      />
+    )
+
+    // now that we know it renders with show:true, let's make sure it didn't with show:false
+    expect(screen.queryByTestId('resources-panel')).not.toBeInTheDocument()
+  })
+})
+
+describe('CampaignLandingPage->EventsPanel', () => {
+  beforeEach(async () => {
+    await render(
+      <EventsPanel {...(mockBaseProps as CampaignLandingPageProps)} />
+    )
+  })
+
+  test('shows header', () => {
+    expect(screen.getByText('events header')).toBeInTheDocument()
+  })
+
+  test('event has name and description', () => {
+    expect(screen.getByText('event description')).toBeInTheDocument()
+  })
+
+  test('event has correct links', () => {
+    const headerLink = screen.getByTestId('event-header-link')
+    expect(headerLink.href).toBe('?online-link')
+    expect(headerLink.text).toBe('event name')
+
+    // event location section:
+    expect(screen.getByTestId('event-location')).toBeInTheDocument()
+
+    const locationLink = screen.getByTestId('event-location-link')
+    expect(locationLink.href).toBe('?location-link')
+    expect(locationLink.text).toBe('facility title')
+
+    const ctaLink = screen.getByTestId('event-cta-link')
+    expect(ctaLink.href).toBe('?cta-link')
+    expect(ctaLink.text).toBe('event CTA label')
+
+    const onlineLink = screen.getByTestId('event-online-link')
+    expect(onlineLink.href).toBe('?online-link')
+    expect(onlineLink.text).toBe('human-readable-location')
+  })
+
+  it('hides location section when various fields are missing', async () => {
+    const altMock = {
+      ...mockBaseProps,
+      events: {
+        ...mockBaseProps.events,
+        events: mockBaseProps.events.events.map((ev) => ({
+          ...ev,
+          facilityLocation: null,
+          locationHumanReadable: null,
+          link: null,
+        })),
+      },
+    }
+
+    await cleanup()
+    await render(<EventsPanel {...(altMock as CampaignLandingPageProps)} />)
+
+    expect(screen.queryByTestId('event-location')).not.toBeInTheDocument()
+  })
+
+  test('shows header as plain text when no online event link', async () => {
+    const altMock = {
+      ...mockBaseProps,
+      events: {
+        ...mockBaseProps.events,
+        events: mockBaseProps.events.events.map((ev) => ({
+          ...ev,
+          urlOfOnlineEvent: null,
+        })),
+      },
+    }
+
+    await cleanup()
+    await render(<EventsPanel {...(altMock as CampaignLandingPageProps)} />)
+
+    // link should be gone
+    expect(screen.queryByTestId('event-header-link')).not.toBeInTheDocument()
+
+    // but the header should still render
+    expect(screen.getByTestId('event-header')).toHaveTextContent('event name')
+  })
+
+  test('does not render when events.show = false', async () => {
+    // first, test the inverse to ensure this test passing isn't a fluke & isolate the reason
+    expect(screen.getByTestId('events-panel')).toBeInTheDocument()
+    await cleanup()
+
+    const mockWithResourcesHidden = {
+      ...mockBaseProps,
+      events: {
+        ...mockBaseProps.events,
+        show: false,
+      },
+    }
+
+    await render(
+      <EventsPanel {...(mockWithResourcesHidden as CampaignLandingPageProps)} />
+    )
+
+    // now that we know it renders with show:true, let's make sure it didn't with show:false
+    expect(screen.queryByTestId('events-panel')).not.toBeInTheDocument()
   })
 })

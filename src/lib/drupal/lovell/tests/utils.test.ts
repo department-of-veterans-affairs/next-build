@@ -355,13 +355,13 @@ describe('getLovellVariantOfTitle', () => {
 describe('getLovellVariantOfBreadcrumbs', () => {
   const breadcrumbs = [
     {
-      uri: 'https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/',
-      title: 'Home',
+      href: '/',
+      label: 'Home',
       options: [],
     },
     {
-      uri: 'https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/lovell-federal-health-care',
-      title: 'Lovell Federal health care',
+      href: '/lovell-federal-health-care',
+      label: 'Lovell Federal health care',
       options: [],
     },
   ]
@@ -371,8 +371,8 @@ describe('getLovellVariantOfBreadcrumbs', () => {
     expect(result).toStrictEqual([
       breadcrumbs[0],
       {
-        uri: 'https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/lovell-federal-health-care-va',
-        title: 'Lovell Federal health care - VA',
+        href: '/lovell-federal-health-care-va',
+        label: 'Lovell Federal health care - VA',
         options: [],
       },
     ])

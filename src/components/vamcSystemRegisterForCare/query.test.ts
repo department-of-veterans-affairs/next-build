@@ -21,19 +21,20 @@ import {
 
 const mockPageQuery = jest.fn(() => mockPage as NodeVamcSystemRegisterForCare)
 
-jest.mock('@/lib/drupal/query', () => ({
-  ...jest.requireActual('@/lib/drupal/query'),
-  fetchSingleEntityOrPreview: () => mockPageQuery(),
-  fetchAndConcatAllResourceCollectionPages: jest.fn(),
-  getMenu: () => mockMenu,
-}))
+jest.mock('@/lib/drupal/query')
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const mockDrupalQuery = require('@/lib/drupal/query')
 
 const serviceMocks = createRegisterForCareServiceQueryMocks()
-// eslint-disable-next-line @typescript-eslint/no-require-imports
-const queryModule = require('@/lib/drupal/query')
-queryModule.fetchAndConcatAllResourceCollectionPages.mockImplementation(
+
+mockDrupalQuery.setSingleEntityMock(
+  RESOURCE_TYPES.VAMC_SYSTEM_REGISTER_FOR_CARE,
+  mockPageQuery
+)
+mockDrupalQuery.fetchAndConcatAllResourceCollectionPages.mockImplementation(
   serviceMocks.mockFetchAndConcatAllResourceCollectionPages
 )
+mockDrupalQuery.getMenu.mockReturnValue(mockMenu)
 
 jest.mock('@/lib/drupal/drupalClient', () => ({
   drupalClient: {
@@ -159,8 +160,8 @@ describe('VamcSystemRegisterForCare formatter', () => {
       })
 
       expect(result.breadcrumbs[1]).toEqual({
-        uri: 'https://va-gov-cms.ddev.site/lovell-federal-health-care-tricare',
-        title: 'Lovell Federal health care - TRICARE',
+        href: '/lovell-federal-health-care-tricare',
+        label: 'Lovell Federal health care - TRICARE',
         options: [],
       })
     })
@@ -177,7 +178,23 @@ describe('VamcSystemRegisterForCare formatter', () => {
         variant: 'va',
       })
 
-      expect(result.breadcrumbs).toEqual(lovellBreadcrumbs)
+      expect(result.breadcrumbs).toEqual([
+        {
+          href: '/',
+          label: 'Home',
+          options: [],
+        },
+        {
+          href: '/lovell-federal-health-care',
+          label: 'Lovell Federal health care',
+          options: [],
+        },
+        {
+          href: '',
+          label: 'Register for care',
+          options: [],
+        },
+      ])
     })
   })
 })

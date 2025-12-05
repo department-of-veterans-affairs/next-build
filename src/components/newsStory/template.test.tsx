@@ -26,8 +26,8 @@ const data = {
   id: 'a1b2c3',
   published: true,
   breadcrumbs: [
-    { title: 'Home', uri: '/', options: [] },
-    { title: 'News', uri: '/news', options: [] },
+    { label: 'Home', href: '/', options: [] },
+    { label: 'News', href: '/news', options: [] },
   ],
   type: 'node--news_story',
   title: 'We honor outstanding doctors\n',
