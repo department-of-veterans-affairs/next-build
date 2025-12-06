@@ -175,3 +175,7 @@ va-button#mdFormButton::part(button) {
   /* Height is set dynamically via inline style */
   margin-bottom: 1rem;
 }
+
+.homepage-email-update-wrapper .homepage-email-input::part(form-header) {
+  font-size: 1.25rem;
+}
