@@ -2,6 +2,7 @@ import { ListOfLinkTeasers as FormattedListOfLinkTeasers } from '@/components/li
 import { ParagraphComponent } from '@/components/paragraph/formatted-type'
 import { LinkTeaser } from '@/components/linkTeaser/template'
 import { hashReference } from '@/lib/utils/hashReference'
+import clsx from 'clsx'
 
 type ListOfLinkTeasersProps = ParagraphComponent<FormattedListOfLinkTeasers> & {
   isHubPage?: boolean
@@ -25,13 +26,11 @@ export const ListOfLinkTeasers = ({
     {title && (
       <h2
         id={hashReference(title)}
-        className={
-          isHubPage
-            ? isRelatedLinks
-              ? 'va-nav-linkslist-heading'
-              : ''
-            : 'vads-u-border-bottom--1px vads-u-border-color--base-light vads-u-margin--0 vads-u-padding-top--2 vads-u-padding-bottom--0p5'
-        }
+        className={clsx(
+          isHubPage && isRelatedLinks && 'va-nav-linkslist-heading',
+          !isHubPage &&
+            'vads-u-border-bottom--1px vads-u-border-color--base-light vads-u-margin--0 vads-u-padding-top--2 vads-u-padding-bottom--0p5'
+        )}
       >
         {title}
       </h2>
