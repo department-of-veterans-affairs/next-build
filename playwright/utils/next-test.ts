@@ -1,6 +1,5 @@
 import { test as base } from '@playwright/test'
 import AxeBuilder from '@axe-core/playwright'
-import { Page } from 'playwright-core'
 
 type NextFixtures = {
   makeAxeBuilder: () => AxeBuilder
@@ -17,7 +16,7 @@ type NextFixtures = {
 export const test = base.extend<NextFixtures>({
   makeAxeBuilder: async ({ page }, use, testInfo) => {
     const makeAxeBuilder = () =>
-      new AxeBuilder({ page: page as Page }).withTags([
+      new AxeBuilder({ page }).withTags([
         'section508',
         'wcag2a',
         'wcag2aa',
