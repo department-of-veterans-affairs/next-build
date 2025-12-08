@@ -35,7 +35,7 @@ export function HomePageBenefits({ benefitsHubLinks }: BenefitsData) {
       data-e2e="hubs"
       data-testid="home-page-benefits"
     >
-      <h2 className="vads-u-color--gray-dark vads-u-margin-top--0 vads-u-margin-bottom--3 medium-screen:vads-u-margin-bottom--5">
+      <h2 className="vads-u-color--gray-dark vads-u-margin-top--0 vads-u-margin-bottom--0 tablet:vads-u-margin-bottom--2">
         Explore VA benefits and health care
       </h2>
 
