@@ -186,15 +186,15 @@ jobs:
       id: export-setup-end-time
       run: echo SETUP_END_TIME=$(date +"%s") >> $GITHUB_OUTPUT
 
-    - name: Export build start time
-      id: export-build-start-time
-      run: echo BUILD_START_TIME=$(date +"%s") >> $GITHUB_OUTPUT
-
     - name: Gather vets-website assets
       run: cd main && yarn setup
 
     - name: Wait for the CMS to be ready
       uses: "./main/.github/workflows/wait-for-cms-ready"
+
+    - name: Export build start time
+      id: export-build-start-time
+      run: echo BUILD_START_TIME=$(date +"%s") >> $GITHUB_OUTPUT
 
     - name: Build site
       id: export-yarn-output
