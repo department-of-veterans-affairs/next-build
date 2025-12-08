@@ -27,6 +27,8 @@ const PathRow = React.memo<PathRowProps>(
     const [localNotes, setLocalNotes] = useState(qaPath.notes || '')
 
     useEffect(() => {
+      // Sync local state when parent updates - needed for optimistic UI
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setLocalNotes(qaPath.notes || '')
     }, [qaPath.notes])
 
