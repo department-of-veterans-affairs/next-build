@@ -71,7 +71,7 @@
     "linkinator": "^6.0.3",
     "lodash": "^4.17.21",
     "mq-polyfill": "^1.1.8",
-    "next": "15.5.0",
+    "next": "15.5.7",
     "next-drupal": "^2.0.0",
     "next-drupal-query": "^0.4.0",
     "next-sitemap": "^4.2.3",
@@ -150,6 +150,11 @@
     "drupal-jsonapi-params": "3.0.0",
     "@types/react": "19.1.11",
     "@types/react-dom": "19.1.7"
+  },
+  "dependenciesMeta": {
+    "node_extra_ca_certs_mozilla_bundle": {
+      "built": true
+    }
   },
   "packageManager": "yarn@3.6.1"
 }
