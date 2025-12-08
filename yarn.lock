@@ -12934,7 +12934,7 @@ __metadata:
     react-json-view: ^1.21.3
     redis: ^5.8.2
     safe-json-stringify: ^1.2.0
-    superjson: ^2.2.5
+    superjson: ^2.2.6
     swr: ^2.3.3
     ts-morph: ^26.0.0
     tsconfig-paths: ^4.2.0
@@ -16572,12 +16572,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"superjson@npm:^2.2.5":
-  version: 2.2.5
-  resolution: "superjson@npm:2.2.5"
+"superjson@npm:^2.2.6":
+  version: 2.2.6
+  resolution: "superjson@npm:2.2.6"
   dependencies:
     copy-anything: ^4
-  checksum: 3163d79fcf9dc41d88c125583b57ad89f319dab6d36a87a8e417bedee1e5d51aa889a120083c641e25a6eda2d1ad59167c8c67f66dba4df161b76f1051cf7e54
+  checksum: d860577809502d058144d1e5fcd383571b4cf0466cab7d7b6fa1675fff598af53148bacd7b3b0075fba0997ed1f05393bde95b3a3727f7708513396b1d88a8b6
   languageName: node
   linkType: hard
 

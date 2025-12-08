@@ -84,7 +84,7 @@
     "react-json-view": "^1.21.3",
     "redis": "^5.8.2",
     "safe-json-stringify": "^1.2.0",
-    "superjson": "^2.2.5",
+    "superjson": "^2.2.6",
     "swr": "^2.3.3",
     "uswds": "^2.14.0",
     "uuid": "^9.0.1",
