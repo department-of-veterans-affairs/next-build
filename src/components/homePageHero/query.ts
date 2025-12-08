@@ -1,14 +1,15 @@
 import { QueryData, QueryFormatter } from 'next-drupal-query'
 import { drupalClient } from '@/lib/drupal/drupalClient'
-import { HomePageHero } from './formatted-type'
+import { HomePageHeroData } from './formatted-type'
 import { deserialize, JsonApiResponse } from 'next-drupal'
 import { FieldLink } from '@/types/drupal/field_type'
 
-export type HomePageHeroData = {
+export type RawData = {
   promoBlock: JsonApiResponse
   createAccountBlock: JsonApiResponse
 }
-export const data: QueryData<null, HomePageHeroData> = async () => {
+
+export const data: QueryData<null, RawData> = async () => {
   const promoBlockQueueURL = `${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}/jsonapi/entity_subqueue/home_page_hero?include=items,items.field_promo_cta`
   const createAccountBlockQueueURL = `${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}/jsonapi/entity_subqueue/v2_home_page_create_account?include=items`
   const promoBlockResponse = await drupalClient.fetch(promoBlockQueueURL)
@@ -23,7 +24,7 @@ export const data: QueryData<null, HomePageHeroData> = async () => {
   }
 }
 
-export const formatter: QueryFormatter<HomePageHeroData, HomePageHero> = (
+export const formatter: QueryFormatter<RawData, HomePageHeroData> = (
   frontPageHero
 ) => {
   // Since we are using fetch we need to manually deserialize the JSON

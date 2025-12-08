@@ -1,5 +1,5 @@
 import { useSearchParams } from 'next/navigation'
-import { HomePageHero as FormattedHomePageHero } from './formatted-type'
+import { HomePageHeroData as FormattedHomePageHero } from './formatted-type'
 
 export function HomePageHero({
   promoHeadline,
