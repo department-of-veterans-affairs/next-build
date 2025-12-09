@@ -22,4 +22,5 @@ export type VaForm = PublishedEntity & {
     formNumber: string | null
     formName: string | null
   }>
+  formUpload?: boolean
 }

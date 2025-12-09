@@ -20,6 +20,7 @@ export function VaForm({
   usage,
   linkTeasers,
   relatedForms,
+  formUpload,
 }: VaFormProps) {
   const formatDate = (dateString: string) => {
     // Avoid UTC-to-local-timezone conversion by not using the `dateString`
@@ -122,6 +123,16 @@ export function VaForm({
                 </button>
               )}
             </div>
+
+            {formUpload && (
+              <div
+                aria-label="Form Upload"
+                data-widget-type="form-upload"
+                data-has-online-tool={toolUrl ? 'true' : 'false'}
+                data-form-number={formNumber}
+                role="region"
+              />
+            )}
 
             {toolUrl && (
               <>

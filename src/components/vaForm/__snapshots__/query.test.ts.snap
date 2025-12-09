@@ -31,6 +31,7 @@ exports[`VaForm formatter outputs formatted data with all fields 1`] = `
   "formNumber": "21-0781",
   "formTitle": "Statement in Support of Claim for Service Connection for PTSD (Fillable)",
   "formType": "benefit",
+  "formUpload": false,
   "formUrl": {
     "options": [],
     "title": null,

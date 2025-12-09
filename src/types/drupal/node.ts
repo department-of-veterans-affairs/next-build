@@ -764,5 +764,6 @@ export interface NodeVaForm extends DrupalNode {
   field_va_form_administration?: FieldAdministration
   field_administration?: FieldAdministration
   field_benefit_categories?: Array<{ field_home_page_hub_label: string }> // node--landing-page
+  field_va_form_upload?: boolean
   breadcrumbs: BreadcrumbItem[]
 }
