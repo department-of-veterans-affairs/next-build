@@ -1,6 +1,6 @@
-// Matches <meta name="DC.Date" content="YYYY-MM-DD">
+// Matches <meta name="DC.Date" content="...">
 const RE_META_DATE =
-  /<meta\s+name\s*=\s*["']DC\.Date["'][^>]*content\s*=\s*["'](\d{4}-\d{2}-\d{2})["']/i
+  /<meta\s+name\s*=\s*["']DC\.Date["'][^>]*content\s*=\s*["']([^"']+)["']/i
 
 /** @type {import('next-sitemap').IConfig} */
 const sitemapConfig = {
