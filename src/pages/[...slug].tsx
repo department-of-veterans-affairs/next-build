@@ -182,7 +182,8 @@ export default function ResourcePage({
       <Meta resource={resource} />
       <HTMLComment position="head" content={comment} />
 
-      {preview && <PreviewCrumb entityId={resource.entityId} />}
+      {(preview || process.env.NEXT_PUBLIC_DRUPAL_BASE_URL?.includes('preview-prod.cms.va.gov'))
+        && <PreviewCrumb entityId={resource.entityId} />}
 
       <DynamicBreadcrumbs breadcrumbs={resource.breadcrumbs} />
 
