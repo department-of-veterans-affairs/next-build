@@ -342,10 +342,6 @@ export async function getStaticPaths(
     }
   }
 
-  if (!RESOURCE_TYPES_TO_BUILD.length) {
-    error('No resource types returned')
-    process.exit(1)
-  }
   log(
     `\n\nBuilding ${RESOURCE_TYPES_TO_BUILD.length} resource types:`,
     RESOURCE_TYPES_TO_BUILD,
