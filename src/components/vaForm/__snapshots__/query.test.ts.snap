@@ -3,6 +3,7 @@
 exports[`VaForm formatter outputs formatted data with all fields 1`] = `
 {
   "administration": undefined,
+  "alertBlock": null,
   "benefitCategories": [
     undefined,
     undefined,
