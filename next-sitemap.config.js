@@ -1,3 +1,7 @@
+// Matches <meta name="DC.Date" content="YYYY-MM-DD">
+const RE_META_DATE =
+  /<meta\s+name\s*=\s*["']DC\.Date["'][^>]*content\s*=\s*["'](\d{4}-\d{2}-\d{2})["']/i
+
 /** @type {import('next-sitemap').IConfig} */
 const sitemapConfig = {
   // see https://www.npmjs.com/package/next-sitemap for all options
@@ -19,9 +23,7 @@ const sitemapConfig = {
     const pathToFile = `./out${path}/index.html` // Construct the path to the static file in the `out` directory
     const html = await fs.readFile(pathToFile, 'utf-8')
     // Extract date from meta tag using regex: <meta name="DC.Date" content="YYYY-MM-DD">
-    const dateMatch = html.match(
-      /<meta\s+name\s*=\s*["']DC\.Date["'][^>]*content\s*=\s*["'](\d{4}-\d{2}-\d{2})["']/i
-    )
+    const dateMatch = html.match(RE_META_DATE)
     const date = dateMatch ? dateMatch[1] : null
     return {
       loc: path, // Required to be returned in sitemap => this will be exported as http(s)://<config.siteUrl>/<path>
