@@ -63,7 +63,9 @@ describe('VaForm Component', () => {
     test('renders form title and basic information', () => {
       const { container } = render(<VaForm {...formattedMockData} />)
 
-      expect(screen.getByText('About VA Form 21-0781')).toBeInTheDocument()
+      expect(
+        screen.getByRole('heading', { level: 1, name: 'About VA Form 21-0781' })
+      ).toBeInTheDocument()
       expect(
         screen.getByText(
           'Statement in Support of Claimed Mental Health Disorder(s) Due to an In-Service Traumatic Event(s)'
@@ -338,9 +340,10 @@ describe('VaForm Component', () => {
       expect(alert).toHaveAttribute('status', 'info')
       expect(alert).toHaveAttribute('class', 'vads-u-margin-top--3')
       expect(
-        screen.getByText(
-          'DIC eligibility for survivors of Blue Water Navy Vietnam Veterans'
-        )
+        screen.getByRole('heading', {
+          level: 2,
+          name: 'DIC eligibility for survivors of Blue Water Navy Vietnam Veterans',
+        })
       ).toBeInTheDocument()
     })
 
