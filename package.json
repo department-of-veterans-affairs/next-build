@@ -78,7 +78,7 @@
     "playwright-core": "1.57.0",
     "plop": "4.0.1",
     "proxy-fetcher": "0.1.0",
-    "react": "19.1.11",
+    "react": "19.1.1",
     "react-dom": "19.1.1",
     "react-gtm-module": "2.0.11",
     "react-json-view": "1.21.3",
@@ -148,8 +148,8 @@
   },
   "resolutions": {
     "drupal-jsonapi-params": "3.0.0",
-    "@types/react": "19.1.11",
-    "@types/react-dom": "19.1.7"
+    "@types/react": "19.1.1",
+    "@types/react-dom": "19.1.1"
   },
   "dependenciesMeta": {
     "node_extra_ca_certs_mozilla_bundle": {
