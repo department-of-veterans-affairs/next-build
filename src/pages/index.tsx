@@ -14,6 +14,7 @@ import { NewsSpotlightData } from '@/components/homePageNewsSpotlight/formatted-
 import { CommonTasksData } from '@/components/homePageCommonTasks/formatted-type'
 import { HomePageHeroData } from '@/components/homePageHero/formatted-type'
 import { BannersData } from '@/components/banner/formatted-type'
+import { Meta } from '@/components/meta/template'
 
 interface HomePageProps {
   footerData: FooterLink[]
@@ -35,9 +36,13 @@ const HomePage = ({
   benefitsData,
 }: HomePageProps) => (
   <>
-    <Head>
-      <title>VA.gov | Veterans Affairs</title>
-    </Head>
+    <Meta
+      resource={{
+        title: 'VA.gov | Veterans Affairs',
+        entityPath: '/',
+        lastUpdated: new Date().toISOString(),
+      }}
+    />
     <PageLayout
       bannerData={bannerData}
       footerData={footerData}

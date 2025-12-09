@@ -2,8 +2,6 @@ import Head from 'next/head'
 import { MetaTag } from '@/types/formatted/metatags'
 import { parseDate, getDateParts } from '@/lib/utils/date'
 import { capitalizeWords } from '@/lib/utils/capitalizeWords'
-import { StaticPropsResource } from '@/lib/drupal/staticProps'
-import { FormattedPageResource } from '@/lib/drupal/queries'
 import { generateAbsoluteUrlFromEnv } from '@/lib/utils/environment'
 import { BUILD_TYPES } from '@/lib/constants/environment'
 
@@ -71,12 +69,8 @@ const CustomTags = ({ tags }: { tags: MetaTag[] }) => (
   </Head>
 )
 
-const DefaultTags = ({
-  resource,
-}: {
-  resource: StaticPropsResource<FormattedPageResource>
-}) => {
-  const metaTitle = `${resource.title} | Veterans Affairs`
+const DefaultTags = ({ title }: { title: string }) => {
+  const metaTitle = `${title} | Veterans Affairs`
 
   return (
     <Head>
@@ -105,11 +99,15 @@ const DefaultTags = ({
   )
 }
 
-export const Meta = ({
-  resource,
-}: {
-  resource: StaticPropsResource<FormattedPageResource>
-}) => {
+interface PseudoResource {
+  title: string
+  entityPath?: string
+  lastUpdated: string
+  metatags?: MetaTag[]
+  canonicalLink?: string
+}
+
+export const Meta = ({ resource }: { resource: PseudoResource }) => {
   const noIndex = process.env.NEXT_PUBLIC_BUILD_TYPE !== BUILD_TYPES.PROD
   const canonicalLink =
     'canonicalLink' in resource ? resource.canonicalLink : resource.entityPath
@@ -157,7 +155,7 @@ export const Meta = ({
       {resource.metatags?.length > 0 ? (
         <CustomTags tags={resource.metatags} />
       ) : (
-        <DefaultTags resource={resource} />
+        <DefaultTags title={resource.title} />
       )}
     </>
   )
