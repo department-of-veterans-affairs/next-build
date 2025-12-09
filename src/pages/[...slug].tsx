@@ -183,8 +183,10 @@ export default function ResourcePage({
       <HTMLComment position="head" content={comment} />
 
       {/* We want preview to always have the edit link if the domain is right. */}
-      {(preview || process.env.NEXT_PUBLIC_DRUPAL_BASE_URL?.includes('preview-prod.cms.va.gov'))
-        && <PreviewCrumb entityId={resource.entityId} />}
+      {(preview ||
+        process.env.NEXT_PUBLIC_DRUPAL_BASE_URL?.includes(
+          'preview-prod.cms.va.gov'
+        )) && <PreviewCrumb entityId={resource.entityId} />}
 
       <DynamicBreadcrumbs breadcrumbs={resource.breadcrumbs} />
 
