@@ -1,4 +1,4 @@
-// Define the query params for fetching block--alert.
+// Define the query params for fetching block_content--alert.
 import { QueryFormatter } from 'next-drupal-query'
 import { AlertType, AlertNonReusable } from '@/components/alert/formatted-type'
 import { ParagraphNonReusableAlert } from '@/types/drupal/paragraph'
