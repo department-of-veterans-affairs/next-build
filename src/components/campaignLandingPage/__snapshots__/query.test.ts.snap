@@ -2453,6 +2453,96 @@ exports[`CampaignLandingPage formatData outputs formatted data 1`] = `
     "header": "event panel header",
     "show": true,
   },
+  "faq": {
+    "cta": {
+      "entityId": 184603,
+      "id": "12c98f73-43b6-46b6-a2fa-33a4e5800802",
+      "label": "a call to action",
+      "type": "paragraph--button",
+      "url": "https://example.com/faq-example",
+    },
+    "faqs": [
+      {
+        "answers": [
+          {
+            "html": "<p>Join an event for conversation, resources, and information about VA health care and benefits. <a href="https://www.va.gov/outreach-and-events/events/">FInd an event near you</a>.</p>
+",
+            "id": "56058e5d-57ad-4e91-b2ec-03680e080104",
+            "type": "paragraph--wysiwyg",
+          },
+        ],
+        "id": "e7f9fe15-c607-444c-a7cc-72319973d088",
+        "question": "How can I attend an event?",
+        "type": "paragraph--q_a",
+      },
+      {
+        "answers": [
+          {
+            "html": "<p>Send us an email at&nbsp;<a href="mailto:ActionCenter@va.gov" aria-label="Link ActionCenter@va.gov" title="mailto:actioncenter@va.gov">ActionCenter@va.gov</a>. You can also sign up for the <a href="https://www.va.gov/VetResources/">VetResources Newsletter</a> and get connected with your <a href="https://www.va.gov/find-locations/">local VA facility</a> to stay current on information and events in your community.</p>
+",
+            "id": "083ba7cc-66b4-4037-af3f-3810ac20e564",
+            "type": "paragraph--wysiwyg",
+          },
+        ],
+        "id": "93aa66f3-6dd9-4ea0-bcf5-8361e669dfea",
+        "question": "I have a question for your team. How can I contact you?",
+        "type": "paragraph--q_a",
+      },
+      {
+        "answers": [
+          {
+            "html": "<p><strong>VA 1-on-1: Veteran Assistance Expo&nbsp;events </strong>are collaborative efforts that include representation from&nbsp;<a href="https://www.va.gov/health/" title="https://www.va.gov/health/">Veterans Health Administration</a>,&nbsp;<a href="https://www.benefits.va.gov/benefits/" title="https://www.benefits.va.gov/benefits/">Veterans Benefits Administration</a>,&nbsp;<a href="https://www.cem.va.gov/" title="https://www.cem.va.gov/">National Cemetery Administration</a>,&nbsp;<a href="https://www.bva.va.gov/" title="https://www.bva.va.gov/">Board of Veterans’ Appeals,</a>&nbsp;state departments of Veterans Affairs, and community partners working together to offer one-on-one personalized assistance for VA benefits and health care, crisis support, memorial affairs, community services, and peer-to-peer connections.&nbsp;</p>
+",
+            "id": "f6858360-88c1-4a61-9b31-7fb2ed12a46d",
+            "type": "paragraph--wysiwyg",
+          },
+        ],
+        "id": "91492811-0896-466a-ac27-8e57ba2ff4f9",
+        "question": "How do VA 1on-1: Veteran Assistance Expo events work?",
+        "type": "paragraph--q_a",
+      },
+      {
+        "answers": [
+          {
+            "html": "<p>page specific answer</p>
+",
+            "id": "8e110cb6-a6f4-4b92-b4f3-5273f3c864e5",
+            "type": "paragraph--wysiwyg",
+          },
+        ],
+        "id": "3e78afc7-7cd1-44d6-81ed-e2a3dccdcae8",
+        "question": "Page specific",
+        "type": "paragraph--q_a",
+      },
+    ],
+    "reusable": {
+      "displayAccordion": true,
+      "entityId": 184606,
+      "header": "Reusable",
+      "html": "<p>Reusable answer</p>
+",
+      "id": "6c92afba-05cd-4974-a85f-41934ed3a274",
+      "intro": null,
+      "questions": [
+        {
+          "answers": [
+            {
+              "html": "<p>This code is part of the multifactor authentication process.</p>
+<p>When you set up a verified VA.gov account through<strong> ID.me</strong>, you need to set up multifactor authentication. Authentication gives you an extra layer of security by letting you into your account only after you’ve signed in with a password and a 6-digit code sent directly to your mobile or home phone. This helps to make sure that no one but you can access your account—even if they get your password.</p>
+",
+              "id": "44035bf2-7fd1-4184-b0e9-77657c8bfd5d",
+              "type": "paragraph--rich_text_char_limit_1000",
+            },
+          ],
+          "id": "e8b79c10-643f-4b95-9d61-5c26e6e47245",
+          "question": "What’s the 6-digit security code that ID.me is asking me for?",
+          "type": "node--q_a",
+        },
+      ],
+      "type": "paragraph--q_a_group",
+    },
+    "show": true,
+  },
   "hero": {
     "blurb": "This page will help answer your questions about the PACT Act and what it means for survivors.",
     "image": {

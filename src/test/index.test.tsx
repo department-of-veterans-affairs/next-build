@@ -8,6 +8,7 @@ jest.mock('next/navigation', () => ({
     toString: () => '',
   }),
 }))
+
 describe('FrontPage', () => {
   const mockProps = {
     footerData: { test: 'footer' },
@@ -42,6 +43,22 @@ describe('FrontPage', () => {
         title: 'VA News',
       },
     },
+    benefitsData: {
+      benefitsHubLinks: [
+        {
+          url: '/health-care',
+          title: 'Health Care',
+          description: 'Find out how to access your health care benefits.',
+          icon: 'health-care',
+        },
+        {
+          url: '/disability',
+          title: 'Disability',
+          description: 'Find out how to access your disability benefits.',
+          icon: 'disability',
+        },
+      ],
+    },
   }
 
   it('renders the page layout and main content', () => {
@@ -49,7 +66,10 @@ describe('FrontPage', () => {
     expect(screen.getByTestId('hero')).toBeInTheDocument()
     expect(screen.getByTestId('common-tasks')).toBeInTheDocument()
     expect(screen.getByTestId('news-spotlight')).toBeInTheDocument()
-    expect(screen.getByText('TODO: add homepage-benefits')).toBeInTheDocument()
-    expect(screen.getByText('TODO: add email signup')).toBeInTheDocument()
+    expect(screen.getByTestId('home-page-benefits')).toBeInTheDocument()
+    expect(
+      document.querySelector('[data-widget-type="homepage-email-signup"]')
+    ).toBeInTheDocument()
+    expect(document.querySelector('#vets-banner-1')).toBeInTheDocument()
   })
 })

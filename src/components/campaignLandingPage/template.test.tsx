@@ -23,8 +23,10 @@ import { MediaDocumentExternal } from '../mediaDocumentExternal/formatted-type'
 import { ResourcesPanel } from './ResourcesPanel'
 import { Event } from '../event/formatted-type'
 import { EventsPanel } from './EventsPanel'
+import { FaqPanel } from './FaqPanel'
+import { hashReference } from '@/lib/utils/hashReference'
 
-const mockBaseProps: Partial<CampaignLandingPageProps> = {
+const mockBaseProps: CampaignLandingPageProps = {
   title: 'Testing title',
   hero: {
     blurb: 'This is the test hero blurb',
@@ -186,7 +188,51 @@ const mockBaseProps: Partial<CampaignLandingPageProps> = {
       } as unknown as Event,
     ],
   },
-}
+  faq: {
+    show: true,
+    cta: {
+      url: 'https://example.com/faq-cta',
+      label: 'faq CTA',
+    } as Button,
+    faqs: [
+      {
+        type: 'paragraph--q_a',
+        question: 'How can I attend an event?',
+        answers: [
+          {
+            type: 'paragraph--wysiwyg',
+            id: 'abc123',
+            html: '<p>Some html</p>',
+          },
+        ],
+        id: 'e7f9fe15-c607-444c-a7cc-72319973d088',
+      },
+    ],
+    reusable: {
+      questions: [
+        {
+          question: 'Reusable container question',
+          answers: [
+            {
+              type: 'paragraph--rich_text_char_limit_1000',
+              id: '',
+              html: '<p>reusable question html</p>',
+            },
+          ],
+          type: 'node--q_a',
+          id: '',
+        },
+      ],
+      type: 'paragraph--q_a_group',
+      id: '',
+      entityId: 184606,
+      intro: null,
+      header: 'Reusable container header',
+      displayAccordion: true,
+      html: '<p>Reusable container answer</p>\n',
+    },
+  },
+} as CampaignLandingPageProps
 
 jest.mock('next/image', () => ({
   __esModule: true,
@@ -202,7 +248,7 @@ beforeEach(() => {
 describe('CampaignLandingPage with valid data', () => {
   test('CampaignLandingPage component renders all sub components', async () => {
     const { container } = await render(
-      <CampaignLandingPage {...(mockBaseProps as CampaignLandingPageProps)} />
+      <CampaignLandingPage {...mockBaseProps} />
     )
 
     expect(screen.getByTestId('hero-banner')).toBeInTheDocument()
@@ -213,16 +259,14 @@ describe('CampaignLandingPage with valid data', () => {
     expect(screen.getByTestId('stories-panel')).toBeInTheDocument()
     expect(screen.getByTestId('resources-panel')).toBeInTheDocument()
     expect(screen.getByTestId('events-panel')).toBeInTheDocument()
+    expect(screen.getByTestId('faq-panel')).toBeInTheDocument()
 
     // TODO: Check that the other components rendered once they're built
   })
 
   test('CampaignLandingPage component renders with no axe violations', async () => {
     const { container } = await render(
-      <CampaignLandingPage
-        onlyRenderFinishedComponents
-        {...(mockBaseProps as CampaignLandingPageProps)}
-      />
+      <CampaignLandingPage onlyRenderFinishedComponents {...mockBaseProps} />
     )
 
     const axeResults = await axe(container)
@@ -231,21 +275,21 @@ describe('CampaignLandingPage with valid data', () => {
 })
 
 describe('CampaignLandingPage->HeroBanner', () => {
-  beforeEach(async () => {
-    await render(
-      <HeroBanner {...(mockBaseProps as CampaignLandingPageProps)} />
-    )
-  })
-
   test('shows page title', () => {
+    render(<HeroBanner {...mockBaseProps} />)
+
     expect(screen.getByText(mockBaseProps.title)).toBeInTheDocument()
   })
 
   test('shows blurb', () => {
+    render(<HeroBanner {...mockBaseProps} />)
+
     expect(screen.getByText(mockBaseProps.hero.blurb)).toBeInTheDocument()
   })
 
   test('shows primary cta link', () => {
+    render(<HeroBanner {...mockBaseProps} />)
+
     const link = screen.getByTestId('primary-cta')
 
     expect(link.localName).toBe('va-link-action')
@@ -254,6 +298,8 @@ describe('CampaignLandingPage->HeroBanner', () => {
   })
 
   test('shows hero image with 1:1 aspect ratio', () => {
+    render(<HeroBanner {...mockBaseProps} />)
+
     const img = screen.getByTestId('hero-image')
 
     expect(img.src).toBe(
@@ -271,17 +317,15 @@ describe('CampaignLandingPage->HeroBanner', () => {
 })
 
 describe('CampaignLandingPage->WhyThisMatters', () => {
-  beforeEach(async () => {
-    await render(
-      <WhyThisMatters {...(mockBaseProps as CampaignLandingPageProps)} />
-    )
-  })
-
   test('shows why it matters', () => {
+    render(<WhyThisMatters {...mockBaseProps} />)
+
     expect(screen.getByText(mockBaseProps.whyThisMatters)).toBeInTheDocument()
   })
 
   test('show secondary cta', () => {
+    render(<WhyThisMatters {...mockBaseProps} />)
+
     const link = screen.getByTestId('secondary-cta')
 
     expect(link.localName).toBe('va-link-action')
@@ -290,6 +334,8 @@ describe('CampaignLandingPage->WhyThisMatters', () => {
   })
 
   test('shows audiences', () => {
+    render(<WhyThisMatters {...mockBaseProps} />)
+
     mockBaseProps.audience.map(({ name }) => {
       expect(screen.getByText(name)).toBeInTheDocument()
     })
@@ -297,25 +343,27 @@ describe('CampaignLandingPage->WhyThisMatters', () => {
 })
 
 describe('CampaignLandingPage->VideoPanel', () => {
-  beforeEach(async () => {
-    await render(
-      <VideoPanel {...(mockBaseProps as CampaignLandingPageProps)} />
-    )
-  })
-
   it('shows video header', () => {
+    render(<VideoPanel {...mockBaseProps} />)
+
     expect(screen.getByText('video header')).toBeInTheDocument()
   })
 
   it('shows correct publication date', () => {
+    render(<VideoPanel {...mockBaseProps} />)
+
     expect(screen.getByText(/November 3, 2025/)).toBeInTheDocument()
   })
 
   it('shows correct duration label', () => {
+    render(<VideoPanel {...mockBaseProps} />)
+
     expect(screen.getByText(/1:10 minutes/)).toBeInTheDocument()
   })
 
   it('shows cta button', () => {
+    render(<VideoPanel {...mockBaseProps} />)
+
     const ctaRoot = screen.getByTestId('video-cta')
     expect(ctaRoot).toBeInTheDocument()
 
@@ -325,25 +373,27 @@ describe('CampaignLandingPage->VideoPanel', () => {
 })
 
 describe('CampaignLandingPage->StoriesPanel', () => {
-  beforeEach(async () => {
-    await render(
-      <StoriesPanel {...(mockBaseProps as CampaignLandingPageProps)} />
-    )
-  })
-
   test('shows header', () => {
+    render(<StoriesPanel {...mockBaseProps} />)
+
     expect(screen.getByText('stories header')).toBeInTheDocument()
   })
 
   test('shows intro', () => {
+    render(<StoriesPanel {...mockBaseProps} />)
+
     expect(screen.getByText('stories intro')).toBeInTheDocument()
   })
 
   test('shows teaser summary', () => {
+    render(<StoriesPanel {...mockBaseProps} />)
+
     expect(screen.getByText('Summary for stories teaser 1')).toBeInTheDocument()
   })
 
   test('shows teaser link', () => {
+    render(<StoriesPanel {...mockBaseProps} />)
+
     const link = screen.getByTestId('stories-teaser-link')
 
     expect(link.href).toBe('?stories-teaser-1')
@@ -351,11 +401,15 @@ describe('CampaignLandingPage->StoriesPanel', () => {
   })
 
   test('shows teaser image', () => {
+    render(<StoriesPanel {...mockBaseProps} />)
+
     const img = screen.getByTestId('stories-teaser-image')
     expect(img.src).toBe('https://example.com/stories-teaser-1-image.png')
   })
 
   test('does not render when stories.show = false', async () => {
+    await render(<StoriesPanel {...mockBaseProps} />)
+
     // first, test the inverse to ensure this test passing isn't a fluke & isolate the reason
     expect(screen.getByTestId('stories-panel')).toBeInTheDocument()
     await cleanup()
@@ -368,9 +422,7 @@ describe('CampaignLandingPage->StoriesPanel', () => {
       },
     }
 
-    await render(
-      <StoriesPanel {...(mockWithStoriesHidden as CampaignLandingPageProps)} />
-    )
+    await render(<StoriesPanel {...mockWithStoriesHidden} />)
 
     // now that we know it renders with show:true, let's make sure it didn't with show:false
     expect(screen.queryByTestId('stories-panel')).not.toBeInTheDocument()
@@ -378,21 +430,21 @@ describe('CampaignLandingPage->StoriesPanel', () => {
 })
 
 describe('CampaignLandingPage->ResourcesPanel', () => {
-  beforeEach(async () => {
-    await render(
-      <ResourcesPanel {...(mockBaseProps as CampaignLandingPageProps)} />
-    )
-  })
-
   test('shows header', () => {
+    render(<ResourcesPanel {...mockBaseProps} />)
+
     expect(screen.getByText('resources header')).toBeInTheDocument()
   })
 
   test('shows intro', () => {
+    render(<ResourcesPanel {...mockBaseProps} />)
+
     expect(screen.getByText('resources intro')).toBeInTheDocument()
   })
 
   test('shows CTA', () => {
+    render(<ResourcesPanel {...mockBaseProps} />)
+
     const cta = screen.getByTestId('resources-cta')
 
     expect(cta).toBeInTheDocument()
@@ -401,6 +453,8 @@ describe('CampaignLandingPage->ResourcesPanel', () => {
   })
 
   test('shows resource document', () => {
+    render(<ResourcesPanel {...mockBaseProps} />)
+
     expect(screen.getByText('resources document name')).toBeInTheDocument()
     expect(
       screen.getByText('resources document description')
@@ -413,6 +467,7 @@ describe('CampaignLandingPage->ResourcesPanel', () => {
   })
 
   test('does not render when resources.show = false', async () => {
+    await render(<ResourcesPanel {...mockBaseProps} />)
     // first, test the inverse to ensure this test passing isn't a fluke & isolate the reason
     expect(screen.getByTestId('resources-panel')).toBeInTheDocument()
     await cleanup()
@@ -425,11 +480,7 @@ describe('CampaignLandingPage->ResourcesPanel', () => {
       },
     }
 
-    await render(
-      <StoriesPanel
-        {...(mockWithResourcesHidden as CampaignLandingPageProps)}
-      />
-    )
+    await render(<ResourcesPanel {...mockWithResourcesHidden} />)
 
     // now that we know it renders with show:true, let's make sure it didn't with show:false
     expect(screen.queryByTestId('resources-panel')).not.toBeInTheDocument()
@@ -437,21 +488,18 @@ describe('CampaignLandingPage->ResourcesPanel', () => {
 })
 
 describe('CampaignLandingPage->EventsPanel', () => {
-  beforeEach(async () => {
-    await render(
-      <EventsPanel {...(mockBaseProps as CampaignLandingPageProps)} />
-    )
-  })
-
   test('shows header', () => {
+    render(<EventsPanel {...mockBaseProps} />)
     expect(screen.getByText('events header')).toBeInTheDocument()
   })
 
   test('event has name and description', () => {
+    render(<EventsPanel {...mockBaseProps} />)
     expect(screen.getByText('event description')).toBeInTheDocument()
   })
 
   test('event has correct links', () => {
+    render(<EventsPanel {...mockBaseProps} />)
     const headerLink = screen.getByTestId('event-header-link')
     expect(headerLink.href).toBe('?online-link')
     expect(headerLink.text).toBe('event name')
@@ -486,8 +534,7 @@ describe('CampaignLandingPage->EventsPanel', () => {
       },
     }
 
-    await cleanup()
-    await render(<EventsPanel {...(altMock as CampaignLandingPageProps)} />)
+    await render(<EventsPanel {...altMock} />)
 
     expect(screen.queryByTestId('event-location')).not.toBeInTheDocument()
   })
@@ -504,8 +551,7 @@ describe('CampaignLandingPage->EventsPanel', () => {
       },
     }
 
-    await cleanup()
-    await render(<EventsPanel {...(altMock as CampaignLandingPageProps)} />)
+    await render(<EventsPanel {...altMock} />)
 
     // link should be gone
     expect(screen.queryByTestId('event-header-link')).not.toBeInTheDocument()
@@ -515,6 +561,7 @@ describe('CampaignLandingPage->EventsPanel', () => {
   })
 
   test('does not render when events.show = false', async () => {
+    await render(<EventsPanel {...mockBaseProps} />)
     // first, test the inverse to ensure this test passing isn't a fluke & isolate the reason
     expect(screen.getByTestId('events-panel')).toBeInTheDocument()
     await cleanup()
@@ -527,11 +574,127 @@ describe('CampaignLandingPage->EventsPanel', () => {
       },
     }
 
-    await render(
-      <EventsPanel {...(mockWithResourcesHidden as CampaignLandingPageProps)} />
-    )
+    await render(<EventsPanel {...mockWithResourcesHidden} />)
 
     // now that we know it renders with show:true, let's make sure it didn't with show:false
     expect(screen.queryByTestId('events-panel')).not.toBeInTheDocument()
+  })
+})
+
+describe('CampaignLandingPage->FaqPanel', () => {
+  test('displays correct header and content', () => {
+    render(<FaqPanel {...mockBaseProps} />)
+    expect(screen.getByText('Reusable container header')).toBeInTheDocument()
+    expect(screen.getByText('Reusable container answer')).toBeInTheDocument()
+  })
+
+  test('displays correct default header when not specified', async () => {
+    const mockWithoutReusableHeader = {
+      ...mockBaseProps,
+      faq: {
+        ...mockBaseProps.faq,
+        reusable: {
+          ...mockBaseProps.faq.reusable,
+          header: null,
+        },
+      },
+    }
+
+    await render(<FaqPanel {...mockWithoutReusableHeader} />)
+
+    expect(screen.getByText('Frequently asked questions')).toBeInTheDocument()
+  })
+
+  test('renders FAQ accordion items with correct attributes', () => {
+    render(<FaqPanel {...mockBaseProps} />)
+    const questionText = 'How can I attend an event?'
+    const accordionItem = screen
+      .getByTestId('faq-panel')
+      .querySelector(
+        `va-accordion-item[id="${hashReference(questionText, 60)}"]`
+      )
+
+    expect(accordionItem).toBeInTheDocument()
+    expect(accordionItem.getAttribute('data-faq-entity-id')).toBe(
+      'e7f9fe15-c607-444c-a7cc-72319973d088'
+    )
+  })
+
+  test('renders reusable question accordion items when displayAccordion is true', () => {
+    render(<FaqPanel {...mockBaseProps} />)
+    const questionText = 'Reusable container question'
+    const accordionItem = screen
+      .getByTestId('faq-panel')
+      .querySelector(
+        `va-accordion-item[id="${hashReference(questionText, 60)}"]`
+      )
+
+    expect(accordionItem).toBeInTheDocument()
+  })
+
+  test('displays CTA button', () => {
+    render(<FaqPanel {...mockBaseProps} />)
+    const cta = screen.getByTestId('faq-panel').querySelector('va-link-action')
+
+    expect(cta).toBeInTheDocument()
+    expect(cta.href).toBe('https://example.com/faq-cta')
+    expect(cta.text).toBe('faq CTA')
+  })
+
+  test('does not render when faq.show = false', async () => {
+    await render(<FaqPanel {...mockBaseProps} />)
+    expect(screen.getByTestId('faq-panel')).toBeInTheDocument()
+    await cleanup()
+
+    const mockWithFaqHidden = {
+      ...mockBaseProps,
+      faq: {
+        ...mockBaseProps.faq,
+        show: false,
+      },
+    }
+
+    await render(<FaqPanel {...mockWithFaqHidden} />)
+
+    expect(screen.queryByTestId('faq-panel')).not.toBeInTheDocument()
+  })
+
+  test('renders reusable questions as plain elements when displayAccordion is false', async () => {
+    const mockWithoutAccordion = {
+      ...mockBaseProps,
+      faq: {
+        ...mockBaseProps.faq,
+        reusable: {
+          ...mockBaseProps.faq.reusable,
+          displayAccordion: false,
+        },
+      },
+    }
+
+    await render(<FaqPanel {...mockWithoutAccordion} />)
+
+    // Should NOT render reusable question as va-accordion-item
+    const reusableQuestionText = 'Reusable container question'
+    const reusableAccordionItem = screen
+      .getByTestId('faq-panel')
+      .querySelector(
+        `va-accordion-item[id="${hashReference(reusableQuestionText, 60)}"]`
+      )
+
+    expect(reusableAccordionItem).not.toBeInTheDocument()
+
+    // Regular FAQ should still be an accordion item
+    const regularFaqQuestionText = 'How can I attend an event?'
+    const regularFaqItem = screen
+      .getByTestId('faq-panel')
+      .querySelector(
+        `va-accordion-item[id="${hashReference(regularFaqQuestionText, 60)}"]`
+      )
+
+    expect(regularFaqItem).toBeInTheDocument()
+
+    // Reusable content should still be rendered as plain elements
+    expect(screen.getByText('Reusable container question')).toBeInTheDocument()
+    expect(screen.getByText('reusable question html')).toBeInTheDocument()
   })
 })
