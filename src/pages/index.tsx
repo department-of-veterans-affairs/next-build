@@ -1,3 +1,5 @@
+import Head from 'next/head'
+import Script from 'next/script'
 import { ContentFooter } from '@/components/contentFooter/template'
 import { PageLayout } from '@/components/pageLayout/template'
 import { queries } from '@/lib/drupal/queries'
@@ -5,8 +7,23 @@ import { HomePageHero } from '@/components/homePageHero/template'
 import { HomePageCommonTasks } from '@/components/homePageCommonTasks/template'
 import { HomePageNewsSpotlight } from '@/components/homePageNewsSpotlight/template'
 import { HomePageBenefits } from '@/components/homePageBenefits/template'
-import Head from 'next/head'
-import Script from 'next/script'
+import { FooterLink } from '@/components/footer/formatted-type'
+import { MegaMenuSection } from '@/components/header/formatted-type'
+import { BenefitsData } from '@/components/homePageBenefits/formatted-type'
+import { NewsSpotlightData } from '@/components/homePageNewsSpotlight/formatted-type'
+import { CommonTasksData } from '@/components/homePageCommonTasks/formatted-type'
+import { HomePageHeroData } from '@/components/homePageHero/formatted-type'
+import { BannersData } from '@/components/banner/formatted-type'
+
+interface HomePageProps {
+  footerData: FooterLink[]
+  megaMenuData: MegaMenuSection[]
+  bannerData: BannersData
+  heroData: HomePageHeroData
+  commonTasksData: CommonTasksData
+  newsSpotlightData: NewsSpotlightData
+  benefitsData: BenefitsData
+}
 
 const HomePage = ({
   footerData,
@@ -16,7 +33,7 @@ const HomePage = ({
   commonTasksData,
   newsSpotlightData,
   benefitsData,
-}) => (
+}: HomePageProps) => (
   <>
     <Head>
       <title>VA.gov | Veterans Affairs</title>
@@ -31,14 +48,14 @@ const HomePage = ({
         <HomePageCommonTasks {...commonTasksData} />
         <HomePageNewsSpotlight {...newsSpotlightData} />
         <HomePageBenefits {...benefitsData} />
-        <div className="usa-grid usa-grid-full">
+        <div className="vads-grid-container">
           <ContentFooter />
         </div>
         <div className="homepage-email-update-wrapper vads-u-background-color--primary-alt-lightest vads-u-padding-x--2p5 vads-u-padding-top--2p5">
           <div data-widget-type="homepage-email-signup"></div>
           <div
             id="vets-banner-1"
-            className="vads-u-display--none medium-screen:vads-u-display--block"
+            className="vads-u-display--none tablet:vads-u-display--block"
           >
             <div className="veteran-banner-container vads-u-margin-y--0 vads-u-margin-x--auto">
               <picture>

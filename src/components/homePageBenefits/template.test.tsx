@@ -55,7 +55,7 @@ describe('HomePageBenefits Component', () => {
   test('groups items into rows of 3', () => {
     const { container } = render(<HomePageBenefits {...mockData} />)
 
-    const rows = container.querySelectorAll('.homepage-benefits-row')
+    const rows = container.querySelectorAll('.vads-grid-row')
     const expectedRows = Math.ceil(mockData.benefitsHubLinks.length / 3)
     expect(rows.length).toBe(expectedRows)
   })
