@@ -1,6 +1,7 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodeVaForm } from '@/types/drupal/node'
+import { Alert as AlertParagraph } from '@/components/alert/formatted-type'
 import { VaForm } from './formatted-type'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
@@ -8,6 +9,7 @@ import { fetchSingleEntityOrPreview } from '@/lib/drupal/query'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 import { formatter as formatLinkTeaser } from '@/components/linkTeaser/query'
 import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
+import { formatter as formatAlertBlock } from '@/components/alertBlock/query'
 
 // Define the query params for fetching node--va_form.
 export const params: QueryParams<null> = () => {
@@ -16,6 +18,7 @@ export const params: QueryParams<null> = () => {
     'field_va_form_administration',
     'field_benefit_categories',
     'field_va_form_related_forms',
+    'field_alert.field_alert_content',
   ])
 }
 
@@ -38,6 +41,33 @@ export const data: QueryData<VaFormDataOpts, NodeVaForm> = async (
   return entity
 }
 
+/**
+ * Coerce the alert block content to a paragraph because that's what the Alert
+ * component expects. Ideally, we'd refactor that component to accept a
+ * `block_content--alert` as well, but for now, this works.
+ */
+const coerceAlertBlockContentToParagraph = (
+  alertBlock: NodeVaForm['field_alert']
+): AlertParagraph => {
+  if (!alertBlock) {
+    return null
+  }
+
+  return {
+    type: 'paragraph--alert',
+    id: 'foo',
+    entityId: 0,
+    // The `block_content--alert` uses 'information', but the `paragraph--alert`
+    // uses 'info'.
+    alertType: ['info', 'information'].includes(alertBlock.field_alert_type)
+      ? 'info'
+      : 'warning',
+    heading: alertBlock.info,
+    blockReference: formatAlertBlock(alertBlock),
+    paragraphs: [],
+  }
+}
+
 export const formatter: QueryFormatter<NodeVaForm, VaForm> = (
   entity: NodeVaForm
 ) => {
@@ -54,6 +84,7 @@ export const formatter: QueryFormatter<NodeVaForm, VaForm> = (
       (category) => category.field_home_page_hub_label
     ),
     administration: entity.field_va_form_administration?.name,
+    alertBlock: coerceAlertBlockContentToParagraph(entity.field_alert),
     formUrl: entity.field_va_form_url,
     toolUrl: entity.field_va_form_tool_url ?? null,
     toolIntro: entity.field_va_form_tool_intro ?? null,
