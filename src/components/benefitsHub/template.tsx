@@ -14,6 +14,7 @@ export function BenefitsHub({
   fieldLinks,
   supportServices,
   connectWithUs,
+  relatedLinks,
 }: FormattedBenefitsHub) {
   const iconConfig = getHubIcon(titleIcon)
 
@@ -43,7 +44,7 @@ export function BenefitsHub({
               dangerouslySetInnerHTML={{ __html: intro }}
             />
           )}
-          {spokes && spokes.length > 0 && <va-on-this-page></va-on-this-page>}
+          {spokes?.length > 0 && <va-on-this-page></va-on-this-page>}
           {spokes?.map((spokeSection) => (
             <div key={spokeSection.id}>
               <section>
@@ -162,6 +163,15 @@ export function BenefitsHub({
           </va-accordion>
         </div>
       </div>
+      {relatedLinks && (
+        <section className="merger-majorlinks va-nav-linkslist va-nav-linkslist--related">
+          <ListOfLinkTeasers
+            {...relatedLinks}
+            isHubPage={true}
+            isRelatedLinks={true}
+          />
+        </section>
+      )}
       <ContentFooter lastUpdated={lastUpdated} />
     </div>
   )
