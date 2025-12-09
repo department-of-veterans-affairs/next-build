@@ -1,3 +1,5 @@
+import Head from 'next/head'
+import Script from 'next/script'
 import { ContentFooter } from '@/components/contentFooter/template'
 import { PageLayout } from '@/components/pageLayout/template'
 import { queries } from '@/lib/drupal/queries'
@@ -5,8 +7,23 @@ import { HomePageHero } from '@/components/homePageHero/template'
 import { HomePageCommonTasks } from '@/components/homePageCommonTasks/template'
 import { HomePageNewsSpotlight } from '@/components/homePageNewsSpotlight/template'
 import { HomePageBenefits } from '@/components/homePageBenefits/template'
-import Head from 'next/head'
-import Script from 'next/script'
+import { FooterLink } from '@/components/footer/formatted-type'
+import { MegaMenuSection } from '@/components/header/formatted-type'
+import { BenefitsData } from '@/components/homePageBenefits/formatted-type'
+import { NewsSpotlightData } from '@/components/homePageNewsSpotlight/formatted-type'
+import { CommonTasksData } from '@/components/homePageCommonTasks/formatted-type'
+import { HomePageHeroData } from '@/components/homePageHero/formatted-type'
+import { BannersData } from '@/components/banner/formatted-type'
+
+interface HomePageProps {
+  footerData: FooterLink[]
+  megaMenuData: MegaMenuSection[]
+  bannerData: BannersData
+  heroData: HomePageHeroData
+  commonTasksData: CommonTasksData
+  newsSpotlightData: NewsSpotlightData
+  benefitsData: BenefitsData
+}
 
 const HomePage = ({
   footerData,
@@ -16,7 +33,7 @@ const HomePage = ({
   commonTasksData,
   newsSpotlightData,
   benefitsData,
-}) => (
+}: HomePageProps) => (
   <>
     <Head>
       <title>VA.gov | Veterans Affairs</title>
