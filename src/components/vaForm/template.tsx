@@ -1,4 +1,5 @@
 import Alert from '../alert/template'
+import { AlertBlock } from '../alertBlock/template'
 import { ListOfLinkTeasers } from '../listOfLinkTeasers/template'
 import { defaultHelpfulLinks } from './default-helpful-links'
 import { VaForm as VaFormType } from './formatted-type'
@@ -125,7 +126,7 @@ export function VaForm({
               )}
             </div>
 
-            <Alert {...alertBlock} />
+            <AlertBlock {...alertBlock} />
 
             {toolUrl && (
               <>
