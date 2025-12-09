@@ -52,7 +52,7 @@
     "@fortawesome/fontawesome-free": "^5.15.4",
     "@octokit/rest": "^21.0.1",
     "@types/react-gtm-module": "^2.0.4",
-    "axios": "^1.6.3",
+    "axios": "^1.12.0",
     "chalk": "^5.4.1",
     "cheerio": "^1.1.2",
     "chrome-launcher": "^1.1.2",
@@ -88,7 +88,7 @@
     "swr": "^2.3.3",
     "uswds": "^2.14.0",
     "uuid": "^9.0.1",
-    "validator": "^13.15.0"
+    "validator": "^13.15.22"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.10.2",
