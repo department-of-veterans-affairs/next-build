@@ -4,7 +4,7 @@ import { BenefitsHub as FormattedBenefitsHub } from './formatted-type'
 import { ListOfLinkTeasers } from '@/components/listOfLinkTeasers/template'
 import { ContentFooter } from '@/components/contentFooter/template'
 import { ConnectWithUsPanel } from './ConnectWithUsPanel'
-import { WysiwygField } from '@/components/wysiwyg/template'
+import { AlertBlock } from '@/components/alertBlock/template'
 
 export function BenefitsHub({
   title,
@@ -16,6 +16,7 @@ export function BenefitsHub({
   supportServices,
   connectWithUs,
   relatedLinks,
+  alert,
 }: FormattedBenefitsHub) {
   const iconConfig = getHubIcon(titleIcon)
 
@@ -46,6 +47,7 @@ export function BenefitsHub({
             />
           )}
           {spokes?.length > 0 && <va-on-this-page></va-on-this-page>}
+          {alert && <AlertBlock {...alert} />}
           {spokes?.map((spokeSection) => (
             <div key={spokeSection.id}>
               <section>

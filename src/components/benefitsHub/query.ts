@@ -12,9 +12,6 @@ import { supportServiceFormatter as formatSupportService } from '@/components/su
 import { getHtmlFromDrupalContent } from '@/lib/utils/getHtmlFromDrupalContent'
 import { getNestedIncludes } from '@/lib/utils/queries'
 import { formatter as formatAlertBlock } from '@/components/alertBlock/query'
-import { formatParagraph } from '@/lib/drupal/paragraphs'
-import { Wysiwyg } from '@/components/wysiwyg/formatted-type'
-import { ExpandableText } from '@/components/expandableText/formatted-type'
 
 // Define the query params for fetching node--landing_page for benefits hub.
 export const params: QueryParams<null> = () => {
@@ -25,6 +22,7 @@ export const params: QueryParams<null> = () => {
     'field_connect_with_us',
     'field_related_links',
     'field_related_links.field_va_paragraphs',
+    ...getNestedIncludes('field_alert', 'block--alert'),
   ])
 }
 
@@ -103,5 +101,6 @@ export const formatter: QueryFormatter<NodeLandingPage, BenefitsHub> = (
     supportServices: supportServices,
     connectWithUs: entity.field_connect_with_us,
     relatedLinks: relatedLinks,
+    alert: entity.field_alert ? formatAlertBlock(entity.field_alert) : null,
   }
 }

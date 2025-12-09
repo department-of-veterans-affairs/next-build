@@ -25,6 +25,7 @@ const mockBenefitsData: FormattedBenefitsHub = {
   supportServices: undefined,
   connectWithUs: null,
   relatedLinks: null,
+  alert: null,
 }
 
 describe('BenefitsHub with valid data', () => {
@@ -34,18 +35,9 @@ describe('BenefitsHub with valid data', () => {
   test('renders BenefitsHub component', async () => {
     const { container } = render(
       <BenefitsHub
+        {...mockBenefitsData}
         id="1"
-        type=""
-        published={true}
-        lastUpdated="2024-01-01"
         title={'Test Health Benefits Hub'}
-        titleIcon={null}
-        spokes={[]}
-        intro={null}
-        fieldLinks={null}
-        supportServices={undefined}
-        connectWithUs={mockData.field_connect_with_us}
-        relatedLinks={null}
       />
     )
 
@@ -64,7 +56,6 @@ describe('BenefitsHub with valid data', () => {
         intro={'This is a test intro for the Benefits Hub component.'}
         fieldLinks={null}
         supportServices={undefined}
-        connectWithUs={mockData.field_connect_with_us}
         relatedLinks={null}
       />
     )
@@ -81,10 +72,6 @@ describe('BenefitsHub with valid data', () => {
         title={'Disability'}
         titleIcon={'disability'}
         intro={'Learn about disability compensation.'}
-        fieldLinks={null}
-        supportServices={undefined}
-        connectWithUs={null}
-        relatedLinks={null}
       />
     )
 
@@ -137,10 +124,6 @@ describe('BenefitsHub with valid data', () => {
         titleIcon={'health-care'}
         intro={'Manage your VA health care.'}
         spokes={mockSpokes}
-        fieldLinks={null}
-        supportServices={undefined}
-        connectWithUs={null}
-        relatedLinks={null}
       />
     )
 
@@ -192,9 +175,6 @@ describe('BenefitsHub with valid data', () => {
         title={'Benefits Hub'}
         intro={'Information for different audiences.'}
         fieldLinks={mockFieldLinks}
-        supportServices={undefined}
-        connectWithUs={null}
-        relatedLinks={null}
       />
     )
 
@@ -330,9 +310,6 @@ describe('BenefitsHub with valid data', () => {
         title={'Benefits Hub with Null Spokes'}
         intro={'Testing with null spokes.'}
         spokes={null}
-        fieldLinks={null}
-        connectWithUs={null}
-        relatedLinks={null}
       />
     )
 
@@ -370,16 +347,10 @@ describe('BenefitsHub with valid data', () => {
 
     const { container } = render(
       <BenefitsHub
+        {...mockBenefitsData}
         id="6"
-        type=""
-        published={true}
-        lastUpdated="2024-01-01"
         title={'Benefits Hub with Related Links'}
-        titleIcon={null}
         intro={'Information with related links.'}
-        spokes={[]}
-        fieldLinks={null}
-        connectWithUs={null}
         relatedLinks={mockRelatedLinks}
       />
     )
@@ -524,8 +495,6 @@ test('renders BenefitsHub component with support services without phone numbers'
       title="Benefits Hub with Non-Phone Services"
       intro="Test services without phone numbers"
       supportServices={mockSupportServicesNoPhone}
-      connectWithUs={null}
-      relatedLinks={null}
     />
   )
 
@@ -550,11 +519,7 @@ test('does not render Call us section when supportServices is empty', () => {
       id="8"
       title="Benefits Hub without Support Services"
       intro="No support services"
-      spokes={[]}
-      fieldLinks={null}
       supportServices={[]}
-      connectWithUs={null}
-      relatedLinks={null}
     />
   )
 
@@ -572,10 +537,6 @@ test('does not render Call us section when supportServices is undefined', () => 
       lastUpdated="2024-01-01"
       title="Benefits Hub without Support Services"
       intro="No support services defined"
-      spokes={[]}
-      fieldLinks={null}
-      connectWithUs={null}
-      relatedLinks={null}
     />
   )
 
@@ -612,8 +573,6 @@ test('calls recordEvent when support service links are clicked', async () => {
       title="Benefits Hub Click Test"
       intro="Test click functionality"
       supportServices={mockSupportServices}
-      connectWithUs={null}
-      relatedLinks={null}
     />
   )
 
