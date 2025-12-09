@@ -2,6 +2,8 @@ import { PublishedEntity } from '@/types/formatted/publishedEntity'
 import { ListOfLinkTeasers } from '@/components/listOfLinkTeasers/formatted-type'
 import { SupportService } from '@/components/supportServices/formatted-type'
 import { NodeOffice } from '@/types/drupal/node'
+import { Wysiwyg } from '@/components/wysiwyg/formatted-type'
+import { ExpandableText } from '@/components/expandableText/formatted-type'
 
 export interface BenefitsHub extends PublishedEntity {
   title: string

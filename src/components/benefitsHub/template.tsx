@@ -18,8 +18,6 @@ export function BenefitsHub({
   relatedLinks,
 }: FormattedBenefitsHub) {
   const iconConfig = getHubIcon(titleIcon)
-  const alert =
-    alertTitle && alertType && alertExpandText && alertContent ? true : false
 
   return (
     <div className="vads-grid-container">
