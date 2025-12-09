@@ -238,6 +238,7 @@ export interface ParagraphQaGroup extends DrupalParagraph {
   field_accordion_display: boolean
   field_q_as: ParagraphSectionQas[]
   field_section_header: string
+  field_rich_wysiwyg: FieldFormattedText | null
 }
 
 export interface ParagraphSectionQas extends DrupalNode {

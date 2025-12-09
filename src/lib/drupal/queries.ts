@@ -76,6 +76,7 @@ import * as SpanishTranslationSummary from '@/components/spanishTranslationSumma
 import * as HomePageHero from '@/components/homePageHero/query'
 import * as HomePageCommonTasks from '@/components/homePageCommonTasks/query'
 import * as HomePageNewsSpotlight from '@/components/homePageNewsSpotlight/query'
+import * as HomePageBenefits from '@/components/homePageBenefits/query'
 import {
   ResourceType,
   ParagraphResourceType,
@@ -174,7 +175,7 @@ export const QUERIES_MAP = {
   'hero-data': HomePageHero,
   'home-page-common-tasks': HomePageCommonTasks,
   'home-page-news-spotlight': HomePageNewsSpotlight,
-
+  'home-page-benefits': HomePageBenefits,
   // Static Path Generation
   'static-path-resources': StaticPathResources,
 

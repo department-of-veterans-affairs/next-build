@@ -1,4 +1,6 @@
+import clsx from 'clsx'
 import { CommonTasksData } from './formatted-type'
+import styles from './template.module.css'
 
 export function HomePageCommonTasks({
   searchLinks,
@@ -6,15 +8,21 @@ export function HomePageCommonTasks({
 }: CommonTasksData) {
   return (
     <div
-      className="homepage-common-tasks__wrapper"
+      className={styles.wrapper}
       data-e2e="common"
       data-testid="common-tasks"
     >
-      <div className="vads-l-grid-container vads-u-padding-x--0 homepage-common-tasks">
-        <div className="vads-l-row">
+      {/* Content container */}
+      <div className="vads-grid-container vads-u-padding-x--0">
+        <div className="vads-grid-row">
           {/* start first column */}
-          <div className="vads-l-col--12 medium-screen:vads-l-col--6 vads-u-background-color--white">
-            <div className="vads-u-margin-x--2 medium-desktop-screen:vads-u-margin-x--0 desktop:vads-u-padding-right--9 vads-u-padding-bottom--5">
+          <div
+            className={clsx(
+              'vads-grid-col-12 tablet:vads-grid-col-6',
+              styles.columnLeft
+            )}
+          >
+            <div className="vads-u-margin-x--2 desktop:vads-u-margin-x--0 desktop:vads-u-padding-right--9 vads-u-padding-bottom--5">
               <h2
                 className="vads-u-color--gray-dark vads-u-font-family--serif"
                 id="search-tools-header"
@@ -46,8 +54,13 @@ export function HomePageCommonTasks({
           {/* end first column */}
 
           {/* start second column */}
-          <div className="vads-l-col--12 medium-screen:vads-l-col--6">
-            <div className="vads-u-padding-left--2p5 medium-screen:vads-u-padding-right--2p5 vads-u-padding-bottom--5">
+          <div
+            className={clsx(
+              'vads-grid-col-12 tablet:vads-grid-col-6',
+              styles.columnRight
+            )}
+          >
+            <div className="vads-u-padding-left--2p5 tablet:vads-u-padding-right--2p5 vads-u-padding-bottom--5">
               <h2 className="vads-u-color--gray-dark vads-u-font-family--serif">
                 Top pages
               </h2>

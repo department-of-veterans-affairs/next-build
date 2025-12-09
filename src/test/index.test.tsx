@@ -8,11 +8,12 @@ jest.mock('next/navigation', () => ({
     toString: () => '',
   }),
 }))
+
 describe('FrontPage', () => {
   const mockProps = {
-    footerData: { test: 'footer' },
-    megaMenuData: { test: 'menu' },
-    bannerData: [{ test: 'banner' }],
+    footerData: [],
+    megaMenuData: [],
+    bannerData: [],
     heroData: {
       promoHeadline: 'Your VA Benefits',
       promoCta: { title: 'Learn More', url: '/learn-more' },
@@ -25,8 +26,8 @@ describe('FrontPage', () => {
       ],
     },
     commonTasksData: {
-      searchLinks: [{ label: 'Search', url: '/search' }],
-      popularLinks: [{ label: 'Popular', url: '/popular' }],
+      searchLinks: [{ title: 'Search', url: '/search' }],
+      popularLinks: [{ title: 'Popular', url: '/popular' }],
     },
     newsSpotlightData: {
       headline: 'VA announces new benefits for Veterans',
@@ -40,7 +41,36 @@ describe('FrontPage', () => {
         id: 'mock-image-id',
         alt: 'VA News Spotlight Image',
         title: 'VA News',
+        width: 628,
+        height: 628,
+        links: {
+          crop_square: {
+            href: 'https://s3-us-gov-west-1.amazonaws.com/content.www.va.gov/img/styles/crop_square/public/news_promos/Health-and-benefits-distro-graphics_sq.jpg',
+            meta: {
+              linkParams: {
+                width: 500,
+                height: 500,
+              },
+            },
+          },
+        },
       },
+    },
+    benefitsData: {
+      benefitsHubLinks: [
+        {
+          url: '/health-care',
+          title: 'Health Care',
+          description: 'Find out how to access your health care benefits.',
+          icon: 'health-care',
+        },
+        {
+          url: '/disability',
+          title: 'Disability',
+          description: 'Find out how to access your disability benefits.',
+          icon: 'disability',
+        },
+      ],
     },
   }
 
@@ -49,7 +79,10 @@ describe('FrontPage', () => {
     expect(screen.getByTestId('hero')).toBeInTheDocument()
     expect(screen.getByTestId('common-tasks')).toBeInTheDocument()
     expect(screen.getByTestId('news-spotlight')).toBeInTheDocument()
-    expect(screen.getByText('TODO: add homepage-benefits')).toBeInTheDocument()
-    expect(screen.getByText('TODO: add email signup')).toBeInTheDocument()
+    expect(screen.getByTestId('home-page-benefits')).toBeInTheDocument()
+    expect(
+      document.querySelector('[data-widget-type="homepage-email-signup"]')
+    ).toBeInTheDocument()
+    expect(document.querySelector('#vets-banner-1')).toBeInTheDocument()
   })
 })

@@ -70,7 +70,7 @@ jobs:
         run: echo APPROX_WORKFLOW_START_TIME=$(date +"%s") >> $GITHUB_OUTPUT
 
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v6.0.1
 
       - uses: actions/setup-node@v6
         with:
@@ -98,7 +98,7 @@ jobs:
     needs: validate-build-status
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v6.0.1
 
       - name: Notify Slack
         uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4 # main
@@ -122,6 +122,7 @@ jobs:
       SETUP_START_TIME: ${{ steps.export-setup-start-time.outputs.SETUP_START_TIME }}
       SETUP_END_TIME: ${{ steps.export-setup-end-time.outputs.SETUP_END_TIME }}
       YARN_OUTPUT: ${{ steps.export-yarn-output.outputs.YARN_OUTPUT }}
+      BUILT_PAGES: ${{ steps.export-yarn-output.outputs.BUILT_PAGES }}
       EXPORT_WARNINGS: ${{ steps.export-warnings.outputs.EXPORT_WARNINGS }}
     container:
       image: 008577686731.dkr.ecr.us-gov-west-1.amazonaws.com/node-22.16.0-bullseye:latest
@@ -149,7 +150,7 @@ jobs:
       run: echo SETUP_START_TIME=$(date +"%s") >> $GITHUB_OUTPUT
 
     - name: Checkout next-build
-      uses: actions/checkout@v6
+      uses: actions/checkout@v6.0.1
       with:
         repository: department-of-veterans-affairs/next-build
         #ref: ${{ needs.validate-build-status.outputs.TAG }}
@@ -158,7 +159,7 @@ jobs:
         sparse-checkout-cone-mode: false
 
     - name: Checkout vets-website
-      uses: actions/checkout@v6
+      uses: actions/checkout@v6.0.1
       with:
         repository: department-of-veterans-affairs/vets-website
         path: vets-website
@@ -185,15 +186,15 @@ jobs:
       id: export-setup-end-time
       run: echo SETUP_END_TIME=$(date +"%s") >> $GITHUB_OUTPUT
 
-    - name: Export build start time
-      id: export-build-start-time
-      run: echo BUILD_START_TIME=$(date +"%s") >> $GITHUB_OUTPUT
-
     - name: Gather vets-website assets
       run: cd main && yarn setup
 
     - name: Wait for the CMS to be ready
       uses: "./main/.github/workflows/wait-for-cms-ready"
+
+    - name: Export build start time
+      id: export-build-start-time
+      run: echo BUILD_START_TIME=$(date +"%s") >> $GITHUB_OUTPUT
 
     - name: Build site
       id: export-yarn-output
@@ -205,6 +206,7 @@ jobs:
         command: |
           cd main && BUILD_OPTION=static yarn export --DRUPAL_CLIENT_ID ${{ secrets.PROD_DRUPAL_CLIENT_ID }} --DRUPAL_CLIENT_SECRET ${{ secrets.PROD_DRUPAL_CLIENT_SECRET }} --no-USE_REDIS | tee yarnoutput
           echo YARN_OUTPUT=$(<yarnoutput) >> $GITHUB_OUTPUT
+          echo BUILT_PAGES=$(grep -oE "*\/([0-9]{4,})" ./yarnoutput| head -1 | sed 's/\///g') >> $GITHUB_OUTPUT
           ls
           ls out
           if [[ $? -ne 0 ]]; then
@@ -338,7 +340,7 @@ jobs:
 
     steps:
       - name: Check out repo
-        uses: actions/checkout@v6
+        uses: actions/checkout@v6.0.1
 
       - name: Notify Slack
         uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4 # main
@@ -402,7 +404,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v6.0.1
 
       - name: Notify Slack
         uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4 # main
@@ -458,7 +460,7 @@ jobs:
         METRIC_NAMESPACE: dsva_vagov.next_build
       steps:
         - name: Checkout
-          uses: actions/checkout@v6
+          uses: actions/checkout@v6.0.1
         #uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
         - name: Get current timestamp
@@ -477,8 +479,7 @@ jobs:
             echo "NEXT_BUILD_DURATION=$(expr ${{needs.build.outputs.BUILD_END_TIME}} - ${{needs.build.outputs.BUILD_START_TIME}})" >> $GITHUB_ENV
             echo "OVERALL_DURATION=$(expr ${{needs.build.outputs.DEPLOY_END_TIME}} - ${{needs.validate-build-status.outputs.APPROX_WORKFLOW_START_TIME}})" >> $GITHUB_ENV
             echo "DEPLOY_DURATION=$(expr ${{needs.build.outputs.DEPLOY_END_TIME}} - ${{needs.build.outputs.DEPLOY_START_TIME}})" >> $GITHUB_ENV
-            echo "${{needs.build.outputs.YARN_OUTPUT}}" >> yarnoutput
-            echo "BUILT_PAGES=$(grep -oE "*\/([0-9]{4,})" ./yarnoutput| head -1 | sed 's/\///g')" >> $GITHUB_ENV
+            echo "BUILT_PAGES_OUTPUT=${{needs.build.outputs.BUILT_PAGES}}" >> $GITHUB_ENV
 
         - name: Build JSON object
           run: |
@@ -492,7 +493,7 @@ jobs:
             jq '.series[3].metric = "${{env.METRIC_NAMESPACE}}.overall.duration"' | \
             jq '.series[3].points[0] = [${{env.NOW}}, ${{env.OVERALL_DURATION || 0}}]' | \
             jq '.series[4].metric = "${{env.METRIC_NAMESPACE}}.built.pages"' | \
-            jq '.series[4].points[0] = [${{env.NOW}}, ${{env.BUILT_PAGES || 0}}]' | \
+            jq '.series[4].points[0] = [${{env.NOW}}, ${{env.BUILT_PAGES_OUTPUT || 0}}]' | \
             jq '.series[].tags[0] = "env:${{env.DEPLOY_ENV}}"' | \
             jq '.series[].tags[1] = "build_number:${{github.run_number}}"' | \
             jq '.series[].tags[2] = "status:${{needs.build.result}}"' | \

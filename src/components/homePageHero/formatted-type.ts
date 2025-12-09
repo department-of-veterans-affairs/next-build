@@ -3,7 +3,7 @@ type Link = {
   url: string
 }
 
-export type HomePageHero = {
+export type HomePageHeroData = {
   promoHeadline: string
   promoCta: Link
   promoText: string
