@@ -44,6 +44,12 @@ export const params: QueryParams<null> = () => {
     'field_clp_events_references.field_media',
     'field_clp_events_references.field_media.image',
     'field_clp_events_references.field_facility_location',
+    'field_clp_faq_cta',
+    'field_clp_faq_paragraphs',
+    'field_clp_faq_paragraphs.field_answer',
+    'field_clp_reusable_q_a',
+    'field_clp_reusable_q_a.field_q_as',
+    'field_clp_reusable_q_a.field_q_as.field_answer',
   ])
 }
 
@@ -168,6 +174,21 @@ export const formatter: QueryFormatter<
       events: (entity.field_clp_events_references ?? [])
         .filter((e) => e.path)
         .map((event) => queries.formatData('node--event', event)),
+    },
+    faq: {
+      show: entity.field_clp_faq_panel,
+      faqs: (entity?.field_clp_faq_paragraphs ?? []).map((p) =>
+        queries.formatData('paragraph--q_a', p)
+      ),
+      cta: entity?.field_clp_faq_cta
+        ? queries.formatData('paragraph--button', entity.field_clp_faq_cta)
+        : null,
+      reusable: entity?.field_clp_reusable_q_a
+        ? queries.formatData(
+            'paragraph--q_a_group',
+            entity.field_clp_reusable_q_a
+          )
+        : null,
     },
   }
 }
