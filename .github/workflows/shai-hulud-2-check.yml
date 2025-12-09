@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6.0.1
-      - uses: gensecaihq/Shai-Hulud-2.0-Detector@v1
+      - uses: gensecaihq/Shai-Hulud-2.0-Detector@v2
         with:
           fail-on-critical: true
           
