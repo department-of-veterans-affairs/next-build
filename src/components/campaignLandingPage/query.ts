@@ -50,6 +50,7 @@ export const params: QueryParams<null> = () => {
     'field_clp_reusable_q_a',
     'field_clp_reusable_q_a.field_q_as',
     'field_clp_reusable_q_a.field_q_as.field_answer',
+    'field_benefit_categories',
   ])
 }
 
@@ -190,5 +191,45 @@ export const formatter: QueryFormatter<
           )
         : null,
     },
+    connectWithUs: entity.field_connect_with_us
+      ? {
+          organizationTitle:
+            entity.field_connect_with_us.field_external_link?.title || '',
+          emailLink: entity.field_connect_with_us.field_email_updates_link
+            ? {
+                href:
+                  entity.field_connect_with_us.field_email_updates_link.url ||
+                  entity.field_connect_with_us.field_email_updates_link.uri,
+                title:
+                  entity.field_connect_with_us.field_email_updates_link.title,
+              }
+            : null,
+          socialLinks: {
+            twitter:
+              entity.field_connect_with_us.field_social_media_links
+                ?.platform_values?.twitter?.value || null,
+            facebook:
+              entity.field_connect_with_us.field_social_media_links
+                ?.platform_values?.facebook?.value || null,
+            youtube:
+              entity.field_connect_with_us.field_social_media_links
+                ?.platform_values?.youtube?.value || null,
+            instagram:
+              entity.field_connect_with_us.field_social_media_links
+                ?.platform_values?.instagram?.value || null,
+            linkedin:
+              entity.field_connect_with_us.field_social_media_links
+                ?.platform_values?.linkedin?.value || null,
+          },
+        }
+      : null,
+    benefitCategories: (entity.field_benefit_categories ?? []).map(
+      (category) => ({
+        title: category.title,
+        path: category.path.alias,
+        titleIcon: category.field_title_icon,
+        teaserText: category.field_teaser_text,
+      })
+    ),
   }
 }
