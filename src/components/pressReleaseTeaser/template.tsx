@@ -1,8 +1,22 @@
+import React, { ComponentType } from 'react'
 import { truncateWordsOrChar } from '@/lib/utils/helpers'
 import { PressReleaseTeaser as FormattedPressReleaseTeaser } from '@/components/pressRelease/formatted-type'
 import { formatDate } from '@/lib/utils/helpers'
 
 /** Teaser press release */
+
+const TitleTag = ({
+  children,
+  className,
+  headingLevel,
+}: {
+  children: React.ReactNode
+  className: string
+  headingLevel?: ComponentType | keyof React.JSX.IntrinsicElements
+}) => {
+  const Heading = (headingLevel ? headingLevel : 'h2') as React.ElementType
+  return <Heading className={className}>{children}</Heading>
+}
 
 export function PressReleaseTeaser({
   headingLevel,
@@ -11,15 +25,13 @@ export function PressReleaseTeaser({
   introText,
   releaseDate,
 }: FormattedPressReleaseTeaser) {
-  const TitleTag = ({ children, className }) => {
-    const Heading = (headingLevel ? headingLevel : 'h2') as React.ElementType
-    return <Heading className={className}>{children}</Heading>
-  }
-
   return (
     <>
       <section className="vads-u-margin-bottom--4">
-        <TitleTag className="vads-u-margin-bottom--1p5 vads-u-font-size--md medium-screen:vads-u-font-size--lg">
+        <TitleTag
+          className="vads-u-margin-bottom--1p5 vads-u-font-size--md medium-screen:vads-u-font-size--lg"
+          headingLevel={headingLevel}
+        >
           <va-link href={link} text={title} />
         </TitleTag>
         <strong>{formatDate(releaseDate)}</strong>

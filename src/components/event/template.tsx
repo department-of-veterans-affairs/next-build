@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react'
+import React, { useState, useMemo } from 'react'
 import {
   deriveMostRecentDate,
   formatDateObject,
@@ -43,7 +43,6 @@ export const Event = ({
   lovellVariant,
   lovellSwitchPath,
 }: LovellStaticPropsResource<FormattedEvent>) => {
-  const [mostRecentDate, setMostRecentDate] = useState(null)
   const [showAllEvents, setShowAllEvents] = useState(false)
 
   // Memoized because formateDateObject returns a map that will be recalculated on each render.
@@ -52,16 +51,15 @@ export const Event = ({
     [datetimeRange]
   )
 
+  const mostRecentDate = useMemo(
+    () => deriveMostRecentDate(formattedDates),
+    [formattedDates]
+  )
+
   const initialFormattedDates = formattedDates.slice(0, 5)
   const [currentFormattedDates, setCurrentFormattedDates] = useState(
     initialFormattedDates
   )
-
-  useEffect(() => {
-    // Calculate the most recent date when the component mounts
-    const recentDate = deriveMostRecentDate(formattedDates)
-    setMostRecentDate(recentDate)
-  }, [formattedDates])
 
   const handleAllEventsToggle = () => {
     if (showAllEvents) {

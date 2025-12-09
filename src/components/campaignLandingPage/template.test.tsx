@@ -24,7 +24,9 @@ import { ResourcesPanel } from './ResourcesPanel'
 import { Event } from '../event/formatted-type'
 import { EventsPanel } from './EventsPanel'
 import { FaqPanel } from './FaqPanel'
+import { ConnectWithUs } from './ConnectWithUs'
 import { hashReference } from '@/lib/utils/hashReference'
+import { BenefitCategories } from './BenefitCategories'
 
 const mockBaseProps: CampaignLandingPageProps = {
   title: 'Testing title',
@@ -232,6 +234,35 @@ const mockBaseProps: CampaignLandingPageProps = {
       html: '<p>Reusable container answer</p>\n',
     },
   },
+  connectWithUs: {
+    organizationTitle: 'Veterans Affairs',
+    emailLink: {
+      href: 'https://public.govdelivery.com/accounts/USVA/subscriber/new/',
+      title: 'Veterans Affairs Email Updates',
+    },
+    socialLinks: {
+      twitter: 'DeptVetAffairs',
+      facebook: 'VeteransAffairs',
+      youtube: 'DeptVetAffairs',
+      instagram: 'deptvetaffairs',
+      linkedin: 'company/department-of-veterans-affairs',
+    },
+  },
+  benefitCategories: [
+    {
+      title: 'Health care',
+      path: '/health-care',
+      titleIcon: 'health-care',
+      teaserText: 'Manage your health care and benefits online.',
+    },
+    {
+      title: 'Disability',
+      path: '/disability',
+      titleIcon: 'disability',
+      teaserText:
+        'File for disability compensation for conditions related to your military service.',
+    },
+  ],
 } as CampaignLandingPageProps
 
 jest.mock('next/image', () => ({
@@ -247,9 +278,7 @@ beforeEach(() => {
 
 describe('CampaignLandingPage with valid data', () => {
   test('CampaignLandingPage component renders all sub components', async () => {
-    const { container } = await render(
-      <CampaignLandingPage {...mockBaseProps} />
-    )
+    await render(<CampaignLandingPage {...mockBaseProps} />)
 
     expect(screen.getByTestId('hero-banner')).toBeInTheDocument()
     expect(screen.getByTestId('why-this-matters')).toBeInTheDocument()
@@ -260,16 +289,21 @@ describe('CampaignLandingPage with valid data', () => {
     expect(screen.getByTestId('resources-panel')).toBeInTheDocument()
     expect(screen.getByTestId('events-panel')).toBeInTheDocument()
     expect(screen.getByTestId('faq-panel')).toBeInTheDocument()
-
-    // TODO: Check that the other components rendered once they're built
+    expect(screen.getByTestId('connect-with-us')).toBeInTheDocument()
+    expect(screen.getByTestId('benefit-categories')).toBeInTheDocument()
   })
 
   test('CampaignLandingPage component renders with no axe violations', async () => {
     const { container } = await render(
-      <CampaignLandingPage onlyRenderFinishedComponents {...mockBaseProps} />
+      <CampaignLandingPage {...mockBaseProps} />
     )
 
-    const axeResults = await axe(container)
+    const axeResults = await axe(container, {
+      rules: {
+        // It's only empty because it isn't evaluating the `<va-link>` element inside it.
+        'empty-heading': { enabled: false },
+      },
+    })
     expect(axeResults).toHaveNoViolations()
   })
 })
@@ -696,5 +730,230 @@ describe('CampaignLandingPage->FaqPanel', () => {
     // Reusable content should still be rendered as plain elements
     expect(screen.getByText('Reusable container question')).toBeInTheDocument()
     expect(screen.getByText('reusable question html')).toBeInTheDocument()
+  })
+})
+
+describe('CampaignLandingPage->ConnectWithUs', () => {
+  test('shows section header', () => {
+    render(<ConnectWithUs {...mockBaseProps} />)
+
+    expect(screen.getByText('Connect with us')).toBeInTheDocument()
+    expect(
+      screen.getByText('Get updates from Veterans Affairs')
+    ).toBeInTheDocument()
+  })
+
+  test('renders all social links and icons', () => {
+    render(<ConnectWithUs {...mockBaseProps} />)
+
+    const container = screen.getByTestId('connect-with-us')
+
+    // Check for va-icon elements (6 total: mail + 5 social)
+    const icons = container.querySelectorAll('va-icon')
+    expect(icons.length).toBe(6)
+
+    // Check for va-link elements (6 total: email + 5 social)
+    const links = container.querySelectorAll('va-link')
+    expect(links.length).toBe(6)
+
+    // Check that links have expected href values
+    const hrefs = Array.from(links).map(
+      (link) => (link as HTMLAnchorElement).href
+    )
+    expect(hrefs).toContain(
+      'https://public.govdelivery.com/accounts/USVA/subscriber/new/'
+    )
+    expect(hrefs).toContain('https://www.twitter.com/DeptVetAffairs')
+    expect(hrefs).toContain('https://www.facebook.com/VeteransAffairs')
+    expect(hrefs).toContain('https://www.youtube.com/DeptVetAffairs')
+    expect(hrefs).toContain(
+      'https://www.linkedin.com/company/department-of-veterans-affairs'
+    )
+    expect(hrefs).toContain('https://www.instagram.com/deptvetaffairs')
+
+    // Check that links have expected text values
+    const texts = Array.from(links).map(
+      (link) => (link as HTMLAnchorElement).text
+    )
+    expect(texts).toContain('Veterans Affairs Email Updates')
+    expect(texts).toContain('Veterans Affairs X (formerly Twitter)')
+    expect(texts).toContain('Veterans Affairs Facebook')
+    expect(texts).toContain('Veterans Affairs YouTube')
+    expect(texts).toContain('Veterans Affairs LinkedIn')
+    expect(texts).toContain('Veterans Affairs Instagram')
+  })
+
+  test('does not render when connectWithUs is null', async () => {
+    const mockWithoutConnectWithUs = {
+      ...mockBaseProps,
+      connectWithUs: null,
+    }
+
+    await render(<ConnectWithUs {...mockWithoutConnectWithUs} />)
+
+    expect(screen.queryByTestId('connect-with-us')).not.toBeInTheDocument()
+  })
+
+  test('does not render when organizationTitle is empty', async () => {
+    const mockWithEmptyTitle = {
+      ...mockBaseProps,
+      connectWithUs: {
+        ...mockBaseProps.connectWithUs,
+        organizationTitle: '',
+      },
+    }
+
+    await render(<ConnectWithUs {...mockWithEmptyTitle} />)
+
+    expect(screen.queryByTestId('connect-with-us')).not.toBeInTheDocument()
+  })
+
+  test('does not render email link when emailLink is null', async () => {
+    const mockWithoutEmailLink = {
+      ...mockBaseProps,
+      connectWithUs: {
+        ...mockBaseProps.connectWithUs,
+        emailLink: null,
+      },
+    }
+
+    await render(<ConnectWithUs {...mockWithoutEmailLink} />)
+
+    const container = screen.getByTestId('connect-with-us')
+    // Should have 5 icons (social only) instead of 6
+    const icons = container.querySelectorAll('va-icon')
+    expect(icons.length).toBe(5)
+
+    // Should have 5 links (social only) instead of 6
+    const links = container.querySelectorAll('va-link')
+    expect(links.length).toBe(5)
+  })
+
+  test('does not render social links when values are null', async () => {
+    const mockWithoutSocialLinks = {
+      ...mockBaseProps,
+      connectWithUs: {
+        ...mockBaseProps.connectWithUs,
+        socialLinks: {
+          twitter: null,
+          facebook: null,
+          youtube: null,
+          instagram: null,
+          linkedin: null,
+        },
+      },
+    }
+
+    await render(<ConnectWithUs {...mockWithoutSocialLinks} />)
+
+    const container = screen.getByTestId('connect-with-us')
+
+    // Should have only 1 icon (mail) and 1 link (email)
+    const icons = container.querySelectorAll('va-icon')
+    expect(icons.length).toBe(1)
+
+    const links = container.querySelectorAll('va-link')
+    expect(links.length).toBe(1)
+  })
+})
+
+describe('CampaignLandingPage->BenefitCategories', () => {
+  test('shows section header', () => {
+    render(<BenefitCategories {...mockBaseProps} />)
+
+    expect(screen.getByText('VA Benefits')).toBeInTheDocument()
+    expect(
+      screen.getByText('Learn more about related VA benefits')
+    ).toBeInTheDocument()
+  })
+
+  test('renders all benefit categories with links and icons', () => {
+    render(<BenefitCategories {...mockBaseProps} />)
+
+    const container = screen.getByTestId('benefit-categories')
+
+    // Check for va-link elements (2 benefit categories)
+    const links = container.querySelectorAll('va-link')
+    expect(links.length).toBe(2)
+
+    // Check that links have expected href and text values
+    const healthCareLink = Array.from(links).find(
+      (link) => (link as HTMLAnchorElement).text === 'Health care'
+    )
+    expect(healthCareLink).toBeTruthy()
+    expect((healthCareLink as HTMLAnchorElement).href).toBe('/health-care')
+
+    const disabilityLink = Array.from(links).find(
+      (link) => (link as HTMLAnchorElement).text === 'Disability'
+    )
+    expect(disabilityLink).toBeTruthy()
+    expect((disabilityLink as HTMLAnchorElement).href).toBe('/disability')
+  })
+
+  test('shows teaser text for each benefit category', () => {
+    render(<BenefitCategories {...mockBaseProps} />)
+
+    expect(
+      screen.getByText('Manage your health care and benefits online.')
+    ).toBeInTheDocument()
+    expect(
+      screen.getByText(
+        'File for disability compensation for conditions related to your military service.'
+      )
+    ).toBeInTheDocument()
+  })
+
+  test('renders hub icons for each benefit category', () => {
+    render(<BenefitCategories {...mockBaseProps} />)
+
+    const container = screen.getByTestId('benefit-categories')
+    const icons = container.querySelectorAll('va-icon')
+
+    // Should have 2 icons (one for each benefit category)
+    expect(icons.length).toBe(2)
+  })
+
+  test('renders back to top button', () => {
+    render(<BenefitCategories {...mockBaseProps} />)
+
+    const container = screen.getByTestId('benefit-categories')
+    const backToTop = container.querySelector('va-back-to-top')
+
+    expect(backToTop).toBeInTheDocument()
+  })
+
+  test('renders ContentFooter component', () => {
+    render(<BenefitCategories {...mockBaseProps} />)
+
+    expect(screen.getByTestId('content-footer')).toBeInTheDocument()
+  })
+
+  test('does not render when benefitCategories is empty', async () => {
+    const mockWithNoBenefitCategories = {
+      ...mockBaseProps,
+      benefitCategories: [],
+    }
+
+    await render(<BenefitCategories {...mockWithNoBenefitCategories} />)
+
+    expect(screen.queryByTestId('benefit-categories')).not.toBeInTheDocument()
+  })
+
+  test('applies correct margin classes to second item', () => {
+    render(<BenefitCategories {...mockBaseProps} />)
+
+    const container = screen.getByTestId('benefit-categories')
+    const items = container.querySelectorAll(
+      '.vads-l-col--12.medium-screen\\:vads-l-col--6'
+    )
+
+    expect(items.length).toBe(2)
+
+    // First item should not have the margin-top classes
+    expect(items[0].className).not.toContain('vads-u-margin-top--2')
+
+    // Second item should have the margin-top classes
+    expect(items[1].className).toContain('vads-u-margin-top--2')
+    expect(items[1].className).toContain('medium-screen:vads-u-margin-top--0')
   })
 })
