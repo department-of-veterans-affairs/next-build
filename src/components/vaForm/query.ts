@@ -57,7 +57,6 @@ export const formatter: QueryFormatter<NodeVaForm, VaForm> = (
       (category) => category.field_home_page_hub_label
     ),
     administration: entity.field_va_form_administration?.name,
-    // alertBlock: coerceAlertBlockContentToParagraph(entity.field_alert),
     alertBlock: formatAlertBlock(entity.field_alert),
     formUrl: entity.field_va_form_url,
     toolUrl: entity.field_va_form_tool_url ?? null,
