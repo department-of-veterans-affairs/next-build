@@ -1,5 +1,6 @@
 import React from 'react'
 import { BenefitsHub as FormattedBenefitsHub } from './formatted-type'
+import { AlertBlock as FormattedAlertBlock } from '@/components/alert/formatted-type'
 import { render, screen, fireEvent } from '@testing-library/react'
 import { axe } from '@/test-utils'
 import { BenefitsHub } from './template'
@@ -587,4 +588,23 @@ test('calls recordEvent when support service links are clicked', async () => {
     event: 'nav-hub-rail',
     'nav-path': 'Ask questions',
   })
+})
+
+test('renders BenefitsHub component with info Alert', async () => {
+  const mockAlertData: FormattedAlertBlock = {
+    id: '1',
+    alertType: 'info',
+    title: 'Alert Title',
+    content: {
+      id: 'content-1',
+      type: 'paragraph--wysiwyg',
+      html: '<p>This is alert content.</p>',
+    },
+  }
+  render(<BenefitsHub {...mockBenefitsData} alert={mockAlertData} />)
+
+  const vaAlert = document.querySelector('va-alert')
+  expect(vaAlert).toBeInTheDocument()
+  expect(vaAlert).toHaveAttribute('status', 'info')
+  expect(screen.getByText('Alert Title')).toBeInTheDocument()
 })
