@@ -4,9 +4,32 @@ import { Hours } from '@/components/hours/template'
 import { FeaturedContent } from '@/components/featuredContent/template'
 import { QaSection } from '@/components/qaSection/template'
 import { Accordion } from '@/components/accordion/template'
+import { AccordionItem } from '@/components/accordion/formatted-type'
 import { PhoneNumber } from '@/components/phoneNumber/template'
 import { TextWithImage } from '@/components/textWithImage/template'
 import { MediaImage } from '@/components/mediaImage/template'
+
+const PrepareForVisitComponent = ({
+  visitItems,
+}: {
+  visitItems: AccordionItem[]
+}) => {
+  if (visitItems.length === 0) return null
+  return (
+    <>
+      <h2
+        id="prepare-for-your-visit"
+        className="vads-u-margin-top--0 vads-u-font-size--lg mobile-lg:vads-u-font-size--xl vads-u-margin-bottom--2"
+      >
+        Prepare for your visit
+      </h2>
+      <p>Select a topic to learn more.</p>
+      <div className="vads-u-margin-bottom--3">
+        <Accordion id={'prepare-for-your-visit'} bordered items={visitItems} />
+      </div>
+    </>
+  )
+}
 
 export function VetCenterOutstation({
   address,
@@ -122,28 +145,6 @@ export function VetCenterOutstation({
     title,
     address
   )
-
-  const PrepareForVisitComponent = ({ visitItems }) => {
-    if (visitItems.length === 0) return null
-    return (
-      <>
-        <h2
-          id="prepare-for-your-visit"
-          className="vads-u-margin-top--0 vads-u-font-size--lg mobile-lg:vads-u-font-size--xl vads-u-margin-bottom--2"
-        >
-          Prepare for your visit
-        </h2>
-        <p>Select a topic to learn more.</p>
-        <div className="vads-u-margin-bottom--3">
-          <Accordion
-            id={'prepare-for-your-visit'}
-            bordered
-            items={prepareForVisit}
-          />
-        </div>
-      </>
-    )
-  }
 
   return (
     <div className="usa-grid usa-grid-full">

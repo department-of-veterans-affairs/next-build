@@ -4,13 +4,11 @@ import { NodePressRelease } from '@/types/drupal/node'
 import { PressRelease } from './formatted-type'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
-import {
-  entityBaseFields,
-  fetchSingleEntityOrPreview,
-} from '@/lib/drupal/query'
-import { get } from 'lodash'
+import { fetchSingleEntityOrPreview } from '@/lib/drupal/query'
 import { getNestedIncludes } from '@/lib/utils/queries'
 import { formatter as formatAdministration } from '@/components/administration/query'
+import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
+import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 
 // Define the query params for fetching node--press_release.
 export const params: QueryParams<null> = () => {
@@ -102,7 +100,7 @@ export const formatter: QueryFormatter<NodePressRelease, PressRelease> = (
     pdfVersion: entity.field_pdf_version?.field_document?.uri?.url || null,
     introText: entity.field_intro_text,
     address: entity.field_address,
-    fullText: entity.field_press_release_fulltext.processed,
+    fullText: getHtmlFromField(entity.field_press_release_fulltext),
     contacts: formattedContacts,
     downloads: downloads,
     listing: entity.field_listing?.path?.alias,

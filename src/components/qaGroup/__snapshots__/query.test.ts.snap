@@ -5,6 +5,7 @@ exports[`QaGroup formatData outputs formatted data 1`] = `
   "displayAccordion": false,
   "entityId": 80861,
   "header": null,
+  "html": "",
   "id": "284e0f5b-0fbd-4eb4-96bd-350abff3214e",
   "intro": null,
   "questions": [

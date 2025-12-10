@@ -4,26 +4,21 @@ import { NodeHealthCareLocalFacility } from '@/types/drupal/node'
 import { VamcFacility } from './formatted-type'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
-import {
-  entityBaseFields,
-  fetchSingleEntityOrPreview,
-  getMenu,
-} from '@/lib/drupal/query'
+import { fetchSingleEntityOrPreview, getMenu } from '@/lib/drupal/query'
 import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import {
   getLovellVariantOfUrl,
   getOppositeChildVariant,
-  getLovellVariantOfTitle,
-  getLovellVariantOfBreadcrumbs,
 } from '@/lib/drupal/lovell/utils'
 import { formatter as formatImage } from '@/components/mediaImage/query'
 import { formatter as formatPhone } from '@/components/phoneNumber/query'
-import { ParagraphLinkTeaser } from '@/types/drupal/paragraph'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 import { formatter as formatAdministration } from '@/components/administration/query'
 import { getVamcSystemSocialLinks } from '../vamcSystem/query'
 import { formatter as formatServiceLocation } from '@/components/serviceLocation/query'
+import { formatter as formatListOfLinkTeasers } from '@/components/listOfLinkTeasers/query'
+import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
 
 const isPublished = (entity: { status: boolean }) => entity.status === true
 
@@ -90,12 +85,6 @@ export const formatter: QueryFormatter<VamcFacilityData, VamcFacility> = ({
   menu,
   lovell,
 }) => {
-  let { title, breadcrumbs } = entity
-  if (lovell?.isLovellVariantPage) {
-    title = getLovellVariantOfTitle(title, lovell.variant)
-    breadcrumbs = getLovellVariantOfBreadcrumbs(breadcrumbs, lovell.variant)
-  }
-
   const formattedMenu =
     menu !== null ? buildSideNavDataFromMenu(entity.path.alias, menu) : null
 
@@ -114,9 +103,7 @@ export const formatter: QueryFormatter<VamcFacilityData, VamcFacility> = ({
   })
 
   const formattedFacilityData: VamcFacility = {
-    ...entityBaseFields(entity),
-    title,
-    breadcrumbs,
+    ...entityBaseFields(entity, lovell),
     address: entity.field_address,
     mainPhoneString: entity.field_phone_number,
     vaHealthConnectPhoneNumber:
@@ -132,21 +119,9 @@ export const formatter: QueryFormatter<VamcFacilityData, VamcFacility> = ({
     image: formatImage(entity.field_media),
     facilityLocatorApiId: entity.field_facility_locator_api_id,
     geoLocation: entity.field_geolocation,
-    relatedLinks: {
-      sectionTitle: entity.field_region_page.title
-        ? `Other services at ${entity.field_region_page.title}`
-        : (entity.field_region_page.field_related_links?.field_title ?? ''),
-      links:
-        entity.field_region_page.field_related_links?.field_va_paragraphs
-          .slice(0, 8)
-          // Adding the type annotation because TS doesn't apparently pick up on
-          // this since we've done an Omit<> on the parent type.
-          .map((linkTeaser: ParagraphLinkTeaser) => ({
-            title: linkTeaser.field_link.title,
-            uri: linkTeaser.field_link.url,
-            // summary: ''
-          })) ?? null,
-    },
+    relatedLinks: formatListOfLinkTeasers(
+      entity.field_region_page.field_related_links
+    ),
     locationServices: entity.field_location_services.map((service) => ({
       title: service.field_title,
       wysiwigContents: getHtmlFromField(service.field_wysiwyg),
@@ -160,6 +135,7 @@ export const formatter: QueryFormatter<VamcFacilityData, VamcFacility> = ({
             getOppositeChildVariant(lovell?.variant)
           )
         : null,
+    vamcSystemTitle: entity.field_region_page.title,
     healthServices: entity.field_local_health_care_service_
       // Make sure we're only dealing with published health services. If they're
       // not published, they'll be entity references with no actual data.

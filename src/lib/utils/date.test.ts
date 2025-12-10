@@ -242,8 +242,8 @@ describe('formatDateObject', () => {
   it('should add startTime, endTime, value, and endValue to each date object', () => {
     const datetimeRange = [
       {
-        value: new Date('2023-09-07T14:00:00Z'),
-        end_value: new Date('2023-09-07T16:00:00Z'),
+        value: '2023-09-07T14:00:00Z',
+        end_value: '2023-09-07T16:00:00Z',
       },
     ]
     const result = formatDateObject(datetimeRange)
@@ -435,5 +435,35 @@ describe('formatEventDateTime', () => {
     }
     const result = formatEventDateTime(mostRecentDate)
     expect(result).toBe('Thu. May 4, 2023, 12:00 a.m. – 12:00 p.m. ET')
+  })
+
+  it('should correctly format end time with fullEndDate true', () => {
+    mockUserTimeZone('America/New_York')
+    const mostRecentDate = {
+      value: 1683172800,
+      endValue: 1683216000,
+      timezone: 'America/New_York',
+    }
+    const result = formatEventDateTime(mostRecentDate, { fullEndDate: true })
+    expect(result).toBe(
+      'Thu. May 4, 2023, 12:00 a.m. – Thu. May 4, 2023, 12:00 p.m. ET'
+    )
+  })
+
+  it('should correctly format into custom output', () => {
+    mockUserTimeZone('America/New_York')
+    const mostRecentDate = {
+      value: 1683172800,
+      endValue: 1683216000,
+      timezone: 'America/New_York',
+    }
+    const result = formatEventDateTime(mostRecentDate, {
+      format: ({ start, end, tz }) => {
+        return [start, end, tz]
+      },
+    })
+    expect(result[0]).toBe('Thu. May 4, 2023, 12:00 a.m.')
+    expect(result[1]).toBe('12:00 p.m.')
+    expect(result[2]).toBe('ET')
   })
 })

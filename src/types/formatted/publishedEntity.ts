@@ -1,5 +1,5 @@
-import { BreadcrumbItem } from '../drupal/field_type'
 import { MetaTag } from './metatags'
+import { Breadcrumb } from '@/components/breadcrumbs/formatted-types'
 
 export interface PublishedEntity {
   id: string
@@ -9,7 +9,7 @@ export interface PublishedEntity {
   entityId?: number
   entityPath?: string
   moderationState?: string
-  breadcrumbs?: BreadcrumbItem[]
+  breadcrumbs?: Breadcrumb[] | null
   metatags?: MetaTag[]
   /**
    * Datetime string with timezone.

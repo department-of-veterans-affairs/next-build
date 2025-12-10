@@ -3,10 +3,10 @@ import { VamcSystem } from '../vamcSystem/formatted-type'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 import { Wysiwyg } from '../wysiwyg/formatted-type'
 import { ListOfLinkTeasers } from '../listOfLinkTeasers/formatted-type'
-import { ServiceLocation } from '../serviceLocation/formatted-type'
-import { FieldAddress, FieldOfficeHours } from '@/types/drupal/field_type'
+import { FieldOfficeHours } from '@/types/drupal/field_type'
 import { LovellChildVariant } from '@/lib/drupal/lovell/types'
 import { PhoneNumber } from '../phoneNumber/formatted-type'
+import { VhaFacilityNonclinicalService } from '../vhaFacilityNonclinicalService/formatted-type'
 
 export interface VamcSystemBillingAndInsurance extends PublishedEntity {
   title: string
@@ -16,14 +16,7 @@ export interface VamcSystemBillingAndInsurance extends PublishedEntity {
   topOfPageContent: Wysiwyg
   bottomOfPageContent: Wysiwyg
   relatedLinks: ListOfLinkTeasers
-  services: Array<{
-    id: string
-    title: string
-    path: string
-    serviceLocations: ServiceLocation[]
-    address: FieldAddress
-    phoneNumber: string
-  }>
+  services: VhaFacilityNonclinicalService[]
   officeHours: FieldOfficeHours[]
   phoneNumber: PhoneNumber
   lovellVariant?: LovellChildVariant | null

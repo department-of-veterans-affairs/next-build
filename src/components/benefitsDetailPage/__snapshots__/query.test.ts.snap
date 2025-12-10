@@ -1,0 +1,96 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`BenefitsDetailPage formatter outputs formatted data with correct structure 1`] = `
+{
+  "administration": {
+    "entityId": 10,
+    "name": "Health care benefits hub",
+  },
+  "alert": {
+    "alertType": "info",
+    "content": {
+      "html": "",
+      "id": "test-content-id",
+      "type": "paragraph--wysiwyg",
+    },
+    "id": "test-alert-id",
+    "title": "Test Alert",
+  },
+  "breadcrumbs": [
+    {
+      "href": "/",
+      "label": "Home",
+      "options": [],
+    },
+    {
+      "href": "/health-care",
+      "label": "Health care",
+      "options": [],
+    },
+    {
+      "href": "",
+      "label": "About VA health benefits",
+      "options": [],
+    },
+  ],
+  "description": "Learn about the VA health benefits in your VA medical benefits package. Get details on Veterans medical benefits, like which services we cover, who will care for you, where you'll go for care, and how VA health care works with other insurance.",
+  "entityId": 29,
+  "entityPath": "/health-care/about-va-health-benefits",
+  "featuredContent": [],
+  "id": "588aa250-35b3-4d1d-99e6-d152bbae0775",
+  "introText": "<p>If you qualify for VA health care, you’ll receive coverage for the services you need to help you get—and stay—healthy. Learn more about your health care benefits.</p>
+",
+  "lastUpdated": "2025-10-06T19:59:00+00:00",
+  "mainContent": [
+    {
+      "html": "",
+      "id": "dfbde0f6-4cd8-4195-86ef-3eaffa05ea7f",
+      "type": "paragraph--wysiwyg",
+    },
+    {
+      "displayAccordion": undefined,
+      "header": undefined,
+      "id": "6f1c6fbc-728b-4a87-83f3-f7e9d67e2ee9",
+      "intro": null,
+      "questions": [],
+      "type": "paragraph--q_a_section",
+    },
+    {
+      "html": "",
+      "id": "186af133-ca41-44b0-9a1c-9e5dc04e28be",
+      "type": "paragraph--wysiwyg",
+    },
+    {
+      "displayAccordion": undefined,
+      "header": undefined,
+      "id": "59cb0724-0f7b-4606-b57f-110b9716e4af",
+      "intro": null,
+      "questions": [],
+      "type": "paragraph--q_a_section",
+    },
+    {
+      "displayAccordion": undefined,
+      "header": undefined,
+      "id": "d7ca5ea9-1345-4773-9f91-a71d8318b0e0",
+      "intro": null,
+      "questions": [],
+      "type": "paragraph--q_a_section",
+    },
+  ],
+  "menu": {
+    "data": null,
+    "rootPath": "/health-care/about-va-health-benefits/",
+  },
+  "menuIcon": {
+    "backgroundColor": "hub-health-care",
+    "name": "medical_services",
+  },
+  "metatags": [],
+  "moderationState": "published",
+  "published": true,
+  "relatedLinks": null,
+  "showTableOfContents": true,
+  "title": "About VA health benefits",
+  "type": "node--page",
+}
+`;

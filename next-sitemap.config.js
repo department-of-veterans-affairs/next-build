@@ -1,3 +1,7 @@
+// Matches <meta name="DC.Date" content="...">
+const RE_META_DATE =
+  /<meta\s+name\s*=\s*["']DC\.Date["'][^>]*content\s*=\s*["']([^"']+)["']/i
+
 /** @type {import('next-sitemap').IConfig} */
 const sitemapConfig = {
   // see https://www.npmjs.com/package/next-sitemap for all options
@@ -15,16 +19,17 @@ const sitemapConfig = {
   generateRobotsTxt: false, // (optional)
   transform: async (config, path) => {
     // Transform found paths to add lastmod date https://github.com/iamvishnusankar/next-sitemap?tab=readme-ov-file#custom-transformation-function
-    const { JSDOM } = await import('jsdom') // Import JSDOM to parse HTML files
-    const pathToFile = `./out${path}/index.html` // Construct the path to the static file in the `out` directory
-    const date = JSDOM.fromFile(pathToFile).then((dom) => {
-      return dom.window.document
-        .querySelector("meta[name='DC.Date']")
-        .getAttribute('content')
-    }) // get the date from the DC.Date meta tag in the HTML of the static file for each path
+    const fs = await import('fs/promises')
+    const pathToFile = `./out${path}/index.html`
+    // A possible future optimization could be to read the file as a stream to avoid
+    // loading the entire file into memory, especially since this meta tag is usually
+    // near the beginning of the file.
+    const html = await fs.readFile(pathToFile, 'utf-8')
+    const dateMatch = html.match(RE_META_DATE)
+    const date = dateMatch ? dateMatch[1] : null
     return {
       loc: path, // Required to be returned in sitemap => this will be exported as http(s)://<config.siteUrl>/<path>
-      lastmod: await date, // The parsed date from the HTML file
+      lastmod: date, // The parsed date from the HTML file
     }
   },
   // todo: migrate to server side sitemap to include last edited date from content for lastmod

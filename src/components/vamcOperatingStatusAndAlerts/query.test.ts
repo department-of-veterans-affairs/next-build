@@ -108,8 +108,8 @@ describe('VamcOperatingStatusAndAlerts formatData', () => {
         }
       )
       expect(formattedData.breadcrumbs[1]).toEqual({
-        uri: 'https://va-gov-cms.ddev.site/lovell-federal-health-care-tricare',
-        title: 'Lovell Federal health care - TRICARE',
+        href: '/lovell-federal-health-care-tricare',
+        label: 'Lovell Federal health care - TRICARE',
         options: [],
       })
     })

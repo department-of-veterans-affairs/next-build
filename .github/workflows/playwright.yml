@@ -15,7 +15,7 @@ jobs:
     if: github.event.deployment_status.state == 'success'
     steps:
     - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v5.1.0
+      uses: aws-actions/configure-aws-credentials@v5.1.1
       with:
         aws-region: us-gov-west-1
         role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
@@ -48,7 +48,7 @@ jobs:
         - /etc/ssl/certs:/etc/ssl/certs
     if: github.event.deployment_status.state == 'success'
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6.0.1
     - uses: actions/setup-node@v6
       with:
         node-version: 24
@@ -58,14 +58,14 @@ jobs:
         corepack install -g --cache-only .yarn/releases/corepack.tgz
     - name: Install dependencies
       run: |
-        yarn
+        yarn install --immutable
     - name: Install Playwright
       run: |
         yarn playwright install --with-deps
     - name: Run Playwright tests
       run: |
         SITE_URL=${{ github.event.deployment_status.environment_url }} yarn test:playwright
-    - uses: actions/upload-artifact@v4
+    - uses: actions/upload-artifact@v5
       if: always()
       with:
         name: playwright-report
