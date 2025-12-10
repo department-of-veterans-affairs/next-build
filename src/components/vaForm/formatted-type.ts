@@ -1,4 +1,4 @@
-import { AlertBlock as FormattedAlertBlock } from '@/components/alert/formatted-type'
+import { AlertBlock } from '@/components/alert/formatted-type'
 import { FieldLink } from '@/types/drupal/field_type'
 import { PublishedEntity } from '@/types/formatted/publishedEntity'
 import { LinkTeaser } from '../linkTeaser/formatted-type'
@@ -14,7 +14,7 @@ export type VaForm = PublishedEntity & {
   benefitCategories?: string[]
   administration?: string
   /** The formatted alert. Named like this because `alert` is a reserved keyword. */
-  alertBlock: FormattedAlertBlock
+  alertBlock: AlertBlock
   formUrl?: FieldLink
   toolUrl?: FieldLink
   toolIntro?: string
