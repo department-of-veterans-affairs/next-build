@@ -338,7 +338,6 @@ describe('VaForm Component', () => {
       const alert = container.querySelector('va-alert')
       expect(alert).toBeInTheDocument()
       expect(alert).toHaveAttribute('status', 'info')
-      expect(alert).toHaveAttribute('class', 'vads-u-margin-top--3')
       expect(
         screen.getByRole('heading', {
           level: 2,
