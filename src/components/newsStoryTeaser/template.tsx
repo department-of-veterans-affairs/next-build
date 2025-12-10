@@ -1,6 +1,20 @@
+import React, { ComponentType } from 'react'
 import { MediaImage } from '@/components/mediaImage/template'
 import { truncateWordsOrChar } from '@/lib/utils/helpers'
 import { NewsStoryTeaser as FormattedNewsStoryTeaser } from '@/components/newsStory/formatted-type'
+
+const TitleTag = ({
+  children,
+  className,
+  headingLevel,
+}: {
+  children: React.ReactNode
+  className: string
+  headingLevel?: ComponentType | keyof React.JSX.IntrinsicElements
+}) => {
+  const Heading = (headingLevel ? headingLevel : 'h2') as React.ElementType
+  return <Heading className={className}>{children}</Heading>
+}
 
 /** Teaser news story. */
 export const NewsStoryTeaser = ({
@@ -10,17 +24,15 @@ export const NewsStoryTeaser = ({
   link,
   introText,
 }: FormattedNewsStoryTeaser) => {
-  const TitleTag = ({ children, className }) => {
-    const Heading = (headingLevel ? headingLevel : 'h2') as React.ElementType
-    return <Heading className={className}>{children}</Heading>
-  }
-
   return (
     <>
       <div className="vads-grid-container vads-u-padding-x--0 vads-u-margin-bottom--3 tablet:vads-u-margin-bottom--4">
         <div className="vads-grid-row">
           <div className="tablet:vads-grid-col-8 tablet:vads-u-padding-right--3">
-            <TitleTag className="vads-u-margin-top--0 vads-u-font-size--md tablet:vads-u-font-size--lg tablet:vads-u-margin-bottom--0p5">
+            <TitleTag
+              className="vads-u-margin-top--0 vads-u-font-size--md tablet:vads-u-font-size--lg tablet:vads-u-margin-bottom--0p5"
+              headingLevel={headingLevel}
+            >
               <va-link href={link} text={title} />
             </TitleTag>
             <p className="vads-u-margin-y--0">

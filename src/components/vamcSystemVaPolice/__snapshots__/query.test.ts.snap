@@ -4,24 +4,19 @@ exports[`VamcSystemVaPolice formatData outputs formatted data 1`] = `
 {
   "breadcrumbs": [
     {
+      "href": "/",
+      "label": "Home",
       "options": [],
-      "title": "Home",
-      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
     },
     {
+      "href": "/central-arkansas-health-care",
+      "label": "VA Central Arkansas health care",
       "options": [],
-      "title": "VA Central Arkansas health care",
-      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/central-arkansas-health-care",
     },
     {
+      "href": "",
+      "label": "VA police",
       "options": [],
-      "title": "About VA Central Arkansas",
-      "uri": "internal:#",
-    },
-    {
-      "options": [],
-      "title": "VA police",
-      "uri": "internal:#",
     },
   ],
   "entityId": 63857,

@@ -1,0 +1,257 @@
+{
+  "type": "node--page",
+  "id": "588aa250-35b3-4d1d-99e6-d152bbae0775",
+  "drupal_internal__nid": 29,
+  "drupal_internal__vid": 1020955,
+  "langcode": "en",
+  "revision_timestamp": "2025-10-06T19:59:00+00:00",
+  "revision_log": "Replaced old privacy practices PDF with new link since previous link also included an old date in it. ",
+  "status": true,
+  "title": "About VA health benefits",
+  "created": "2019-01-10T18:04:17+00:00",
+  "changed": "2025-10-06T19:59:00+00:00",
+  "promote": false,
+  "sticky": false,
+  "default_langcode": true,
+  "revision_translation_affected": true,
+  "breadcrumbs": [
+    {
+      "uri": "http://va-gov-cms.ddev.site/",
+      "title": "Home",
+      "options": []
+    },
+    {
+      "uri": "http://va-gov-cms.ddev.site/health-care",
+      "title": "Health care",
+      "options": []
+    },
+    {
+      "uri": "internal:#",
+      "title": "Get benefits",
+      "options": []
+    },
+    {
+      "uri": "internal:#",
+      "title": "About VA health benefits",
+      "options": []
+    }
+  ],
+  "moderation_state": "published",
+  "expiration_date": null,
+  "warning_date": null,
+  "metatag": [],
+  "path": {
+    "alias": "/health-care/about-va-health-benefits",
+    "pid": 369,
+    "langcode": "en"
+  },
+  "content_translation_source": "und",
+  "content_translation_outdated": false,
+  "field_description": "Learn about the VA health benefits in your VA medical benefits package. Get details on Veterans medical benefits, like which services we cover, who will care for you, where you'll go for care, and how VA health care works with other insurance.",
+  "field_intro_text_limited_html": {
+    "value": "<p>If you qualify for VA health care, you’ll receive coverage for the services you need to help you get—and stay—healthy. Learn more about your health care benefits.</p>",
+    "format": "rich_text_limited",
+    "processed": "<p>If you qualify for VA health care, you’ll receive coverage for the services you need to help you get—and stay—healthy. Learn more about your health care benefits.</p>\n"
+  },
+  "field_last_saved_by_an_editor": "2025-10-06T19:59:00+00:00",
+  "field_meta_tags": "{\"keywords\":\"va health benefits, va medical benefits, veterans medical benefits\",\"title\":\"About VA Health Benefits | Veterans Affairs\"}",
+  "field_plainlanguage_date": null,
+  "field_table_of_contents_boolean": true,
+  "links": {
+    "self": {
+      "href": "http://va-gov-cms.ddev.site/jsonapi/node/page/588aa250-35b3-4d1d-99e6-d152bbae0775?resourceVersion=id%3A1020955"
+    }
+  },
+  "node_type": {
+    "type": "node_type--node_type",
+    "id": "d4860e9e-588d-474c-8d59-550fb61c5c8c",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": "page"
+    }
+  },
+  "revision_uid": {
+    "type": "user--user",
+    "id": "fa61a89a-1ed5-4899-ba26-637e4b37df76",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 80
+    }
+  },
+  "uid": {
+    "type": "user--user",
+    "id": "c564bd69-e8da-4ac3-905c-dd94f4bf7b35",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 1317
+    }
+  },
+  "field_administration": {
+    "type": "taxonomy_term--administration",
+    "id": "e9139b86-b694-4e4a-a156-7fc8fc14485d",
+    "drupal_internal__tid": 10,
+    "drupal_internal__revision_id": 10,
+    "langcode": "en",
+    "revision_created": "2021-05-05T21:11:32+00:00",
+    "revision_log_message": null,
+    "status": true,
+    "name": "Health care benefits hub",
+    "description": null,
+    "weight": 0,
+    "changed": "2021-05-05T21:11:32+00:00",
+    "default_langcode": true,
+    "revision_translation_affected": true,
+    "breadcrumbs": [
+      {
+        "uri": "http://va-gov-cms.ddev.site/",
+        "title": "Home",
+        "options": []
+      },
+      {
+        "uri": "http://va-gov-cms.ddev.site/section/vha",
+        "title": "VHA",
+        "options": []
+      },
+      {
+        "uri": "internal:#",
+        "title": "Health care benefits hub",
+        "options": []
+      }
+    ],
+    "moderation_state": null,
+    "metatag": [
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "title",
+          "content": "Health care benefits hub | VA.gov CMS"
+        }
+      },
+      {
+        "tag": "link",
+        "attributes": {
+          "rel": "canonical",
+          "href": "http://va-gov-cms.ddev.site/section/health-care-benefits-hub"
+        }
+      }
+    ],
+    "path": {
+      "alias": "/section/health-care-benefits-hub",
+      "pid": 988,
+      "langcode": "en"
+    },
+    "content_translation_source": "und",
+    "content_translation_outdated": false,
+    "content_translation_created": null,
+    "field_description": null,
+    "links": {
+      "self": {
+        "href": "http://va-gov-cms.ddev.site/jsonapi/taxonomy_term/administration/e9139b86-b694-4e4a-a156-7fc8fc14485d?resourceVersion=id%3A10"
+      }
+    },
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 10
+    },
+    "vid": {
+      "type": "taxonomy_vocabulary--taxonomy_vocabulary",
+      "id": "645055c5-e567-4683-b6db-459ce04522ce",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "administration"
+      }
+    },
+    "revision_user": null,
+    "parent": [
+      {
+        "type": "taxonomy_term--administration",
+        "id": "e5820ec7-83b0-4d03-8ebf-ed50fa8cc211",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 3
+        }
+      }
+    ],
+    "content_translation_uid": null,
+    "field_product": {
+      "type": "taxonomy_term--products",
+      "id": "91c09f6f-1580-45bf-9a78-3d98d8ff41ae",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 288
+      }
+    },
+    "relationshipNames": [
+      "vid",
+      "revision_user",
+      "parent",
+      "content_translation_uid",
+      "field_product"
+    ]
+  },
+  "field_alert": {
+    "type": "block--alert",
+    "id": "test-alert-id",
+    "status": true,
+    "field_alert_type": "information",
+    "field_alert_title": "Test Alert",
+    "field_alert_content": {
+      "type": "paragraph--wysiwyg",
+      "id": "test-content-id"
+    }
+  },
+  "field_content_block": [
+    {
+      "type": "paragraph--wysiwyg",
+      "id": "dfbde0f6-4cd8-4195-86ef-3eaffa05ea7f",
+      "resourceIdObjMeta": {
+        "target_revision_id": 1894996,
+        "drupal_internal__target_id": 159349
+      }
+    },
+    {
+      "type": "paragraph--q_a_section",
+      "id": "6f1c6fbc-728b-4a87-83f3-f7e9d67e2ee9",
+      "resourceIdObjMeta": {
+        "target_revision_id": 1894999,
+        "drupal_internal__target_id": 159352
+      }
+    },
+    {
+      "type": "paragraph--wysiwyg",
+      "id": "186af133-ca41-44b0-9a1c-9e5dc04e28be",
+      "resourceIdObjMeta": {
+        "target_revision_id": 1895000,
+        "drupal_internal__target_id": 78191
+      }
+    },
+    {
+      "type": "paragraph--q_a_section",
+      "id": "59cb0724-0f7b-4606-b57f-110b9716e4af",
+      "resourceIdObjMeta": {
+        "target_revision_id": 1895003,
+        "drupal_internal__target_id": 3288
+      }
+    },
+    {
+      "type": "paragraph--q_a_section",
+      "id": "d7ca5ea9-1345-4773-9f91-a71d8318b0e0",
+      "resourceIdObjMeta": {
+        "target_revision_id": 1895036,
+        "drupal_internal__target_id": 3290
+      }
+    }
+  ],
+  "field_featured_content": [],
+  "field_related_links": {
+    "type": "paragraph--list_of_link_teasers",
+    "id": "6af186e5-a520-4c12-a459-5c65702f328c",
+    "resourceIdObjMeta": {
+      "target_revision_id": 1895038,
+      "drupal_internal__target_id": 3283
+    }
+  },
+  "relationshipNames": [
+    "node_type",
+    "revision_uid",
+    "uid",
+    "field_administration",
+    "field_alert",
+    "field_content_block",
+    "field_featured_content",
+    "field_related_links"
+  ]
+}

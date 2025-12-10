@@ -4,8 +4,8 @@
   "main": "dist/index.js",
   "dependencies": {
     "cross-fetch": "^4.0.0",
-    "debug": "^4.3.4",
-    "p-retry": "^6.2.0",
+    "debug": "^4.4.3",
+    "p-retry": "^7.1.0",
     "socks-proxy-agent": "^8.0.5",
     "syswide-cas": "^5.3.0"
   },

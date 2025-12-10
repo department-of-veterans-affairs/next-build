@@ -9,36 +9,35 @@ import {
   formatter,
 } from './query'
 import * as queryModule from '@/lib/drupal/query'
+import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 
-jest.mock('@/lib/drupal/query', () => {
-  const mockEntity = {
-    id: 'c0d78f6e-3787-42e8-a7b2-fb81f6587059',
-    type: 'node--press_releases_listing',
-    attributes: {},
-    langcode: 'en',
-    status: true,
-    field_office: {
-      field_system_menu: {
-        resourceIdObjMeta: {
-          drupal_internal__target_id: 'va-birmingham-health-care',
-        },
+jest.mock('@/lib/drupal/query')
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const mockDrupalQuery = require('@/lib/drupal/query')
+
+const mockEntity = {
+  id: 'c0d78f6e-3787-42e8-a7b2-fb81f6587059',
+  type: 'node--press_releases_listing',
+  attributes: {},
+  langcode: 'en',
+  status: true,
+  field_office: {
+    field_system_menu: {
+      resourceIdObjMeta: {
+        drupal_internal__target_id: 'va-birmingham-health-care',
       },
     },
-  }
+  },
+}
 
-  const mockMenu = {
-    items: [],
-    tree: [],
-  }
-  return {
-    fetchSingleEntityOrPreview: jest.fn().mockResolvedValue(mockEntity),
-    fetchAndConcatAllResourceCollectionPages: jest
-      .fn()
-      .mockResolvedValue({ data: [], totalItems: 0, totalPages: 0 }),
-    getMenu: jest.fn().mockResolvedValue(mockMenu),
-    entityBaseFields: jest.fn().mockReturnValue({}),
-  }
-})
+mockDrupalQuery.setSingleEntityMock(
+  RESOURCE_TYPES.PRESS_RELEASE_LISTING,
+  jest.fn().mockResolvedValue(mockEntity)
+)
+mockDrupalQuery.setResourceCollectionMock(
+  RESOURCE_TYPES.PRESS_RELEASE,
+  jest.fn().mockResolvedValue({ data: [], totalItems: 0, totalPages: 0 })
+)
 
 // mocking the queries object to return a mock params object
 jest.mock('@/lib/drupal/queries', () => {
