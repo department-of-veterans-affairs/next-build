@@ -174,7 +174,9 @@ export default function ResourcePage({
     ]
   }
 
-  const isPreviewDomain = typeof window !== 'undefined' && window.location.hostname.includes(previewDomain)
+  const isPreviewDomain =
+    typeof window !== 'undefined' &&
+    window.location.hostname.includes(previewDomain)
 
   return (
     <PageLayout
@@ -188,7 +190,9 @@ export default function ResourcePage({
       <HTMLComment position="head" content={comment} />
 
       {/* We want preview to always have the edit link if the domain is right. */}
-      {(preview || isPreviewDomain) && <PreviewCrumb entityId={resource.entityId} />}
+      {(preview || isPreviewDomain) && (
+        <PreviewCrumb entityId={resource.entityId} />
+      )}
 
       <DynamicBreadcrumbs breadcrumbs={resource.breadcrumbs} />
 
