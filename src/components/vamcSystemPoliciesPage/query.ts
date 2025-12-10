@@ -4,11 +4,7 @@ import { NodeVamcSystemPoliciesPage } from '@/types/drupal/node'
 import { VamcSystemPoliciesPage } from './formatted-type'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
-import {
-  entityBaseFields,
-  fetchSingleEntityOrPreview,
-  getMenu,
-} from '@/lib/drupal/query'
+import { fetchSingleEntityOrPreview, getMenu } from '@/lib/drupal/query'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 import {
   formatParagraph,
@@ -19,10 +15,10 @@ import { Wysiwyg } from '../wysiwyg/formatted-type'
 import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import {
-  getLovellVariantOfBreadcrumbs,
   getLovellVariantOfUrl,
   getOppositeChildVariant,
 } from '@/lib/drupal/lovell/utils'
+import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
 
 // Define the query params for fetching node--vamc_system_policies_page.
 export const params: QueryParams<null> = () => {
@@ -55,12 +51,6 @@ export const data: QueryData<
     params
   )) as NodeVamcSystemPoliciesPage
 
-  if (!entity) {
-    throw new Error(
-      `NodeVamcSystemPoliciesPage entity not found for id: ${opts.id}`
-    )
-  }
-
   // Fetch the menu name dynamically off of the field_office reference
   const menu = entity.field_office.field_system_menu
     ? await getMenu(
@@ -76,19 +66,13 @@ export const formatter: QueryFormatter<
   VamcSystemPoliciesPageData,
   VamcSystemPoliciesPage
 > = ({ entity, menu, lovell }) => {
-  let { breadcrumbs } = entity
-  if (lovell?.isLovellVariantPage) {
-    breadcrumbs = getLovellVariantOfBreadcrumbs(breadcrumbs, lovell.variant)
-  }
-
   const formatCcWysiwyg = (field: FieldCCText) =>
     formatParagraph(normalizeEntityFetchedParagraphs(field)) as Wysiwyg
 
   const formattedMenu = buildSideNavDataFromMenu(entity.path.alias, menu)
 
   const formattedEntity: VamcSystemPoliciesPage = {
-    ...entityBaseFields(entity),
-    breadcrumbs,
+    ...entityBaseFields(entity, lovell),
     menu: formattedMenu,
     introText: formatCcWysiwyg(entity.field_cc_intro_text),
     topOfPageContent: formatCcWysiwyg(entity.field_cc_top_of_page_content),

@@ -7,15 +7,18 @@ import {
   getPagesSlice,
 } from '../test/getSitemapLocations.js'
 import fs from 'fs'
+import crypto from 'crypto'
 
 const OPTIONS = {
   sitemapUrl: process.env.SITE_URL || 'http://www.va.gov/',
   // totalInstances is the number of instances to split work among.
   totalInstances: process.env.TOTAL_INSTANCES || 1,
-  // instanceNumber is the specifc instance currently running the check.
+  // instanceNumber is the specific instance currently running the check.
   // In this and totalInstances case, the defaults will check the entire set.
   instanceNumber: process.env.INSTANCE_NUMBER || 1,
-  // batchSize is the number of pararllel link check processes to run.
+  // sampleSize: -1 means all. Can be set with SAMPLE_SIZE env var.
+  sampleSize: process.env.SAMPLE_SIZE ? Number(process.env.SAMPLE_SIZE) : -1,
+  // batchSize is the number of parallel link check processes to run.
   batchSize: process.env.BATCH_SIZE || 20,
   verbose: process.env.VERBOSE || false,
 }
@@ -31,11 +34,15 @@ const LINKS_TO_SKIP = [
   'exclusions.oig.hhs.gov',
   'instagram.com',
   'microsoft.com',
+  'mobile.va.gov',
   'motel6.com',
+  'move.va.gov',
   'oefoif.va.gov',
   'patientportal.myhealth.va.gov',
+  'pmc.ncbi.nlm.nih.gov',
   'prod-va-gov-assets.s3-us-gov-west-1.amazonaws.com',
   'ptsd.va.gov',
+  'pubmed.ncbi.nlm.nih.gov',
   'redroof.com',
   'resource.digital.voice.va.gov',
   's3-us-gov-west-1.amazonaws.com/content.www.va.gov',
@@ -43,18 +50,28 @@ const LINKS_TO_SKIP = [
   'sciencedirect.com',
   'southeast.va.gov',
   'twitter.com',
+  'usich.gov',
   'va-ams.intelliworxit.com',
   'va.gov/Geriatrics',
   'va.gov/wholehealth',
+  'vapihcspao.podbean.com',
   'vetcenter.va.gov',
   'volunteer.va.gov',
   'warrelatedillness.va.gov',
   'womenshealth.va.gov',
   'www.choicehotels.com',
+  'www.facebook.com',
   'www.googletagmanager.com',
-  /visn\d+.*?\.va\.gov/,
+  'www.move.va.gov',
+  'www.pay.gov',
+  'www.myplate.gov',
+  'www.youtube.com',
+  'youtu.be',
   /fb\.(com|me|watch)/,
-  /www\.facebook\.com/,
+  /visn\d+.*?\.va\.gov/,
+  /www\.va\.gov\/_next\/static\/.*/,
+  /www\.va\.gov\/?$/,
+  /www\.va\.gov\/img\/*/,
   // process.env.SKIP_IMAGES ? '' : null
 ]
 
@@ -128,8 +145,50 @@ async function checkBrokenLinks() {
 
   // Full array of sitemap defined URLs.
   const allPaths = await getSitemapLocations(OPTIONS.sitemapUrl)
+
+  // Hash function to convert a string to a fraction between 0 and 1.
+  function hashToFraction(u) {
+    const h = crypto
+      .createHash('sha256')
+      .update(String(u))
+      .digest('hex')
+      .slice(0, 8)
+    const v = parseInt(h, 16)
+    return v / 0xffffffff
+  }
+
+  // Deterministic sampling function: given an array and a number n,
+  // return a sample of n items from the array, selected deterministically
+  // via hashing.
+  function deterministicSampleExact(arr, n) {
+    if (n <= 0 || n >= arr.length) return Array.from(arr)
+    // Create array of {u, v} pairs where "u" is the item and "v" is its hash-derived fraction.
+    const pairs = arr.map((u) => ({ u, v: hashToFraction(u) }))
+    // Sort pairs by the hash-derived fraction.
+    pairs.sort((a, b) => a.v - b.v)
+    // Return the first n items from the sorted pairs.
+    return pairs.slice(0, n).map((p) => p.u)
+  }
+
+  let sampledPaths = allPaths
+  // Anything > -1 means sampling is enabled.
+  // Otherwise we use the full set of sitemap URLs.
+  if (Number(OPTIONS.sampleSize) > -1) {
+    const n = Number(OPTIONS.sampleSize)
+    // Sampling: take a deterministic sample of the sitemap
+    // before partitioning work across instances. Deterministic sampling uses a
+    // sha256-derived fraction so the same URLs are selected each run.
+    sampledPaths = deterministicSampleExact(allPaths, n)
+    console.log(
+      `Sampling enabled: selected ${chalk.yellow(sampledPaths.length)} of ${chalk.yellow(
+        allPaths.length
+      )} sitemap URLs (SAMPLE_SIZE=${n})`
+    )
+  }
+
+  // Partition sampled paths across instances so each instance scans a unique slice.
   const paths = getPagesSlice(
-    allPaths,
+    sampledPaths,
     OPTIONS.totalInstances,
     OPTIONS.instanceNumber
   )

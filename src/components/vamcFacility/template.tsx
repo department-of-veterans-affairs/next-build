@@ -1,8 +1,6 @@
 import { VamcFacility as FormattedVamcFacility } from './formatted-type'
 
 import { FacilityTopTasks } from '@/components/topTasks/template'
-import { numberToTimeString } from '@/lib/utils/numberToTimeString'
-import { dayOfWeek } from '@/lib/utils/dayOfWeek'
 
 import { LocationServices } from './LocationServices'
 import { HealthServices } from './HealthServices'
@@ -17,64 +15,33 @@ import { MediaImage } from '@/components/mediaImage/template'
 import { TextWithImage } from '@/components/textWithImage/template'
 import { VamcSystemSocialLinks } from '@/components/vamcSystemSocialLinks/template'
 import { SideNavLayout } from '@/components/sideNavLayout/template'
+import { SchemaScript } from './SchemaScript'
 
-export function VamcFacility({
-  title,
-  introText,
-  lastUpdated,
-  operatingStatusFacility,
-  menu,
-  path,
-  administration,
-  vamcEhrSystem,
-  officeHours,
-  address,
-  mainPhoneString,
-  vaHealthConnectPhoneNumber,
-  image,
-  facilityLocatorApiId,
-  geoLocation,
-  mentalHealthPhoneNumber: fieldTelephone,
-  relatedLinks,
-  locationServices,
-  socialLinks,
-  lovellVariant,
-  lovellSwitchPath,
-  healthServices,
-}: FormattedVamcFacility) {
-  const structuredSchemaData = {
-    '@context': 'https://schema.org',
-    '@type': 'Place',
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: `${address.address_line1}${
-        address.address_line2 ? `, ${address.address_line2}` : ''
-      }`,
-      addressLocality: address.locality,
-      addressRegion: address.administrative_area,
-      postalCode: address.postal_code,
-    },
-    name: title,
-    telephone: mainPhoneString,
-    openingHoursSpecification: officeHours.map((hours) => ({
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: `https://schema.org/${dayOfWeek(hours.day)}`,
-      opens: numberToTimeString(hours.starthours),
-      closes: numberToTimeString(hours.endhours),
-    })),
-    hasMap: `https://maps.google.com?saddr=Current+Location&daddr=${encodeURIComponent(
-      `${address.address_line1}, ${address.locality}, ${address.postal_code}`
-    )}`,
-    // Shouldn't need all these optional chains, but because we're not
-    // validating data during runtime, just in case...
-    image: image?.links?.['2_1_large']?.href,
-    branchCode: facilityLocatorApiId,
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: geoLocation?.lat ?? '',
-      longitude: geoLocation?.lon ?? '',
-    },
-  }
+export function VamcFacility(props: FormattedVamcFacility) {
+  const {
+    title,
+    introText,
+    lastUpdated,
+    operatingStatusFacility,
+    menu,
+    path,
+    administration,
+    vamcSystemTitle,
+    vamcEhrSystem,
+    officeHours,
+    address,
+    mainPhoneString,
+    vaHealthConnectPhoneNumber,
+    image,
+    facilityLocatorApiId,
+    mentalHealthPhoneNumber: fieldTelephone,
+    relatedLinks,
+    locationServices,
+    socialLinks,
+    lovellVariant,
+    lovellSwitchPath,
+    healthServices,
+  } = props
 
   // Used to get a base url path of a health care region from `path`
   // NOTE: Maybe could use entity.field_region_page.path.alias instead?
@@ -129,13 +96,7 @@ export function VamcFacility({
               basePath={menu.data.links[0].url.path}
             />
             <section>
-              {/* Embedding structured data scripts for schema.org */}
-              <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{
-                  __html: JSON.stringify(structuredSchemaData),
-                }}
-              />
+              <SchemaScript {...props} />
 
               <h3
                 className="vads-u-margin-top--0 vads-u-margin-bottom--1"
@@ -166,8 +127,8 @@ export function VamcFacility({
         </TextWithImage>
         <LocationServices items={locationServices} />
         <RelatedLinks
-          sectionTitle={relatedLinks.sectionTitle}
-          links={relatedLinks.links}
+          {...relatedLinks}
+          title={`Other services at ${vamcSystemTitle}`}
         />
         <HealthServices
           healthServices={healthServices}

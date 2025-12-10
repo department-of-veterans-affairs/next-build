@@ -7,16 +7,11 @@ import {
   RESOURCE_TYPES,
 } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
-import {
-  entityBaseFields,
-  fetchSingleEntityOrPreview,
-  getMenu,
-} from '@/lib/drupal/query'
+import { fetchSingleEntityOrPreview, getMenu } from '@/lib/drupal/query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import {
-  getLovellVariantOfBreadcrumbs,
   getLovellVariantOfUrl,
   getOppositeChildVariant,
 } from '@/lib/drupal/lovell/utils'
@@ -24,6 +19,7 @@ import { formatter as formatAdministration } from '@/components/administration/q
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { formatParagraph } from '@/lib/drupal/paragraphs'
 import { getNestedIncludes } from '@/lib/utils/queries'
+import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
 
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude([
@@ -32,28 +28,15 @@ export const params: QueryParams<null> = () => {
     'field_related_links',
     'field_related_links.field_va_paragraphs',
     ...getNestedIncludes('field_featured_content', PARAGRAPH_RESOURCE_TYPES.QA),
-    ...getNestedIncludes(
-      'field_content_block',
-      PARAGRAPH_RESOURCE_TYPES.QA_SECTION
-    ),
-    ...getNestedIncludes(
-      'field_content_block',
-      PARAGRAPH_RESOURCE_TYPES.LIST_OF_LINK_TEASERS
-    ),
-    ...getNestedIncludes(
-      'field_content_block',
-      PARAGRAPH_RESOURCE_TYPES.COLLAPSIBLE_PANEL
-    ),
-    ...getNestedIncludes(
-      'field_content_block',
-      PARAGRAPH_RESOURCE_TYPES.DOWNLOADABLE_FILE
-    ),
-    ...getNestedIncludes('field_content_block', PARAGRAPH_RESOURCE_TYPES.ALERT),
-    ...getNestedIncludes(
-      'field_content_block',
-      PARAGRAPH_RESOURCE_TYPES.STAFF_PROFILE
-    ),
-    ...getNestedIncludes('field_content_block', PARAGRAPH_RESOURCE_TYPES.MEDIA),
+    ...getNestedIncludes('field_content_block', [
+      PARAGRAPH_RESOURCE_TYPES.QA_SECTION,
+      PARAGRAPH_RESOURCE_TYPES.LIST_OF_LINK_TEASERS,
+      PARAGRAPH_RESOURCE_TYPES.COLLAPSIBLE_PANEL,
+      PARAGRAPH_RESOURCE_TYPES.DOWNLOADABLE_FILE,
+      PARAGRAPH_RESOURCE_TYPES.ALERT,
+      PARAGRAPH_RESOURCE_TYPES.STAFF_PROFILE,
+      PARAGRAPH_RESOURCE_TYPES.MEDIA,
+    ]),
   ])
   // I would like to be able to use just these recursive fields, but it doesn't seem to
   // work, at least with this version of Drupal. According to the documentation here
@@ -88,12 +71,6 @@ export const data: QueryData<
     RESOURCE_TYPES.VAMC_SYSTEM_DETAIL_PAGE,
     params
   )) as NodeVamcSystemDetailPage
-
-  if (!entity) {
-    throw new Error(
-      `NodeVamcSystemDetailPage entity not found for id: ${opts.id}`
-    )
-  }
 
   // TODO: There seems to be some difference between a "facilitySidebar" and "outreachSidebar" in the original template
 
@@ -137,11 +114,7 @@ export const formatter: QueryFormatter<
     : entity.path.alias
 
   return {
-    ...entityBaseFields(entity),
-    breadcrumbs: lovell?.isLovellVariantPage
-      ? getLovellVariantOfBreadcrumbs(entity.breadcrumbs, lovell.variant)
-      : entity.breadcrumbs,
-    title: entity.title,
+    ...entityBaseFields(entity, lovell),
     path: normalizedPath,
     introText: entity.field_intro_text,
     showTableOfContents: entity.field_table_of_contents_boolean,

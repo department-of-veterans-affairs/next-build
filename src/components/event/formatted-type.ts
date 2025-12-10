@@ -1,33 +1,14 @@
-import {
-  NodeEventListing,
-  NodeHealthCareLocalFacility,
-} from '@/types/drupal/node'
+import { NodeHealthCareLocalFacility } from '@/types/drupal/node'
 import { MediaImage } from '@/components/mediaDocument/formatted-type'
 import { PublishedEntity } from '@/types/formatted/publishedEntity'
 import {
   FieldAddress,
-  FieldFormattedText,
   SocialLinksProps,
   FieldLink,
+  FieldDateTimeRange,
+  FieldNestedLink,
 } from '@/types/drupal/field_type'
 import { Administration } from '@/components/administration/formatted-type'
-
-interface DateTimeRangeItem {
-  value: string
-  end_value: string
-  duration: number
-  rrule: number
-  rrule_index: number
-  timezone: string
-}
-
-interface Link {
-  url: {
-    path: string
-  }
-  uri: string
-  title: string
-}
 
 export type Event = PublishedEntity & {
   image: MediaImage | null
@@ -35,7 +16,7 @@ export type Event = PublishedEntity & {
   socialLinks: SocialLinksProps
   listing: string
   listingOffice: string
-  additionalInfo: FieldFormattedText | null
+  additionalInfo: string
   address: FieldAddress
   locationHumanReadable: string
   eventCTA: string | null
@@ -43,79 +24,12 @@ export type Event = PublishedEntity & {
   howToSignUp: string | null
   cost: string
   registrationRequired: boolean
-  datetimeRange: DateTimeRangeItem[]
+  datetimeRange: FieldDateTimeRange[]
   facilityLocation: NodeHealthCareLocalFacility | null
-  body: FieldFormattedText | null
+  body: string
   locationType: string
   description: string
-  link: Link | null
+  link: FieldNestedLink | null
   urlOfOnlineEvent: FieldLink
   administration: Administration
-}
-
-// export type EventTeaser = PublishedEntity & {
-// This doesn't look like our other formatted types, but it is the shape that the vets-website event widget expects.
-export type EventWidgetTeaser = {
-  changed: string
-  entityBundle: string
-  entityId: string
-  entityPublished: boolean
-  entityUrl: {
-    path: string
-  }
-  fieldAdditionalInformationAbo: FieldFormattedText
-  fieldAdditionalListings: []
-  fieldAddress: {
-    addressLine1?: string
-    addressLine2?: string
-    administrativeArea?: string
-    countryCode?: string
-    locality?: string
-    postalCode?: string
-  }
-  fieldAdministration: {
-    entity: {
-      entityId: number
-    }
-  }
-  fieldBody: {
-    format: string
-    processed: string
-    value: string
-  }
-  fieldCtaEmail: string
-  fieldDatetimeRangeTimezone: DateTimeRangeItem[]
-  fieldDescription: string | null
-  fieldEventCost: string
-  fieldEventCta: string
-  fieldEventRegistrationrequired: boolean
-  fieldFacilityLocation?: {
-    entity: {
-      entityUrl: {
-        path: string
-      }
-      fieldAddress: {
-        addressLine1: string
-        addressLine2: string
-        administrativeArea: string
-        countryCode: string
-        locality: string
-        postalCode: string
-      }
-      title: string
-    }
-  }
-  fieldFeatured: boolean
-  fieldHowToSignUp: string
-  fieldLink: Link
-  fieldListing: {
-    entity: {
-      entityId: string
-    }
-  }
-  fieldLocationHumanreadable: string
-  fieldLocationType: string
-  fieldOrder: string
-  fieldUrlOfAnOnlineEvent: { uri: string; title: string }
-  title: string
 }
