@@ -80,3 +80,102 @@ va-button#mdFormButton::part(button) {
   min-width: 40px !important;
   max-width: 40px !important;
 }
+
+/* Alert block styles */
+.alert-with-additional-info {
+  *:first-child,
+  *:last-child {
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
+  }
+}
+
+/* fix for sidenav btn - used in CustomSideNav.tsx */
+.va-sidenav-btn-close {
+  background-size: 0.625rem 0.625rem;
+  background-color: transparent;
+  height: 1.375rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.375rem;
+  margin: 0;
+  width: 0.625rem;
+}
+
+@media (min-width: 767px) {
+  .va-sidenav-btn-close {
+    display: none;
+  }
+}
+
+/* Override styles for the mobile nav trigger wrapper because we have our own system */
+.va-btn-sidebarnav-trigger {
+  padding: 0 !important;
+  z-index: unset !important;
+  width: 100%;
+}
+
+/* This particular breakpoint is deprecated (medium-screen), so we aren't able to apply
+   utility classes at this breakpoint. We need to match it exactly to play nicely with
+   the side-nav styles that are applied at this breakpoint. */
+@media screen and (max-width: 767px) {
+  /* We don't want this to behave as a flex row while the mobile nav styles are in effect */
+  .va-sidebarnav-wrapper {
+    display: block;
+  }
+}
+@media (min-width: 768px) and (max-width: 1201px) {
+  /* This is specifically working around weird `.merger article` rules affecting article padding */
+  .va-sidebarnav {
+    padding-right: 1rem;
+  }
+}
+@media (min-width: 1202px) {
+  /* This is specifically working around weird `.merger article` rules affecting article padding */
+  .va-sidebarnav {
+    padding-right: 2rem;
+  }
+}
+
+#sidenav-trigger {
+  padding-top: 1rem;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  width: 100%;
+  /* Override existing styles and make it under the open mobile nav */
+  z-index: 299;
+  margin-bottom: 1rem;
+}
+
+/* Sticky positioning for mobile sidebar trigger */
+#sidenav-trigger.sidenav-trigger--sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding-left: calc(1rem + 0.5em);
+  padding-right: calc(1rem + 0.5em);
+  width: initial;
+
+  background-color: white;
+}
+
+/* Sentinel element for IntersectionObserver */
+.sidenav-trigger-sentinel {
+  height: 1px;
+  width: 100%;
+  pointer-events: none;
+}
+
+/* Placeholder to prevent layout shift when trigger becomes fixed */
+.sidenav-trigger-placeholder {
+  margin-top: 1rem;
+  width: 100%;
+  /* Height is set dynamically via inline style */
+  margin-bottom: 1rem;
+}
+
+.homepage-email-update-wrapper .homepage-email-input::part(form-header) {
+  font-size: 1.25rem;
+}

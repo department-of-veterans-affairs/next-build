@@ -9,24 +9,19 @@ exports[`VamcSystemPoliciesPage data fetching fetches and formats data correctly
   },
   "breadcrumbs": [
     {
+      "href": "/",
+      "label": "Home",
       "options": [],
-      "title": "Home",
-      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
     },
     {
+      "href": "/augusta-health-care",
+      "label": "VA Augusta health care",
       "options": [],
-      "title": "VA Augusta health care",
-      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/augusta-health-care",
     },
     {
+      "href": "",
+      "label": "Policies",
       "options": [],
-      "title": "ABOUT VA AUGUSTA",
-      "uri": "internal:#",
-    },
-    {
-      "options": [],
-      "title": "Policies",
-      "uri": "internal:#",
     },
   ],
   "entityId": 23212,

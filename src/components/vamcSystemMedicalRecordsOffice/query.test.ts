@@ -7,7 +7,6 @@
 
 import mockPage from './mock.json'
 import mockMenu from './mock.menu.json'
-import mockServices from './mock.services.json'
 import {
   NodeVamcSystemMedicalRecordsOffice,
   NodeVhaFacilityNonclinicalService,
@@ -15,22 +14,29 @@ import {
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { queries } from '@/lib/drupal/queries'
 import { LovellStaticPropsContextProps } from '@/lib/drupal/lovell/types'
+import {
+  createMedicalRecordsServiceQueryMocks,
+  mockMedicalRecordsServices,
+} from '@/components/vhaFacilityNonclinicalService/query.test-utils'
 
 const mockPageQuery = jest.fn(
   () => mockPage as NodeVamcSystemMedicalRecordsOffice
 )
-const mockServicesQuery = jest.fn(
-  () => mockServices as NodeVhaFacilityNonclinicalService[]
-)
 
-jest.mock('@/lib/drupal/query', () => ({
-  ...jest.requireActual('@/lib/drupal/query'),
-  fetchSingleEntityOrPreview: () => mockPageQuery(),
-  fetchAndConcatAllResourceCollectionPages: () => ({
-    data: mockServicesQuery(),
-  }),
-  getMenu: () => mockMenu,
-}))
+jest.mock('@/lib/drupal/query')
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const mockDrupalQuery = require('@/lib/drupal/query')
+
+const serviceMocks = createMedicalRecordsServiceQueryMocks()
+
+mockDrupalQuery.setSingleEntityMock(
+  RESOURCE_TYPES.VAMC_SYSTEM_MEDICAL_RECORDS_OFFICE,
+  mockPageQuery
+)
+mockDrupalQuery.fetchAndConcatAllResourceCollectionPages.mockImplementation(
+  serviceMocks.mockFetchAndConcatAllResourceCollectionPages
+)
+mockDrupalQuery.getMenu.mockReturnValue(mockMenu)
 
 jest.mock('@/lib/drupal/drupalClient', () => ({
   drupalClient: {
@@ -68,9 +74,7 @@ describe('VamcSystemMedicalRecordsOffice formatter', () => {
     mockPageQuery.mockReturnValue(
       mockPage as NodeVamcSystemMedicalRecordsOffice
     )
-    mockServicesQuery.mockReturnValue(
-      mockServices as NodeVhaFacilityNonclinicalService[]
-    )
+    serviceMocks.reset()
   })
 
   test('outputs formatted data', async () => {
@@ -107,22 +111,22 @@ describe('VamcSystemMedicalRecordsOffice formatter', () => {
   test('sorts services alphabetically by title', async () => {
     const unsortedServices = [
       {
-        ...mockServices[0],
+        ...mockMedicalRecordsServices[0],
         field_facility_location: {
-          ...mockServices[0].field_facility_location,
+          ...mockMedicalRecordsServices[0].field_facility_location,
           title: 'Zebra Medical Center',
         },
       },
       {
-        ...mockServices[0],
+        ...mockMedicalRecordsServices[0],
         field_facility_location: {
-          ...mockServices[0].field_facility_location,
+          ...mockMedicalRecordsServices[0].field_facility_location,
           title: 'Alpha Medical Center',
         },
       },
     ]
 
-    mockServicesQuery.mockReturnValue(
+    serviceMocks.mockServicesQuery.mockResolvedValue(
       unsortedServices as NodeVhaFacilityNonclinicalService[]
     )
 
@@ -187,8 +191,8 @@ describe('VamcSystemMedicalRecordsOffice formatter', () => {
       })
 
       expect(result.breadcrumbs[1]).toEqual({
-        uri: 'https://va-gov-cms.ddev.site/lovell-federal-health-care-tricare',
-        title: 'Lovell Federal health care - TRICARE',
+        href: '/lovell-federal-health-care-tricare',
+        label: 'Lovell Federal health care - TRICARE',
         options: [],
       })
     })
@@ -205,7 +209,23 @@ describe('VamcSystemMedicalRecordsOffice formatter', () => {
         variant: 'va',
       })
 
-      expect(result.breadcrumbs).toEqual(lovellBreadcrumbs)
+      expect(result.breadcrumbs).toEqual([
+        {
+          href: '/',
+          label: 'Home',
+          options: [],
+        },
+        {
+          href: '/lovell-federal-health-care',
+          label: 'Lovell Federal health care',
+          options: [],
+        },
+        {
+          href: '',
+          label: 'Medical records office',
+          options: [],
+        },
+      ])
     })
   })
 })

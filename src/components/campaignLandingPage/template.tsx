@@ -10,24 +10,39 @@ import { VideoPanel } from './VideoPanel'
 import { WhatYouCanDo } from './WhatYouCanDo'
 import { WhyThisMatters } from './WhyThisMatters'
 
-export type CampaignLandingPageProps = {
-  title: string
+import { CampaignLandingPage as FormattedCampaignLandingPage } from './formatted-type'
+
+export interface CampaignLandingPageProps extends FormattedCampaignLandingPage {
+  // used for analytics which needs to know the number of page sections
+  pageSectionCount?: number
 }
 
-export function CampaignLandingPage({ title }: CampaignLandingPageProps) {
+export function CampaignLandingPage(props: CampaignLandingPageProps) {
+  const sections = [
+    HeroBanner,
+    WhyThisMatters,
+    WhatYouCanDo,
+    VideoPanel,
+    SpotlightPanel,
+    StoriesPanel,
+    ResourcesPanel,
+    EventsPanel,
+    FaqPanel,
+    ConnectWithUs,
+    BenefitCategories,
+  ]
+
+  const pageSectionCount = sections.length
+
   return (
     <>
-      <HeroBanner title={title} />
-      <WhyThisMatters title={title} />
-      <WhatYouCanDo />
-      <VideoPanel />
-      <SpotlightPanel />
-      <StoriesPanel />
-      <ResourcesPanel />
-      <EventsPanel />
-      <FaqPanel />
-      <ConnectWithUs />
-      <BenefitCategories />
+      {sections.map((SectionComponent, index) => (
+        <SectionComponent
+          {...props}
+          pageSectionCount={pageSectionCount}
+          key={index}
+        />
+      ))}
     </>
   )
 }

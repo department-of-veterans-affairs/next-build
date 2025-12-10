@@ -31,6 +31,8 @@ const customJestConfig: Config = {
     'src/**/*.{js,jsx,ts,tsx}',
     '!**/__tests__/**.test.{js,jsx,ts,tsx}',
     '!playwright/**/*.{js,jsx,ts,tsx}',
+    // Don't include any of our mock files
+    '!src/components/**/mock*.{js,ts}',
     // Some files excluded from unit test coverage reporting in favor of e2e tests
     '!src/lib/utils/redisCache.ts',
     '!src/lib/drupal/drupalClient.ts',

@@ -102,14 +102,14 @@ exports[`VetCenterOutstation formatData handles ccFeaturedContent not getting fe
   },
   "breadcrumbs": [
     {
+      "href": "/",
+      "label": "Home",
       "options": [],
-      "title": "Home",
-      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
     },
     {
+      "href": "",
+      "label": "Springfield, MA Vet Center",
       "options": [],
-      "title": "Springfield, MA Vet Center",
-      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/springfield-ma-vet-center",
     },
   ],
   "ccNonTraditionalHours": {
@@ -736,14 +736,14 @@ exports[`VetCenterOutstation formatData outputs formatted data 1`] = `
   },
   "breadcrumbs": [
     {
+      "href": "/",
+      "label": "Home",
       "options": [],
-      "title": "Home",
-      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
     },
     {
+      "href": "",
+      "label": "Springfield, MA Vet Center",
       "options": [],
-      "title": "Springfield, MA Vet Center",
-      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/springfield-ma-vet-center",
     },
   ],
   "ccNonTraditionalHours": {

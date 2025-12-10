@@ -1,0 +1,6 @@
+/* 768px = $medium-screen */
+@media (min-width: 768px) {
+  .storyImage {
+    max-width: 40%;
+  }
+}
