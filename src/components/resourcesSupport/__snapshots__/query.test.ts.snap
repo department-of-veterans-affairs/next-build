@@ -21,19 +21,19 @@ exports[`Resources Support formatData outputs formatted data 1`] = `
   ],
   "breadcrumbs": [
     {
+      "href": "/",
+      "label": "Home",
       "options": [],
-      "title": "Home",
-      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
     },
     {
+      "href": "/resources",
+      "label": "Resources and support",
       "options": [],
-      "title": "Resources and support",
-      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/resources",
     },
     {
+      "href": "",
+      "label": "Closed life insurance programs",
       "options": [],
-      "title": "Closed life insurance programs",
-      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/resources/closed-life-insurance-programs",
     },
   ],
   "buttons": [

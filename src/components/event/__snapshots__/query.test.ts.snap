@@ -2,7 +2,7 @@
 
 exports[`node--event formatData outputs formatted data 1`] = `
 {
-  "additionalInfo": null,
+  "additionalInfo": "",
   "address": {
     "address_line1": "9000 Douglas Ave",
     "address_line2": "",
@@ -15,40 +15,31 @@ exports[`node--event formatData outputs formatted data 1`] = `
     "entityId": null,
     "name": null,
   },
-  "body": {
-    "format": "rich_text",
-    "processed": "<p>Pickleball Club</p>
+  "body": "<p>Pickleball Club</p>
 
 <p>Meets Thursdays from 9 to 11 a.m. </p>
 
-<p>Contact Kay Queck (515) 214-4578</p>",
-    "value": "<p>Pickleball Club</p>
-
-<p>Meets Thursdays from 9 to 11 a.m.&nbsp;</p>
-
-<p>Contact Kay Queck (515) 214-4578</p>
-",
-  },
+<p>Contact Kay Queck <va-telephone contact="515-214-4578" extension=""></va-telephone></p>",
   "breadcrumbs": [
     {
+      "href": "/",
+      "label": "Home",
       "options": [],
-      "title": "Home",
-      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
     },
     {
+      "href": "/central-iowa-health-care",
+      "label": "VA Central Iowa health care",
       "options": [],
-      "title": "VA Central Iowa health care",
-      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/central-iowa-health-care",
     },
     {
+      "href": "/central-iowa-health-care/events",
+      "label": "Events",
       "options": [],
-      "title": "Events",
-      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/central-iowa-health-care/events",
     },
     {
+      "href": "",
+      "label": "Pickleball Club",
       "options": [],
-      "title": "Pickleball Club",
-      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/central-iowa-health-care/events/52265",
     },
   ],
   "cost": "Free",

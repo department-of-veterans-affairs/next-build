@@ -11,15 +11,11 @@ import { formatter as formatAdministration } from '@/components/administration/q
 import {
   getLovellVariantOfUrl,
   getOppositeChildVariant,
-  getLovellVariantOfBreadcrumbs,
 } from '@/lib/drupal/lovell/utils'
 
-import {
-  entityBaseFields,
-  fetchSingleEntityOrPreview,
-  getMenu,
-} from '@/lib/drupal/query'
+import { fetchSingleEntityOrPreview, getMenu } from '@/lib/drupal/query'
 import { Menu } from '@/types/drupal/menu'
+import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
 
 // Define the query params for fetching node--leadership_listing.
 export const params: QueryParams<null> = () => {
@@ -70,10 +66,6 @@ export const formatter: QueryFormatter<
   LeadershipListingData,
   LeadershipListing
 > = ({ entity, menu, lovell }) => {
-  let { breadcrumbs } = entity
-  if (lovell?.isLovellVariantPage) {
-    breadcrumbs = getLovellVariantOfBreadcrumbs(breadcrumbs, lovell.variant)
-  }
   const formattedMenu =
     menu !== null ? buildSideNavDataFromMenu(entity.path.alias, menu) : null
   const formattedProfiles = entity.field_leadership
@@ -101,8 +93,7 @@ export const formatter: QueryFormatter<
       }
     })
   return {
-    ...entityBaseFields(entity),
-    breadcrumbs,
+    ...entityBaseFields(entity, lovell),
     introText: entity.field_intro_text,
     profiles: formattedProfiles,
     menu: formattedMenu,

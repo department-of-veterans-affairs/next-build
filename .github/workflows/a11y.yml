@@ -21,7 +21,7 @@ jobs:
       matrix:
         shardIndex: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128]
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6.0.1
       - uses: actions/setup-node@v6
         with:
           node-version: 24
@@ -52,7 +52,7 @@ jobs:
           echo "Using random values: $PW_BROWSER_VALUE, $PW_WIDTH_VALUE, $PW_HEIGHT_VALUE"
 
       - name: Install dependencies
-        run: yarn install
+        run: yarn install --immutable
 
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
@@ -68,7 +68,7 @@ jobs:
           SEGMENT_INDEX=${{ matrix.shardIndex }} yarn playwright test --project=a11y
 
       - name: Upload scan report to GitHub Actions Artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: segment-${{ matrix.shardIndex }}.json
           path: segment-${{ matrix.shardIndex }}.json
@@ -76,7 +76,7 @@ jobs:
           if-no-files-found: ignore
 
       - name: Upload failed pages report to GitHub Actions Artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: failed-pages-segment-${{ matrix.shardIndex }}.json
           path: failed-pages-segment-${{ matrix.shardIndex }}.json
@@ -89,15 +89,15 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6.0.1
       - uses: actions/setup-node@v6
         with:
           node-version: 24
       - name: Install dependencies
-        run: yarn install
+        run: yarn install --immutable
 
       - name: Download blob reports from GitHub Actions Artifacts
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v6
         with:
           pattern: segment-*
           merge-multiple: true
@@ -111,7 +111,7 @@ jobs:
           jq -s '.' segment-*.json | jq 'flatten' > all-segments.json
 
       - name: Upload report
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: a11y-scan-${{ github.run_attempt }}
           path: all-segments.json
@@ -128,15 +128,15 @@ jobs:
     outputs:
         FAILED_PAGES: ${{steps.export-report.outputs.FAILED_PAGES}}
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6.0.1
       - uses: actions/setup-node@v6
         with:
           node-version: 24
       - name: Install dependencies
-        run: yarn install
+        run: yarn install --immutable
 
       - name: Download blob reports from GitHub Actions Artifacts
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v6
         with:
           pattern: failed-pages-segment-*
           merge-multiple: true
@@ -169,7 +169,7 @@ jobs:
           jq '.series[0].points[0] = [${{env.NOW}}, 0]' > metrics.json
 
       - name: Upload report
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: a11y-scan-failed-pages-${{ github.run_attempt }}
           path: all-failed-pages.json
@@ -177,7 +177,7 @@ jobs:
           if-no-files-found: ignore
 
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@00943011d9042930efac3dcd3a170e4273319bc8 # v5.1.0
+        uses: aws-actions/configure-aws-credentials@61815dcd50bd041e203e49132bacad1fd04d2708 # v5.1.1
         with:
             aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
             aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}

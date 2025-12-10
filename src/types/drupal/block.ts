@@ -1,11 +1,13 @@
 import { DrupalBlock } from 'next-drupal'
 import { DrupalMediaImage } from './media'
 import {
+  ParagraphButton,
   ParagraphExpandableText,
   ParagraphLinkTeaser,
   ParagraphWysiwyg,
 } from './paragraph'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
+import { FieldLink } from './field_type'
 
 /** Union of all block content types.  */
 export type BlockContentTypes = BlockAlert | BlockPromo
@@ -72,4 +74,16 @@ export interface BlockContentMetaOut {
     }: BlockContentProps) => React.JSX.Element
     params?: DrupalJsonApiParams
   }
+}
+
+export interface BlockBenefitPromo extends DrupalBlock {
+  field_promo_headline: string
+  field_promo_text: string
+  field_promo_cta: ParagraphButton
+}
+export interface BlockCtaWithLink extends DrupalBlock {
+  field_cta_summary_text: string
+  field_primary_cta_button_text: string
+  field_primary_cta_button_url: FieldLink
+  field_related_info_links: FieldLink[]
 }

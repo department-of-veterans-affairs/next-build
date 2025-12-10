@@ -37,6 +37,7 @@ export type ParagraphTypes =
   | ParagraphFeaturedContent
   | ParagraphHealthCareLocalFacilityService
   | ParagraphLinkTeaser
+  | ParagraphLinkTeaserWithImage
   | ParagraphListOfLinks
   | ParagraphListOfLinkTeasers
   | ParagraphMedia
@@ -76,8 +77,8 @@ export interface ParagraphAlert extends DrupalParagraph {
 export interface ParagraphAlertSingle extends DrupalParagraph {
   type: 'paragraph--alert_single'
   field_alert_selection: string
-  field_alert_block_reference: BlockAlert
-  field_alert_non_reusable_ref: ParagraphNonReusableAlert
+  field_alert_block_reference: BlockAlert | null
+  field_alert_non_reusable_ref: ParagraphNonReusableAlert | null
 }
 
 export interface ParagraphAudienceTopics extends DrupalParagraph {
@@ -176,6 +177,12 @@ export interface ParagraphLinkTeaser extends DrupalParagraph {
   field_link_summary: string
 }
 
+export interface ParagraphLinkTeaserWithImage extends DrupalParagraph {
+  type: 'paragraph--link_teaser_with_image'
+  field_link_teaser: ParagraphLinkTeaser
+  field_media: DrupalMediaImage
+}
+
 export interface ParagraphListOfLinkTeasers extends DrupalParagraph {
   type: 'paragraph--list_of_link_teasers'
   field_title: string
@@ -231,6 +238,7 @@ export interface ParagraphQaGroup extends DrupalParagraph {
   field_accordion_display: boolean
   field_q_as: ParagraphSectionQas[]
   field_section_header: string
+  field_rich_wysiwyg: FieldFormattedText | null
 }
 
 export interface ParagraphSectionQas extends DrupalNode {

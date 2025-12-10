@@ -1,0 +1,308 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`VamcSystemRegisterForCare formatter outputs formatted data 1`] = `
+{
+  "bottomOfPageContent": {
+    "html": "<h2 id="not-yet-enrolled-in-va-health-"><strong>Not yet enrolled in VA health care?</strong></h2>
+
+<p>You need to be enrolled in VA health care before you can make appointments and receive care with us.</p>
+
+<p><a data-entity-substitution="canonical" data-entity-type="node" data-entity-uuid="588aa250-35b3-4d1d-99e6-d152bbae0775" href="/health-care/about-va-health-benefits" hreflang="en" title="About VA health benefits">Learn about VA health care benefits and eligibility </a></p>
+
+<h3 id="apply-online-by-phone-or-by-ma"><strong>Apply online, by phone, or by mail</strong></h3>
+
+<p>We’ll walk you through how to get started. You can apply at your own pace, and save your application and go back to it when it’s convenient for you.</p>
+
+<p><strong><va-link-action href="https://www.va.gov/health-care/how-to-apply/" hreflang="en" text="Apply online, by phone, or by mail" type="secondary" /></strong></p>
+
+<h3 id="apply-in-person"><strong>Apply in person</strong></h3>
+
+<p>We can help answer any questions you may have. We can also accept your completed application at our patient registration office for processing.</p>
+
+<p>Fill out an <a data-entity-substitution="canonical" data-entity-type="node" data-entity-uuid="4d264d1d-71e2-4e0f-933d-7a97480c56bb" href="/find-forms/about-form-10-10ez" title="About VA Form 10-10EZ">Application for Health Care Benefits (VA Form 10-10EZ)</a>. Bring your completed application to one of our patient registration offices.</p>
+
+<p><strong>What to bring with your health care application </strong><br>
+To get a faster decision on your application, bring these documents and information with you:</p>
+
+<ul dir="ltr">
+	<li>Copies of your <a href="https://www.va.gov/records/get-military-service-records/" hreflang="en">DD214 or other discharge documents</a></li>
+	<li>Copies of any <a href="https://www.va.gov/records/download-va-letters/" hreflang="en">VA disability award letters</a> you may have</li>
+	<li>Your income information from the previous calendar year, if you have a 0% VA disability rating or if you’re a non-service-connected Veteran</li>
+	<li>Copies of your current ID cards for any other types of health coverage you may have (like Medicare, Medicaid, Tricare, or private health insurance)</li>
+</ul>
+
+<p><a data-entity-substitution="canonical" data-entity-type="node" data-entity-uuid="4d264d1d-71e2-4e0f-933d-7a97480c56bb" href="/find-forms/about-form-10-10ez" hreflang="en" title="About VA Form 10-10EZ">Download VA Form 10-10 EZ</a></p>",
+    "id": "82283",
+    "type": "paragraph--wysiwyg",
+  },
+  "breadcrumbs": [
+    {
+      "href": "/",
+      "label": "Home",
+      "options": [],
+    },
+    {
+      "href": "/richmond-health-care",
+      "label": "VA Richmond health care",
+      "options": [],
+    },
+    {
+      "href": "",
+      "label": "Register for care",
+      "options": [],
+    },
+  ],
+  "entityId": 44606,
+  "entityPath": "/richmond-health-care/register-for-care",
+  "id": "116e00eb-8208-4bdc-8952-e3c9bc509327",
+  "lastUpdated": "2022-05-06T15:10:15+00:00",
+  "lovellSwitchPath": null,
+  "lovellVariant": null,
+  "menu": {
+    "data": {
+      "description": null,
+      "links": [
+        {
+          "description": null,
+          "expanded": false,
+          "label": "VA Richmond health care",
+          "links": [
+            {
+              "description": null,
+              "expanded": false,
+              "label": "SERVICES AND LOCATIONS",
+              "links": [],
+              "lovellSection": null,
+              "url": {
+                "path": "",
+              },
+            },
+            {
+              "description": null,
+              "expanded": false,
+              "label": "NEWS AND EVENTS",
+              "links": [],
+              "lovellSection": null,
+              "url": {
+                "path": "",
+              },
+            },
+            {
+              "description": null,
+              "expanded": false,
+              "label": "ABOUT VA RICHMOND",
+              "links": [],
+              "lovellSection": null,
+              "url": {
+                "path": "",
+              },
+            },
+          ],
+          "lovellSection": null,
+          "url": {
+            "path": "/richmond-health-care",
+          },
+        },
+      ],
+      "name": "VA Richmond health care",
+    },
+    "rootPath": "/richmond-health-care/register-for-care/",
+  },
+  "metatags": [],
+  "moderationState": "published",
+  "published": true,
+  "relatedLinks": {
+    "entityId": null,
+    "id": "77159",
+    "linkTeasers": [
+      {
+        "entityId": null,
+        "id": "77155",
+        "options": [],
+        "summary": "Review copay rates for outpatient care, hospital stays, medications, and other health services.",
+        "title": "VA health care copay rates",
+        "type": "paragraph--link_teaser",
+        "uri": "/test-translated-path",
+      },
+      {
+        "entityId": null,
+        "id": "77156",
+        "options": [],
+        "summary": "If you’re struggling to pay your copays, learn how to request a repayment plan, debt relief, or copay exemption.",
+        "title": "Financial hardship assistance",
+        "type": "paragraph--link_teaser",
+        "uri": "/test-translated-path",
+      },
+      {
+        "entityId": null,
+        "id": "77157",
+        "options": [],
+        "summary": "Find out how to file a dispute If you disagree with the charges or amounts on your bill. Find out how to file a dispute If you disagree with the charges or amounts on your bill.",
+        "title": "Dispute your VA copay charges",
+        "type": "paragraph--link_teaser",
+        "uri": "/test-translated-path",
+      },
+      {
+        "entityId": null,
+        "id": "77158",
+        "options": [],
+        "summary": "Update your address and other information in your VA.gov profile. This will update your information across several VA benefits and services.",
+        "title": "Change your address on file with VA",
+        "type": "paragraph--link_teaser",
+        "uri": "/test-translated-path",
+      },
+    ],
+    "title": "More information",
+    "type": "paragraph--list_of_link_teasers",
+  },
+  "services": [
+    {
+      "address": {
+        "additional_name": null,
+        "address_line1": "1 Medical Center Drive",
+        "administrative_area": "WV",
+        "country_code": "US",
+        "dependent_locality": null,
+        "langcode": "en",
+        "locality": "Clarksburg",
+        "postal_code": "26301-4155",
+      },
+      "id": "329cf348-dc5a-486a-8733-700703b9b35f",
+      "path": "/clarksburg-health-care/locations/louis-a-johnson-veterans-administration-medical-center",
+      "phoneNumber": "304-623-3461",
+      "serviceLocations": [
+        {
+          "additionalHoursInfo": null,
+          "appointmentPhoneNumbers": [],
+          "apptIntroTextCustom": null,
+          "apptIntroTextType": null,
+          "contactInfoPhoneNumbers": [
+            {
+              "entityId": 108757,
+              "extension": "33323590",
+              "id": "db51eda3-8e6d-4db6-b37a-42df708aee0f",
+              "label": "Enrollment and Eligibility Office",
+              "number": "304-623-3461",
+              "phoneType": "tel",
+              "type": "paragraph--phone_number",
+            },
+          ],
+          "emailContacts": [],
+          "hours": "2",
+          "id": "c019ab75-fb08-44c6-bcd7-c5f7fcb4e6a8",
+          "officeHours": [
+            {
+              "all_day": false,
+              "comment": "Except Federal Holidays",
+              "day": 1,
+              "endhours": 1630,
+              "starthours": 800,
+            },
+            {
+              "all_day": false,
+              "comment": "Except Federal Holidays",
+              "day": 2,
+              "endhours": 1630,
+              "starthours": 800,
+            },
+            {
+              "all_day": false,
+              "comment": "Except Federal Holidays",
+              "day": 3,
+              "endhours": 1630,
+              "starthours": 800,
+            },
+            {
+              "all_day": false,
+              "comment": "Except Federal Holidays",
+              "day": 4,
+              "endhours": 1630,
+              "starthours": 800,
+            },
+            {
+              "all_day": false,
+              "comment": "Except Federal Holidays",
+              "day": 5,
+              "endhours": 1630,
+              "starthours": 800,
+            },
+          ],
+          "officeVisits": null,
+          "onlineSchedulingAvail": null,
+          "serviceLocationAddress": {
+            "behavior_settings": [],
+            "breadcrumbs": [],
+            "content_translation_changed": null,
+            "content_translation_outdated": false,
+            "content_translation_source": "und",
+            "created": "2022-05-10T13:59:23+00:00",
+            "default_langcode": true,
+            "drupal_internal__id": 108758,
+            "drupal_internal__revision_id": 643968,
+            "field_address": {
+              "address_line1": "",
+              "address_line2": "",
+              "administrative_area": "",
+              "country_code": "US",
+              "dependent_locality": null,
+              "langcode": null,
+              "locality": "",
+              "postal_code": "",
+              "sorting_code": null,
+            },
+            "field_building_name_number": "Main Building",
+            "field_clinic_name": "Enrollment and Eligibility Office",
+            "field_use_facility_address": true,
+            "field_wing_floor_or_room_number": "1st Floor, Room 1232B",
+            "id": "7410efb3-c080-4f1b-950f-a4aa5c667ec0",
+            "langcode": "en",
+            "links": {
+              "self": {
+                "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/service_location_address/7410efb3-c080-4f1b-950f-a4aa5c667ec0?resourceVersion=id%3A643968",
+              },
+            },
+            "paragraph_type": {
+              "id": "bd794386-a382-48d0-84fb-47290c3c1176",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": "service_location_address",
+              },
+              "type": "paragraphs_type--paragraphs_type",
+            },
+            "parent_field_name": "field_service_location_address",
+            "parent_id": "108759",
+            "parent_type": "paragraph",
+            "relationshipNames": [
+              "paragraph_type",
+            ],
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 108758,
+              "target_revision_id": 643968,
+            },
+            "revision_translation_affected": true,
+            "status": true,
+            "type": "paragraph--service_location_address",
+          },
+          "type": "paragraph--service_location",
+          "useFacilityPhoneNumber": null,
+          "useMainFacilityPhone": true,
+          "virtualSupport": null,
+        },
+      ],
+      "title": "Louis A. Johnson Veterans' Administration Medical Center",
+    },
+  ],
+  "title": "Register for care",
+  "topOfPageContent": {
+    "html": "<h2 id="patient-registration-admission">Patient registration (admissions)</h2>
+
+<p>Whether you moved and need to change your medical center or need a primary care provider in the area, we can help. Call us or visit one of our patient registration offices to get started.</p>",
+    "id": "82286",
+    "type": "paragraph--wysiwyg",
+  },
+  "type": "node--vamc_system_register_for_care",
+  "vamcSystem": {
+    "id": "9aafd9b9-3676-4167-aeb7-0bde3c1ec1d6",
+    "title": "VA Richmond health care",
+  },
+}
+`;

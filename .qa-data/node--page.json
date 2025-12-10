@@ -1,0 +1,1248 @@
+{
+  "resourceType": "node--page",
+  "paths": [
+    {
+      "path": "/health-care/about-va-health-benefits/vision-care/blind-low-vision-rehab-services"
+    },
+    {
+      "path": "/health-care/about-va-health-benefits/vision-care"
+    },
+    {
+      "path": "/health-care/health-needs-conditions/health-issues-related-to-service-era/cold-war"
+    },
+    {
+      "path": "/health-care/health-needs-conditions/health-issues-related-to-service-era/korean-war"
+    },
+    {
+      "path": "/health-care/health-needs-conditions/health-issues-related-to-service-era/world-war-ii"
+    },
+    {
+      "path": "/health-care/health-needs-conditions/mental-health/depression"
+    },
+    {
+      "path": "/health-care/health-needs-conditions/mental-health/ptsd"
+    },
+    {
+      "path": "/health-care/health-needs-conditions/health-issues-related-to-service-era"
+    },
+    {
+      "path": "/health-care/health-needs-conditions/substance-use-problems"
+    },
+    {
+      "path": "/health-care/pay-copay-bill"
+    },
+    {
+      "path": "/change-address"
+    },
+    {
+      "path": "/records/get-military-service-records/reconstruct-records"
+    },
+    {
+      "path": "/careers-employment/vocational-rehabilitation/programs"
+    },
+    {
+      "path": "/careers-employment/vocational-rehabilitation/programs/independent-living"
+    },
+    {
+      "path": "/life-insurance/file-appeal-for-tsgli"
+    },
+    {
+      "path": "/disability/add-remove-dependent"
+    },
+    {
+      "path": "/disability/eligibility/hazardous-materials-exposure/agent-orange/related-diseases"
+    },
+    {
+      "path": "/education/opt-out-information-sharing"
+    },
+    {
+      "path": "/decision-reviews/faq"
+    },
+    {
+      "path": "/decision-reviews/legacy-appeals/priority-review"
+    },
+    {
+      "path": "/disability/compensation-rates/birth-defect-rates/past-rates-2019"
+    },
+    {
+      "path": "/disability/compensation-rates/birth-defect-rates/past-rates-2020"
+    },
+    {
+      "path": "/health-care/covid-19-vaccine-tag/vaccine-record-tag"
+    },
+    {
+      "path": "/health-care/covid-19-vaccine-esp/vaccine-record-esp"
+    },
+    {
+      "path": "/pension/veterans-pension-rates/past-rates-2021"
+    },
+    {
+      "path": "/disability/compensation-rates/veteran-rates/past-rates-2021"
+    },
+    {
+      "path": "/disability/compensation-rates/special-monthly-compensation-rates/past-rates-2021"
+    },
+    {
+      "path": "/disability/compensation-rates/birth-defect-rates/past-rates-2021"
+    },
+    {
+      "path": "/records/get-veteran-id-cards"
+    },
+    {
+      "path": "/health-care/eligibility/active-duty"
+    },
+    {
+      "path": "/disability/compensation-rates/birth-defect-rates/past-rates-2022"
+    },
+    {
+      "path": "/disability/compensation-rates/special-benefit-allowance-rates/past-rates-2021"
+    },
+    {
+      "path": "/disability/compensation-rates/special-benefit-allowance-rates/past-rates-2022"
+    },
+    {
+      "path": "/pension/veterans-pension-rates/past-rates-2022"
+    },
+    {
+      "path": "/disability/compensation-rates/veteran-rates/past-rates-2022"
+    },
+    {
+      "path": "/disability/compensation-rates/special-monthly-compensation-rates/past-rates-2022"
+    },
+    {
+      "path": "/education/benefit-rates/montgomery-600-buy-up-rates"
+    },
+    {
+      "path": "/education/other-va-education-benefits/national-call-to-service-program"
+    },
+    {
+      "path": "/life-insurance/manage-your-policy"
+    },
+    {
+      "path": "/life-insurance/options-eligibility"
+    },
+    {
+      "path": "/education/after-you-apply"
+    },
+    {
+      "path": "/health-care/order-prosthetic-socks"
+    },
+    {
+      "path": "/education/benefit-rates/montgomery-selected-reserve-rates/past-rates-2021-2022"
+    },
+    {
+      "path": "/education/benefit-rates/montgomery-active-duty-rates/past-rates-2020-2021"
+    },
+    {
+      "path": "/education/benefit-rates/montgomery-active-duty-rates/past-rates-2021-2022"
+    },
+    {
+      "path": "/privacy-policy/digital-notifications-terms-and-conditions"
+    },
+    {
+      "path": "/disability/upload-supporting-evidence"
+    },
+    {
+      "path": "/education/benefit-rates/post-9-11-gi-bill-rates/past-rates-2020-2021"
+    },
+    {
+      "path": "/disability/eligibility/former-pows"
+    },
+    {
+      "path": "/disability/eligibility/hazardous-materials-exposure/project-112-shad"
+    },
+    {
+      "path": "/disability/eligibility/hazardous-materials-exposure/ionizing-radiation"
+    },
+    {
+      "path": "/disability/eligibility/hazardous-materials-exposure/asbestos"
+    },
+    {
+      "path": "/records/discharge-documents"
+    },
+    {
+      "path": "/veterans-portrait-project"
+    },
+    {
+      "path": "/education/benefit-rates/montgomery-selected-reserve-rates/past-rates-2020-2021"
+    },
+    {
+      "path": "/education/benefit-rates/montgomery-active-duty-rates/past-rates-2022-2023"
+    },
+    {
+      "path": "/education/benefit-rates/montgomery-selected-reserve-rates/past-rates-2022-2023"
+    },
+    {
+      "path": "/disability/how-to-file-claim/when-to-file/pre-discharge-claim/file-while-overseas"
+    },
+    {
+      "path": "/pension/veterans-pension-rates/past-rates-2023"
+    },
+    {
+      "path": "/disability/compensation-rates/veteran-rates/past-rates-2023"
+    },
+    {
+      "path": "/disability/compensation-rates/birth-defect-rates/past-rates-2023"
+    },
+    {
+      "path": "/disability/compensation-rates/special-monthly-compensation-rates/past-rates-2023"
+    },
+    {
+      "path": "/disability/compensation-rates/special-benefit-allowance-rates/past-rates-2023"
+    },
+    {
+      "path": "/health-care/health-needs-conditions/mental-health/suicide-prevention"
+    },
+    {
+      "path": "/disability/eligibility/special-claims"
+    },
+    {
+      "path": "/disability/eligibility/special-claims/dental-care"
+    },
+    {
+      "path": "/disability/how-to-file-claim/evidence-needed/standard-claims"
+    },
+    {
+      "path": "/disability/eligibility/special-claims/1151-claims-title-38"
+    },
+    {
+      "path": "/education/how-to-apply-esp"
+    },
+    {
+      "path": "/education/after-you-apply-esp"
+    },
+    {
+      "path": "/disability/eligibility/special-claims/temporary-increase-after-surgery-or-cast"
+    },
+    {
+      "path": "/disability/eligibility/special-claims/temporary-increase-for-time-in-hospital"
+    },
+    {
+      "path": "/disability/eligibility/special-claims/clothing-allowance"
+    },
+    {
+      "path": "/records/get-veteran-id-cards/vic"
+    },
+    {
+      "path": "/education/benefit-rates/post-9-11-gi-bill-rates/past-rates-2022-2023"
+    },
+    {
+      "path": "/education/about-gi-bill-benefits/how-to-use-benefits/vettec-high-tech-program"
+    },
+    {
+      "path": "/decision-reviews/clinical-appeals"
+    },
+    {
+      "path": "/health-care/eligibility/priority-groups"
+    },
+    {
+      "path": "/careers-employment/veteran-owned-business-support"
+    },
+    {
+      "path": "/careers-employment/vocational-rehabilitation/ides"
+    },
+    {
+      "path": "/health-care/order-hearing-aid-batteries-and-accessories"
+    },
+    {
+      "path": "/health-care/order-cpap-supplies"
+    },
+    {
+      "path": "/disability/view-disability-rating"
+    },
+    {
+      "path": "/health-care/about-va-health-benefits/dental-care/dental-insurance"
+    },
+    {
+      "path": "/disability/get-help-filing-claim"
+    },
+    {
+      "path": "/decision-reviews/get-help-with-review-request"
+    },
+    {
+      "path": "/disability/eligibility/special-claims/temporary-rating-prestabilization"
+    },
+    {
+      "path": "/disability/how-to-file-claim/when-to-file"
+    },
+    {
+      "path": "/health-care/view-test-and-lab-results"
+    },
+    {
+      "path": "/disability/effective-date"
+    },
+    {
+      "path": "/disability/eligibility/special-claims/birth-defects"
+    },
+    {
+      "path": "/disability/eligibility/hazardous-materials-exposure/gulf-war-illness-southwest-asia"
+    },
+    {
+      "path": "/disability/eligibility/hazardous-materials-exposure/gulf-war-illness-afghanistan"
+    },
+    {
+      "path": "/disability/how-to-file-claim/evidence-needed/fully-developed-claims"
+    },
+    {
+      "path": "/health-care/wellness-programs"
+    },
+    {
+      "path": "/burials-memorials/memorial-items"
+    },
+    {
+      "path": "/careers-employment/dependent-benefits"
+    },
+    {
+      "path": "/education/about-gi-bill-benefits/how-to-use-benefits/test-fees"
+    },
+    {
+      "path": "/disability/how-to-file-claim/additional-forms"
+    },
+    {
+      "path": "/disability/eligibility/ptsd"
+    },
+    {
+      "path": "/health-care/how-to-apply"
+    },
+    {
+      "path": "/pension/aid-attendance-housebound"
+    },
+    {
+      "path": "/pension/protected-pension-rates/past-rates-2023"
+    },
+    {
+      "path": "/decision-reviews/contested-claims"
+    },
+    {
+      "path": "/careers-employment/family-resources"
+    },
+    {
+      "path": "/education/benefit-rates/post-9-11-gi-bill-rates/past-rates-2023-2024"
+    },
+    {
+      "path": "/pension/survivors-pension-rates/past-rates-2021"
+    },
+    {
+      "path": "/housing-assistance/home-loans/loan-types/native-american-direct-loan"
+    },
+    {
+      "path": "/housing-assistance/home-loans/loan-types/cash-out-loan"
+    },
+    {
+      "path": "/health-care/health-needs-conditions/health-issues-related-to-service-era/vietnam-war"
+    },
+    {
+      "path": "/health-care/health-needs-conditions/chemical-hazardous-materials-exposure"
+    },
+    {
+      "path": "/disability/eligibility/illnesses-within-one-year-of-discharge"
+    },
+    {
+      "path": "/health-care/health-needs-conditions/health-issues-related-to-service-era/gulf-war"
+    },
+    {
+      "path": "/health-care/health-needs-conditions/health-issues-related-to-service-era/iraq-war"
+    },
+    {
+      "path": "/health-care/health-needs-conditions/health-issues-related-to-service-era/operation-enduring-freedom"
+    },
+    {
+      "path": "/family-and-caregiver-benefits/education-and-careers/transferred-gi-bill-benefits/rates/past-rates-2022-2023"
+    },
+    {
+      "path": "/education/benefit-rates/montgomery-active-duty-rates/past-rates-2023-2024"
+    },
+    {
+      "path": "/education/benefit-rates/montgomery-selected-reserve-rates/past-rates-2023-2024"
+    },
+    {
+      "path": "/change-direct-deposit"
+    },
+    {
+      "path": "/burials-memorials/memorial-items/burial-flags"
+    },
+    {
+      "path": "/disability/about-disability-ratings"
+    },
+    {
+      "path": "/disability/compensation-rates/special-benefit-allowance-rates/past-rates-2019"
+    },
+    {
+      "path": "/disability/compensation-rates/birth-defect-rates/past-rates-2018"
+    },
+    {
+      "path": "/disability/compensation-rates/special-benefit-allowance-rates/past-rates-2018"
+    },
+    {
+      "path": "/disability/compensation-rates/special-monthly-compensation-rates/past-rates-2018"
+    },
+    {
+      "path": "/disability/compensation-rates/veteran-rates/past-rates-2019"
+    },
+    {
+      "path": "/disability/compensation-rates/special-monthly-compensation-rates/past-rates-2019"
+    },
+    {
+      "path": "/disability/compensation-rates/veteran-rates/past-rates-2018"
+    },
+    {
+      "path": "/pension/survivors-pension-rates/past-rates-2019"
+    },
+    {
+      "path": "/pension/veterans-pension-rates/past-rates-2019"
+    },
+    {
+      "path": "/pension/veterans-pension-rates/past-rates-2020"
+    },
+    {
+      "path": "/pension/survivors-pension-rates/past-rates-2020"
+    },
+    {
+      "path": "/disability/compensation-rates/veteran-rates/past-rates-2020"
+    },
+    {
+      "path": "/disability/compensation-rates/special-monthly-compensation-rates/past-rates-2020"
+    },
+    {
+      "path": "/disability/compensation-rates/special-benefit-allowance-rates/past-rates-2020"
+    },
+    {
+      "path": "/careers-employment/veteran-resources"
+    },
+    {
+      "path": "/careers-employment/vocational-rehabilitation/programs/self-employment"
+    },
+    {
+      "path": "/careers-employment/vocational-rehabilitation/programs/rapid-access-to-employment"
+    },
+    {
+      "path": "/careers-employment/vocational-rehabilitation/programs/reemployment"
+    },
+    {
+      "path": "/education/how-to-apply"
+    },
+    {
+      "path": "/family-and-caregiver-benefits/education-and-careers/transferred-gi-bill-benefits/rates/past-rates-2023-2024"
+    },
+    {
+      "path": "/family-and-caregiver-benefits/education-and-careers/dependents-education-assistance/rates/past-rates-2022-2023"
+    },
+    {
+      "path": "/family-and-caregiver-benefits/education-and-careers/dependents-education-assistance/rates/past-rates-2023-2024"
+    },
+    {
+      "path": "/family-and-caregiver-benefits/education-and-careers/dependents-education-assistance/rates/past-rates-2021-2022"
+    },
+    {
+      "path": "/family-and-caregiver-benefits/education-and-careers/fry-scholarship/rates/past-rates-2023-2024"
+    },
+    {
+      "path": "/education/about-gi-bill-benefits/post-9-11/yellow-ribbon-program"
+    },
+    {
+      "path": "/family-and-caregiver-benefits/health-and-disability/children-of-women-vietnam-veterans"
+    },
+    {
+      "path": "/family-and-caregiver-benefits/survivor-compensation/survivors-pension/rates/past-rates-2021"
+    },
+    {
+      "path": "/family-and-caregiver-benefits/health-and-disability/spina-bifida-agent-orange"
+    },
+    {
+      "path": "/education/about-gi-bill-benefits"
+    },
+    {
+      "path": "/education/download-letters"
+    },
+    {
+      "path": "/education/benefit-rates/stem-scholarship-rates/past-rates-2023-2024"
+    },
+    {
+      "path": "/education/benefit-rates/stem-scholarship-rates/past-rates-2022-2023"
+    },
+    {
+      "path": "/education/benefit-rates"
+    },
+    {
+      "path": "/pension/veterans-pension-rates/past-rates-2024"
+    },
+    {
+      "path": "/pension/veterans-pension-rates"
+    },
+    {
+      "path": "/pension/protected-pension-rates/past-rates-2024"
+    },
+    {
+      "path": "/disability/compensation-rates/veteran-rates/past-rates-2024"
+    },
+    {
+      "path": "/disability/compensation-rates/veteran-rates"
+    },
+    {
+      "path": "/disability/compensation-rates/special-monthly-compensation-rates/past-rates-2024"
+    },
+    {
+      "path": "/disability/compensation-rates/special-monthly-compensation-rates"
+    },
+    {
+      "path": "/disability/compensation-rates/special-benefit-allowance-rates/past-rates-2024"
+    },
+    {
+      "path": "/disability/compensation-rates/birth-defect-rates/past-rates-2024"
+    },
+    {
+      "path": "/disability/compensation-rates/birth-defect-rates"
+    },
+    {
+      "path": "/records/download-va-letters"
+    },
+    {
+      "path": "/health-care/copay-rates/past-rates-2023"
+    },
+    {
+      "path": "/education/about-gi-bill-benefits/how-to-use-benefits/undergraduate-graduate-programs"
+    },
+    {
+      "path": "/education/about-gi-bill-benefits/how-to-use-benefits/non-college-degree-programs"
+    },
+    {
+      "path": "/housing-assistance/home-loans"
+    },
+    {
+      "path": "/decision-reviews/legacy-appeals/board-of-veterans-appeals"
+    },
+    {
+      "path": "/decision-reviews/board-appeal/veterans-law-judge-hearing"
+    },
+    {
+      "path": "/health-care/copay-rates/past-rates-2024"
+    },
+    {
+      "path": "/family-and-caregiver-benefits/housing-assistance"
+    },
+    {
+      "path": "/education/change-gi-bill-benefits"
+    },
+    {
+      "path": "/pension/protected-pension-rates/past-rates-2020"
+    },
+    {
+      "path": "/pension/protected-pension-rates/past-rates-2018"
+    },
+    {
+      "path": "/pension/protected-pension-rates/past-rates-2019"
+    },
+    {
+      "path": "/pension/protected-pension-rates"
+    },
+    {
+      "path": "/pension/how-to-apply"
+    },
+    {
+      "path": "/family-and-caregiver-benefits/survivor-compensation/dependency-indemnity-compensation/survivor-rates/past-rates-2021"
+    },
+    {
+      "path": "/disability/survivor-dic-rates/past-rates-2019"
+    },
+    {
+      "path": "/disability/survivor-dic-rates/past-rates-2018"
+    },
+    {
+      "path": "/family-and-caregiver-benefits/life-insurance"
+    },
+    {
+      "path": "/education/benefit-rates/chapter-35-rates/past-rates-2020-2021"
+    },
+    {
+      "path": "/family-and-caregiver-benefits/education-and-careers/dependents-education-assistance/rates/past-rates-2020-2021"
+    },
+    {
+      "path": "/get-help-from-accredited-representative"
+    },
+    {
+      "path": "/accessibility-at-va",
+      "starred": true
+    },
+    {
+      "path": "/accessibility-at-va-esp"
+    },
+    {
+      "path": "/find-forms"
+    },
+    {
+      "path": "/education/about-gi-bill-benefits/montgomery-active-duty"
+    },
+    {
+      "path": "/education/about-gi-bill-benefits/montgomery-selected-reserve"
+    },
+    {
+      "path": "/family-and-caregiver-benefits/education-and-careers/transferred-gi-bill-benefits"
+    },
+    {
+      "path": "/education/about-gi-bill-benefits/how-to-use-benefits/on-the-job-training-apprenticeships"
+    },
+    {
+      "path": "/va-payment-history"
+    },
+    {
+      "path": "/family-and-caregiver-benefits/health-and-disability/comprehensive-assistance-for-family-caregivers-esp"
+    },
+    {
+      "path": "/health-care/health-needs-conditions/military-sexual-trauma"
+    },
+    {
+      "path": "/health-care/health-needs-conditions/womens-health-needs"
+    },
+    {
+      "path": "/disability/compensation-rates"
+    },
+    {
+      "path": "/family-and-caregiver-benefits/education-and-careers/fry-scholarship/rates/past-rates-2022-2023"
+    },
+    {
+      "path": "/health-care/about-va-health-benefits/long-term-care"
+    },
+    {
+      "path": "/family-and-caregiver-benefits/education-and-careers/fry-scholarship/rates/past-rates-2021-2022"
+    },
+    {
+      "path": "/housing-assistance/home-loans/loan-types"
+    },
+    {
+      "path": "/burials-memorials/pre-need-eligibility"
+    },
+    {
+      "path": "/decision-reviews/higher-level-review"
+    },
+    {
+      "path": "/housing-assistance/home-loans/funding-fee-and-closing-costs"
+    },
+    {
+      "path": "/pension/how-to-apply-esp"
+    },
+    {
+      "path": "/disability/eligibility/hazardous-materials-exposure/specific-environmental-hazards"
+    },
+    {
+      "path": "/disability/eligibility/special-claims/automobile-allowance-adaptive-equipment"
+    },
+    {
+      "path": "/pension/how-to-apply/fully-developed-claim"
+    },
+    {
+      "path": "/family-and-caregiver-benefits/burials-and-memorials"
+    },
+    {
+      "path": "/family-and-caregiver-benefits/health-and-disability"
+    },
+    {
+      "path": "/pension/eligibility-esp"
+    },
+    {
+      "path": "/family-and-caregiver-benefits/survivor-compensation/dependency-indemnity-compensation/survivor-rates/past-rates-2022"
+    },
+    {
+      "path": "/family-and-caregiver-benefits/survivor-compensation/survivors-pension/rates/past-rates-2023"
+    },
+    {
+      "path": "/family-and-caregiver-benefits/survivor-compensation/survivors-pension/rates/past-rates-2022"
+    },
+    {
+      "path": "/family-and-caregiver-benefits/survivor-compensation/survivors-pension/rates"
+    },
+    {
+      "path": "/family-and-caregiver-benefits/survivor-compensation/survivors-pension-esp"
+    },
+    {
+      "path": "/family-and-caregiver-benefits/survivor-compensation/dependency-indemnity-compensation-esp"
+    },
+    {
+      "path": "/disability/eligibility"
+    },
+    {
+      "path": "/housing-assistance/home-loans/eligibility-esp"
+    },
+    {
+      "path": "/education/eligibility"
+    },
+    {
+      "path": "/decision-reviews/legacy-appeals"
+    },
+    {
+      "path": "/education/about-gi-bill-benefits/montgomery-active-duty/buy-up"
+    },
+    {
+      "path": "/education/transfer-post-9-11-gi-bill-benefits"
+    },
+    {
+      "path": "/burials-memorials/schedule-a-burial"
+    },
+    {
+      "path": "/burials-memorials/eligibility/burial-at-sea"
+    },
+    {
+      "path": "/burials-memorials/bereavement-counseling"
+    },
+    {
+      "path": "/burials-memorials/eligibility"
+    },
+    {
+      "path": "/disability/about-disability-ratings/after-you-get-a-rating"
+    },
+    {
+      "path": "/education/about-gi-bill-benefits/how-to-use-benefits/tutor-assistance"
+    },
+    {
+      "path": "/decision-reviews/board-appeal-esp"
+    },
+    {
+      "path": "/health-care/how-to-apply-esp"
+    },
+    {
+      "path": "/housing-assistance/home-loans/how-to-request-coe"
+    },
+    {
+      "path": "/claim-or-appeal-status"
+    },
+    {
+      "path": "/decision-reviews/after-you-request-review-esp"
+    },
+    {
+      "path": "/education/eligibility-esp"
+    },
+    {
+      "path": "/family-and-caregiver-benefits/survivor-compensation/dependency-indemnity-compensation/survivor-rates/past-rates-2024"
+    },
+    {
+      "path": "/family-and-caregiver-benefits/survivor-compensation/survivors-pension/rates/past-rates-2024"
+    },
+    {
+      "path": "/pension/protected-pension-rates/past-rates-2021"
+    },
+    {
+      "path": "/family-and-caregiver-benefits/survivor-compensation/dependency-indemnity-compensation/parent-rates/past-rates-2023"
+    },
+    {
+      "path": "/family-and-caregiver-benefits/survivor-compensation/dependency-indemnity-compensation/parent-rates/past-rates-2024"
+    },
+    {
+      "path": "/family-and-caregiver-benefits/survivor-compensation/dependency-indemnity-compensation/parent-rates/past-rates-2022"
+    },
+    {
+      "path": "/pension/protected-pension-rates/past-rates-2022"
+    },
+    {
+      "path": "/family-and-caregiver-benefits/survivor-compensation/dependency-indemnity-compensation/parent-rates/past-rates-2021"
+    },
+    {
+      "path": "/disability/parent-dic-rates/past-rates-2019"
+    },
+    {
+      "path": "/family-and-caregiver-benefits/survivor-compensation/dependency-indemnity-compensation/survivor-rates/past-rates-2023"
+    },
+    {
+      "path": "/disability/parent-dic-rates/past-rates-2018"
+    },
+    {
+      "path": "/disability/parent-dic-rates/past-rates-2020"
+    },
+    {
+      "path": "/disability/survivor-dic-rates/past-rates-2020"
+    },
+    {
+      "path": "/disability/survivor-dic-rates/past-rates-2021"
+    },
+    {
+      "path": "/disability/parent-dic-rates/past-rates-2021"
+    },
+    {
+      "path": "/disability/dependency-indemnity-compensation-esp"
+    },
+    {
+      "path": "/education/about-gi-bill-benefits/how-to-use-benefits/accelerated-payments"
+    },
+    {
+      "path": "/housing-assistance/home-loans/how-to-request-coe-esp"
+    },
+    {
+      "path": "/health-care/manage-appointments"
+    },
+    {
+      "path": "/health-care/manage-prescriptions-medications"
+    },
+    {
+      "path": "/health-care/send-receive-messages"
+    },
+    {
+      "path": "/life-insurance/options-eligibility/valife"
+    },
+    {
+      "path": "/life-insurance/options-eligibility/vmli"
+    },
+    {
+      "path": "/health-care/review-medical-records"
+    },
+    {
+      "path": "/life-insurance/options-eligibility/s-dvi"
+    },
+    {
+      "path": "/family-and-caregiver-benefits/survivor-compensation/dependency-indemnity-compensation/survivor-rates"
+    },
+    {
+      "path": "/family-and-caregiver-benefits/survivor-compensation/dependency-indemnity-compensation/parent-rates"
+    },
+    {
+      "path": "/life-insurance/options-eligibility/tsgli"
+    },
+    {
+      "path": "/education/about-gi-bill-benefits/how-to-use-benefits/online-distance-learning"
+    },
+    {
+      "path": "/welcome-kit"
+    },
+    {
+      "path": "/housing-assistance/home-loans/check-coe-status"
+    },
+    {
+      "path": "/housing-assistance/home-loans/eligibility"
+    },
+    {
+      "path": "/family-and-caregiver-benefits/housing-assistance/surviving-spouse-home-loan"
+    },
+    {
+      "path": "/decision-reviews/family-caregiver-program-reviews"
+    },
+    {
+      "path": "/education/about-gi-bill-benefits/how-to-use-benefits/licensing-and-certification-tests"
+    },
+    {
+      "path": "/family-and-caregiver-benefits/education-and-careers/fry-scholarship"
+    },
+    {
+      "path": "/education/about-gi-bill-benefits/post-9-11"
+    },
+    {
+      "path": "/family-and-caregiver-benefits/survivor-compensation"
+    },
+    {
+      "path": "/burials-memorials/pre-need-eligibility/after-you-apply"
+    },
+    {
+      "path": "/education/about-gi-bill-benefits/how-to-use-benefits/correspondence-training"
+    },
+    {
+      "path": "/education/about-gi-bill-benefits/how-to-use-benefits/entrepreneurship-training"
+    },
+    {
+      "path": "/health-care/foreign-medical-program"
+    },
+    {
+      "path": "/family-and-caregiver-benefits/education-and-careers/educational-and-career-counseling"
+    },
+    {
+      "path": "/life-insurance/options-eligibility/fsgli"
+    },
+    {
+      "path": "/life-insurance/options-eligibility/vgli"
+    },
+    {
+      "path": "/disability/how-to-file-claim/evidence-needed"
+    },
+    {
+      "path": "/burials-memorials/memorial-items/headstones-markers-medallions"
+    },
+    {
+      "path": "/education/about-gi-bill-benefits/how-to-use-benefits/flight-training"
+    },
+    {
+      "path": "/health-care/covid-19-vaccine"
+    },
+    {
+      "path": "/health-care/covid-19-vaccine-esp/about-covid-19-vaccine-esp"
+    },
+    {
+      "path": "/asistencia-y-recursos-en-espanol"
+    },
+    {
+      "path": "/tagalog-wika-mapagkukunan-at-tulong"
+    },
+    {
+      "path": "/health-care/copay-rates/past-rates-2022"
+    },
+    {
+      "path": "/health-care/copay-rates/past-rates-2021"
+    },
+    {
+      "path": "/health-care/copay-rates/past-rates-2020"
+    },
+    {
+      "path": "/health-care/copay-rates"
+    },
+    {
+      "path": "/health-care/eligibility"
+    },
+    {
+      "path": "/health-care/eligibility-esp"
+    },
+    {
+      "path": "/health-care/pay-copay-bill/financial-hardship"
+    },
+    {
+      "path": "/health-care/pay-copay-bill/dispute-charges"
+    },
+    {
+      "path": "/burials-memorials/memorial-items/presidential-memorial-certificates"
+    },
+    {
+      "path": "/pension/eligibility"
+    },
+    {
+      "path": "/family-and-caregiver-benefits/survivor-compensation/survivors-pension"
+    },
+    {
+      "path": "/education/check-remaining-post-9-11-gi-bill-benefits"
+    },
+    {
+      "path": "/education/about-gi-bill-benefits/how-to-use-benefits/co-op-training"
+    },
+    {
+      "path": "/housing-assistance/home-loans/home-buying-process"
+    },
+    {
+      "path": "/disability/eligibility/hazardous-materials-exposure/camp-lejeune-water-contamination"
+    },
+    {
+      "path": "/careers-employment/education-and-career-counseling"
+    },
+    {
+      "path": "/education/choosing-a-school/principles-of-excellence"
+    },
+    {
+      "path": "/decision-reviews/board-appeal"
+    },
+    {
+      "path": "/decision-reviews/fiduciary-claims"
+    },
+    {
+      "path": "/decision-reviews/board-appeal/after-board-appeal-decision"
+    },
+    {
+      "path": "/decision-reviews/insurance-claims"
+    },
+    {
+      "path": "/family-and-caregiver-benefits/education-and-careers/transferred-gi-bill-benefits/rates/past-rates-2024-2025"
+    },
+    {
+      "path": "/family-and-caregiver-benefits/education-and-careers/transferred-gi-bill-benefits/rates/future-rates"
+    },
+    {
+      "path": "/family-and-caregiver-benefits/education-and-careers/transferred-gi-bill-benefits/rates"
+    },
+    {
+      "path": "/education/benefit-rates/stem-scholarship-rates/past-rates-2024-2025"
+    },
+    {
+      "path": "/education/benefit-rates/stem-scholarship-rates/future-rates"
+    },
+    {
+      "path": "/education/benefit-rates/stem-scholarship-rates",
+      "starred": true
+    },
+    {
+      "path": "/family-and-caregiver-benefits/education-and-careers/fry-scholarship/rates/past-rates-2024-2025"
+    },
+    {
+      "path": "/family-and-caregiver-benefits/education-and-careers/fry-scholarship/rates/future-rates"
+    },
+    {
+      "path": "/family-and-caregiver-benefits/education-and-careers/fry-scholarship/rates"
+    },
+    {
+      "path": "/education/about-gi-bill-benefits/how-to-use-benefits/study-at-foreign-schools"
+    },
+    {
+      "path": "/education/benefit-rates/post-9-11-gi-bill-rates/past-rates-2024-2025"
+    },
+    {
+      "path": "/education/benefit-rates/post-9-11-gi-bill-rates/future-rates"
+    },
+    {
+      "path": "/family-and-caregiver-benefits/education-and-careers/dependents-education-assistance"
+    },
+    {
+      "path": "/education/verify-school-enrollment"
+    },
+    {
+      "path": "/health-care/file-travel-pay-reimbursement"
+    },
+    {
+      "path": "/family-and-caregiver-benefits/education-and-careers"
+    },
+    {
+      "path": "/careers-employment/vocational-rehabilitation"
+    },
+    {
+      "path": "/careers-employment/vocational-rehabilitation/how-to-apply"
+    },
+    {
+      "path": "/disability/how-to-file-claim/when-to-file/pre-discharge-claim"
+    },
+    {
+      "path": "/disability/eligibility-esp"
+    },
+    {
+      "path": "/careers-employment/vocational-rehabilitation/how-to-apply-esp"
+    },
+    {
+      "path": "/careers-employment/vocational-rehabilitation/eligibility-esp"
+    },
+    {
+      "path": "/education/about-gi-bill-benefits/how-to-use-benefits/national-tests"
+    },
+    {
+      "path": "/disability/eligibility/hazardous-materials-exposure"
+    },
+    {
+      "path": "/disability/eligibility/hazardous-materials-exposure/mustard-gas-lewisite"
+    },
+    {
+      "path": "/housing-assistance/home-loans/loan-limits"
+    },
+    {
+      "path": "/housing-assistance/home-loans/loan-types/interest-rate-reduction-loan"
+    },
+    {
+      "path": "/health-care/manage-health"
+    },
+    {
+      "path": "/careers-employment/education-and-career-counseling-esp"
+    },
+    {
+      "path": "/privacy-policy"
+    },
+    {
+      "path": "/the-program-of-general-caregiver-support-services"
+    },
+    {
+      "path": "/health-care/health-needs-conditions/mental-health"
+    },
+    {
+      "path": "/education/about-gi-bill-benefits/how-to-use-benefits/tuition-assistance-top-up"
+    },
+    {
+      "path": "/manage-dependents"
+    },
+    {
+      "path": "/burials-memorials/eligibility/burial-in-private-cemetery"
+    },
+    {
+      "path": "/health-care/order-medical-supplies"
+    },
+    {
+      "path": "/report-harassment-esp"
+    },
+    {
+      "path": "/health-care/after-you-apply-esp"
+    },
+    {
+      "path": "/pension/veterans-pension-rates/past-rates-2018"
+    },
+    {
+      "path": "/pension/survivors-pension-rates/past-rates-2018"
+    },
+    {
+      "path": "/coronavirus-veteran-frequently-asked-questions-esp"
+    },
+    {
+      "path": "/health-care/health-needs-conditions"
+    },
+    {
+      "path": "/health-care/after-you-apply"
+    },
+    {
+      "path": "/coronavirus-veteran-frequently-asked-questions"
+    },
+    {
+      "path": "/health-care/covid-19-vaccine/about-covid-19-vaccine"
+    },
+    {
+      "path": "/health-care/covid-19-vaccine-tag/about-covid-19-vaccine-tag"
+    },
+    {
+      "path": "/report-harassment",
+      "starred": true
+    },
+    {
+      "path": "/coronavirus-veteran-frequently-asked-questions-tag"
+    },
+    {
+      "path": "/health-care/covid-19-vaccine-esp"
+    },
+    {
+      "path": "/health-care/covid-19-vaccine-tag"
+    },
+    {
+      "path": "/burials-memorials/veterans-burial-allowance"
+    },
+    {
+      "path": "/disability/eligibility/hazardous-materials-exposure/agent-orange"
+    },
+    {
+      "path": "/health-care/family-caregiver-benefits"
+    },
+    {
+      "path": "/life-insurance/totally-disabled-or-terminally-ill"
+    },
+    {
+      "path": "/life-insurance/options-eligibility/sgli"
+    },
+    {
+      "path": "/disability/eligibility/special-claims/unemployability"
+    },
+    {
+      "path": "/burials-memorials/what-to-expect-at-military-funeral"
+    },
+    {
+      "path": "/housing-assistance/disability-housing-grants/how-to-apply",
+      "starred": true
+    },
+    {
+      "path": "/health-care/update-health-information"
+    },
+    {
+      "path": "/education/other-va-education-benefits/stem-scholarship"
+    },
+    {
+      "path": "/education/about-gi-bill-benefits/how-to-use-benefits/work-study",
+      "starred": true
+    },
+    {
+      "path": "/housing-assistance/home-loans/trouble-making-payments"
+    },
+    {
+      "path": "/health-care/about-va-health-benefits/dental-care-esp",
+      "starred": true
+    },
+    {
+      "path": "/education/other-va-education-benefits"
+    },
+    {
+      "path": "/family-and-caregiver-benefits/survivor-compensation/dependency-indemnity-compensation"
+    },
+    {
+      "path": "/family-and-caregiver-benefits/health-and-disability/champva",
+      "starred": true
+    },
+    {
+      "path": "/education/benefit-rates/montgomery-active-duty-rates/past-rates-2024-2025"
+    },
+    {
+      "path": "/education/benefit-rates/montgomery-gi-bill-active-duty-rates/future-rates"
+    },
+    {
+      "path": "/education/benefit-rates/montgomery-selected-reserve-rates/past-rates-2024-2025"
+    },
+    {
+      "path": "/education/benefit-rates/montgomery-selected-reserve-rates/future-rates"
+    },
+    {
+      "path": "/family-and-caregiver-benefits/education-and-careers/dependents-education-assistance/rates/past-rates-2024-2025",
+      "starred": true
+    },
+    {
+      "path": "/family-and-caregiver-benefits/education-and-careers/dependents-education-assistance/rates"
+    },
+    {
+      "path": "/family-and-caregiver-benefits/education-and-careers/dependents-education-assistance/rates/future-rates"
+    },
+    {
+      "path": "/decision-reviews/after-you-request-review"
+    },
+    {
+      "path": "/housing-assistance/home-loans/loan-types/purchase-loan"
+    },
+    {
+      "path": "/contact-us"
+    },
+    {
+      "path": "/supporting-forms-for-claims"
+    },
+    {
+      "path": "/disability/compensation-rates/special-benefit-allowance-rates"
+    },
+    {
+      "path": "/disability/after-you-file-claim"
+    },
+    {
+      "path": "/disability/how-to-file-claim"
+    },
+    {
+      "path": "/disability/how-to-file-claim-esp"
+    },
+    {
+      "path": "/disability/after-you-file-claim-esp"
+    },
+    {
+      "path": "/decision-reviews/supplemental-claim"
+    },
+    {
+      "path": "/decision-reviews/supplemental-claim-esp"
+    },
+    {
+      "path": "/health-care/file-foreign-medical-program-claim"
+    },
+    {
+      "path": "/family-and-caregiver-benefits/health-and-disability/comprehensive-assistance-for-family-caregivers"
+    },
+    {
+      "path": "/careers-employment/vocational-rehabilitation/eligibility"
+    },
+    {
+      "path": "/education/about-gi-bill-benefits/how-to-use-benefits"
+    },
+    {
+      "path": "/education/benefit-rates/post-9-11-gi-bill-rates"
+    },
+    {
+      "path": "/education/benefit-rates/montgomery-active-duty-rates"
+    },
+    {
+      "path": "/education/benefit-rates/montgomery-selected-reserve-rates"
+    },
+    {
+      "path": "/health-care/get-health-id-card"
+    },
+    {
+      "path": "/records/get-military-service-records"
+    },
+    {
+      "path": "/health-care/covid-19-vaccine/vaccine-record"
+    },
+    {
+      "path": "/manage-va-debt",
+      "starred": true
+    },
+    {
+      "path": "/housing-assistance/disability-housing-grants"
+    },
+    {
+      "path": "/health-care/about-va-health-benefits/dental-care"
+    },
+    {
+      "path": "/careers-employment/vocational-rehabilitation/programs/long-term-services"
+    },
+    {
+      "path": "/records/download-your-irs-1095-b"
+    },
+    {
+      "path": "/education/other-va-education-benefits/ibm-skillsbuild-program"
+    },
+    {
+      "path": "/health-care/about-va-health-benefits"
+    },
+    {
+      "path": "/education/benefit-rates/post-9-11-gi-bill-rates/past-rates-2021-2022"
+    }
+  ],
+  "lastFetched": "2025-11-24T18:18:13.888Z"
+}
