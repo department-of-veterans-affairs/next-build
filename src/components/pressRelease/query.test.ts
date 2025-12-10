@@ -6,7 +6,7 @@ import { NodePressRelease } from '@/types/drupal/node'
 import { queries } from '@/lib/drupal/queries'
 import mockData from '@/components/pressRelease/mock.json'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
-import { params } from './query'
+import { params, formatter } from './query'
 
 const nodePressReleaseMock = {
   ...mockData,
@@ -86,5 +86,21 @@ describe('DrupalJsonApiParams configuration for pressRelease', () => {
     expect(queryString).toMatch(
       /include=field_press_release_downloads,field_press_release_downloads.image,field_press_release_downloads.field_document,field_press_release_contact,field_press_release_contact.field_telephone,field_listing,field_administration,field_pdf_version,field_pdf_version.field_document/
     )
+  })
+})
+
+describe('pressRelease formatter applies content formatting', () => {
+  test('applies getHtmlFromField to fullText', () => {
+    const mockWithH2 = {
+      ...nodePressReleaseMock,
+      field_press_release_fulltext: {
+        value: '<h2>Test Heading</h2><p>Some content</p>',
+        format: 'rich_text',
+        processed: '<h2>Test Heading</h2><p>Some content</p>',
+      },
+    }
+    const formattedData = formatter(mockWithH2)
+    // Verify H2 IDs are added (proves formatting is applied)
+    expect(formattedData.fullText).toContain('id="test-heading"')
   })
 })

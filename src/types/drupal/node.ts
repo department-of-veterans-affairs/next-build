@@ -25,7 +25,12 @@ import {
   FieldContentBlock,
   FieldCCReactWidget,
 } from './field_type'
-import { DrupalMediaDocument, DrupalMediaImage } from './media'
+import {
+  DrupalMediaDocument,
+  DrupalMediaDocumentExternal,
+  DrupalMediaImage,
+  DrupalMediaVideo,
+} from './media'
 import {
   ParagraphAccordion,
   ParagraphAlert,
@@ -52,6 +57,7 @@ import {
   ParagraphSituationUpdate,
   ParagraphQA,
   ParagraphTypes,
+  ParagraphLinkTeaserWithImage,
 } from './paragraph'
 import {
   TaxonomyTermLcCategories,
@@ -66,6 +72,8 @@ export type NodeTypes =
   | NodeBanner
   | NodeBasicLandingPage
   | NodeBannerAlertVAMCS
+  | NodeBenefitsDetailPage
+  | NodeCampaignLandingPage
   | NodeFaqMultipleQA
   | NodeHealthCareRegionPage
   | NodeHealthCareLocalFacility
@@ -100,6 +108,7 @@ export type NodeTypes =
   | NodeVbaFacility
   | NodeVbaService
   | NodeVamcOperatingStatusAndAlerts
+  | NodeVaForm
   | NodeCampaignLandingPage
 
 /** Shared type structure for resource nodes. */
@@ -266,7 +275,7 @@ export interface NodeLandingPage extends DrupalNode {
 export interface NodeCampaignLandingPage extends DrupalNode {
   // Hero section
   field_hero_blurb: string
-  field_hero_image: Omit<DrupalMediaImage, 'langcode'>
+  field_hero_image: DrupalMediaImage
   field_primary_call_to_action: ParagraphButton
   field_secondary_call_to_action: ParagraphButton | null
 
@@ -276,13 +285,13 @@ export interface NodeCampaignLandingPage extends DrupalNode {
   // What you can do section
   field_clp_what_you_can_do_header: string
   field_clp_what_you_can_do_intro: string
-  field_clp_what_you_can_do_promos: { type: string; id: string }[]
+  field_clp_what_you_can_do_promos: BlockPromo[]
 
   // Video panel
   field_clp_video_panel: boolean
   field_clp_video_panel_header: string | null
-  field_media: DrupalMediaImage | null
-  field_clp_video_panel_more_video: FieldLink | null
+  field_media: DrupalMediaVideo | null
+  field_clp_video_panel_more_video: ParagraphButton | null
 
   // Events panel
   field_clp_events_panel: boolean
@@ -293,21 +302,25 @@ export interface NodeCampaignLandingPage extends DrupalNode {
   field_clp_stories_panel: boolean
   field_clp_stories_header: string | null
   field_clp_stories_intro: string | null
-  field_clp_stories_teasers: ParagraphLinkTeaser[]
-  field_clp_stories_cta: FieldLink | null
+  field_clp_stories_teasers: ParagraphLinkTeaserWithImage[]
+  field_clp_stories_cta: {
+    uri: string
+    url: string
+    title: string
+  } | null
 
   // Resources panel
   field_clp_resources_panel: boolean
   field_clp_resources_header: string | null
   field_clp_resources_intro_text: string | null
-  field_clp_resources: unknown[] // TODO: Determine resource type
-  field_clp_resources_cta: FieldLink | null
+  field_clp_resources: DrupalMediaDocumentExternal[]
+  field_clp_resources_cta: ParagraphButton | null
 
   // FAQ panel
   field_clp_faq_panel: boolean
   field_clp_faq_paragraphs: ParagraphQA[]
-  field_clp_faq_cta: FieldLink | null
-  field_clp_reusable_q_a: unknown | null // TODO: Determine type
+  field_clp_faq_cta: ParagraphButton | null
+  field_clp_reusable_q_a: ParagraphQaGroup | null
 
   // Spotlight panel
   field_clp_audience: TaxonomyTermAudienceBeneficiaries[]
@@ -315,10 +328,14 @@ export interface NodeCampaignLandingPage extends DrupalNode {
   field_clp_spotlight_header: string | null
   field_clp_spotlight_intro_text: string | null
   field_clp_spotlight_link_teasers: ParagraphLinkTeaser[]
-  field_clp_spotlight_cta: FieldLink | null
+  field_clp_spotlight_cta: ParagraphButton | null
 
   // Connect with us
-  field_connect_with_us: unknown | null // TODO: Determine type
+  field_connect_with_us: {
+    field_external_link: FieldLink
+    field_email_updates_link: FieldLink
+    field_social_media_links: FieldSocialMediaLinks
+  } | null
 
   // Related fields
   field_administration: { id: string; type: string }
@@ -713,4 +730,39 @@ export interface NodeVamcOperatingStatusAndAlerts extends DrupalNode {
   field_banner_alert?: NodeFullWidthBannerAlert[]
   field_operating_status_emerg_inf: FieldFormattedText
   field_links: FieldLink[]
+}
+
+export interface NodeBenefitsDetailPage extends DrupalNode {
+  breadcrumbs: BreadcrumbItem[]
+  field_administration: FieldAdministration
+  field_alert: BlockAlert | null
+  field_content_block: FieldContentBlock | null
+  field_description: string | null
+  field_featured_content: Array<ParagraphWysiwyg | ParagraphQA> | null
+  field_intro_text_limited_html: FieldFormattedText | null
+  field_related_links: ParagraphListOfLinkTeasers | null
+  field_table_of_contents_boolean?: boolean
+}
+
+export interface NodeVaForm extends DrupalNode {
+  field_va_form_name: string
+  field_va_form_number: string
+  field_va_form_title: string
+  field_va_form_num_pages: number
+  field_va_form_revision_date: string
+  field_va_form_issue_date?: string
+  field_va_form_url?: FieldLink
+  field_va_form_tool_url?: FieldLink
+  field_va_form_tool_intro?: string
+  field_va_form_usage?: FieldFormattedText
+  field_va_form_deleted?: boolean
+  field_va_form_deleted_date?: string
+  field_va_form_language?: string
+  field_va_form_type?: 'benefit' | 'employment' | 'non-va' | string // Unclear what else it can be
+  field_va_form_link_teasers?: ParagraphLinkTeaser[]
+  field_va_form_related_forms?: NodeVaForm[]
+  field_va_form_administration?: FieldAdministration
+  field_administration?: FieldAdministration
+  field_benefit_categories?: Array<{ field_home_page_hub_label: string }> // node--landing-page
+  breadcrumbs: BreadcrumbItem[]
 }

@@ -76,7 +76,7 @@ export const getFetcher = (
     }
 
     // Wrap fetching in p-retry for resilience.
-    const retryCount = 5
+    const retryCount = process.env.NEXT_PUBLIC_PROXY_FETCHER_RETRY_COUNT || 5
     const wrappedCrossFetch = async (attempt) => {
       const response = await crossFetch(input, {
         ...options,
@@ -85,7 +85,7 @@ export const getFetcher = (
       if (!response.ok) {
         const logOrError = attempt <= retryCount ? log : error
         logOrError(
-          `Failed request (Attempt ${attempt} of ${retryCount + 1}): %o`,
+          `Failed request (Attempt ${attempt} of ${Number(retryCount) + 1}): %o`,
           {
             url: response.url,
             status: response.status,
@@ -111,6 +111,6 @@ export const getFetcher = (
 
     const pRetry = await import('p-retry')
     return pRetry.default(wrappedCrossFetch, {
-      retries: retryCount,
+      retries: Number(retryCount),
     })
   }

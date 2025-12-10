@@ -16,12 +16,12 @@ import {
 } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
-  entityBaseFields,
   fetchSingleEntityOrPreview,
   fetchAndConcatAllResourceCollectionPages,
 } from '@/lib/drupal/query'
 import { PhoneContact } from '@/components/contactInfo/formatted-type'
 import { formatter as formatServiceLocation } from '@/components/serviceLocation/query'
+import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
 
 // Define the query params for fetching node--vba_facility.
 export const params: QueryParams<null> = () => {

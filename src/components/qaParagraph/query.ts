@@ -7,13 +7,12 @@ import { PARAGRAPH_RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { getNestedIncludes } from '@/lib/utils/queries'
 
 export const params: QueryParams<null> = () =>
-  new DrupalJsonApiParams().addInclude([
-    ...getNestedIncludes(
-      'field_answer',
-      PARAGRAPH_RESOURCE_TYPES.COLLAPSIBLE_PANEL
-    ),
-    ...getNestedIncludes('field_answer', PARAGRAPH_RESOURCE_TYPES.ALERT),
-  ])
+  new DrupalJsonApiParams().addInclude(
+    getNestedIncludes('field_answer', [
+      PARAGRAPH_RESOURCE_TYPES.ALERT,
+      PARAGRAPH_RESOURCE_TYPES.COLLAPSIBLE_PANEL,
+    ])
+  )
 
 export const formatter: QueryFormatter<ParagraphQA, QaParagraph> = (
   entity: ParagraphQA

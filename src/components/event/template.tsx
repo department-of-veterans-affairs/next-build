@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react'
+import React, { useState, useMemo } from 'react'
 import {
   deriveMostRecentDate,
   formatDateObject,
@@ -43,7 +43,6 @@ export const Event = ({
   lovellVariant,
   lovellSwitchPath,
 }: LovellStaticPropsResource<FormattedEvent>) => {
-  const [mostRecentDate, setMostRecentDate] = useState(null)
   const [showAllEvents, setShowAllEvents] = useState(false)
 
   // Memoized because formateDateObject returns a map that will be recalculated on each render.
@@ -52,16 +51,15 @@ export const Event = ({
     [datetimeRange]
   )
 
+  const mostRecentDate = useMemo(
+    () => deriveMostRecentDate(formattedDates),
+    [formattedDates]
+  )
+
   const initialFormattedDates = formattedDates.slice(0, 5)
   const [currentFormattedDates, setCurrentFormattedDates] = useState(
     initialFormattedDates
   )
-
-  useEffect(() => {
-    // Calculate the most recent date when the component mounts
-    const recentDate = deriveMostRecentDate(formattedDates)
-    setMostRecentDate(recentDate)
-  }, [formattedDates])
 
   const handleAllEventsToggle = () => {
     if (showAllEvents) {
@@ -237,7 +235,7 @@ export const Event = ({
         {/* CTA */}
         {(link || additionalInfo || eventCTA) && (
           <div className="registration vads-u-margin-top--4 vads-u-margin-bottom--1">
-            {isEventInPast(mostRecentDate?.value) ? (
+            {isEventInPast(mostRecentDate?.endValue) ? (
               <p className="vads-u-margin--0 vads-u-color--secondary vads-u-font-weight--bold">
                 This event already happened.
               </p>
@@ -270,7 +268,7 @@ export const Event = ({
                   <div
                     className="vads-u-margin--0"
                     dangerouslySetInnerHTML={{
-                      __html: additionalInfo?.processed,
+                      __html: additionalInfo,
                     }}
                   />
                 )}
@@ -280,7 +278,7 @@ export const Event = ({
         )}
 
         {/* Body */}
-        {body && <div dangerouslySetInnerHTML={{ __html: body?.processed }} />}
+        {body && <div dangerouslySetInnerHTML={{ __html: body }} />}
 
         {/* Recurring Events */}
         {currentFormattedDates.length > 1 && (
