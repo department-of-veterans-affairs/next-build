@@ -54,7 +54,7 @@ async function fetchPageElementHtml(
 
     return html
   } catch (error) {
-    console.error(`Error fetching element from ${url}:`, error)
+    console.error('Error fetching element from %s:', url, error)
     return null
   } finally {
     if (browser) {
