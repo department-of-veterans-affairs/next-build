@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import { chromium } from 'playwright'
+import { chromium } from 'playwright-core'
 
 interface CompareRequest {
   path: string
