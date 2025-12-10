@@ -37,6 +37,9 @@ const log = slugLogger.extend('log')
 const warn = slugLogger.extend('warn')
 const error = slugLogger.extend('error')
 
+// Preview domain check
+const previewDomain = 'preview.cms.va.gov'
+
 // Config
 const isExport = process.env.BUILD_OPTION === 'static'
 
@@ -171,6 +174,8 @@ export default function ResourcePage({
     ]
   }
 
+  const isPreviewDomain = typeof window !== 'undefined' && window.location.hostname.includes(previewDomain)
+
   return (
     <PageLayout
       bannerData={[...bannerData, ...contentBanner]}
@@ -183,10 +188,7 @@ export default function ResourcePage({
       <HTMLComment position="head" content={comment} />
 
       {/* We want preview to always have the edit link if the domain is right. */}
-      {(preview ||
-        process.env.NEXT_PUBLIC_DRUPAL_BASE_URL?.includes(
-          'preview-prod.cms.va.gov'
-        )) && <PreviewCrumb entityId={resource.entityId} />}
+      {(preview || isPreviewDomain) && <PreviewCrumb entityId={resource.entityId} />}
 
       <DynamicBreadcrumbs breadcrumbs={resource.breadcrumbs} />
 
