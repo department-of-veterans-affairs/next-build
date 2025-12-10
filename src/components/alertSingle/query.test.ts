@@ -2,12 +2,9 @@
  * @jest-environment node
  */
 
-import { ParagraphAlertSingle } from '@/types/drupal/paragraph'
 import { queries } from '@/lib/drupal/queries'
-import { mockResponse } from '@/components/alertSingle/mock'
+import { alertReusable, alertNonReusable } from './mock'
 import { params } from './query'
-
-const AlertSingle = mockResponse as ParagraphAlertSingle
 
 describe('DrupalJsonApiParams configuration', () => {
   test('params function sets the correct include fields', () => {
@@ -20,10 +17,18 @@ describe('DrupalJsonApiParams configuration', () => {
 })
 
 describe('alert single formatData', () => {
-  test('outputs formatted data', () => {
+  test('formats reusable alert', () => {
     const formattedData = queries.formatData(
       'paragraph--alert_single',
-      AlertSingle
+      alertReusable
+    )
+    expect(formattedData).toMatchSnapshot()
+  })
+
+  test('formats non-reusable alert', () => {
+    const formattedData = queries.formatData(
+      'paragraph--alert_single',
+      alertNonReusable
     )
     expect(formattedData).toMatchSnapshot()
   })

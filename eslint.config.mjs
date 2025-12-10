@@ -1,8 +1,9 @@
-import { defineConfig, globalIgnores } from 'eslint/config'
+import nextConfig from 'eslint-config-next/core-web-vitals'
 import testingLibrary from 'eslint-plugin-testing-library'
 import unusedImports from 'eslint-plugin-unused-imports'
 import globals from 'globals'
 import tsParser from '@typescript-eslint/parser'
+import tseslint from 'typescript-eslint'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import js from '@eslint/js'
@@ -16,29 +17,27 @@ const compat = new FlatCompat({
   allConfig: js.configs.all,
 })
 
-export default defineConfig([
-  globalIgnores([
-    'src/**/__tests__/*',
-    'public/generated/*',
-    'node_modules/*',
-    'coverage/*',
-    '.swc/*',
-    '.next/*',
-    'out/*',
-    'next-env.d.ts',
-    'packages/*',
-    'playwright.config.ts',
-    'playwright/*',
-    'scripts/logNextBuildNetworkFailures.cjs',
-  ]),
+export default [
   {
-    extends: compat.extends(
-      'next/core-web-vitals',
-      'plugin:jest/recommended',
-      'plugin:@typescript-eslint/recommended',
-      'prettier'
-    ),
-
+    ignores: [
+      'src/**/__tests__/*',
+      'public/generated/*',
+      'node_modules/*',
+      'coverage/*',
+      '.swc/*',
+      '.next/*',
+      'out/*',
+      'next-env.d.ts',
+      'packages/*',
+      'playwright.config.ts',
+      'playwright/*',
+      'scripts/logNextBuildNetworkFailures.cjs',
+    ],
+  },
+  ...nextConfig,
+  ...tseslint.configs.recommended,
+  ...compat.extends('plugin:jest/recommended', 'prettier'),
+  {
     plugins: {
       'testing-library': testingLibrary,
       'unused-imports': unusedImports,
@@ -74,6 +73,9 @@ export default defineConfig([
     },
 
     rules: {
+      // The next/link client-side routing breaks site-wide scripts that rely on the
+      // document load event to add interactivity. Completely breaks the site header.
+      '@next/next/no-html-link-for-pages': 'off',
       '@typescript-eslint/no-unused-vars': 'off',
       '@typescript-eslint/no-var-requires': 'off',
       'react/display-name': 'off',
@@ -122,4 +124,4 @@ export default defineConfig([
       },
     },
   },
-])
+]

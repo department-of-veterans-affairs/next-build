@@ -29,3 +29,13 @@ export interface HeaderMegaMenu {
   items: HeaderMegaMenuItem[]
   tree: HeaderMegaMenuItem[]
 }
+
+export interface HomePageHubListMenuItem extends MenuItem {
+  field_icon: string
+  field_link_summary: string
+}
+
+export interface HomePageHubListMenu {
+  items: HomePageHubListMenuItem[]
+  tree: HomePageHubListMenuItem[]
+}

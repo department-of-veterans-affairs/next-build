@@ -4,24 +4,19 @@ exports[`node--event_listing formatData outputs formatted data 1`] = `
 {
   "breadcrumbs": [
     {
+      "href": "/",
+      "label": "Home",
       "options": [],
-      "title": "Home",
-      "uri": "https://va-gov-cms.ddev.site/",
     },
     {
+      "href": "/wilkes-barre-health-care",
+      "label": "VA Wilkes-Barre health care",
       "options": [],
-      "title": "VA Wilkes-Barre health care",
-      "uri": "https://va-gov-cms.ddev.site/wilkes-barre-health-care",
     },
     {
+      "href": "",
+      "label": "Events",
       "options": [],
-      "title": "News and events",
-      "uri": "internal:#",
-    },
-    {
-      "options": [],
-      "title": "Events",
-      "uri": "internal:#",
     },
   ],
   "entityId": 3036,
