@@ -8,7 +8,7 @@
 import * as React from 'react'
 import { SideBySideCompareProps } from './types'
 import { CompareHeader } from './CompareHeader'
-import { TreeNodeRenderer, getNavigableDifferences } from './TreeNodeRenderer'
+import { TreeNodeRenderer } from './TreeNodeRenderer'
 import { styles } from './styles'
 import {
   CompareProvider,
@@ -17,8 +17,8 @@ import {
 } from './contexts'
 import {
   useComparisonParsing,
-  useNavigationState,
   useAcceptanceLogic,
+  useDifferenceNavigation,
 } from './hooks'
 
 export const SideBySideCompare: React.FC<SideBySideCompareProps> = ({
@@ -33,7 +33,16 @@ export const SideBySideCompare: React.FC<SideBySideCompareProps> = ({
   comments = {},
   onAcceptMultiple,
   onUnacceptMultiple,
+  initialCollapseWhitespace,
+  initialIncludeDataTestId,
+  onSettingsChange,
 }) => {
+  // ==========================================================================
+  // Refs
+  // ==========================================================================
+
+  const scrollContainerRef = React.useRef<HTMLDivElement>(null)
+
   // ==========================================================================
   // State
   // ==========================================================================
@@ -42,11 +51,29 @@ export const SideBySideCompare: React.FC<SideBySideCompareProps> = ({
     null
   )
   const [includeAcceptedInNav, setIncludeAcceptedInNav] = React.useState(false)
-  const [collapseWhitespace, setCollapseWhitespace] = React.useState(true)
-  const [includeDataTestId, setIncludeDataTestId] = React.useState(false)
+  const [collapseWhitespace, setCollapseWhitespace] = React.useState(
+    initialCollapseWhitespace ?? true
+  )
+  const [includeDataTestId, setIncludeDataTestId] = React.useState(
+    initialIncludeDataTestId ?? false
+  )
   const [expandedTextNodes, setExpandedTextNodes] = React.useState<Set<string>>(
     new Set()
   )
+
+  // ==========================================================================
+  // Effects
+  // ==========================================================================
+
+  // Notify parent of settings changes
+  React.useEffect(() => {
+    if (onSettingsChange) {
+      onSettingsChange({
+        collapseWhitespace,
+        includeDataTestId,
+      })
+    }
+  }, [collapseWhitespace, includeDataTestId, onSettingsChange])
 
   // ==========================================================================
   // Custom Hooks
@@ -72,39 +99,6 @@ export const SideBySideCompare: React.FC<SideBySideCompareProps> = ({
     () => new Map(Object.entries(comments)),
     [comments]
   )
-
-  // Get list of navigable differences
-  const navigableDifferences = React.useMemo(() => {
-    if (!matchResult) return []
-    return getNavigableDifferences(
-      matchResult.matches,
-      acceptedDifferencesSet,
-      includeAcceptedInNav
-    )
-  }, [matchResult, acceptedDifferencesSet, includeAcceptedInNav])
-
-  const differenceCount = navigableDifferences.length
-
-  // Build a set of navigable difference indices for quick lookup
-  const navigableDifferenceIndices = React.useMemo(() => {
-    const set = new Set<number>()
-    navigableDifferences.forEach((nd) => set.add(nd.matchIndex))
-    return set
-  }, [navigableDifferences])
-
-  // Navigation state and handlers
-  const {
-    scrollContainerRef,
-    currentDifferenceIndex,
-    minVisibleDepth,
-    handleScroll,
-    goToNextDifference,
-    goToPreviousDifference,
-    registerDifferenceRef,
-  } = useNavigationState({
-    navigableDifferences,
-    differenceCount,
-  })
 
   // Acceptance logic and calculations
   const {
@@ -137,6 +131,13 @@ export const SideBySideCompare: React.FC<SideBySideCompareProps> = ({
   }, [])
 
   // ==========================================================================
+  // Difference Navigation
+  // ==========================================================================
+
+  const { currentIndex, totalCount, goToNext, goToPrev } =
+    useDifferenceNavigation(scrollContainerRef)
+
+  // ==========================================================================
   // Context Values
   // ==========================================================================
 
@@ -161,24 +162,19 @@ export const SideBySideCompare: React.FC<SideBySideCompareProps> = ({
     () => ({
       acceptedDifferencesSet,
       commentsMap,
+      includeAcceptedInNav,
     }),
-    [acceptedDifferencesSet, commentsMap]
+    [acceptedDifferencesSet, commentsMap, includeAcceptedInNav]
   )
 
   const uiStateContextValue = React.useMemo(
     () => ({
       hoveredMatchKey,
       onHoverMatchKey: setHoveredMatchKey,
-      minVisibleDepth,
       expandedTextNodes,
       onToggleTextExpansion: handleToggleTextExpansion,
     }),
-    [
-      hoveredMatchKey,
-      minVisibleDepth,
-      expandedTextNodes,
-      handleToggleTextExpansion,
-    ]
+    [hoveredMatchKey, expandedTextNodes, handleToggleTextExpansion]
   )
 
   // ==========================================================================
@@ -207,17 +203,17 @@ export const SideBySideCompare: React.FC<SideBySideCompareProps> = ({
             {/* Header with navigation */}
             <CompareHeader
               totalElements={matchResult.matches.length}
-              differenceCount={differenceCount}
+              differenceCount={totalCount}
               acceptedCount={acceptedCount}
-              currentDifferenceIndex={currentDifferenceIndex}
+              currentDifferenceIndex={totalCount > 0 ? currentIndex + 1 : 0}
               includeAcceptedInNav={includeAcceptedInNav}
               onIncludeAcceptedChange={setIncludeAcceptedInNav}
               collapseWhitespace={collapseWhitespace}
               onCollapseWhitespaceChange={setCollapseWhitespace}
               includeDataTestId={includeDataTestId}
               onIncludeDataTestIdChange={setIncludeDataTestId}
-              onPreviousDifference={goToPreviousDifference}
-              onNextDifference={goToNextDifference}
+              onPreviousDifference={goToPrev}
+              onNextDifference={goToNext}
               onAcceptAll={handleAcceptAll}
               onUnacceptAll={handleUnacceptAll}
               hasUnacceptedDifferences={hasUnacceptedDifferences}
@@ -236,15 +232,14 @@ export const SideBySideCompare: React.FC<SideBySideCompareProps> = ({
               {/* Scrollable Content */}
               <div
                 ref={scrollContainerRef}
-                onScroll={handleScroll}
                 className={styles.compareScrollContainer}
               >
                 {/* Tree Rendering */}
                 {matchResult.rootMatches.map((rootMatch) => {
-                  const matchKey =
-                    rootMatch.left?.node?.matchKey ??
-                    rootMatch.right?.node?.matchKey ??
-                    ''
+                  // Use both left and right matchKeys to ensure uniqueness
+                  const leftKey = rootMatch.left?.node?.matchKey ?? ''
+                  const rightKey = rootMatch.right?.node?.matchKey ?? ''
+                  const matchKey = `${leftKey}|${rightKey}`
 
                   return (
                     <TreeNodeRenderer
@@ -254,9 +249,6 @@ export const SideBySideCompare: React.FC<SideBySideCompareProps> = ({
                         matchResult.childMatchesByParentKey
                       }
                       depth={0}
-                      navigableDifferenceIndices={navigableDifferenceIndices}
-                      allMatches={matchResult.matches}
-                      registerDifferenceRef={registerDifferenceRef}
                     />
                   )
                 })}

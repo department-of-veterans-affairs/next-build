@@ -184,7 +184,7 @@ export const CompareHeader: React.FC<CompareHeaderProps> = ({
           {differenceCount > 0 ? (
             <>
               <div className={styles.navCounter}>
-                {currentDifferenceIndex + 1} of {differenceCount}
+                {currentDifferenceIndex} of {differenceCount}
               </div>
               <div className={styles.navButtons}>
                 <button

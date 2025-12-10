@@ -141,11 +141,12 @@ const CommentForm: React.FC<CommentFormProps> = ({
 interface AcceptedDifferencesSectionProps {
   acceptedDiffs: { diff: DifferenceDetail; originalIndex: number }[]
   nodeId: string
+  includeInNav: boolean
 }
 
 const AcceptedDifferencesSectionComponent: React.FC<
   AcceptedDifferencesSectionProps
-> = ({ acceptedDiffs, nodeId }) => {
+> = ({ acceptedDiffs, nodeId, includeInNav }) => {
   const { env1Label, env2Label, onUnacceptDifference } = useCompare()
   const [isExpanded, setIsExpanded] = React.useState(false)
 
@@ -159,6 +160,7 @@ const AcceptedDifferencesSectionComponent: React.FC<
       <div
         className={styles.acceptedCollapsed}
         onClick={() => setIsExpanded(true)}
+        {...(includeInNav && { 'data-html-difference': true })}
       >
         <va-icon
           icon="expand_more"
@@ -175,7 +177,10 @@ const AcceptedDifferencesSectionComponent: React.FC<
 
   // Expanded state
   return (
-    <div className={styles.acceptedExpanded}>
+    <div
+      className={styles.acceptedExpanded}
+      {...(includeInNav && { 'data-html-difference': true })}
+    >
       <div
         className={styles.acceptedExpandedHeader}
         onClick={() => setIsExpanded(false)}
@@ -240,7 +245,7 @@ export const DifferencePanel: React.FC<DifferencePanelProps> = ({
   nodeId,
   existingComment,
 }) => {
-  const { acceptedDifferencesSet } = useDifferences()
+  const { acceptedDifferencesSet, includeAcceptedInNav } = useDifferences()
   const differences = match.differences
 
   // Separate accepted and visible differences
@@ -270,11 +275,12 @@ export const DifferencePanel: React.FC<DifferencePanelProps> = ({
       <AcceptedDifferencesSection
         acceptedDiffs={acceptedDiffs}
         nodeId={nodeId}
+        includeInNav={includeAcceptedInNav}
       />
 
       {/* Visible (unaccepted) differences and comments */}
       {(hasVisibleDifferences || existingComment) && (
-        <div className={styles.diffPanel}>
+        <div className={styles.diffPanel} data-html-difference>
           {hasVisibleDifferences && (
             <>
               <div className={styles.diffPanelTitle}>Differences:</div>

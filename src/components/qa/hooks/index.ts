@@ -3,5 +3,5 @@
  */
 
 export { useComparisonParsing } from './useComparisonParsing'
-export { useNavigationState } from './useNavigationState'
 export { useAcceptanceLogic } from './useAcceptanceLogic'
+export { useDifferenceNavigation } from './useDifferenceNavigation'

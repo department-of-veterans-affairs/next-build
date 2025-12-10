@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
-import { SideBySideCompare } from '@/components/qa/SideBySideCompare'
+import { ComparisonContainer } from '@/components/qa/ComparisonContainer'
 
 interface ComparisonRecord {
   env1: string
@@ -12,6 +12,8 @@ interface ComparisonRecord {
   html2?: string
   acceptedDifferences?: string[]
   comments?: Record<string, string>
+  collapseWhitespace?: boolean
+  includeDataTestId?: boolean
 }
 
 interface QAPath {
@@ -46,6 +48,7 @@ interface ReviewRowProps {
   onDeleteComparison: (path: string, index: number) => void
   cssSelector: string
   comparingKeys: Set<string>
+  contentType: string
 }
 
 const QA_CHECKLIST = {
@@ -98,6 +101,7 @@ const ReviewRow = React.memo<ReviewRowProps>(
     onDeleteComparison,
     cssSelector,
     comparingKeys,
+    contentType,
   }) => {
     const isComparingDevStaging = comparingKeys.has(
       `${qaPath.path}:dev:staging`
@@ -347,19 +351,16 @@ const ReviewRow = React.memo<ReviewRowProps>(
             <div
               style={{
                 marginTop: '12px',
-                padding: '12px',
-                backgroundColor: '#e7f6f8',
-                borderRadius: '4px',
-                border: '1px solid #97d4ea',
               }}
             >
               <strong>Comparisons ({comparisons.length}):</strong>
               {comparisons.map((comp, index) => (
-                <ComparisonItem
+                <ComparisonContainer
                   key={index}
                   comparison={comp}
                   comparisonIndex={index}
                   path={qaPath.path}
+                  contentType={contentType}
                   onDelete={() => onDeleteComparison(qaPath.path, index)}
                 />
               ))}
@@ -372,270 +373,6 @@ const ReviewRow = React.memo<ReviewRowProps>(
 )
 
 ReviewRow.displayName = 'ReviewRow'
-
-interface ComparisonItemProps {
-  comparison: ComparisonRecord
-  comparisonIndex: number
-  path: string
-  onDelete: () => void
-}
-
-const ComparisonItem: React.FC<ComparisonItemProps> = ({
-  comparison,
-  comparisonIndex,
-  path,
-  onDelete,
-}) => {
-  const [isExpanded, setIsExpanded] = useState(false)
-  const [acceptedDifferences, setAcceptedDifferences] = useState<string[]>(
-    comparison.acceptedDifferences || []
-  )
-  const [comments, setComments] = useState<Record<string, string>>(
-    comparison.comments || {}
-  )
-  const router = useRouter()
-  const contentType = router.query['content-type'] as string
-  const comparisonRef = React.useRef<HTMLDivElement>(null)
-
-  // Scroll to comparison when it's expanded
-  React.useEffect(() => {
-    if (isExpanded && comparisonRef.current) {
-      // Small delay to ensure DOM is fully rendered
-      setTimeout(() => {
-        comparisonRef.current?.scrollIntoView({
-          behavior: 'smooth',
-          block: 'center',
-        })
-      }, 100)
-    }
-  }, [isExpanded])
-
-  const handleAcceptDifference = React.useCallback(
-    async (nodeId: string, differenceIndex: number) => {
-      const key = `${nodeId}:${differenceIndex}`
-      const newAccepted = [...acceptedDifferences, key]
-      setAcceptedDifferences(newAccepted)
-
-      // Persist to server
-      try {
-        await fetch('/api/qa/paths', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            resourceType: contentType,
-            path,
-            updateComparisonMetadata: {
-              comparisonIndex,
-              acceptedDifferences: newAccepted,
-            },
-          }),
-        })
-      } catch (error) {
-        console.error('Error saving accepted difference:', error)
-      }
-    },
-    [acceptedDifferences, comparisonIndex, contentType, path]
-  )
-
-  const handleAcceptMultiple = React.useCallback(
-    async (keys: string[]) => {
-      const newAccepted = [...acceptedDifferences, ...keys]
-      setAcceptedDifferences(newAccepted)
-
-      // Persist to server
-      try {
-        await fetch('/api/qa/paths', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            resourceType: contentType,
-            path,
-            updateComparisonMetadata: {
-              comparisonIndex,
-              acceptedDifferences: newAccepted,
-            },
-          }),
-        })
-      } catch (error) {
-        console.error('Error saving accepted differences:', error)
-      }
-    },
-    [acceptedDifferences, comparisonIndex, contentType, path]
-  )
-
-  const handleUnacceptDifference = React.useCallback(
-    async (nodeId: string, differenceIndex: number) => {
-      const key = `${nodeId}:${differenceIndex}`
-      const newAccepted = acceptedDifferences.filter((k) => k !== key)
-      setAcceptedDifferences(newAccepted)
-
-      // Persist to server
-      try {
-        await fetch('/api/qa/paths', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            resourceType: contentType,
-            path,
-            updateComparisonMetadata: {
-              comparisonIndex,
-              acceptedDifferences: newAccepted,
-            },
-          }),
-        })
-      } catch (error) {
-        console.error('Error un-accepting difference:', error)
-      }
-    },
-    [acceptedDifferences, comparisonIndex, contentType, path]
-  )
-
-  const handleUnacceptMultiple = React.useCallback(
-    async (keys: string[]) => {
-      const keysToRemove = new Set(keys)
-      const newAccepted = acceptedDifferences.filter(
-        (k) => !keysToRemove.has(k)
-      )
-      setAcceptedDifferences(newAccepted)
-
-      // Persist to server
-      try {
-        await fetch('/api/qa/paths', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            resourceType: contentType,
-            path,
-            updateComparisonMetadata: {
-              comparisonIndex,
-              acceptedDifferences: newAccepted,
-            },
-          }),
-        })
-      } catch (error) {
-        console.error('Error un-accepting differences:', error)
-      }
-    },
-    [acceptedDifferences, comparisonIndex, contentType, path]
-  )
-
-  const handleAddComment = React.useCallback(
-    async (nodeId: string, comment: string) => {
-      const newComments = { ...comments, [nodeId]: comment }
-      setComments(newComments)
-
-      // Persist to server
-      try {
-        await fetch('/api/qa/paths', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            resourceType: contentType,
-            path,
-            updateComparisonMetadata: {
-              comparisonIndex,
-              comments: newComments,
-            },
-          }),
-        })
-      } catch (error) {
-        console.error('Error saving comment:', error)
-      }
-    },
-    [comments, comparisonIndex, contentType, path]
-  )
-
-  return (
-    <div
-      style={{
-        marginTop: '8px',
-        paddingTop: '8px',
-        borderTop: '1px solid #97d4ea',
-      }}
-    >
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          marginBottom: '8px',
-        }}
-      >
-        <div style={{ flex: 1 }}>
-          <div
-            style={{
-              fontSize: '14px',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-            }}
-          >
-            <strong>
-              {comparison.env1} vs {comparison.env2}
-            </strong>
-            {' - '}
-            <code style={{ fontSize: '12px' }}>{comparison.selector}</code>
-          </div>
-          <div
-            style={{
-              fontSize: '12px',
-              marginTop: '4px',
-              color: '#757575',
-            }}
-          >
-            {new Date(comparison.timestamp).toLocaleString()}
-          </div>
-        </div>
-        <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-          <button
-            type="button"
-            onClick={() => setIsExpanded(!isExpanded)}
-            className="usa-button usa-button--outline"
-            style={{ fontSize: '12px', padding: '4px 8px' }}
-          >
-            {isExpanded ? 'Hide' : 'View'} Comparison
-          </button>
-          <button
-            type="button"
-            onClick={onDelete}
-            style={{
-              background: 'none',
-              border: 'none',
-              cursor: 'pointer',
-              color: '#b50909',
-              fontSize: '12px',
-              padding: '4px 8px',
-            }}
-            title="Delete this comparison"
-          >
-            Delete
-          </button>
-        </div>
-      </div>
-
-      {isExpanded && comparison.html1 && comparison.html2 && (
-        <div
-          ref={comparisonRef}
-          style={{ marginTop: '12px', maxWidth: '100%', overflow: 'hidden' }}
-        >
-          <SideBySideCompare
-            html1={comparison.html1}
-            html2={comparison.html2}
-            env1Label={comparison.env1}
-            env2Label={comparison.env2}
-            onAcceptDifference={handleAcceptDifference}
-            onUnacceptDifference={handleUnacceptDifference}
-            onAddComment={handleAddComment}
-            acceptedDifferences={acceptedDifferences}
-            comments={comments}
-            onAcceptMultiple={handleAcceptMultiple}
-            onUnacceptMultiple={handleUnacceptMultiple}
-          />
-        </div>
-      )}
-    </div>
-  )
-}
 
 const getReviewStatusKey = (contentType: string): string => {
   return `qa-review-${contentType}`
@@ -860,6 +597,8 @@ export default function QAReviewPage() {
           html2: fetchData.html2,
           acceptedDifferences: [],
           comments: {},
+          collapseWhitespace: true,
+          includeDataTestId: false,
         }
 
         const saveResponse = await fetch('/api/qa/paths', {
@@ -974,13 +713,21 @@ export default function QAReviewPage() {
         <h1 className="vads-u-font-size--h2 vads-u-margin-top--0">
           QA Review - {contentType}
         </h1>
-        <button
-          className="usa-button usa-button-secondary"
-          onClick={handleClearReview}
-          disabled={!hasAnyData}
-        >
-          Clear Review
-        </button>
+        <div style={{ display: 'flex', gap: '8px' }}>
+          <a
+            href="/_playground/qa/comparisons"
+            className="usa-button usa-button-secondary"
+          >
+            View All Comparisons
+          </a>
+          <button
+            className="usa-button usa-button-secondary"
+            onClick={handleClearReview}
+            disabled={!hasAnyData}
+          >
+            Clear Review
+          </button>
+        </div>
       </div>
 
       <div className="vads-u-margin-y--3">
@@ -1084,6 +831,7 @@ export default function QAReviewPage() {
                       onDeleteComparison={handleDeleteComparison}
                       cssSelector={cssSelector}
                       comparingKeys={comparingKeys}
+                      contentType={contentType as string}
                     />
                   ))}
                 </div>

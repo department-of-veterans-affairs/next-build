@@ -254,7 +254,7 @@ export default function QAPage() {
 
     try {
       const response = await fetch(
-        `/api/qa/paths?resourceType=${encodeURIComponent(resourceType)}`
+        `/api/qa/paths?resourceType=${encodeURIComponent(resourceType)}&revalidate=true`
       )
 
       if (!response.ok) {
@@ -555,6 +555,12 @@ export default function QAPage() {
             className="usa-button usa-button-secondary"
           >
             Go to review page
+          </a>
+          <a
+            href="/_playground/qa/comparisons"
+            className="usa-button usa-button-secondary"
+          >
+            View All Comparisons
           </a>
           <button
             className="usa-button usa-button-secondary"

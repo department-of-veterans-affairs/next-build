@@ -5,6 +5,7 @@
  * or adds comments:
  * - acceptedDifferencesSet: Set of accepted difference keys
  * - commentsMap: Map of node IDs to comment strings
+ * - includeAcceptedInNav: Whether accepted differences should be included in navigation
  */
 
 import * as React from 'react'
@@ -12,6 +13,7 @@ import * as React from 'react'
 export interface DifferencesContextValue {
   acceptedDifferencesSet: Set<string>
   commentsMap: Map<string, string>
+  includeAcceptedInNav: boolean
 }
 
 const DifferencesContext = React.createContext<

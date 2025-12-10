@@ -3,8 +3,7 @@
  */
 
 import * as React from 'react'
-import { MatchResult } from '@/lib/qa/elementMatcher'
-import { getNavigableDifferences } from '../TreeNodeRenderer'
+import { MatchResult, MatchedPair } from '@/lib/qa/elementMatcher'
 
 interface UseAcceptanceLogicOptions {
   matchResult: MatchResult | null
@@ -13,30 +12,34 @@ interface UseAcceptanceLogicOptions {
   onUnacceptMultiple?: (keys: string[]) => void
 }
 
+// Helper to get nodeId from a match
+function getNodeId(match: MatchedPair): string {
+  const leftNode = match.left?.node
+  const rightNode = match.right?.node
+  const matchKey = leftNode?.matchKey ?? rightNode?.matchKey ?? ''
+  return matchKey || `row-${leftNode?.depth ?? rightNode?.depth ?? 0}`
+}
+
+// Helper to filter to navigable matches (has differences, not child of missing)
+function getNavigableMatches(matches: MatchedPair[]): MatchedPair[] {
+  return matches.filter((match) => match.isDifferent && !match.isChildOfMissing)
+}
+
 export const useAcceptanceLogic = ({
   matchResult,
   acceptedDifferencesSet,
   onAcceptMultiple,
   onUnacceptMultiple,
 }: UseAcceptanceLogicOptions) => {
-  // Accept all navigable differences
+  // Accept all differences
   const handleAcceptAll = React.useCallback(() => {
     if (!matchResult || !onAcceptMultiple) return
 
     const keysToAccept: string[] = []
-    const navDiffs = getNavigableDifferences(
-      matchResult.matches,
-      acceptedDifferencesSet,
-      true
-    )
+    const navigable = getNavigableMatches(matchResult.matches)
 
-    navDiffs.forEach(({ match }) => {
-      const leftNode = match.left?.node
-      const rightNode = match.right?.node
-      const matchKey = leftNode?.matchKey ?? rightNode?.matchKey ?? ''
-      const nodeId =
-        matchKey || `row-${leftNode?.depth ?? rightNode?.depth ?? 0}`
-
+    navigable.forEach((match) => {
+      const nodeId = getNodeId(match)
       match.differences.forEach((_, diffIndex) => {
         const key = `${nodeId}:${diffIndex}`
         if (!acceptedDifferencesSet.has(key)) {
@@ -48,24 +51,15 @@ export const useAcceptanceLogic = ({
     onAcceptMultiple(keysToAccept)
   }, [matchResult, acceptedDifferencesSet, onAcceptMultiple])
 
-  // Unaccept all navigable differences
+  // Unaccept all differences
   const handleUnacceptAll = React.useCallback(() => {
     if (!matchResult || !onUnacceptMultiple) return
 
     const keysToUnaccept: string[] = []
-    const navDiffs = getNavigableDifferences(
-      matchResult.matches,
-      acceptedDifferencesSet,
-      true
-    )
+    const navigable = getNavigableMatches(matchResult.matches)
 
-    navDiffs.forEach(({ match }) => {
-      const leftNode = match.left?.node
-      const rightNode = match.right?.node
-      const matchKey = leftNode?.matchKey ?? rightNode?.matchKey ?? ''
-      const nodeId =
-        matchKey || `row-${leftNode?.depth ?? rightNode?.depth ?? 0}`
-
+    navigable.forEach((match) => {
+      const nodeId = getNodeId(match)
       match.differences.forEach((_, diffIndex) => {
         const key = `${nodeId}:${diffIndex}`
         if (acceptedDifferencesSet.has(key)) {
@@ -81,19 +75,10 @@ export const useAcceptanceLogic = ({
   const hasUnacceptedDifferences = React.useMemo(() => {
     if (!matchResult) return false
 
-    const navDiffs = getNavigableDifferences(
-      matchResult.matches,
-      acceptedDifferencesSet,
-      true
-    )
+    const navigable = getNavigableMatches(matchResult.matches)
 
-    return navDiffs.some(({ match }) => {
-      const leftNode = match.left?.node
-      const rightNode = match.right?.node
-      const matchKey = leftNode?.matchKey ?? rightNode?.matchKey ?? ''
-      const nodeId =
-        matchKey || `row-${leftNode?.depth ?? rightNode?.depth ?? 0}`
-
+    return navigable.some((match) => {
+      const nodeId = getNodeId(match)
       return match.differences.some((_, diffIndex) => {
         const key = `${nodeId}:${diffIndex}`
         return !acceptedDifferencesSet.has(key)
@@ -105,19 +90,10 @@ export const useAcceptanceLogic = ({
   const hasAcceptedDifferences = React.useMemo(() => {
     if (!matchResult) return false
 
-    const navDiffs = getNavigableDifferences(
-      matchResult.matches,
-      acceptedDifferencesSet,
-      true
-    )
+    const navigable = getNavigableMatches(matchResult.matches)
 
-    return navDiffs.some(({ match }) => {
-      const leftNode = match.left?.node
-      const rightNode = match.right?.node
-      const matchKey = leftNode?.matchKey ?? rightNode?.matchKey ?? ''
-      const nodeId =
-        matchKey || `row-${leftNode?.depth ?? rightNode?.depth ?? 0}`
-
+    return navigable.some((match) => {
+      const nodeId = getNodeId(match)
       return match.differences.some((_, diffIndex) => {
         const key = `${nodeId}:${diffIndex}`
         return acceptedDifferencesSet.has(key)
@@ -129,20 +105,11 @@ export const useAcceptanceLogic = ({
   const acceptedCount = React.useMemo(() => {
     if (!matchResult) return 0
 
-    const navDiffs = getNavigableDifferences(
-      matchResult.matches,
-      acceptedDifferencesSet,
-      true
-    )
+    const navigable = getNavigableMatches(matchResult.matches)
 
     let count = 0
-    navDiffs.forEach(({ match }) => {
-      const leftNode = match.left?.node
-      const rightNode = match.right?.node
-      const matchKey = leftNode?.matchKey ?? rightNode?.matchKey ?? ''
-      const nodeId =
-        matchKey || `row-${leftNode?.depth ?? rightNode?.depth ?? 0}`
-
+    navigable.forEach((match) => {
+      const nodeId = getNodeId(match)
       const allAccepted = match.differences.every((_, diffIndex) => {
         const key = `${nodeId}:${diffIndex}`
         return acceptedDifferencesSet.has(key)

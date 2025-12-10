@@ -20,6 +20,12 @@ export interface SideBySideCompareProps {
   comments?: Record<string, string>
   onAcceptMultiple: (keys: string[]) => void
   onUnacceptMultiple: (keys: string[]) => void
+  initialCollapseWhitespace?: boolean
+  initialIncludeDataTestId?: boolean
+  onSettingsChange?: (settings: {
+    collapseWhitespace: boolean
+    includeDataTestId: boolean
+  }) => void
 }
 
 // =============================================================================
@@ -60,13 +66,6 @@ export interface TreeNodeRendererProps {
   match: MatchedPair
   childMatchesByParentKey: Map<string, MatchedPair[]>
   depth: number
-  rowRef?: (el: HTMLDivElement | null) => void
-  // For registering navigable difference refs in child nodes
-  navigableDifferenceIndices?: Set<number>
-  allMatches?: MatchedPair[]
-  registerDifferenceRef?: (
-    matchIndex: number
-  ) => (el: HTMLDivElement | null) => void
 }
 
 // =============================================================================

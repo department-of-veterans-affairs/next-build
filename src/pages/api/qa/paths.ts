@@ -18,6 +18,8 @@ interface ComparisonRecord {
   html2?: string // Raw HTML from env2
   acceptedDifferences?: string[] // Array of "nodeId:differenceIndex"
   comments?: Record<string, string> // Map of nodeId -> comment text
+  collapseWhitespace?: boolean // Comparison display setting
+  includeDataTestId?: boolean // Comparison display setting
 }
 
 interface QAPath {
@@ -153,8 +155,8 @@ export default async function handler(
 
       let cache: QACache
 
-      if (existingCache && shouldRevalidate) {
-        // Merge new paths with existing cache
+      if (existingCache) {
+        // Merge new paths with existing cache (preserves comparisons, stars, notes)
         cache = mergePathsWithCache(newPaths, existingCache)
       } else {
         // Create new cache
@@ -261,20 +263,31 @@ export default async function handler(
         updateComparisonMetadata &&
         typeof updateComparisonMetadata === 'object'
       ) {
-        // Update comparison metadata (accepted differences and comments)
-        const { comparisonIndex, acceptedDifferences, comments } =
-          updateComparisonMetadata
+        // Update comparison metadata (accepted differences, comments, and settings)
+        const {
+          comparisonIndex,
+          acceptedDifferences,
+          comments,
+          collapseWhitespace,
+          includeDataTestId,
+        } = updateComparisonMetadata
         if (
           typeof comparisonIndex === 'number' &&
           cache.paths[pathIndex].comparisons
         ) {
           const comparison = cache.paths[pathIndex].comparisons[comparisonIndex]
           if (comparison) {
-            if (acceptedDifferences) {
+            if (acceptedDifferences !== undefined) {
               comparison.acceptedDifferences = acceptedDifferences
             }
-            if (comments) {
+            if (comments !== undefined) {
               comparison.comments = comments
+            }
+            if (collapseWhitespace !== undefined) {
+              comparison.collapseWhitespace = collapseWhitespace
+            }
+            if (includeDataTestId !== undefined) {
+              comparison.includeDataTestId = includeDataTestId
             }
           }
         }
