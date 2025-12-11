@@ -1,5 +1,6 @@
 import React from 'react'
 import { BenefitsHub as FormattedBenefitsHub } from './formatted-type'
+import { AlertBlock as FormattedAlertBlock } from '@/components/alert/formatted-type'
 import { render, screen, fireEvent } from '@testing-library/react'
 import { axe } from '@/test-utils'
 import { BenefitsHub } from './template'
@@ -25,6 +26,7 @@ const mockBenefitsData: FormattedBenefitsHub = {
   supportServices: undefined,
   connectWithUs: null,
   relatedLinks: null,
+  alert: null,
 }
 
 describe('BenefitsHub with valid data', () => {
@@ -34,18 +36,9 @@ describe('BenefitsHub with valid data', () => {
   test('renders BenefitsHub component', async () => {
     const { container } = render(
       <BenefitsHub
+        {...mockBenefitsData}
         id="1"
-        type=""
-        published={true}
-        lastUpdated="2024-01-01"
         title={'Test Health Benefits Hub'}
-        titleIcon={null}
-        spokes={[]}
-        intro={null}
-        fieldLinks={null}
-        supportServices={undefined}
-        connectWithUs={mockData.field_connect_with_us}
-        relatedLinks={null}
       />
     )
 
@@ -53,29 +46,17 @@ describe('BenefitsHub with valid data', () => {
       screen.getByRole('heading', { name: /Test Health Benefits Hub/ })
     ).toBeInTheDocument()
 
-    // const axeResults = await axe(container)
-    // expect(axeResults).toHaveNoViolations()
-    // Skip axe test for now due to heading order issue in accordion structure
-    // The va-accordion contains h3 elements which causes heading-order violations
-    // when not preceded by h2. This is a known issue with VA design system components.
-    // const axeResults = await axe(container)
-    // expect(axeResults).toHaveNoViolations()
+    const axeResults = await axe(container)
+    expect(axeResults).toHaveNoViolations()
   })
 
   test('renders BenefitsHub component with intro text', () => {
     render(
       <BenefitsHub
-        id="2"
-        type=""
-        published={true}
-        lastUpdated="2024-01-01"
-        title={'Health Care'}
-        titleIcon={null}
-        spokes={[]}
+        {...mockBenefitsData}
         intro={'This is a test intro for the Benefits Hub component.'}
         fieldLinks={null}
         supportServices={undefined}
-        connectWithUs={mockData.field_connect_with_us}
         relatedLinks={null}
       />
     )
@@ -88,18 +69,10 @@ describe('BenefitsHub with valid data', () => {
   test('renders BenefitsHub component with icon', () => {
     render(
       <BenefitsHub
-        id="3"
-        type=""
-        published={true}
-        lastUpdated="2024-01-01"
+        {...mockBenefitsData}
         title={'Disability'}
         titleIcon={'disability'}
-        spokes={[]}
         intro={'Learn about disability compensation.'}
-        fieldLinks={null}
-        supportServices={undefined}
-        connectWithUs={null}
-        relatedLinks={null}
       />
     )
 
@@ -147,18 +120,11 @@ describe('BenefitsHub with valid data', () => {
 
     render(
       <BenefitsHub
-        id="4"
-        type=""
-        published={true}
-        lastUpdated="2024-01-01"
+        {...mockBenefitsData}
         title={'Health Care'}
         titleIcon={'health-care'}
         intro={'Manage your VA health care.'}
         spokes={mockSpokes}
-        fieldLinks={null}
-        supportServices={undefined}
-        connectWithUs={null}
-        relatedLinks={null}
       />
     )
 
@@ -206,18 +172,10 @@ describe('BenefitsHub with valid data', () => {
 
     render(
       <BenefitsHub
-        id="5"
-        type=""
-        published={true}
-        lastUpdated="2024-01-01"
+        {...mockBenefitsData}
         title={'Benefits Hub'}
-        titleIcon={null}
         intro={'Information for different audiences.'}
-        spokes={[]}
         fieldLinks={mockFieldLinks}
-        supportServices={undefined}
-        connectWithUs={null}
-        relatedLinks={null}
       />
     )
 
@@ -245,15 +203,8 @@ describe('BenefitsHub with valid data', () => {
   test('renders BenefitsHub component with connectWithUs (Connect with us accordion)', () => {
     render(
       <BenefitsHub
-        id="5"
-        type=""
-        published={true}
-        lastUpdated="2024-01-01"
-        title={'Benefits Hub'}
-        titleIcon={null}
+        {...mockBenefitsData}
         intro={'Information for different audiences.'}
-        spokes={[]}
-        fieldLinks={null}
         connectWithUs={mockData.field_connect_with_us}
         relatedLinks={null}
       />
@@ -320,12 +271,8 @@ describe('BenefitsHub with valid data', () => {
 
     render(
       <BenefitsHub
-        id="6"
-        type=""
-        published={true}
-        lastUpdated="2024-01-01"
+        {...mockBenefitsData}
         title={'Benefits Hub with On This Page'}
-        titleIcon={null}
         intro={'Testing on-this-page component.'}
         spokes={mockSpokes}
         fieldLinks={null}
@@ -342,12 +289,8 @@ describe('BenefitsHub with valid data', () => {
   test('does not render on-this-page component when no spokes exist', () => {
     render(
       <BenefitsHub
-        id="7"
-        type=""
-        published={true}
-        lastUpdated="2024-01-01"
+        {...mockBenefitsData}
         title={'Benefits Hub without Spokes'}
-        titleIcon={null}
         intro={'Testing without spokes.'}
         spokes={[]}
         fieldLinks={null}
@@ -364,17 +307,10 @@ describe('BenefitsHub with valid data', () => {
   test('does not render on-this-page component when spokes is null', () => {
     render(
       <BenefitsHub
-        id="8"
-        type=""
-        published={true}
-        lastUpdated="2024-01-01"
+        {...mockBenefitsData}
         title={'Benefits Hub with Null Spokes'}
-        titleIcon={null}
         intro={'Testing with null spokes.'}
         spokes={null}
-        fieldLinks={null}
-        connectWithUs={null}
-        relatedLinks={null}
       />
     )
 
@@ -412,16 +348,10 @@ describe('BenefitsHub with valid data', () => {
 
     const { container } = render(
       <BenefitsHub
+        {...mockBenefitsData}
         id="6"
-        type=""
-        published={true}
-        lastUpdated="2024-01-01"
         title={'Benefits Hub with Related Links'}
-        titleIcon={null}
         intro={'Information with related links.'}
-        spokes={[]}
-        fieldLinks={null}
-        connectWithUs={null}
         relatedLinks={mockRelatedLinks}
       />
     )
@@ -502,15 +432,10 @@ test('renders BenefitsHub component with support services (Call us section)', ()
 
   render(
     <BenefitsHub
+      {...mockBenefitsData}
       id="6"
-      type=""
-      published={true}
-      lastUpdated="2024-01-01"
       title="Benefits Hub with Support Services"
-      titleIcon={null}
       intro="Test support services functionality"
-      spokes={[]}
-      fieldLinks={null}
       supportServices={mockSupportServices}
       connectWithUs={null}
       relatedLinks={null}
@@ -566,18 +491,11 @@ test('renders BenefitsHub component with support services without phone numbers'
 
   render(
     <BenefitsHub
+      {...mockBenefitsData}
       id="7"
-      type=""
-      published={true}
-      lastUpdated="2024-01-01"
       title="Benefits Hub with Non-Phone Services"
-      titleIcon={null}
       intro="Test services without phone numbers"
-      spokes={[]}
-      fieldLinks={null}
       supportServices={mockSupportServicesNoPhone}
-      connectWithUs={null}
-      relatedLinks={null}
     />
   )
 
@@ -598,18 +516,11 @@ test('renders BenefitsHub component with support services without phone numbers'
 test('does not render Call us section when supportServices is empty', () => {
   render(
     <BenefitsHub
+      {...mockBenefitsData}
       id="8"
-      type=""
-      published={true}
-      lastUpdated="2024-01-01"
       title="Benefits Hub without Support Services"
-      titleIcon={null}
       intro="No support services"
-      spokes={[]}
-      fieldLinks={null}
       supportServices={[]}
-      connectWithUs={null}
-      relatedLinks={null}
     />
   )
 
@@ -622,17 +533,11 @@ test('does not render Call us section when supportServices is empty', () => {
 test('does not render Call us section when supportServices is undefined', () => {
   render(
     <BenefitsHub
+      {...mockBenefitsData}
       id="9"
-      type=""
-      published={true}
       lastUpdated="2024-01-01"
       title="Benefits Hub without Support Services"
-      titleIcon={null}
       intro="No support services defined"
-      spokes={[]}
-      fieldLinks={null}
-      connectWithUs={null}
-      relatedLinks={null}
     />
   )
 
@@ -664,18 +569,11 @@ test('calls recordEvent when support service links are clicked', async () => {
 
   render(
     <BenefitsHub
+      {...mockBenefitsData}
       id="10"
-      type=""
-      published={true}
-      lastUpdated="2024-01-01"
       title="Benefits Hub Click Test"
-      titleIcon={null}
       intro="Test click functionality"
-      spokes={[]}
-      fieldLinks={null}
       supportServices={mockSupportServices}
-      connectWithUs={null}
-      relatedLinks={null}
     />
   )
 
@@ -690,4 +588,23 @@ test('calls recordEvent when support service links are clicked', async () => {
     event: 'nav-hub-rail',
     'nav-path': 'Ask questions',
   })
+})
+
+test('renders BenefitsHub component with info Alert', async () => {
+  const mockAlertData: FormattedAlertBlock = {
+    id: '1',
+    alertType: 'info',
+    title: 'Alert Title',
+    content: {
+      id: 'content-1',
+      type: 'paragraph--wysiwyg',
+      html: '<p>This is alert content.</p>',
+    },
+  }
+  render(<BenefitsHub {...mockBenefitsData} alert={mockAlertData} />)
+
+  const vaAlert = document.querySelector('va-alert')
+  expect(vaAlert).toBeInTheDocument()
+  expect(vaAlert).toHaveAttribute('status', 'info')
+  expect(screen.getByText('Alert Title')).toBeInTheDocument()
 })
