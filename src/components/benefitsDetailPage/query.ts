@@ -29,7 +29,7 @@ export const params: QueryParams<null> = () => {
       'field_related_links',
       PARAGRAPH_RESOURCE_TYPES.LIST_OF_LINK_TEASERS
     ),
-    ...getNestedIncludes('field_alert', 'block--alert'),
+    ...getNestedIncludes('field_alert', 'block_content--alert'),
     ...getNestedIncludes('field_featured_content', PARAGRAPH_RESOURCE_TYPES.QA),
     ...getNestedIncludes('field_content_block', [
       PARAGRAPH_RESOURCE_TYPES.QA_SECTION,

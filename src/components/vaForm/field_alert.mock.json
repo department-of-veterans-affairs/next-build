@@ -1,0 +1,95 @@
+{
+  "type": "block_content--alert",
+  "id": "05929395-9414-4d5e-aebd-4473593fe00d",
+  "drupal_internal__id": 30,
+  "drupal_internal__revision_id": 1802,
+  "langcode": "en",
+  "revision_created": "2025-01-10T14:15:50+00:00",
+  "status": true,
+  "info": "DIC eligibility for survivors of Blue Water Navy Vietnam Veterans",
+  "changed": "2025-01-10T14:15:50+00:00",
+  "reusable": true,
+  "default_langcode": true,
+  "revision_translation_affected": true,
+  "breadcrumbs": [
+    { "uri": "https://va-gov-cms.ddev.site/", "title": "Home", "options": [] }
+  ],
+  "moderation_state": "published",
+  "expiration_date": null,
+  "warning_date": null,
+  "metatag": [
+    {
+      "tag": "meta",
+      "attributes": { "name": "title", "content": "| Veterans Affairs" }
+    }
+  ],
+  "field_alert_title": "DIC eligibility for survivors of Blue Water Navy Vietnam Veterans",
+  "field_alert_type": "information",
+  "field_reusability": "reusable",
+  "links": {
+    "self": {
+      "href": "https://va-gov-cms.ddev.site/jsonapi/block_content/alert/05929395-9414-4d5e-aebd-4473593fe00d?resourceVersion=id%3A1802"
+    }
+  },
+  "resourceIdObjMeta": { "drupal_internal__target_id": 30 },
+  "block_content_type": {
+    "type": "block_content_type--block_content_type",
+    "id": "278a3f4b-8d89-4768-ab03-869b8cc98613",
+    "resourceIdObjMeta": { "drupal_internal__target_id": "alert" }
+  },
+  "revision_user": {
+    "type": "user--user",
+    "id": "38daa8d4-3d05-48a3-bb95-a9c75988e382",
+    "resourceIdObjMeta": { "drupal_internal__target_id": 295 }
+  },
+  "field_alert_content": {
+    "type": "paragraph--wysiwyg",
+    "id": "46a9cfa2-b877-4403-b849-bd5af6182f63",
+    "drupal_internal__id": 7402,
+    "drupal_internal__revision_id": 1620497,
+    "langcode": "en",
+    "status": true,
+    "created": "2019-10-08T00:33:42+00:00",
+    "parent_id": "30",
+    "parent_type": "block_content",
+    "parent_field_name": "field_alert_content",
+    "behavior_settings": [],
+    "default_langcode": true,
+    "revision_translation_affected": true,
+    "breadcrumbs": [],
+    "content_translation_source": "und",
+    "content_translation_outdated": false,
+    "content_translation_changed": null,
+    "field_wysiwyg": {
+      "value": "<p>If we denied your Blue Water Navy Veteran’s service-connected disability claim in the past, you may be eligible for DIC benefits based on the Blue Water Navy Vietnam Veterans Act of 2019.</p><p><a href=\"/node/73230/#am-i-eligible-for-va-dic-as-a-\">Learn more about&nbsp;DIC eligibility information</a></p><p><a href=\"/node/73230/#how-do-i-apply-for-compensatio\">Find out&nbsp;how to apply&nbsp;for benefits</a></p><p>Veterans who served on a Blue Water Navy vessel offshore of the Republic of Vietnam, or on another U.S. Navy or Coast Guard ship operating in the coastal waterways of Vietnam between November 1, 1955, and May 7, 1975, are now entitled to a presumption of service connection for illnesses related to Agent Orange exposure. This is a result of Public Law 116-23, also known as the Blue Water Navy Vietnam Veterans Act of 2019.</p><p><a href=\"/node/874\" data-entity-type=\"node\" data-entity-uuid=\"8ce9264e-b642-46eb-a51a-9ed94f9fe9f1\" data-entity-substitution=\"canonical\">Learn&nbsp; more about&nbsp;service connection for illnesses related to Agent Orange exposure</a></p>",
+      "format": "rich_text",
+      "processed": "<p>If we denied your Blue Water Navy Veteran’s service-connected disability claim in the past, you may be eligible for DIC benefits based on the Blue Water Navy Vietnam Veterans Act of 2019.</p><p><a href=\"/family-and-caregiver-benefits/survivor-compensation/dependency-indemnity-compensation#am-i-eligible-for-va-dic-as-a-\" data-entity-type=\"node\" data-entity-substitution=\"canonical\" data-entity-uuid=\"6b627c82-b210-440d-b12e-263ae6ded53a\" title=\"About VA DIC for spouses, dependents, and parents\">Learn more about&nbsp;DIC eligibility information</a></p><p><a href=\"/family-and-caregiver-benefits/survivor-compensation/dependency-indemnity-compensation#how-do-i-apply-for-compensatio\" data-entity-type=\"node\" data-entity-substitution=\"canonical\" data-entity-uuid=\"6b627c82-b210-440d-b12e-263ae6ded53a\" title=\"About VA DIC for spouses, dependents, and parents\">Find out&nbsp;how to apply&nbsp;for benefits</a></p><p>Veterans who served on a Blue Water Navy vessel offshore of the Republic of Vietnam, or on another U.S. Navy or Coast Guard ship operating in the coastal waterways of Vietnam between November 1, 1955, and May 7, 1975, are now entitled to a presumption of service connection for illnesses related to Agent Orange exposure. This is a result of Public Law 116-23, also known as the Blue Water Navy Vietnam Veterans Act of 2019.</p><p><a href=\"/disability/eligibility/hazardous-materials-exposure/agent-orange\" data-entity-type=\"node\" data-entity-uuid=\"8ce9264e-b642-46eb-a51a-9ed94f9fe9f1\" data-entity-substitution=\"canonical\" title=\"Agent Orange exposure and disability compensation\">Learn&nbsp; more about&nbsp;service connection for illnesses related to Agent Orange exposure</a></p>"
+    },
+    "links": {
+      "self": {
+        "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/wysiwyg/46a9cfa2-b877-4403-b849-bd5af6182f63?resourceVersion=id%3A1620497"
+      }
+    },
+    "resourceIdObjMeta": {
+      "target_revision_id": 1620497,
+      "drupal_internal__target_id": 7402
+    },
+    "paragraph_type": {
+      "type": "paragraphs_type--paragraphs_type",
+      "id": "885e4b61-cfd2-44b9-94ae-f068ba2b48b6",
+      "resourceIdObjMeta": { "drupal_internal__target_id": "wysiwyg" }
+    },
+    "relationshipNames": ["paragraph_type"]
+  },
+  "field_owner": {
+    "type": "taxonomy_term--administration",
+    "id": "9ea3a438-db2e-451e-9f5e-0ba02c166238",
+    "resourceIdObjMeta": { "drupal_internal__target_id": 75 }
+  },
+  "relationshipNames": [
+    "block_content_type",
+    "revision_user",
+    "field_alert_content",
+    "field_owner"
+  ]
+}

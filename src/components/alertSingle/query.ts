@@ -28,7 +28,7 @@ export const formatter: QueryFormatter<ParagraphAlertSingle, AlertSingle> = (
     alertSelection:
       entity.field_alert_selection as AlertSingle['alertSelection'],
     blockReference: queries.formatData(
-      'block--alert',
+      'block_content--alert',
       entity.field_alert_block_reference
     ) as AlertBlock,
     nonReusableRef: formatParagraph(

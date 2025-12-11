@@ -5,7 +5,9 @@ import { AlertBlock } from '@/components/alertBlock/template'
 import { Paragraph } from '@/components/paragraph/template'
 
 export function Alert(alert: ParagraphComponent<FormattedAlert>) {
-  if (!alert) {
+  // Checking for empty object because this component expects spread props like
+  // <Alert {...alert} /> so the `alert` param will always be at least `{}`.
+  if (!alert || !Object.keys(alert).length) {
     return null
   }
 
