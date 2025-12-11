@@ -12,6 +12,12 @@ import { getHtmlFromDrupalContent } from '@/lib/utils/getHtmlFromDrupalContent'
 import { getNestedIncludes } from '@/lib/utils/queries'
 import { formatter as formatAlertBlock } from '@/components/alertBlock/query'
 
+// Define the option types for the data loader.
+export type BenefitsHubPageDataOpts = {
+  id: string
+  context?: ExpandedStaticPropsContext
+}
+
 // Define the query params for fetching node--landing_page for benefits hub.
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude([
