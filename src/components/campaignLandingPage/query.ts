@@ -96,12 +96,14 @@ export const formatter: QueryFormatter<
       },
     },
     cta: {
-      primary: entity.field_primary_call_to_action
-        ? {
-            href: entity.field_primary_call_to_action.field_button_link.url,
-            label: entity.field_primary_call_to_action.field_button_label,
-          }
-        : null,
+      primary:
+        entity.field_primary_call_to_action?.field_button_link &&
+        entity.field_primary_call_to_action.field_button_label
+          ? {
+              href: entity.field_primary_call_to_action.field_button_link.url,
+              label: entity.field_primary_call_to_action.field_button_label,
+            }
+          : null,
       secondary: entity.field_secondary_call_to_action
         ? {
             href: entity.field_secondary_call_to_action.field_button_link.url,
