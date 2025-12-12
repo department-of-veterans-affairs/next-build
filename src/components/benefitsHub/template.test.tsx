@@ -588,6 +588,55 @@ test('calls recordEvent when support service links are clicked', async () => {
   })
 })
 
+test('does not render service in Call us section when service has no title', () => {
+  const mockSupportServicesWithInvalid = [
+    {
+      type: 'node--support_service',
+      id: 'valid-service',
+      title: 'Veterans Crisis Line',
+      number: '988',
+      link: {
+        uri: 'tel:123-456-7890',
+        title: '',
+        url: 'tel:123-456-7890',
+        options: {},
+      },
+    },
+    {
+      type: 'node--support_service',
+      id: 'invalid-service',
+      title: null, // or undefined, or empty string
+      number: '123',
+      link: {
+        uri: 'tel:198-666-7890',
+        title: '',
+        url: 'tel:198-666-7890',
+        options: {},
+      },
+    },
+    null, // also test null service
+  ]
+
+  render(
+    <BenefitsHub
+      {...mockBenefitsData}
+      supportServices={mockSupportServicesWithInvalid}
+    />
+  )
+
+  // Valid service should be rendered
+  expect(screen.getByText('Veterans Crisis Line')).toBeInTheDocument()
+
+  // Invalid service should NOT be rendered
+  expect(screen.queryByText('123')).not.toBeInTheDocument()
+
+  const linkWithHref = document.querySelector('a[href="tel:123-456-7890"]')
+  expect(linkWithHref).toBeInTheDocument()
+
+  const noLinkWithHref = document.querySelector('a[href="tel:198-666-7890"]')
+  expect(noLinkWithHref).not.toBeInTheDocument()
+})
+
 test('renders BenefitsHub component with info Alert', async () => {
   const mockAlertData: FormattedAlertBlock = {
     id: '1',
