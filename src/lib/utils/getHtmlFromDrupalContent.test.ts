@@ -139,7 +139,7 @@ describe('getHtmlFromDrupalContent', () => {
     const input = 'Visit https://www.va.gov for more information.'
     const result = getHtmlFromDrupalContent(input)
     expect(result).toBe(
-      'Visit <a href="https://www.va.gov">https://www.va.gov</a> for more information.'
+      'Visit <va-link href="https://www.va.gov" text="https://www.va.gov"></va-link> for more information.'
     )
   })
 
@@ -148,7 +148,7 @@ describe('getHtmlFromDrupalContent', () => {
       'For more information, please visit https://department.va.gov/contingency-planning/'
     const result = getHtmlFromDrupalContent(input, { convertNewlines: true })
     expect(result).toBe(
-      'For more information, please visit <a href="https://department.va.gov/contingency-planning/">https://department.va.gov/contingency-planning/</a>'
+      'For more information, please visit <va-link href="https://department.va.gov/contingency-planning/" text="https://department.va.gov/contingency-planning/"></va-link>'
     )
   })
 
@@ -156,7 +156,7 @@ describe('getHtmlFromDrupalContent', () => {
     const input = 'Visit https://www.va.gov or call 800-555-1234 for help.'
     const result = getHtmlFromDrupalContent(input)
     expect(result).toContain(
-      '<a href="https://www.va.gov">https://www.va.gov</a>'
+      '<va-link href="https://www.va.gov" text="https://www.va.gov"></va-link>'
     )
     expect(result).toContain(
       '<va-telephone contact="800-555-1234" extension=""></va-telephone>'
@@ -175,7 +175,7 @@ describe('getHtmlFromDrupalContent', () => {
     const result = getHtmlFromDrupalContent(input, { convertNewlines: true })
     expect(result).toContain('<br>')
     expect(result).toContain(
-      '<a href="https://department.va.gov/contingency-planning/">https://department.va.gov/contingency-planning/</a>'
+      '<va-link href="https://department.va.gov/contingency-planning/" text="https://department.va.gov/contingency-planning/"></va-link>'
     )
   })
 })

@@ -5,7 +5,7 @@ describe('createUrlLinks', () => {
     const input = 'Visit https://www.va.gov for more information.'
     const output = createUrlLinks(input)
     expect(output).toBe(
-      'Visit <a href="https://www.va.gov">https://www.va.gov</a> for more information.'
+      'Visit <va-link href="https://www.va.gov" text="https://www.va.gov"></va-link> for more information.'
     )
   })
 
@@ -13,7 +13,7 @@ describe('createUrlLinks', () => {
     const input = 'Check http://example.com for details'
     const output = createUrlLinks(input)
     expect(output).toBe(
-      'Check <a href="http://example.com">http://example.com</a> for details'
+      'Check <va-link href="http://example.com" text="http://example.com"></va-link> for details'
     )
   })
 
@@ -21,7 +21,7 @@ describe('createUrlLinks', () => {
     const input = 'Visit https://department.va.gov/contingency-planning/'
     const output = createUrlLinks(input)
     expect(output).toBe(
-      'Visit <a href="https://department.va.gov/contingency-planning/">https://department.va.gov/contingency-planning/</a>'
+      'Visit <va-link href="https://department.va.gov/contingency-planning/" text="https://department.va.gov/contingency-planning/"></va-link>'
     )
   })
 
@@ -29,7 +29,7 @@ describe('createUrlLinks', () => {
     const input = 'Go to https://va.gov/search?query=benefits&page=1'
     const output = createUrlLinks(input)
     expect(output).toBe(
-      'Go to <a href="https://va.gov/search?query=benefits&page=1">https://va.gov/search?query=benefits&page=1</a>'
+      'Go to <va-link href="https://va.gov/search?query=benefits&page=1" text="https://va.gov/search?query=benefits&page=1"></va-link>'
     )
   })
 
@@ -37,7 +37,7 @@ describe('createUrlLinks', () => {
     const input = 'See https://va.gov/health#section-2'
     const output = createUrlLinks(input)
     expect(output).toBe(
-      'See <a href="https://va.gov/health#section-2">https://va.gov/health#section-2</a>'
+      'See <va-link href="https://va.gov/health#section-2" text="https://va.gov/health#section-2"></va-link>'
     )
   })
 
@@ -45,7 +45,7 @@ describe('createUrlLinks', () => {
     const input = 'Visit https://www.va.gov.'
     const output = createUrlLinks(input)
     expect(output).toBe(
-      'Visit <a href="https://www.va.gov">https://www.va.gov</a>.'
+      'Visit <va-link href="https://www.va.gov" text="https://www.va.gov"></va-link>.'
     )
   })
 
@@ -53,7 +53,7 @@ describe('createUrlLinks', () => {
     const input = 'Check https://www.va.gov, then call.'
     const output = createUrlLinks(input)
     expect(output).toBe(
-      'Check <a href="https://www.va.gov">https://www.va.gov</a>, then call.'
+      'Check <va-link href="https://www.va.gov" text="https://www.va.gov"></va-link>, then call.'
     )
   })
 
@@ -74,7 +74,7 @@ describe('createUrlLinks', () => {
       'Visit https://www.va.gov or https://benefits.va.gov for help.'
     const output = createUrlLinks(input)
     expect(output).toBe(
-      'Visit <a href="https://www.va.gov">https://www.va.gov</a> or <a href="https://benefits.va.gov">https://benefits.va.gov</a> for help.'
+      'Visit <va-link href="https://www.va.gov" text="https://www.va.gov"></va-link> or <va-link href="https://benefits.va.gov" text="https://benefits.va.gov"></va-link> for help.'
     )
   })
 
@@ -82,7 +82,7 @@ describe('createUrlLinks', () => {
     const input = 'Check https://department.va.gov for updates'
     const output = createUrlLinks(input)
     expect(output).toBe(
-      'Check <a href="https://department.va.gov">https://department.va.gov</a> for updates'
+      'Check <va-link href="https://department.va.gov" text="https://department.va.gov"></va-link> for updates'
     )
   })
 
@@ -109,7 +109,7 @@ describe('createUrlLinks', () => {
       'For more information, please visit https://department.va.gov/contingency-planning/'
     const output = createUrlLinks(input)
     expect(output).toBe(
-      'For more information, please visit <a href="https://department.va.gov/contingency-planning/">https://department.va.gov/contingency-planning/</a>'
+      'For more information, please visit <va-link href="https://department.va.gov/contingency-planning/" text="https://department.va.gov/contingency-planning/"></va-link>'
     )
   })
 
@@ -118,7 +118,7 @@ describe('createUrlLinks', () => {
       '<a href="https://va.gov">Click here</a> or visit https://benefits.va.gov'
     const output = createUrlLinks(input)
     expect(output).toBe(
-      '<a href="https://va.gov">Click here</a> or visit <a href="https://benefits.va.gov">https://benefits.va.gov</a>'
+      '<a href="https://va.gov">Click here</a> or visit <va-link href="https://benefits.va.gov" text="https://benefits.va.gov"></va-link>'
     )
   })
 
@@ -126,7 +126,7 @@ describe('createUrlLinks', () => {
     const input = 'Visit https://www.va.gov!!'
     const output = createUrlLinks(input)
     expect(output).toBe(
-      'Visit <a href="https://www.va.gov">https://www.va.gov</a>!!'
+      'Visit <va-link href="https://www.va.gov" text="https://www.va.gov"></va-link>!!'
     )
   })
 })

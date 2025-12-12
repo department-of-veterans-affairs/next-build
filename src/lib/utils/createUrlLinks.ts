@@ -1,11 +1,11 @@
 /**
- * Convert plain text URLs to clickable anchor tags.
+ * Convert plain text URLs to clickable va-link components.
  *
- * This utility finds URLs in plain text content and wraps them in <a> tags.
+ * This utility finds URLs in plain text content and wraps them in <va-link> tags.
  * It avoids converting URLs that are already inside href attributes or anchor tags.
  *
  * @param content - The content to search for URLs.
- * @returns The content with URLs wrapped in <a> tags.
+ * @returns The content with URLs wrapped in <va-link> tags.
  */
 export const createUrlLinks = (content: string): string => {
   if (!content) {
@@ -41,6 +41,6 @@ export const createUrlLinks = (content: string): string => {
       }
     }
 
-    return `<a href="${cleanUrl}">${cleanUrl}</a>${trailingChars}`
+    return `<va-link href="${cleanUrl}" text="${cleanUrl}"></va-link>${trailingChars}`
   })
 }
