@@ -134,4 +134,48 @@ describe('getHtmlFromDrupalContent', () => {
     const result = getHtmlFromDrupalContent(input, options)
     expect(result).toBe('Line 1\nLine 2') // Should not convert newlines when undefined
   })
+
+  test('should apply createUrlLinks transformation for plain text URLs', () => {
+    const input = 'Visit https://www.va.gov for more information.'
+    const result = getHtmlFromDrupalContent(input)
+    expect(result).toBe(
+      'Visit <a href="https://www.va.gov">https://www.va.gov</a> for more information.'
+    )
+  })
+
+  test('should convert plain text URLs with paths', () => {
+    const input =
+      'For more information, please visit https://department.va.gov/contingency-planning/'
+    const result = getHtmlFromDrupalContent(input, { convertNewlines: true })
+    expect(result).toBe(
+      'For more information, please visit <a href="https://department.va.gov/contingency-planning/">https://department.va.gov/contingency-planning/</a>'
+    )
+  })
+
+  test('should handle both URLs and phone numbers in same content', () => {
+    const input = 'Visit https://www.va.gov or call 800-555-1234 for help.'
+    const result = getHtmlFromDrupalContent(input)
+    expect(result).toContain(
+      '<a href="https://www.va.gov">https://www.va.gov</a>'
+    )
+    expect(result).toContain(
+      '<va-telephone contact="800-555-1234" extension=""></va-telephone>'
+    )
+  })
+
+  test('should not double-wrap URLs already in anchor tags', () => {
+    const input = '<a href="https://www.va.gov">Visit our website</a>'
+    const result = getHtmlFromDrupalContent(input)
+    expect(result).toBe(input)
+  })
+
+  test('should handle operating status more info style content', () => {
+    const input =
+      'During the government shutdown, Regional Offices are closed.\nFor more information, please visit https://department.va.gov/contingency-planning/'
+    const result = getHtmlFromDrupalContent(input, { convertNewlines: true })
+    expect(result).toContain('<br>')
+    expect(result).toContain(
+      '<a href="https://department.va.gov/contingency-planning/">https://department.va.gov/contingency-planning/</a>'
+    )
+  })
 })
