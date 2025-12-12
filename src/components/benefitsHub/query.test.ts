@@ -36,6 +36,7 @@ describe('BenefitsHub params', () => {
     expect(queryString).toContain('field_connect_with_us')
     expect(queryString).toContain('field_spokes')
     expect(queryString).toContain('field_support_services')
+    expect(queryString).toContain('field_promo')
   })
 })
 
@@ -53,7 +54,7 @@ describe('BenefitHubLanding formatData', () => {
     mockBenefitsHubQuery.mockReturnValue({
       ...mockData,
       field_alert: null,
-    })
+    } as NodeLandingPage)
 
     const result = await runQuery()
     expect(result.alert).toBeNull()
