@@ -35,7 +35,6 @@
   "field_meta_title": "VA Health Care | Veterans Affairs",
   "field_intro_text": "With a VA health care plan, you're covered for regular checkups with your primary care provider and appointments with specialists (like cardiologists, gynecologists, and mental health providers).",
   "field_plainlanguage_date": "",
-  "field_promo": null,
   "field_related_links": null,
   "field_spokes": null,
   "field_support_services": [],
@@ -175,6 +174,571 @@
       "revision_user",
       "field_alert_content",
       "field_owner"
+    ]
+  },
+  "field_promo": {
+    "type": "block_content--promo",
+    "id": "c140ab74-8fa1-49c7-906d-b3d314bc599e",
+    "drupal_internal__id": 25,
+    "drupal_internal__revision_id": 231,
+    "langcode": "en",
+    "revision_created": "2019-09-09T13:37:22+00:00",
+    "status": true,
+    "info": "VA Caregiver Support Program",
+    "changed": "2019-09-09T13:37:22+00:00",
+    "reusable": true,
+    "default_langcode": true,
+    "revision_translation_affected": true,
+    "breadcrumbs": [],
+    "moderation_state": "published",
+    "expiration_date": null,
+    "warning_date": null,
+    "metatag": [
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "title",
+          "content": "| Veterans Affairs"
+        }
+      }
+    ],
+    "links": {
+      "self": {
+        "href": "https://va-gov-cms.ddev.site/jsonapi/block_content/promo/c140ab74-8fa1-49c7-906d-b3d314bc599e?resourceVersion=id%3A231"
+      }
+    },
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 25
+    },
+    "block_content_type": {
+      "type": "block_content_type--block_content_type",
+      "id": "0a87c177-4b3c-4cf5-bcae-1f0c432da52b",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "promo"
+      }
+    },
+    "revision_user": {
+      "type": "user--user",
+      "id": "8bea8773-6a06-4afd-99b5-1dfa7a2192ea",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 197
+      }
+    },
+    "field_image": {
+      "type": "media--image",
+      "langcode": "en",
+      "id": "de884e5b-d8b0-4f61-9eed-a4033e173060",
+      "drupal_internal__mid": "539",
+      "drupal_internal__vid": "550",
+      "status": true,
+      "name": "Image icon for spouses, dependents, survivors, and family caregivers",
+      "created": "2019-09-09T13:36:20+00:00",
+      "changed": "2019-09-09T13:37:07+00:00",
+      "breadcrumbs": [
+        {
+          "uri": "https://va-gov-cms.ddev.site/",
+          "title": "Home",
+          "options": []
+        },
+        {
+          "uri": "https://va-gov-cms.ddev.site/media/539",
+          "title": "Image icon for spouses, dependents, survivors, and family caregivers",
+          "options": []
+        }
+      ],
+      "path": {
+        "alias": null,
+        "pid": null,
+        "langcode": "en"
+      },
+      "field_description": null,
+      "links": {
+        "self": {
+          "href": "https://va-gov-cms.ddev.site/jsonapi/media/image/de884e5b-d8b0-4f61-9eed-a4033e173060?resourceVersion=id%3A550"
+        }
+      },
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 539
+      },
+      "bundle": {
+        "type": "media_type--media_type",
+        "id": "92f64a34-81e5-4094-82a9-4fe61d7f2227",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "image"
+        }
+      },
+      "uid": {
+        "type": "user--user",
+        "id": "8bea8773-6a06-4afd-99b5-1dfa7a2192ea",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 197
+        }
+      },
+      "thumbnail": {
+        "type": "file--file",
+        "id": "40df6af6-48fc-4bc1-9352-baa895a06768",
+        "drupal_internal__fid": "631",
+        "langcode": "en",
+        "filename": "family-caregiver.png",
+        "uri": {
+          "value": "public://2019-09/family-caregiver.png",
+          "url": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/2019-09/family-caregiver.png"
+        },
+        "filemime": "image/png",
+        "filesize": 53394,
+        "status": true,
+        "created": "2019-09-09T13:36:20+00:00",
+        "changed": "2019-09-09T13:37:07+00:00",
+        "breadcrumbs": [],
+        "links": {
+          "1_1_square_large": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/1_1_square_large/public/2019-09/family-caregiver.png",
+            "meta": {
+              "linkParams": {
+                "width": "500",
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "1_1_square_medium_thumbnail": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/1_1_square_medium_thumbnail/public/2019-09/family-caregiver.png",
+            "meta": {
+              "linkParams": {
+                "width": "240",
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "2_1_large": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_large/public/2019-09/family-caregiver.png",
+            "meta": {
+              "linkParams": {
+                "width": "512",
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "2_1_medium_thumbnail": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_medium_thumbnail/public/2019-09/family-caregiver.png",
+            "meta": {
+              "linkParams": {
+                "width": "240",
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "2_3_medium_thumbnail": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_3_medium_thumbnail/public/2019-09/family-caregiver.png",
+            "meta": {
+              "linkParams": {
+                "width": "480",
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "3_2_medium_thumbnail": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2019-09/family-caregiver.png",
+            "meta": {
+              "linkParams": {
+                "width": "320",
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "7_2_medium_thumbnail": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/7_2_medium_thumbnail/public/2019-09/family-caregiver.png",
+            "meta": {
+              "linkParams": {
+                "width": "300",
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "crop_square": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/crop_square/public/2019-09/family-caregiver.png",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "full_content_width": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/full_content_width/public/2019-09/family-caregiver.png",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "large": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/large/public/2019-09/family-caregiver.png",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "original": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/original/public/2019-09/family-caregiver.png",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "self": {
+            "href": "https://va-gov-cms.ddev.site/jsonapi/file/file/40df6af6-48fc-4bc1-9352-baa895a06768"
+          },
+          "viewport_width": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/viewport_width/public/2019-09/family-caregiver.png",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          }
+        },
+        "resourceIdObjMeta": {
+          "alt": "Family",
+          "title": null,
+          "width": 456,
+          "height": 304,
+          "drupal_internal__target_id": 631
+        },
+        "uid": {
+          "type": "user--user",
+          "id": "8bea8773-6a06-4afd-99b5-1dfa7a2192ea",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 197
+          }
+        },
+        "relationshipNames": ["uid"]
+      },
+      "image": {
+        "type": "file--file",
+        "id": "40df6af6-48fc-4bc1-9352-baa895a06768",
+        "drupal_internal__fid": "631",
+        "langcode": "en",
+        "filename": "family-caregiver.png",
+        "uri": {
+          "value": "public://2019-09/family-caregiver.png",
+          "url": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/2019-09/family-caregiver.png"
+        },
+        "filemime": "image/png",
+        "filesize": 53394,
+        "status": true,
+        "created": "2019-09-09T13:36:20+00:00",
+        "changed": "2019-09-09T13:37:07+00:00",
+        "breadcrumbs": [],
+        "links": {
+          "1_1_square_large": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/1_1_square_large/public/2019-09/family-caregiver.png",
+            "meta": {
+              "linkParams": {
+                "width": "500",
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "1_1_square_medium_thumbnail": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/1_1_square_medium_thumbnail/public/2019-09/family-caregiver.png",
+            "meta": {
+              "linkParams": {
+                "width": "240",
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "2_1_large": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_large/public/2019-09/family-caregiver.png",
+            "meta": {
+              "linkParams": {
+                "width": "512",
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "2_1_medium_thumbnail": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_medium_thumbnail/public/2019-09/family-caregiver.png",
+            "meta": {
+              "linkParams": {
+                "width": "240",
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "2_3_medium_thumbnail": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_3_medium_thumbnail/public/2019-09/family-caregiver.png",
+            "meta": {
+              "linkParams": {
+                "width": "480",
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "3_2_medium_thumbnail": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2019-09/family-caregiver.png",
+            "meta": {
+              "linkParams": {
+                "width": "320",
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "7_2_medium_thumbnail": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/7_2_medium_thumbnail/public/2019-09/family-caregiver.png",
+            "meta": {
+              "linkParams": {
+                "width": "300",
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "crop_square": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/crop_square/public/2019-09/family-caregiver.png",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "full_content_width": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/full_content_width/public/2019-09/family-caregiver.png",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "large": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/large/public/2019-09/family-caregiver.png",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "original": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/original/public/2019-09/family-caregiver.png",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "self": {
+            "href": "https://va-gov-cms.ddev.site/jsonapi/file/file/40df6af6-48fc-4bc1-9352-baa895a06768"
+          },
+          "viewport_width": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/viewport_width/public/2019-09/family-caregiver.png",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+                ]
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          }
+        },
+        "resourceIdObjMeta": {
+          "alt": "Family",
+          "title": "",
+          "width": 456,
+          "height": 304,
+          "drupal_internal__target_id": 631
+        },
+        "uid": {
+          "type": "user--user",
+          "id": "8bea8773-6a06-4afd-99b5-1dfa7a2192ea",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 197
+          }
+        },
+        "relationshipNames": ["uid"]
+      },
+      "relationshipNames": ["bundle", "uid", "thumbnail", "image"]
+    },
+    "field_owner": {
+      "type": "taxonomy_term--administration",
+      "id": "missing",
+      "resourceIdObjMeta": {
+        "links": {
+          "help": {
+            "href": "https://www.drupal.org/docs/8/modules/json-api/core-concepts#missing",
+            "meta": {
+              "about": "Usage and meaning of the 'missing' resource identifier."
+            }
+          }
+        }
+      }
+    },
+    "field_promo_link": {
+      "type": "paragraph--link_teaser",
+      "id": "ee16cef2-3f98-4d51-81cf-4e6db154c011",
+      "drupal_internal__id": 5533,
+      "drupal_internal__revision_id": 29598,
+      "langcode": "en",
+      "status": true,
+      "created": "2019-09-04T13:30:26+00:00",
+      "parent_id": "25",
+      "parent_type": "block_content",
+      "parent_field_name": "field_promo_link",
+      "behavior_settings": [],
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "breadcrumbs": [],
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "content_translation_changed": null,
+      "field_link": {
+        "uri": "https://www.caregiver.va.gov/",
+        "title": "VA Caregiver Support Program",
+        "options": [],
+        "url": "https://www.caregiver.va.gov/"
+      },
+      "field_link_summary": "Find out how to get the support you need to care for a Veteran.",
+      "links": {
+        "self": {
+          "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/link_teaser/ee16cef2-3f98-4d51-81cf-4e6db154c011?resourceVersion=id%3A29598"
+        }
+      },
+      "resourceIdObjMeta": {
+        "target_revision_id": 29598,
+        "drupal_internal__target_id": 5533
+      },
+      "paragraph_type": {
+        "type": "paragraphs_type--paragraphs_type",
+        "id": "072db7a4-476e-41a6-ab49-c44184281451",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "link_teaser"
+        }
+      },
+      "relationshipNames": ["paragraph_type"]
+    },
+    "relationshipNames": [
+      "block_content_type",
+      "revision_user",
+      "field_image",
+      "field_owner",
+      "field_promo_link"
     ]
   }
 }
