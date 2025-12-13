@@ -1,11 +1,24 @@
 import * as React from 'react'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
+import { SideBySideCompare } from '@/components/qa/SideBySideCompare'
+
+interface ComparisonRecord {
+  env1: string
+  env2: string
+  selector: string
+  timestamp: string
+  html1?: string
+  html2?: string
+  acceptedDifferences?: string[]
+  comments?: Record<string, string>
+}
 
 interface QAPath {
   path: string
   starred?: boolean
   notes?: string
+  comparisons?: ComparisonRecord[]
 }
 
 interface QACache {
@@ -22,10 +35,28 @@ interface ReviewRowProps {
   qaPath: QAPath
   reviewed: boolean
   onReviewToggle: (path: string, reviewed: boolean) => void
+  onCompare: (path: string, env1: string, env2: string) => void
+  comparisons: ComparisonRecord[]
+  onDeleteComparison: (path: string, index: number) => void
+  cssSelector: string
+  comparingKeys: Set<string>
 }
 
 const ReviewRow = React.memo<ReviewRowProps>(
-  ({ qaPath, reviewed, onReviewToggle }) => {
+  ({
+    qaPath,
+    reviewed,
+    onReviewToggle,
+    onCompare,
+    comparisons,
+    onDeleteComparison,
+    cssSelector,
+    comparingKeys,
+  }) => {
+    const isComparingDevStaging = comparingKeys.has(
+      `${qaPath.path}:dev:staging`
+    )
+    const isComparingDevProd = comparingKeys.has(`${qaPath.path}:dev:prod`)
     return (
       <div
         style={{
@@ -73,6 +104,8 @@ const ReviewRow = React.memo<ReviewRowProps>(
             padding: '8px 12px',
             verticalAlign: 'top',
             borderTop: '1px solid #d6d7d9',
+            maxWidth: '100%',
+            overflow: 'hidden',
           }}
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -87,6 +120,16 @@ const ReviewRow = React.memo<ReviewRowProps>(
             >
               (staging)
             </a>
+            {comparisons &&
+              comparisons.some(
+                (c) => c.env1 === 'dev' && c.env2 === 'staging'
+              ) && (
+                <va-icon
+                  icon="check_circle"
+                  size={3}
+                  style={{ color: '#00a91c', marginLeft: '4px' }}
+                />
+              )}
             <span style={{ color: '#757575' }}>|</span>
             <a
               href={`https://www.va.gov${qaPath.path}`}
@@ -95,6 +138,88 @@ const ReviewRow = React.memo<ReviewRowProps>(
             >
               (prod)
             </a>
+            {comparisons &&
+              comparisons.some(
+                (c) => c.env1 === 'dev' && c.env2 === 'prod'
+              ) && (
+                <va-icon
+                  icon="check_circle"
+                  size={3}
+                  style={{ color: '#00a91c', marginLeft: '4px' }}
+                />
+              )}
+          </div>
+          <div
+            style={{
+              marginTop: '8px',
+              display: 'flex',
+              gap: '8px',
+              alignItems: 'center',
+            }}
+          >
+            <button
+              type="button"
+              className="usa-button usa-button--outline"
+              style={{ fontSize: '12px', padding: '4px 8px' }}
+              onClick={() => onCompare(qaPath.path, 'dev', 'staging')}
+              disabled={!cssSelector || isComparingDevStaging}
+              title={
+                !cssSelector
+                  ? 'Enter a CSS selector first'
+                  : 'Compare dev vs staging'
+              }
+            >
+              {isComparingDevStaging ? (
+                <>
+                  <span
+                    style={{
+                      display: 'inline-block',
+                      width: '12px',
+                      height: '12px',
+                      border: '2px solid currentColor',
+                      borderTopColor: 'transparent',
+                      borderRadius: '50%',
+                      animation: 'spin 0.6s linear infinite',
+                    }}
+                  />
+                  <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+                  {' Comparing...'}
+                </>
+              ) : (
+                'Compare dev/staging'
+              )}
+            </button>
+            <button
+              type="button"
+              className="usa-button usa-button--outline"
+              style={{ fontSize: '12px', padding: '4px 8px' }}
+              onClick={() => onCompare(qaPath.path, 'dev', 'prod')}
+              disabled={!cssSelector || isComparingDevProd}
+              title={
+                !cssSelector
+                  ? 'Enter a CSS selector first'
+                  : 'Compare dev vs prod'
+              }
+            >
+              {isComparingDevProd ? (
+                <>
+                  <span
+                    style={{
+                      display: 'inline-block',
+                      width: '12px',
+                      height: '12px',
+                      border: '2px solid currentColor',
+                      borderTopColor: 'transparent',
+                      borderRadius: '50%',
+                      animation: 'spin 0.6s linear infinite',
+                    }}
+                  />
+                  {' Comparing...'}
+                </>
+              ) : (
+                'Compare dev/prod'
+              )}
+            </button>
           </div>
           {qaPath.notes && (
             <div
@@ -111,6 +236,28 @@ const ReviewRow = React.memo<ReviewRowProps>(
               </p>
             </div>
           )}
+          {comparisons && comparisons.length > 0 && (
+            <div
+              style={{
+                marginTop: '12px',
+                padding: '12px',
+                backgroundColor: '#e7f6f8',
+                borderRadius: '4px',
+                border: '1px solid #97d4ea',
+              }}
+            >
+              <strong>Comparisons ({comparisons.length}):</strong>
+              {comparisons.map((comp, index) => (
+                <ComparisonItem
+                  key={index}
+                  comparison={comp}
+                  comparisonIndex={index}
+                  path={qaPath.path}
+                  onDelete={() => onDeleteComparison(qaPath.path, index)}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     )
@@ -118,6 +265,270 @@ const ReviewRow = React.memo<ReviewRowProps>(
 )
 
 ReviewRow.displayName = 'ReviewRow'
+
+interface ComparisonItemProps {
+  comparison: ComparisonRecord
+  comparisonIndex: number
+  path: string
+  onDelete: () => void
+}
+
+const ComparisonItem: React.FC<ComparisonItemProps> = ({
+  comparison,
+  comparisonIndex,
+  path,
+  onDelete,
+}) => {
+  const [isExpanded, setIsExpanded] = useState(false)
+  const [acceptedDifferences, setAcceptedDifferences] = useState<string[]>(
+    comparison.acceptedDifferences || []
+  )
+  const [comments, setComments] = useState<Record<string, string>>(
+    comparison.comments || {}
+  )
+  const router = useRouter()
+  const contentType = router.query['content-type'] as string
+  const comparisonRef = React.useRef<HTMLDivElement>(null)
+
+  // Scroll to comparison when it's expanded
+  React.useEffect(() => {
+    if (isExpanded && comparisonRef.current) {
+      // Small delay to ensure DOM is fully rendered
+      setTimeout(() => {
+        comparisonRef.current?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center',
+        })
+      }, 100)
+    }
+  }, [isExpanded])
+
+  const handleAcceptDifference = React.useCallback(
+    async (nodeId: string, differenceIndex: number) => {
+      const key = `${nodeId}:${differenceIndex}`
+      const newAccepted = [...acceptedDifferences, key]
+      setAcceptedDifferences(newAccepted)
+
+      // Persist to server
+      try {
+        await fetch('/api/qa/paths', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            resourceType: contentType,
+            path,
+            updateComparisonMetadata: {
+              comparisonIndex,
+              acceptedDifferences: newAccepted,
+            },
+          }),
+        })
+      } catch (error) {
+        console.error('Error saving accepted difference:', error)
+      }
+    },
+    [acceptedDifferences, comparisonIndex, contentType, path]
+  )
+
+  const handleAcceptMultiple = React.useCallback(
+    async (keys: string[]) => {
+      const newAccepted = [...acceptedDifferences, ...keys]
+      setAcceptedDifferences(newAccepted)
+
+      // Persist to server
+      try {
+        await fetch('/api/qa/paths', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            resourceType: contentType,
+            path,
+            updateComparisonMetadata: {
+              comparisonIndex,
+              acceptedDifferences: newAccepted,
+            },
+          }),
+        })
+      } catch (error) {
+        console.error('Error saving accepted differences:', error)
+      }
+    },
+    [acceptedDifferences, comparisonIndex, contentType, path]
+  )
+
+  const handleUnacceptDifference = React.useCallback(
+    async (nodeId: string, differenceIndex: number) => {
+      const key = `${nodeId}:${differenceIndex}`
+      const newAccepted = acceptedDifferences.filter((k) => k !== key)
+      setAcceptedDifferences(newAccepted)
+
+      // Persist to server
+      try {
+        await fetch('/api/qa/paths', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            resourceType: contentType,
+            path,
+            updateComparisonMetadata: {
+              comparisonIndex,
+              acceptedDifferences: newAccepted,
+            },
+          }),
+        })
+      } catch (error) {
+        console.error('Error un-accepting difference:', error)
+      }
+    },
+    [acceptedDifferences, comparisonIndex, contentType, path]
+  )
+
+  const handleUnacceptMultiple = React.useCallback(
+    async (keys: string[]) => {
+      const keysToRemove = new Set(keys)
+      const newAccepted = acceptedDifferences.filter(
+        (k) => !keysToRemove.has(k)
+      )
+      setAcceptedDifferences(newAccepted)
+
+      // Persist to server
+      try {
+        await fetch('/api/qa/paths', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            resourceType: contentType,
+            path,
+            updateComparisonMetadata: {
+              comparisonIndex,
+              acceptedDifferences: newAccepted,
+            },
+          }),
+        })
+      } catch (error) {
+        console.error('Error un-accepting differences:', error)
+      }
+    },
+    [acceptedDifferences, comparisonIndex, contentType, path]
+  )
+
+  const handleAddComment = React.useCallback(
+    async (nodeId: string, comment: string) => {
+      const newComments = { ...comments, [nodeId]: comment }
+      setComments(newComments)
+
+      // Persist to server
+      try {
+        await fetch('/api/qa/paths', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            resourceType: contentType,
+            path,
+            updateComparisonMetadata: {
+              comparisonIndex,
+              comments: newComments,
+            },
+          }),
+        })
+      } catch (error) {
+        console.error('Error saving comment:', error)
+      }
+    },
+    [comments, comparisonIndex, contentType, path]
+  )
+
+  return (
+    <div
+      style={{
+        marginTop: '8px',
+        paddingTop: '8px',
+        borderTop: '1px solid #97d4ea',
+      }}
+    >
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          marginBottom: '8px',
+        }}
+      >
+        <div style={{ flex: 1 }}>
+          <div
+            style={{
+              fontSize: '14px',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+            }}
+          >
+            <strong>
+              {comparison.env1} vs {comparison.env2}
+            </strong>
+            {' - '}
+            <code style={{ fontSize: '12px' }}>{comparison.selector}</code>
+          </div>
+          <div
+            style={{
+              fontSize: '12px',
+              marginTop: '4px',
+              color: '#757575',
+            }}
+          >
+            {new Date(comparison.timestamp).toLocaleString()}
+          </div>
+        </div>
+        <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+          <button
+            type="button"
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="usa-button usa-button--outline"
+            style={{ fontSize: '12px', padding: '4px 8px' }}
+          >
+            {isExpanded ? 'Hide' : 'View'} Comparison
+          </button>
+          <button
+            type="button"
+            onClick={onDelete}
+            style={{
+              background: 'none',
+              border: 'none',
+              cursor: 'pointer',
+              color: '#b50909',
+              fontSize: '12px',
+              padding: '4px 8px',
+            }}
+            title="Delete this comparison"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+
+      {isExpanded && comparison.html1 && comparison.html2 && (
+        <div
+          ref={comparisonRef}
+          style={{ marginTop: '12px', maxWidth: '100%', overflow: 'hidden' }}
+        >
+          <SideBySideCompare
+            html1={comparison.html1}
+            html2={comparison.html2}
+            env1Label={comparison.env1}
+            env2Label={comparison.env2}
+            onAcceptDifference={handleAcceptDifference}
+            onUnacceptDifference={handleUnacceptDifference}
+            onAddComment={handleAddComment}
+            acceptedDifferences={acceptedDifferences}
+            comments={comments}
+            onAcceptMultiple={handleAcceptMultiple}
+            onUnacceptMultiple={handleUnacceptMultiple}
+          />
+        </div>
+      )}
+    </div>
+  )
+}
 
 const getReviewStatusKey = (contentType: string): string => {
   return `qa-review-${contentType}`
@@ -145,6 +556,8 @@ const saveReviewStatus = (contentType: string, status: ReviewStatus): void => {
   }
 }
 
+const DEFAULT_COMPARISON_SELECTOR = 'main #content, #content main'
+
 export default function QAReviewPage() {
   const router = useRouter()
   const { 'content-type': contentType } = router.query
@@ -155,6 +568,10 @@ export default function QAReviewPage() {
   const [reviewStatus, setReviewStatus] = useState<ReviewStatus>({})
   const [unstarredExpanded, setUnstarredExpanded] = useState<boolean>(false)
   const [exportedMarkdown, setExportedMarkdown] = useState<string | null>(null)
+  const [cssSelector, setCssSelector] = useState<string>(
+    DEFAULT_COMPARISON_SELECTOR
+  )
+  const [comparingKeys, setComparingKeys] = useState<Set<string>>(new Set())
 
   useEffect(() => {
     if (typeof contentType === 'string') {
@@ -243,6 +660,127 @@ export default function QAReviewPage() {
     setExportedMarkdown(markdown)
   }
 
+  const handleCompare = React.useCallback(
+    async (path: string, env1: string, env2: string) => {
+      if (!cssSelector || typeof contentType !== 'string') {
+        return
+      }
+
+      const key = `${path}:${env1}:${env2}`
+      setComparingKeys((prev) => new Set(prev).add(key))
+
+      try {
+        // Fetch comparison
+        const fetchResponse = await fetch('/api/qa/fetch-comparison', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            path,
+            environment1: env1,
+            environment2: env2,
+            selector: cssSelector,
+          }),
+        })
+
+        const fetchData = await fetchResponse.json()
+
+        if (!fetchResponse.ok) {
+          throw new Error(fetchData.message || 'Failed to compare pages')
+        }
+
+        // Automatically add comparison
+        const comparison: ComparisonRecord = {
+          env1,
+          env2,
+          selector: cssSelector,
+          timestamp: new Date().toISOString(),
+          html1: fetchData.html1,
+          html2: fetchData.html2,
+          acceptedDifferences: [],
+          comments: {},
+        }
+
+        const saveResponse = await fetch('/api/qa/paths', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            resourceType: contentType,
+            path,
+            addComparison: comparison,
+          }),
+        })
+
+        if (!saveResponse.ok) {
+          const errorData = await saveResponse.json()
+          throw new Error(errorData.error || 'Failed to save comparison')
+        }
+
+        const updatedPath = await saveResponse.json()
+
+        // Update local cache
+        setCache((prev) => {
+          if (!prev) return null
+          return {
+            ...prev,
+            paths: prev.paths.map((p) => (p.path === path ? updatedPath : p)),
+          }
+        })
+      } catch (err) {
+        console.error('Error comparing pages:', err)
+      } finally {
+        setComparingKeys((prev) => {
+          const next = new Set(prev)
+          next.delete(key)
+          return next
+        })
+      }
+    },
+    [cssSelector, contentType]
+  )
+
+  const handleDeleteComparison = React.useCallback(
+    async (path: string, index: number) => {
+      if (typeof contentType !== 'string') return
+
+      try {
+        const response = await fetch('/api/qa/paths', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            resourceType: contentType,
+            path,
+            deleteComparisonIndex: index,
+          }),
+        })
+
+        if (!response.ok) {
+          const errorData = await response.json()
+          throw new Error(errorData.error || 'Failed to delete comparison')
+        }
+
+        const updatedPath = await response.json()
+
+        // Update local cache
+        setCache((prev) => {
+          if (!prev) return null
+          return {
+            ...prev,
+            paths: prev.paths.map((p) => (p.path === path ? updatedPath : p)),
+          }
+        })
+      } catch (err) {
+        console.error('Error deleting comparison:', err)
+      }
+    },
+    [contentType]
+  )
+
   if (typeof contentType !== 'string') {
     return (
       <div className="vads-u-padding--3">
@@ -255,7 +793,10 @@ export default function QAReviewPage() {
   const unstarredPaths = cache?.paths.filter((p) => p.starred !== true) || []
 
   return (
-    <div className="vads-u-padding--3">
+    <div
+      className="vads-u-padding--3"
+      style={{ maxWidth: '100%', overflow: 'hidden' }}
+    >
       <div
         style={{
           display: 'flex',
@@ -274,6 +815,31 @@ export default function QAReviewPage() {
         >
           Clear Review
         </button>
+      </div>
+
+      <div className="vads-u-margin-y--3">
+        <label
+          className="vads-u-display--block vads-u-margin-bottom--1"
+          htmlFor="cssSelector"
+        >
+          CSS Selector for Comparison
+        </label>
+        <input
+          id="cssSelector"
+          type="text"
+          className="usa-input"
+          value={cssSelector}
+          onChange={(e) => setCssSelector(e.target.value)}
+          placeholder="e.g., main, #content, .my-class"
+          style={{ maxWidth: '600px' }}
+        />
+        <p
+          className="vads-u-margin-top--1 vads-u-color--gray-medium"
+          style={{ fontSize: '14px' }}
+        >
+          Enter a CSS selector to target specific elements when comparing pages.
+          Default is &quot;{DEFAULT_COMPARISON_SELECTOR}&quot;.
+        </p>
       </div>
 
       {error && (
@@ -306,6 +872,7 @@ export default function QAReviewPage() {
                 style={{
                   display: 'table',
                   width: '100%',
+                  tableLayout: 'fixed',
                   borderCollapse: 'collapse',
                   border: '1px solid #d6d7d9',
                 }}
@@ -344,6 +911,11 @@ export default function QAReviewPage() {
                       qaPath={qaPath}
                       reviewed={reviewStatus[qaPath.path] || false}
                       onReviewToggle={handleReviewToggle}
+                      onCompare={handleCompare}
+                      comparisons={qaPath.comparisons || []}
+                      onDeleteComparison={handleDeleteComparison}
+                      cssSelector={cssSelector}
+                      comparingKeys={comparingKeys}
                     />
                   ))}
                 </div>
@@ -352,12 +924,14 @@ export default function QAReviewPage() {
 
             {starredPaths.length > 0 && (
               <div style={{ marginTop: '16px' }}>
-                <button
-                  className="usa-button usa-button--outline"
-                  onClick={handleExportToMarkdown}
-                >
-                  Export to Markdown
-                </button>
+                <div style={{ display: 'flex', gap: '8px' }}>
+                  <button
+                    className="usa-button usa-button--outline"
+                    onClick={handleExportToMarkdown}
+                  >
+                    Export Review Checklist
+                  </button>
+                </div>
                 {exportedMarkdown && (
                   <div style={{ marginTop: '16px' }}>
                     <label
@@ -368,7 +942,7 @@ export default function QAReviewPage() {
                         fontWeight: 'bold',
                       }}
                     >
-                      Markdown:
+                      Review Checklist Markdown:
                     </label>
                     <textarea
                       id="markdown-export"
@@ -416,6 +990,7 @@ export default function QAReviewPage() {
                     style={{
                       display: 'table',
                       width: '100%',
+                      tableLayout: 'fixed',
                       borderCollapse: 'collapse',
                       border: '1px solid #d6d7d9',
                     }}

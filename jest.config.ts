@@ -41,6 +41,8 @@ const customJestConfig: Config = {
     '!src/lib/drupal/query.ts',
     '!src/components/meta/template.tsx',
     '!src/pages/**',
+    '!src/lib/qa/**',
+    '!src/components/qa/**',
     '!src/types/**/*.{js,jsx,ts,tsx}',
   ],
   coverageThreshold: {
