@@ -29,15 +29,47 @@ export const createUrlLinks = (content: string): string => {
     let trailingChars = ''
 
     // Handle trailing punctuation that's likely not part of the URL
-    const trailingPunctuationMatch = cleanUrl.match(/([.,;:!?)]+)$/)
-    if (trailingPunctuationMatch) {
-      const trailing = trailingPunctuationMatch[1]
-      // Check if it's a closing paren that has a matching open paren in the URL
-      if (trailing === ')' && cleanUrl.includes('(')) {
-        // Keep the paren if there's a matching open paren (e.g., Wikipedia URLs)
+    // Process character by character from the end to properly handle parentheses
+    while (cleanUrl.length > 0) {
+      const lastChar = cleanUrl[cleanUrl.length - 1]
+
+      if (lastChar === ')') {
+        // Count open and close parens in the URL (excluding what we've already removed)
+        const openCount = (cleanUrl.match(/\(/g) || []).length
+        const closeCount = (cleanUrl.match(/\)/g) || []).length
+
+        if (closeCount > openCount) {
+          // Unbalanced - this closing paren is likely not part of the URL
+          trailingChars = lastChar + trailingChars
+          cleanUrl = cleanUrl.slice(0, -1)
+        } else {
+          // Balanced - keep this paren (e.g., Wikipedia URLs)
+          break
+        }
+      } else if (/[.,;:!?(]/.test(lastChar)) {
+        // Other punctuation (including unmatched opening parens) - strip it
+        trailingChars = lastChar + trailingChars
+        cleanUrl = cleanUrl.slice(0, -1)
       } else {
-        trailingChars = trailing
-        cleanUrl = cleanUrl.slice(0, -trailing.length)
+        // Not trailing punctuation - we're done
+        break
+      }
+    }
+
+    // Also strip unbalanced opening parens from the end
+    // This handles cases like "https://google.com(google" where the regex
+    // captured an opening paren but the closing paren was cut off by a space
+    while (cleanUrl.length > 0) {
+      const openCount = (cleanUrl.match(/\(/g) || []).length
+      const closeCount = (cleanUrl.match(/\)/g) || []).length
+
+      if (openCount > closeCount) {
+        // Find and remove the last opening paren and everything after it
+        const lastOpenIndex = cleanUrl.lastIndexOf('(')
+        trailingChars = cleanUrl.slice(lastOpenIndex) + trailingChars
+        cleanUrl = cleanUrl.slice(0, lastOpenIndex)
+      } else {
+        break
       }
     }
 

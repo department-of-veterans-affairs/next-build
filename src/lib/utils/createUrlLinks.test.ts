@@ -129,4 +129,69 @@ describe('createUrlLinks', () => {
       'Visit <va-link href="https://www.va.gov" text="https://www.va.gov"></va-link>!!'
     )
   })
+
+  it('preserves balanced parentheses in URLs (Wikipedia style)', () => {
+    const input =
+      'See https://en.wikipedia.org/wiki/VA_(disambiguation) for info.'
+    const output = createUrlLinks(input)
+    expect(output).toBe(
+      'See <va-link href="https://en.wikipedia.org/wiki/VA_(disambiguation)" text="https://en.wikipedia.org/wiki/VA_(disambiguation)"></va-link> for info.'
+    )
+  })
+
+  it('strips unbalanced trailing closing paren', () => {
+    const input = '(Visit https://www.va.gov)'
+    const output = createUrlLinks(input)
+    expect(output).toBe(
+      '(Visit <va-link href="https://www.va.gov" text="https://www.va.gov"></va-link>)'
+    )
+  })
+
+  it('strips multiple unbalanced trailing closing parens', () => {
+    const input = '((See https://www.va.gov))'
+    const output = createUrlLinks(input)
+    expect(output).toBe(
+      '((See <va-link href="https://www.va.gov" text="https://www.va.gov"></va-link>))'
+    )
+  })
+
+  it('handles URL with parens followed by sentence-ending paren', () => {
+    const input = '(Check https://en.wikipedia.org/wiki/Test_(page))'
+    const output = createUrlLinks(input)
+    expect(output).toBe(
+      '(Check <va-link href="https://en.wikipedia.org/wiki/Test_(page)" text="https://en.wikipedia.org/wiki/Test_(page)"></va-link>)'
+    )
+  })
+
+  it('handles URL with multiple parens and extra trailing parens', () => {
+    const input = 'Link: https://example.com/path(param)).'
+    const output = createUrlLinks(input)
+    expect(output).toBe(
+      'Link: <va-link href="https://example.com/path(param)" text="https://example.com/path(param)"></va-link>).'
+    )
+  })
+
+  it('handles nested balanced parens in URLs', () => {
+    const input = 'See https://example.com/a(b(c)d) for details'
+    const output = createUrlLinks(input)
+    expect(output).toBe(
+      'See <va-link href="https://example.com/a(b(c)d)" text="https://example.com/a(b(c)d)"></va-link> for details'
+    )
+  })
+
+  it('strips unbalanced opening paren when closing paren is cut off by space', () => {
+    const input = 'https://google.com(google it)'
+    const output = createUrlLinks(input)
+    expect(output).toBe(
+      '<va-link href="https://google.com" text="https://google.com"></va-link>(google it)'
+    )
+  })
+
+  it('strips multiple unbalanced opening parens', () => {
+    const input = 'https://example.com((test'
+    const output = createUrlLinks(input)
+    expect(output).toBe(
+      '<va-link href="https://example.com" text="https://example.com"></va-link>((test'
+    )
+  })
 })
