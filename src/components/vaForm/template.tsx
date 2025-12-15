@@ -22,6 +22,7 @@ export function VaForm({
   usage,
   linkTeasers,
   relatedForms,
+  formUpload,
 }: VaFormProps) {
   const formatDate = (dateString: string) => {
     // Avoid UTC-to-local-timezone conversion by not using the `dateString`
@@ -35,6 +36,13 @@ export function VaForm({
       year: 'numeric',
       month: 'long',
     })
+  }
+
+  const getDownloadButtonText = () => {
+    if (formLanguage === 'es') {
+      return `Descargar el formulario VA ${formNumber}`
+    }
+    return `Download VA Form ${formNumber}`
   }
 
   return (
@@ -96,8 +104,23 @@ export function VaForm({
             {usage && (
               <>
                 <h2 className="vads-u-margin-top--4">When to use this form</h2>
-                <div dangerouslySetInnerHTML={{ __html: usage }} />
-                <h3 className="vads-u-margin-bottom--2">Downloadable PDF</h3>
+                <div
+                  {...(formLanguage && { lang: formLanguage })}
+                  dangerouslySetInnerHTML={{ __html: usage }}
+                />
+
+                {formUpload ? (
+                  <>
+                    <h3 className="vads-u-margin-bottom--2">Download form</h3>
+                    <p className="vads-u-margin-bottom--2">
+                      Download this PDF form and fill it out. Then submit your
+                      completed form on this page. Or you can print the form and
+                      mail it to the address listed on the form.
+                    </p>
+                  </>
+                ) : (
+                  <h3 className="vads-u-margin-bottom--2">Downloadable PDF</h3>
+                )}
               </>
             )}
 
@@ -113,6 +136,7 @@ export function VaForm({
                   data-href={formUrl.uri}
                   data-form-number={formNumber}
                   id="main-download-button"
+                  {...(formLanguage && { lang: formLanguage })}
                   onClick={() => window.open(formUrl.uri, '_blank')}
                 >
                   <va-icon
@@ -120,10 +144,20 @@ export function VaForm({
                     icon="file_download"
                     size="3"
                   />
-                  Download VA Form {formNumber} (PDF)
+                  {getDownloadButtonText()} (PDF)
                 </button>
               )}
             </div>
+
+            {formUpload && (
+              <div
+                aria-label="Form Upload"
+                data-widget-type="form-upload"
+                data-has-online-tool={toolUrl ? 'true' : 'false'}
+                data-form-number={formNumber}
+                role="region"
+              />
+            )}
 
             <AlertBlock {...alertBlock} />
 

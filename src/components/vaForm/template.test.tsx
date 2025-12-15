@@ -42,6 +42,16 @@ const minimalFormMock: VaFormType = {
   relatedForms: [],
 }
 
+const formWithUploadMock: VaFormType = {
+  ...formattedMockData,
+  formUpload: true,
+}
+
+const spanishFormMock: VaFormType = {
+  ...formattedMockData,
+  formLanguage: 'es',
+}
+
 const formWithRelatedMock: VaFormType = {
   ...formattedMockData,
   relatedForms: [
@@ -160,7 +170,9 @@ describe('VaForm Component', () => {
     test('displays usage information when present', () => {
       render(<VaForm {...formattedMockData} />)
 
-      expect(screen.getByText('When to use this form')).toBeInTheDocument()
+      expect(
+        screen.getByRole('heading', { name: 'When to use this form' })
+      ).toBeInTheDocument()
       expect(
         screen.getByText(/Use VA Form 21-0781 if you’ve been diagnosed/)
       ).toBeInTheDocument()
@@ -169,10 +181,30 @@ describe('VaForm Component', () => {
     test('displays correct heading when no usage information', () => {
       render(<VaForm {...minimalFormMock} />)
 
-      expect(screen.getByText('Downloadable PDF')).toBeInTheDocument()
       expect(
-        screen.queryByText('When to use this form')
+        screen.getByRole('heading', { name: 'Downloadable PDF' })
+      ).toBeInTheDocument()
+      expect(
+        screen.queryByRole('heading', { name: 'When to use this form' })
       ).not.toBeInTheDocument()
+    })
+
+    test('displays lang attribute on usage div when formLanguage is set', () => {
+      const { container } = render(<VaForm {...spanishFormMock} />)
+
+      const usageDiv = container.querySelector('.usa-content > div[lang="es"]')
+      expect(usageDiv).toBeInTheDocument()
+    })
+
+    test('does not display lang attribute on usage div when formLanguage is null', () => {
+      const formWithoutLanguage = {
+        ...formattedMockData,
+        formLanguage: null,
+      }
+      const { container } = render(<VaForm {...formWithoutLanguage} />)
+
+      const usageDiv = container.querySelector('.usa-content > div[lang]')
+      expect(usageDiv).not.toBeInTheDocument()
     })
   })
 
@@ -296,6 +328,109 @@ describe('VaForm Component', () => {
           "va-link[text='How to file a VA disability claim'"
         )
       ).toHaveAttribute('href', '/disability/how-to-file-claim')
+    })
+  })
+
+  describe('Form upload section', () => {
+    test('displays upload widget when formUpload is true', () => {
+      const { container } = render(<VaForm {...formWithUploadMock} />)
+
+      const uploadWidget = container.querySelector(
+        'div[data-widget-type="form-upload"]'
+      )
+      expect(uploadWidget).toBeInTheDocument()
+      expect(uploadWidget).toHaveAttribute('data-form-number', '21-0781')
+      expect(uploadWidget).toHaveAttribute('data-has-online-tool', 'true')
+      expect(uploadWidget).toHaveAttribute('aria-label', 'Form Upload')
+      expect(uploadWidget).toHaveAttribute('role', 'region')
+    })
+
+    test('does not display upload widget when formUpload is false', () => {
+      const { container } = render(<VaForm {...formattedMockData} />)
+
+      const uploadWidget = container.querySelector(
+        'div[data-widget-type="form-upload"]'
+      )
+      expect(uploadWidget).not.toBeInTheDocument()
+    })
+
+    test('displays "Download form" heading when formUpload is true', () => {
+      render(<VaForm {...formWithUploadMock} />)
+
+      expect(
+        screen.getByRole('heading', { name: 'Download form' })
+      ).toBeInTheDocument()
+      expect(
+        screen.getByText(
+          /Download this PDF form and fill it out. Then submit your completed form/
+        )
+      ).toBeInTheDocument()
+    })
+
+    test('displays "Downloadable PDF" heading when formUpload is false', () => {
+      render(<VaForm {...formattedMockData} />)
+
+      expect(
+        screen.getByRole('heading', { name: 'Downloadable PDF' })
+      ).toBeInTheDocument()
+      expect(
+        screen.queryByText(/Download this PDF form and fill it out/)
+      ).not.toBeInTheDocument()
+    })
+
+    test('sets data-has-online-tool to false when toolUrl is not present', () => {
+      const formUploadWithoutTool = {
+        ...formWithUploadMock,
+        toolUrl: null,
+      }
+      const { container } = render(<VaForm {...formUploadWithoutTool} />)
+
+      const uploadWidget = container.querySelector(
+        'div[data-widget-type="form-upload"]'
+      )
+      expect(uploadWidget).toHaveAttribute('data-has-online-tool', 'false')
+    })
+  })
+
+  describe('Download button', () => {
+    test('displays English download text by default', () => {
+      render(<VaForm {...formattedMockData} />)
+
+      expect(
+        screen.getByRole('button', { name: 'Download VA Form 21-0781 (PDF)' })
+      ).toBeInTheDocument()
+    })
+
+    test('displays Spanish download text when formLanguage is "es"', () => {
+      render(<VaForm {...spanishFormMock} />)
+
+      expect(
+        screen.getByRole('button', {
+          name: 'Descargar el formulario VA 21-0781 (PDF)',
+        })
+      ).toBeInTheDocument()
+    })
+
+    test('includes lang attribute on download button when formLanguage is set', () => {
+      render(<VaForm {...spanishFormMock} />)
+
+      const downloadButton = screen.getByRole('button', {
+        name: /Descargar el formulario VA 21-0781/,
+      })
+      expect(downloadButton).toHaveAttribute('lang', 'es')
+    })
+
+    test('does not include lang attribute on download button when formLanguage is null', () => {
+      const formWithoutLanguage = {
+        ...formattedMockData,
+        formLanguage: null,
+      }
+      render(<VaForm {...formWithoutLanguage} />)
+
+      const downloadButton = screen.getByRole('button', {
+        name: /Download VA Form 21-0781/,
+      })
+      expect(downloadButton).not.toHaveAttribute('lang')
     })
   })
 

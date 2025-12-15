@@ -67,5 +67,6 @@ export const formatter: QueryFormatter<NodeVaForm, VaForm> = (
       formNumber: form.field_va_form_number ?? null,
       formName: form.field_va_form_name ?? null,
     })),
+    formUpload: entity.field_va_form_upload,
   }
 }
