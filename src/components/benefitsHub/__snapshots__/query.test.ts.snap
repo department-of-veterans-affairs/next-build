@@ -81,7 +81,25 @@ exports[`BenefitHubLanding formatData outputs formatted data 1`] = `
   "published": true,
   "relatedLinks": null,
   "spokes": [],
-  "supportServices": [],
+  "supportServices": [
+    {
+      "id": "8b8a00fd-cd76-40ce-97ed-521cb3df5519",
+      "link": {
+        "options": {
+          "data-entity-substitution": "",
+          "data-entity-type": "",
+          "data-entity-uuid": "",
+          "href": "tel:1-855-260-3274",
+        },
+        "title": "",
+        "uri": "tel:1-855-260-3274",
+        "url": "tel:1-855-260-3274",
+      },
+      "number": "855-260-3274",
+      "title": "Caregiver support line:",
+      "type": "node--support_service",
+    },
+  ],
   "teaserText": "Apply for and manage VA health care benefits",
   "title": "VA health care",
   "titleIcon": "",

@@ -10,8 +10,11 @@ import mockData from './mock.json'
 import { BenefitsHubPageDataOpts, params } from './query'
 
 jest.mock('@/lib/drupal/query')
+jest.mock('@/components/listOfLinkTeasers/query')
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const mockDrupalQuery = require('@/lib/drupal/query')
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const mockListOfLinkTeasersQuery = require('@/components/listOfLinkTeasers/query')
 
 const mockBenefitsHubQuery = jest.fn(() => mockData as NodeLandingPage)
 
@@ -58,5 +61,22 @@ describe('BenefitHubLanding formatData', () => {
 
     const result = await runQuery()
     expect(result.alert).toBeNull()
+  })
+
+  test('filters out null support services', async () => {
+    const mockSupportServices = mockData.field_support_services
+    // TODO: create support service mocks from test API
+    mockBenefitsHubQuery.mockReturnValue({
+      ...mockData,
+      field_support_services: [null, ...mockSupportServices, null],
+    } as NodeLandingPage)
+
+    const result = await runQuery()
+
+    // Should only have 2 support services (nulls filtered out)
+    expect(result.supportServices).toHaveLength(1)
+    expect(result.supportServices.every((service) => service !== null)).toBe(
+      true
+    )
   })
 })
