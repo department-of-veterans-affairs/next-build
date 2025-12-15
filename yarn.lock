@@ -2461,10 +2461,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/env@npm:15.5.7":
-  version: 15.5.7
-  resolution: "@next/env@npm:15.5.7"
-  checksum: 2d193f53726c45edfdc8952e3a52a54c2a725090aa614e8ffaf3e0bb872a6bdb91468ea60a0713859549ed5b0df8664db8c8e52117cd866695aefcc85b3c6a5a
+"@next/env@npm:15.5.9":
+  version: 15.5.9
+  resolution: "@next/env@npm:15.5.9"
+  checksum: b7c5e0509c1b2ef6d249bd0f17b9383539bd2b16a8c56f590275bddead6e0ef59a70475f579db1062f14a58fc8da869eb048244c1f2418f5148ce249bb50c6b7
   languageName: node
   linkType: hard
 
@@ -13099,7 +13099,7 @@ __metadata:
     lodash: ^4.17.21
     mq-polyfill: ^1.1.8
     msw: ^2.12.4
-    next: 15.5.7
+    next: 15.5.9
     next-drupal: ^2.0.0
     next-drupal-query: ^0.4.0
     next-sitemap: ^4.2.3
@@ -13110,8 +13110,8 @@ __metadata:
     prettier: ^3.2.5
     prettier-eslint: ^16.4.2
     proxy-fetcher: 0.1.0
-    react: 19.1.1
-    react-dom: 19.1.1
+    react: 19.1.3
+    react-dom: 19.1.3
     react-gtm-module: ^2.0.11
     react-json-view: ^1.21.3
     redis: ^5.8.2
@@ -13174,11 +13174,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next@npm:15.5.7":
-  version: 15.5.7
-  resolution: "next@npm:15.5.7"
+"next@npm:15.5.9":
+  version: 15.5.9
+  resolution: "next@npm:15.5.9"
   dependencies:
-    "@next/env": 15.5.7
+    "@next/env": 15.5.9
     "@next/swc-darwin-arm64": 15.5.7
     "@next/swc-darwin-x64": 15.5.7
     "@next/swc-linux-arm64-gnu": 15.5.7
@@ -13229,7 +13229,7 @@ __metadata:
       optional: true
   bin:
     next: dist/bin/next
-  checksum: b31349fa630c5238b008a1192e06c33b72fc04652b37113b5982ab26d59c0a09b9ba224d508dc7eb582ec39e5313f9dd2d5dbc2b64c9b72310cebd111479fb59
+  checksum: ad59f966a28cff60051740391cee8b2d7974283a4f85fb644c38c211f5a294c9bc90479adec25adaec8a89205c4d36cbc8cfc5362d90665da7905b017ab61d44
   languageName: node
   linkType: hard
 
@@ -15057,14 +15057,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:19.1.1":
-  version: 19.1.1
-  resolution: "react-dom@npm:19.1.1"
+"react-dom@npm:19.1.3":
+  version: 19.1.3
+  resolution: "react-dom@npm:19.1.3"
   dependencies:
     scheduler: ^0.26.0
   peerDependencies:
-    react: ^19.1.1
-  checksum: 71d63df955e99bb58470c6ae12ebb82fa80e2a73147c387b73a31c17bcff803ce8aded52ae0c4391c9b413be0aa449249d8be7d063136826d1f0caba9720a907
+    react: ^19.1.3
+  checksum: 1a6a55c1785930f3b4ffd04e1b53b1de5a25d2ce0b07158dac271f2bde2cf9a9dda6cfbba0eec1d04c02bc608e13a1ee1d2a83996803a461a2d65e8f399c00c2
   languageName: node
   linkType: hard
 
@@ -15262,10 +15262,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:19.1.1":
-  version: 19.1.1
-  resolution: "react@npm:19.1.1"
-  checksum: f2f18fea5deac87b1167365bd5160bcba64d383c26a37afa905b714ca424f423ef97d8daf53f041ab9ac25a06357fafcf0b5d3b6b84c9d1eace0e621bfeae629
+"react@npm:19.1.3":
+  version: 19.1.3
+  resolution: "react@npm:19.1.3"
+  checksum: 5057d6444b89ae71396cf8ec6e6dd36d944ace82995401581dd3fad851337c4345ed3c3c23100e2a99ef9515cff149deab6c65657281f6dade67e39bcaf694e3
   languageName: node
   linkType: hard
 

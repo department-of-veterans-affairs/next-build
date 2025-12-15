@@ -3,12 +3,20 @@ import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodeLandingPage } from '@/types/drupal/node'
 import { BenefitsHub } from './formatted-type'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
+import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import { fetchSingleEntityOrPreview } from '@/lib/drupal/query'
 import { formatter as formatListOfLinkTeasers } from '@/components/listOfLinkTeasers/query'
 import { supportServiceFormatter as formatSupportService } from '@/components/supportServices/query'
 import { getHtmlFromDrupalContent } from '@/lib/utils/getHtmlFromDrupalContent'
-import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
+import { getNestedIncludes } from '@/lib/utils/queries'
+import { formatter as formatAlertBlock } from '@/components/alertBlock/query'
+
+// Define the option types for the data loader.
+export type BenefitsHubPageDataOpts = {
+  id: string
+  context?: ExpandedStaticPropsContext
+}
 
 // Define the query params for fetching node--landing_page for benefits hub.
 export const params: QueryParams<null> = () => {
@@ -19,6 +27,7 @@ export const params: QueryParams<null> = () => {
     'field_connect_with_us',
     'field_related_links',
     'field_related_links.field_va_paragraphs',
+    ...getNestedIncludes('field_alert', 'block--alert'),
   ])
 }
 
@@ -97,5 +106,6 @@ export const formatter: QueryFormatter<NodeLandingPage, BenefitsHub> = (
     supportServices: supportServices,
     connectWithUs: entity.field_connect_with_us,
     relatedLinks: relatedLinks,
+    alert: entity.field_alert ? formatAlertBlock(entity.field_alert) : null,
   }
 }
