@@ -5,6 +5,7 @@ import { VaForm } from './template'
 import { VaForm as VaFormType } from './formatted-type'
 import { formatter } from './query'
 import mockData from './mock.json'
+import fieldAlertMock from './field_alert.mock.json'
 
 // Create formatted mock data using the actual formatter
 // @ts-expect-error The mock data isn't fully hydrated (doesn't have all the
@@ -72,7 +73,9 @@ describe('VaForm Component', () => {
     test('renders form title and basic information', () => {
       const { container } = render(<VaForm {...formattedMockData} />)
 
-      expect(screen.getByText('About VA Form 21-0781')).toBeInTheDocument()
+      expect(
+        screen.getByRole('heading', { level: 1, name: 'About VA Form 21-0781' })
+      ).toBeInTheDocument()
       expect(
         screen.getByText(
           'Statement in Support of Claimed Mental Health Disorder(s) Due to an In-Service Traumatic Event(s)'
@@ -452,6 +455,81 @@ describe('VaForm Component', () => {
       render(<VaForm {...formWithIssueDate} />)
 
       expect(screen.getByText('June 2023')).toBeInTheDocument()
+    })
+  })
+
+  describe('Alert section', () => {
+    test('renders alert block when field_alert is provided', () => {
+      // Create mock data with field_alert using the actual alert mock
+      const mockDataWithAlert = {
+        ...mockData,
+        field_alert: fieldAlertMock,
+      }
+
+      // @ts-expect-error The mock data isn't fully hydrated
+      const formattedWithAlert = formatter(mockDataWithAlert)
+      const { container } = render(<VaForm {...formattedWithAlert} />)
+
+      const alert = container.querySelector('va-alert')
+      expect(alert).toBeInTheDocument()
+      expect(alert).toHaveAttribute('status', 'info')
+      expect(
+        screen.getByRole('heading', {
+          level: 2,
+          name: 'DIC eligibility for survivors of Blue Water Navy Vietnam Veterans',
+        })
+      ).toBeInTheDocument()
+    })
+
+    test('formatter converts "information" alert type to "info"', () => {
+      const mockDataWithAlert = {
+        ...mockData,
+        field_alert: fieldAlertMock,
+      }
+
+      // @ts-expect-error The mock data isn't fully hydrated
+      const formattedWithAlert = formatter(mockDataWithAlert)
+      const { container } = render(<VaForm {...formattedWithAlert} />)
+
+      // The mock data has field_alert_type: "information"
+      // The formatter should convert it to "info"
+      const alert = container.querySelector('va-alert')
+      expect(alert).toHaveAttribute('status', 'info')
+    })
+
+    test('renders alert with warning status when field_alert_type is warning', () => {
+      const mockDataWithWarningAlert = {
+        ...mockData,
+        field_alert: {
+          ...fieldAlertMock,
+          field_alert_type: 'warning',
+        },
+      }
+
+      // @ts-expect-error The mock data isn't fully hydrated
+      const formattedWithAlert = formatter(mockDataWithWarningAlert)
+      const { container } = render(<VaForm {...formattedWithAlert} />)
+
+      const alert = container.querySelector('va-alert')
+      expect(alert).toHaveAttribute('status', 'warning')
+    })
+
+    test('does not render alert when field_alert is null', () => {
+      // The base mockData has field_alert: null
+      const { container } = render(<VaForm {...formattedMockData} />)
+
+      expect(container.querySelector('va-alert')).not.toBeInTheDocument()
+    })
+
+    test('does not render alert when alertBlock is explicitly set to null', () => {
+      const formWithoutAlert: VaFormType = {
+        ...formattedMockData,
+        alertBlock: null,
+      }
+
+      const { container } = render(<VaForm {...formWithoutAlert} />)
+
+      expect(container.querySelector('va-alert')).not.toBeInTheDocument()
     })
   })
 })

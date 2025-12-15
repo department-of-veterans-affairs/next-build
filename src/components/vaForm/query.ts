@@ -8,6 +8,7 @@ import { fetchSingleEntityOrPreview } from '@/lib/drupal/query'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 import { formatter as formatLinkTeaser } from '@/components/linkTeaser/query'
 import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
+import { formatter as formatAlertBlock } from '@/components/alertBlock/query'
 
 // Define the query params for fetching node--va_form.
 export const params: QueryParams<null> = () => {
@@ -16,6 +17,7 @@ export const params: QueryParams<null> = () => {
     'field_va_form_administration',
     'field_benefit_categories',
     'field_va_form_related_forms',
+    'field_alert.field_alert_content',
   ])
 }
 
@@ -54,6 +56,7 @@ export const formatter: QueryFormatter<NodeVaForm, VaForm> = (
       (category) => category.field_home_page_hub_label
     ),
     administration: entity.field_va_form_administration?.name,
+    alertBlock: formatAlertBlock(entity.field_alert),
     formUrl: entity.field_va_form_url,
     toolUrl: entity.field_va_form_tool_url ?? null,
     toolIntro: entity.field_va_form_tool_intro ?? null,

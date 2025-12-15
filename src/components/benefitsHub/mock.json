@@ -27,7 +27,6 @@
   "moderation_state": "published",
   "metatag": [],
   "field_related_office": null,
-  "field_alert": null,
   "field_title_icon": "",
   "field_home_page_hub_label": "Health care",
   "field_teaser_text": "Apply for and manage VA health care benefits",
@@ -70,5 +69,112 @@
         }
       }
     }
+  },
+  "field_alert": {
+    "type": "block_content--alert",
+    "id": "e0a2bc31-b671-4f12-8423-e150d40852f2",
+    "drupal_internal__id": 24,
+    "drupal_internal__revision_id": 1583,
+    "langcode": "en",
+    "revision_created": "2024-07-15T18:04:36+00:00",
+    "status": true,
+    "info": "How do I get help for a Veteran who’s in crisis?",
+    "changed": "2024-07-15T18:04:36+00:00",
+    "reusable": true,
+    "default_langcode": true,
+    "revision_translation_affected": true,
+    "breadcrumbs": [],
+    "moderation_state": "published",
+    "expiration_date": null,
+    "warning_date": null,
+    "metatag": [
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "title",
+          "content": "| Veterans Affairs"
+        }
+      }
+    ],
+    "field_alert_title": "How do I get help for a Veteran who’s in crisis?",
+    "field_alert_type": "information",
+    "field_reusability": "reusable",
+    "links": {
+      "self": {
+        "href": "https://va-gov-cms.ddev.site/jsonapi/block_content/alert/e0a2bc31-b671-4f12-8423-e150d40852f2?resourceVersion=id%3A1583"
+      }
+    },
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 24
+    },
+    "block_content_type": {
+      "type": "block_content_type--block_content_type",
+      "id": "278a3f4b-8d89-4768-ab03-869b8cc98613",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "alert"
+      }
+    },
+    "revision_user": {
+      "type": "user--user",
+      "id": "6502418d-3e06-427d-99a6-0717afaad249",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 4031
+      }
+    },
+    "field_alert_content": {
+      "type": "paragraph--expandable_text",
+      "id": "5f530160-a26b-4ed1-8900-552df2d6f611",
+      "drupal_internal__id": 7117,
+      "drupal_internal__revision_id": 1404618,
+      "langcode": "en",
+      "status": true,
+      "created": "2019-09-09T12:54:01+00:00",
+      "parent_id": "24",
+      "parent_type": "block_content",
+      "parent_field_name": "field_alert_content",
+      "behavior_settings": [],
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "breadcrumbs": [],
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "content_translation_changed": null,
+      "field_text_expander": "Find out how to get support anytime, day or night",
+      "field_wysiwyg": {
+        "value": "<p>If you’re concerned about a Veteran in crisis, connect with our caring, qualified Veterans Crisis Line responders for confidential help. Many of them are Veterans themselves. This service is private, free, and available 24/7.</p><p><strong>To connect with a Veterans Crisis Line responder anytime, day or night:</strong></p><ul><li>Call <a href=\"tel:988\" aria-label=\"9 8 8.\">988</a></li><li>Text <a href=\"sms:838255\">838255</a></li><li><a href=\"/admin/content/linky/5265\">Start a confidential chat</a></li><li>For TTY, call <a href=\"tel:988\" aria-label=\"7 1 1.\">711</a> then <a href=\"tel:988\" aria-label=\"9 8 8.\">988</a></li></ul><p><strong>If you</strong>’<strong>re concerned about a Veteran who</strong>’<strong>s homeless or at risk of becoming homeless</strong></p><p>Call the National Call Center for Homeless Veterans at <a href=\"tel:+18774243838\">877-424-3838</a> for help 24 hours a day, 7 days a week. You or the Veteran can talk privately with a trained VA counselor for free.</p>",
+        "format": "rich_text",
+        "processed": "<p>If you’re concerned about a Veteran in crisis, connect with our caring, qualified Veterans Crisis Line responders for confidential help. Many of them are Veterans themselves. This service is private, free, and available 24/7.</p><p><strong>To connect with a Veterans Crisis Line responder anytime, day or night:</strong></p><ul><li>Call <a href=\"tel:988\" aria-label=\"9 8 8.\">988</a></li><li>Text <a href=\"sms:838255\">838255</a></li><li><a href=\"https://www.veteranscrisisline.net/ChatTermsOfService.aspx?account=Veterans%20Chat\">Start a confidential chat</a></li><li>For TTY, call <a href=\"tel:988\" aria-label=\"7 1 1.\">711</a> then <a href=\"tel:988\" aria-label=\"9 8 8.\">988</a></li></ul><p><strong>If you</strong>’<strong>re concerned about a Veteran who</strong>’<strong>s homeless or at risk of becoming homeless</strong></p><p>Call the National Call Center for Homeless Veterans at <a href=\"tel:+18774243838\">877-424-3838</a> for help 24 hours a day, 7 days a week. You or the Veteran can talk privately with a trained VA counselor for free.</p>"
+      },
+      "links": {
+        "self": {
+          "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/expandable_text/5f530160-a26b-4ed1-8900-552df2d6f611?resourceVersion=id%3A1404618"
+        }
+      },
+      "resourceIdObjMeta": {
+        "target_revision_id": 1404618,
+        "drupal_internal__target_id": 7117
+      },
+      "paragraph_type": {
+        "type": "paragraphs_type--paragraphs_type",
+        "id": "0a249911-a230-46ae-8af2-e3752bb2c46e",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "expandable_text"
+        }
+      },
+      "relationshipNames": ["paragraph_type"]
+    },
+    "field_owner": {
+      "type": "taxonomy_term--administration",
+      "id": "c20f3989-e93e-49bd-8c95-ad3821042a02",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 5
+      }
+    },
+    "relationshipNames": [
+      "block_content_type",
+      "revision_user",
+      "field_alert_content",
+      "field_owner"
+    ]
   }
 }
