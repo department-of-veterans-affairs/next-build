@@ -9,6 +9,5 @@ describe('VetCenterOutstation with valid data', () => {
     expect(imgEl).toBeTruthy()
     expect(screen.queryByText(/Test introText/)).toBeInTheDocument()
     expect(screen.queryByText(/1010 Delafield Road/)).toBeInTheDocument()
-    expect(screen.queryByText(/In the spotlight/)).toBeInTheDocument()
   })
 })

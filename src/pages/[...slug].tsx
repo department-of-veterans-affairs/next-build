@@ -55,6 +55,7 @@ import { ResourcesSupport as FormattedResourcesSupport } from '../components/res
 import { StaffProfile as FormattedStaffProfile } from '../components/staffProfile/formatted-type'
 import { StoryListing as FormattedStoryListing } from '../components/storyListing/formatted-type'
 import { VetCenter as FormattedVetCenter } from '../components/vetCenter/formatted-type'
+import { VetCenterOutstation as FormattedVetCenterOutstation } from '../components/vetCenterOutstation/formatted-type'
 import { VamcFacility as FormattedVamcFacility } from '../components/vamcFacility/formatted-type'
 import { VamcSystem as FormattedVamcSystem } from '../components/vamcSystem/formatted-type'
 import { VamcSystemRegisterForCare as FormattedVamcSystemRegisterForCare } from '../components/vamcSystemRegisterForCare/formatted-type'
@@ -87,6 +88,7 @@ import { ResourcesSupport } from '../components/resourcesSupport/template'
 import { StaffProfile } from '../components/staffProfile/template'
 import { StoryListing } from '../components/storyListing/template'
 import { VetCenter } from '../components/vetCenter/template'
+import { VetCenterOutstation } from '../components/vetCenterOutstation/template'
 import { PageLayout, PageLayoutProps } from '@/components/pageLayout/template'
 import { VamcFacility } from '../components/vamcFacility/template'
 import { DoNotPublishError } from '@/lib/drupal/query'
@@ -237,6 +239,11 @@ export default function ResourcePage({
           )}
           {resource.type === RESOURCE_TYPES.VET_CENTER && (
             <VetCenter {...(resource as FormattedVetCenter)} />
+          )}
+          {resource.type === RESOURCE_TYPES.VET_CENTER_OUTSTATION && (
+            <VetCenterOutstation
+              {...(resource as FormattedVetCenterOutstation)}
+            />
           )}
           {resource.type === RESOURCE_TYPES.VAMC_FACILITY && (
             <VamcFacility {...(resource as FormattedVamcFacility)} />

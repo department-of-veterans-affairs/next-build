@@ -703,13 +703,14 @@ export interface NodeVetCenterOutstation
   extends CommonVetCenterFields,
     DrupalNode {
   field_office: VetCenterFieldOffice
-  field_office_hours: FieldOfficeHours[]
-  field_official_name: string
-  field_operating_status_facility: FacilityOperatingStatusFlags
+  field_intro_text?: string | null
+  field_office_hours?: FieldOfficeHours[] | null
+  field_official_name?: string | null
+  field_operating_status_facility?: FacilityOperatingStatusFlags | null
   field_operating_status_more_info?: string
-  field_phone_number: string
-  field_timezone: string
-  field_health_services: VetCenterFieldHealthServicesArray
+  field_phone_number?: string | null
+  field_timezone?: string | null
+  field_health_services?: VetCenterFieldHealthServicesArray | null
 }
 
 export interface NodeVamcHealthServicesListing extends DrupalNode {

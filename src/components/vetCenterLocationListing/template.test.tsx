@@ -159,10 +159,11 @@ describe('VetCenterLocationListing with valid data', () => {
     test('renders outstation location', () => {
       render(<VetCenterLocationListing {...mockData} />)
 
-      // Check for outstation title
-      expect(
-        screen.getByText(/Sepulveda Vet Center Outstation/)
-      ).toBeInTheDocument()
+      // Outstation title is rendered as a `<va-link>` web component (text is an attribute).
+      const outstationLink = document.querySelector(
+        'va-link[text="Sepulveda Vet Center Outstation"]'
+      )
+      expect(outstationLink).toBeInTheDocument()
 
       // Check for outstation address
       expect(screen.getByText(/9737 Haskell Ave/)).toBeInTheDocument()

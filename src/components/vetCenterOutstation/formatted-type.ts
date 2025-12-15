@@ -6,34 +6,31 @@ import {
 } from '@/types/drupal/field_type'
 import { PublishedEntity } from '@/types/formatted/publishedEntity'
 import { VetCenterHealthServices as FormattedHealthServices } from '@/components/vetCenterHealthServices/formatted-type'
-import { FeaturedContent as FormattedFeaturedContent } from '@/components/featuredContent/formatted-type'
+import { FacilityOperatingStatusFlags } from '@/types/drupal/node'
 import { MediaImage as FormattedMediaImage } from '@/components/mediaDocument/formatted-type'
-import { AccordionItem as FormattedAccordionItem } from '@/components/accordion/formatted-type'
-import { Wysiwyg as FormattedWysiwyg } from '@/components/wysiwyg/formatted-type'
-import { QaSection as PublishedQaSection } from '@/components/qaSection/formatted-type'
 
 export type VetCenterOutstation = PublishedEntity & {
   address: FieldAddress
-  ccNonTraditionalHours: FormattedWysiwyg
-  ccVetCenterCallCenter: FormattedWysiwyg
-  ccVetCenterFaqs: PublishedQaSection
-  geolocation: FieldGeoLocation
-  introText: string
+  geolocation: FieldGeoLocation | null
+  introText?: string | null
   lastSavedByAnEditor: string | null
-  officeHours: FieldOfficeHours[]
-  officialName: string
-  operatingStatusFacility: string
-  operatingStatusMoreInfo: string | null
+  officeHours: FieldOfficeHours[] | null
+  officialName?: string | null
+  operatingStatusFacility?: FacilityOperatingStatusFlags | null
+  operatingStatusMoreInfo?: string | null
   phoneNumber: string
-  timezone: string
-  administration: FieldAdministration
+  timezone?: string | null
+  administration?: FieldAdministration | null
   healthServices: FormattedHealthServices
-  featuredContent: FormattedFeaturedContent[]
   counselingHealthServices: FormattedHealthServices
   referralHealthServices: FormattedHealthServices
   otherHealthServices: FormattedHealthServices
-  image: FormattedMediaImage
-  prepareForVisit: FormattedAccordionItem[]
+  image: FormattedMediaImage | null
   fieldFacilityLocatorApiId: string
   path: string
+  /**
+   * Derived from `path` (no parent-entity fetch): `/<vet-center>/<outstation>` -> `/<vet-center>`.
+   * Used for linking to the Vet Center locations listing.
+   */
+  officePath?: string | null
 }

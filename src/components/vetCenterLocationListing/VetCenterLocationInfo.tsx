@@ -44,6 +44,12 @@ const isMobileVetCenter = (
   return vetCenter.type === 'node--vet_center_mobile_vet_center'
 }
 
+const isVetCenterOutstation = (
+  vetCenter: VetCenterInfoVariant
+): vetCenter is VetCenterOutstationLocationInfo => {
+  return vetCenter.type === 'node--vet_center_outstation'
+}
+
 /**
  * For the map widgets to work, certain global variables need to be set, which is
  * currently being done in the parent VetCenterLocationListing component.
@@ -113,7 +119,7 @@ export const VetCenterLocationInfo = ({
             className="vads-u-margin-bottom--1 vads-u-margin-top--0"
             aria-describedby={alsoCalledId}
           >
-            {isMainOffice ? (
+            {isMainOffice || isVetCenterOutstation(vetCenter) ? (
               <va-link href={vetCenter.path} text={title}></va-link>
             ) : (
               <span>{title}</span>
