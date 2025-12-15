@@ -38,7 +38,7 @@ const warn = slugLogger.extend('warn')
 const error = slugLogger.extend('error')
 
 // Preview domain check
-const previewDomain = 'preview.cms.va.gov'
+const previewDomain = 'preview-prod.cms.va.gov'
 
 // Config
 const isExport = process.env.BUILD_OPTION === 'static'
