@@ -19,13 +19,16 @@ export const enum BlockContentResourceType {
 }
 
 export interface BlockAlert extends DrupalBlock {
+  type: 'block_content--alert'
   field_alert_title: string
-  field_alert_type: string
+  /** The "severity" of the alert. What are the other options? */
+  field_alert_type: 'info' | 'warning' | string
   field_reusability: string
   field_alert_content: ParagraphExpandableText | ParagraphWysiwyg
 }
 
 export interface BlockPromo extends DrupalBlock {
+  type: 'block_content--promo'
   field_image: DrupalMediaImage
   field_promo_link: ParagraphLinkTeaser
 }

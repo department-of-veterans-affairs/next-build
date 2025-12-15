@@ -4,7 +4,7 @@ import { PARAGRAPH_RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { Wysiwyg } from '@/components/wysiwyg/template'
 
 export function AlertBlock(alertBlock: FormattedAlertBlock) {
-  if (!alertBlock) {
+  if (!alertBlock || !Object.keys(alertBlock).length) {
     return null
   }
 
