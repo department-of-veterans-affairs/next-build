@@ -151,7 +151,9 @@ describe('<Event /> Component', () => {
         })}
       />
     )
-    expect(screen.queryByText('3307 10th Avenue Southeast')).not.toBeInTheDocument()
+    expect(
+      screen.queryByText('3307 10th Avenue Southeast')
+    ).not.toBeInTheDocument()
   })
 
   describe('va-links in paragraph tags', () => {
