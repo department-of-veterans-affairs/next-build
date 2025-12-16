@@ -64,7 +64,7 @@ export function BenefitsHub({
             <va-card className="vads-u-padding--0" background>
               <Image
                 src={promo.img.src}
-                alt={promo.img.alt || ''}
+                alt={''}
                 style={{ objectFit: 'cover' }}
                 width={480}
                 height={320}

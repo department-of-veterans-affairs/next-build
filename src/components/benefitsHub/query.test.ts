@@ -65,13 +65,18 @@ describe('BenefitHubLanding formatData', () => {
     // TODO: create support service mocks from test API
     mockBenefitsHubQuery.mockReturnValue({
       ...mockData,
-      field_support_services: [null, ...mockSupportServices, null],
+      field_support_services: [
+        null,
+        ...mockSupportServices,
+        null,
+        ...mockSupportServices,
+      ],
     } as NodeLandingPage)
 
     const result = await runQuery()
 
     // Should only have 2 support services (nulls filtered out)
-    expect(result.supportServices).toHaveLength(1)
+    expect(result.supportServices).toHaveLength(2)
     expect(result.supportServices.every((service) => service !== null)).toBe(
       true
     )

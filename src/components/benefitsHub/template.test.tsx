@@ -685,7 +685,7 @@ test('renders BenefitsHub component with promo card', () => {
   const image = container.querySelector('img')
   expect(image).toBeInTheDocument()
   expect(image).toHaveAttribute('src')
-  expect(image).toHaveAttribute('alt', 'Test promo image')
+  expect(image).toHaveAttribute('alt', '')
 
   // Check that the promo link is rendered
   const vaLink = container.querySelector('va-card va-link')
