@@ -11,6 +11,7 @@ import { Hours } from '@/components/hours/template'
 import { MediaImage } from '@/components/mediaImage/template'
 import { ExpandableOperatingStatus } from '@/components/expandableOperatingStatus/template'
 import { TextWithImage } from '@/components/textWithImage/template'
+import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ReactNode } from 'react'
 
 interface VetCenterLocationInfoMainOfficeProps {
@@ -29,25 +30,25 @@ interface VetCenterLocationInfoSatelliteProps {
 const isVetCenter = (
   vetCenter: VetCenterInfoVariant
 ): vetCenter is VetCenterLocationInfoType => {
-  return vetCenter.type === 'node--vet_center'
+  return vetCenter.type === RESOURCE_TYPES.VET_CENTER
 }
 
 const isVetCenterCap = (
   vetCenter: VetCenterInfoVariant
 ): vetCenter is VetCenterCapLocationInfo => {
-  return vetCenter.type === 'node--vet_center_cap'
+  return vetCenter.type === RESOURCE_TYPES.VET_CENTER_CAP
 }
 
 const isMobileVetCenter = (
   vetCenter: VetCenterInfoVariant
 ): vetCenter is MobileVetCenterLocationInfo => {
-  return vetCenter.type === 'node--vet_center_mobile_vet_center'
+  return vetCenter.type === RESOURCE_TYPES.VET_CENTER_MOBILE_VET_CENTER
 }
 
 const isVetCenterOutstation = (
   vetCenter: VetCenterInfoVariant
 ): vetCenter is VetCenterOutstationLocationInfo => {
-  return vetCenter.type === 'node--vet_center_outstation'
+  return vetCenter.type === RESOURCE_TYPES.VET_CENTER_OUTSTATION
 }
 
 /**
