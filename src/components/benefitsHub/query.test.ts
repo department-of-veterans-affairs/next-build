@@ -10,11 +10,8 @@ import mockData from './mock.json'
 import { BenefitsHubPageDataOpts, params } from './query'
 
 jest.mock('@/lib/drupal/query')
-jest.mock('@/components/listOfLinkTeasers/query')
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const mockDrupalQuery = require('@/lib/drupal/query')
-// eslint-disable-next-line @typescript-eslint/no-require-imports
-const mockListOfLinkTeasersQuery = require('@/components/listOfLinkTeasers/query')
 
 const mockBenefitsHubQuery = jest.fn(() => mockData as NodeLandingPage)
 

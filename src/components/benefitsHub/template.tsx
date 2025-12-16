@@ -70,9 +70,9 @@ export function BenefitsHub({
                 height={320}
               />
               <div className="vads-u-padding--2">
-                <h3 className="vads-u-margin-top--1">
+                <h2 className="vads-u-font-size--h4 vads-u-margin-top--0">
                   <va-link {...promo.link} />
-                </h3>
+                </h2>
                 <p>{promo.description}</p>
               </div>
             </va-card>
