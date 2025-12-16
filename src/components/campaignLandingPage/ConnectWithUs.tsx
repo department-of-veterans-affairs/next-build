@@ -11,7 +11,7 @@ const SocialMediaLink = ({
 }) => {
   return (
     <div className="vads-grid-col-4">
-      <div className="vads-u-margin-y--1 medium-screen:vads-u-margin-x--1">
+      <div className="vads-u-margin-y--1 tablet:vads-u-margin-x--1">
         <va-icon
           icon={icon}
           size="3"
@@ -47,7 +47,7 @@ export const ConnectWithUs = ({ connectWithUs }: CampaignLandingPageProps) => {
         </div>
       </div>
 
-      <div className="vads-grid-row medium-screen:vads-u-margin-x--neg1">
+      <div className="vads-grid-row tablet:vads-u-margin-x--neg1">
         {emailLink?.href && emailLink?.title && (
           <SocialMediaLink
             icon="mail"

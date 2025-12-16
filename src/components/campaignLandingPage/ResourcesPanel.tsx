@@ -20,19 +20,19 @@ export const ResourcesPanel = ({
             Downloadable resources
           </p>
           <h2 className="vads-u-margin-top--0">{resources.header}</h2>
-          <p className="va-introtext vads-u-margin-top--1 vads-u-margin-bottom--2 medium-screen:vads-u-margin-bottom--4">
+          <p className="va-introtext vads-u-margin-top--1 vads-u-margin-bottom--2 tablet:vads-u-margin-bottom--4">
             {resources.intro}
           </p>
         </div>
       </div>
 
-      <div className="vads-grid-row vads-u-margin-bottom--2 medium-screen:vads-u-margin-x--neg1">
+      <div className="vads-grid-row vads-u-margin-bottom--2 tablet:vads-u-margin-x--neg1">
         {resources.documents.map((doc) => (
           <div
             key={doc.id}
             className="vads-grid-col-4 vads-u-align-content--stretch vads-u-margin-y--1 "
           >
-            <div className="vads-u-background-color--gray-light-alt vads-u-height--full vads-u-padding--2 vads-u-display--flex vads-u-flex-direction--column vads-u-justify-content--space-between medium-screen:vads-u-margin-x--1 medium-screen:vads-u-margin-y--0">
+            <div className="vads-u-background-color--gray-light-alt vads-u-height--full vads-u-padding--2 vads-u-display--flex vads-u-flex-direction--column vads-u-justify-content--space-between tablet:vads-u-margin-x--1 tablet:vads-u-margin-y--0">
               <h3 className="vads-u-margin--0">{doc.name}</h3>
               <p className="vads-u-flex--1">{doc.description}</p>
 

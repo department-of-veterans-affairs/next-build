@@ -16,7 +16,7 @@ export const FaqPanel = ({ faq }: CampaignLandingPageProps) => {
       data-testid="faq-panel"
     >
       <div className="vads-grid-row">
-        <div className="vads-grid-col-12 medium-screen:vads-grid-col-8">
+        <div className="vads-grid-col-12 tablet:vads-grid-col-8">
           <p className="va-u-text-transform--uppercase vads-u-color--gray-medium vads-u-font-size--sm vads-u-margin-bottom--0">
             FAQ
           </p>

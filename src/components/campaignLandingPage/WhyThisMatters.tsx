@@ -12,8 +12,8 @@ export const WhyThisMatters = ({
       data-testid="why-this-matters"
     >
       <div className="vads-grid-container vads-u-padding-y--6 vads-u-padding-bottom--3 vads-u-padding-x--4 desktop-lg:vads-u-padding-x--0">
-        <div className="vads-grid-row">
-          <div className="vads-grid-col-12 medium-screen:vads-grid-col-8">
+        <div className="vads-grid-row vads-u-justify-content--space-between">
+          <div className="vads-grid-col-12 tablet:vads-grid-col-8">
             <h2 className="vads-u-margin--0 vads-u-margin-bottom--2">
               Why this matters to you
             </h2>
@@ -29,10 +29,10 @@ export const WhyThisMatters = ({
               />
             )}
           </div>
-          <div className="vads-grid-col-12 medium-screen:vads-grid-col-3 medium-screen:vads-u-margin-left--6">
-            <div className=" vads-u-margin-top--3 medium-screen:vads-u-margin-top--0">
+          <div className="vads-grid-col-12 tablet:vads-grid-col-3">
+            <div className=" vads-u-margin-top--3 tablet:vads-u-margin-top--0">
               {audience.length > 0 && (
-                <div className="vads-u-background-color--white vads-u-padding--2 vads-u-margin-bottom--3 medium-screen:vads-u-margin-bottom--2">
+                <div className="vads-u-background-color--white vads-u-padding--2 vads-u-margin-bottom--3 tablet:vads-u-margin-bottom--2">
                   <p className="va-u-text-transform--uppercase vads-u-color--gray-medium vads-u-font-size--sm vads-u-margin--0">
                     This page is for
                   </p>

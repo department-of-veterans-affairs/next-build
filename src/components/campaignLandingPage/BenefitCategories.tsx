@@ -26,16 +26,16 @@ export const BenefitCategories = ({
         </div>
       </div>
 
-      <div className="vads-grid-row medium-screen:vads-u-margin-x--neg6">
+      <div className="vads-grid-row tablet:vads-u-margin-x--neg6">
         {benefitCategories.map((benefitCategory, index) => {
           const iconConfig = getHubIcon(benefitCategory.titleIcon)
 
           return (
             <div
               key={index}
-              className={`vads-grid-col-12 medium-screen:vads-grid-col-6 ${index > 0 ? 'vads-u-margin-top--2 medium-screen:vads-u-margin-top--0' : ''}`}
+              className={`vads-grid-col-12 tablet:vads-grid-col-6 ${index > 0 ? 'vads-u-margin-top--2 tablet:vads-u-margin-top--0' : ''}`}
             >
-              <div className="medium-screen:vads-u-margin-left--6 medium-screen:vads-u-margin-right--5">
+              <div className="tablet:vads-u-margin-left--6 tablet:vads-u-margin-right--5">
                 <div className="vads-u-display--flex vads-u-align-items--center">
                   {iconConfig && (
                     <va-icon

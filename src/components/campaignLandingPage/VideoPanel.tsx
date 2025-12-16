@@ -32,7 +32,7 @@ export const VideoPanel = ({ video }: CampaignLandingPageProps) => {
             <iframe
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
-              className="vads-u-margin-top--4 medium-screen:vads-u-padding-right--1"
+              className="vads-u-margin-top--4 tablet:vads-u-padding-right--1"
               frameBorder="0"
               height="315"
               src={video.media.field_media_video_embed_field}
