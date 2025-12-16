@@ -24,5 +24,5 @@ export interface BenefitsHub extends PublishedEntity {
   > | null
   relatedLinks: ListOfLinkTeasers | null
   alert: AlertBlock | null
-  promo?: BlockPromo | MegaMenuPromoColumn | null
+  promo: BlockPromo | MegaMenuPromoColumn | null
 }
