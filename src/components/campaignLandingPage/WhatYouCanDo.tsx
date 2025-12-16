@@ -8,7 +8,7 @@ export const WhatYouCanDo = ({ whatYouCanDo }: CampaignLandingPageProps) => {
       data-testid="what-you-can-do"
     >
       <div className="vads-grid-row">
-        <div className="vads-grid-col-9">
+        <div className="vads-grid-col-12 medium-screen:vads-grid-col-9">
           <p className="va-u-text-transform--uppercase vads-u-color--gray-medium vads-u-font-size--sm vads-u-margin-bottom--0">
             What you can do
           </p>
