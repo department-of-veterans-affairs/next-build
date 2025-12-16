@@ -46,7 +46,9 @@ export const formatter: QueryFormatter<BlockPromo, MegaMenuPromoColumn> = (
     },
     link: {
       text: entity.field_promo_link.field_link.title,
-      href: entity.field_promo_link.field_link.uri,
+      href:
+        entity.field_promo_link.field_link.url ||
+        entity.field_promo_link.field_link.uri,
     },
     description: entity.field_promo_link.field_link_summary,
     id: entity.drupal_internal__id,
