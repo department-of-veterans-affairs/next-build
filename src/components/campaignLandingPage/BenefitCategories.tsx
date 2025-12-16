@@ -16,7 +16,7 @@ export const BenefitCategories = ({
       className="vads-grid-container vads-u-padding-y--3 vads-u-padding-x--4 desktop-lg:vads-u-padding-x--0"
     >
       <div className="vads-grid-row">
-        <div className="vads-grid-col-9">
+        <div className="vads-grid-col-12 tablet:vads-grid-col-9">
           <p className="va-u-text-transform--uppercase vads-u-color--gray-medium vads-u-font-size--sm vads-u-margin-bottom--0">
             VA Benefits
           </p>
