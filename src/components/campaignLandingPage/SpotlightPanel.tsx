@@ -31,7 +31,7 @@ export const SpotlightPanel = ({ spotlight }: CampaignLandingPageProps) => {
         {spotlight.teasers.map((linkTeaser) => (
           <div
             key={linkTeaser.id}
-            className="vads-grid-col-4 vads-u-align-content--stretch vads-u-margin-y--1"
+            className="vads-grid-col-12 medium-screen:vads-grid-col-4 vads-u-align-content--stretch vads-u-margin-y--1"
           >
             <div className="vads-u-background-color--gray-light-alt vads-u-height--full medium-screen:vads-u-margin-x--1 medium-screen:vads-u-margin-y--0">
               <div className="vads-u-padding--2">
