@@ -11,11 +11,11 @@ export const ResourcesPanel = ({
 
   return (
     <div
-      className="vads-l-grid-container vads-u-padding-y--3 vads-u-padding-x--4 desktop-lg:vads-u-padding-x--0"
+      className="vads-grid-container vads-u-padding-y--3 vads-u-padding-x--4 desktop-lg:vads-u-padding-x--0"
       data-testid="resources-panel"
     >
-      <div className="vads-l-row">
-        <div className="vads-l-col--12 medium-screen:vads-l-col--9">
+      <div className="vads-grid-row">
+        <div className="vads-grid-col-9">
           <p className="va-u-text-transform--uppercase vads-u-color--gray-medium vads-u-font-size--sm vads-u-margin-bottom--0">
             Downloadable resources
           </p>
@@ -26,11 +26,11 @@ export const ResourcesPanel = ({
         </div>
       </div>
 
-      <div className="vads-l-row vads-u-margin-bottom--2 medium-screen:vads-u-margin-x--neg1">
+      <div className="vads-grid-row vads-u-margin-bottom--2 medium-screen:vads-u-margin-x--neg1">
         {resources.documents.map((doc) => (
           <div
             key={doc.id}
-            className="vads-l-col--12 medium-screen:vads-l-col--4 vads-u-align-content--stretch vads-u-margin-y--1 "
+            className="vads-grid-col-4 vads-u-align-content--stretch vads-u-margin-y--1 "
           >
             <div className="vads-u-background-color--gray-light-alt vads-u-height--full vads-u-padding--2 vads-u-display--flex vads-u-flex-direction--column vads-u-justify-content--space-between medium-screen:vads-u-margin-x--1 medium-screen:vads-u-margin-y--0">
               <h3 className="vads-u-margin--0">{doc.name}</h3>
@@ -59,7 +59,7 @@ export const ResourcesPanel = ({
       </div>
 
       {resources.cta && (
-        <div className="vads-l-row">
+        <div className="vads-grid-row">
           <div className="vads-u-col--12">
             <va-link-action
               href={resources.cta.url}

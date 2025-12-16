@@ -10,7 +10,7 @@ const SocialMediaLink = ({
   text: string
 }) => {
   return (
-    <div className="vads-l-col--12 medium-screen:vads-l-col--4">
+    <div className="vads-grid-col-4">
       <div className="vads-u-margin-y--1 medium-screen:vads-u-margin-x--1">
         <va-icon
           icon={icon}
@@ -33,11 +33,11 @@ export const ConnectWithUs = ({ connectWithUs }: CampaignLandingPageProps) => {
 
   return (
     <div
-      className="vads-l-grid-container vads-u-padding-y--3 vads-u-padding-x--4 desktop-lg:vads-u-padding-x--0"
+      className="vads-grid-container vads-u-padding-y--3 vads-u-padding-x--4 desktop-lg:vads-u-padding-x--0"
       data-testid="connect-with-us"
     >
-      <div className="vads-l-row">
-        <div className="vads-l-col--12 medium-screen:vads-l-col--9">
+      <div className="vads-grid-row">
+        <div className="vads-grid-col-9">
           <p className="va-u-text-transform--uppercase vads-u-color--gray-medium vads-u-font-size--sm vads-u-margin-bottom--0">
             Connect with us
           </p>
@@ -47,7 +47,7 @@ export const ConnectWithUs = ({ connectWithUs }: CampaignLandingPageProps) => {
         </div>
       </div>
 
-      <div className="vads-l-row medium-screen:vads-u-margin-x--neg1">
+      <div className="vads-grid-row medium-screen:vads-u-margin-x--neg1">
         {emailLink?.href && emailLink?.title && (
           <SocialMediaLink
             icon="mail"

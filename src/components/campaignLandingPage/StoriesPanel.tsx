@@ -10,11 +10,11 @@ export const StoriesPanel = ({ stories }: CampaignLandingPageProps) => {
 
   return (
     <div
-      className="vads-l-grid-container vads-u-padding-y--3 vads-u-padding-x--4 desktop-lg:vads-u-padding-x--0"
+      className="vads-grid-container vads-u-padding-y--3 vads-u-padding-x--4 desktop-lg:vads-u-padding-x--0"
       data-testid="stories-panel"
     >
-      <div className="vads-l-row">
-        <div className="vads-l-col--12 medium-screen:vads-l-col--9">
+      <div className="vads-grid-row">
+        <div className="vads-grid-col-9">
           <p className="va-u-text-transform--uppercase vads-u-color--gray-medium vads-u-font-size--sm vads-u-margin-bottom--0">
             Stories
           </p>

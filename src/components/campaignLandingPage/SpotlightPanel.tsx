@@ -7,11 +7,11 @@ export const SpotlightPanel = ({ spotlight }: CampaignLandingPageProps) => {
 
   return (
     <div
-      className="vads-l-grid-container vads-u-padding-y--3 vads-u-padding-x--4 desktop-lg:vads-u-padding-x--0"
+      className="vads-grid-container vads-u-padding-y--3 vads-u-padding-x--4 desktop-lg:vads-u-padding-x--0"
       data-testid="spotlight-panel"
     >
-      <div className="vads-l-row">
-        <div className="vads-l-col--12 medium-screen:vads-l-col--9">
+      <div className="vads-grid-row">
+        <div className="vads-grid-col-9">
           <p className="va-u-text-transform--uppercase vads-u-color--gray-medium vads-u-font-size--sm vads-u-margin-bottom--0">
             Spotlight
           </p>
@@ -27,11 +27,11 @@ export const SpotlightPanel = ({ spotlight }: CampaignLandingPageProps) => {
           </p>
         </div>
       </div>
-      <div className="vads-l-row vads-u-margin-bottom--2 medium-screen:vads-u-margin-x--neg1">
+      <div className="vads-grid-row vads-u-margin-bottom--2 medium-screen:vads-u-margin-x--neg1">
         {spotlight.teasers.map((linkTeaser) => (
           <div
             key={linkTeaser.id}
-            className="vads-l-col--12 medium-screen:vads-l-col--4 vads-u-align-content--stretch vads-u-margin-y--1"
+            className="vads-grid-col-4 vads-u-align-content--stretch vads-u-margin-y--1"
           >
             <div className="vads-u-background-color--gray-light-alt vads-u-height--full medium-screen:vads-u-margin-x--1 medium-screen:vads-u-margin-y--0">
               <div className="vads-u-padding--2">

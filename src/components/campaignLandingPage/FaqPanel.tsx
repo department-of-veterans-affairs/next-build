@@ -12,11 +12,11 @@ export const FaqPanel = ({ faq }: CampaignLandingPageProps) => {
 
   return (
     <div
-      className="vads-l-grid-container vads-u-padding-y--3 vads-u-padding-x--4 desktop-lg:vads-u-padding-x--0"
+      className="vads-grid-container vads-u-padding-y--3 vads-u-padding-x--4 desktop-lg:vads-u-padding-x--0"
       data-testid="faq-panel"
     >
-      <div className="vads-l-row">
-        <div className="vads-l-col--12 medium-screen:vads-l-col--8">
+      <div className="vads-grid-row">
+        <div className="vads-grid-col-8">
           <p className="va-u-text-transform--uppercase vads-u-color--gray-medium vads-u-font-size--sm vads-u-margin-bottom--0">
             FAQ
           </p>
@@ -69,7 +69,7 @@ export const FaqPanel = ({ faq }: CampaignLandingPageProps) => {
       </div>
 
       {faq.cta && (
-        <div className="vads-l-row">
+        <div className="vads-grid-row">
           <div className="vads-u-col--12">
             <va-link-action
               className="vads-u-margin-top--1"
