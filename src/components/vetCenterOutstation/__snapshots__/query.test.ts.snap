@@ -3,22 +3,129 @@
 exports[`VetCenterOutstation formatData outputs formatted data 1`] = `
 {
   "address": {
-    "address_line1": "9737 Haskell Ave",
+    "address_line1": "21 Veterans Avenue",
     "address_line2": "",
-    "administrative_area": "CA",
+    "administrative_area": "WV",
     "country_code": "US",
     "dependent_locality": null,
     "langcode": "en",
-    "locality": "Sepulveda",
-    "postal_code": "91343",
+    "locality": "Henlawson",
+    "postal_code": "25624",
     "sorting_code": null,
   },
   "administration": {
-    "id": "b273feae-cbc9-4fe9-a433-600621a7eca5",
-    "resourceIdObjMeta": {
-      "drupal_internal__target_id": 871,
+    "breadcrumbs": [
+      {
+        "options": [],
+        "title": "Home",
+        "uri": "https://va-gov-cms.ddev.site/",
+      },
+      {
+        "options": [],
+        "title": "VHA",
+        "uri": "https://va-gov-cms.ddev.site/section/vha",
+      },
+      {
+        "options": [],
+        "title": "Vet Centers",
+        "uri": "https://va-gov-cms.ddev.site/section/vet-centers",
+      },
+      {
+        "options": [],
+        "title": "District 1",
+        "uri": "https://va-gov-cms.ddev.site/section/vha/district-1",
+      },
+      {
+        "options": [],
+        "title": "Charleston, WV Vet Center",
+        "uri": "internal:#",
+      },
+    ],
+    "changed": "2024-08-13T20:05:29+00:00",
+    "content_translation_created": null,
+    "content_translation_outdated": false,
+    "content_translation_source": "und",
+    "content_translation_uid": null,
+    "default_langcode": true,
+    "description": null,
+    "drupal_internal__revision_id": 2468,
+    "drupal_internal__tid": 817,
+    "field_description": null,
+    "field_product": {
+      "id": "df97467b-47dc-4a33-8e75-a0639e49566f",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 289,
+      },
+      "type": "taxonomy_term--products",
     },
+    "id": "2dcde8f9-e03f-4a8a-a040-16273196fb12",
+    "langcode": "en",
+    "links": {
+      "self": {
+        "href": "https://va-gov-cms.ddev.site/jsonapi/taxonomy_term/administration/2dcde8f9-e03f-4a8a-a040-16273196fb12?resourceVersion=id%3A2468",
+      },
+    },
+    "metatag": [
+      {
+        "attributes": {
+          "content": "Charleston, WV Vet Center | VA.gov CMS",
+          "name": "title",
+        },
+        "tag": "meta",
+      },
+      {
+        "attributes": {
+          "href": "https://va-gov-cms.ddev.site/section/vha/vet-centers/charleston-wv-vet-center",
+          "rel": "canonical",
+        },
+        "tag": "link",
+      },
+    ],
+    "moderation_state": null,
+    "name": "Charleston, WV Vet Center",
+    "parent": [
+      {
+        "id": "0f3b388d-79ef-4897-b7f1-d6f9f6347656",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 1013,
+        },
+        "type": "taxonomy_term--administration",
+      },
+    ],
+    "path": {
+      "alias": "/section/vha/vet-centers/charleston-wv-vet-center",
+      "langcode": "en",
+      "pid": 21077,
+    },
+    "relationshipNames": [
+      "vid",
+      "revision_user",
+      "parent",
+      "content_translation_uid",
+      "field_product",
+    ],
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 817,
+    },
+    "revision_created": "2024-08-13T20:05:29+00:00",
+    "revision_translation_affected": true,
+    "revision_user": {
+      "id": "3ad0956c-0561-4c79-a25c-b6bf3a6fe05c",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 4942,
+      },
+      "type": "user--user",
+    },
+    "status": true,
     "type": "taxonomy_term--administration",
+    "vid": {
+      "id": "645055c5-e567-4683-b6db-459ce04522ce",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "administration",
+      },
+      "type": "taxonomy_vocabulary--taxonomy_vocabulary",
+    },
+    "weight": 18,
   },
   "breadcrumbs": [
     {
@@ -27,194 +134,42 @@ exports[`VetCenterOutstation formatData outputs formatted data 1`] = `
       "options": [],
     },
     {
-      "href": "/chatsworth-vet-center",
-      "label": "Chatsworth Vet Center",
+      "href": "/charleston-wv-vet-center",
+      "label": "Charleston, WV Vet Center",
       "options": [],
     },
     {
       "href": "",
-      "label": "Sepulveda Vet Center Outstation",
+      "label": "Logan Outstation",
       "options": [],
     },
   ],
   "counselingHealthServices": [],
-  "entityId": 17539,
-  "entityPath": "/chatsworth-vet-center/sepulveda-outstation",
-  "fieldFacilityLocatorApiId": "vc_6051OS",
+  "entityId": 52495,
+  "entityPath": "/charleston-wv-vet-center/logan-outstation",
+  "fieldFacilityLocatorApiId": "vc_2231OS",
   "geolocation": {
-    "bottom": 34.2477033,
+    "bottom": 37.90129732,
     "geo_type": "Point",
-    "geohash": "9q5fb485r6egb",
-    "lat": 34.2477033,
-    "latlon": "34.2477033,-118.4762463",
-    "left": -118.4762463,
-    "lon": -118.4762463,
-    "right": -118.4762463,
-    "top": 34.2477033,
-    "value": "POINT (-118.4762463 34.2477033)",
+    "geohash": "dntxw5xrj9ctjf",
+    "lat": 37.90129732,
+    "latlon": "37.90129732,-81.99175847",
+    "left": -81.99175847,
+    "lon": -81.99175847,
+    "right": -81.99175847,
+    "top": 37.90129732,
+    "value": "POINT (-81.99175847 37.90129732)",
   },
   "healthServices": [],
-  "id": "3d0c47fc-5f12-4597-968c-0c020674da51",
-  "image": {
-    "alt": "Sepulveda Outstation",
-    "height": 2783,
-    "id": "51797795-a466-4535-b527-924b507a7b84",
-    "links": {
-      "1_1_square_medium_thumbnail": {
-        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/1_1_square_medium_thumbnail/public/2021-09/Sepulveda%20Outstation%20Picture%20new.jpg",
-        "meta": {
-          "linkParams": {
-            "rel": [
-              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
-            ],
-            "width": "240",
-          },
-          "rel": [
-            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
-          ],
-        },
-      },
-      "2_1_large": {
-        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_large/public/2021-09/Sepulveda%20Outstation%20Picture%20new.jpg",
-        "meta": {
-          "linkParams": {
-            "rel": [
-              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
-            ],
-            "width": "512",
-          },
-          "rel": [
-            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
-          ],
-        },
-      },
-      "2_1_medium_thumbnail": {
-        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_medium_thumbnail/public/2021-09/Sepulveda%20Outstation%20Picture%20new.jpg",
-        "meta": {
-          "linkParams": {
-            "rel": [
-              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
-            ],
-            "width": "240",
-          },
-          "rel": [
-            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
-          ],
-        },
-      },
-      "2_3_medium_thumbnail": {
-        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_3_medium_thumbnail/public/2021-09/Sepulveda%20Outstation%20Picture%20new.jpg",
-        "meta": {
-          "linkParams": {
-            "rel": [
-              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
-            ],
-            "width": "480",
-          },
-          "rel": [
-            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
-          ],
-        },
-      },
-      "3_2_medium_thumbnail": {
-        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2021-09/Sepulveda%20Outstation%20Picture%20new.jpg",
-        "meta": {
-          "linkParams": {
-            "rel": [
-              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
-            ],
-            "width": "320",
-          },
-          "rel": [
-            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
-          ],
-        },
-      },
-      "7_2_medium_thumbnail": {
-        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/7_2_medium_thumbnail/public/2021-09/Sepulveda%20Outstation%20Picture%20new.jpg",
-        "meta": {
-          "linkParams": {
-            "rel": [
-              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
-            ],
-            "width": "300",
-          },
-          "rel": [
-            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
-          ],
-        },
-      },
-      "full_content_width": {
-        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/full_content_width/public/2021-09/Sepulveda%20Outstation%20Picture%20new.jpg",
-        "meta": {
-          "linkParams": {
-            "rel": [
-              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
-            ],
-            "width": "967",
-          },
-          "rel": [
-            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
-          ],
-        },
-      },
-      "large": {
-        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/large/public/2021-09/Sepulveda%20Outstation%20Picture%20new.jpg",
-        "meta": {
-          "linkParams": {
-            "rel": [
-              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
-            ],
-            "width": "331",
-          },
-          "rel": [
-            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
-          ],
-        },
-      },
-      "original": {
-        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/original/public/2021-09/Sepulveda%20Outstation%20Picture%20new.jpg",
-        "meta": {
-          "linkParams": {
-            "rel": [
-              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
-            ],
-            "width": "2783",
-          },
-          "rel": [
-            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
-          ],
-        },
-      },
-      "self": {
-        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/file/file/51797795-a466-4535-b527-924b507a7b84",
-      },
-      "viewport_width": {
-        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/viewport_width/public/2021-09/Sepulveda%20Outstation%20Picture%20new.jpg",
-        "meta": {
-          "linkParams": {
-            "rel": [
-              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
-            ],
-            "width": "1726",
-          },
-          "rel": [
-            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
-          ],
-        },
-      },
-    },
-    "title": "",
-    "type": "media--image",
-    "width": 4031,
-  },
+  "id": "4ffbbbc7-c241-4695-aa27-eece9428fac1",
+  "image": null,
   "introText": null,
-  "lastSavedByAnEditor": "2023-04-20T17:00:23+00:00",
-  "lastUpdated": "2023-04-20T17:00:23+00:00",
+  "lastSavedByAnEditor": "2023-08-03T18:51:51+00:00",
+  "lastUpdated": "2023-08-03T18:51:51+00:00",
   "metatags": [
     {
       "attributes": {
-        "content": "Sepulveda Vet Center Outstation | Veterans Affairs",
+        "content": "Logan Outstation | Veterans Affairs",
         "name": "title",
       },
       "tag": "meta",
@@ -235,7 +190,7 @@ exports[`VetCenterOutstation formatData outputs formatted data 1`] = `
     },
     {
       "attributes": {
-        "content": "Sepulveda Vet Center Outstation | Veterans Affairs",
+        "content": "Logan Outstation | Veterans Affairs",
         "property": "og:title",
       },
       "tag": "meta",
@@ -263,13 +218,6 @@ exports[`VetCenterOutstation formatData outputs formatted data 1`] = `
     },
     {
       "attributes": {
-        "content": "Sepulveda Vet Center Outstation | Veterans Affairs",
-        "name": "twitter:title",
-      },
-      "tag": "meta",
-    },
-    {
-      "attributes": {
         "content": "@DeptVetAffairs",
         "name": "twitter:site",
       },
@@ -277,8 +225,8 @@ exports[`VetCenterOutstation formatData outputs formatted data 1`] = `
     },
     {
       "attributes": {
-        "content": "U.S. Department of Veterans Affairs",
-        "name": "twitter:image:alt",
+        "content": "Logan Outstation | Veterans Affairs",
+        "name": "twitter:title",
       },
       "tag": "meta",
     },
@@ -289,43 +237,50 @@ exports[`VetCenterOutstation formatData outputs formatted data 1`] = `
       },
       "tag": "meta",
     },
+    {
+      "attributes": {
+        "content": "U.S. Department of Veterans Affairs",
+        "name": "twitter:image:alt",
+      },
+      "tag": "meta",
+    },
   ],
   "moderationState": "archived",
   "officeHours": [
     {
       "all_day": false,
-      "comment": "",
+      "comment": "Closed",
       "day": 1,
-      "endhours": 1630,
-      "starthours": 800,
+      "endhours": null,
+      "starthours": null,
     },
     {
       "all_day": false,
-      "comment": "",
+      "comment": "Closed",
       "day": 2,
-      "endhours": 1630,
-      "starthours": 800,
+      "endhours": null,
+      "starthours": null,
     },
     {
       "all_day": false,
-      "comment": "",
+      "comment": "Closed",
       "day": 3,
-      "endhours": 1800,
-      "starthours": 1000,
+      "endhours": null,
+      "starthours": null,
     },
     {
       "all_day": false,
-      "comment": "",
+      "comment": "Closed",
       "day": 4,
-      "endhours": 1630,
-      "starthours": 800,
+      "endhours": null,
+      "starthours": null,
     },
     {
       "all_day": false,
-      "comment": "",
+      "comment": "Closed",
       "day": 5,
-      "endhours": 1630,
-      "starthours": 800,
+      "endhours": null,
+      "starthours": null,
     },
     {
       "all_day": false,
@@ -342,16 +297,16 @@ exports[`VetCenterOutstation formatData outputs formatted data 1`] = `
       "starthours": null,
     },
   ],
-  "officialName": "Sepulveda Vet Center Outstation",
-  "operatingStatusFacility": "closed",
+  "officialName": "Logan Outstation",
+  "operatingStatusFacility": null,
   "operatingStatusMoreInfo": null,
   "otherHealthServices": [],
-  "path": "/chatsworth-vet-center/sepulveda-outstation",
-  "phoneNumber": "818-892-9227",
+  "path": "/charleston-wv-vet-center/logan-outstation",
+  "phoneNumber": "304-343-3825 x4260",
   "published": false,
   "referralHealthServices": [],
-  "timezone": null,
-  "title": "Sepulveda Vet Center Outstation",
+  "timezone": "America/New_York",
+  "title": "Logan Outstation",
   "type": "node--vet_center_outstation",
 }
 `;

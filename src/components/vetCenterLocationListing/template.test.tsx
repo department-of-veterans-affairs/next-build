@@ -16,9 +16,6 @@ const mockData = formatter({
   // for some of the IDs, but this is a known problem. See
   // https://github.com/chapter-three/next-drupal/issues/686#issuecomment-2083175598
   caps: [mockCap as NodeVetCenterCap],
-  // @ts-expect-error drupalMockData technically has numbers instead of strings
-  // for some of the IDs, but this is a known problem. See
-  // https://github.com/chapter-three/next-drupal/issues/686#issuecomment-2083175598
   outstations: [mockOutstation as NodeVetCenterOutstation],
   mobileVetCenters: [],
 })
@@ -161,12 +158,12 @@ describe('VetCenterLocationListing with valid data', () => {
 
       // Outstation title is rendered as a `<va-link>` web component (text is an attribute).
       const outstationLink = document.querySelector(
-        'va-link[text="Sepulveda Vet Center Outstation"]'
+        'va-link[text="Logan Outstation"]'
       )
       expect(outstationLink).toBeInTheDocument()
 
       // Check for outstation address
-      expect(screen.getByText(/9737 Haskell Ave/)).toBeInTheDocument()
+      expect(screen.getByText(/21 Veterans Avenue/)).toBeInTheDocument()
     })
 
     test('renders nearby mobile vet center', () => {
