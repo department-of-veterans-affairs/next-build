@@ -7,7 +7,7 @@ export const HeroBanner = ({ title, hero, cta }: CampaignLandingPageProps) => {
       <div className="vads-grid-container vads-u-padding-x--4 desktop-lg:vads-u-padding-x--0">
         <div className="vads-grid-col-12">
           <div className="vads-u-display--flex small-desktop-screen:vads-grid-row">
-            <div className="vads-grid-col-6 vads-u-padding-top--4 vads-u-padding-bottom--6 desktop:vads-u-padding-right--4">
+            <div className="vads-grid-col-12 small-screen:vads-grid-col-8 medium-screen:vads-grid-col-8 vads-u-padding-top--4 vads-u-padding-bottom--6 desktop:vads-u-padding-right--4">
               <h1 className="vads-u-color--white">{title}</h1>
               <hr className="va-c-blue-line--large vads-u-border-color--primary-alt vads-u-border--2px vads-u-margin-y--2" />
               <p className="va-introtext vads-u-color--white">{hero.blurb}</p>

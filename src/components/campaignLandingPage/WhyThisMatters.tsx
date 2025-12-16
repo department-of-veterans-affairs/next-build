@@ -29,7 +29,7 @@ export const WhyThisMatters = ({
               />
             )}
           </div>
-          <div className="vads-grid-col-3 medium-screen:vads-u-margin-left--6">
+          <div className="vads-grid-col-12 medium-screen:vads-grid-col-3 medium-screen:vads-u-margin-left--6">
             <div className=" vads-u-margin-top--3 medium-screen:vads-u-margin-top--0">
               {audience.length > 0 && (
                 <div className="vads-u-background-color--white vads-u-padding--2 vads-u-margin-bottom--3 medium-screen:vads-u-margin-bottom--2">
