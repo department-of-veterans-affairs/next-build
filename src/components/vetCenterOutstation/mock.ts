@@ -224,5 +224,5 @@ export const mockResponse = {
   operatingStatusFacility: '',
   operatingStatusMoreInfo: '',
   timezone: '',
-  administration: undefined,
+  administration: null,
 }

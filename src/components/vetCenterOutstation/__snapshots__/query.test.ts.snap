@@ -342,7 +342,6 @@ exports[`VetCenterOutstation formatData outputs formatted data 1`] = `
       "starthours": null,
     },
   ],
-  "officePath": "/chatsworth-vet-center",
   "officialName": "Sepulveda Vet Center Outstation",
   "operatingStatusFacility": "closed",
   "operatingStatusMoreInfo": null,

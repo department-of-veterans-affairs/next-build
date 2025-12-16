@@ -20,7 +20,6 @@ export function VetCenterOutstation({
   title,
   fieldFacilityLocatorApiId,
   path,
-  officePath,
 }: FormattedVetCenterOutstation) {
   const dayOfWeek = [
     'Sunday',
@@ -34,17 +33,14 @@ export function VetCenterOutstation({
 
   const normalizedOfficeHours = officeHours ?? []
   const outstationOrTitle = title || officialName || ''
-  const vetCenterLocationsPath = `${officePath || path}/locations`
 
-  // Fallback: if we couldn't derive `officePath`, try to infer it from the outstation path.
-  // This keeps us from having to fetch the parent Vet Center entity just for navigation.
   const inferredOfficePath = path.includes('/')
     ? `/${path.split('/').filter(Boolean).slice(0, -1).join('/')}`
     : null
   const locationsLink =
     inferredOfficePath && inferredOfficePath !== '/'
       ? `${inferredOfficePath}/locations`
-      : vetCenterLocationsPath
+      : `${path}/locations`
 
   const structuredSchemaData = {
     '@context': 'https://schema.org',

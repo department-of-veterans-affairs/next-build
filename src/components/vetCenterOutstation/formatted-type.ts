@@ -12,15 +12,15 @@ import { MediaImage as FormattedMediaImage } from '@/components/mediaDocument/fo
 export type VetCenterOutstation = PublishedEntity & {
   address: FieldAddress
   geolocation: FieldGeoLocation | null
-  introText?: string | null
+  introText: string | null
   lastSavedByAnEditor: string | null
   officeHours: FieldOfficeHours[] | null
-  officialName?: string | null
-  operatingStatusFacility?: FacilityOperatingStatusFlags | null
-  operatingStatusMoreInfo?: string | null
+  officialName: string | null
+  operatingStatusFacility: FacilityOperatingStatusFlags | null
+  operatingStatusMoreInfo: string | null
   phoneNumber: string
-  timezone?: string | null
-  administration?: FieldAdministration | null
+  timezone: string | null
+  administration: FieldAdministration | null
   healthServices: FormattedHealthServices
   counselingHealthServices: FormattedHealthServices
   referralHealthServices: FormattedHealthServices
@@ -28,9 +28,4 @@ export type VetCenterOutstation = PublishedEntity & {
   image: FormattedMediaImage | null
   fieldFacilityLocatorApiId: string
   path: string
-  /**
-   * Derived from `path` (no parent-entity fetch): `/<vet-center>/<outstation>` -> `/<vet-center>`.
-   * Used for linking to the Vet Center locations listing.
-   */
-  officePath?: string | null
 }

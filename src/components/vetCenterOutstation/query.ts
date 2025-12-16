@@ -63,9 +63,6 @@ export const formatter: QueryFormatter<
   )
 
   const outstationPath = entity.path?.alias ?? ''
-  const officePath = outstationPath.includes('/')
-    ? outstationPath.split('/').filter(Boolean).slice(0, -1).join('/')
-    : null
 
   return {
     ...entityBaseFields(entity),
@@ -94,6 +91,5 @@ export const formatter: QueryFormatter<
       : null,
     fieldFacilityLocatorApiId: entity.field_facility_locator_api_id ?? '',
     path: outstationPath,
-    officePath: officePath ? `/${officePath}` : null,
   }
 }
