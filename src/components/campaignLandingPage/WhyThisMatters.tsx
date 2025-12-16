@@ -13,7 +13,7 @@ export const WhyThisMatters = ({
     >
       <div className="vads-grid-container vads-u-padding-y--6 vads-u-padding-bottom--3 vads-u-padding-x--4 desktop-lg:vads-u-padding-x--0">
         <div className="vads-grid-row">
-          <div className="vads-grid-col-8">
+          <div className="vads-grid-col-12 medium-screen:vads-grid-col-8">
             <h2 className="vads-u-margin--0 vads-u-margin-bottom--2">
               Why this matters to you
             </h2>
