@@ -899,34 +899,34 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@datadog/browser-core@npm:6.19.0":
-  version: 6.19.0
-  resolution: "@datadog/browser-core@npm:6.19.0"
-  checksum: 2af731336adb62f25406733a2e88da10ac2b5238c33b52d13452cf9acdc55e44f336c115c2838035fef9edab23466ae62a9bf83757cbe2b78153e062dc9b9a7d
+"@datadog/browser-core@npm:6.25.0":
+  version: 6.25.0
+  resolution: "@datadog/browser-core@npm:6.25.0"
+  checksum: 8b4bc6d4d77d977196bf253b956ec4a32335345e56d98bf6b7794f888f99b23b32cb74ff724c7227b5ace3619ebc1a831c130d1324ceef070a940e9e221bba94
   languageName: node
   linkType: hard
 
-"@datadog/browser-rum-core@npm:6.19.0":
-  version: 6.19.0
-  resolution: "@datadog/browser-rum-core@npm:6.19.0"
+"@datadog/browser-rum-core@npm:6.25.0":
+  version: 6.25.0
+  resolution: "@datadog/browser-rum-core@npm:6.25.0"
   dependencies:
-    "@datadog/browser-core": 6.19.0
-  checksum: 69444f0fe96a3222de5508bdcf2c08488bf27dc7130204847a78e7d3ea9bf0b31cde21d2aaef7fc7e3b3e65296ae14726587f8d412c12e2029ab69e2af7cc684
+    "@datadog/browser-core": 6.25.0
+  checksum: 75fa1831e8b0ac05df345a6dd039f3689111c6301589d9f4ca809ca33f06df4f3188af964ecee2ae6d144adede5b0686e303d02012efb6b49846fed95ed5e9f5
   languageName: node
   linkType: hard
 
-"@datadog/browser-rum@npm:^6.19.0":
-  version: 6.19.0
-  resolution: "@datadog/browser-rum@npm:6.19.0"
+"@datadog/browser-rum@npm:^6.25.0":
+  version: 6.25.0
+  resolution: "@datadog/browser-rum@npm:6.25.0"
   dependencies:
-    "@datadog/browser-core": 6.19.0
-    "@datadog/browser-rum-core": 6.19.0
+    "@datadog/browser-core": 6.25.0
+    "@datadog/browser-rum-core": 6.25.0
   peerDependencies:
-    "@datadog/browser-logs": 6.19.0
+    "@datadog/browser-logs": 6.25.0
   peerDependenciesMeta:
     "@datadog/browser-logs":
       optional: true
-  checksum: f21ae043f81b57eae28de33e4e223e4f73e1fcb510617c8b0c46133d67d352f8841ebd480f37206557321157a0a5f47e201cd71e434c6b1d931c83dc1ecd19f5
+  checksum: 62e696b2a99a3448b9adf98e246edee55431f12d0ef2472e85152e30dcfacf4fd383eafeaa156522ef17c2e6ed7ea08d6394b58007ee09d5661a6034fc99cccd
   languageName: node
   linkType: hard
 
@@ -13033,7 +13033,7 @@ __metadata:
     "@actions/core": ^1.10.1
     "@actions/github": ^6.0.1
     "@axe-core/playwright": ^4.10.2
-    "@datadog/browser-rum": ^6.19.0
+    "@datadog/browser-rum": ^6.25.0
     "@date-fns/tz": ^1.4.1
     "@department-of-veterans-affairs/component-library": 50.2.1
     "@department-of-veterans-affairs/formation": ^12.0.0
