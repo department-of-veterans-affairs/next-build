@@ -333,6 +333,8 @@ export interface NodeCampaignLandingPage extends DrupalNode {
   // Connect with us
   field_connect_with_us: {
     field_external_link: FieldLink
+    field_email_updates_link: FieldLink
+    field_social_media_links: FieldSocialMediaLinks
   } | null
 
   // Related fields
@@ -760,7 +762,9 @@ export interface NodeVaForm extends DrupalNode {
   field_va_form_link_teasers?: ParagraphLinkTeaser[]
   field_va_form_related_forms?: NodeVaForm[]
   field_va_form_administration?: FieldAdministration
+  field_alert: BlockAlert | null
   field_administration?: FieldAdministration
   field_benefit_categories?: Array<{ field_home_page_hub_label: string }> // node--landing-page
+  field_va_form_upload?: boolean
   breadcrumbs: BreadcrumbItem[]
 }

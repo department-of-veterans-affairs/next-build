@@ -37,6 +37,9 @@ const log = slugLogger.extend('log')
 const warn = slugLogger.extend('warn')
 const error = slugLogger.extend('error')
 
+// Preview domain check - matches preview-*.cms.va.gov
+const previewDomainPattern = /^preview-[a-z-]+\.cms\.va\.gov$/
+
 // Config
 const isExport = process.env.BUILD_OPTION === 'static'
 
@@ -171,6 +174,10 @@ export default function ResourcePage({
     ]
   }
 
+  const isPreviewDomain =
+    typeof window !== 'undefined' &&
+    previewDomainPattern.test(window.location.hostname)
+
   return (
     <PageLayout
       bannerData={[...bannerData, ...contentBanner]}
@@ -182,7 +189,10 @@ export default function ResourcePage({
       <Meta resource={resource} />
       <HTMLComment position="head" content={comment} />
 
-      {preview && <PreviewCrumb entityId={resource.entityId} />}
+      {/* We want preview to always have the edit link if the domain is right. */}
+      {(preview || isPreviewDomain) && (
+        <PreviewCrumb entityId={resource.entityId} />
+      )}
 
       <DynamicBreadcrumbs breadcrumbs={resource.breadcrumbs} />
 
@@ -342,10 +352,6 @@ export async function getStaticPaths(
     }
   }
 
-  if (!RESOURCE_TYPES_TO_BUILD.length) {
-    error('No resource types returned')
-    process.exit(1)
-  }
   log(
     `\n\nBuilding ${RESOURCE_TYPES_TO_BUILD.length} resource types:`,
     RESOURCE_TYPES_TO_BUILD,
