@@ -71,7 +71,7 @@ export function BenefitsHub({
               />
               <div className="vads-u-padding--2">
                 <h2 className="vads-u-font-size--h4 vads-u-margin-top--0">
-                  <va-link {...promo.link} />
+                  <va-link href={promo.link.href} text={promo.link.text} />
                 </h2>
                 <p>{promo.description}</p>
               </div>
