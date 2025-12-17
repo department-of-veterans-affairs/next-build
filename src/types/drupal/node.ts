@@ -477,7 +477,9 @@ export interface NodeEventListing extends DrupalNode {
   field_description: string
   field_intro_text: string
   field_enforce_unique_combo: boolean
-  field_office: NodeOffice | NodeHealthCareRegionPage
+  field_office:
+    | Pick<NodeOffice, 'id' | 'title'>
+    | Pick<NodeHealthCareRegionPage, 'id' | 'title' | 'field_system_menu'>
 }
 
 export interface NodePressReleaseListing extends DrupalNode {
