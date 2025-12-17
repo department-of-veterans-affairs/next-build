@@ -33,7 +33,7 @@ const FamilyCaregiverDatadogRum = ({
         env: 'production',
         version: '1.0.0',
         silentMultipleInit: true, // silently ignore multiple inits
-        sessionSampleRate: 10,
+        sessionSampleRate: 100,
         sessionReplaySampleRate: 10,
         trackResources: true,
         trackLongTasks: true,
@@ -51,8 +51,7 @@ const FamilyCaregiverDatadogRum = ({
     const canInit =
       !isBot() &&
       typeof window !== 'undefined' &&
-      (window.location?.hostname === 'www.va.gov' ||
-        window.location?.hostname === 'localhost')
+      window.location?.hostname === 'www.va.gov'
 
     if (canInit) {
       initDDRum()
