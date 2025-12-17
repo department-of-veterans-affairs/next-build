@@ -1,0 +1,63 @@
+{
+  "type": "node--office",
+  "id": "c715d441-b6cb-4067-92eb-0650e97b7d62",
+  "drupal_internal__nid": 126,
+  "drupal_internal__vid": 10606,
+  "langcode": "en",
+  "revision_timestamp": "2019-09-04T19:14:37+00:00",
+  "revision_log": null,
+  "status": true,
+  "title": "VA Central Office",
+  "created": "2019-03-04T14:12:28+00:00",
+  "changed": "2019-09-04T19:14:37+00:00",
+  "promote": false,
+  "sticky": false,
+  "default_langcode": true,
+  "revision_translation_affected": true,
+  "breadcrumbs": [
+    {
+      "uri": "http://va-gov-cms.ddev.site/",
+      "title": "Home",
+      "options": []
+    },
+    {
+      "uri": "http://va-gov-cms.ddev.site/va-central-office",
+      "title": "VA Central Office",
+      "options": []
+    }
+  ],
+  "moderation_state": "published",
+  "expiration_date": null,
+  "warning_date": null,
+  "metatag": [
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "title",
+        "content": "VA Central Office | Veterans Affairs"
+      }
+    }
+  ],
+  "path": {
+    "alias": "/va-central-office",
+    "pid": 192,
+    "langcode": "en"
+  },
+  "content_translation_source": "und",
+  "content_translation_outdated": false,
+  "field_description": "The VA Central Office provides leadership and oversight for Veterans Affairs programs and services.",
+  "field_body": {
+    "value": "<p>The VA Central Office is responsible for coordinating and managing VA programs nationwide.</p><p>We work to ensure that Veterans receive the best possible care and services.</p>",
+    "format": "rich_text",
+    "processed": "<p>The VA Central Office is responsible for coordinating and managing VA programs nationwide.</p><p>We work to ensure that Veterans receive the best possible care and services.</p>"
+  },
+  "field_email_updates_link": {
+    "uri": "entity:node/123",
+    "title": "Sign up for email updates",
+    "options": []
+  },
+  "field_external_link": null,
+  "field_office_id": "12345",
+  "field_parent_office": null,
+  "field_social_media_links": null
+}
