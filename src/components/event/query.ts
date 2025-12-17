@@ -9,13 +9,12 @@ import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodeEvent } from '@/types/drupal/node'
 import { Event } from './formatted-type'
 import { GetServerSidePropsContext } from 'next'
-import {
-  entityBaseFields,
-  fetchSingleEntityOrPreview,
-} from '@/lib/drupal/query'
+import { fetchSingleEntityOrPreview } from '@/lib/drupal/query'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { getNestedIncludes } from '@/lib/utils/queries'
 import { formatter as formatAdministration } from '@/components/administration/query'
+import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
+import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude([
@@ -57,7 +56,7 @@ export const formatter: QueryFormatter<NodeEvent, Event> = (
     },
     listing: entity.field_listing.path.alias,
     listingOffice: entity.field_listing.field_office.title,
-    additionalInfo: entity.field_additional_information_abo,
+    additionalInfo: getHtmlFromField(entity.field_additional_information_abo),
     address: entity.field_address,
     locationHumanReadable: entity.field_location_humanreadable,
     eventCTA: entity.field_event_cta,
@@ -67,7 +66,7 @@ export const formatter: QueryFormatter<NodeEvent, Event> = (
     registrationRequired: entity.field_event_registrationrequired,
     datetimeRange: entity.field_datetime_range_timezone,
     facilityLocation: entity.field_facility_location,
-    body: entity.field_body,
+    body: getHtmlFromField(entity.field_body),
     locationType: entity.field_location_type,
     description: entity.field_description,
     link: entity.field_link,

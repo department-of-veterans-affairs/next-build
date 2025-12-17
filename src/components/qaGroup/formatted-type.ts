@@ -15,4 +15,5 @@ export type QaGroup = PublishedParagraph & {
   header: string
   displayAccordion: boolean
   intro: string
+  html: string
 }

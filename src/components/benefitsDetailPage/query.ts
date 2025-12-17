@@ -8,19 +8,17 @@ import {
   // PARAGRAPH_RESOURCE_TYPES,
 } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
-import {
-  entityBaseFields,
-  fetchSingleEntityOrPreview,
-} from '@/lib/drupal/query'
+import { fetchSingleEntityOrPreview } from '@/lib/drupal/query'
 import { Menu } from '@/types/drupal/menu'
 import { formatter as formatListOfLinkTeasers } from '@/components/listOfLinkTeasers/query'
 import { formatter as formatAdministration } from '@/components/administration/query'
 import { formatter as formatAlertBlock } from '@/components/alertBlock/query'
-import { formatParagraph } from '@/lib/drupal/paragraphs'
 import { getNestedIncludes } from '@/lib/utils/queries'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import { getBenefitsHubMenu } from './getBenefitsHubMenu'
+import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
+import { formatParagraph } from '@/lib/drupal/paragraphs'
 
 // Define the query params for fetching node--page (benefits detail page).
 export const params: QueryParams<null> = () => {
@@ -32,8 +30,15 @@ export const params: QueryParams<null> = () => {
       PARAGRAPH_RESOURCE_TYPES.LIST_OF_LINK_TEASERS
     ),
     ...getNestedIncludes('field_alert', 'block--alert'),
-    // ...getNestedIncludes('field_content_block', PARAGRAPH_RESOURCE_TYPES.QA),
-    // ...getNestedIncludes('field_featured_content', PARAGRAPH_RESOURCE_TYPES.QA),
+    ...getNestedIncludes('field_featured_content', PARAGRAPH_RESOURCE_TYPES.QA),
+    ...getNestedIncludes('field_content_block', [
+      PARAGRAPH_RESOURCE_TYPES.QA_SECTION,
+      PARAGRAPH_RESOURCE_TYPES.LIST_OF_LINK_TEASERS,
+      PARAGRAPH_RESOURCE_TYPES.COLLAPSIBLE_PANEL,
+      PARAGRAPH_RESOURCE_TYPES.DOWNLOADABLE_FILE,
+      PARAGRAPH_RESOURCE_TYPES.ALERT,
+      PARAGRAPH_RESOURCE_TYPES.MEDIA,
+    ]),
   ])
 }
 
@@ -93,14 +98,11 @@ export const formatter: QueryFormatter<
     introText: getHtmlFromField(entity.field_intro_text_limited_html) || null,
     showTableOfContents: entity.field_table_of_contents_boolean ?? false,
     alert: entity.field_alert ? formatAlertBlock(entity.field_alert) : null,
-    // featuredContent:
-    //   entity.field_featured_content?.map((paragraph) =>
-    //     formatParagraph(paragraph)
-    //   ) || null,
-    // contentBlock:
-    //   entity.field_content_block?.map((paragraph) =>
-    //     formatParagraph(paragraph)
-    //   ) || null,
+    featuredContent:
+      entity.field_featured_content?.map((paragraph) =>
+        formatParagraph(paragraph)
+      ) || null,
+    mainContent: entity.field_content_block.map((p) => formatParagraph(p)),
     relatedLinks,
     administration: entity.field_administration
       ? formatAdministration(entity.field_administration)

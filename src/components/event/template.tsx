@@ -237,7 +237,7 @@ export const Event = ({
         {/* CTA */}
         {(link || additionalInfo || eventCTA) && (
           <div className="registration vads-u-margin-top--4 vads-u-margin-bottom--1">
-            {isEventInPast(mostRecentDate?.value) ? (
+            {isEventInPast(mostRecentDate?.endValue) ? (
               <p className="vads-u-margin--0 vads-u-color--secondary vads-u-font-weight--bold">
                 This event already happened.
               </p>
@@ -270,7 +270,7 @@ export const Event = ({
                   <div
                     className="vads-u-margin--0"
                     dangerouslySetInnerHTML={{
-                      __html: additionalInfo?.processed,
+                      __html: additionalInfo,
                     }}
                   />
                 )}
@@ -280,7 +280,7 @@ export const Event = ({
         )}
 
         {/* Body */}
-        {body && <div dangerouslySetInnerHTML={{ __html: body?.processed }} />}
+        {body && <div dangerouslySetInnerHTML={{ __html: body }} />}
 
         {/* Recurring Events */}
         {currentFormattedDates.length > 1 && (

@@ -3,10 +3,8 @@ import { JsonApiResponse } from 'next-drupal'
 import { QueryParams } from 'next-drupal-query'
 import { ResourceType } from '@/lib/constants/resourceTypes'
 import { drupalClient } from '@/lib/drupal/drupalClient'
-import { NodeTypes } from '@/types/drupal/node'
-import { PublishedEntity } from '@/types/formatted/publishedEntity'
 
-type ResourceCollection<T> = {
+export type ResourceCollection<T> = {
   data: T[]
   totalItems: number
   totalPages: number
@@ -121,26 +119,6 @@ export async function fetchSingleEntityOrPreview(opts, type, params) {
       })
 
   return entity
-}
-
-// Helper function to return a consistent set of base fields for resources.
-export const entityBaseFields = (entity: NodeTypes): PublishedEntity | null => {
-  if (!entity) {
-    return null
-  }
-  return {
-    id: entity.id,
-    entityId: entity.drupal_internal__nid,
-    entityPath: entity.path.alias,
-    type: entity.type,
-    published: entity.status,
-    moderationState: entity.moderation_state,
-    title: entity.title,
-    metatags: entity.metatag,
-    breadcrumbs: entity.breadcrumbs,
-    lastUpdated:
-      entity.field_last_saved_by_an_editor || entity.changed || entity.created,
-  }
 }
 
 /**

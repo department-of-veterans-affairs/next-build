@@ -65,14 +65,21 @@ const mockServicesQuery = jest.fn(
   () => createMockServicesForGrouping() as NodeRegionalHealthCareServiceDes[]
 )
 
-jest.mock('@/lib/drupal/query', () => ({
-  ...jest.requireActual('@/lib/drupal/query'),
-  fetchSingleEntityOrPreview: () => mockPageQuery(),
-  fetchAndConcatAllResourceCollectionPages: () => ({
+jest.mock('@/lib/drupal/query')
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const mockDrupalQuery = require('@/lib/drupal/query')
+
+mockDrupalQuery.setSingleEntityMock(
+  RESOURCE_TYPES.VAMC_HEALTH_SERVICES_LISTING,
+  mockPageQuery
+)
+mockDrupalQuery.setResourceCollectionMock(
+  RESOURCE_TYPES.VAMC_SYSTEM_SERVICE_DES,
+  () => ({
     data: mockServicesQuery(),
-  }),
-  getMenu: () => mockMenu,
-}))
+  })
+)
+mockDrupalQuery.getMenu.mockReturnValue(mockMenu)
 
 jest.mock('@/lib/drupal/drupalClient', () => ({
   drupalClient: {
@@ -233,7 +240,23 @@ describe('VamcHealthServicesListing formatter', () => {
 
       expect(result.lovellVariant).toBeNull()
       expect(result.lovellSwitchPath).toBeNull()
-      expect(result.breadcrumbs).toEqual(lovellBreadcrumbs)
+      expect(result.breadcrumbs).toEqual([
+        {
+          href: '/',
+          label: 'Home',
+          options: [],
+        },
+        {
+          href: '/lovell-federal-health-care',
+          label: 'Lovell Federal health care',
+          options: [],
+        },
+        {
+          href: '',
+          label: 'Health services',
+          options: [],
+        },
+      ])
     })
   })
 

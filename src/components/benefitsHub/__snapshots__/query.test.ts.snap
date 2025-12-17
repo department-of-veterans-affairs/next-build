@@ -4,9 +4,14 @@ exports[`BenefitHubLanding formatData outputs formatted data 1`] = `
 {
   "breadcrumbs": [
     {
+      "href": "/",
+      "label": "Home",
       "options": [],
-      "title": "Home",
-      "uri": "https://www.va.gov/",
+    },
+    {
+      "href": "",
+      "label": "VA health care",
+      "options": [],
     },
   ],
   "connectWithUs": {
@@ -50,7 +55,9 @@ exports[`BenefitHubLanding formatData outputs formatted data 1`] = `
   "metatags": [],
   "moderationState": "published",
   "published": true,
+  "relatedLinks": null,
   "spokes": [],
+  "supportServices": [],
   "teaserText": "Apply for and manage VA health care benefits",
   "title": "VA health care",
   "titleIcon": "",

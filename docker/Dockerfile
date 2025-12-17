@@ -11,7 +11,7 @@ COPY ./next-build /app/next-build
 COPY ./vets-website /app/vets-website
 
 WORKDIR /app/next-build
-RUN yarn install --frozen-lockfile
+RUN yarn install --immutable
 RUN BUILD_TYPE=vagovprod node ./scripts/yarn/vets-website-assets.js
 
 

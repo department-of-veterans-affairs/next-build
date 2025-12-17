@@ -6,10 +6,7 @@ import { formatter, data, RawFooterData } from './query'
 import { Menu } from '@/types/drupal/menu'
 import { getMenu } from '@/lib/drupal/query'
 
-// Mock the getMenu function
-jest.mock('@/lib/drupal/query', () => ({
-  getMenu: jest.fn(),
-}))
+jest.mock('@/lib/drupal/query')
 
 const mockGetMenu = getMenu as jest.MockedFunction<typeof getMenu>
 
