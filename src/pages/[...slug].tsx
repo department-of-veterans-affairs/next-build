@@ -37,8 +37,8 @@ const log = slugLogger.extend('log')
 const warn = slugLogger.extend('warn')
 const error = slugLogger.extend('error')
 
-// Preview domain check
-const previewDomain = 'preview.cms.va.gov'
+// Preview domain check - matches preview-*.cms.va.gov
+const previewDomainPattern = /^preview-[a-z-]+\.cms\.va\.gov$/
 
 // Config
 const isExport = process.env.BUILD_OPTION === 'static'
@@ -176,7 +176,7 @@ export default function ResourcePage({
 
   const isPreviewDomain =
     typeof window !== 'undefined' &&
-    window.location.hostname.includes(previewDomain)
+    previewDomainPattern.test(window.location.hostname)
 
   return (
     <PageLayout

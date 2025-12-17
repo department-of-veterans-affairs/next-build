@@ -158,7 +158,7 @@ export const QUERIES_MAP = {
   [PARAGRAPH_RESOURCE_TYPES.WYSIWYG]: Wysiwyg,
 
   // Blocks
-  'block--alert': AlertBlock,
+  'block_content--alert': AlertBlock,
   'block_content--promo': PromoBlock,
 
   // Media

@@ -27,7 +27,7 @@ export const params: QueryParams<null> = () => {
     'field_connect_with_us',
     'field_related_links',
     'field_related_links.field_va_paragraphs',
-    ...getNestedIncludes('field_alert', 'block--alert'),
+    ...getNestedIncludes('field_alert', 'block_content--alert'),
   ])
 }
 
