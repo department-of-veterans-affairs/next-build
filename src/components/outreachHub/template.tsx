@@ -18,12 +18,12 @@ export function OutreachHub({
     >
       <article
         aria-labelledby="article-heading"
-        className="vads-l-grid-container--full"
+        className="vads-grid-container--full"
         role="region"
       >
-        <div className="vads-l-grid-container--full">
+        <div className="vads-grid-container--full">
           <h1 id="article-heading">{title}</h1>
-          <div className="vads-l-grid-container--full">
+          <div className="vads-grid-container--full">
             {description && (
               <div className="va-introtext">
                 <p id="office-main-description">{description}</p>
