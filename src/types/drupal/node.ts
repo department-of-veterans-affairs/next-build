@@ -376,7 +376,7 @@ export interface NodeNewsStory extends DrupalNode {
 }
 
 export interface NodeOffice extends DrupalNode {
-  field_body: string
+  field_body: FieldFormattedText
   field_email_updates_link: FieldLink
   field_external_link: FieldLink
   field_description: string
@@ -477,7 +477,7 @@ export interface NodeEventListing extends DrupalNode {
   field_description: string
   field_intro_text: string
   field_enforce_unique_combo: boolean
-  field_office: NodeOffice
+  field_office: NodeOffice | NodeHealthCareRegionPage
 }
 
 export interface NodePressReleaseListing extends DrupalNode {
