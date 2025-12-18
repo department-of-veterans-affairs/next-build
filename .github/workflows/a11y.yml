@@ -68,7 +68,7 @@ jobs:
           SEGMENT_INDEX=${{ matrix.shardIndex }} yarn playwright test --project=a11y
 
       - name: Upload scan report to GitHub Actions Artifacts
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: segment-${{ matrix.shardIndex }}.json
           path: segment-${{ matrix.shardIndex }}.json
@@ -76,7 +76,7 @@ jobs:
           if-no-files-found: ignore
 
       - name: Upload failed pages report to GitHub Actions Artifacts
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: failed-pages-segment-${{ matrix.shardIndex }}.json
           path: failed-pages-segment-${{ matrix.shardIndex }}.json
@@ -111,7 +111,7 @@ jobs:
           jq -s '.' segment-*.json | jq 'flatten' > all-segments.json
 
       - name: Upload report
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: a11y-scan-${{ github.run_attempt }}
           path: all-segments.json
@@ -169,7 +169,7 @@ jobs:
           jq '.series[0].points[0] = [${{env.NOW}}, 0]' > metrics.json
 
       - name: Upload report
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: a11y-scan-failed-pages-${{ github.run_attempt }}
           path: all-failed-pages.json
