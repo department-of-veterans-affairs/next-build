@@ -412,6 +412,12 @@ export default function QAReviewPage() {
   const starredPaths = cache?.paths.filter((p) => p.starred === true) || []
   const unstarredPaths = cache?.paths.filter((p) => p.starred !== true) || []
 
+  const hasAnyChecklistItems = Object.values(checklistStatus).some(
+    (pathChecklist) => Object.values(pathChecklist).some((checked) => checked)
+  )
+  const hasAnyData =
+    Object.keys(reviewStatus).length > 0 || hasAnyChecklistItems
+
   return (
     <div className="vads-u-padding--3">
       <div
@@ -428,7 +434,7 @@ export default function QAReviewPage() {
         <button
           className="usa-button usa-button-secondary"
           onClick={handleClearReview}
-          disabled={Object.keys(reviewStatus).length === 0}
+          disabled={!hasAnyData}
         >
           Clear Review
         </button>
