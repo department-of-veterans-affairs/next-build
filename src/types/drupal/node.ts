@@ -110,6 +110,8 @@ export type NodeTypes =
   | NodeVamcOperatingStatusAndAlerts
   | NodeVaForm
   | NodeCampaignLandingPage
+  | NodePublicationListing
+  | NodeOutreachAsset
 
 /** Shared type structure for resource nodes. */
 export interface NodeAbstractResource extends DrupalNode {
@@ -515,6 +517,24 @@ export interface NodeStoryListing extends DrupalNode {
   field_description: string
   field_office: NodeOffice | NodeHealthCareRegionPage
   field_intro_text: string
+}
+
+export interface NodePublicationListing extends DrupalNode {
+  field_description: string
+  field_office: NodeOffice | NodeHealthCareRegionPage
+  field_intro_text: string
+}
+
+export interface NodeOutreachAsset extends DrupalNode {
+  field_description: string
+  field_format: TaxonomyTermLcCategories | null
+  field_listing: NodePublicationListing
+  field_lc_categories: Array<
+    TaxonomyTermLcCategories & {
+      field_topic_id?: string
+    }
+  >
+  field_media: DrupalMediaDocument | DrupalMediaImage | DrupalMediaVideo | null
 }
 
 export interface NodeSupportResourcesDetailPage extends NodeAbstractResource {
