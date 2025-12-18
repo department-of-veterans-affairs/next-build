@@ -14518,6 +14518,7 @@ __metadata:
     react-gtm-module: ^2.0.11
     react-json-view: ^1.21.3
     redis: ^5.8.2
+    s3-cache-handler: 0.1.0
     safe-json-stringify: ^1.2.0
     superjson: ^2.2.6
     swr: ^2.3.3
@@ -17123,7 +17124,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"s3-cache-handler@workspace:packages/s3-cache-handler":
+"s3-cache-handler@0.1.0, s3-cache-handler@workspace:packages/s3-cache-handler":
   version: 0.0.0-use.local
   resolution: "s3-cache-handler@workspace:packages/s3-cache-handler"
   dependencies:
