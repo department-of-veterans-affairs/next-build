@@ -24,8 +24,57 @@ interface ReviewRowProps {
   onReviewToggle: (path: string, reviewed: boolean) => void
 }
 
+const QA_CHECKLIST = {
+  'Visual/UI': [
+    'Visual changes match design/requirements',
+    'No unintended visual regressions on other parts of the page',
+    'Responsive design works across breakpoints',
+  ],
+  Functionality: [
+    'Feature/PR requirement is fully functional',
+    'All interactive elements work as expected',
+    'Error states handle gracefully',
+  ],
+  Accessibility: [
+    'Keyboard navigation works correctly',
+    'Screen reader announcements are appropriate',
+    'Color contrast meets WCAG standards',
+    'Focus indicators are visible',
+  ],
+  Content: [
+    'All text content renders correctly',
+    'Links are valid and functional',
+    'Images have appropriate alt text',
+  ],
+  Performance: [
+    'Page loads without console errors',
+    'No performance regressions',
+    'Build completes successfully',
+  ],
+  'Cross-browser': [
+    'Tested in Chrome/Safari/Firefox',
+    'Mobile browser testing completed',
+  ],
+  'Data/Integration': [
+    'CMS data renders correctly',
+    'API calls succeed',
+    'Edge cases handled (missing data, long content, etc.)',
+  ],
+}
+
 const ReviewRow = React.memo<ReviewRowProps>(
   ({ qaPath, reviewed, onReviewToggle }) => {
+    const [checklistState, setChecklistState] = useState<
+      Record<string, boolean>
+    >({})
+
+    const handleChecklistToggle = (item: string) => {
+      setChecklistState((prev) => ({
+        ...prev,
+        [item]: !prev[item],
+      }))
+    }
+
     return (
       <div
         style={{
@@ -111,6 +160,65 @@ const ReviewRow = React.memo<ReviewRowProps>(
               </p>
             </div>
           )}
+          <details style={{ marginTop: '12px' }}>
+            <summary
+              style={{
+                cursor: 'pointer',
+                fontWeight: 'bold',
+                color: '#005ea2',
+              }}
+            >
+              QA Checklist
+            </summary>
+            <div style={{ marginTop: '12px', marginLeft: '8px' }}>
+              {Object.entries(QA_CHECKLIST).map(([section, items]) => (
+                <div key={section} style={{ marginBottom: '16px' }}>
+                  <h4
+                    style={{
+                      fontSize: '14px',
+                      fontWeight: 'bold',
+                      marginBottom: '8px',
+                      marginTop: 0,
+                    }}
+                  >
+                    {section}
+                  </h4>
+                  {items.map((item) => {
+                    const itemId = `${qaPath.path}-${section}-${item}`
+                    return (
+                      <div
+                        key={item}
+                        style={{
+                          display: 'flex',
+                          alignItems: 'flex-start',
+                          gap: '8px',
+                          marginBottom: '6px',
+                          marginLeft: '1rem',
+                        }}
+                      >
+                        <input
+                          type="checkbox"
+                          checked={checklistState[itemId] || false}
+                          onChange={() => handleChecklistToggle(itemId)}
+                          id={itemId}
+                        />
+                        <label
+                          htmlFor={itemId}
+                          style={{
+                            cursor: 'pointer',
+                            fontSize: '13px',
+                            margin: 0,
+                          }}
+                        >
+                          {item}
+                        </label>
+                      </div>
+                    )
+                  })}
+                </div>
+              ))}
+            </div>
+          </details>
         </div>
       </div>
     )
