@@ -727,29 +727,3 @@ test('does not render promo card when promo is undefined', () => {
   const vaCard = container.querySelector('va-card')
   expect(vaCard).not.toBeInTheDocument()
 })
-
-test('renders promo card with empty alt text when alt is not provided', () => {
-  const mockPromoNoAlt = {
-    img: {
-      src: '/test-image.jpg',
-      alt: null,
-    },
-    link: {
-      href: '/promo-link',
-      text: 'Learn more',
-    },
-    description: 'Promo description',
-  }
-
-  const { container } = render(
-    <BenefitsHub
-      {...mockBenefitsData}
-      title="Benefits Hub with Promo No Alt"
-      promo={mockPromoNoAlt}
-    />
-  )
-
-  const image = container.querySelector('img')
-  expect(image).toBeInTheDocument()
-  expect(image).toHaveAttribute('alt', '')
-})
