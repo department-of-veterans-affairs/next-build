@@ -471,7 +471,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
           footerData,
           megaMenuData,
         },
-        revalidate: isExport ? false : 300, // revalidation, false for static export or 20 seconds for runtime
+        revalidate: isExport ? false : 20, // revalidation, false for static export or 20 seconds for runtime
       }
     } catch (error) {
       if (error instanceof DoNotPublishError) {

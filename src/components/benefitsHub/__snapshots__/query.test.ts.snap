@@ -66,10 +66,40 @@ exports[`BenefitHubLanding formatData outputs formatted data 1`] = `
   "lastUpdated": "2023-12-01T12:00:00+00:00",
   "metatags": [],
   "moderationState": "published",
+  "promo": {
+    "description": "Find out how to get the support you need to care for a Veteran.",
+    "id": 25,
+    "img": {
+      "alt": "Family",
+      "src": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2019-09/family-caregiver.png",
+    },
+    "link": {
+      "href": "https://www.caregiver.va.gov/",
+      "text": "VA Caregiver Support Program",
+    },
+  },
   "published": true,
   "relatedLinks": null,
   "spokes": [],
-  "supportServices": [],
+  "supportServices": [
+    {
+      "id": "8b8a00fd-cd76-40ce-97ed-521cb3df5519",
+      "link": {
+        "options": {
+          "data-entity-substitution": "",
+          "data-entity-type": "",
+          "data-entity-uuid": "",
+          "href": "tel:1-855-260-3274",
+        },
+        "title": "",
+        "uri": "tel:1-855-260-3274",
+        "url": "tel:1-855-260-3274",
+      },
+      "number": "855-260-3274",
+      "title": "Caregiver support line:",
+      "type": "node--support_service",
+    },
+  ],
   "teaserText": "Apply for and manage VA health care benefits",
   "title": "VA health care",
   "titleIcon": "",

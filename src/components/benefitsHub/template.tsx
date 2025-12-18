@@ -5,6 +5,7 @@ import { ListOfLinkTeasers } from '@/components/listOfLinkTeasers/template'
 import { ContentFooter } from '@/components/contentFooter/template'
 import { ConnectWithUsPanel } from './ConnectWithUsPanel'
 import { AlertBlock } from '@/components/alertBlock/template'
+import Image from 'next/image'
 
 export function BenefitsHub({
   title,
@@ -17,6 +18,7 @@ export function BenefitsHub({
   connectWithUs,
   relatedLinks,
   alert,
+  promo,
 }: FormattedBenefitsHub) {
   const iconConfig = getHubIcon(titleIcon)
 
@@ -58,6 +60,25 @@ export function BenefitsHub({
           ))}
         </article>
         <div className="vads-grid-col-12 tablet:vads-grid-col-4" id="hub-rail">
+          {promo && (
+            <div className="vads-u-margin-bottom--3">
+              <va-card className="vads-u-padding--0" background>
+                <Image
+                  src={promo.img.src}
+                  alt={''}
+                  style={{ objectFit: 'cover' }}
+                  width={480}
+                  height={320}
+                />
+                <div className="vads-u-padding--2">
+                  <h2 className="vads-u-font-size--h4 vads-u-margin-top--0">
+                    <va-link href={promo.link.href} text={promo.link.text} />
+                  </h2>
+                  <p>{promo.description}</p>
+                </div>
+              </va-card>
+            </div>
+          )}
           <va-accordion bordered uswds>
             <va-accordion-item
               className="va-accordion-item"
