@@ -18,10 +18,16 @@ interface ReviewStatus {
   [path: string]: boolean
 }
 
+interface ChecklistStatus {
+  [path: string]: Record<string, boolean>
+}
+
 interface ReviewRowProps {
   qaPath: QAPath
   reviewed: boolean
   onReviewToggle: (path: string, reviewed: boolean) => void
+  checklistState: Record<string, boolean>
+  onChecklistToggle: (path: string, itemId: string) => void
 }
 
 const QA_CHECKLIST = {
@@ -63,18 +69,7 @@ const QA_CHECKLIST = {
 }
 
 const ReviewRow = React.memo<ReviewRowProps>(
-  ({ qaPath, reviewed, onReviewToggle }) => {
-    const [checklistState, setChecklistState] = useState<
-      Record<string, boolean>
-    >({})
-
-    const handleChecklistToggle = (item: string) => {
-      setChecklistState((prev) => ({
-        ...prev,
-        [item]: !prev[item],
-      }))
-    }
-
+  ({ qaPath, reviewed, onReviewToggle, checklistState, onChecklistToggle }) => {
     return (
       <div
         style={{
@@ -199,7 +194,9 @@ const ReviewRow = React.memo<ReviewRowProps>(
                         <input
                           type="checkbox"
                           checked={checklistState[itemId] || false}
-                          onChange={() => handleChecklistToggle(itemId)}
+                          onChange={() =>
+                            onChecklistToggle(qaPath.path, itemId)
+                          }
                           id={itemId}
                         />
                         <label
@@ -231,6 +228,10 @@ const getReviewStatusKey = (contentType: string): string => {
   return `qa-review-${contentType}`
 }
 
+const getChecklistStatusKey = (contentType: string): string => {
+  return `qa-checklist-${contentType}`
+}
+
 const loadReviewStatus = (contentType: string): ReviewStatus => {
   if (typeof window === 'undefined') return {}
   try {
@@ -253,6 +254,31 @@ const saveReviewStatus = (contentType: string, status: ReviewStatus): void => {
   }
 }
 
+const loadChecklistStatus = (contentType: string): ChecklistStatus => {
+  if (typeof window === 'undefined') return {}
+  try {
+    const stored = localStorage.getItem(getChecklistStatusKey(contentType))
+    return stored ? JSON.parse(stored) : {}
+  } catch {
+    return {}
+  }
+}
+
+const saveChecklistStatus = (
+  contentType: string,
+  status: ChecklistStatus
+): void => {
+  if (typeof window === 'undefined') return
+  try {
+    localStorage.setItem(
+      getChecklistStatusKey(contentType),
+      JSON.stringify(status)
+    )
+  } catch (error) {
+    console.error('Error saving checklist status:', error)
+  }
+}
+
 export default function QAReviewPage() {
   const router = useRouter()
   const { 'content-type': contentType } = router.query
@@ -261,12 +287,14 @@ export default function QAReviewPage() {
   const [loading, setLoading] = useState<boolean>(false)
   const [error, setError] = useState<string | null>(null)
   const [reviewStatus, setReviewStatus] = useState<ReviewStatus>({})
+  const [checklistStatus, setChecklistStatus] = useState<ChecklistStatus>({})
   const [unstarredExpanded, setUnstarredExpanded] = useState<boolean>(false)
   const [exportedMarkdown, setExportedMarkdown] = useState<string | null>(null)
 
   useEffect(() => {
     if (typeof contentType === 'string') {
       setReviewStatus(loadReviewStatus(contentType))
+      setChecklistStatus(loadChecklistStatus(contentType))
     }
   }, [contentType])
 
@@ -316,13 +344,35 @@ export default function QAReviewPage() {
     [contentType]
   )
 
+  const handleChecklistToggle = React.useCallback(
+    (path: string, itemId: string) => {
+      if (typeof contentType !== 'string') return
+
+      setChecklistStatus((prev) => {
+        const pathChecklist = prev[path] || {}
+        const newStatus = {
+          ...prev,
+          [path]: {
+            ...pathChecklist,
+            [itemId]: !pathChecklist[itemId],
+          },
+        }
+        saveChecklistStatus(contentType, newStatus)
+        return newStatus
+      })
+    },
+    [contentType]
+  )
+
   const handleClearReview = () => {
     if (typeof contentType !== 'string') return
 
     if (typeof window !== 'undefined') {
       try {
         localStorage.removeItem(getReviewStatusKey(contentType))
+        localStorage.removeItem(getChecklistStatusKey(contentType))
         setReviewStatus({})
+        setChecklistStatus({})
       } catch (error) {
         console.error('Error clearing review status:', error)
       }
@@ -452,6 +502,8 @@ export default function QAReviewPage() {
                       qaPath={qaPath}
                       reviewed={reviewStatus[qaPath.path] || false}
                       onReviewToggle={handleReviewToggle}
+                      checklistState={checklistStatus[qaPath.path] || {}}
+                      onChecklistToggle={handleChecklistToggle}
                     />
                   ))}
                 </div>
