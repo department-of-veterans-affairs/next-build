@@ -526,7 +526,6 @@ export interface NodeSupportResourcesDetailPage extends NodeAbstractResource {
 export interface NodeSupportService extends DrupalNode {
   field_link: FieldLink
   field_phone_number: string
-  field_office: NodeOffice
 }
 
 export interface NodeVamcSystemVaPolice extends DrupalNode {
