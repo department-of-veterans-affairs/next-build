@@ -5,7 +5,6 @@ import {
   DeleteObjectCommand,
   HeadObjectCommand,
 } from '@aws-sdk/client-s3'
-import { Upload } from '@aws-sdk/lib-storage'
 import { Readable } from 'stream'
 
 export interface S3CacheHandlerOptions {
@@ -224,7 +223,11 @@ export default class S3CacheHandler {
       this.log('Returning cache value with keys:', Object.keys(value))
       return result
     } catch (error: any) {
-      console.error('[S3CacheHandler] Error getting cache:', error)
+      console.error(
+        '[S3CacheHandler] Error getting cache for key:',
+        s3Key,
+        error
+      )
       return null
     }
   }
