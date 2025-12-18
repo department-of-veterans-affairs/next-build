@@ -3,7 +3,6 @@ import { ListOfLinkTeasers } from '@/components/listOfLinkTeasers/formatted-type
 import { SupportService } from '@/components/supportServices/formatted-type'
 import { NodeOffice } from '@/types/drupal/node'
 import { AlertBlock } from '@/components/alert/formatted-type'
-import { BlockPromo } from '@/types/drupal/block'
 import { MegaMenuPromoColumn } from '@/components/header/formatted-type'
 
 export interface BenefitsHub extends PublishedEntity {
@@ -24,5 +23,5 @@ export interface BenefitsHub extends PublishedEntity {
   > | null
   relatedLinks: ListOfLinkTeasers | null
   alert: AlertBlock | null
-  promo: BlockPromo | MegaMenuPromoColumn | null
+  promo: MegaMenuPromoColumn | null
 }
