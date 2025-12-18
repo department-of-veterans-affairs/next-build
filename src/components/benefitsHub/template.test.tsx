@@ -27,6 +27,7 @@ const mockBenefitsData: FormattedBenefitsHub = {
   connectWithUs: null,
   relatedLinks: null,
   alert: null,
+  promo: null,
 }
 
 describe('BenefitsHub with valid data', () => {
@@ -55,9 +56,6 @@ describe('BenefitsHub with valid data', () => {
       <BenefitsHub
         {...mockBenefitsData}
         intro={'This is a test intro for the Benefits Hub component.'}
-        fieldLinks={null}
-        supportServices={undefined}
-        relatedLinks={null}
       />
     )
 
@@ -590,6 +588,55 @@ test('calls recordEvent when support service links are clicked', async () => {
   })
 })
 
+test('does not render service in Call us section when service has no title', () => {
+  const mockSupportServicesWithInvalid = [
+    {
+      type: 'node--support_service',
+      id: 'valid-service',
+      title: 'Veterans Crisis Line',
+      number: '988',
+      link: {
+        uri: 'tel:123-456-7890',
+        title: '',
+        url: 'tel:123-456-7890',
+        options: {},
+      },
+    },
+    {
+      type: 'node--support_service',
+      id: 'invalid-service',
+      title: null, // or undefined, or empty string
+      number: '123',
+      link: {
+        uri: 'tel:198-666-7890',
+        title: '',
+        url: 'tel:198-666-7890',
+        options: {},
+      },
+    },
+    null, // also test null service
+  ]
+
+  render(
+    <BenefitsHub
+      {...mockBenefitsData}
+      supportServices={mockSupportServicesWithInvalid}
+    />
+  )
+
+  // Valid service should be rendered
+  expect(screen.getByText('Veterans Crisis Line')).toBeInTheDocument()
+
+  // Invalid service should NOT be rendered
+  expect(screen.queryByText('123')).not.toBeInTheDocument()
+
+  const linkWithHref = document.querySelector('a[href="tel:123-456-7890"]')
+  expect(linkWithHref).toBeInTheDocument()
+
+  const noLinkWithHref = document.querySelector('a[href="tel:198-666-7890"]')
+  expect(noLinkWithHref).not.toBeInTheDocument()
+})
+
 test('renders BenefitsHub component with info Alert', async () => {
   const mockAlertData: FormattedAlertBlock = {
     id: '1',
@@ -607,4 +654,76 @@ test('renders BenefitsHub component with info Alert', async () => {
   expect(vaAlert).toBeInTheDocument()
   expect(vaAlert).toHaveAttribute('status', 'info')
   expect(screen.getByText('Alert Title')).toBeInTheDocument()
+})
+test('renders BenefitsHub component with promo card', () => {
+  const mockPromo = {
+    img: {
+      src: '/test-image.jpg',
+      alt: 'Test promo image',
+    },
+    link: {
+      href: '/promo-link',
+      text: 'Learn more about this benefit',
+    },
+    description: 'This is a promotional description for the benefit.',
+  }
+
+  const { container } = render(
+    <BenefitsHub
+      {...mockBenefitsData}
+      title="Benefits Hub with Promo"
+      intro="Testing promo card functionality"
+      promo={mockPromo}
+    />
+  )
+
+  // Check that the va-card element is rendered
+  const vaCard = container.querySelector('va-card')
+  expect(vaCard).toBeInTheDocument()
+
+  // Check that the image is rendered with correct attributes
+  const image = container.querySelector('img')
+  expect(image).toBeInTheDocument()
+  expect(image).toHaveAttribute('src')
+  expect(image).toHaveAttribute('alt', '')
+
+  // Check that the promo link is rendered
+  const vaLink = container.querySelector('va-card va-link')
+  expect(vaLink).toBeInTheDocument()
+  expect(vaLink.href).toBe('/promo-link')
+  expect(vaLink.text).toBe('Learn more about this benefit')
+
+  // Check that the description is rendered
+  expect(
+    screen.getByText('This is a promotional description for the benefit.')
+  ).toBeInTheDocument()
+})
+
+test('does not render promo card when promo is null', () => {
+  const { container } = render(
+    <BenefitsHub
+      {...mockBenefitsData}
+      title="Benefits Hub without Promo"
+      intro="No promo card"
+      promo={null}
+    />
+  )
+
+  // Check that the va-card element is NOT rendered
+  const vaCard = container.querySelector('va-card')
+  expect(vaCard).not.toBeInTheDocument()
+})
+
+test('does not render promo card when promo is undefined', () => {
+  const { container } = render(
+    <BenefitsHub
+      {...mockBenefitsData}
+      title="Benefits Hub without Promo"
+      intro="No promo defined"
+    />
+  )
+
+  // Check that the va-card element is NOT rendered
+  const vaCard = container.querySelector('va-card')
+  expect(vaCard).not.toBeInTheDocument()
 })

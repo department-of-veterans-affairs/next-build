@@ -36,6 +36,7 @@ describe('BenefitsHub params', () => {
     expect(queryString).toContain('field_connect_with_us')
     expect(queryString).toContain('field_spokes')
     expect(queryString).toContain('field_support_services')
+    expect(queryString).toContain('field_promo')
   })
 })
 
@@ -53,9 +54,31 @@ describe('BenefitHubLanding formatData', () => {
     mockBenefitsHubQuery.mockReturnValue({
       ...mockData,
       field_alert: null,
-    })
+    } as NodeLandingPage)
 
     const result = await runQuery()
     expect(result.alert).toBeNull()
+  })
+
+  test('filters out null support services', async () => {
+    const mockSupportServices = mockData.field_support_services
+    // TODO: create support service mocks from test API
+    mockBenefitsHubQuery.mockReturnValue({
+      ...mockData,
+      field_support_services: [
+        null,
+        ...mockSupportServices,
+        null,
+        ...mockSupportServices,
+      ],
+    } as NodeLandingPage)
+
+    const result = await runQuery()
+
+    // Should only have 2 support services (nulls filtered out)
+    expect(result.supportServices).toHaveLength(2)
+    expect(result.supportServices.every((service) => service !== null)).toBe(
+      true
+    )
   })
 })
