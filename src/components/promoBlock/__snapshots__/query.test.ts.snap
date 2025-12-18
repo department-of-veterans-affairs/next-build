@@ -9,7 +9,7 @@ exports[`promoBlock formatData outputs formatted data 1`] = `
     "src": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/7_2_medium_thumbnail/public/2020-04/040120_FEATURE_MarchFCVet20.png",
   },
   "link": {
-    "href": "internal:/records/download-va-letters/",
+    "href": "/records/download-va-letters",
     "text": "Confirm your VA benefit status",
   },
 }
