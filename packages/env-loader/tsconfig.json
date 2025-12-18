@@ -7,8 +7,5 @@
   },
   "include": ["src"],
   "exclude": ["dist"],
-  "references": [
-    { "path": "../proxy-fetcher" },
-    { "path": "../s3-cache-handler" }
-  ]
+  "references": [{ "path": "../proxy-fetcher" }]
 }
