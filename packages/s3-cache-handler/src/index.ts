@@ -309,7 +309,11 @@ export default class S3CacheHandler {
       await Promise.all(uploads)
       this.log('Cache set successfully for key:', s3Key)
     } catch (error) {
-      console.error('[S3CacheHandler] Error setting cache:', error)
+      console.error(
+        '[S3CacheHandler] Error setting cache for key:',
+        s3Key,
+        error
+      )
       throw error
     }
   }
@@ -346,7 +350,11 @@ export default class S3CacheHandler {
 
       this.log('Cache deleted successfully for key:', s3Key)
     } catch (error) {
-      console.error('[S3CacheHandler] Error deleting cache:', error)
+      console.error(
+        '[S3CacheHandler] Error deleting cache for key:',
+        s3Key,
+        error
+      )
       // Don't throw - deletion failures shouldn't break the app
     }
   }
@@ -377,7 +385,11 @@ export default class S3CacheHandler {
         this.log('Cache does not exist for key:', s3Key)
         return false
       }
-      console.error('[S3CacheHandler] Error checking cache existence:', error)
+      console.error(
+        '[S3CacheHandler] Error checking cache existence for key:',
+        s3Key,
+        error
+      )
       return false
     }
   }
