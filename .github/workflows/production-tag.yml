@@ -110,7 +110,7 @@ jobs:
           mkdir -p ./tag
           echo $NEW_TAG > ./tag/tag.txt
 
-      - uses: actions/upload-artifact@v5
+      - uses: actions/upload-artifact@v6
         with:
           name: tag.txt
           path: tag/

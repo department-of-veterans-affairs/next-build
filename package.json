@@ -65,7 +65,7 @@
     "drupal-jsonapi-params": "^3.0.0",
     "env-loader": "0.1.0",
     "fs-extra": "^11.2.0",
-    "jsdom": "^27.2.0",
+    "jsdom": "^27.3.0",
     "jsona": "^1.12.1",
     "lighthouse": "^12.8.0",
     "linkinator": "^7.5.1",

@@ -11,7 +11,7 @@ import { supportServiceFormatter as formatSupportService } from '@/components/su
 import { getHtmlFromDrupalContent } from '@/lib/utils/getHtmlFromDrupalContent'
 import { getNestedIncludes } from '@/lib/utils/queries'
 import { formatter as formatAlertBlock } from '@/components/alertBlock/query'
-
+import { formatter as formatPromoBlock } from '@/components/promoBlock/query'
 // Define the option types for the data loader.
 export type BenefitsHubPageDataOpts = {
   id: string
@@ -28,6 +28,7 @@ export const params: QueryParams<null> = () => {
     'field_related_links',
     'field_related_links.field_va_paragraphs',
     ...getNestedIncludes('field_alert', 'block_content--alert'),
+    ...getNestedIncludes('field_promo', 'block_content--promo'),
   ])
 }
 
@@ -107,5 +108,6 @@ export const formatter: QueryFormatter<NodeLandingPage, BenefitsHub> = (
     connectWithUs: entity.field_connect_with_us,
     relatedLinks: relatedLinks,
     alert: entity.field_alert ? formatAlertBlock(entity.field_alert) : null,
+    promo: entity.field_promo ? formatPromoBlock(entity.field_promo) : null,
   }
 }
