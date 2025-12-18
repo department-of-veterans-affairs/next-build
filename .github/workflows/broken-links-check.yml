@@ -64,7 +64,7 @@ jobs:
 
       - name: Upload individual report json
         id: upload-report-json
-        uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f
         with:
           name: "broken-links-report-run-${{github.run_id}}-instance-${{ matrix.instance_number }}.json"
           path: broken-links-report-run-${{github.run_id}}-instance-${{ matrix.instance_number }}.json
@@ -92,7 +92,7 @@ jobs:
 
       # This grabs all currently created artifacts i.e. individual json reports.
       - name: Download link reports
-        uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131
         with:
           merge-multiple: true
 
@@ -111,7 +111,7 @@ jobs:
 
       - name: Upload report json
         id: upload-report-json
-        uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f
         with:
           name: "broken-links-report-combined-run-${{github.run_id}}.json"
           path: broken-links-report-combined-run-${{github.run_id}}.json
@@ -119,7 +119,7 @@ jobs:
 
       - name: Upload report CSV
         id: upload-report-csv
-        uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f
         with:
           name: "broken-links-report-run-${{github.run_id}}.csv"
           path: broken-links-report-run-${{github.run_id}}.csv

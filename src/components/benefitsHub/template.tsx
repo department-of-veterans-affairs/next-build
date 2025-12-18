@@ -61,7 +61,7 @@ export function BenefitsHub({
         </article>
         <div className="vads-grid-col-12 tablet:vads-grid-col-4" id="hub-rail">
           {promo && (
-            <div className="vads-u-margin-bottom--4">
+            <div className="vads-u-margin-bottom--3">
               <va-card className="vads-u-padding--0" background>
                 <Image
                   src={promo.img.src}
