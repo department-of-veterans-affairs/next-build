@@ -40,16 +40,8 @@ export function AssetCard({ asset, index, topics }: AssetCardProps) {
     return null
   }
 
-  // Build topics string for data attribute (space-separated topic IDs)
-  const topicsString = asset.categories.join(' ')
-
   return (
-    <div
-      data-topic={topicsString}
-      data-type={asset.format}
-      data-number={index + 1}
-      className="vads-grid-col-12 tablet:vads-grid-col-6 vads-u-margin-bottom--3 vads-u-display--flex vads-u-align-items--stretch"
-    >
+    <div className="vads-grid-col-12 tablet:vads-grid-col-6 vads-u-margin-bottom--3 vads-u-display--flex vads-u-align-items--stretch">
       <div className="vads-u-padding--3 vads-u-width--full vads-u-background-color--gray-lightest vads-u-display--flex vads-u-flex-direction--column mobile-lg:vads-u-flex-direction--row tablet:vads-u-flex-direction--column">
         <div className="mobile-lg:vads-grid-col-4 tablet:vads-grid-col-12">
           {renderMediaImage()}
