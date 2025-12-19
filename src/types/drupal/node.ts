@@ -527,7 +527,7 @@ export interface NodePublicationListing extends DrupalNode {
 
 export interface NodeOutreachAsset extends DrupalNode {
   field_description: string
-  field_format: TaxonomyTermLcCategories | null
+  field_format: string | null
   field_listing: NodePublicationListing
   field_lc_categories: Array<
     TaxonomyTermLcCategories & {
