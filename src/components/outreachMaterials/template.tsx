@@ -118,13 +118,11 @@ function AssetCard({ asset, index, topics }: AssetCardProps) {
       data-topic={topicsString}
       data-type={asset.format}
       data-number={index + 1}
-      className={`vads-l-col--12 vads-l-row medium-card-utility large-screen:vads-l-col--6 ${
-        isEven ? 'desktop-lg:vads-u-margin-right--3' : ''
-      } vads-u-margin-bottom--3 asset-card show-type show-topic`}
+      className="vads-grid-col-12 desktop:vads-grid-col-6 vads-u-margin-bottom--3 vads-u-display--flex vads-u-align-items--stretch"
     >
-      <div className="card-inside-wrap clearfix vads-u-padding--3">
+      <div className="vads-u-padding--3 vads-u-background-color--gray-lightest">
         <div
-          className={`asset-head-wrap medium-screen:vads-l-col--4 medium-head-utility large-screen:vads-l-col--12 ${
+          className={`tablet:vads-grid-col-4 desktop:vads-grid-col-12 ${
             asset.media.type === MediaResourceType.Document
               ? 'document-asset-wrap'
               : asset.media.type === MediaResourceType.Image
@@ -135,20 +133,20 @@ function AssetCard({ asset, index, topics }: AssetCardProps) {
           {renderMediaImage()}
         </div>
 
-        <div className="asset-body-wrap vads-u-display--flex vads-u-flex-direction--column vads-u-padding-top--1p5 medium-screen:vads-u-padding-left--3 desktop-lg:vads-u-padding-left--0 medium-screen:vads-l-col--8 medium-body-utility large-screen:vads-l-col--12">
+        <div className="vads-u-display--flex vads-u-flex-direction--column vads-u-padding-top--1p5 tablet:vads-u-padding-left--3 desktop-lg:vads-u-padding-left--0 tablet:vads-grid-col--8 desktop:vads-grid-col--12">
           {firstCategory && <i>{firstCategory.name}</i>}
           <h2 className="vads-u-margin-y--1 vads-u-font-size--lg">
             {asset.title.length > 36
               ? `${asset.title.substring(0, 36)}...`
               : asset.title}
           </h2>
-          <div className="asset-body-text">
+          <div className="vads-u-margin-bottom--2">
             {asset.description.length > 81
               ? `${asset.description.substring(0, 81)}...`
               : asset.description}
           </div>
 
-          <div className="va-c-margin-top--auto vads-u-margin-bottom--3 medium-screen:vads-u-margin-bottom--0 desktop-lg:vads-u-margin-bottom--3">
+          <div>
             {renderDownloadLink()}
           </div>
         </div>
@@ -221,67 +219,61 @@ export function OutreachMaterials({
   return (
     <div className="vads-grid-container">
       <article className="usa-content va-l-facility-detail vads-u-padding-bottom--0">
-        <div className="vads-l-grid-container--full">
-          <h1>{title}</h1>
-          <div className="vads-l-grid-container--full">
-            {introText && (
-              <div className="va-introtext">
-                <p id="office-benefits-description">{introText}</p>
+        <h1>{title}</h1>
+        {introText && (
+          <div className="va-introtext">
+            <p id="office-benefits-description">{introText}</p>
+          </div>
+        )}
+
+        <FilterForm
+          topics={topics}
+          selectedTopic={selectedTopic}
+          selectedType={selectedType}
+          onTopicChange={handleTopicChange}
+          onTypeChange={handleTypeChange}
+        />
+
+        <ResultsSummary
+          filteredCount={filteredAssets.length}
+          currentPage={currentPage}
+          totalPages={totalPages}
+          itemsPerPage={ITEMS_PER_PAGE}
+        />
+
+        {paginatedAssets.length > 0 ? (
+          <>
+          <div className="vads-grid-row vads-grid-gap"> 
+            {paginatedAssets.map((asset, index) => (
+              <AssetCard
+                key={asset.id}
+                asset={asset}
+                index={(currentPage - 1) * ITEMS_PER_PAGE + index}
+                topics={topics}
+              />
+            ))}
+            </div>
+
+            {totalPages > 1 && (
+              <div className="va-pagination" id="va-pager-div">
+                <VaPagination
+                  page={currentPage}
+                  pages={totalPages}
+                  maxPageListLength={DEFAULT_PAGE_LIST_LENGTH}
+                  onPageSelect={handlePageSelect}
+                />
               </div>
             )}
+          </>
+        ) : (
+          <div id="no-results">
+            <div>
+              <p>
+                <b>Select a different topic or file type</b>
+              </p>
+            </div>
           </div>
-          <div
-            className="vads-l-grid-container--full asset-component-library"
-            id="search-entry"
-          >
-            <FilterForm
-              topics={topics}
-              selectedTopic={selectedTopic}
-              selectedType={selectedType}
-              onTopicChange={handleTopicChange}
-              onTypeChange={handleTypeChange}
-            />
-
-            <ResultsSummary
-              filteredCount={filteredAssets.length}
-              currentPage={currentPage}
-              totalPages={totalPages}
-              itemsPerPage={ITEMS_PER_PAGE}
-            />
-
-            {paginatedAssets.length > 0 ? (
-              <>
-                {paginatedAssets.map((asset, index) => (
-                  <AssetCard
-                    key={asset.id}
-                    asset={asset}
-                    index={(currentPage - 1) * ITEMS_PER_PAGE + index}
-                    topics={topics}
-                  />
-                ))}
-
-                {totalPages > 1 && (
-                  <div className="va-pagination" id="va-pager-div">
-                    <VaPagination
-                      page={currentPage}
-                      pages={totalPages}
-                      maxPageListLength={DEFAULT_PAGE_LIST_LENGTH}
-                      onPageSelect={handlePageSelect}
-                    />
-                  </div>
-                )}
-              </>
-            ) : (
-              <div id="no-results">
-                <div>
-                  <p>
-                    <b>Select a different topic or file type</b>
-                  </p>
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
+        )}
         <ContentFooter lastUpdated={lastUpdated} />
       </article>
     </div>
