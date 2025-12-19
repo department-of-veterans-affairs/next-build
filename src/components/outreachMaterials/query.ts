@@ -7,9 +7,7 @@ import {
   DrupalMediaVideo,
   MediaResourceType,
 } from '@/types/drupal/media'
-import { Menu } from '@/types/drupal/menu'
 import { OutreachMaterials, OutreachAsset } from './formatted-type'
-import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ListingPageDataOpts } from '@/lib/drupal/listingPages'
@@ -17,7 +15,6 @@ import {
   fetchAndConcatAllResourceCollectionPages,
   fetchSingleEntityOrPreview,
 } from '@/lib/drupal/query'
-import { fetchMenu } from '@/components/outreachHub/query'
 import { getNestedIncludes } from '@/lib/utils/queries'
 
 // Define the query params for fetching node--publication_listing.
@@ -43,7 +40,6 @@ const listingParams: QueryParams<string> = (listingEntityId: string) => {
 export type OutreachMaterialsData = {
   entity: NodePublicationListing
   outreachAssets: NodeOutreachAsset[]
-  menu: Menu | null
 }
 
 // Implement the data loader.
@@ -66,19 +62,16 @@ export const data: QueryData<
       10000 // Large limit since we're fetching all assets
     )
 
-  const menu = await fetchMenu()
-
   return {
     entity,
     outreachAssets,
-    menu,
   }
 }
 
 export const formatter: QueryFormatter<
   OutreachMaterialsData,
   OutreachMaterials
-> = ({ entity, outreachAssets, menu }) => {
+> = ({ entity, outreachAssets }) => {
   const formattedAssets: OutreachAsset[] = outreachAssets.map((asset) => {
     const categories =
       asset.field_lc_categories?.map((cat) => ({
@@ -86,24 +79,30 @@ export const formatter: QueryFormatter<
         topicId: cat.field_topic_id || '',
       })) || []
 
-    const media: OutreachAsset['media'] = {
-      type: MediaResourceType.Document, // default
-    }
-
     // Determine media type and extract fields
+    let media: OutreachAsset['media']
     if (!asset.field_media) {
-      // No media, keep default
+      // No media, default to document with empty values
+      media = {
+        type: MediaResourceType.Document,
+        documentUrl: '',
+        documentFilesize: 0,
+      }
     } else if (asset.field_media.type === MediaResourceType.Document) {
       const docMedia = asset.field_media as DrupalMediaDocument
-      media.type = MediaResourceType.Document
-      media.documentUrl = docMedia.field_document?.uri.url ?? null
-      media.documentFilesize = docMedia.field_document?.filesize
+      media = {
+        type: MediaResourceType.Document,
+        documentUrl: docMedia.field_document?.uri.url ?? '',
+        documentFilesize: docMedia.field_document?.filesize ?? 0,
+      }
     } else if (asset.field_media.type === MediaResourceType.Image) {
       const imgMedia = asset.field_media as DrupalMediaImage
-      media.type = MediaResourceType.Image
-      media.imageUrl = imgMedia.image?.uri.url
-      media.imageAlt = imgMedia.image?.resourceIdObjMeta?.alt || ''
-      media.imageFilesize = imgMedia.image?.filesize
+      media = {
+        type: MediaResourceType.Image,
+        imageUrl: imgMedia.image?.uri.url ?? '',
+        imageAlt: imgMedia.image?.resourceIdObjMeta?.alt || '',
+        imageFilesize: imgMedia.image?.filesize ?? 0,
+      }
     } else if (asset.field_media.type === MediaResourceType.Video) {
       const vidMedia = asset.field_media as DrupalMediaVideo & {
         thumbnail?: {
@@ -112,29 +111,33 @@ export const formatter: QueryFormatter<
           }
         }
       }
-      media.type = MediaResourceType.Video
-      media.videoEmbedUrl = vidMedia.field_media_video_embed_field
-      media.videoThumbnailUrl = vidMedia.thumbnail?.derivative?.url
+      media = {
+        type: MediaResourceType.Video,
+        videoEmbedUrl: vidMedia.field_media_video_embed_field || '',
+        videoThumbnailUrl: vidMedia.thumbnail?.derivative?.url || '',
+      }
+    } else {
+      // Fallback to document type
+      media = {
+        type: MediaResourceType.Document,
+        documentUrl: '',
+        documentFilesize: 0,
+      }
     }
 
     return {
       id: asset.id,
       title: asset.title,
       description: asset.field_description || '',
-      format: asset.field_format?.name || '',
+      format: asset.field_format,
       categories,
       media,
     }
   })
 
-  const formattedMenu = menu
-    ? buildSideNavDataFromMenu(entity.path.alias, menu)
-    : null
-
   return {
     ...entityBaseFields(entity),
     introText: entity.field_intro_text || null,
     outreachAssets: formattedAssets,
-    menu: formattedMenu,
   }
 }

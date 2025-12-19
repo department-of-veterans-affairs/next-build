@@ -1,5 +1,4 @@
 import { PublishedEntity } from '@/types/formatted/publishedEntity'
-import { SideNavMenu } from '@/types/formatted/sideNav'
 import { MediaResourceType } from '@/types/drupal/media'
 
 export type OutreachAssetCategory = {
@@ -7,19 +6,29 @@ export type OutreachAssetCategory = {
   topicId: string
 }
 
-export type OutreachAssetMedia = {
-  type: MediaResourceType
-  // For document media
-  documentUrl?: string
-  documentFilesize?: number
-  // For image media
-  imageUrl?: string
-  imageAlt?: string
-  imageFilesize?: number
-  // For video media
-  videoEmbedUrl?: string
-  videoThumbnailUrl?: string
+export type OutreachAssetDocumentMedia = {
+  type: MediaResourceType.Document
+  documentUrl: string
+  documentFilesize: number
 }
+
+export type OutreachAssetImageMedia = {
+  type: MediaResourceType.Image
+  imageUrl: string
+  imageAlt: string
+  imageFilesize: number
+}
+
+export type OutreachAssetVideoMedia = {
+  type: MediaResourceType.Video
+  videoEmbedUrl: string
+  videoThumbnailUrl: string
+}
+
+export type OutreachAssetMedia =
+  | OutreachAssetDocumentMedia
+  | OutreachAssetImageMedia
+  | OutreachAssetVideoMedia
 
 export type OutreachAsset = {
   id: string
@@ -36,5 +45,4 @@ export type OutreachAsset = {
 export type OutreachMaterials = PublishedEntity & {
   introText: string | null
   outreachAssets: OutreachAsset[]
-  menu: SideNavMenu | null
 }
