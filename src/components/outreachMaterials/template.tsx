@@ -243,7 +243,7 @@ export function OutreachMaterials({
 
         {paginatedAssets.length > 0 ? (
           <>
-          <div className="vads-grid-row vads-grid-gap"> 
+          <div className="vads-grid-row vads-grid-gap-3"> 
             {paginatedAssets.map((asset, index) => (
               <AssetCard
                 key={asset.id}
