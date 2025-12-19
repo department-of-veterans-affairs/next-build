@@ -24,8 +24,8 @@ export function FilterForm({
 }: FilterFormProps) {
   return (
     <form className="usa-form vads-u-background-color--gray-lightest vads-u-max-width--100 vads-u-padding-y--3 vads-u-padding-x--1p5 vads-u-margin-bottom--2">
-      <div className="vads-l-row vads-u-justify-content--space-between">
-        <div className="vads-l-col--12 medium-screen:vads-l-col--12 small-desktop-screen:vads-l-col--12 large-screen:vads-l-col--6 vads-u-padding-x--1p5">
+      <div className="vads-grid-row vads-grid-gap-3 vads-u-padding-x--1p5">
+        <div className="vads-grid-col-12 tablet:vads-grid-col-6 vads-u-margin-bottom--2 tablet:vads-u-margin-bottom--0">
           <label className="vads-u-margin-top--0" htmlFor="outreach-topic">
             Select a topic
           </label>
@@ -44,7 +44,7 @@ export function FilterForm({
             ))}
           </select>
         </div>
-        <div className="vads-l-col--12 medium-screen:vads-l-col--12 small-desktop-screen:vads-l-col--12 large-screen:vads-l-col--6 vads-u-padding-x--1p5">
+        <div className="vads-grid-col-12 tablet:vads-grid-col-6">
           <label className="vads-u-margin-top--0" htmlFor="outreach-type">
             Select file type
           </label>
