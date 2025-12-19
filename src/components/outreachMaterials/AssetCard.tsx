@@ -1,5 +1,9 @@
 import { OutreachAsset, OutreachTopic } from './formatted-type'
-import { getYouTubeThumbnail, getTopicImagePath } from './utils'
+import {
+  getYouTubeThumbnail,
+  getTopicImagePath,
+  truncateWithEllipsis,
+} from './utils'
 import { MediaResourceType } from '@/types/drupal/media'
 import { DownloadLink } from './DownloadLink'
 
@@ -12,22 +16,15 @@ interface AssetCardProps {
 export function AssetCard({ asset, index, topics }: AssetCardProps) {
   const firstCategoryTopicId = asset.categories[0]
   const firstCategory = topics.find((t) => t.topicId === firstCategoryTopicId)
+  const title = truncateWithEllipsis(asset.title, 36)
+  const description = truncateWithEllipsis(asset.description, 81)
 
   const renderMediaImage = () => {
     if (asset.media.type === MediaResourceType.Document) {
       // For documents, show topic-based illustration
       const topicId = firstCategoryTopicId
       const imagePath = getTopicImagePath(topicId)
-      return (
-        <img
-          alt={
-            asset.title.length > 36
-              ? `${asset.title.substring(0, 36)}...`
-              : asset.title
-          }
-          src={imagePath}
-        />
-      )
+      return <img alt={title} src={imagePath} />
     } else if (asset.media.type === MediaResourceType.Image) {
       // For images, show the actual image
       const imageUrl = asset.absoluteUrl || asset.media.imageUrl
@@ -38,16 +35,7 @@ export function AssetCard({ asset, index, topics }: AssetCardProps) {
         asset.media.videoThumbnailUrl ||
         getYouTubeThumbnail(asset.media.videoEmbedUrl || undefined) ||
         ''
-      return (
-        <img
-          alt={
-            asset.title.length > 36
-              ? `${asset.title.substring(0, 36)}...`
-              : asset.title
-          }
-          src={thumbnailUrl}
-        />
-      )
+      return <img alt={title} src={thumbnailUrl} />
     }
     return null
   }
@@ -69,16 +57,8 @@ export function AssetCard({ asset, index, topics }: AssetCardProps) {
 
         <div className="vads-u-display--flex vads-u-flex-direction--column vads-u-padding-top--1p5 mobile-lg:vads-u-padding-left--3 desktop-lg:vads-u-padding-left--0 mobile-lg:vads-grid-col--8 desktop:vads-grid-col--12">
           {firstCategory && <i>{firstCategory.name}</i>}
-          <h2 className="vads-u-margin-y--1 vads-u-font-size--lg">
-            {asset.title.length > 36
-              ? `${asset.title.substring(0, 36)}...`
-              : asset.title}
-          </h2>
-          <div className="vads-u-margin-bottom--2">
-            {asset.description.length > 81
-              ? `${asset.description.substring(0, 81)}...`
-              : asset.description}
-          </div>
+          <h2 className="vads-u-margin-y--1 vads-u-font-size--lg">{title}</h2>
+          <div className="vads-u-margin-bottom--2">{description}</div>
 
           <div>
             <DownloadLink

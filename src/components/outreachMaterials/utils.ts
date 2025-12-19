@@ -73,3 +73,13 @@ export function getYouTubeThumbnail(
   }
   return null
 }
+
+/**
+ * Truncate a string to a specified length and append ellipsis if truncated
+ * @param str - The string to truncate
+ * @param length - Maximum length before truncation
+ * @returns Truncated string with ellipsis if original length exceeds limit, otherwise original string
+ */
+export function truncateWithEllipsis(str: string, length: number): string {
+  return str.length > length ? `${str.substring(0, length)}...` : str
+}
