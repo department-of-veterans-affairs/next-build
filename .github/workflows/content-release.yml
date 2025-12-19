@@ -149,11 +149,20 @@ jobs:
       id: export-setup-start-time
       run: echo SETUP_START_TIME=$(date +"%s") >> $GITHUB_OUTPUT
 
-    - name: Checkout next-build
+    - name: Checkout next-build (prod)
       uses: actions/checkout@v6.0.1
+      if: inputs.build_type == 'prod'
       with:
         repository: department-of-veterans-affairs/next-build
-        #ref: ${{ needs.validate-build-status.outputs.TAG }}
+        ref: ${{ needs.validate-build-status.outputs.TAG || github.head_ref || github.ref_name }}
+        path: main
+        sparse-checkout-cone-mode: false
+    
+    - name: Checkout next-build (non-prod)
+      uses: actions/checkout@v6.0.1
+      if: inputs.build_type != 'prod'
+      with:
+        repository: department-of-veterans-affairs/next-build
         ref: ${{ github.head_ref || github.ref_name }}
         path: main
         sparse-checkout-cone-mode: false
