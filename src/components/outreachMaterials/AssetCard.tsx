@@ -50,13 +50,13 @@ export function AssetCard({ asset, index, topics }: AssetCardProps) {
       data-number={index + 1}
       className="vads-grid-col-12 tablet:vads-grid-col-6 vads-u-margin-bottom--3 vads-u-display--flex vads-u-align-items--stretch"
     >
-      <div className="vads-u-padding--3 vads-u-width--full vads-u-background-color--gray-lightest vads-u-display--flex vads-u-flex-direction--column">
+      <div className="vads-u-padding--3 vads-u-width--full vads-u-background-color--gray-lightest vads-u-display--flex vads-u-flex-direction--column mobile-lg:vads-u-flex-direction--row tablet:vads-u-flex-direction--column">
         <div className="mobile-lg:vads-grid-col-4 tablet:vads-grid-col-12">
           {renderMediaImage()}
         </div>
 
         <div
-          className="vads-u-display--flex vads-u-flex-direction--column vads-u-flex--1 vads-u-padding-top--1p5 mobile-lg:vads-u-padding-left--3 desktop-lg:vads-u-padding-left--0 mobile-lg:vads-grid-col--8 desktop:vads-grid-col--12"
+          className="vads-u-display--flex vads-u-flex-direction--column vads-u-flex--1 vads-u-padding-top--1p5 mobile-lg:vads-u-padding-top--0 tablet:vads-u-padding-top--1p5 mobile-lg:vads-u-padding-left--3 tablet:vads-u-padding-left--0 mobile-lg:vads-grid-col-8 desktop:vads-grid-col-12"
           style={{ minHeight: 0 }}
         >
           {firstCategory && <i>{firstCategory.name}</i>}
