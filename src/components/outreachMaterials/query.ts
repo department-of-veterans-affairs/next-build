@@ -16,6 +16,7 @@ import {
   fetchSingleEntityOrPreview,
 } from '@/lib/drupal/query'
 import { getNestedIncludes } from '@/lib/utils/queries'
+import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 
 // Define the query params for fetching node--publication_listing.
 export const params: QueryParams<null> = () => {
@@ -59,7 +60,7 @@ export const data: QueryData<
     await fetchAndConcatAllResourceCollectionPages<NodeOutreachAsset>(
       RESOURCE_TYPES.OUTREACH_ASSET as any, // Type assertion needed until query module exists
       listingParams(entity.id),
-      10000 // Large limit since we're fetching all assets
+      PAGE_SIZES.MAX
     )
 
   return {
@@ -72,12 +73,29 @@ export const formatter: QueryFormatter<
   OutreachMaterialsData,
   OutreachMaterials
 > = ({ entity, outreachAssets }) => {
+  // Build unique topic map first (topicId -> name)
+  const topicMap = new Map<string, string>()
+  
+  outreachAssets.forEach((asset) => {
+    asset.field_lc_categories?.forEach((cat) => {
+      const topicId = cat.field_topic_id || ''
+      if (topicId && !topicMap.has(topicId)) {
+        topicMap.set(topicId, cat.name)
+      }
+    })
+  })
+
+  // Convert topic map to sorted array
+  const topics = Array.from(topicMap.entries())
+    .map(([topicId, name]) => ({ name, topicId }))
+    .sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()))
+
   const formattedAssets: OutreachAsset[] = outreachAssets.map((asset) => {
+    // Store only topic IDs as strings to reduce duplication
     const categories =
-      asset.field_lc_categories?.map((cat) => ({
-        name: cat.name,
-        topicId: cat.field_topic_id || '',
-      })) || []
+      asset.field_lc_categories
+        ?.map((cat) => cat.field_topic_id || '')
+        .filter((topicId) => topicId !== '') || []
 
     // Determine media type and extract fields
     let media: OutreachAsset['media']
@@ -129,7 +147,7 @@ export const formatter: QueryFormatter<
       id: asset.id,
       title: asset.title,
       description: asset.field_description || '',
-      format: asset.field_format,
+      format: asset.field_format?.name || '',
       categories,
       media,
     }
@@ -138,6 +156,7 @@ export const formatter: QueryFormatter<
   return {
     ...entityBaseFields(entity),
     introText: entity.field_intro_text || null,
+    topics,
     outreachAssets: formattedAssets,
   }
 }

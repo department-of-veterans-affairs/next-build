@@ -5,8 +5,8 @@ import { VaPagination } from '@department-of-veterans-affairs/component-library/
 import {
   OutreachMaterials as OutreachMaterialsProps,
   OutreachAsset,
+  OutreachTopic,
 } from './formatted-type'
-import { SideNavLayout } from '@/components/sideNavLayout/template'
 import { ContentFooter } from '@/components/contentFooter/template'
 import { DEFAULT_PAGE_LIST_LENGTH } from '@/lib/constants/pagination'
 import {
@@ -14,7 +14,6 @@ import {
   getFileExtension,
   getYouTubeThumbnail,
   getTopicImagePath,
-  buildTopicList,
 } from './utils'
 import { MediaResourceType } from '@/types/drupal/media'
 
@@ -30,16 +29,18 @@ type FilterType =
 interface AssetCardProps {
   asset: OutreachAsset
   index: number
+  topics: OutreachTopic[]
 }
 
-function AssetCard({ asset, index }: AssetCardProps) {
-  const firstCategory = asset.categories[0]
+function AssetCard({ asset, index, topics }: AssetCardProps) {
+  const firstCategoryTopicId = asset.categories[0]
+  const firstCategory = topics.find((t) => t.topicId === firstCategoryTopicId)
   const isEven = index % 2 === 0
 
   const renderMediaImage = () => {
     if (asset.media.type === MediaResourceType.Document) {
       // For documents, show topic-based illustration
-      const topicId = firstCategory?.topicId
+      const topicId = firstCategoryTopicId
       const imagePath = getTopicImagePath(topicId)
       return (
         <img
@@ -108,7 +109,7 @@ function AssetCard({ asset, index }: AssetCardProps) {
   }
 
   // Build topics string for data attribute (space-separated topic IDs)
-  const topicsString = asset.categories.map((cat) => cat.topicId).join(' ')
+  const topicsString = asset.categories.join(' ')
 
   return (
     <div
@@ -158,23 +159,18 @@ export function OutreachMaterials({
   title,
   introText,
   outreachAssets,
+  topics,
   lastUpdated,
 }: OutreachMaterialsProps) {
-  console.log('outreachAssets', outreachAssets)
   const [selectedTopic, setSelectedTopic] = useState<string>('select')
   const [selectedType, setSelectedType] = useState<FilterType>('select')
   const [currentPage, setCurrentPage] = useState(1)
-
-  // Build unique topic list for dropdown
-  const topics = buildTopicList(outreachAssets)
 
   // Filter assets based on selected topic and type
   const filteredAssets = outreachAssets.filter((asset) => {
     // Filter by topic
     if (selectedTopic !== 'select') {
-      const hasTopic = asset.categories.some(
-        (cat) => cat.topicId === selectedTopic
-      )
+      const hasTopic = asset.categories.includes(selectedTopic)
       if (!hasTopic) return false
     }
 
@@ -333,6 +329,7 @@ export function OutreachMaterials({
                     key={asset.id}
                     asset={asset}
                     index={(currentPage - 1) * ITEMS_PER_PAGE + index}
+                    topics={topics}
                   />
                 ))}
 

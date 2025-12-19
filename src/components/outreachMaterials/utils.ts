@@ -68,26 +68,4 @@ export function getTopicImagePath(topicId: string | undefined): string {
   return topicMap[topicId || ''] || '/img/hub-illustrations/records.png'
 }
 
-/**
- * Build unique list of topics from assets
- * @param assets - Array of outreach assets
- * @returns Sorted array of unique topics
- */
-export function buildTopicList(
-  assets: Array<{ categories: Array<{ name: string; topicId: string }> }>
-): Array<{ name: string; topicId: string }> {
-  const topicMap = new Map<string, { name: string; topicId: string }>()
-  
-  assets.forEach((asset) => {
-    asset.categories.forEach((cat) => {
-      if (cat.topicId && !topicMap.has(cat.topicId)) {
-        topicMap.set(cat.topicId, { name: cat.name, topicId: cat.topicId })
-      }
-    })
-  })
-  
-  return Array.from(topicMap.values()).sort((a, b) =>
-    a.name.toLowerCase().localeCompare(b.name.toLowerCase())
-  )
-}
 

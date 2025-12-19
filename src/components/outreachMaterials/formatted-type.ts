@@ -1,7 +1,7 @@
 import { PublishedEntity } from '@/types/formatted/publishedEntity'
 import { MediaResourceType } from '@/types/drupal/media'
 
-export type OutreachAssetCategory = {
+export type OutreachTopic = {
   name: string
   topicId: string
 }
@@ -35,7 +35,7 @@ export type OutreachAsset = {
   title: string
   description: string
   format: string
-  categories: OutreachAssetCategory[]
+  categories: string[] // Array of topic IDs only
   media: OutreachAssetMedia
   // Derived fields (added during build)
   absoluteUrl?: string
@@ -44,5 +44,6 @@ export type OutreachAsset = {
 
 export type OutreachMaterials = PublishedEntity & {
   introText: string | null
+  topics: OutreachTopic[] // Unique list of topics with names and IDs
   outreachAssets: OutreachAsset[]
 }
