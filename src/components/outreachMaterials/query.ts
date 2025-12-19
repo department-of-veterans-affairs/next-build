@@ -35,7 +35,6 @@ const listingParams: QueryParams<string> = (listingEntityId: string) => {
       ]),
       'field_lc_categories',
     ])
-    .addSort('-created')
 }
 
 export type OutreachMaterialsData = {
@@ -58,7 +57,7 @@ export const data: QueryData<
   // Note: Using direct Drupal query since OUTREACH_ASSET doesn't have a query module yet
   const { data: outreachAssets } =
     await fetchAndConcatAllResourceCollectionPages<NodeOutreachAsset>(
-      RESOURCE_TYPES.OUTREACH_ASSET as any, // Type assertion needed until query module exists
+      RESOURCE_TYPES.OUTREACH_ASSET,
       listingParams(entity.id),
       PAGE_SIZES.MAX
     )
