@@ -146,9 +146,7 @@ function AssetCard({ asset, index, topics }: AssetCardProps) {
               : asset.description}
           </div>
 
-          <div>
-            {renderDownloadLink()}
-          </div>
+          <div>{renderDownloadLink()}</div>
         </div>
       </div>
     </div>
@@ -167,22 +165,15 @@ export function OutreachMaterials({
   const [currentPage, setCurrentPage] = useState(1)
 
   // Filter assets based on selected topic and type
-  const filteredAssets = outreachAssets.filter((asset) => {
+  const filteredAssets = outreachAssets.filter(({ categories, format }) => {
     // Filter by topic
-    if (selectedTopic !== 'select') {
-      const hasTopic = asset.categories.includes(selectedTopic)
-      if (!hasTopic) return false
+    if (selectedTopic !== 'select' && !categories.includes(selectedTopic)) {
+      return false
     }
 
     // Filter by type
-    if (selectedType !== 'select') {
-      // Normalize format for comparison (handle both taxonomy term names and values)
-      const normalizedFormat = asset.format.toLowerCase().replace(/\s+/g, '_')
-
-      // Check if format matches selected type exactly
-      if (normalizedFormat !== selectedType) {
-        return false
-      }
+    if (selectedType !== 'select' && format !== selectedType) {
+      return false
     }
 
     return true
@@ -243,15 +234,15 @@ export function OutreachMaterials({
 
         {paginatedAssets.length > 0 ? (
           <>
-          <div className="vads-grid-row vads-grid-gap-3"> 
-            {paginatedAssets.map((asset, index) => (
-              <AssetCard
-                key={asset.id}
-                asset={asset}
-                index={(currentPage - 1) * ITEMS_PER_PAGE + index}
-                topics={topics}
-              />
-            ))}
+            <div className="vads-grid-row vads-grid-gap-3">
+              {paginatedAssets.map((asset, index) => (
+                <AssetCard
+                  key={asset.id}
+                  asset={asset}
+                  index={(currentPage - 1) * ITEMS_PER_PAGE + index}
+                  topics={topics}
+                />
+              ))}
             </div>
 
             {totalPages > 1 && (

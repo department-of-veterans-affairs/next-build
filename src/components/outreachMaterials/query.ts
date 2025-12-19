@@ -147,7 +147,7 @@ export const formatter: QueryFormatter<
       id: asset.id,
       title: asset.title,
       description: asset.field_description || '',
-      format: asset.field_format?.name || '',
+      format: asset.field_format || '',
       categories,
       media,
     }
