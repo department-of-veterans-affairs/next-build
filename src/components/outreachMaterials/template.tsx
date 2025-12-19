@@ -16,6 +16,8 @@ import {
   getTopicImagePath,
 } from './utils'
 import { MediaResourceType } from '@/types/drupal/media'
+import { FilterForm } from './FilterForm'
+import { ResultsSummary } from './ResultsSummary'
 
 const ITEMS_PER_PAGE = 10
 
@@ -232,95 +234,20 @@ export function OutreachMaterials({
             className="vads-l-grid-container--full asset-component-library"
             id="search-entry"
           >
-            <form className="usa-form vads-u-background-color--gray-lightest vads-u-max-width--100 vads-u-padding-y--3 vads-u-padding-x--1p5 vads-u-margin-bottom--2">
-              <div className="vads-l-row vads-u-justify-content--space-between">
-                <div className="vads-l-col--12 medium-screen:vads-l-col--12 small-desktop-screen:vads-l-col--12 large-screen:vads-l-col--6 vads-u-padding-x--1p5">
-                  <label
-                    className="vads-u-margin-top--0"
-                    htmlFor="outreach-topic"
-                  >
-                    Select a topic
-                  </label>
-                  <select
-                    className="vads-u-max-width--100 usa-select"
-                    name="outreach-topic"
-                    id="outreach-topic"
-                    value={selectedTopic}
-                    onChange={handleTopicChange}
-                  >
-                    <option value="select">- All topics -</option>
-                    {topics.map((topic) => (
-                      <option key={topic.topicId} value={topic.topicId}>
-                        {topic.name}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                <div className="vads-l-col--12 medium-screen:vads-l-col--12 small-desktop-screen:vads-l-col--12 large-screen:vads-l-col--6 vads-u-padding-x--1p5">
-                  <label
-                    className="vads-u-margin-top--0"
-                    htmlFor="outreach-type"
-                  >
-                    Select file type
-                  </label>
-                  <select
-                    className="vads-u-max-width--100 usa-select"
-                    name="outreach-type"
-                    id="outreach-type"
-                    value={selectedType}
-                    onChange={handleTypeChange}
-                  >
-                    <option value="select">- All types -</option>
-                    <option value="newsletter_content">
-                      Newsletter content
-                    </option>
-                    <option value="document">
-                      Poster, Flyer, brochure and fact sheets
-                    </option>
-                    <option value="social_share">
-                      Social share images, text, and badges
-                    </option>
-                    <option value="video">Videos</option>
-                  </select>
-                </div>
-              </div>
-            </form>
+            <FilterForm
+              topics={topics}
+              selectedTopic={selectedTopic}
+              selectedType={selectedType}
+              onTopicChange={handleTopicChange}
+              onTypeChange={handleTypeChange}
+            />
 
-            <div id="total-pages-div" className="vads-u-margin-bottom--1">
-              <div
-                aria-live="polite"
-                aria-atomic="true"
-                id="pager-focus"
-                role="status"
-                tabIndex={-1}
-              >
-                <span>
-                  Showing{' '}
-                  <span aria-hidden="true" id="total-pages">
-                    {filteredAssets.length > 0
-                      ? `${(currentPage - 1) * ITEMS_PER_PAGE + 1}-${Math.min(
-                          currentPage * ITEMS_PER_PAGE,
-                          filteredAssets.length
-                        )}`
-                      : '0'}
-                  </span>
-                  <span className="usa-sr-only" id="total-pages-sr">
-                    {filteredAssets.length > 0
-                      ? `Page ${currentPage} of ${totalPages}, showing items ${
-                          (currentPage - 1) * ITEMS_PER_PAGE + 1
-                        } through ${Math.min(
-                          currentPage * ITEMS_PER_PAGE,
-                          filteredAssets.length
-                        )} of ${filteredAssets.length}`
-                      : 'No results'}
-                  </span>
-                  <span id="total-all">
-                    {' '}
-                    of {filteredAssets.length} results
-                  </span>
-                </span>
-              </div>
-            </div>
+            <ResultsSummary
+              filteredCount={filteredAssets.length}
+              currentPage={currentPage}
+              totalPages={totalPages}
+              itemsPerPage={ITEMS_PER_PAGE}
+            />
 
             {paginatedAssets.length > 0 ? (
               <>
