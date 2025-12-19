@@ -62,7 +62,7 @@ export function AssetCard({ asset, index, topics }: AssetCardProps) {
       data-number={index + 1}
       className="vads-grid-col-12 tablet:vads-grid-col-6 vads-u-margin-bottom--3 vads-u-display--flex vads-u-align-items--stretch"
     >
-      <div className="vads-u-padding--3 vads-u-background-color--gray-lightest">
+      <div className="vads-u-padding--3 vads-u-width--full vads-u-background-color--gray-lightest">
         <div
           className={`mobile-lg:vads-grid-col-4 tablet:vads-grid-col-12 ${
             asset.media.type === MediaResourceType.Document
