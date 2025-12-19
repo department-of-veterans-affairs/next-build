@@ -182,6 +182,14 @@ export default function ResourcePage({
     typeof window !== 'undefined' &&
     previewDomainPattern.test(window.location.hostname)
 
+  const jsEntryName =
+    resource.type === RESOURCE_TYPES.PUBLICATION_LISTING
+      ? // We don't actually use the extra script that is included in the public outreach
+        // materials bundle, but this bundle is way smaller than the static-pages bundle.
+        // Eventually we want to strip these down to only what we need for specific pages.
+        'public-outreach-materials.entry.js'
+      : 'static-pages.entry.js'
+
   return (
     <PageLayout
       bannerData={[...bannerData, ...contentBanner]}
@@ -325,7 +333,7 @@ export default function ResourcePage({
       <Script
         id="staticPages"
         strategy="afterInteractive"
-        src={`${process.env.NEXT_PUBLIC_ASSETS_URL}static-pages.entry.js`}
+        src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${jsEntryName}`}
       />
     </PageLayout>
   )
