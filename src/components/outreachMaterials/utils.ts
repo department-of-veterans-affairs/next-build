@@ -1,4 +1,5 @@
-const HUB_IMAGE_BASE_URL = 'https://s3-us-gov-west-1.amazonaws.com/content.www.va.gov/img/hub-illustrations/'
+const HUB_IMAGE_BASE_URL =
+  'https://s3-us-gov-west-1.amazonaws.com/content.www.va.gov/img/hub-illustrations/'
 
 /**
  * Get topic image path based on topic ID
@@ -53,7 +54,9 @@ export function getFileExtension(url: string | null | undefined): string {
  * @param embedUrl - YouTube embed URL
  * @returns Thumbnail URL or null
  */
-export function getYouTubeThumbnail(embedUrl: string | null | undefined): string | null {
+export function getYouTubeThumbnail(
+  embedUrl: string | null | undefined
+): string | null {
   if (!embedUrl) return null
   try {
     const url = new URL(embedUrl)

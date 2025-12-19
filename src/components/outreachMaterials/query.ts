@@ -75,7 +75,7 @@ export const formatter: QueryFormatter<
 > = ({ entity, outreachAssets }) => {
   // Build unique topic map first (topicId -> name)
   const topicMap = new Map<string, string>()
-  
+
   outreachAssets.forEach((asset) => {
     asset.field_lc_categories?.forEach((cat) => {
       const topicId = cat.field_topic_id || ''
