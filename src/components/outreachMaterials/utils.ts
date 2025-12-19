@@ -1,3 +1,29 @@
+const HUB_IMAGE_BASE_URL = 'https://s3-us-gov-west-1.amazonaws.com/content.www.va.gov/img/hub-illustrations/'
+
+/**
+ * Get topic image path based on topic ID
+ * @param topicId - Topic ID (e.g., "general", "burials", "careers")
+ * @returns Full S3 path to hub illustration image
+ */
+export function getTopicImagePath(topicId: string | undefined): string {
+  const topicFilenames: Record<string, string> = {
+    general: 'records.png',
+    burials: 'burials.png',
+    careers: 'careers.png',
+    disability: 'disability.png',
+    education: 'education.png',
+    family: 'family-caregiver.png',
+    healthcare: 'health-care.png',
+    housing: 'housing.png',
+    insurance: 'life-insurance.png',
+    pension: 'pension.png',
+    service: 'service-member.png',
+    records: 'records.png',
+  }
+  const filename = topicFilenames[topicId || ''] || 'records.png'
+  return `${HUB_IMAGE_BASE_URL}${filename}`
+}
+
 /**
  * Format file size in bytes to human-readable string
  * @param bytes - File size in bytes
@@ -44,28 +70,3 @@ export function getYouTubeThumbnail(embedUrl: string | null | undefined): string
   }
   return null
 }
-
-/**
- * Get topic image path based on topic ID
- * @param topicId - Topic ID (e.g., "general", "burial", "careers")
- * @returns Path to hub illustration image
- */
-export function getTopicImagePath(topicId: string | undefined): string {
-  const topicMap: Record<string, string> = {
-    general: '/img/hub-illustrations/records.png',
-    burials: '/img/hub-illustrations/burials.png',
-    careers: '/img/hub-illustrations/careers.png',
-    disability: '/img/hub-illustrations/disability.png',
-    education: '/img/hub-illustrations/education.png',
-    family: '/img/hub-illustrations/family-caregiver.png',
-    healthcare: '/img/hub-illustrations/health-care.png',
-    housing: '/img/hub-illustrations/housing.png',
-    insurance: '/img/hub-illustrations/life-insurance.png',
-    pension: '/img/hub-illustrations/pension.png',
-    service: '/img/hub-illustrations/service-member.png',
-    records: '/img/hub-illustrations/records.png',
-  }
-  return topicMap[topicId || ''] || '/img/hub-illustrations/records.png'
-}
-
-
