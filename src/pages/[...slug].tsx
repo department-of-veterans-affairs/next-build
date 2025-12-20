@@ -71,6 +71,7 @@ import { BenefitsHub as FormattedBenefitsHub } from '../components/benefitsHub/f
 import { VamcSystemDetailPage as FormattedVamcSystemDetailPage } from '../components/vamcSystemDetailPage/formatted-type'
 import { VaForm as FormattedVaForm } from '../components/vaForm/formatted-type'
 import { CampaignLandingPage as FormattedCampaignLandingPage } from '@/components/campaignLandingPage/formatted-type'
+import { OutreachHub as FormattedOutreachHub } from '../components/outreachHub/formatted-type'
 
 // Templates
 import HTMLComment from '@/components/htmlComment/template'
@@ -105,6 +106,7 @@ import { BenefitsHub } from '../components/benefitsHub/template'
 import { VamcSystemDetailPage } from '../components/vamcSystemDetailPage/template'
 import { VaForm } from '../components/vaForm/template'
 import { CampaignLandingPage } from '@/components/campaignLandingPage/template'
+import { OutreachHub } from '../components/outreachHub/template'
 
 // IMPORTANT: in order for a content type to build in Next Build, it must have an appropriate
 // environment variable set in one of two places:
@@ -307,6 +309,9 @@ export default function ResourcePage({
             <CampaignLandingPage
               {...(resource as FormattedCampaignLandingPage)}
             />
+          )}
+          {resource.type === RESOURCE_TYPES.OFFICE && (
+            <OutreachHub {...(resource as FormattedOutreachHub)} />
           )}
         </div>
       </main>
