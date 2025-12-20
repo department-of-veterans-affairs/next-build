@@ -100,13 +100,8 @@ export function OutreachMaterials({
         {paginatedAssets.length > 0 ? (
           <>
             <div className="vads-grid-row vads-grid-gap-3">
-              {paginatedAssets.map((asset, index) => (
-                <AssetCard
-                  key={asset.id}
-                  asset={asset}
-                  index={(currentPage - 1) * ITEMS_PER_PAGE + index}
-                  topics={topics}
-                />
+              {paginatedAssets.map((asset) => (
+                <AssetCard key={asset.id} asset={asset} topics={topics} />
               ))}
             </div>
 

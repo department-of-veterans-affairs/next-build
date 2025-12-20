@@ -9,11 +9,10 @@ import { DownloadLink } from './DownloadLink'
 
 interface AssetCardProps {
   asset: OutreachAsset
-  index: number
   topics: OutreachTopic[]
 }
 
-export function AssetCard({ asset, index, topics }: AssetCardProps) {
+export function AssetCard({ asset, topics }: AssetCardProps) {
   const firstCategoryTopicId = asset.categories[0]
   const firstCategory = topics.find((t) => t.topicId === firstCategoryTopicId)
   const title = truncateWithEllipsis(asset.title, 36)
@@ -33,8 +32,15 @@ export function AssetCard({ asset, index, topics }: AssetCardProps) {
       // For videos, show thumbnail or YouTube thumbnail
       const thumbnailUrl =
         asset.media.videoThumbnailUrl ||
-        getYouTubeThumbnail(asset.media.videoEmbedUrl || undefined) ||
-        ''
+        getYouTubeThumbnail(asset.media.videoEmbedUrl || undefined)
+
+      // If no thumbnail is available, use topic-based illustration as fallback
+      if (!thumbnailUrl) {
+        const topicId = firstCategoryTopicId
+        const imagePath = getTopicImagePath(topicId)
+        return <img alt={title} src={imagePath} />
+      }
+
       return <img alt={title} src={thumbnailUrl} />
     }
     return null
