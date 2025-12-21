@@ -3,7 +3,7 @@
  */
 
 import * as React from 'react'
-import { MatchResult, MatchedPair } from '@/lib/qa/elementMatcher'
+import { MatchResult, MatchedPair } from '@/lib/qa/icm'
 
 interface UseAcceptanceLogicOptions {
   matchResult: MatchResult | null

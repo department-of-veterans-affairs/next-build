@@ -12,6 +12,12 @@
 
 import { useState, useEffect, useCallback, RefObject } from 'react'
 
+interface UseDifferenceNavigationOptions {
+  scrollContainerRef: RefObject<HTMLElement | null>
+  /** When true, the hook will actively track differences. Use to re-trigger when content changes. */
+  enabled?: boolean
+}
+
 interface UseDifferenceNavigationResult {
   currentIndex: number // 0-based
   totalCount: number
@@ -19,20 +25,28 @@ interface UseDifferenceNavigationResult {
   goToPrev: () => void
 }
 
-export function useDifferenceNavigation(
-  scrollContainerRef: RefObject<HTMLElement | null>
-): UseDifferenceNavigationResult {
+export function useDifferenceNavigation({
+  scrollContainerRef,
+  enabled = true,
+}: UseDifferenceNavigationOptions): UseDifferenceNavigationResult {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [totalCount, setTotalCount] = useState(0)
   // Track container availability to trigger effect re-runs
   const [container, setContainer] = useState<HTMLElement | null>(null)
 
-  // Sync container state with ref (runs every render to catch ref changes)
+  // Sync container state with ref
+  // The `enabled` dependency ensures this re-runs when loading finishes
   useEffect(() => {
-    if (scrollContainerRef.current !== container) {
-      setContainer(scrollContainerRef.current)
-    }
-  }, [scrollContainerRef, container])
+    // Defer setState to avoid synchronous cascading renders
+    const timeoutId = setTimeout(() => {
+      const newContainer = enabled ? scrollContainerRef.current : null
+      if (newContainer !== container) {
+        setContainer(newContainer)
+      }
+    }, 0)
+
+    return () => clearTimeout(timeoutId)
+  }, [scrollContainerRef, container, enabled])
 
   // Query all elements with data-html-difference attribute
   const getDifferenceElements = useCallback((): Element[] => {

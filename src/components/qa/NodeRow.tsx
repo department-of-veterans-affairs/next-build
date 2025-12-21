@@ -4,7 +4,7 @@
 
 import * as React from 'react'
 import { HtmlTreeNode } from '@/lib/qa/htmlTreeParser'
-import { isElementNode, isTextNode } from '@/lib/qa/elementMatcher'
+import { isElementNode, isTextNode } from '@/lib/qa/icm'
 import { NodeRowProps } from './types'
 import { cx, styles } from './styles'
 import { useUIState } from './contexts'

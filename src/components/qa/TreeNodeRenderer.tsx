@@ -3,7 +3,7 @@
  */
 
 import * as React from 'react'
-import { isElementNode } from '@/lib/qa/elementMatcher'
+import { isElementNode } from '@/lib/qa/icm'
 import { TreeNodeRendererProps } from './types'
 import { NodeRow } from './NodeRow'
 import { DifferencePanel } from './DifferencePanel'

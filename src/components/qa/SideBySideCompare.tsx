@@ -80,7 +80,7 @@ export const SideBySideCompare: React.FC<SideBySideCompareProps> = ({
   // ==========================================================================
 
   // Parse HTML and match elements
-  const { matchResult, error } = useComparisonParsing({
+  const { matchResult, error, isLoading } = useComparisonParsing({
     html1,
     html2,
     env1Label,
@@ -135,7 +135,10 @@ export const SideBySideCompare: React.FC<SideBySideCompareProps> = ({
   // ==========================================================================
 
   const { currentIndex, totalCount, goToNext, goToPrev } =
-    useDifferenceNavigation(scrollContainerRef)
+    useDifferenceNavigation({
+      scrollContainerRef,
+      enabled: !isLoading && !!matchResult,
+    })
 
   // ==========================================================================
   // Context Values
@@ -191,8 +194,28 @@ export const SideBySideCompare: React.FC<SideBySideCompareProps> = ({
   }
 
   // Loading state
-  if (!matchResult) {
-    return <div className={styles.loading}>Loading comparison...</div>
+  if (isLoading || !matchResult) {
+    return (
+      <div className={styles.loading}>
+        <div
+          style={{
+            display: 'inline-block',
+            width: '20px',
+            height: '20px',
+            border: '2px solid #e0e0e0',
+            borderTopColor: '#1976d2',
+            borderRadius: '50%',
+            animation: 'spin 1s linear infinite',
+            marginRight: '8px',
+            verticalAlign: 'middle',
+          }}
+        />
+        <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+        <span style={{ verticalAlign: 'middle' }}>
+          Analyzing HTML differences...
+        </span>
+      </div>
+    )
   }
 
   return (
