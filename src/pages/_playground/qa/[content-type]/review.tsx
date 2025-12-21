@@ -46,6 +46,7 @@ interface ReviewRowProps {
   onCompare: (path: string, env1: string, env2: string) => void
   comparisons: ComparisonRecord[]
   onDeleteComparison: (path: string, index: number) => void
+  onRerunComparison: (path: string, index: number, newSelector: string) => void
   cssSelector: string
   comparingKeys: Set<string>
   contentType: string
@@ -99,6 +100,7 @@ const ReviewRow = React.memo<ReviewRowProps>(
     onCompare,
     comparisons,
     onDeleteComparison,
+    onRerunComparison,
     cssSelector,
     comparingKeys,
     contentType,
@@ -155,7 +157,6 @@ const ReviewRow = React.memo<ReviewRowProps>(
             verticalAlign: 'top',
             borderTop: '1px solid #d6d7d9',
             maxWidth: '100%',
-            overflow: 'hidden',
           }}
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -362,6 +363,9 @@ const ReviewRow = React.memo<ReviewRowProps>(
                   path={qaPath.path}
                   contentType={contentType}
                   onDelete={() => onDeleteComparison(qaPath.path, index)}
+                  onRerunWithSelector={(newSelector) =>
+                    onRerunComparison(qaPath.path, index, newSelector)
+                  }
                 />
               ))}
             </div>
@@ -680,6 +684,89 @@ export default function QAReviewPage() {
     [contentType]
   )
 
+  const handleRerunComparison = React.useCallback(
+    async (path: string, comparisonIndex: number, newSelector: string) => {
+      if (typeof contentType !== 'string') return
+
+      // Get the existing comparison to preserve env1/env2
+      const qaPath = cache?.paths.find((p) => p.path === path)
+      const existingComparison = qaPath?.comparisons?.[comparisonIndex]
+      if (!existingComparison) return
+
+      const { env1, env2 } = existingComparison
+
+      try {
+        // Fetch new comparison with updated selector
+        const fetchResponse = await fetch('/api/qa/fetch-comparison', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            path,
+            environment1: env1,
+            environment2: env2,
+            selector: newSelector,
+          }),
+        })
+
+        const fetchData = await fetchResponse.json()
+
+        if (!fetchResponse.ok) {
+          throw new Error(fetchData.message || 'Failed to compare pages')
+        }
+
+        // Update the comparison in place
+        const updatedComparison: ComparisonRecord = {
+          env1,
+          env2,
+          selector: newSelector,
+          timestamp: new Date().toISOString(),
+          html1: fetchData.html1,
+          html2: fetchData.html2,
+          acceptedDifferences: [], // Reset accepted differences for new comparison
+          comments: {},
+          collapseWhitespace: existingComparison.collapseWhitespace ?? true,
+          includeDataTestId: existingComparison.includeDataTestId ?? false,
+        }
+
+        const saveResponse = await fetch('/api/qa/paths', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            resourceType: contentType,
+            path,
+            addComparison: updatedComparison,
+          }),
+        })
+
+        if (!saveResponse.ok) {
+          const errorData = await saveResponse.json()
+          throw new Error(errorData.error || 'Failed to save comparison')
+        }
+
+        const updatedPath = await saveResponse.json()
+
+        // Update local cache
+        setCache((prev) => {
+          if (!prev) return null
+          return {
+            ...prev,
+            paths: prev.paths.map((p) => (p.path === path ? updatedPath : p)),
+          }
+        })
+
+        // Also update the global cssSelector so new comparisons use this selector
+        setCssSelector(newSelector)
+      } catch (err) {
+        console.error('Error re-running comparison:', err)
+      }
+    },
+    [cache, contentType]
+  )
+
   if (typeof contentType !== 'string') {
     return (
       <div className="vads-u-padding--3">
@@ -728,31 +815,6 @@ export default function QAReviewPage() {
             Clear Review
           </button>
         </div>
-      </div>
-
-      <div className="vads-u-margin-y--3">
-        <label
-          className="vads-u-display--block vads-u-margin-bottom--1"
-          htmlFor="cssSelector"
-        >
-          CSS Selector for Comparison
-        </label>
-        <input
-          id="cssSelector"
-          type="text"
-          className="usa-input"
-          value={cssSelector}
-          onChange={(e) => setCssSelector(e.target.value)}
-          placeholder="e.g., main, #content, .my-class"
-          style={{ maxWidth: '600px' }}
-        />
-        <p
-          className="vads-u-margin-top--1 vads-u-color--gray-medium"
-          style={{ fontSize: '14px' }}
-        >
-          Enter a CSS selector to target specific elements when comparing pages.
-          Default is &quot;{DEFAULT_COMPARISON_SELECTOR}&quot;.
-        </p>
       </div>
 
       {error && (
@@ -829,6 +891,7 @@ export default function QAReviewPage() {
                       onCompare={handleCompare}
                       comparisons={qaPath.comparisons || []}
                       onDeleteComparison={handleDeleteComparison}
+                      onRerunComparison={handleRerunComparison}
                       cssSelector={cssSelector}
                       comparingKeys={comparingKeys}
                       contentType={contentType as string}

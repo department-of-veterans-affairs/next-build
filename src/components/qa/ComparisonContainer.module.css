@@ -51,8 +51,15 @@
   padding: 4px 8px;
 }
 
-.deleteButton:hover {
+.deleteButton:hover:not(:disabled) {
   text-decoration: underline;
+}
+
+.deleteButton:disabled {
+  background: none;
+  color: #757575;
+  cursor: default;
+  opacity: 0.6;
 }
 
 .comparisonContent {

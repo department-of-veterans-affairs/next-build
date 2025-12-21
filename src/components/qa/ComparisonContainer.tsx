@@ -23,6 +23,7 @@ export interface ComparisonContainerProps {
   contentType: string
   onDelete: () => void
   onUpdate?: (updatedComparison: ComparisonRecord) => void
+  onRerunWithSelector?: (newSelector: string) => void | Promise<void>
 }
 
 export const ComparisonContainer: React.FC<ComparisonContainerProps> = ({
@@ -32,6 +33,7 @@ export const ComparisonContainer: React.FC<ComparisonContainerProps> = ({
   contentType,
   onDelete,
   onUpdate,
+  onRerunWithSelector,
 }) => {
   const [isExpanded, setIsExpanded] = useState(false)
   const [acceptedDifferences, setAcceptedDifferences] = useState<string[]>(
@@ -41,6 +43,48 @@ export const ComparisonContainer: React.FC<ComparisonContainerProps> = ({
     comparison.comments || {}
   )
   const comparisonRef = useRef<HTMLDivElement>(null)
+  const [selectorPopoutOpen, setSelectorPopoutOpen] = useState(false)
+  const [tempSelector, setTempSelector] = useState(comparison.selector)
+  const [isRerunning, setIsRerunning] = useState(false)
+  const popoutRef = useRef<HTMLDivElement>(null)
+
+  // Close popout when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        popoutRef.current &&
+        !popoutRef.current.contains(event.target as Node)
+      ) {
+        setSelectorPopoutOpen(false)
+        setTempSelector(comparison.selector)
+      }
+    }
+    if (selectorPopoutOpen) {
+      document.addEventListener('mousedown', handleClickOutside)
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [selectorPopoutOpen, comparison.selector])
+
+  // Sync tempSelector when comparison.selector changes
+  useEffect(() => {
+    setTempSelector(comparison.selector)
+  }, [comparison.selector])
+
+  const handleSaveSelector = async () => {
+    if (onRerunWithSelector && tempSelector !== comparison.selector) {
+      setSelectorPopoutOpen(false)
+      setIsRerunning(true)
+      try {
+        await onRerunWithSelector(tempSelector)
+      } finally {
+        setIsRerunning(false)
+      }
+    } else {
+      setSelectorPopoutOpen(false)
+    }
+  }
 
   // Scroll to comparison when it's expanded
   useEffect(() => {
@@ -235,7 +279,110 @@ export const ComparisonContainer: React.FC<ComparisonContainerProps> = ({
               {comparison.env1} vs {comparison.env2}
             </strong>
             {' - '}
-            <code className={styles.selector}>{comparison.selector}</code>
+            <div
+              style={{ position: 'relative', display: 'inline-block' }}
+              ref={popoutRef}
+            >
+              <button
+                type="button"
+                onClick={() =>
+                  !isRerunning && setSelectorPopoutOpen(!selectorPopoutOpen)
+                }
+                disabled={isRerunning}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '4px',
+                  padding: '2px 8px',
+                  fontSize: '12px',
+                  backgroundColor: '#f0f0f0',
+                  border: '1px solid #d6d7d9',
+                  borderRadius: '12px',
+                  cursor: isRerunning ? 'default' : 'pointer',
+                  color: '#1b1b1b',
+                  lineHeight: '1.4',
+                  opacity: isRerunning ? 0.7 : 1,
+                }}
+                title={
+                  isRerunning ? 'Re-running comparison...' : 'Edit CSS selector'
+                }
+              >
+                {comparison.selector}
+                {isRerunning ? (
+                  <>
+                    <span
+                      style={{
+                        display: 'inline-block',
+                        width: '10px',
+                        height: '10px',
+                        border: '2px solid currentColor',
+                        borderTopColor: 'transparent',
+                        borderRadius: '50%',
+                        animation: 'spin 0.6s linear infinite',
+                      }}
+                    />
+                    <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+                  </>
+                ) : (
+                  <va-icon icon="build" size={2} />
+                )}
+              </button>
+              {selectorPopoutOpen && (
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: '100%',
+                    left: 0,
+                    marginTop: '4px',
+                    padding: '12px',
+                    backgroundColor: '#fff',
+                    border: '1px solid #d6d7d9',
+                    borderRadius: '4px',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+                    zIndex: 100,
+                    minWidth: '300px',
+                  }}
+                >
+                  <label
+                    htmlFor={`selector-input-${path}-${comparisonIndex}`}
+                    style={{
+                      display: 'block',
+                      marginBottom: '8px',
+                      fontWeight: 'bold',
+                      fontSize: '14px',
+                    }}
+                  >
+                    CSS Selector
+                  </label>
+                  <input
+                    id={`selector-input-${path}-${comparisonIndex}`}
+                    type="text"
+                    value={tempSelector}
+                    onChange={(e) => setTempSelector(e.target.value)}
+                    className="usa-input"
+                    style={{
+                      width: '100%',
+                      marginBottom: '12px',
+                      fontSize: '14px',
+                    }}
+                    placeholder="e.g., main, #content, .my-class"
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter') {
+                        handleSaveSelector()
+                      }
+                    }}
+                  />
+                  <button
+                    type="button"
+                    className="usa-button"
+                    onClick={handleSaveSelector}
+                    style={{ fontSize: '14px', padding: '6px 12px' }}
+                  >
+                    Save
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
           <div className={styles.timestamp}>
             {new Date(comparison.timestamp).toLocaleString()}
@@ -247,6 +394,7 @@ export const ComparisonContainer: React.FC<ComparisonContainerProps> = ({
             onClick={() => setIsExpanded(!isExpanded)}
             className="usa-button"
             style={{ fontSize: '12px', padding: '4px 8px' }}
+            disabled={isRerunning}
           >
             {isExpanded ? 'Hide' : 'View'} Comparison
           </button>
@@ -255,6 +403,7 @@ export const ComparisonContainer: React.FC<ComparisonContainerProps> = ({
             onClick={onDelete}
             className={styles.deleteButton}
             title="Delete this comparison"
+            disabled={isRerunning}
           >
             Delete
           </button>
