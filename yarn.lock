@@ -7803,20 +7803,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chrome-launcher@npm:^1.1.2":
-  version: 1.1.2
-  resolution: "chrome-launcher@npm:1.1.2"
-  dependencies:
-    "@types/node": "*"
-    escape-string-regexp: ^4.0.0
-    is-wsl: ^2.2.0
-    lighthouse-logger: ^2.0.1
-  bin:
-    print-chrome-path: bin/print-chrome-path.js
-  checksum: 003d05aae2e444bd52d71834a1a8ca096d08341be2e28b0b6e9bc4fbb3be5a5bae85e0a9b26e7ceab9f08eefc6b1ba787968b188b44ab64b0fe79f49742e7c45
-  languageName: node
-  linkType: hard
-
 "chrome-launcher@npm:^1.2.0":
   version: 1.2.0
   resolution: "chrome-launcher@npm:1.2.0"
@@ -7828,6 +7814,20 @@ __metadata:
   bin:
     print-chrome-path: bin/print-chrome-path.cjs
   checksum: 81f5719a1438a65cd369f5ec4aac70bbcfc0db9bf01a6e56cdba00aa143b96edebadba201874c723a5597cb8251d68ce21771c55e35c5b0fa2c837e5a29ecba7
+  languageName: node
+  linkType: hard
+
+"chrome-launcher@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "chrome-launcher@npm:1.2.1"
+  dependencies:
+    "@types/node": "*"
+    escape-string-regexp: ^4.0.0
+    is-wsl: ^2.2.0
+    lighthouse-logger: ^2.0.1
+  bin:
+    print-chrome-path: bin/print-chrome-path.cjs
+  checksum: bee7d768946790657394d21e4bac2b15d9aa5bff82f0a6a4c46def15157ba1792df7e4c92033eccf349a81ff0c9a75a0dc7be564d9ccb556caf6427004742ff1
   languageName: node
   linkType: hard
 
@@ -14467,7 +14467,7 @@ __metadata:
     babel-plugin-react-compiler: ^19.1.0-rc.2
     chalk: ^5.6.2
     cheerio: ^1.1.2
-    chrome-launcher: ^1.1.2
+    chrome-launcher: ^1.2.1
     clsx: ^2.1.0
     commander: ^14.0.0
     date-fns: ^4.1.0
