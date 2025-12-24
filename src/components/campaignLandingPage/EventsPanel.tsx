@@ -30,11 +30,11 @@ export const EventsPanel = ({ events }: CampaignLandingPageProps) => {
 
   return (
     <div
-      className="vads-l-grid-container vads-u-padding-y--3 vads-u-padding-x--4 desktop-lg:vads-u-padding-x--0"
+      className="vads-grid-container vads-u-padding-y--3 vads-u-padding-x--4 desktop-lg:vads-u-padding-x--0"
       data-testid="events-panel"
     >
-      <div className="vads-l-row">
-        <div className="vads-l-col--12 medium-screen:vads-l-col--9">
+      <div className="vads-grid-row">
+        <div className="vads-grid-col-9">
           <p className="va-u-text-transform--uppercase vads-u-color--gray-medium vads-u-font-size--sm vads-u-margin-bottom--0">
             Events
           </p>
@@ -42,13 +42,13 @@ export const EventsPanel = ({ events }: CampaignLandingPageProps) => {
         </div>
       </div>
 
-      <div className="vads-l-row vads-u-margin-bottom--2 medium-screen:vads-u-margin-x--neg6">
+      <div className="vads-grid-row vads-u-margin-bottom--2 tablet:vads-u-margin-x--neg6">
         {events.events.map((event, index) => (
           <div
             key={event.id}
-            className={`vads-l-col--12 medium-screen:vads-l-col--6 ${index > 0 ? 'vads-u-margin-top--4 medium-screen:vads-u-margin-top--0' : ''}`}
+            className={`vads-grid-col-6 ${index > 0 ? 'vads-u-margin-top--4 tablet:vads-u-margin-top--0' : ''}`}
           >
-            <div className="medium-screen:vads-u-margin-x--6">
+            <div className="tablet:vads-u-margin-x--6">
               <h3
                 className="vads-u-margin-top--0"
                 aria-label={event.title}
@@ -69,7 +69,7 @@ export const EventsPanel = ({ events }: CampaignLandingPageProps) => {
 
               <p>{event.description}</p>
 
-              <div className="vads-u-display--flex vads-u-flex-direction--column medium-screen:vads-u-flex-direction--row">
+              <div className="vads-u-display--flex vads-u-flex-direction--column tablet:vads-u-flex-direction--row">
                 <p className="vads-u-font-weight--bold vads-u-margin--0 vads-u-margin-right--2">
                   When
                 </p>
@@ -82,7 +82,7 @@ export const EventsPanel = ({ events }: CampaignLandingPageProps) => {
                 event.locationHumanReadable ||
                 event.link?.url) && (
                 <div
-                  className="vads-u-display--flex vads-u-flex-direction--column medium-screen:vads-u-flex-direction--row vads-u-margin-top--2"
+                  className="vads-u-display--flex vads-u-flex-direction--column tablet:vads-u-flex-direction--row vads-u-margin-top--2"
                   data-testid="event-location"
                 >
                   <p className="vads-u-font-weight--bold vads-u-margin--0 vads-u-margin-right--2">

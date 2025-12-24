@@ -18,11 +18,11 @@ export const VideoPanel = ({ video }: CampaignLandingPageProps) => {
 
   return (
     <div
-      className="vads-l-grid-container vads-u-padding-y--3 vads-u-padding-x--4 desktop-lg:vads-u-padding-x--0"
+      className="vads-grid-container vads-u-padding-y--3 vads-u-padding-x--4 desktop-lg:vads-u-padding-x--0"
       data-testid="video-panel"
     >
-      <div className="vads-l-row">
-        <div className="vads-l-col--12 medium-screen:vads-l-col--8">
+      <div className="vads-grid-row">
+        <div className="vads-grid-col-12 tablet:vads-grid-col-8">
           <p className="va-u-text-transform--uppercase vads-u-color--gray-medium vads-u-font-size--sm vads-u-margin-bottom--0">
             Video
           </p>
@@ -32,7 +32,7 @@ export const VideoPanel = ({ video }: CampaignLandingPageProps) => {
             <iframe
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
-              className="vads-u-margin-top--4 medium-screen:vads-u-padding-right--1"
+              className="vads-u-margin-top--4 tablet:vads-u-padding-right--1"
               frameBorder="0"
               height="315"
               src={video.media.field_media_video_embed_field}

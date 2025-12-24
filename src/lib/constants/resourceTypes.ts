@@ -36,6 +36,7 @@ export const RESOURCE_TYPES = {
   VAMC_SYSTEM_DETAIL_PAGE: 'node--health_care_region_detail_page',
   VA_FORM: 'node--va_form',
   CAMPAIGN_LANDING_PAGE: 'node--campaign_landing_page',
+  OFFICE: 'node--office',
 } as const
 
 // (Node) resources that generate full pages.
@@ -71,6 +72,7 @@ export const PAGE_RESOURCE_TYPES = [
   RESOURCE_TYPES.VAMC_SYSTEM_DETAIL_PAGE,
   RESOURCE_TYPES.VA_FORM,
   RESOURCE_TYPES.CAMPAIGN_LANDING_PAGE,
+  RESOURCE_TYPES.OFFICE,
 ]
 
 export const PARAGRAPH_RESOURCE_TYPES = {

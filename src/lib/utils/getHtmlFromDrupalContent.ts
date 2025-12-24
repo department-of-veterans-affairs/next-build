@@ -6,6 +6,7 @@ import {
   convertActionLinks,
 } from './helpers'
 import { createPhoneLinks } from './createPhoneLinks'
+import { createUrlLinks } from './createUrlLinks'
 
 export type GetHtmlFromDrupalContentOptions = {
   convertNewlines?: boolean
@@ -26,7 +27,7 @@ export const getHtmlFromDrupalContent = (
     convertActionLinks: true,
   }
 ): string => {
-  const transformers = [createPhoneLinks, drupalToVaPath]
+  const transformers = [createUrlLinks, createPhoneLinks, drupalToVaPath]
   if (options.convertNewlines) {
     transformers.push(newlinesToBr)
   }

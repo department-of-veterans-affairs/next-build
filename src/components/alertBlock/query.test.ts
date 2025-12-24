@@ -10,7 +10,7 @@ describe('alertBlock formatter', () => {
     field_alert_content: {},
     field_reusability: '',
     info: '',
-    type: '',
+    type: 'block_content--alert',
     langcode: '',
     status: true,
   }
