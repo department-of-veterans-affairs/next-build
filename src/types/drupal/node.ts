@@ -376,7 +376,7 @@ export interface NodeNewsStory extends DrupalNode {
 }
 
 export interface NodeOffice extends DrupalNode {
-  field_body: string
+  field_body: FieldFormattedText
   field_email_updates_link: FieldLink
   field_external_link: FieldLink
   field_description: string
@@ -477,7 +477,9 @@ export interface NodeEventListing extends DrupalNode {
   field_description: string
   field_intro_text: string
   field_enforce_unique_combo: boolean
-  field_office: NodeOffice
+  field_office:
+    | Pick<NodeOffice, 'id' | 'title'>
+    | Pick<NodeHealthCareRegionPage, 'id' | 'title' | 'field_system_menu'>
 }
 
 export interface NodePressReleaseListing extends DrupalNode {
@@ -524,7 +526,6 @@ export interface NodeSupportResourcesDetailPage extends NodeAbstractResource {
 export interface NodeSupportService extends DrupalNode {
   field_link: FieldLink
   field_phone_number: string
-  field_office: NodeOffice
 }
 
 export interface NodeVamcSystemVaPolice extends DrupalNode {
@@ -762,7 +763,9 @@ export interface NodeVaForm extends DrupalNode {
   field_va_form_link_teasers?: ParagraphLinkTeaser[]
   field_va_form_related_forms?: NodeVaForm[]
   field_va_form_administration?: FieldAdministration
+  field_alert: BlockAlert | null
   field_administration?: FieldAdministration
   field_benefit_categories?: Array<{ field_home_page_hub_label: string }> // node--landing-page
+  field_va_form_upload?: boolean
   breadcrumbs: BreadcrumbItem[]
 }
