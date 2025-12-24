@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`OutreachHub query outputs formatted data 1`] = `
+{
+  "body": "<p>The VA Central Office is responsible for coordinating and managing VA programs nationwide.</p><p>We work to ensure that Veterans receive the best possible care and services.</p>",
+  "breadcrumbs": [
+    {
+      "href": "/",
+      "label": "Home",
+      "options": [],
+    },
+    {
+      "href": "",
+      "label": "VA Central Office",
+      "options": [],
+    },
+  ],
+  "description": "The VA Central Office provides leadership and oversight for Veterans Affairs programs and services.",
+  "entityId": 126,
+  "entityPath": "/va-central-office",
+  "id": "c715d441-b6cb-4067-92eb-0650e97b7d62",
+  "lastUpdated": "2019-09-04T19:14:37+00:00",
+  "menu": {
+    "data": {
+      "description": null,
+      "links": [
+        {
+          "description": null,
+          "expanded": true,
+          "label": "Outreach and events",
+          "links": [
+            {
+              "description": null,
+              "expanded": true,
+              "label": "Outreach and events",
+              "links": [
+                {
+                  "description": null,
+                  "expanded": false,
+                  "label": "Outreach materials",
+                  "links": [],
+                  "lovellSection": null,
+                  "url": {
+                    "path": "/outreach-and-events/outreach-materials",
+                  },
+                },
+                {
+                  "description": null,
+                  "expanded": false,
+                  "label": "Outreach events",
+                  "links": [],
+                  "lovellSection": null,
+                  "url": {
+                    "path": "/outreach-and-events/events",
+                  },
+                },
+              ],
+              "lovellSection": null,
+              "url": {
+                "path": "/outreach-and-events",
+              },
+            },
+          ],
+          "lovellSection": null,
+          "url": {
+            "path": "",
+          },
+        },
+      ],
+      "name": "Outreach and events",
+    },
+    "rootPath": "/va-central-office/",
+  },
+  "metatags": [
+    {
+      "attributes": {
+        "content": "VA Central Office | Veterans Affairs",
+        "name": "title",
+      },
+      "tag": "meta",
+    },
+  ],
+  "moderationState": "published",
+  "published": true,
+  "title": "VA Central Office",
+  "type": "node--office",
+}
+`;
