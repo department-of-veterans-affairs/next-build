@@ -9,7 +9,7 @@ import { getNestedIncludes } from '@/lib/utils/queries'
 export const params: QueryParams<null> = () =>
   new DrupalJsonApiParams().addInclude([
     'field_va_paragraphs',
-    ...getNestedIncludes('field_alert_block_reference', 'block--alert'),
+    ...getNestedIncludes('field_alert_block_reference', 'block_content--alert'),
   ])
 
 export const formatter: QueryFormatter<ParagraphAlert, Alert> = (
@@ -22,7 +22,7 @@ export const formatter: QueryFormatter<ParagraphAlert, Alert> = (
     alertType: entity.field_alert_type as AlertType,
     heading: entity.field_alert_heading,
     blockReference: queries.formatData(
-      'block--alert',
+      'block_content--alert',
       entity.field_alert_block_reference
     ) as AlertBlock,
     paragraphs: entity.field_va_paragraphs.map((paragraph) =>

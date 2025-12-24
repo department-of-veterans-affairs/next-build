@@ -142,6 +142,20 @@ describe('<Event /> Component', () => {
     expect(screen.getByText('3307 10th Avenue Southeast')).toBeInTheDocument()
   })
 
+  it('handles null address gracefully', () => {
+    render(
+      <Event
+        {...createMockEvent({
+          facilityLocation: null,
+          address: null,
+        })}
+      />
+    )
+    expect(
+      screen.queryByText('3307 10th Avenue Southeast')
+    ).not.toBeInTheDocument()
+  })
+
   describe('va-links in paragraph tags', () => {
     it('always wraps outreach link in paragraph tag', () => {
       render(<Event {...createMockEvent()} />)

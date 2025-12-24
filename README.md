@@ -88,8 +88,8 @@ This certificate should be git ignored by default. In your `.env.local` file, up
 
 ```
 # This is the standard lower environment for Content API.
-#NEXT_PUBLIC_DRUPAL_BASE_URL=https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov
-#NEXT_IMAGE_DOMAIN=https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov
+#NEXT_PUBLIC_DRUPAL_BASE_URL=https://mirror.cms.va.gov
+#NEXT_IMAGE_DOMAIN=https://mirror.cms.va.gov
 
 # If running va.gov-cms locally
 NEXT_PUBLIC_DRUPAL_BASE_URL=https://va-gov-cms.ddev.site

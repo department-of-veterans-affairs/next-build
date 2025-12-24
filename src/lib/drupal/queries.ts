@@ -72,6 +72,7 @@ import * as VamcSystemDetailPage from '../../components/vamcSystemDetailPage/que
 import * as CampaignLandingPage from '../../components/campaignLandingPage/query'
 import * as ServiceLocation from '@/components/serviceLocation/query'
 import * as VaForm from '@/components/vaForm/query'
+import * as OutreachHub from '../../components/outreachHub/query'
 import * as SpanishTranslationSummary from '@/components/spanishTranslationSummary/query'
 import * as HomePageHero from '@/components/homePageHero/query'
 import * as HomePageCommonTasks from '@/components/homePageCommonTasks/query'
@@ -124,6 +125,7 @@ export const QUERIES_MAP = {
   [RESOURCE_TYPES.VAMC_SYSTEM_DETAIL_PAGE]: VamcSystemDetailPage,
   [RESOURCE_TYPES.VA_FORM]: VaForm,
   [RESOURCE_TYPES.CAMPAIGN_LANDING_PAGE]: CampaignLandingPage,
+  [RESOURCE_TYPES.OFFICE]: OutreachHub,
 
   // Paragraphs
   [PARAGRAPH_RESOURCE_TYPES.ACCORDION_ITEM]: Accordion,
@@ -158,7 +160,7 @@ export const QUERIES_MAP = {
   [PARAGRAPH_RESOURCE_TYPES.WYSIWYG]: Wysiwyg,
 
   // Blocks
-  'block--alert': AlertBlock,
+  'block_content--alert': AlertBlock,
   'block_content--promo': PromoBlock,
 
   // Media

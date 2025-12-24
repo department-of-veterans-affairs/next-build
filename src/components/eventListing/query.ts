@@ -82,7 +82,10 @@ export const data: QueryData<EventListingDataOpts, EventListingData> = async (
   // Fetch the menu name dynamically off of the field_office reference if available.
   // The `/outreach-and-events/events` event listing page has no menu attached to it.
   let menu = null
-  if (entity.field_office.field_system_menu) {
+  if (
+    'field_system_menu' in entity.field_office &&
+    entity.field_office.field_system_menu
+  ) {
     menu = await getMenu(
       entity.field_office.field_system_menu.resourceIdObjMeta
         .drupal_internal__target_id
