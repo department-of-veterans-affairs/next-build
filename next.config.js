@@ -1,3 +1,9 @@
+import { fileURLToPath } from 'url'
+import { dirname, resolve } from 'path'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
+
 const isProd = process.env.APP_ENV === 'prod'
 const isExport = process.env.BUILD_OPTION === 'static'
 
@@ -38,6 +44,14 @@ const nextConfig = {
     staticGenerationMaxConcurrency: 1,
     staticGenerationMinPagesPerWorker: 2,
   },
+
+  // Custom cache handler for S3
+  cacheHandler:
+    process.env.USE_S3_CACHE === 'true'
+      ? resolve(__dirname, './scripts/shared-cache-handler/cache-handler.js')
+      : undefined,
+
+  cacheMaxMemorySize: process.env.USE_S3_CACHE === 'true' ? 0 : undefined, // Disable default in-memory cache when using Shared S3 Cache
 
   // This ensures the generated files use a consistent hash inside of the generated `.next/` directory.
   // Necessary in order for correct asset references in various locations (S3 static files, cms preview server, etc)

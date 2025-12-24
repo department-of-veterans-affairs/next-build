@@ -18,14 +18,58 @@ interface ReviewStatus {
   [path: string]: boolean
 }
 
+interface ChecklistStatus {
+  [path: string]: Record<string, boolean>
+}
+
 interface ReviewRowProps {
   qaPath: QAPath
   reviewed: boolean
   onReviewToggle: (path: string, reviewed: boolean) => void
+  checklistState: Record<string, boolean>
+  onChecklistToggle: (path: string, itemId: string) => void
+}
+
+const QA_CHECKLIST = {
+  'Visual/UI': [
+    'Visual changes match design/requirements',
+    'No unintended visual regressions on other parts of the page',
+    'Responsive design works across breakpoints',
+  ],
+  Functionality: [
+    'Feature/PR requirement is fully functional',
+    'All interactive elements work as expected',
+    'Error states handle gracefully',
+  ],
+  Accessibility: [
+    'Keyboard navigation works correctly',
+    'Screen reader announcements are appropriate',
+    'Color contrast meets WCAG standards',
+    'Focus indicators are visible',
+  ],
+  Content: [
+    'All text content renders correctly',
+    'Links are valid and functional',
+    'Images have appropriate alt text',
+  ],
+  Performance: [
+    'Page loads without console errors',
+    'No performance regressions',
+    'Build completes successfully',
+  ],
+  'Cross-browser': [
+    'Tested in Chrome/Safari/Firefox',
+    'Mobile browser testing completed',
+  ],
+  'Data/Integration': [
+    'CMS data renders correctly',
+    'API calls succeed',
+    'Edge cases handled (missing data, long content, etc.)',
+  ],
 }
 
 const ReviewRow = React.memo<ReviewRowProps>(
-  ({ qaPath, reviewed, onReviewToggle }) => {
+  ({ qaPath, reviewed, onReviewToggle, checklistState, onChecklistToggle }) => {
     return (
       <div
         style={{
@@ -111,6 +155,67 @@ const ReviewRow = React.memo<ReviewRowProps>(
               </p>
             </div>
           )}
+          <details style={{ marginTop: '12px' }}>
+            <summary
+              style={{
+                cursor: 'pointer',
+                fontWeight: 'bold',
+                color: '#005ea2',
+              }}
+            >
+              QA Checklist
+            </summary>
+            <div style={{ marginTop: '12px', marginLeft: '8px' }}>
+              {Object.entries(QA_CHECKLIST).map(([section, items]) => (
+                <div key={section} style={{ marginBottom: '16px' }}>
+                  <h4
+                    style={{
+                      fontSize: '14px',
+                      fontWeight: 'bold',
+                      marginBottom: '8px',
+                      marginTop: 0,
+                    }}
+                  >
+                    {section}
+                  </h4>
+                  {items.map((item) => {
+                    const itemId = `${qaPath.path}-${section}-${item}`
+                    return (
+                      <div
+                        key={item}
+                        style={{
+                          display: 'flex',
+                          alignItems: 'flex-start',
+                          gap: '8px',
+                          marginBottom: '6px',
+                          marginLeft: '1rem',
+                        }}
+                      >
+                        <input
+                          type="checkbox"
+                          checked={checklistState[itemId] || false}
+                          onChange={() =>
+                            onChecklistToggle(qaPath.path, itemId)
+                          }
+                          id={itemId}
+                        />
+                        <label
+                          htmlFor={itemId}
+                          style={{
+                            cursor: 'pointer',
+                            fontSize: '13px',
+                            margin: 0,
+                          }}
+                        >
+                          {item}
+                        </label>
+                      </div>
+                    )
+                  })}
+                </div>
+              ))}
+            </div>
+          </details>
         </div>
       </div>
     )
@@ -121,6 +226,10 @@ ReviewRow.displayName = 'ReviewRow'
 
 const getReviewStatusKey = (contentType: string): string => {
   return `qa-review-${contentType}`
+}
+
+const getChecklistStatusKey = (contentType: string): string => {
+  return `qa-checklist-${contentType}`
 }
 
 const loadReviewStatus = (contentType: string): ReviewStatus => {
@@ -145,6 +254,31 @@ const saveReviewStatus = (contentType: string, status: ReviewStatus): void => {
   }
 }
 
+const loadChecklistStatus = (contentType: string): ChecklistStatus => {
+  if (typeof window === 'undefined') return {}
+  try {
+    const stored = localStorage.getItem(getChecklistStatusKey(contentType))
+    return stored ? JSON.parse(stored) : {}
+  } catch {
+    return {}
+  }
+}
+
+const saveChecklistStatus = (
+  contentType: string,
+  status: ChecklistStatus
+): void => {
+  if (typeof window === 'undefined') return
+  try {
+    localStorage.setItem(
+      getChecklistStatusKey(contentType),
+      JSON.stringify(status)
+    )
+  } catch (error) {
+    console.error('Error saving checklist status:', error)
+  }
+}
+
 export default function QAReviewPage() {
   const router = useRouter()
   const { 'content-type': contentType } = router.query
@@ -153,12 +287,14 @@ export default function QAReviewPage() {
   const [loading, setLoading] = useState<boolean>(false)
   const [error, setError] = useState<string | null>(null)
   const [reviewStatus, setReviewStatus] = useState<ReviewStatus>({})
+  const [checklistStatus, setChecklistStatus] = useState<ChecklistStatus>({})
   const [unstarredExpanded, setUnstarredExpanded] = useState<boolean>(false)
   const [exportedMarkdown, setExportedMarkdown] = useState<string | null>(null)
 
   useEffect(() => {
     if (typeof contentType === 'string') {
       setReviewStatus(loadReviewStatus(contentType))
+      setChecklistStatus(loadChecklistStatus(contentType))
     }
   }, [contentType])
 
@@ -208,13 +344,35 @@ export default function QAReviewPage() {
     [contentType]
   )
 
+  const handleChecklistToggle = React.useCallback(
+    (path: string, itemId: string) => {
+      if (typeof contentType !== 'string') return
+
+      setChecklistStatus((prev) => {
+        const pathChecklist = prev[path] || {}
+        const newStatus = {
+          ...prev,
+          [path]: {
+            ...pathChecklist,
+            [itemId]: !pathChecklist[itemId],
+          },
+        }
+        saveChecklistStatus(contentType, newStatus)
+        return newStatus
+      })
+    },
+    [contentType]
+  )
+
   const handleClearReview = () => {
     if (typeof contentType !== 'string') return
 
     if (typeof window !== 'undefined') {
       try {
         localStorage.removeItem(getReviewStatusKey(contentType))
+        localStorage.removeItem(getChecklistStatusKey(contentType))
         setReviewStatus({})
+        setChecklistStatus({})
       } catch (error) {
         console.error('Error clearing review status:', error)
       }
@@ -254,6 +412,12 @@ export default function QAReviewPage() {
   const starredPaths = cache?.paths.filter((p) => p.starred === true) || []
   const unstarredPaths = cache?.paths.filter((p) => p.starred !== true) || []
 
+  const hasAnyChecklistItems = Object.values(checklistStatus).some(
+    (pathChecklist) => Object.values(pathChecklist).some((checked) => checked)
+  )
+  const hasAnyData =
+    Object.keys(reviewStatus).length > 0 || hasAnyChecklistItems
+
   return (
     <div className="vads-u-padding--3">
       <div
@@ -270,7 +434,7 @@ export default function QAReviewPage() {
         <button
           className="usa-button usa-button-secondary"
           onClick={handleClearReview}
-          disabled={Object.keys(reviewStatus).length === 0}
+          disabled={!hasAnyData}
         >
           Clear Review
         </button>
@@ -344,6 +508,8 @@ export default function QAReviewPage() {
                       qaPath={qaPath}
                       reviewed={reviewStatus[qaPath.path] || false}
                       onReviewToggle={handleReviewToggle}
+                      checklistState={checklistStatus[qaPath.path] || {}}
+                      onChecklistToggle={handleChecklistToggle}
                     />
                   ))}
                 </div>
