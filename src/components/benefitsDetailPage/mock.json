@@ -183,7 +183,7 @@
     ]
   },
   "field_alert": {
-    "type": "block--alert",
+    "type": "block_content--alert",
     "id": "test-alert-id",
     "status": true,
     "field_alert_type": "information",
