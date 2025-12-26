@@ -68,6 +68,66 @@ export const data: QueryData<
   }
 }
 
+function formatOutreachAsset(asset: NodeOutreachAsset): OutreachAsset | null {
+  // Store only topic IDs as strings to reduce duplication
+  const categories =
+    asset.field_lc_categories
+      ?.map((cat) => cat.field_topic_id || '')
+      .filter((topicId) => topicId !== '') || []
+
+  // Determine media type and extract fields
+  let media: OutreachAsset['media']
+  if (!asset.field_media) {
+    // No media, default to document with empty values
+    media = {
+      type: MediaResourceType.Document,
+      documentUrl: '',
+      documentFilesize: 0,
+    }
+  } else if (asset.field_media.type === MediaResourceType.Document) {
+    const docMedia = asset.field_media as DrupalMediaDocument
+    media = {
+      type: MediaResourceType.Document,
+      documentUrl: docMedia.field_document?.uri.url ?? '',
+      documentFilesize: docMedia.field_document?.filesize ?? 0,
+    }
+  } else if (asset.field_media.type === MediaResourceType.Image) {
+    const imgMedia = asset.field_media as DrupalMediaImage
+    media = {
+      type: MediaResourceType.Image,
+      imageUrl: imgMedia.image?.uri.url ?? '',
+      imageAlt: imgMedia.image?.resourceIdObjMeta?.alt || '',
+      imageFilesize: imgMedia.image?.filesize ?? 0,
+    }
+  } else if (asset.field_media.type === MediaResourceType.Video) {
+    const vidMedia = asset.field_media as DrupalMediaVideo & {
+      thumbnail?: {
+        derivative?: {
+          url: string
+        }
+      }
+    }
+    media = {
+      type: MediaResourceType.Video,
+      videoEmbedUrl: vidMedia.field_media_video_embed_field || '',
+      videoThumbnailUrl: vidMedia.thumbnail?.derivative?.url || '',
+    }
+  } else {
+    // Unknown media type - omit this asset from the list
+    console.error('Unknown media type', asset.field_media)
+    return null
+  }
+
+  return {
+    id: asset.id,
+    title: asset.title,
+    description: asset.field_description || '',
+    format: asset.field_format || '',
+    categories,
+    media,
+  }
+}
+
 export const formatter: QueryFormatter<
   OutreachMaterialsData,
   OutreachMaterials
@@ -89,69 +149,9 @@ export const formatter: QueryFormatter<
     .map(([topicId, name]) => ({ name, topicId }))
     .sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()))
 
-  const formattedAssets: OutreachAsset[] = outreachAssets.map((asset) => {
-    // Store only topic IDs as strings to reduce duplication
-    const categories =
-      asset.field_lc_categories
-        ?.map((cat) => cat.field_topic_id || '')
-        .filter((topicId) => topicId !== '') || []
-
-    // Determine media type and extract fields
-    let media: OutreachAsset['media']
-    if (!asset.field_media) {
-      // No media, default to document with empty values
-      media = {
-        type: MediaResourceType.Document,
-        documentUrl: '',
-        documentFilesize: 0,
-      }
-    } else if (asset.field_media.type === MediaResourceType.Document) {
-      const docMedia = asset.field_media as DrupalMediaDocument
-      media = {
-        type: MediaResourceType.Document,
-        documentUrl: docMedia.field_document?.uri.url ?? '',
-        documentFilesize: docMedia.field_document?.filesize ?? 0,
-      }
-    } else if (asset.field_media.type === MediaResourceType.Image) {
-      const imgMedia = asset.field_media as DrupalMediaImage
-      media = {
-        type: MediaResourceType.Image,
-        imageUrl: imgMedia.image?.uri.url ?? '',
-        imageAlt: imgMedia.image?.resourceIdObjMeta?.alt || '',
-        imageFilesize: imgMedia.image?.filesize ?? 0,
-      }
-    } else if (asset.field_media.type === MediaResourceType.Video) {
-      const vidMedia = asset.field_media as DrupalMediaVideo & {
-        thumbnail?: {
-          derivative?: {
-            url: string
-          }
-        }
-      }
-      media = {
-        type: MediaResourceType.Video,
-        videoEmbedUrl: vidMedia.field_media_video_embed_field || '',
-        videoThumbnailUrl: vidMedia.thumbnail?.derivative?.url || '',
-      }
-    } else {
-      // Fallback to document type
-      media = {
-        type: MediaResourceType.Document,
-        documentUrl: '',
-        documentFilesize: 0,
-      }
-      console.error('Unknown media type', asset.field_media)
-    }
-
-    return {
-      id: asset.id,
-      title: asset.title,
-      description: asset.field_description || '',
-      format: asset.field_format || '',
-      categories,
-      media,
-    }
-  })
+  const formattedAssets: OutreachAsset[] = outreachAssets
+    .map(formatOutreachAsset)
+    .filter((asset): asset is OutreachAsset => asset !== null)
 
   return {
     ...entityBaseFields(entity),
