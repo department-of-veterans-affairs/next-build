@@ -140,6 +140,7 @@ export const formatter: QueryFormatter<
         documentUrl: '',
         documentFilesize: 0,
       }
+      console.error('Unknown media type', asset.field_media)
     }
 
     return {
