@@ -24,8 +24,6 @@ type OutreachHubData = {
   menu: Menu | null
 }
 
-export const fetchMenu = () => getMenu('outreach-and-events')
-
 export const data: QueryData<OutreachHubDataOpts, OutreachHubData> = async (
   opts
 ): Promise<OutreachHubData> => {
@@ -36,7 +34,7 @@ export const data: QueryData<OutreachHubDataOpts, OutreachHubData> = async (
   )) as NodeOffice
 
   // Fetch the outreach-and-events menu
-  const menu = await fetchMenu()
+  const menu = await getMenu('outreach-and-events')
 
   return { entity, menu }
 }
