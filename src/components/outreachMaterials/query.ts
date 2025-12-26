@@ -77,21 +77,14 @@ function formatOutreachAsset(asset: NodeOutreachAsset): OutreachAsset | null {
 
   // Determine media type and extract fields
   let media: OutreachAsset['media']
-  if (!asset.field_media) {
-    // No media, default to document with empty values
-    media = {
-      type: MediaResourceType.Document,
-      documentUrl: '',
-      documentFilesize: 0,
-    }
-  } else if (asset.field_media.type === MediaResourceType.Document) {
+  if (asset.field_media?.type === MediaResourceType.Document) {
     const docMedia = asset.field_media as DrupalMediaDocument
     media = {
       type: MediaResourceType.Document,
       documentUrl: docMedia.field_document?.uri.url ?? '',
       documentFilesize: docMedia.field_document?.filesize ?? 0,
     }
-  } else if (asset.field_media.type === MediaResourceType.Image) {
+  } else if (asset.field_media?.type === MediaResourceType.Image) {
     const imgMedia = asset.field_media as DrupalMediaImage
     media = {
       type: MediaResourceType.Image,
@@ -99,7 +92,7 @@ function formatOutreachAsset(asset: NodeOutreachAsset): OutreachAsset | null {
       imageAlt: imgMedia.image?.resourceIdObjMeta?.alt || '',
       imageFilesize: imgMedia.image?.filesize ?? 0,
     }
-  } else if (asset.field_media.type === MediaResourceType.Video) {
+  } else if (asset.field_media?.type === MediaResourceType.Video) {
     const vidMedia = asset.field_media as DrupalMediaVideo & {
       thumbnail?: {
         derivative?: {
@@ -109,8 +102,8 @@ function formatOutreachAsset(asset: NodeOutreachAsset): OutreachAsset | null {
     }
     media = {
       type: MediaResourceType.Video,
-      videoEmbedUrl: vidMedia.field_media_video_embed_field || '',
-      videoThumbnailUrl: vidMedia.thumbnail?.derivative?.url || '',
+      videoEmbedUrl: vidMedia.field_media_video_embed_field,
+      videoThumbnailUrl: vidMedia.thumbnail?.derivative?.url || null,
     }
   } else {
     // Unknown media type - omit this asset from the list

@@ -22,7 +22,7 @@ export type OutreachAssetImageMedia = {
 export type OutreachAssetVideoMedia = {
   type: MediaResourceType.Video
   videoEmbedUrl: string
-  videoThumbnailUrl: string
+  videoThumbnailUrl: string | null
 }
 
 export type OutreachAssetMedia =
