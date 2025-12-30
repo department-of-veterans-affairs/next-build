@@ -130,7 +130,6 @@ jobs:
         ports:
           - 6379:6379
         options: >-
-          --name redis-${{ github.run_id }}
           --health-cmd "redis-cli ping"
           --health-interval 10s
           --health-timeout 5s
