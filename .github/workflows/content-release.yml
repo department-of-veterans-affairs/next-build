@@ -215,6 +215,11 @@ jobs:
       id: export-build-start-time
       run: echo BUILD_START_TIME=$(date +"%s") >> $GITHUB_OUTPUT
 
+    - name: Flush Redis cache
+      run: |
+        apt-get update && apt-get install -y redis-tools || echo "redis-tools installation skipped or failed"
+        redis-cli -h redis -p 6379 FLUSHALL || echo "Redis flush completed or Redis not ready yet"
+
     - name: Build site
       id: export-yarn-output
       uses: nick-fields/retry@v3
