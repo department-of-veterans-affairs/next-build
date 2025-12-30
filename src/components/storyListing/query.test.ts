@@ -154,6 +154,13 @@ describe('data function for StoryListing', () => {
           field_mental_health_services: [],
           field_specialty_care_services: [],
           field_va_health_connect_phone: null,
+          field_system_menu: {
+            type: 'menu--menu',
+            id: '1',
+            resourceIdObjMeta: {
+              drupal_internal__target_id: '1',
+            },
+          },
           default_langcode: true,
           sticky: false,
         },

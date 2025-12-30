@@ -90,12 +90,15 @@ export async function fetchAndConcatAllResourceCollectionPages<T>(
 }
 
 // Fetch drupal menu resource with cache.
-export async function getMenu(name: string, params?: QueryParams<null>) {
+export async function getMenu(
+  name: string | number,
+  params?: QueryParams<null>
+) {
   const defaultMenuParams = new DrupalJsonApiParams()
     .addFields('menu_items', ['title,url'])
     .getQueryObject()
 
-  const menu = await drupalClient.getMenu(name, {
+  const menu = await drupalClient.getMenu('' + name, {
     params: params ? params().getQueryObject() : defaultMenuParams,
 
     // Cache resource if redis is available
@@ -108,6 +111,14 @@ export async function getMenu(name: string, params?: QueryParams<null>) {
 
 // Consistent handler to fetch a node entity from a normal route or a preview route.
 export async function fetchSingleEntityOrPreview(opts, type, params) {
+  // Include cache options if useCache is true and redis is enabled
+  const cacheOptions = opts.useCache
+    ? {
+        withCache: process.env.USE_REDIS === 'true',
+        cacheKey: `entity:${type}:${opts.id}`,
+      }
+    : {}
+
   const entity = opts?.context?.preview
     ? // need to use getResourceFromContext for unpublished revisions
       await drupalClient.getResourceFromContext(type, opts.context, {
@@ -116,6 +127,7 @@ export async function fetchSingleEntityOrPreview(opts, type, params) {
     : // otherwise just lookup by uuid
       await drupalClient.getResource(type, opts.id, {
         params: params().getQueryObject(),
+        ...cacheOptions,
       })
 
   return entity
