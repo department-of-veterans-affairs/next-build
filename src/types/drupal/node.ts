@@ -126,6 +126,14 @@ export interface NodeAbstractResource extends DrupalNode {
   field_related_benefit_hubs: NodeLandingPage[]
 }
 
+export interface ObjectReference {
+  type: string
+  id: string
+  resourceIdObjMeta: {
+    drupal_internal__target_id: number | string
+  }
+}
+
 export interface NodeBanner extends DrupalNode {
   field_alert_type: string
   body: FieldFormattedTextWithSummary
@@ -242,6 +250,7 @@ export interface NodeHealthCareRegionPage extends DrupalNode {
   field_twitter: FieldLink
   field_va_health_connect_phone: string
   field_vamc_system_official_name: string
+  field_system_menu: ObjectReference
 }
 
 export interface NodeVamcSystemDetailPage extends DrupalNode {
@@ -569,10 +578,7 @@ export interface NodeVamcSystemRegisterForCare extends DrupalNode {
 
 export interface NodeVamcSystemBillingAndInsurance extends DrupalNode {
   title: string
-  field_office: Pick<
-    NodeHealthCareRegionPage,
-    'id' | 'title' | 'field_system_menu'
-  >
+  field_office: ObjectReference
   field_office_hours: FieldOfficeHours[]
   field_telephone: ParagraphPhoneNumber
   field_cc_above_top_of_page?: FieldCCText
