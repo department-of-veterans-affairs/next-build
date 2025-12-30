@@ -4,11 +4,11 @@ export const generateAbsoluteUrl = (origin: string, relativeUrl: string) => {
     ? origin.substring(0, origin.length - 1)
     : origin
 
-  // strip leading slash from relativeUrl
-  const trimmedRelativeUrl =
-    relativeUrl.charAt(0) === '/' ? relativeUrl.substring(1) : relativeUrl
+  // strip leading and trailing slashes from relativeUrl
+  const trimmedRelativeUrl = relativeUrl.replace(/^\/|\/$/g, '')
 
-  return `${trimmedOrigin}/${trimmedRelativeUrl}`
+  // always include trailing slash for canonical URL consistency
+  return `${trimmedOrigin}/${trimmedRelativeUrl}/`
 }
 
 export const generateAbsoluteUrlFromEnv = (relativeUrl: string) =>
