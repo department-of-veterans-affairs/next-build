@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { useState, useEffect, useCallback } from 'react'
-import { ComparisonContainer } from '@/components/qa/ComparisonContainer'
-import { ExportComparisons } from '@/components/qa/ExportComparisons'
-import { ImportComparisons } from '@/components/qa/ImportComparisons'
+import { ComparisonContainer } from '@/dev/qa/components/ComparisonContainer'
+import { ExportComparisons } from '@/dev/qa/components/ExportComparisons'
+import { ImportComparisons } from '@/dev/qa/components/ImportComparisons'
 
 interface ComparisonRecord {
   env1: string

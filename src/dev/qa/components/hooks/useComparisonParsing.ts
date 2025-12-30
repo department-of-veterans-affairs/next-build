@@ -9,8 +9,8 @@
  */
 
 import * as React from 'react'
-import { parseHtmlToTree } from '@/lib/qa/htmlTreeParser'
-import { matchElements, MatchResult } from '@/lib/qa/icm'
+import { parseHtmlToTree } from '@/dev/qa/lib/htmlTreeParser'
+import { matchElements, MatchResult } from '@/dev/qa/lib/icm'
 
 interface UseComparisonParsingOptions {
   html1: string

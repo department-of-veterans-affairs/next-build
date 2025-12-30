@@ -3,7 +3,7 @@
  */
 
 import * as React from 'react'
-import { DifferenceDetail } from '@/lib/qa/icm'
+import { DifferenceDetail } from '@/dev/qa/lib/icm'
 import {
   DifferencePanelProps,
   DifferenceItemProps,

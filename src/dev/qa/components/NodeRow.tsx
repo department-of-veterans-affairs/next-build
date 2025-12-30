@@ -3,8 +3,8 @@
  */
 
 import * as React from 'react'
-import { HtmlTreeNode } from '@/lib/qa/htmlTreeParser'
-import { isElementNode, isTextNode } from '@/lib/qa/icm'
+import { HtmlTreeNode } from '@/dev/qa/lib/htmlTreeParser'
+import { isElementNode, isTextNode } from '@/dev/qa/lib/icm'
 import { NodeRowProps } from './types'
 import { cx, styles } from './styles'
 import { useUIState } from './contexts'

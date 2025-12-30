@@ -2,7 +2,7 @@
  * Shared types for QA comparison components
  */
 
-import { MatchedPair, DifferenceDetail } from '@/lib/qa/icm'
+import { MatchedPair, DifferenceDetail } from '@/dev/qa/lib/icm'
 
 // =============================================================================
 // Main Component Props

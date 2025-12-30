@@ -19,6 +19,7 @@ const customJestConfig: Config = {
   ],
   moduleNameMapper: {
     '^@/__tests__/(.*)$': '<rootDir>/src/__tests__/$1',
+    '^@/dev/(.*)$': '<rootDir>/src/dev/$1',
     '^@/lib/(.*)$': '<rootDir>/src/lib/$1',
     '^@/pages/(.*)$': '<rootDir>/src/pages/$1',
     '^@/components/(.*)$': '<rootDir>/src/components/$1',
@@ -41,8 +42,7 @@ const customJestConfig: Config = {
     '!src/lib/drupal/query.ts',
     '!src/components/meta/template.tsx',
     '!src/pages/**',
-    '!src/lib/qa/**',
-    '!src/components/qa/**',
+    '!src/dev/**',
     '!src/types/**/*.{js,jsx,ts,tsx}',
   ],
   coverageThreshold: {

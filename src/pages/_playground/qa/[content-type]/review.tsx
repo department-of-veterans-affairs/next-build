@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
-import { ComparisonContainer } from '@/components/qa/ComparisonContainer'
+import { ComparisonContainer } from '@/dev/qa/components/ComparisonContainer'
 
 interface ComparisonRecord {
   env1: string
