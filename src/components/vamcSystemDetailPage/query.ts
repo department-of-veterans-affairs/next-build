@@ -7,7 +7,11 @@ import {
   RESOURCE_TYPES,
 } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
-import { fetchSingleEntityOrPreview, getMenu } from '@/lib/drupal/query'
+import { fetchSingleEntityOrPreview } from '@/lib/drupal/query'
+import {
+  getVamcSystemAndMenu,
+  ShallowVamcSystem,
+} from '@/components/vamcSystem/vamcSystemAndMenu'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
@@ -24,7 +28,6 @@ import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude([
     'field_administration',
-    'field_office',
     'field_related_links',
     'field_related_links.field_va_paragraphs',
     ...getNestedIncludes('field_featured_content', PARAGRAPH_RESOURCE_TYPES.QA),
@@ -56,6 +59,7 @@ export type VamcSystemDetailPageDataOpts = {
 // Define the data structure returned from the query.
 type VamcSystemDetailPageData = {
   entity: NodeVamcSystemDetailPage
+  vamcSystem: ShallowVamcSystem
   menu: Menu | null
   hasLovellCounterpart: boolean
   lovell?: ExpandedStaticPropsContext['lovell']
@@ -94,19 +98,24 @@ export const data: QueryData<
     }
   }
 
-  // Fetch the menu name dynamically off of the field_region_page reference if available.
-  const menu = await getMenu(
-    entity.field_office.field_system_menu.resourceIdObjMeta
-      .drupal_internal__target_id
+  const { vamcSystem, menu } = await getVamcSystemAndMenu(
+    entity.field_office.id,
+    opts.context
   )
 
-  return { entity, menu, lovell: opts.context?.lovell, hasLovellCounterpart }
+  return {
+    entity,
+    vamcSystem,
+    menu,
+    lovell: opts.context?.lovell,
+    hasLovellCounterpart,
+  }
 }
 
 export const formatter: QueryFormatter<
   VamcSystemDetailPageData,
   VamcSystemDetailPage
-> = ({ entity, menu, lovell, hasLovellCounterpart }) => {
+> = ({ entity, vamcSystem, menu, lovell, hasLovellCounterpart }) => {
   // For this particular content type, which can be bifurcated, the entity path doesn't
   // always match the path of the page; it could be the opposite Lovell variant's path.
   const normalizedPath = lovell?.isLovellVariantPage
@@ -120,9 +129,9 @@ export const formatter: QueryFormatter<
     showTableOfContents: entity.field_table_of_contents_boolean,
     menu: buildSideNavDataFromMenu(normalizedPath, menu),
     administration: formatAdministration(entity.field_administration),
-    vamcEhrSystem: entity.field_office?.field_vamc_ehr_system || null,
+    vamcEhrSystem: vamcSystem.field_vamc_ehr_system || null,
     vamcSystem: {
-      path: entity.field_office?.path.alias || null,
+      path: vamcSystem.path?.alias || null,
     },
     featuredContent:
       entity.field_featured_content?.map((paragraph) =>

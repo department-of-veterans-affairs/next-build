@@ -24,13 +24,12 @@ import { DrupalMenuLinkContent } from 'next-drupal'
 const mockServicesListing = {
   ...mockPage,
   field_office: {
-    ...(mockSystem as unknown as NodeHealthCareRegionPage),
-    field_system_menu: {
-      type: 'menu_link_content--menu_link_content',
-      id: 'test-menu-link',
-      resourceIdObjMeta: {
-        drupal_internal__target_id: 1,
-      },
+    type: 'node--health_care_region_page',
+    id: (mockSystem as unknown as NodeHealthCareRegionPage).id,
+    resourceIdObjMeta: {
+      drupal_internal__target_id: (
+        mockSystem as unknown as NodeHealthCareRegionPage
+      ).drupal_internal__nid,
     },
   },
 } as NodeVamcHealthServicesListing
@@ -79,7 +78,8 @@ mockDrupalQuery.setResourceCollectionMock(
     data: mockServicesQuery(),
   })
 )
-mockDrupalQuery.getMenu.mockReturnValue(mockMenu)
+
+jest.mock('@/components/vamcSystem/vamcSystemAndMenu')
 
 jest.mock('@/lib/drupal/drupalClient', () => ({
   drupalClient: {

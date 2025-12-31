@@ -9,9 +9,12 @@ import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
   fetchSingleEntityOrPreview,
-  getMenu,
   fetchAndConcatAllResourceCollectionPages,
 } from '@/lib/drupal/query'
+import {
+  getVamcSystemAndMenu,
+  ShallowVamcSystem,
+} from '@/components/vamcSystem/vamcSystemAndMenu'
 import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import { getHtmlFromDrupalContent } from '@/lib/utils/getHtmlFromDrupalContent'
@@ -27,8 +30,6 @@ import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
 // Define the query params for fetching node--vamc_operating_status_and_alerts.
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude([
-    'field_office',
-    'field_office.field_system_menu',
     'field_banner_alert.field_situation_updates',
   ])
 }
@@ -45,6 +46,7 @@ export type VamcOperatingStatusAndAlertsDataOpts = {
 
 export type VamcOperatingStatusAndAlertsData = {
   entity: NodeVamcOperatingStatusAndAlerts
+  vamcSystem: ShallowVamcSystem | null
   menu: Menu | null
   facilities: NodeHealthCareLocalFacility[]
   lovell?: ExpandedStaticPropsContext['lovell']
@@ -61,33 +63,37 @@ export const data: QueryData<
     params
   )) as NodeVamcOperatingStatusAndAlerts
 
-  const menu = entity.field_office
-    ? await getMenu(
-        entity.field_office.field_system_menu.resourceIdObjMeta
-          .drupal_internal__target_id
-      )
-    : null
+  // Fetch the VAMC system and menu separately for caching
+  let vamcSystem: ShallowVamcSystem | null = null
+  let menu: Menu | null = null
+
+  if (entity.field_office?.id) {
+    const result = await getVamcSystemAndMenu(
+      entity.field_office.id,
+      opts.context
+    )
+    vamcSystem = result.vamcSystem
+    menu = result.menu
+  }
+
   const { data: facilities } =
     await fetchAndConcatAllResourceCollectionPages<NodeHealthCareLocalFacility>(
       RESOURCE_TYPES.VAMC_FACILITY,
-      facilityParams(entity.field_office.id),
+      facilityParams(vamcSystem?.id || entity.field_office?.id || ''),
       PAGE_SIZES.MAX
     )
-  return { entity, menu, facilities, lovell: opts.context?.lovell }
+  return { entity, vamcSystem, menu, facilities, lovell: opts.context?.lovell }
 }
 
 export const formatter: QueryFormatter<
   VamcOperatingStatusAndAlertsData,
   VamcOperatingStatusAndAlerts
-> = ({ entity, menu, facilities, lovell }) => {
-  // Get title from menu label, handling Lovell variant transformation
+> = ({ entity, vamcSystem, menu, facilities, lovell }) => {
+  // Get title from VAMC system title, handling Lovell variant transformation
   // Note: This uses facilityName, not the entity title, so we handle it separately
-  let title = entity.field_office.field_system_menu.label
-  if (lovell?.isLovellVariantPage) {
-    title = getLovellVariantOfTitle(
-      entity.field_office.field_system_menu.label,
-      lovell.variant
-    )
+  let title = vamcSystem?.title || ''
+  if (lovell?.isLovellVariantPage && title) {
+    title = getLovellVariantOfTitle(title, lovell.variant)
   }
   const formattedMenu =
     menu !== null ? buildSideNavDataFromMenu(entity.path.alias, menu) : null

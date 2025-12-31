@@ -3,13 +3,17 @@
  */
 
 import mockPage from './mock.json'
-import mockMenu from './mock.menu.json'
 import { queries } from '@/lib/drupal/queries'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { VamcSystemDetailPageDataOpts } from './query'
 import { NodeVamcSystemDetailPage } from '@/types/drupal/node'
+import { ShallowVamcSystem } from '@/components/vamcSystem/vamcSystemAndMenu'
+import mockVamcSystemShallow from '@/components/vamcSystem/mock.shallow.json'
+import mockMenu from '@/components/vamcSystem/mock.menu.json'
 
-const mockPageQuery = jest.fn(() => mockPage as NodeVamcSystemDetailPage)
+const mockPageQuery = jest.fn(
+  () => mockPage as unknown as NodeVamcSystemDetailPage
+)
 
 jest.mock('@/lib/drupal/query')
 // eslint-disable-next-line @typescript-eslint/no-require-imports
@@ -19,7 +23,15 @@ mockDrupalQuery.setSingleEntityMock(
   RESOURCE_TYPES.VAMC_SYSTEM_DETAIL_PAGE,
   mockPageQuery
 )
-mockDrupalQuery.getMenu.mockReturnValue(mockMenu)
+
+jest.mock('@/components/vamcSystem/vamcSystemAndMenu', () => ({
+  getVamcSystemAndMenu: jest.fn(() =>
+    Promise.resolve({
+      vamcSystem: mockVamcSystemShallow as ShallowVamcSystem,
+      menu: mockMenu,
+    })
+  ),
+}))
 
 const mockTranslatePath = jest.fn()
 jest.mock('@/lib/drupal/drupalClient', () => ({
@@ -44,7 +56,9 @@ function runQuery(options: Partial<VamcSystemDetailPageDataOpts> = {}) {
 describe('VamcSystemDetailPage query module', () => {
   beforeEach(() => {
     // Reset to default mock data before each test
-    mockPageQuery.mockReturnValue(mockPage as NodeVamcSystemDetailPage)
+    mockPageQuery.mockReturnValue(
+      mockPage as unknown as NodeVamcSystemDetailPage
+    )
     mockTranslatePath.mockReturnValue(null)
   })
 
@@ -57,7 +71,7 @@ describe('VamcSystemDetailPage query module', () => {
       mockPageQuery.mockReturnValue({
         ...mockPage,
         field_intro_text: null,
-      } as NodeVamcSystemDetailPage)
+      } as unknown as NodeVamcSystemDetailPage)
 
       const result = await runQuery()
 
@@ -68,7 +82,7 @@ describe('VamcSystemDetailPage query module', () => {
       mockPageQuery.mockReturnValue({
         ...mockPage,
         field_table_of_contents_boolean: null,
-      } as NodeVamcSystemDetailPage)
+      } as unknown as NodeVamcSystemDetailPage)
 
       const result = await runQuery()
 
@@ -79,7 +93,7 @@ describe('VamcSystemDetailPage query module', () => {
       mockPageQuery.mockReturnValue({
         ...mockPage,
         field_related_links: null,
-      } as NodeVamcSystemDetailPage)
+      } as unknown as NodeVamcSystemDetailPage)
 
       const result = await runQuery()
 
@@ -90,7 +104,7 @@ describe('VamcSystemDetailPage query module', () => {
       mockPageQuery.mockReturnValue({
         ...mockPage,
         breadcrumbs: null,
-      } as NodeVamcSystemDetailPage)
+      } as unknown as NodeVamcSystemDetailPage)
 
       const result = await runQuery()
 
@@ -101,7 +115,7 @@ describe('VamcSystemDetailPage query module', () => {
       mockPageQuery.mockReturnValue({
         ...mockPage,
         field_featured_content: null,
-      } as NodeVamcSystemDetailPage)
+      } as unknown as NodeVamcSystemDetailPage)
 
       const result = await runQuery()
 
@@ -110,18 +124,13 @@ describe('VamcSystemDetailPage query module', () => {
   })
 
   test('formats vamcEhrSystem', async () => {
-    mockPageQuery.mockReturnValue({
-      ...mockPage,
-      field_office: {
-        ...mockPage.field_office,
-        field_vamc_ehr_system: 'vista',
-      },
-    } as NodeVamcSystemDetailPage)
-
     const result = await runQuery()
 
     expect(result.administration).toBeDefined()
     expect(result.vamcEhrSystem).toBeDefined()
+    expect(result.vamcEhrSystem).toBe(
+      mockVamcSystemShallow.field_vamc_ehr_system
+    )
   })
 
   describe('Lovell variant handling', () => {
@@ -167,7 +176,7 @@ describe('VamcSystemDetailPage query module', () => {
         ...mockPage,
         path: lovellPath,
         breadcrumbs: lovellBreadcrumbs,
-      } as NodeVamcSystemDetailPage)
+      } as unknown as NodeVamcSystemDetailPage)
 
       const result = await runQuery({ context: lovellContext })
 
@@ -183,7 +192,7 @@ describe('VamcSystemDetailPage query module', () => {
         ...mockPage,
         path: lovellPath,
         breadcrumbs: lovellBreadcrumbs,
-      } as NodeVamcSystemDetailPage)
+      } as unknown as NodeVamcSystemDetailPage)
 
       mockTranslatePath.mockReturnValue(mockTranslatePathResponse)
 
@@ -197,7 +206,7 @@ describe('VamcSystemDetailPage query module', () => {
         ...mockPage,
         path: lovellPath,
         breadcrumbs: lovellBreadcrumbs,
-      } as NodeVamcSystemDetailPage)
+      } as unknown as NodeVamcSystemDetailPage)
 
       mockTranslatePath.mockRejectedValue({
         cause: {
@@ -215,7 +224,7 @@ describe('VamcSystemDetailPage query module', () => {
         ...mockPage,
         path: lovellPath,
         breadcrumbs: lovellBreadcrumbs,
-      } as NodeVamcSystemDetailPage)
+      } as unknown as NodeVamcSystemDetailPage)
 
       const error = new Error('Test error')
       error.cause = {

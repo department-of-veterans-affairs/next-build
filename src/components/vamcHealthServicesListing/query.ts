@@ -10,8 +10,11 @@ import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
   fetchAndConcatAllResourceCollectionPages,
   fetchSingleEntityOrPreview,
-  getMenu,
 } from '@/lib/drupal/query'
+import {
+  getVamcSystemAndMenu,
+  ShallowVamcSystem,
+} from '@/components/vamcSystem/vamcSystemAndMenu'
 import {
   getLovellVariantOfUrl,
   getOppositeChildVariant,
@@ -28,11 +31,7 @@ import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
 // Define the query params for fetching node--health_services_listing.
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams()
-    .addInclude([
-      'field_administration',
-      'field_office',
-      'field_featured_content_healthser',
-    ])
+    .addInclude(['field_administration', 'field_featured_content_healthser'])
     .addFields('paragraph--link_teaser', ['field_link', 'field_link_summary'])
 }
 
@@ -55,6 +54,7 @@ export type VamcHealthServicesListingDataOpts = {
 
 type VamcHealthServicesListingData = {
   entity: NodeVamcHealthServicesListing
+  vamcSystem: ShallowVamcSystem
   services: NodeRegionalHealthCareServiceDes[]
   menu: Menu | null
   lovell?: ExpandedStaticPropsContext['lovell']
@@ -71,20 +71,21 @@ export const data: QueryData<
     params
   )) as NodeVamcHealthServicesListing
 
-  const menu = await getMenu(
-    entity.field_office.field_system_menu.resourceIdObjMeta
-      .drupal_internal__target_id
+  const { vamcSystem, menu } = await getVamcSystemAndMenu(
+    entity.field_office.id,
+    opts.context
   )
 
   const { data: services } =
     await fetchAndConcatAllResourceCollectionPages<NodeRegionalHealthCareServiceDes>(
       RESOURCE_TYPES.VAMC_SYSTEM_SERVICE_DES,
-      serviceParams(entity.field_office.id),
+      serviceParams(vamcSystem.id),
       PAGE_SIZES.MAX
     )
 
   return {
     entity,
+    vamcSystem,
     services,
     menu,
     lovell: opts.context?.lovell,
@@ -94,7 +95,7 @@ export const data: QueryData<
 export const formatter: QueryFormatter<
   VamcHealthServicesListingData,
   VamcHealthServicesListing
-> = ({ entity, services, menu, lovell }) => {
+> = ({ entity, vamcSystem, services, menu, lovell }) => {
   const administration = formatAdministration(entity.field_administration)
 
   // Process health services - these come from the reverse relationship
@@ -118,7 +119,7 @@ export const formatter: QueryFormatter<
       : null,
     path: entity.path.alias,
     administration,
-    vamcEhrSystem: entity.field_office.field_vamc_ehr_system,
+    vamcEhrSystem: vamcSystem.field_vamc_ehr_system,
     menu: buildSideNavDataFromMenu(entity.path.alias, menu),
     featuredContent:
       entity.field_featured_content_healthser?.map((item) => {
@@ -135,7 +136,7 @@ export const formatter: QueryFormatter<
           uri: item.field_link?.url || formattedItem.uri,
         }
       }) || [],
-    systemTitle: entity.field_office.title,
+    systemTitle: vamcSystem.title,
     healthServiceGroups,
   }
 }

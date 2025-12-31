@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
-exports[`DrupalJsonApiParams configuration params function sets the correct include fields 1`] = `"include=field_administration,field_office,field_featured_content_healthser&fields[paragraph--link_teaser]=field_link,field_link_summary"`;
+exports[`DrupalJsonApiParams configuration params function sets the correct include fields 1`] = `"include=field_administration,field_featured_content_healthser&fields[paragraph--link_teaser]=field_link,field_link_summary"`;
 
 exports[`VamcHealthServicesListing formatter outputs formatted data 1`] = `
 {
@@ -140,20 +140,51 @@ exports[`VamcHealthServicesListing formatter outputs formatted data 1`] = `
   "lovellVariant": null,
   "menu": {
     "data": {
-      "description": "Test description",
+      "description": null,
       "links": [
         {
-          "description": "Test description",
+          "description": null,
           "expanded": false,
-          "label": "Test Menu Item",
-          "links": [],
+          "label": "VA Louisville health care",
+          "links": [
+            {
+              "description": null,
+              "expanded": false,
+              "label": "SERVICES AND LOCATIONS",
+              "links": [],
+              "lovellSection": null,
+              "url": {
+                "path": "",
+              },
+            },
+            {
+              "description": null,
+              "expanded": false,
+              "label": "NEWS AND EVENTS",
+              "links": [],
+              "lovellSection": null,
+              "url": {
+                "path": "",
+              },
+            },
+            {
+              "description": null,
+              "expanded": false,
+              "label": "ABOUT VA RICHMOND",
+              "links": [],
+              "lovellSection": null,
+              "url": {
+                "path": "",
+              },
+            },
+          ],
           "lovellSection": null,
           "url": {
-            "path": "/test-facility/test-service",
+            "path": "/louisville-health-care",
           },
         },
       ],
-      "name": "Test Menu Item",
+      "name": "VA Louisville health care",
     },
     "rootPath": "/north-texas-health-care/health-services/",
   },
@@ -161,7 +192,7 @@ exports[`VamcHealthServicesListing formatter outputs formatted data 1`] = `
   "moderationState": "published",
   "path": "/north-texas-health-care/health-services",
   "published": true,
-  "systemTitle": "VA New York Harbor health care",
+  "systemTitle": "VA Louisville health care",
   "title": "Health services",
   "type": "node--health_services_listing",
   "vamcEhrSystem": "vista",

@@ -4,14 +4,17 @@ import { axe } from '@/test-utils'
 import VamcSystemDetailPage from './template'
 import mockPage from './mock.json'
 import mockMenu from './mock.menu.json'
+import mockVamcSystem from '@/components/vamcSystem/mock.shallow.json'
 import { Menu } from '@/types/drupal/menu'
 import { NodeVamcSystemDetailPage } from '@/types/drupal/node'
 import { formatter } from './query'
 import { LOVELL } from '@/lib/drupal/lovell/constants'
+import { ShallowVamcSystem } from '@/components/vamcSystem/vamcSystemAndMenu'
 
 describe('VamcSystemDetailPage', () => {
   const formattedMockData = formatter({
-    entity: mockPage as NodeVamcSystemDetailPage,
+    entity: mockPage as unknown as NodeVamcSystemDetailPage,
+    vamcSystem: mockVamcSystem as ShallowVamcSystem,
     menu: mockMenu as unknown as Menu,
     lovell: null,
     hasLovellCounterpart: false,
