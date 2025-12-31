@@ -58,18 +58,15 @@ export function getYouTubeThumbnail(
   embedUrl: string | null | undefined
 ): string | null {
   if (!embedUrl) return null
-  try {
-    const url = new URL(embedUrl)
-    const videoId = url.searchParams.get('v') || url.pathname.split('/').pop()
-    if (videoId) {
-      return `https://img.youtube.com/vi/${videoId}/sddefault.jpg`
-    }
-  } catch {
-    // If URL parsing fails, try to extract video ID from string
-    const match = embedUrl.match(/[?&]v=([^&]+)/)
-    if (match) {
-      return `https://img.youtube.com/vi/${match[1]}/sddefault.jpg`
-    }
+  // Match video ID from various YouTube URL formats:
+  // - ?v=VIDEO_ID or &v=VIDEO_ID (query param)
+  // - /embed/VIDEO_ID or /v/VIDEO_ID (pathname)
+  // - youtu.be/VIDEO_ID (short URL)
+  const match =
+    embedUrl.match(/[?&]v=([^&]+)/) ||
+    embedUrl.match(/(?:youtube\.com\/(?:embed|v)\/|youtu\.be\/)([^?&]+)/)
+  if (match) {
+    return `https://img.youtube.com/vi/${match[1]}/sddefault.jpg`
   }
   return null
 }
