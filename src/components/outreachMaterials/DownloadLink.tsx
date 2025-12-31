@@ -30,7 +30,7 @@ export function DownloadLink({
     const sizeText = filesize ? formatFileSize(filesize) : ''
     const linkText = `Download ${extension}${sizeText ? ` (${sizeText})` : ''}`
 
-    return <va-link download={url} href={url} text={linkText} />
+    return <va-link download href={url} text={linkText} />
   }
 
   if (media.type === MediaResourceType.Video) {

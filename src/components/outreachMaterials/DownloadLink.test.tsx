@@ -100,7 +100,7 @@ describe('DownloadLink', () => {
       const link = container.querySelector('va-link')
       expect(link).toBeInTheDocument()
       expect(link).toHaveAttribute('href', imageMedia.imageUrl)
-      expect(link).toHaveAttribute('download', imageMedia.imageUrl)
+      expect(link).toHaveAttribute('download', '')
       expect(link).toHaveAttribute('text', 'Download JPG (0.51MB)')
 
       const axeResults = await axe(container)
@@ -115,7 +115,7 @@ describe('DownloadLink', () => {
 
       const link = container.querySelector('va-link')
       expect(link).toHaveAttribute('href', absoluteUrl)
-      expect(link).toHaveAttribute('download', absoluteUrl)
+      expect(link).toHaveAttribute('download', '')
     })
 
     test('uses fileSize prop when imageFilesize is not available', () => {
