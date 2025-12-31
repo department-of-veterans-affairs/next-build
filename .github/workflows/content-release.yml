@@ -126,7 +126,7 @@ jobs:
       EXPORT_WARNINGS: ${{ steps.export-warnings.outputs.EXPORT_WARNINGS }}
     services:
       redis:
-        image: public.ecr.aws/docker/library/redis:latest
+        image: 008577686731.dkr.ecr.us-gov-west-1.amazonaws.com/redis:8.0.2
         ports:
           - 6379:6379
         options: >-
