@@ -8,6 +8,7 @@ import { queries } from '@/lib/drupal/queries'
 import mockData from './mock.json'
 import facilityMock from '../vamcFacility/mock'
 import { formatter, params } from './query'
+import { ShallowVamcSystem } from '@/components/vamcSystem/vamcSystemAndMenu'
 
 const menuItem: DrupalMenuLinkContent = {
   title: 'Test Menu Item',
@@ -33,14 +34,32 @@ const mockMenu = {
 const VamcOperatingStatusAndAlertsMock =
   mockData as NodeVamcOperatingStatusAndAlerts
 
+const mockVamcSystem: ShallowVamcSystem = {
+  id: 'test-vamc-system-id',
+  title: 'Test VAMC System',
+  field_system_menu: {
+    type: 'menu--menu',
+    id: 'test-menu-id',
+    resourceIdObjMeta: {
+      drupal_internal__target_id: 'test-menu',
+    },
+  },
+  field_vamc_ehr_system: 'vista',
+  path: {
+    alias: '/test-vamc-system',
+    pid: 123,
+    langcode: 'en',
+  },
+}
+
+jest.mock('@/components/vamcSystem/vamcSystemAndMenu')
+
 // remove if this component does not have a data fetch
 describe('DrupalJsonApiParams configuration', () => {
-  test('params function sets the correct include fields', () => {
+  test('params function does not include field_office', () => {
     const paramsInstance = params()
     const queryString = decodeURIComponent(paramsInstance.getQueryString())
-    expect(queryString).toMatch(
-      /include=field_office,field_office.field_system_menu/
-    )
+    expect(queryString).not.toMatch(/include=field_office/)
   })
 })
 
@@ -49,6 +68,7 @@ describe('VamcOperatingStatusAndAlerts formatData', () => {
     expect(
       queries.formatData('node--vamc_operating_status_and_alerts', {
         entity: VamcOperatingStatusAndAlertsMock,
+        vamcSystem: mockVamcSystem,
         menu: null,
         facilities: [facilityMock],
       })
@@ -81,6 +101,7 @@ describe('VamcOperatingStatusAndAlerts formatData', () => {
       expect(
         queries.formatData('node--vamc_operating_status_and_alerts', {
           entity: VamcOperatingStatusAndAlertsMock,
+          vamcSystem: mockVamcSystem,
           menu: null,
           facilities: [facilityMock],
           lovell: {
@@ -99,6 +120,7 @@ describe('VamcOperatingStatusAndAlerts formatData', () => {
             path: lovellPath,
             breadcrumbs: lovellBreadcrumbs,
           },
+          vamcSystem: mockVamcSystem,
           menu: null,
           facilities: [facilityMock],
           lovell: {
@@ -128,6 +150,7 @@ describe('VamcOperatingStatusAndAlerts format situation updates', () => {
           },
         ],
       },
+      vamcSystem: mockVamcSystem,
       menu: mockMenu,
       facilities: [facilityMock],
     })
@@ -145,6 +168,7 @@ describe('VamcOperatingStatusAndAlerts format situation updates', () => {
           },
         ],
       },
+      vamcSystem: mockVamcSystem,
       menu: mockMenu,
       facilities: [facilityMock],
     })
@@ -189,6 +213,7 @@ describe('VamcOperatingStatusAndAlerts format situation updates', () => {
           },
         ],
       },
+      vamcSystem: mockVamcSystem,
       menu: mockMenu,
       facilities: [facilityMock],
     })
@@ -214,6 +239,7 @@ describe('VamcOperatingStatusAndAlerts format situation updates', () => {
           },
         ],
       },
+      vamcSystem: mockVamcSystem,
       menu: mockMenu,
       facilities: [facilityMock],
     })

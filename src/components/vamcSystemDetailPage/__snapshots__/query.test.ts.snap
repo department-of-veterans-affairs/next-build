@@ -373,7 +373,7 @@ exports[`VamcSystemDetailPage query module outputs formatted data 1`] = `
         {
           "description": null,
           "expanded": false,
-          "label": "VA Bronx health care",
+          "label": "VA Louisville health care",
           "links": [
             {
               "description": null,
@@ -412,7 +412,7 @@ exports[`VamcSystemDetailPage query module outputs formatted data 1`] = `
           },
         },
       ],
-      "name": "VA Bronx health care",
+      "name": "VA Louisville health care",
     },
     "rootPath": "/durham-health-care/about-us/mission-and-vision/",
   },
@@ -452,7 +452,7 @@ exports[`VamcSystemDetailPage query module outputs formatted data 1`] = `
   "type": "node--health_care_region_detail_page",
   "vamcEhrSystem": "vista",
   "vamcSystem": {
-    "path": "/durham-health-care",
+    "path": "/louisville-health-care",
   },
 }
 `;

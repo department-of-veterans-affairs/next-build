@@ -259,10 +259,7 @@ export interface NodeVamcSystemDetailPage extends DrupalNode {
   field_content_block: ParagraphTypes[]
   field_featured_content: Array<ParagraphQA | ParagraphWysiwyg>
   field_related_links: ParagraphListOfLinkTeasers
-  field_office: Pick<
-    NodeHealthCareRegionPage,
-    'id' | 'title' | 'field_system_menu' | 'field_vamc_ehr_system' | 'path'
-  >
+  field_office: ObjectReference
 }
 
 export interface NodeLandingPage extends DrupalNode {
@@ -716,11 +713,7 @@ export interface NodeVetCenterOutstation
 }
 
 export interface NodeVamcHealthServicesListing extends DrupalNode {
-  field_office: Pick<
-    NodeHealthCareRegionPage,
-    'id' | 'title' | 'field_system_menu'
-  > &
-    Partial<Pick<NodeHealthCareRegionPage, 'field_vamc_ehr_system'>> // The field_vamc_ehr_system is optional because it's not always present
+  field_office: ObjectReference
   field_description: string
   field_intro_text: string
   field_featured_content_healthser?: ParagraphLinkTeaser[]
@@ -729,7 +722,7 @@ export interface NodeVamcHealthServicesListing extends DrupalNode {
 }
 
 export interface NodeVamcOperatingStatusAndAlerts extends DrupalNode {
-  field_office: DrupalNode
+  field_office?: ObjectReference
   field_banner_alert?: NodeFullWidthBannerAlert[]
   field_operating_status_emerg_inf: FieldFormattedText
   field_links: FieldLink[]

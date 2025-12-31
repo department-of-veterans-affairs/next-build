@@ -7,7 +7,7 @@ import { fetchSingleEntityOrPreview, getMenu } from '../../lib/drupal/query'
 
 export type ShallowVamcSystem = Pick<
   NodeHealthCareRegionPage,
-  'id' | 'title' | 'field_system_menu'
+  'id' | 'title' | 'field_system_menu' | 'field_vamc_ehr_system' | 'path'
 >
 
 /**

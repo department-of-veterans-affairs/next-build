@@ -6,10 +6,13 @@ import mockData from './mock.json'
 import { formatter } from './query'
 import facilityMock from '../vamcFacility/mock'
 import { NodeVamcOperatingStatusAndAlerts } from '@/types/drupal/node'
+import mockVamcSystem from '@/components/vamcSystem/mock.shallow.json'
+import { ShallowVamcSystem } from '@/components/vamcSystem/vamcSystemAndMenu'
 
 describe('VamcOperatingStatusAndAlerts with valid data', () => {
   const vamcOperatingStatusAndAlertsData = formatter({
-    entity: mockData as NodeVamcOperatingStatusAndAlerts,
+    entity: mockData as unknown as NodeVamcOperatingStatusAndAlerts,
+    vamcSystem: mockVamcSystem as ShallowVamcSystem,
     menu: null,
     facilities: [facilityMock],
   })
@@ -17,9 +20,7 @@ describe('VamcOperatingStatusAndAlerts with valid data', () => {
     const { container } = render(
       <VamcOperatingStatusAndAlerts {...vamcOperatingStatusAndAlertsData} />
     )
-    expect(
-      screen.queryByText(/VA Oklahoma City health care/)
-    ).toBeInTheDocument()
+    expect(screen.queryByText(/VA Louisville health care/)).toBeInTheDocument()
     expect(screen.getByTestId('emergency-resources')).toBeInTheDocument()
     expect(screen.getByTestId('emergency-information')).toBeInTheDocument()
     expect(screen.getByTestId('local-emergency-resources')).toBeInTheDocument()
