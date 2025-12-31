@@ -34,6 +34,7 @@ const mockData = formatter({
   // drupalMockData technically has numbers instead of strings
   // for some of the IDs, but this is a known problem.
   entity: drupalMockData as NodeVamcSystemVaPolice,
+  vamcSystem: null,
   menu: mockMenu,
 })
 

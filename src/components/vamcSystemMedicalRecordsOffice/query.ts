@@ -7,7 +7,11 @@ import {
 import { VamcSystemMedicalRecordsOffice } from './formatted-type'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
-import { fetchSingleEntityOrPreview, getMenu } from '@/lib/drupal/query'
+import { fetchSingleEntityOrPreview } from '@/lib/drupal/query'
+import {
+  getVamcSystemAndMenu,
+  ShallowVamcSystem,
+} from '@/components/vamcSystem/vamcSystemAndMenu'
 import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import {
@@ -32,9 +36,10 @@ import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
 
 // Define the query params for fetching node--vamc_system_medical_records_office.
 export const params: QueryParams<null> = () => {
-  return new DrupalJsonApiParams()
-    .addFilter('type', RESOURCE_TYPES.VAMC_SYSTEM_MEDICAL_RECORDS_OFFICE)
-    .addInclude(['field_office'])
+  return new DrupalJsonApiParams().addFilter(
+    'type',
+    RESOURCE_TYPES.VAMC_SYSTEM_MEDICAL_RECORDS_OFFICE
+  )
 }
 
 // Define the option types for the data loader.
@@ -46,6 +51,7 @@ export type VamcSystemMedicalRecordsOfficeDataOpts = {
 // Define the data structure returned from the query.
 export type VamcSystemMedicalRecordsOfficeData = {
   entity: NodeVamcSystemMedicalRecordsOffice
+  vamcSystem: ShallowVamcSystem
   menu: Menu | null
   services: NodeVhaFacilityNonclinicalService[]
   lovell?: ExpandedStaticPropsContext['lovell']
@@ -62,10 +68,9 @@ export const data: QueryData<
     params
   )) as NodeVamcSystemMedicalRecordsOffice
 
-  // Fetch the menu name dynamically off of the field_region_page reference if available.
-  const menu = await getMenu(
-    entity.field_office.field_system_menu.resourceIdObjMeta
-      .drupal_internal__target_id
+  const { vamcSystem, menu } = await getVamcSystemAndMenu(
+    entity.field_office.id,
+    opts.context
   )
 
   // The URIs for the link teasers (fetched via entity_field_fetch) are not true URL paths,
@@ -85,26 +90,26 @@ export const data: QueryData<
   )
 
   const services = await fetchVhaFacilityNonclinicalServices(
-    entity.field_office.id,
+    vamcSystem.id,
     'Medical records'
   )
 
-  return { entity, menu, services, lovell: opts.context?.lovell }
+  return { entity, vamcSystem, menu, services, lovell: opts.context?.lovell }
 }
 
 // Implement the formatter.
 export const formatter: QueryFormatter<
   VamcSystemMedicalRecordsOfficeData,
   VamcSystemMedicalRecordsOffice
-> = ({ entity, menu, services, lovell }) => {
+> = ({ entity, vamcSystem, menu, services, lovell }) => {
   const formatCcWysiwyg = (field: FieldCCText) =>
     formatParagraph(normalizeEntityFetchedParagraphs(field)) as Wysiwyg
 
   return {
     ...entityBaseFields(entity, lovell),
     vamcSystem: {
-      id: entity.field_office.id,
-      title: entity.field_office.title,
+      id: vamcSystem.id,
+      title: vamcSystem.title,
     },
     menu: buildSideNavDataFromMenu(entity.path.alias, menu),
     topOfPageContent: formatCcWysiwyg(entity.field_cc_top_of_page_content),

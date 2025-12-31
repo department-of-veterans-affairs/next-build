@@ -6,7 +6,6 @@
  */
 
 import mockPage from './mock.json'
-import mockMenu from './mock.menu.json'
 import {
   NodeVamcSystemRegisterForCare,
   NodeVhaFacilityNonclinicalService,
@@ -34,7 +33,8 @@ mockDrupalQuery.setSingleEntityMock(
 mockDrupalQuery.fetchAndConcatAllResourceCollectionPages.mockImplementation(
   serviceMocks.mockFetchAndConcatAllResourceCollectionPages
 )
-mockDrupalQuery.getMenu.mockReturnValue(mockMenu)
+
+jest.mock('@/components/vamcSystem/vamcSystemAndMenu')
 
 jest.mock('@/lib/drupal/drupalClient', () => ({
   drupalClient: {

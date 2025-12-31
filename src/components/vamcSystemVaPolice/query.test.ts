@@ -10,6 +10,8 @@ jest.mock('@/lib/drupal/query')
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const mockDrupalQuery = require('@/lib/drupal/query')
 
+jest.mock('@/components/vamcSystem/vamcSystemAndMenu')
+
 mockDrupalQuery.setSingleEntityMock(
   RESOURCE_TYPES.VAMC_SYSTEM_VA_POLICE,
   () => mockData

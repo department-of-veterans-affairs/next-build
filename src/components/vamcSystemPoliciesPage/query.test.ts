@@ -5,9 +5,7 @@
 import { queries } from '@/lib/drupal/queries'
 import mockData from './mock'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
-import { formatter, params, VamcSystemPoliciesPageData } from './query'
-import { Menu } from '@/types/drupal/menu'
-import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
+import { formatter, VamcSystemPoliciesPageData } from './query'
 import { DrupalMenuLinkContent } from 'next-drupal'
 
 const menuItem: DrupalMenuLinkContent = {
@@ -36,19 +34,12 @@ jest.mock('@/lib/drupal/query')
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const mockDrupalQuery = require('@/lib/drupal/query')
 
+jest.mock('@/components/vamcSystem/vamcSystemAndMenu')
+
 mockDrupalQuery.setSingleEntityMock(
   RESOURCE_TYPES.VAMC_SYSTEM_POLICIES_PAGE,
   () => mockData
 )
-
-describe('VamcSystemPoliciesPage params configuration', () => {
-  test('params function sets the correct include fields', () => {
-    const queryParams = params()
-    const includes = queryParams.getQueryObject().include?.split(',')
-
-    expect(includes).toContain('field_office')
-  })
-})
 
 describe('VamcSystemPoliciesPage data fetching', () => {
   test('fetches and formats data correctly', async () => {
@@ -73,6 +64,7 @@ describe('VamcSystemPoliciesPage formatter', () => {
   test('formats data with menu correctly', () => {
     const mockDataStructure: VamcSystemPoliciesPageData = {
       entity: mockData,
+      vamcSystem: null,
       menu: mockMenu,
       lovell: undefined,
     }
@@ -88,6 +80,7 @@ describe('VamcSystemPoliciesPage formatter', () => {
   test('formats data without Lovell context', () => {
     const mockDataStructure: VamcSystemPoliciesPageData = {
       entity: mockData,
+      vamcSystem: null,
       menu: mockMenu,
       lovell: undefined,
     }
@@ -108,6 +101,7 @@ describe('VamcSystemPoliciesPage formatter', () => {
           alias: '/lovell-federal-health-care-va/policies',
         },
       },
+      vamcSystem: null,
       menu: mockMenu,
       lovell: {
         variant: 'va',

@@ -4,7 +4,11 @@ import { NodeVamcSystemPoliciesPage } from '@/types/drupal/node'
 import { VamcSystemPoliciesPage } from './formatted-type'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
-import { fetchSingleEntityOrPreview, getMenu } from '@/lib/drupal/query'
+import { fetchSingleEntityOrPreview } from '@/lib/drupal/query'
+import {
+  getVamcSystemAndMenu,
+  ShallowVamcSystem,
+} from '@/components/vamcSystem/vamcSystemAndMenu'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 import {
   formatParagraph,
@@ -22,10 +26,7 @@ import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
 
 // Define the query params for fetching node--vamc_system_policies_page.
 export const params: QueryParams<null> = () => {
-  return new DrupalJsonApiParams().addInclude([
-    // 'field_administration',
-    'field_office',
-  ])
+  return new DrupalJsonApiParams()
 }
 
 // Define the option types for the data loader.
@@ -36,6 +37,7 @@ export type VamcSystemPoliciesPageDataOpts = {
 
 export type VamcSystemPoliciesPageData = {
   entity: NodeVamcSystemPoliciesPage
+  vamcSystem: ShallowVamcSystem | null
   menu: Menu | null
   lovell?: ExpandedStaticPropsContext['lovell']
 }
@@ -51,15 +53,20 @@ export const data: QueryData<
     params
   )) as NodeVamcSystemPoliciesPage
 
-  // Fetch the menu name dynamically off of the field_office reference
-  const menu = entity.field_office.field_system_menu
-    ? await getMenu(
-        entity.field_office.field_system_menu.resourceIdObjMeta
-          ?.drupal_internal__target_id
-      )
-    : null
+  // Fetch the VAMC system and menu separately for caching
+  let vamcSystem: ShallowVamcSystem | null = null
+  let menu: Menu | null = null
 
-  return { entity, menu, lovell: opts.context?.lovell }
+  if (entity.field_office?.id) {
+    const result = await getVamcSystemAndMenu(
+      entity.field_office.id,
+      opts.context
+    )
+    vamcSystem = result.vamcSystem
+    menu = result.menu
+  }
+
+  return { entity, vamcSystem, menu, lovell: opts.context?.lovell }
 }
 
 export const formatter: QueryFormatter<

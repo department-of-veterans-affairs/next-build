@@ -41,7 +41,53 @@ exports[`VamcSystemPoliciesPage data fetching fetches and formats data correctly
   "lovellSwitchPath": null,
   "lovellVariant": undefined,
   "menu": {
-    "data": null,
+    "data": {
+      "description": null,
+      "links": [
+        {
+          "description": null,
+          "expanded": false,
+          "label": "VA Louisville health care",
+          "links": [
+            {
+              "description": null,
+              "expanded": false,
+              "label": "SERVICES AND LOCATIONS",
+              "links": [],
+              "lovellSection": null,
+              "url": {
+                "path": "",
+              },
+            },
+            {
+              "description": null,
+              "expanded": false,
+              "label": "NEWS AND EVENTS",
+              "links": [],
+              "lovellSection": null,
+              "url": {
+                "path": "",
+              },
+            },
+            {
+              "description": null,
+              "expanded": false,
+              "label": "ABOUT VA RICHMOND",
+              "links": [],
+              "lovellSection": null,
+              "url": {
+                "path": "",
+              },
+            },
+          ],
+          "lovellSection": null,
+          "url": {
+            "path": "/louisville-health-care",
+          },
+        },
+      ],
+      "name": "VA Louisville health care",
+    },
     "rootPath": "/augusta-health-care/policies/",
   },
   "metatags": [
