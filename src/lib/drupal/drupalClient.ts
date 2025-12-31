@@ -5,6 +5,14 @@ import { getFetcher } from 'proxy-fetcher'
 const baseUrl =
   process.env.NEXT_PUBLIC_DRUPAL_BASE_URL || 'https://va-gov-cms.ddev.site'
 
+if (process.env.USE_MEMORY_CACHE === 'true') {
+  // eslint-disable-next-line no-console
+  console.count('🍏 USE_MEMORY_CACHE is true')
+} else {
+  // eslint-disable-next-line no-console
+  console.count('🍎 USE_MEMORY_CACHE is false')
+}
+
 export const drupalClient = new DrupalClient(baseUrl, {
   fetcher: getFetcher(baseUrl),
   useDefaultResourceTypeEntry: true,
