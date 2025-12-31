@@ -134,7 +134,7 @@ exports[`VamcSystemMedicalRecordsOffice formatter outputs formatted data 1`] = `
         {
           "description": null,
           "expanded": false,
-          "label": "VA Richmond health care",
+          "label": "VA Louisville health care",
           "links": [
             {
               "description": null,
@@ -169,11 +169,11 @@ exports[`VamcSystemMedicalRecordsOffice formatter outputs formatted data 1`] = `
           ],
           "lovellSection": null,
           "url": {
-            "path": "/richmond-health-care",
+            "path": "/louisville-health-care",
           },
         },
       ],
-      "name": "VA Richmond health care",
+      "name": "VA Louisville health care",
     },
     "rootPath": "/beckley-health-care/medical-records-office/",
   },
@@ -373,8 +373,8 @@ exports[`VamcSystemMedicalRecordsOffice formatter outputs formatted data 1`] = `
   },
   "type": "node--vamc_system_medical_records_offi",
   "vamcSystem": {
-    "id": "6e35d07b-6b55-4f0c-b92d-bfc6e4f46528",
-    "title": "VA Beckley health care",
+    "id": "40bc0017-13cb-4e52-859f-f815fbb5a547",
+    "title": "VA Louisville health care",
   },
 }
 `;

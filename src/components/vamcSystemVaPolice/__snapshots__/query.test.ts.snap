@@ -99,7 +99,53 @@ exports[`VamcSystemVaPolice formatData outputs formatted data 1`] = `
   "id": "7833b254-f4e4-4adb-bce1-d72d5e337c1e",
   "lastUpdated": "2023-11-20T02:56:16+00:00",
   "menu": {
-    "data": null,
+    "data": {
+      "description": null,
+      "links": [
+        {
+          "description": null,
+          "expanded": false,
+          "label": "VA Louisville health care",
+          "links": [
+            {
+              "description": null,
+              "expanded": false,
+              "label": "SERVICES AND LOCATIONS",
+              "links": [],
+              "lovellSection": null,
+              "url": {
+                "path": "",
+              },
+            },
+            {
+              "description": null,
+              "expanded": false,
+              "label": "NEWS AND EVENTS",
+              "links": [],
+              "lovellSection": null,
+              "url": {
+                "path": "",
+              },
+            },
+            {
+              "description": null,
+              "expanded": false,
+              "label": "ABOUT VA RICHMOND",
+              "links": [],
+              "lovellSection": null,
+              "url": {
+                "path": "",
+              },
+            },
+          ],
+          "lovellSection": null,
+          "url": {
+            "path": "/louisville-health-care",
+          },
+        },
+      ],
+      "name": "VA Louisville health care",
+    },
     "rootPath": "/central-arkansas-health-care/va-police/",
   },
   "metatags": [
@@ -210,7 +256,7 @@ exports[`VamcSystemVaPolice formatData outputs formatted data 1`] = `
     "type": "paragraph--featured_content",
   },
   "published": true,
-  "system": "VA Central Arkansas health care",
+  "system": "VA Louisville health care",
   "title": "VA police",
   "type": "node--vamc_system_va_police",
 }

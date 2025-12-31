@@ -65,7 +65,7 @@ To get a faster decision on your application, bring these documents and informat
         {
           "description": null,
           "expanded": false,
-          "label": "VA Richmond health care",
+          "label": "VA Louisville health care",
           "links": [
             {
               "description": null,
@@ -100,11 +100,11 @@ To get a faster decision on your application, bring these documents and informat
           ],
           "lovellSection": null,
           "url": {
-            "path": "/richmond-health-care",
+            "path": "/louisville-health-care",
           },
         },
       ],
-      "name": "VA Richmond health care",
+      "name": "VA Louisville health care",
     },
     "rootPath": "/richmond-health-care/register-for-care/",
   },
@@ -301,8 +301,8 @@ To get a faster decision on your application, bring these documents and informat
   },
   "type": "node--vamc_system_register_for_care",
   "vamcSystem": {
-    "id": "9aafd9b9-3676-4167-aeb7-0bde3c1ec1d6",
-    "title": "VA Richmond health care",
+    "id": "40bc0017-13cb-4e52-859f-f815fbb5a547",
+    "title": "VA Louisville health care",
   },
 }
 `;

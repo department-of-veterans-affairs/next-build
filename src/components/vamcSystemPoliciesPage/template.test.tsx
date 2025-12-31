@@ -14,6 +14,7 @@ const mockMenu: Menu = {
 }
 const mockDataStructure: VamcSystemPoliciesPageData = {
   entity: mockEntity,
+  vamcSystem: null,
   menu: mockMenu,
   lovell: undefined,
 }
@@ -224,6 +225,7 @@ describe('VamcSystemPoliciesPage LovellSwitcher', () => {
   test('does not render LovellSwitcher when no lovell data is provided', () => {
     const dataWithoutLovell: VamcSystemPoliciesPageData = {
       entity: mockEntity,
+      vamcSystem: null,
       menu: mockMenu,
       lovell: undefined,
     }
@@ -246,6 +248,7 @@ describe('VamcSystemPoliciesPage LovellSwitcher', () => {
 
     const dataWithVALovell: VamcSystemPoliciesPageData = {
       entity: mockEntity,
+      vamcSystem: null,
       menu: mockMenu,
       lovell: mockLovellContext,
     }

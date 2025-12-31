@@ -4,7 +4,11 @@ import { NodeVamcSystemVaPolice } from '@/types/drupal/node'
 import { VamcSystemVaPolice } from './formatted-type'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
-import { fetchSingleEntityOrPreview, getMenu } from '@/lib/drupal/query'
+import { fetchSingleEntityOrPreview } from '@/lib/drupal/query'
+import {
+  getVamcSystemAndMenu,
+  ShallowVamcSystem,
+} from '@/components/vamcSystem/vamcSystemAndMenu'
 import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
@@ -20,7 +24,6 @@ import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude([
     'field_administration',
-    'field_office',
     'field_phone_numbers_paragraph',
   ])
 }
@@ -33,6 +36,7 @@ export type VamcSystemVaPoliceDataOpts = {
 
 type VamcSystemVaPoliceData = {
   entity: NodeVamcSystemVaPolice
+  vamcSystem: ShallowVamcSystem | null
   menu: Menu | null
   lovell?: ExpandedStaticPropsContext['lovell']
 }
@@ -48,15 +52,20 @@ export const data: QueryData<
     params
   )) as NodeVamcSystemVaPolice
 
-  // Fetch the menu name dynamically off of the field_office reference
-  const menu = entity.field_office.field_system_menu
-    ? await getMenu(
-        entity.field_office.field_system_menu.resourceIdObjMeta
-          ?.drupal_internal__target_id
-      )
-    : null
+  // Fetch the VAMC system and menu separately for caching
+  let vamcSystem: ShallowVamcSystem | null = null
+  let menu: Menu | null = null
 
-  return { entity, menu, lovell: opts.context?.lovell }
+  if (entity.field_office?.id) {
+    const result = await getVamcSystemAndMenu(
+      entity.field_office.id,
+      opts.context
+    )
+    vamcSystem = result.vamcSystem
+    menu = result.menu
+  }
+
+  return { entity, vamcSystem, menu, lovell: opts.context?.lovell }
 }
 
 // Similarly, this formats centralized content FAQs to match what our QA components are expecting
@@ -66,7 +75,7 @@ const formatFaq = (faqs: ParagraphCCQaSection) =>
 export const formatter: QueryFormatter<
   VamcSystemVaPoliceData,
   VamcSystemVaPolice
-> = ({ entity, menu, lovell }) => {
+> = ({ entity, vamcSystem, menu, lovell }) => {
   const formattedMenu = buildSideNavDataFromMenu(entity.path.alias, menu)
 
   return {
@@ -81,7 +90,7 @@ export const formatter: QueryFormatter<
           entity.field_cc_va_police_overview?.fetched?.field_wysiwyg?.[0]
         ) || '',
     },
-    system: entity.field_office?.title || '',
+    system: vamcSystem?.title || '',
     phoneNumber: {
       extension:
         entity.field_phone_numbers_paragraph?.[0]?.field_phone_extension || '',
