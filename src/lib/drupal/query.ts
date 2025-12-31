@@ -127,6 +127,8 @@ export async function getMenu(
 
   // Store in memory cache if enabled
   if (process.env.USE_MEMORY_CACHE === 'true') {
+    // eslint-disable-next-line no-console
+    console.log('🍄 setting menu in memory cache', cacheKey)
     memoryCache.set(cacheKey, menu)
   }
 

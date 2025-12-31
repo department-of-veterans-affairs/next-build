@@ -5,6 +5,9 @@ import { getFetcher } from 'proxy-fetcher'
 const baseUrl =
   process.env.NEXT_PUBLIC_DRUPAL_BASE_URL || 'https://va-gov-cms.ddev.site'
 
+// eslint-disable-next-line no-console
+console.log('USE_MEMORY_CACHE', process.env.USE_MEMORY_CACHE)
+
 export const drupalClient = new DrupalClient(baseUrl, {
   fetcher: getFetcher(baseUrl),
   useDefaultResourceTypeEntry: true,
