@@ -111,8 +111,6 @@ export async function getMenu(
   if (process.env.USE_MEMORY_CACHE === 'true') {
     const cachedMenu = memoryCache.get(cacheKey)
     if (cachedMenu) {
-      // eslint-disable-next-line no-console
-      console.log('🍄 getting menu from memory cache', cacheKey)
       return cachedMenu as Menu
     }
   }
