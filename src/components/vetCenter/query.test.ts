@@ -19,7 +19,7 @@ mockDrupalQuery.setSingleEntityMock(
   mockVetCenterQuery
 )
 mockDrupalQuery.setResourceCollectionMock(
-  RESOURCE_TYPES.MEDIA,
+  RESOURCE_TYPES.MEDIA_IMAGE,
   mockBannerMediaQuery
 )
 

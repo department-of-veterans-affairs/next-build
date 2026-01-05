@@ -9,10 +9,24 @@ import {
   ResourceType,
 } from '@/lib/constants/resourceTypes'
 
+interface ComparisonRecord {
+  env1: string
+  env2: string
+  selector: string
+  timestamp: string
+  html1?: string // Raw HTML from env1
+  html2?: string // Raw HTML from env2
+  acceptedDifferences?: string[] // Array of "nodeId:differenceIndex"
+  comments?: Record<string, string> // Map of nodeId -> comment text
+  collapseWhitespace?: boolean // Comparison display setting
+  includeDataTestId?: boolean // Comparison display setting
+}
+
 interface QAPath {
   path: string
   starred?: boolean
   notes?: string
+  comparisons?: ComparisonRecord[]
 }
 
 interface QACache {
@@ -50,6 +64,9 @@ function cleanPath(qaPath: QAPath): Partial<QAPath> {
   }
   if (qaPath.notes && qaPath.notes.trim() !== '') {
     cleaned.notes = qaPath.notes
+  }
+  if (qaPath.comparisons && qaPath.comparisons.length > 0) {
+    cleaned.comparisons = qaPath.comparisons
   }
   return cleaned
 }
@@ -138,8 +155,8 @@ export default async function handler(
 
       let cache: QACache
 
-      if (existingCache && shouldRevalidate) {
-        // Merge new paths with existing cache
+      if (existingCache) {
+        // Merge new paths with existing cache (preserves comparisons, stars, notes)
         cache = mergePathsWithCache(newPaths, existingCache)
       } else {
         // Create new cache
@@ -166,7 +183,15 @@ export default async function handler(
 
   if (req.method === 'POST') {
     try {
-      const { resourceType, path: pathToUpdate, starred, notes } = req.body
+      const {
+        resourceType,
+        path: pathToUpdate,
+        starred,
+        notes,
+        addComparison,
+        deleteComparisonIndex,
+        updateComparisonMetadata,
+      } = req.body
 
       if (
         !resourceType ||
@@ -204,6 +229,67 @@ export default async function handler(
           cache.paths[pathIndex].notes = notes
         } else {
           delete cache.paths[pathIndex].notes
+        }
+      }
+      if (addComparison && typeof addComparison === 'object') {
+        // Add or replace comparison (replace if same env1 and env2 exist)
+        if (!cache.paths[pathIndex].comparisons) {
+          cache.paths[pathIndex].comparisons = []
+        }
+
+        const newComp = addComparison as ComparisonRecord
+        const existingIndex = cache.paths[pathIndex].comparisons.findIndex(
+          (c) => c.env1 === newComp.env1 && c.env2 === newComp.env2
+        )
+
+        if (existingIndex !== -1) {
+          // Replace existing comparison
+          cache.paths[pathIndex].comparisons[existingIndex] = newComp
+        } else {
+          // Add new comparison
+          cache.paths[pathIndex].comparisons.push(newComp)
+        }
+      }
+      if (typeof deleteComparisonIndex === 'number') {
+        // Delete a comparison by index
+        if (cache.paths[pathIndex].comparisons) {
+          cache.paths[pathIndex].comparisons.splice(deleteComparisonIndex, 1)
+          if (cache.paths[pathIndex].comparisons.length === 0) {
+            delete cache.paths[pathIndex].comparisons
+          }
+        }
+      }
+      if (
+        updateComparisonMetadata &&
+        typeof updateComparisonMetadata === 'object'
+      ) {
+        // Update comparison metadata (accepted differences, comments, and settings)
+        const {
+          comparisonIndex,
+          acceptedDifferences,
+          comments,
+          collapseWhitespace,
+          includeDataTestId,
+        } = updateComparisonMetadata
+        if (
+          typeof comparisonIndex === 'number' &&
+          cache.paths[pathIndex].comparisons
+        ) {
+          const comparison = cache.paths[pathIndex].comparisons[comparisonIndex]
+          if (comparison) {
+            if (acceptedDifferences !== undefined) {
+              comparison.acceptedDifferences = acceptedDifferences
+            }
+            if (comments !== undefined) {
+              comparison.comments = comments
+            }
+            if (collapseWhitespace !== undefined) {
+              comparison.collapseWhitespace = collapseWhitespace
+            }
+            if (includeDataTestId !== undefined) {
+              comparison.includeDataTestId = includeDataTestId
+            }
+          }
         }
       }
 

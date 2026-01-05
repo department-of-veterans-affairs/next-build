@@ -7,7 +7,7 @@ import { normalizeEmbeddedVideoUrl } from '@/lib/utils/embeddedMediaVideoUrls'
 
 // Define the query params for fetching node--media_video.
 export const params: QueryParams<null> = () => {
-  return new DrupalJsonApiParams().addInclude([])
+  return new DrupalJsonApiParams()
 }
 
 // Define the option types for the data loader.
