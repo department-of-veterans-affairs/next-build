@@ -41,8 +41,8 @@ const nextConfig = {
     reactCompiler: true,
     instrumentationHook: true,
     staticGenerationRetryCount: 3,
-    staticGenerationMaxConcurrency: 1,
-    staticGenerationMinPagesPerWorker: 2,
+    staticGenerationMaxConcurrency: 4,
+    staticGenerationMinPagesPerWorker: 8,
   },
 
   // Custom cache handler for S3
