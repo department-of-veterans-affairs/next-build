@@ -90,10 +90,10 @@ interface QueryState {
   useAuthentication: boolean
 }
 
-const resourceTypeOptions = Object.values({
-  ...RESOURCE_TYPES,
-  ...PARAGRAPH_RESOURCE_TYPES,
-}).sort()
+const resourceTypeOptions = [
+  ...Object.values(RESOURCE_TYPES),
+  ...Object.values(PARAGRAPH_RESOURCE_TYPES),
+].sort()
 
 // Helper functions for URL state management
 const serializeFilters = (filters: Filter[]): string => {
