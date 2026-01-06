@@ -1,0 +1,185 @@
+[
+  {
+    "type": "node--outreach_asset",
+    "id": "asset-1",
+    "drupal_internal__nid": 1001,
+    "drupal_internal__vid": 2001,
+    "langcode": "en",
+    "status": true,
+    "title": "VA Benefits Brochure",
+    "created": "2020-03-02T21:36:30+00:00",
+    "changed": "2020-03-11T20:37:01+00:00",
+    "field_description": "A comprehensive guide to VA benefits",
+    "field_format": "PDF",
+    "field_listing": {
+      "type": "node--publication_listing",
+      "id": "a75c369c-a7f5-402b-aeb9-74ad8d24fd36"
+    },
+    "field_lc_categories": [
+      {
+        "type": "taxonomy_term--lc_categories",
+        "id": "cat-1",
+        "name": "Benefits",
+        "field_topic_id": "benefits-001"
+      },
+      {
+        "type": "taxonomy_term--lc_categories",
+        "id": "cat-2",
+        "name": "Health Care",
+        "field_topic_id": "health-001"
+      }
+    ],
+    "field_media": {
+      "type": "media--document",
+      "id": "media-doc-1",
+      "field_document": {
+        "type": "file--file",
+        "id": "file-1",
+        "uri": {
+          "value": "public://2023-06/va-benefits-brochure.pdf",
+          "url": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/2023-06/va-benefits-brochure.pdf"
+        },
+        "filesize": 1024000
+      }
+    }
+  },
+  {
+    "type": "node--outreach_asset",
+    "id": "asset-2",
+    "drupal_internal__nid": 1002,
+    "drupal_internal__vid": 2002,
+    "langcode": "en",
+    "status": true,
+    "title": "VA Health Care Poster",
+    "created": "2020-03-03T21:36:30+00:00",
+    "changed": "2020-03-12T20:37:01+00:00",
+    "field_description": "Poster promoting VA health care services",
+    "field_format": "Image",
+    "field_listing": {
+      "type": "node--publication_listing",
+      "id": "a75c369c-a7f5-402b-aeb9-74ad8d24fd36"
+    },
+    "field_lc_categories": [
+      {
+        "type": "taxonomy_term--lc_categories",
+        "id": "cat-2",
+        "name": "Health Care",
+        "field_topic_id": "health-001"
+      }
+    ],
+    "field_media": {
+      "type": "media--image",
+      "id": "media-img-1",
+      "image": {
+        "type": "file--file",
+        "id": "file-2",
+        "uri": {
+          "value": "public://2023-06/va-health-care-poster.jpg",
+          "url": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/2023-06/va-health-care-poster.jpg"
+        },
+        "filesize": 512000,
+        "resourceIdObjMeta": {
+          "alt": "VA Health Care Services Poster"
+        }
+      }
+    }
+  },
+  {
+    "type": "node--outreach_asset",
+    "id": "asset-3",
+    "drupal_internal__nid": 1003,
+    "drupal_internal__vid": 2003,
+    "langcode": "en",
+    "status": true,
+    "title": "VA Services Video",
+    "created": "2020-03-04T21:36:30+00:00",
+    "changed": "2020-03-13T20:37:01+00:00",
+    "field_description": "Video overview of VA services",
+    "field_format": "Video",
+    "field_listing": {
+      "type": "node--publication_listing",
+      "id": "a75c369c-a7f5-402b-aeb9-74ad8d24fd36"
+    },
+    "field_lc_categories": [
+      {
+        "type": "taxonomy_term--lc_categories",
+        "id": "cat-1",
+        "name": "Benefits",
+        "field_topic_id": "benefits-001"
+      },
+      {
+        "type": "taxonomy_term--lc_categories",
+        "id": "cat-3",
+        "name": "Education",
+        "field_topic_id": "education-001"
+      }
+    ],
+    "field_media": {
+      "type": "media--video",
+      "id": "media-vid-1",
+      "field_media_video_embed_field": "https://www.youtube.com/embed/example123",
+      "thumbnail": {
+        "derivative": {
+          "url": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/2023-06/video-thumbnail.jpg"
+        }
+      }
+    }
+  },
+  {
+    "type": "node--outreach_asset",
+    "id": "asset-4",
+    "drupal_internal__nid": 1004,
+    "drupal_internal__vid": 2004,
+    "langcode": "en",
+    "status": true,
+    "title": "Asset Without Media",
+    "created": "2020-03-05T21:36:30+00:00",
+    "changed": "2020-03-14T20:37:01+00:00",
+    "field_description": "An asset with no media attached",
+    "field_format": null,
+    "field_listing": {
+      "type": "node--publication_listing",
+      "id": "a75c369c-a7f5-402b-aeb9-74ad8d24fd36"
+    },
+    "field_lc_categories": [],
+    "field_media": null
+  },
+  {
+    "type": "node--outreach_asset",
+    "id": "asset-5",
+    "drupal_internal__nid": 1005,
+    "drupal_internal__vid": 2005,
+    "langcode": "en",
+    "status": true,
+    "title": "Asset With Empty Categories",
+    "created": "2020-03-06T21:36:30+00:00",
+    "changed": "2020-03-15T20:37:01+00:00",
+    "field_description": "An asset with categories missing topic IDs",
+    "field_format": "PDF",
+    "field_listing": {
+      "type": "node--publication_listing",
+      "id": "a75c369c-a7f5-402b-aeb9-74ad8d24fd36"
+    },
+    "field_lc_categories": [
+      {
+        "type": "taxonomy_term--lc_categories",
+        "id": "cat-4",
+        "name": "Other Category",
+        "field_topic_id": ""
+      }
+    ],
+    "field_media": {
+      "type": "media--document",
+      "id": "media-doc-2",
+      "field_document": {
+        "type": "file--file",
+        "id": "file-3",
+        "uri": {
+          "value": "public://2023-06/other-document.pdf",
+          "url": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/2023-06/other-document.pdf"
+        },
+        "filesize": 2048000
+      }
+    }
+  }
+]

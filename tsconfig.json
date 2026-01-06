@@ -21,6 +21,7 @@
       "@/assets/*": ["./src/assets/*"],
       "@/api/*": ["./src/pages/api/*"],
       "@/datadogConnector/*": ["./src/datadogConnector/*"],
+      "@/dev/*": ["./src/dev/*"],
       "@/lib/*": ["./src/lib/*"],
       "@/pages/*": ["./src/pages/*"],
       "@/types/*": ["./src/types/*"],
