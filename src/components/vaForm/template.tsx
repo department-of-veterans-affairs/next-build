@@ -5,6 +5,13 @@ import { VaForm as VaFormType } from './formatted-type'
 
 type VaFormProps = VaFormType
 
+const getDownloadButtonText = (lang: string, formNumber: string) => {
+  if (lang === 'es') {
+    return `Descargar el formulario VA ${formNumber}`
+  }
+  return `Download VA Form ${formNumber}`
+}
+
 export function VaForm({
   title,
   formName,
@@ -36,13 +43,6 @@ export function VaForm({
       year: 'numeric',
       month: 'long',
     })
-  }
-
-  const getDownloadButtonText = () => {
-    if (formLanguage === 'es') {
-      return `Descargar el formulario VA ${formNumber}`
-    }
-    return `Download VA Form ${formNumber}`
   }
 
   return (
@@ -144,7 +144,7 @@ export function VaForm({
                     icon="file_download"
                     size="3"
                   />
-                  {getDownloadButtonText()} (PDF)
+                  {getDownloadButtonText(formLanguage, formNumber)} (PDF)
                 </button>
               )}
             </div>
@@ -208,21 +208,17 @@ export function VaForm({
                           data-href={vaForm.formUrl.uri}
                           data-form-number={vaForm.formNumber}
                           id={`${vaForm.formNumber}-download-button-${vaForm.formLanguage}`}
-                          {...(vaForm.formLanguage && {
-                            lang: vaForm.formLanguage,
-                          })}
-                          onClick={() =>
-                            window.open(vaForm.formUrl!.uri, '_blank')
-                          }
+                          lang={vaForm.formLanguage ?? 'en'}
                         >
                           <va-icon
                             className="vads-u-margin-right--0p5"
                             icon="file_download"
                             size="3"
                           />
-                          {vaForm.formLanguage === 'es'
-                            ? `Descargar el formulario VA ${vaForm.formNumber}`
-                            : `Download VA Form ${vaForm.formNumber}`}{' '}
+                          {getDownloadButtonText(
+                            vaForm.formLanguage,
+                            vaForm.formNumber
+                          )}{' '}
                           (PDF)
                         </button>
                       </div>
