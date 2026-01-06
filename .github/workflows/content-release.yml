@@ -124,19 +124,6 @@ jobs:
       YARN_OUTPUT: ${{ steps.export-yarn-output.outputs.YARN_OUTPUT }}
       BUILT_PAGES: ${{ steps.export-yarn-output.outputs.BUILT_PAGES }}
       EXPORT_WARNINGS: ${{ steps.export-warnings.outputs.EXPORT_WARNINGS }}
-    services:
-      redis:
-        image: 008577686731.dkr.ecr.us-gov-west-1.amazonaws.com/redis:8.0.2
-        credentials:
-          username: ${{ needs.login-to-amazon-ecr.outputs.docker_username }}
-          password: ${{ needs.login-to-amazon-ecr.outputs.docker_password }}
-        ports:
-          - 6379:6379
-        options: >-
-          --health-cmd "redis-cli ping"
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
     container:
       image: 008577686731.dkr.ecr.us-gov-west-1.amazonaws.com/node-22.16.0-bullseye:latest
       credentials:
@@ -226,7 +213,7 @@ jobs:
         retry_on: error
         timeout_minutes: 90
         command: |
-          cd main && BUILD_OPTION=static yarn export --DRUPAL_CLIENT_ID ${{ secrets.PROD_DRUPAL_CLIENT_ID }} --DRUPAL_CLIENT_SECRET ${{ secrets.PROD_DRUPAL_CLIENT_SECRET }} --USE_REDIS --REDIS_URL redis://redis:6379 | tee yarnoutput
+          cd main && BUILD_OPTION=static yarn export --DRUPAL_CLIENT_ID ${{ secrets.PROD_DRUPAL_CLIENT_ID }} --DRUPAL_CLIENT_SECRET ${{ secrets.PROD_DRUPAL_CLIENT_SECRET }} --no-USE_REDIS | tee yarnoutput
           echo YARN_OUTPUT=$(<yarnoutput) >> $GITHUB_OUTPUT
           echo BUILT_PAGES=$(grep -oE "*\/([0-9]{4,})" ./yarnoutput| head -1 | sed 's/\///g') >> $GITHUB_OUTPUT
           ls
