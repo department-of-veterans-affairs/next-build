@@ -3,10 +3,20 @@ import { useState, useEffect, useCallback, useMemo } from 'react'
 import { useRouter } from 'next/router'
 import { PAGE_RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 
+interface ComparisonRecord {
+  env1: string
+  env2: string
+  selector: string
+  success: boolean
+  message: string
+  timestamp: string
+}
+
 interface QAPath {
   path: string
   starred?: boolean
   notes?: string
+  comparisons?: ComparisonRecord[]
 }
 
 interface QACache {
@@ -244,7 +254,7 @@ export default function QAPage() {
 
     try {
       const response = await fetch(
-        `/api/qa/paths?resourceType=${encodeURIComponent(resourceType)}`
+        `/api/qa/paths?resourceType=${encodeURIComponent(resourceType)}&revalidate=true`
       )
 
       if (!response.ok) {
@@ -545,6 +555,12 @@ export default function QAPage() {
             className="usa-button usa-button-secondary"
           >
             Go to review page
+          </a>
+          <a
+            href="/_playground/qa/comparisons"
+            className="usa-button usa-button-secondary"
+          >
+            View All Comparisons
           </a>
           <button
             className="usa-button usa-button-secondary"

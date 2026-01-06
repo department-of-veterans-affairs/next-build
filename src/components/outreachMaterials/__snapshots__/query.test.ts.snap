@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`OutreachMaterials query outputs formatted data 1`] = `
+{
+  "breadcrumbs": null,
+  "entityId": 2806,
+  "entityPath": "/pittsburgh-health-care/public-outreach-materials",
+  "id": "a75c369c-a7f5-402b-aeb9-74ad8d24fd36",
+  "introText": "Download materials to help spread the word about VA benefits and services.",
+  "lastUpdated": "2020-03-11T20:37:01+00:00",
+  "metatags": undefined,
+  "moderationState": undefined,
+  "outreachAssets": [
+    {
+      "categories": [
+        "benefits-001",
+        "health-001",
+      ],
+      "description": "A comprehensive guide to VA benefits",
+      "format": "PDF",
+      "id": "asset-1",
+      "media": {
+        "documentFilesize": 1024000,
+        "documentUrl": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/2023-06/va-benefits-brochure.pdf",
+        "type": "media--document",
+      },
+      "title": "VA Benefits Brochure",
+    },
+    {
+      "categories": [
+        "health-001",
+      ],
+      "description": "Poster promoting VA health care services",
+      "format": "Image",
+      "id": "asset-2",
+      "media": {
+        "imageAlt": "VA Health Care Services Poster",
+        "imageFilesize": 512000,
+        "imageUrl": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/2023-06/va-health-care-poster.jpg",
+        "type": "media--image",
+      },
+      "title": "VA Health Care Poster",
+    },
+    {
+      "categories": [
+        "benefits-001",
+        "education-001",
+      ],
+      "description": "Video overview of VA services",
+      "format": "Video",
+      "id": "asset-3",
+      "media": {
+        "type": "media--video",
+        "videoEmbedUrl": "https://www.youtube.com/embed/example123",
+        "videoThumbnailUrl": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/2023-06/video-thumbnail.jpg",
+      },
+      "title": "VA Services Video",
+    },
+    {
+      "categories": [],
+      "description": "An asset with categories missing topic IDs",
+      "format": "PDF",
+      "id": "asset-5",
+      "media": {
+        "documentFilesize": 2048000,
+        "documentUrl": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/2023-06/other-document.pdf",
+        "type": "media--document",
+      },
+      "title": "Asset With Empty Categories",
+    },
+  ],
+  "published": true,
+  "title": "Public outreach materials",
+  "topics": [
+    {
+      "name": "Benefits",
+      "topicId": "benefits-001",
+    },
+    {
+      "name": "Education",
+      "topicId": "education-001",
+    },
+    {
+      "name": "Health Care",
+      "topicId": "health-001",
+    },
+  ],
+  "type": "node--publication_listing",
+}
+`;
