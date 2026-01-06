@@ -95,7 +95,7 @@ describe('VaForm formatter', () => {
       title: 'Application for Health Benefits',
       formNumber: '10-10EZ',
       formName: 'Application for Health Benefits',
-      usage: formatted.usage, // Again, same string
+      usage: formatted.usage, // It's just the same string; cheating for brevity
       formUrl: {
         uri: 'http://www.vba.va.gov/pubs/forms/VBA-21-0781-ARE.pdf',
         title: null,
