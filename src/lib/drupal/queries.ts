@@ -73,6 +73,7 @@ import * as CampaignLandingPage from '../../components/campaignLandingPage/query
 import * as ServiceLocation from '@/components/serviceLocation/query'
 import * as VaForm from '@/components/vaForm/query'
 import * as OutreachHub from '../../components/outreachHub/query'
+import * as OutreachMaterials from '../../components/outreachMaterials/query'
 import * as SpanishTranslationSummary from '@/components/spanishTranslationSummary/query'
 import * as HomePageHero from '@/components/homePageHero/query'
 import * as HomePageCommonTasks from '@/components/homePageCommonTasks/query'
@@ -126,6 +127,7 @@ export const QUERIES_MAP = {
   [RESOURCE_TYPES.VA_FORM]: VaForm,
   [RESOURCE_TYPES.CAMPAIGN_LANDING_PAGE]: CampaignLandingPage,
   [RESOURCE_TYPES.OFFICE]: OutreachHub,
+  [RESOURCE_TYPES.PUBLICATION_LISTING]: OutreachMaterials,
 
   // Paragraphs
   [PARAGRAPH_RESOURCE_TYPES.ACCORDION_ITEM]: Accordion,

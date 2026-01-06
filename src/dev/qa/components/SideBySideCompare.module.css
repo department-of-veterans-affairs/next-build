@@ -1,0 +1,739 @@
+/* SideBySideCompare.css - Styles for HTML comparison tool */
+
+/* ==========================================================================
+   Layout & Container
+   ========================================================================== */
+
+.compareContainer {
+  /* Main wrapper - no specific styles needed */
+}
+
+.compareHeader {
+  margin-bottom: 12px;
+  padding: 16px;
+  background-color: #e7f6f8;
+  border-radius: 4px;
+  border: 1px solid #97d4ea;
+}
+
+.compareHeaderContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.compareViewWrapper {
+  border: 1px solid #d6d7d9;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  overflow: hidden;
+}
+
+.compareScrollContainer {
+  overflow-y: auto;
+  overflow-x: auto;
+  max-height: 800px;
+  width: 100%;
+  background-color: #f9f9f9;
+  padding: 16px;
+}
+
+.compareColumnHeaders {
+  display: flex;
+  gap: 8px;
+  font-weight: bold;
+  font-size: 14px;
+  background-color: #e7f6f8;
+  padding: 12px 16px;
+  border-bottom: 2px solid #97d4ea;
+  /* Reserve space for scrollbar to keep alignment */
+  overflow-y: scroll;
+  overflow-x: hidden;
+  /* Make the scrollbar invisible but still take up space */
+  scrollbar-width: auto;
+  scrollbar-color: transparent transparent;
+}
+
+.compareColumnHeaders::-webkit-scrollbar {
+  width: auto;
+  background: transparent;
+}
+
+.compareColumnHeaders::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+.compareColumnHeader {
+  flex: 1 1 50%;
+  min-width: 0;
+  color: #1b1b1b;
+}
+
+/* ==========================================================================
+   Summary Section
+   ========================================================================== */
+
+.summary {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.summaryTitle {
+  font-size: 13px;
+  color: #1b1b1b;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.summaryText {
+  font-size: 14px;
+  color: #565c65;
+}
+
+.summaryBadge {
+  margin-left: 8px;
+  padding: 2px 8px;
+  background-color: #fff3cd;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #936c12;
+}
+
+.summaryBadgeAccepted {
+  margin-left: 8px;
+  padding: 2px 8px;
+  background-color: #e7f4e4;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #2e7d32;
+}
+
+/* ==========================================================================
+   Navigation Controls
+   ========================================================================== */
+
+.navControls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navCheckboxWrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.navCheckbox {
+  cursor: pointer;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.navCheckboxLabel {
+  font-size: 13px;
+  cursor: pointer;
+  user-select: none;
+  margin: 0 !important;
+  color: #1b1b1b;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.navDivider {
+  border-right: 1px solid #97d4ea;
+  height: 30px;
+}
+
+.navCounter {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1b1b1b;
+  min-width: 100px;
+  text-align: center;
+}
+
+.navButtons {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.navButton {
+  padding: 6px 12px;
+  background-color: #005ea2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.navButton:hover {
+  background-color: #004a7c;
+}
+
+.navEmptyMessage {
+  font-size: 13px;
+  color: #757575;
+  font-style: italic;
+}
+
+/* ==========================================================================
+   Settings Menu
+   ========================================================================== */
+
+.settingsWrapper {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.settingsButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #005ea2;
+  margin: 0;
+}
+
+.settingsDropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 4px;
+  background-color: white;
+  border: 1px solid #97d4ea;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  min-width: 260px;
+  z-index: 1000;
+  padding: 0;
+}
+
+.settingsSection {
+  padding: 8px;
+}
+
+.settingsSectionTitle {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #71767a;
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
+
+.settingsDivider {
+  border-top: 1px solid #d6d7d9;
+  margin: 4px 0;
+}
+
+.settingsActionButton {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background-color: transparent;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 13px;
+  color: #1b1b1b;
+  text-align: left;
+  transition: background-color 0.15s ease;
+  margin-bottom: 4px;
+}
+
+.settingsActionButton:last-child {
+  margin-bottom: 0;
+}
+
+.settingsActionButton:hover:not(:disabled) {
+  background-color: #d6d7d9;
+}
+
+.settingsActionButton:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.settingsItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 4px;
+}
+
+.settingsCheckbox {
+  cursor: pointer;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.settingsLabel {
+  font-size: 13px;
+  cursor: pointer;
+  user-select: none;
+  margin: 0;
+  color: #1b1b1b;
+}
+
+/* ==========================================================================
+   Tree Row
+   ========================================================================== */
+
+.treeRow {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.treeRowDivider {
+  border-left: 1px solid #bbb;
+}
+
+/* ==========================================================================
+   Tree Cell - Base and Variants
+   ========================================================================== */
+
+/* Base tree cell */
+.cell {
+  flex: 1 1 50%;
+  min-width: 0;
+  font-family: monospace;
+  font-size: 13px;
+  cursor: default;
+}
+
+/* Cell state variants */
+.cellHovered {
+  background-color: #e7f6f8;
+}
+
+.cellDifferent {
+  background-color: #fff3cd;
+  border-left: 2px solid #ffbe2e;
+}
+
+.cellMissing {
+  background-color: #f0f0f0;
+  border-left: 2px solid #bbb;
+}
+
+.cellMissingHighlighted {
+  background-color: #f4e3db;
+  border-left: 2px solid #b50909;
+}
+
+.cellEmpty {
+  /* Empty cell placeholder */
+}
+
+/* ==========================================================================
+   Tag Rendering
+   ========================================================================== */
+
+.tagWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.tagBracket {
+  color: #0066cc;
+  white-space: nowrap;
+}
+
+.tagBracketClosing {
+  opacity: 0.6;
+}
+
+.tagAttr {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 2px;
+}
+
+.tagAttrName {
+  color: #a31545;
+}
+
+.tagAttrEquals {
+  color: #666;
+}
+
+.tagAttrValue {
+  color: #008000;
+  word-break: break-all;
+  overflow-wrap: break-word;
+}
+
+/* ==========================================================================
+   Text Content
+   ========================================================================== */
+
+.textContent {
+  color: #666;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.showMoreLink {
+  margin-left: 8px;
+  color: #005ea2;
+  cursor: pointer;
+  font-size: 12px;
+  text-decoration: underline;
+  user-select: none;
+}
+
+.showMoreLink:hover {
+  color: #004a7c;
+  text-decoration: none;
+}
+
+.missingText {
+  font-style: italic;
+}
+
+.missingTextHighlighted {
+  color: #b50909;
+}
+
+.missingTextMuted {
+  color: #757575;
+}
+
+/* ==========================================================================
+   Difference Panel
+   ========================================================================== */
+
+.diffPanel {
+  margin-top: 4px;
+  padding: 8px;
+  background-color: #fff3cd;
+  border: 1px solid #ffbe2e;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.diffPanelTitle {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+/* ==========================================================================
+   Accepted Differences (Collapsed)
+   ========================================================================== */
+
+.acceptedCollapsed {
+  margin-top: 8px;
+  margin-bottom: 4px;
+  padding: 4px 8px;
+  background-color: #f0f9f0;
+  border: 1px solid #c7e6c7;
+  border-radius: 3px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #2e7d32;
+  transition: background-color 0.15s ease;
+}
+
+.acceptedCollapsed:hover {
+  background-color: #e8f5e9;
+}
+
+.acceptedCollapsedIcon {
+  color: #2e7d32;
+}
+
+.acceptedCollapsedText {
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   Accepted Differences (Expanded)
+   ========================================================================== */
+
+.acceptedExpanded {
+  margin-top: 8px;
+  margin-bottom: 4px;
+  background-color: #f0f9f0;
+  border: 1px solid #c7e6c7;
+  border-radius: 3px;
+  font-size: 12px;
+}
+
+.acceptedExpandedHeader {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  cursor: pointer;
+  color: #2e7d32;
+  border-bottom: 1px solid #c7e6c7;
+}
+
+.acceptedExpandedContent {
+  padding: 8px;
+}
+
+.acceptedItem {
+  margin-bottom: 8px;
+  padding: 6px 8px;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 3px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.acceptedItem:last-child {
+  margin-bottom: 0;
+}
+
+.acceptedItemContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.acceptedItemDescription {
+  font-weight: 600;
+  font-size: 11px;
+  color: #1b1b1b;
+  margin-bottom: 4px;
+}
+
+.acceptedItemValue {
+  font-size: 11px;
+  color: #757575;
+  font-family: monospace;
+  word-break: break-word;
+}
+
+.acceptedItemValue:not(:last-child) {
+  margin-bottom: 2px;
+}
+
+.acceptedItemLabel {
+  font-weight: 600;
+}
+
+.acceptedItemLabelLeft {
+  color: #b50909;
+}
+
+.acceptedItemLabelRight {
+  color: #2e7d32;
+}
+
+/* ==========================================================================
+   Difference Item
+   ========================================================================== */
+
+.diffItem {
+  margin-bottom: 4px;
+  padding: 4px;
+  background-color: #fff;
+  border-radius: 3px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.diffItemContent {
+  flex: 1;
+}
+
+.diffItemDescription {
+  font-weight: bold;
+  font-size: 11px;
+}
+
+.diffItemValue {
+  font-size: 11px;
+  font-family: monospace;
+  margin-top: 4px;
+}
+
+.diffItemValueLeft {
+  color: #b50909;
+}
+
+.diffItemValueRight {
+  color: #00a91c;
+}
+
+.diffItemLabel {
+  font-weight: 700;
+  font-size: 11px;
+  margin-right: 4px;
+}
+
+.diffItemLabelLeft {
+  color: #b50909;
+}
+
+.diffItemLabelRight {
+  color: #2e7d32;
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+
+.acceptBtn {
+  font-size: 10px;
+  padding: 2px 4px;
+  background-color: #565c65;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-left: 8px;
+  white-space: nowrap;
+}
+
+.acceptBtn:hover {
+  background-color: #3d4551;
+}
+
+.unacceptBtn {
+  font-size: 10px;
+  padding: 3px 8px;
+  background-color: #ffffff;
+  color: #b50909;
+  border: 1px solid #b50909;
+  border-radius: 3px;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.unacceptBtn:hover {
+  background-color: #f4e3db;
+}
+
+/* ==========================================================================
+   Comment Section
+   ========================================================================== */
+
+.commentDisplay {
+  margin-top: 8px;
+  padding: 6px;
+  background-color: #e7f6f8;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.commentDisplayTitle {
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+.commentAddBtn {
+  margin-top: 6px;
+  font-size: 11px;
+  padding: 2px 6px;
+  background-color: #005ea2;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.commentAddBtn:hover {
+  background-color: #004a7c;
+}
+
+.commentForm {
+  margin-top: 6px;
+}
+
+.commentTextarea {
+  width: 100%;
+  padding: 4px;
+  font-size: 11px;
+  font-family: inherit;
+  border-radius: 3px;
+  border: 1px solid #757575;
+}
+
+.commentFormButtons {
+  margin-top: 4px;
+  display: flex;
+  gap: 4px;
+}
+
+.commentSaveBtn {
+  font-size: 11px;
+  padding: 2px 6px;
+  background-color: #00a91c;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.commentSaveBtn:hover {
+  background-color: #008817;
+}
+
+.commentCancelBtn {
+  font-size: 11px;
+  padding: 2px 6px;
+  background-color: #757575;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.commentCancelBtn:hover {
+  background-color: #565c65;
+}
+
+/* ==========================================================================
+   Error & Loading States
+   ========================================================================== */
+
+.error {
+  padding: 16px;
+  background-color: #f4e3db;
+  border: 1px solid #b50909;
+  border-radius: 4px;
+  color: #b50909;
+}
+
+.errorTitle {
+  font-weight: bold;
+}
+
+.loading {
+  padding: 16px;
+  text-align: center;
+  color: #757575;
+}
