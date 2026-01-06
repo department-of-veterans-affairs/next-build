@@ -8,6 +8,7 @@ import { DEFAULT_PAGE_LIST_LENGTH } from '@/lib/constants/pagination'
 import { FilterForm } from './FilterForm'
 import { ResultsSummary } from './ResultsSummary'
 import { AssetCard } from './AssetCard'
+import { MediaResourceType } from '@/types/drupal/media'
 
 const ITEMS_PER_PAGE = 10
 
@@ -72,6 +73,55 @@ export function OutreachMaterials({
     }
   }
 
+  // This is just so we can test the theoretical performance of using the old template's strategy of rendering every item into the document
+  const oldContent = outreachAssets.map((asset, index) => {
+    const topicsString = asset.categories.join(',')
+    const isEven = index % 2 === 0
+    const url =
+      asset.absoluteUrl ||
+      (asset.media.type === MediaResourceType.Document
+        ? asset.media.documentUrl
+        : asset.media.type === MediaResourceType.Image
+          ? asset.media.imageUrl
+          : asset.media.videoEmbedUrl)
+
+    return (
+      <div
+        key={asset.id}
+        data-topic={topicsString}
+        data-type={asset.format}
+        data-number={index}
+        className={`vads-l-col--12 vads-l-row medium-card-utility large-screen:vads-l-col--6 ${isEven ? 'desktop-lg:vads-u-margin-right--3' : ''} vads-u-margin-bottom--3 asset-card show-type show-topic`}
+      >
+        <div className="card-inside-wrap clearfix vads-u-padding--3">
+          <div className="asset-head-wrap medium-screen:vads-l-col--4 medium-head-utility large-screen:vads-l-col--12 video-asset-wrap">
+            <img
+              alt={asset.title.substring(0, 36)}
+              src="/img/hub-illustrations/records.png"
+            />
+          </div>
+          <div className="asset-body-wrap vads-u-display--flex vads-u-flex-direction--column vads-u-padding-top--1p5 medium-screen:vads-u-padding-left--3 desktop-lg:vads-u-padding-left--0 medium-screen:vads-l-col--8 medium-body-utility large-screen:vads-l-col--12">
+            <i>[PLACEHOLDER]</i>
+            <h2 className="vads-u-margin-y--1 vads-u-font-size--lg">
+              {asset.title.substring(0, 36)}
+            </h2>
+            <div className="asset-body-text">
+              {asset.description.substring(0, 81)}
+            </div>
+            <div className="va-c-margin-top--auto vads-u-margin-bottom--3 medium-screen:vads-u-margin-bottom--0 desktop-lg:vads-u-margin-bottom--3">
+              <va-icon
+                className="vads-u-color--link-default"
+                icon="youtube"
+                size="3"
+              />
+              <va-link href={url} text="Go to video" />
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  })
+
   return (
     <div className="vads-grid-container">
       <article className="usa-content va-l-facility-detail vads-u-padding-bottom--0">
@@ -125,6 +175,9 @@ export function OutreachMaterials({
             </div>
           </div>
         )}
+
+        <div style={{ display: 'none' }}>{oldContent}</div>
+
         <ContentFooter lastUpdated={lastUpdated} />
       </article>
     </div>
