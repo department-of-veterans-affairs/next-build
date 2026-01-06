@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "main": "dist/index.js",
   "dependencies": {
-    "cross-fetch": "^4.0.0",
+    "cross-fetch": "^4.1.0",
     "debug": "^4.4.3",
     "p-retry": "^7.1.0",
     "socks-proxy-agent": "^8.0.5",

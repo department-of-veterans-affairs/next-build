@@ -72,7 +72,7 @@ export const data: QueryData<VetCenterDataOpts, VetCenterData> = async (
   if (bannerMediaId) {
     bannerMedia = (
       await fetchAndConcatAllResourceCollectionPages<DrupalMediaImage>(
-        'media--image',
+        RESOURCE_TYPES.MEDIA_IMAGE,
         new DrupalJsonApiParams()
           .addFilter('drupal_internal__mid', bannerMediaId)
           .addInclude(['image']),

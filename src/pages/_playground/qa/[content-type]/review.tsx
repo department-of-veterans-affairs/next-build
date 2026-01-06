@@ -1,11 +1,26 @@
 import * as React from 'react'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
+import { ComparisonContainer } from '@/dev/qa/components/ComparisonContainer'
+
+interface ComparisonRecord {
+  env1: string
+  env2: string
+  selector: string
+  timestamp: string
+  html1?: string
+  html2?: string
+  acceptedDifferences?: string[]
+  comments?: Record<string, string>
+  collapseWhitespace?: boolean
+  includeDataTestId?: boolean
+}
 
 interface QAPath {
   path: string
   starred?: boolean
   notes?: string
+  comparisons?: ComparisonRecord[]
 }
 
 interface QACache {
@@ -28,6 +43,13 @@ interface ReviewRowProps {
   onReviewToggle: (path: string, reviewed: boolean) => void
   checklistState: Record<string, boolean>
   onChecklistToggle: (path: string, itemId: string) => void
+  onCompare: (path: string, env1: string, env2: string) => void
+  comparisons: ComparisonRecord[]
+  onDeleteComparison: (path: string, index: number) => void
+  onRerunComparison: (path: string, index: number, newSelector: string) => void
+  cssSelector: string
+  comparingKeys: Set<string>
+  contentType: string
 }
 
 const QA_CHECKLIST = {
@@ -69,7 +91,24 @@ const QA_CHECKLIST = {
 }
 
 const ReviewRow = React.memo<ReviewRowProps>(
-  ({ qaPath, reviewed, onReviewToggle, checklistState, onChecklistToggle }) => {
+  ({
+    qaPath,
+    reviewed,
+    onReviewToggle,
+    checklistState,
+    onChecklistToggle,
+    onCompare,
+    comparisons,
+    onDeleteComparison,
+    onRerunComparison,
+    cssSelector,
+    comparingKeys,
+    contentType,
+  }) => {
+    const isComparingDevStaging = comparingKeys.has(
+      `${qaPath.path}:dev:staging`
+    )
+    const isComparingDevProd = comparingKeys.has(`${qaPath.path}:dev:prod`)
     return (
       <div
         style={{
@@ -117,6 +156,7 @@ const ReviewRow = React.memo<ReviewRowProps>(
             padding: '8px 12px',
             verticalAlign: 'top',
             borderTop: '1px solid #d6d7d9',
+            maxWidth: '100%',
           }}
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -131,6 +171,16 @@ const ReviewRow = React.memo<ReviewRowProps>(
             >
               (staging)
             </a>
+            {comparisons &&
+              comparisons.some(
+                (c) => c.env1 === 'dev' && c.env2 === 'staging'
+              ) && (
+                <va-icon
+                  icon="check_circle"
+                  size={3}
+                  style={{ color: '#00a91c', marginLeft: '4px' }}
+                />
+              )}
             <span style={{ color: '#757575' }}>|</span>
             <a
               href={`https://www.va.gov${qaPath.path}`}
@@ -139,6 +189,88 @@ const ReviewRow = React.memo<ReviewRowProps>(
             >
               (prod)
             </a>
+            {comparisons &&
+              comparisons.some(
+                (c) => c.env1 === 'dev' && c.env2 === 'prod'
+              ) && (
+                <va-icon
+                  icon="check_circle"
+                  size={3}
+                  style={{ color: '#00a91c', marginLeft: '4px' }}
+                />
+              )}
+          </div>
+          <div
+            style={{
+              marginTop: '8px',
+              display: 'flex',
+              gap: '8px',
+              alignItems: 'center',
+            }}
+          >
+            <button
+              type="button"
+              className="usa-button usa-button--outline"
+              style={{ fontSize: '12px', padding: '4px 8px' }}
+              onClick={() => onCompare(qaPath.path, 'dev', 'staging')}
+              disabled={!cssSelector || isComparingDevStaging}
+              title={
+                !cssSelector
+                  ? 'Enter a CSS selector first'
+                  : 'Compare dev vs staging'
+              }
+            >
+              {isComparingDevStaging ? (
+                <>
+                  <span
+                    style={{
+                      display: 'inline-block',
+                      width: '12px',
+                      height: '12px',
+                      border: '2px solid currentColor',
+                      borderTopColor: 'transparent',
+                      borderRadius: '50%',
+                      animation: 'spin 0.6s linear infinite',
+                    }}
+                  />
+                  <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+                  {' Comparing...'}
+                </>
+              ) : (
+                'Compare dev/staging'
+              )}
+            </button>
+            <button
+              type="button"
+              className="usa-button usa-button--outline"
+              style={{ fontSize: '12px', padding: '4px 8px' }}
+              onClick={() => onCompare(qaPath.path, 'dev', 'prod')}
+              disabled={!cssSelector || isComparingDevProd}
+              title={
+                !cssSelector
+                  ? 'Enter a CSS selector first'
+                  : 'Compare dev vs prod'
+              }
+            >
+              {isComparingDevProd ? (
+                <>
+                  <span
+                    style={{
+                      display: 'inline-block',
+                      width: '12px',
+                      height: '12px',
+                      border: '2px solid currentColor',
+                      borderTopColor: 'transparent',
+                      borderRadius: '50%',
+                      animation: 'spin 0.6s linear infinite',
+                    }}
+                  />
+                  {' Comparing...'}
+                </>
+              ) : (
+                'Compare dev/prod'
+              )}
+            </button>
           </div>
           {qaPath.notes && (
             <div
@@ -216,6 +348,28 @@ const ReviewRow = React.memo<ReviewRowProps>(
               ))}
             </div>
           </details>
+          {comparisons && comparisons.length > 0 && (
+            <div
+              style={{
+                marginTop: '12px',
+              }}
+            >
+              <strong>Comparisons ({comparisons.length}):</strong>
+              {comparisons.map((comp, index) => (
+                <ComparisonContainer
+                  key={index}
+                  comparison={comp}
+                  comparisonIndex={index}
+                  path={qaPath.path}
+                  contentType={contentType}
+                  onDelete={() => onDeleteComparison(qaPath.path, index)}
+                  onRerunWithSelector={(newSelector) =>
+                    onRerunComparison(qaPath.path, index, newSelector)
+                  }
+                />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     )
@@ -279,6 +433,8 @@ const saveChecklistStatus = (
   }
 }
 
+const DEFAULT_COMPARISON_SELECTOR = 'main #content, #content main'
+
 export default function QAReviewPage() {
   const router = useRouter()
   const { 'content-type': contentType } = router.query
@@ -290,6 +446,10 @@ export default function QAReviewPage() {
   const [checklistStatus, setChecklistStatus] = useState<ChecklistStatus>({})
   const [unstarredExpanded, setUnstarredExpanded] = useState<boolean>(false)
   const [exportedMarkdown, setExportedMarkdown] = useState<string | null>(null)
+  const [cssSelector, setCssSelector] = useState<string>(
+    DEFAULT_COMPARISON_SELECTOR
+  )
+  const [comparingKeys, setComparingKeys] = useState<Set<string>>(new Set())
 
   useEffect(() => {
     if (typeof contentType === 'string') {
@@ -401,6 +561,212 @@ export default function QAReviewPage() {
     setExportedMarkdown(markdown)
   }
 
+  const handleCompare = React.useCallback(
+    async (path: string, env1: string, env2: string) => {
+      if (!cssSelector || typeof contentType !== 'string') {
+        return
+      }
+
+      const key = `${path}:${env1}:${env2}`
+      setComparingKeys((prev) => new Set(prev).add(key))
+
+      try {
+        // Fetch comparison
+        const fetchResponse = await fetch('/api/qa/fetch-comparison', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            path,
+            environment1: env1,
+            environment2: env2,
+            selector: cssSelector,
+          }),
+        })
+
+        const fetchData = await fetchResponse.json()
+
+        if (!fetchResponse.ok) {
+          throw new Error(fetchData.message || 'Failed to compare pages')
+        }
+
+        // Automatically add comparison
+        const comparison: ComparisonRecord = {
+          env1,
+          env2,
+          selector: cssSelector,
+          timestamp: new Date().toISOString(),
+          html1: fetchData.html1,
+          html2: fetchData.html2,
+          acceptedDifferences: [],
+          comments: {},
+          collapseWhitespace: true,
+          includeDataTestId: false,
+        }
+
+        const saveResponse = await fetch('/api/qa/paths', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            resourceType: contentType,
+            path,
+            addComparison: comparison,
+          }),
+        })
+
+        if (!saveResponse.ok) {
+          const errorData = await saveResponse.json()
+          throw new Error(errorData.error || 'Failed to save comparison')
+        }
+
+        const updatedPath = await saveResponse.json()
+
+        // Update local cache
+        setCache((prev) => {
+          if (!prev) return null
+          return {
+            ...prev,
+            paths: prev.paths.map((p) => (p.path === path ? updatedPath : p)),
+          }
+        })
+      } catch (err) {
+        console.error('Error comparing pages:', err)
+      } finally {
+        setComparingKeys((prev) => {
+          const next = new Set(prev)
+          next.delete(key)
+          return next
+        })
+      }
+    },
+    [cssSelector, contentType]
+  )
+
+  const handleDeleteComparison = React.useCallback(
+    async (path: string, index: number) => {
+      if (typeof contentType !== 'string') return
+
+      try {
+        const response = await fetch('/api/qa/paths', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            resourceType: contentType,
+            path,
+            deleteComparisonIndex: index,
+          }),
+        })
+
+        if (!response.ok) {
+          const errorData = await response.json()
+          throw new Error(errorData.error || 'Failed to delete comparison')
+        }
+
+        const updatedPath = await response.json()
+
+        // Update local cache
+        setCache((prev) => {
+          if (!prev) return null
+          return {
+            ...prev,
+            paths: prev.paths.map((p) => (p.path === path ? updatedPath : p)),
+          }
+        })
+      } catch (err) {
+        console.error('Error deleting comparison:', err)
+      }
+    },
+    [contentType]
+  )
+
+  const handleRerunComparison = React.useCallback(
+    async (path: string, comparisonIndex: number, newSelector: string) => {
+      if (typeof contentType !== 'string') return
+
+      // Get the existing comparison to preserve env1/env2
+      const qaPath = cache?.paths.find((p) => p.path === path)
+      const existingComparison = qaPath?.comparisons?.[comparisonIndex]
+      if (!existingComparison) return
+
+      const { env1, env2 } = existingComparison
+
+      try {
+        // Fetch new comparison with updated selector
+        const fetchResponse = await fetch('/api/qa/fetch-comparison', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            path,
+            environment1: env1,
+            environment2: env2,
+            selector: newSelector,
+          }),
+        })
+
+        const fetchData = await fetchResponse.json()
+
+        if (!fetchResponse.ok) {
+          throw new Error(fetchData.message || 'Failed to compare pages')
+        }
+
+        // Update the comparison in place
+        const updatedComparison: ComparisonRecord = {
+          env1,
+          env2,
+          selector: newSelector,
+          timestamp: new Date().toISOString(),
+          html1: fetchData.html1,
+          html2: fetchData.html2,
+          acceptedDifferences: [], // Reset accepted differences for new comparison
+          comments: {},
+          collapseWhitespace: existingComparison.collapseWhitespace ?? true,
+          includeDataTestId: existingComparison.includeDataTestId ?? false,
+        }
+
+        const saveResponse = await fetch('/api/qa/paths', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            resourceType: contentType,
+            path,
+            addComparison: updatedComparison,
+          }),
+        })
+
+        if (!saveResponse.ok) {
+          const errorData = await saveResponse.json()
+          throw new Error(errorData.error || 'Failed to save comparison')
+        }
+
+        const updatedPath = await saveResponse.json()
+
+        // Update local cache
+        setCache((prev) => {
+          if (!prev) return null
+          return {
+            ...prev,
+            paths: prev.paths.map((p) => (p.path === path ? updatedPath : p)),
+          }
+        })
+
+        // Also update the global cssSelector so new comparisons use this selector
+        setCssSelector(newSelector)
+      } catch (err) {
+        console.error('Error re-running comparison:', err)
+      }
+    },
+    [cache, contentType]
+  )
+
   if (typeof contentType !== 'string') {
     return (
       <div className="vads-u-padding--3">
@@ -419,7 +785,10 @@ export default function QAReviewPage() {
     Object.keys(reviewStatus).length > 0 || hasAnyChecklistItems
 
   return (
-    <div className="vads-u-padding--3">
+    <div
+      className="vads-u-padding--3"
+      style={{ maxWidth: '100%', overflow: 'hidden' }}
+    >
       <div
         style={{
           display: 'flex',
@@ -431,13 +800,21 @@ export default function QAReviewPage() {
         <h1 className="vads-u-font-size--h2 vads-u-margin-top--0">
           QA Review - {contentType}
         </h1>
-        <button
-          className="usa-button usa-button-secondary"
-          onClick={handleClearReview}
-          disabled={!hasAnyData}
-        >
-          Clear Review
-        </button>
+        <div style={{ display: 'flex', gap: '8px' }}>
+          <a
+            href="/_playground/qa/comparisons"
+            className="usa-button usa-button-secondary"
+          >
+            View All Comparisons
+          </a>
+          <button
+            className="usa-button usa-button-secondary"
+            onClick={handleClearReview}
+            disabled={!hasAnyData}
+          >
+            Clear Review
+          </button>
+        </div>
       </div>
 
       {error && (
@@ -470,6 +847,7 @@ export default function QAReviewPage() {
                 style={{
                   display: 'table',
                   width: '100%',
+                  tableLayout: 'fixed',
                   borderCollapse: 'collapse',
                   border: '1px solid #d6d7d9',
                 }}
@@ -510,6 +888,13 @@ export default function QAReviewPage() {
                       onReviewToggle={handleReviewToggle}
                       checklistState={checklistStatus[qaPath.path] || {}}
                       onChecklistToggle={handleChecklistToggle}
+                      onCompare={handleCompare}
+                      comparisons={qaPath.comparisons || []}
+                      onDeleteComparison={handleDeleteComparison}
+                      onRerunComparison={handleRerunComparison}
+                      cssSelector={cssSelector}
+                      comparingKeys={comparingKeys}
+                      contentType={contentType as string}
                     />
                   ))}
                 </div>
@@ -518,12 +903,14 @@ export default function QAReviewPage() {
 
             {starredPaths.length > 0 && (
               <div style={{ marginTop: '16px' }}>
-                <button
-                  className="usa-button usa-button--outline"
-                  onClick={handleExportToMarkdown}
-                >
-                  Export to Markdown
-                </button>
+                <div style={{ display: 'flex', gap: '8px' }}>
+                  <button
+                    className="usa-button usa-button--outline"
+                    onClick={handleExportToMarkdown}
+                  >
+                    Export Review Checklist
+                  </button>
+                </div>
                 {exportedMarkdown && (
                   <div style={{ marginTop: '16px' }}>
                     <label
@@ -534,7 +921,7 @@ export default function QAReviewPage() {
                         fontWeight: 'bold',
                       }}
                     >
-                      Markdown:
+                      Review Checklist Markdown:
                     </label>
                     <textarea
                       id="markdown-export"
@@ -582,6 +969,7 @@ export default function QAReviewPage() {
                     style={{
                       display: 'table',
                       width: '100%',
+                      tableLayout: 'fixed',
                       borderCollapse: 'collapse',
                       border: '1px solid #d6d7d9',
                     }}
