@@ -3,8 +3,7 @@
  */
 
 import { NodeVaForm } from '@/types/drupal/node'
-import { queries } from '@/lib/drupal/queries'
-import { params, formatter } from './query'
+import { formatter } from './query'
 import mockData from './mock.json'
 
 // @ts-expect-error The field_va_form_related_forms isn't fully hydrated in the mock data
@@ -57,7 +56,9 @@ describe('VaForm formatter', () => {
         {
           ...VaFormMock,
           id: 'related-1',
+          metatag: [],
           field_va_form_number: '10-10EZ',
+          title: 'Application for Health Benefits',
           field_va_form_name: 'Application for Health Benefits',
         } as NodeVaForm,
       ],
@@ -67,9 +68,42 @@ describe('VaForm formatter', () => {
 
     expect(formatted.relatedForms).toHaveLength(1)
     expect(formatted.relatedForms?.[0]).toEqual({
+      type: 'node--va_form',
       id: 'related-1',
+      entityId: 6022,
+      entityPath: '/find-forms/about-form-21-0781',
+      breadcrumbs: [
+        {
+          label: 'Home',
+          href: '/',
+          options: [],
+        },
+        {
+          label: 'Find a VA Form',
+          href: '/find-forms',
+          options: [],
+        },
+        {
+          label: 'Application for Health Benefits',
+          href: '',
+          options: [],
+        },
+      ],
+      lastUpdated: '2025-06-13T18:24:11+00:00',
+      moderationState: 'published',
+      published: true,
+      title: 'Application for Health Benefits',
       formNumber: '10-10EZ',
       formName: 'Application for Health Benefits',
+      usage: formatted.usage, // Again, same string
+      formUrl: {
+        uri: 'http://www.vba.va.gov/pubs/forms/VBA-21-0781-ARE.pdf',
+        title: null,
+        options: [],
+        url: 'http://www.vba.va.gov/pubs/forms/VBA-21-0781-ARE.pdf',
+      },
+      formLanguage: 'en',
+      metatags: [],
     })
   })
 })
