@@ -14,9 +14,12 @@ describe('DrupalJsonApiParams configuration', () => {
   it('should include the correct fields', () => {
     const paramsInstance = params()
     const queryString = decodeURIComponent(paramsInstance.getQueryString())
-    expect(queryString).toMatch(
-      'include=field_media,field_media.image,field_administration,field_health_services,field_health_services.field_service_name_and_descripti'
-    )
+    expect(queryString).toContain('field_media')
+    expect(queryString).toContain('field_media.image')
+    expect(queryString).toContain('field_administration')
+    expect(queryString).toContain('field_prepare_for_visit')
+    expect(queryString).toContain('field_vet_center_feature_content')
+    expect(queryString).toContain('field_health_services')
   })
 })
 

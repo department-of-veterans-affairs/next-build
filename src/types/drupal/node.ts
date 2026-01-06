@@ -732,6 +732,12 @@ export interface NodeVetCenterOutstation
   field_phone_number?: string | null
   field_timezone?: string | null
   field_health_services?: VetCenterFieldHealthServicesArray | null
+  field_prepare_for_visit?: ParagraphAccordion[] | null
+  field_vet_center_feature_content?: ParagraphFeaturedContent[] | null
+  field_cc_non_traditional_hours?: FieldCCText | null
+  field_cc_vet_center_call_center?: FieldCCText | null
+  field_cc_vet_center_faqs?: ParagraphCCQaSection | null
+  field_cc_vet_center_featured_con?: ParagraphCCFeaturedContent | null
 }
 
 export interface NodeVamcHealthServicesListing extends DrupalNode {

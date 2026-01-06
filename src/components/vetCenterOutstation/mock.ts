@@ -149,4 +149,9 @@ export const mockResponse = {
   operatingStatusMoreInfo: '',
   timezone: '',
   administration: null,
+  prepareForVisit: null,
+  featuredContent: null,
+  ccNonTraditionalHours: null,
+  ccVetCenterCallCenter: null,
+  ccVetCenterFaqs: null,
 }

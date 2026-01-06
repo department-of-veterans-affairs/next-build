@@ -5,6 +5,32 @@ import { PhoneNumber } from '@/components/phoneNumber/template'
 import { TextWithImage } from '@/components/textWithImage/template'
 import { MediaImage } from '@/components/mediaImage/template'
 import { ExpandableOperatingStatus } from '@/components/expandableOperatingStatus/template'
+import { Accordion } from '@/components/accordion/template'
+import { AccordionItem } from '@/components/accordion/formatted-type'
+import { FeaturedContent } from '@/components/featuredContent/template'
+import { QaSection } from '@/components/qaSection/template'
+
+const PrepareForVisitSection = ({
+  visitItems,
+}: {
+  visitItems: AccordionItem[]
+}) => {
+  if (visitItems.length === 0) return null
+  return (
+    <>
+      <h2
+        id="prepare-for-your-visit"
+        className="vads-u-margin-top--0 vads-u-font-size--lg mobile-lg:vads-u-font-size--xl vads-u-margin-bottom--2"
+      >
+        Prepare for your visit
+      </h2>
+      <p>Select a topic to learn more.</p>
+      <div className="vads-u-margin-bottom--3">
+        <Accordion id="prepare-for-your-visit" bordered items={visitItems} />
+      </div>
+    </>
+  )
+}
 
 export function VetCenterOutstation({
   address,
@@ -20,6 +46,11 @@ export function VetCenterOutstation({
   title,
   fieldFacilityLocatorApiId,
   path,
+  prepareForVisit,
+  featuredContent,
+  ccNonTraditionalHours,
+  ccVetCenterCallCenter,
+  ccVetCenterFaqs,
 }: FormattedVetCenterOutstation) {
   const dayOfWeek = [
     'Sunday',
@@ -213,12 +244,53 @@ export function VetCenterOutstation({
                 label="Main phone"
                 className="main-phone vads-u-margin-bottom--1"
               />
+              {ccVetCenterCallCenter && (
+                <>
+                  <PhoneNumber
+                    number={phoneNumber}
+                    label="After hours"
+                    className="main-phone vads-u-margin-bottom--1"
+                  />
+                  <div className="vads-u-margin-bottom--2">
+                    Need help after hours? We are available 24/7. Call us
+                    anytime.
+                  </div>
+                </>
+              )}
             </div>
 
-            <Hours headerType="standard" allHours={normalizedOfficeHours} />
+            <Hours
+              headerType="standard"
+              allHours={normalizedOfficeHours}
+              nonTraditionalMessage={ccNonTraditionalHours}
+            />
           </TextWithImage>
 
-          {/* Other locations */}
+          {featuredContent && featuredContent.length > 0 && (
+            <>
+              <h2 id="in-the-spotlight" className="vads-u-margin-y--2">
+                In the spotlight
+              </h2>
+              <div className="vads-u-display--flex vads-u-flex-direction--column vads-u-justify-content--space-between medium-screen:vads-u-flex-direction--row vads-u-margin-bottom--4">
+                {featuredContent.map((content, index) => (
+                  <FeaturedContent
+                    key={index}
+                    title={content.title}
+                    description={content.description}
+                    link={content.link}
+                    id={content.id || ''}
+                  />
+                ))}
+              </div>
+            </>
+          )}
+
+          {prepareForVisit && prepareForVisit.length > 0 && (
+            <PrepareForVisitSection visitItems={prepareForVisit} />
+          )}
+
+          {ccVetCenterFaqs && <QaSection {...ccVetCenterFaqs} />}
+
           <div className="vads-u-margin-bottom--3">
             <h2
               id="other-nearby-vet-centers"
