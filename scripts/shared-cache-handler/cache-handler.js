@@ -5,7 +5,7 @@
  * It will be used when USE_S3_CACHE=true is set.
  */
 
-import S3CacheHandler from '../../packages/s3-cache-handler/dist/index.js'
+import S3CacheHandler from 's3-cache-handler'
 
 class ConfiguredS3CacheHandler extends S3CacheHandler {
   constructor(options) {

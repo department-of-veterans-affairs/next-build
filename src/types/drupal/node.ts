@@ -110,6 +110,8 @@ export type NodeTypes =
   | NodeVamcOperatingStatusAndAlerts
   | NodeVaForm
   | NodeCampaignLandingPage
+  | NodePublicationListing
+  | NodeOutreachAsset
 
 /** Shared type structure for resource nodes. */
 export interface NodeAbstractResource extends DrupalNode {
@@ -376,7 +378,7 @@ export interface NodeNewsStory extends DrupalNode {
 }
 
 export interface NodeOffice extends DrupalNode {
-  field_body: string
+  field_body: FieldFormattedText
   field_email_updates_link: FieldLink
   field_external_link: FieldLink
   field_description: string
@@ -477,7 +479,9 @@ export interface NodeEventListing extends DrupalNode {
   field_description: string
   field_intro_text: string
   field_enforce_unique_combo: boolean
-  field_office: NodeOffice
+  field_office:
+    | Pick<NodeOffice, 'id' | 'title'>
+    | Pick<NodeHealthCareRegionPage, 'id' | 'title' | 'field_system_menu'>
 }
 
 export interface NodePressReleaseListing extends DrupalNode {
@@ -515,6 +519,24 @@ export interface NodeStoryListing extends DrupalNode {
   field_intro_text: string
 }
 
+export interface NodePublicationListing extends DrupalNode {
+  field_description: string
+  field_office: NodeOffice | NodeHealthCareRegionPage
+  field_intro_text: string
+}
+
+export interface NodeOutreachAsset extends DrupalNode {
+  field_description: string
+  field_format: string | null
+  field_listing: NodePublicationListing
+  field_lc_categories: Array<
+    TaxonomyTermLcCategories & {
+      field_topic_id?: string
+    }
+  >
+  field_media: DrupalMediaDocument | DrupalMediaImage | DrupalMediaVideo | null
+}
+
 export interface NodeSupportResourcesDetailPage extends NodeAbstractResource {
   field_table_of_contents_boolean: boolean
   field_content_block: FieldContentBlock
@@ -524,7 +546,6 @@ export interface NodeSupportResourcesDetailPage extends NodeAbstractResource {
 export interface NodeSupportService extends DrupalNode {
   field_link: FieldLink
   field_phone_number: string
-  field_office: NodeOffice
 }
 
 export interface NodeVamcSystemVaPolice extends DrupalNode {

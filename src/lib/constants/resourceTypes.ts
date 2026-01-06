@@ -5,7 +5,9 @@ export const RESOURCE_TYPES = {
   EVENT: 'node--event',
   LEADERSHIP_LISTING: 'node--leadership_listing',
   LOCATIONS_LISTING: 'node--locations_listing',
-  MEDIA: 'media--image',
+  MEDIA_IMAGE: 'media--image',
+  MEDIA_VIDEO: 'media--video',
+  MEDIA_DOCUMENT: 'media--document',
   PRESS_RELEASE_LISTING: 'node--press_releases_listing',
   PRESS_RELEASE: 'node--press_release',
   QA: 'node--q_a',
@@ -36,6 +38,9 @@ export const RESOURCE_TYPES = {
   VAMC_SYSTEM_DETAIL_PAGE: 'node--health_care_region_detail_page',
   VA_FORM: 'node--va_form',
   CAMPAIGN_LANDING_PAGE: 'node--campaign_landing_page',
+  OFFICE: 'node--office',
+  OUTREACH_ASSET: 'node--outreach_asset',
+  PUBLICATION_LISTING: 'node--publication_listing',
 } as const
 
 // (Node) resources that generate full pages.
@@ -71,6 +76,8 @@ export const PAGE_RESOURCE_TYPES = [
   RESOURCE_TYPES.VAMC_SYSTEM_DETAIL_PAGE,
   RESOURCE_TYPES.VA_FORM,
   RESOURCE_TYPES.CAMPAIGN_LANDING_PAGE,
+  RESOURCE_TYPES.OFFICE,
+  RESOURCE_TYPES.PUBLICATION_LISTING,
 ]
 
 export const PARAGRAPH_RESOURCE_TYPES = {

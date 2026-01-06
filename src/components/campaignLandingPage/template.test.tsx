@@ -944,7 +944,7 @@ describe('CampaignLandingPage->BenefitCategories', () => {
 
     const container = screen.getByTestId('benefit-categories')
     const items = container.querySelectorAll(
-      '.vads-l-col--12.medium-screen\\:vads-l-col--6'
+      '.vads-grid-col-12.tablet\\:vads-grid-col-6'
     )
 
     expect(items.length).toBe(2)
@@ -954,6 +954,6 @@ describe('CampaignLandingPage->BenefitCategories', () => {
 
     // Second item should have the margin-top classes
     expect(items[1].className).toContain('vads-u-margin-top--2')
-    expect(items[1].className).toContain('medium-screen:vads-u-margin-top--0')
+    expect(items[1].className).toContain('tablet:vads-u-margin-top--0')
   })
 })

@@ -72,6 +72,8 @@ import { BenefitsHub as FormattedBenefitsHub } from '../components/benefitsHub/f
 import { VamcSystemDetailPage as FormattedVamcSystemDetailPage } from '../components/vamcSystemDetailPage/formatted-type'
 import { VaForm as FormattedVaForm } from '../components/vaForm/formatted-type'
 import { CampaignLandingPage as FormattedCampaignLandingPage } from '@/components/campaignLandingPage/formatted-type'
+import { OutreachHub as FormattedOutreachHub } from '../components/outreachHub/formatted-type'
+import { OutreachMaterials as FormattedOutreachMaterials } from '../components/outreachMaterials/formatted-type'
 
 // Templates
 import HTMLComment from '@/components/htmlComment/template'
@@ -107,6 +109,8 @@ import { BenefitsHub } from '../components/benefitsHub/template'
 import { VamcSystemDetailPage } from '../components/vamcSystemDetailPage/template'
 import { VaForm } from '../components/vaForm/template'
 import { CampaignLandingPage } from '@/components/campaignLandingPage/template'
+import { OutreachHub } from '../components/outreachHub/template'
+import { OutreachMaterials } from '@/components/outreachMaterials/template'
 
 // IMPORTANT: in order for a content type to build in Next Build, it must have an appropriate
 // environment variable set in one of two places:
@@ -179,6 +183,14 @@ export default function ResourcePage({
   const isPreviewDomain =
     typeof window !== 'undefined' &&
     previewDomainPattern.test(window.location.hostname)
+
+  const jsEntryName =
+    resource.type === RESOURCE_TYPES.PUBLICATION_LISTING
+      ? // We don't actually use the extra script that is included in the public outreach
+        // materials bundle, but this bundle is way smaller than the static-pages bundle.
+        // Eventually we want to strip these down to only what we need for specific pages.
+        'public-outreach-materials.entry.js'
+      : 'static-pages.entry.js'
 
   return (
     <PageLayout
@@ -315,6 +327,12 @@ export default function ResourcePage({
               {...(resource as FormattedCampaignLandingPage)}
             />
           )}
+          {resource.type === RESOURCE_TYPES.OFFICE && (
+            <OutreachHub {...(resource as FormattedOutreachHub)} />
+          )}
+          {resource.type === RESOURCE_TYPES.PUBLICATION_LISTING && (
+            <OutreachMaterials {...(resource as FormattedOutreachMaterials)} />
+          )}
         </div>
       </main>
 
@@ -322,7 +340,7 @@ export default function ResourcePage({
       <Script
         id="staticPages"
         strategy="afterInteractive"
-        src={`${process.env.NEXT_PUBLIC_ASSETS_URL}static-pages.entry.js`}
+        src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${jsEntryName}`}
       />
     </PageLayout>
   )
