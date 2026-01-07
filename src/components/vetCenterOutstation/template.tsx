@@ -9,6 +9,9 @@ import { Accordion } from '@/components/accordion/template'
 import { AccordionItem } from '@/components/accordion/formatted-type'
 import { FeaturedContent } from '@/components/featuredContent/template'
 import { QaSection } from '@/components/qaSection/template'
+import { AlertBlock } from '@/components/alertBlock/template'
+import { ContentFooter } from '@/components/contentFooter/template'
+import VetCenterHealthServices from '@/components/vetCenterHealthServices/template'
 
 const PrepareForVisitSection = ({
   visitItems,
@@ -42,6 +45,9 @@ export function VetCenterOutstation({
   operatingStatusMoreInfo,
   phoneNumber,
   healthServices,
+  counselingHealthServices,
+  referralHealthServices,
+  otherHealthServices,
   image,
   title,
   fieldFacilityLocatorApiId,
@@ -148,11 +154,9 @@ export function VetCenterOutstation({
         name: title,
         address: {
           '@type': 'PostalAddress',
-          streetAddress:
-            fieldAddress.address_line1 +
-            (address.address_line2
-              ? `${address.address_line1}${address.address_line2}`
-              : address.address_line1),
+          streetAddress: `${fieldAddress.address_line1}${
+            fieldAddress.address_line2 ? `, ${fieldAddress.address_line2}` : ''
+          }`,
           addressLocality: fieldAddress?.locality,
           addressRegion: fieldAddress?.administrative_area,
           postalCode: fieldAddress?.postal_code,
@@ -238,26 +242,14 @@ export function VetCenterOutstation({
               />
             </div>
 
-            <div className="vads-u-margin-bottom--3">
-              <PhoneNumber
-                number={phoneNumber}
-                label="Main phone"
-                className="main-phone vads-u-margin-bottom--1"
-              />
-              {ccVetCenterCallCenter && (
-                <>
-                  <PhoneNumber
-                    number={phoneNumber}
-                    label="After hours"
-                    className="main-phone vads-u-margin-bottom--1"
-                  />
-                  <div className="vads-u-margin-bottom--2">
-                    Need help after hours? We are available 24/7. Call us
-                    anytime.
-                  </div>
-                </>
-              )}
-            </div>
+            <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
+              Phone number
+            </h3>
+            <PhoneNumber
+              className="vads-u-margin-top--0 vads-u-margin-bottom--3"
+              label="Main phone"
+              number={phoneNumber}
+            />
 
             <Hours
               headerType="standard"
@@ -265,6 +257,17 @@ export function VetCenterOutstation({
               nonTraditionalMessage={ccNonTraditionalHours}
             />
           </TextWithImage>
+
+          {ccVetCenterCallCenter && (
+            <div className="vads-u-margin-bottom--2">
+              <AlertBlock
+                alertType="info"
+                id="field-cc-vet-call-center"
+                title="Need help after hours?"
+                content={ccVetCenterCallCenter}
+              />
+            </div>
+          )}
 
           {featuredContent && featuredContent.length > 0 && (
             <>
@@ -289,6 +292,19 @@ export function VetCenterOutstation({
             <PrepareForVisitSection visitItems={prepareForVisit} />
           )}
 
+          <VetCenterHealthServices
+            services={counselingHealthServices}
+            typeOfCare="counseling"
+          />
+          <VetCenterHealthServices
+            services={referralHealthServices}
+            typeOfCare="referral"
+          />
+          <VetCenterHealthServices
+            services={otherHealthServices}
+            typeOfCare="other"
+          />
+
           {ccVetCenterFaqs && <QaSection {...ccVetCenterFaqs} />}
 
           <div className="vads-u-margin-bottom--3">
@@ -312,7 +328,8 @@ export function VetCenterOutstation({
 
           <va-back-to-top></va-back-to-top>
 
-          {/* Embedding structured data scripts for schema.org */}
+          <ContentFooter />
+
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
