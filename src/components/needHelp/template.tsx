@@ -5,7 +5,7 @@ import {
 
 export const NeedHelp = () => {
   return (
-    <div className="row need-help-padding">
+    <div className="row vads-u-margin-bottom--8 vads-u-margin-top--8">
       <div className="usa-width-one-whole columns">
         <VaNeedHelp>
           <div slot="content">

@@ -179,7 +179,3 @@ va-button#mdFormButton::part(button) {
 .homepage-email-update-wrapper .homepage-email-input::part(form-header) {
   font-size: 1.25rem;
 }
-
-.need-help-padding {
-  padding: 4rem 0;
-}
