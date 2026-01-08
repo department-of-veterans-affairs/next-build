@@ -9038,7 +9038,6 @@ __metadata:
     debug: ^4.4.3
     dotenv: ^16.4.5
     dotenv-expand: ^12.0.2
-    proxy-fetcher: 0.1.0
   languageName: unknown
   linkType: soft
 
@@ -16155,7 +16154,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"proxy-fetcher@0.1.0, proxy-fetcher@workspace:packages/proxy-fetcher":
+"proxy-fetcher@workspace:packages/proxy-fetcher":
   version: 0.0.0-use.local
   resolution: "proxy-fetcher@workspace:packages/proxy-fetcher"
   dependencies:
