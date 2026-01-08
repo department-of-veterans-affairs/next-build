@@ -8204,15 +8204,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cross-fetch@npm:^4.1.0":
-  version: 4.1.0
-  resolution: "cross-fetch@npm:4.1.0"
-  dependencies:
-    node-fetch: ^2.7.0
-  checksum: c02fa85d59f83e50dbd769ee472c9cc984060c403ee5ec8654659f61a525c1a655eef1c7a35e365c1a107b4e72d76e786718b673d1cb3c97f61d4644cb0a9f9d
-  languageName: node
-  linkType: hard
-
 "cross-spawn@npm:^7.0.0, cross-spawn@npm:^7.0.1, cross-spawn@npm:^7.0.2, cross-spawn@npm:^7.0.3":
   version: 7.0.3
   resolution: "cross-spawn@npm:7.0.3"
@@ -16154,18 +16145,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"proxy-fetcher@workspace:packages/proxy-fetcher":
-  version: 0.0.0-use.local
-  resolution: "proxy-fetcher@workspace:packages/proxy-fetcher"
-  dependencies:
-    cross-fetch: ^4.1.0
-    debug: ^4.4.3
-    p-retry: ^7.1.0
-    socks-proxy-agent: ^8.0.5
-    syswide-cas: ^5.3.0
-  languageName: unknown
-  linkType: soft
-
 "proxy-from-env@npm:^1.1.0":
   version: 1.1.0
   resolution: "proxy-from-env@npm:1.1.0"
@@ -18111,13 +18090,6 @@ __metadata:
   dependencies:
     "@pkgr/core": ^0.2.9
   checksum: bc896d4320525501495654766e6b0aa394e522476ea0547af603bdd9fd7e9b65dcd6e3a237bc7eb3ab7e196376712f228bf1bf6ed1e1809f4b32dc9baf7ad413
-  languageName: node
-  linkType: hard
-
-"syswide-cas@npm:^5.3.0":
-  version: 5.3.0
-  resolution: "syswide-cas@npm:5.3.0"
-  checksum: 8478c036fc480564288bdd34411956ab50b11fe1c19fea4b110b9c6c663e95892b6bcbf17395b6ea61b79bac6fa66490405ba63c4b8b28ea54cc4651b7ac3e92
   languageName: node
   linkType: hard
 
