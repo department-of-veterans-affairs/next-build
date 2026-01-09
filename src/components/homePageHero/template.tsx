@@ -1,4 +1,6 @@
-import { useSearchParams } from 'next/navigation'
+'use client'
+
+import { useSearchParams, useRouter } from 'next/navigation'
 import { HomePageHeroData as FormattedHomePageHero } from './formatted-type'
 
 export function HomePageHero({
@@ -9,7 +11,8 @@ export function HomePageHero({
   primaryCtaButtonText,
   relatedInfoLinks,
 }: FormattedHomePageHero) {
-  const searchParams = new URLSearchParams(useSearchParams().toString())
+  const router = useRouter()
+  const searchParams = useSearchParams()
   return (
     <div className="homepage-hero__wrapper" data-testid="hero">
       <div className="vads-grid-container vads-u-padding-x--0">
@@ -55,8 +58,9 @@ export function HomePageHero({
                   data-testid="ctaButton"
                   text={primaryCtaButtonText}
                   onClick={() => {
-                    searchParams.set('next', 'loginModal')
-                    window.location.href = `?${searchParams.toString()}`
+                    const params = new URLSearchParams(searchParams.toString())
+                    params.set('next', 'loginModal')
+                    router.push(`?${params.toString()}`)
                   }}
                 />
                 {relatedInfoLinks.map((link, index) => (

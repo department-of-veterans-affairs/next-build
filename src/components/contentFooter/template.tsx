@@ -1,4 +1,7 @@
+'use client'
+
 import React from 'react'
+import { usePathname } from 'next/navigation'
 import { MedalliaAssets } from '@/components/medallia/template'
 import { getSurveyNumber, showForm } from '@/lib/utils/medallia'
 import { BUILD_TYPES } from '@/lib/constants/environment'
@@ -16,6 +19,7 @@ export function ContentFooter({
   lastUpdated,
   responsiveLayout,
 }: ContentFooterProps) {
+  const pathname = usePathname()
   let wrapperClasses = ''
 
   if (responsiveLayout === 'desktop') {
@@ -52,10 +56,7 @@ export function ContentFooter({
             onClick={() => {
               const isProduction =
                 process.env.NEXT_PUBLIC_BUILD_TYPE === BUILD_TYPES.PROD
-              const surveyNumber = getSurveyNumber(
-                window.location.pathname,
-                isProduction
-              )
+              const surveyNumber = getSurveyNumber(pathname, isProduction)
               showForm(surveyNumber)
             }}
             text="Feedback"

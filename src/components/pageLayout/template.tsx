@@ -1,3 +1,5 @@
+'use client'
+
 import { useEffect } from 'react'
 import { Banner } from '@/components/banner/template'
 import { PromoBanner } from '@/components/promoBanner/template'
