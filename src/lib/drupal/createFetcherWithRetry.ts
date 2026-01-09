@@ -8,7 +8,7 @@ const DEFAULT_RETRY_COUNT = 5
 
 /**
  * Creates a fetcher function with retry logic for Drupal API requests.
- * Retries failed requests up to 5 times (configurable via NEXT_PUBLIC_PROXY_FETCHER_RETRY_COUNT).
+ * Retries failed requests up to 5 times.
  * Does not retry on 404/403 errors unless the path is a JSON API path.
  */
 export function createFetcherWithRetry(
