@@ -25,7 +25,7 @@ export default async function handler(
 
       return res.status(200).json(pathInfo)
     } catch (error) {
-      // If we're using proxy-fetcher, it'll actually throw an error for 404s
+      // Our fetch wrapper will throw an error for 404s
       if ([404, 403].includes(error.cause?.status)) {
         return res.status(404).json({ error: 'Path not found' })
       }
