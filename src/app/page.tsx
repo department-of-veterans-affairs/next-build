@@ -1,6 +1,5 @@
 import Script from 'next/script'
 import { notFound } from 'next/navigation'
-import type { Metadata } from 'next'
 import { ContentFooter } from '@/components/contentFooter/template'
 import { PageLayout } from '@/components/pageLayout/template'
 import { queries } from '@/lib/drupal/queries'
@@ -8,47 +7,7 @@ import { HomePageHero } from '@/components/homePageHero/template'
 import { HomePageCommonTasks } from '@/components/homePageCommonTasks/template'
 import { HomePageNewsSpotlight } from '@/components/homePageNewsSpotlight/template'
 import { HomePageBenefits } from '@/components/homePageBenefits/template'
-import { generateAbsoluteUrlFromEnv } from '@/lib/utils/environment'
-import { BUILD_TYPES } from '@/lib/constants/environment'
-
-export const metadata: Metadata = {
-  title: 'VA.gov | Veterans Affairs',
-  description: 'Welcome to VA.gov',
-  openGraph: {
-    siteName: 'Veterans Affairs',
-    title: 'VA.gov | Veterans Affairs',
-    type: 'website',
-    url: generateAbsoluteUrlFromEnv('/'),
-    images: [
-      {
-        url: '/img/design/logo/va-og-image.png',
-        alt: 'U.S. Department of Veterans Affairs logo',
-      },
-    ],
-  },
-  twitter: {
-    site: '@DeptVetAffairs',
-    title: 'VA.gov | Veterans Affairs',
-    card: 'summary',
-    images: [
-      {
-        url: '/img/design/logo/va-og-twitter-image.png',
-        alt: 'U.S. Department of Veterans Affairs logo',
-      },
-    ],
-  },
-  robots:
-    process.env.NEXT_PUBLIC_BUILD_TYPE !== BUILD_TYPES.PROD
-      ? 'noindex'
-      : undefined,
-  alternates: {
-    canonical: generateAbsoluteUrlFromEnv('/'),
-  },
-  other: {
-    HandheldFriendly: 'True',
-    MobileOptimized: '320',
-  },
-}
+import { Meta } from '@/components/meta/template'
 
 export default async function HomePage() {
   // Check feature flags - prevent route from building if flags aren't set
@@ -82,6 +41,13 @@ export default async function HomePage() {
 
   return (
     <>
+      <Meta
+        resource={{
+          title: 'VA.gov | Veterans Affairs',
+          entityPath: '/',
+          lastUpdated: new Date().toISOString(),
+        }}
+      />
       <PageLayout
         bannerData={bannerData}
         footerData={footerData}
