@@ -2,7 +2,8 @@ import type { Metadata } from 'next'
 import Script from 'next/script'
 import { GTM_ID } from '@/lib/analytics'
 import '@/assets/styles/globals.css'
-import { ClientLayout } from './ClientLayout'
+import { ClientMetrics } from './ClientMetrics'
+import { CustomElements } from './CustomElements'
 
 const ASSETS_URL = process.env.NEXT_PUBLIC_ASSETS_URL || '/generated/'
 const nonce = '**CSP_NONCE**'
@@ -131,7 +132,8 @@ export default function RootLayout({
             style={{ display: 'none', visibility: 'hidden' }}
           />
         </noscript>
-        <ClientLayout>{children}</ClientLayout>
+        <CustomElements />
+        <ClientMetrics>{children}</ClientMetrics>
       </body>
     </html>
   )
