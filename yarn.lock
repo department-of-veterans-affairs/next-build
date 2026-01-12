@@ -8204,15 +8204,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cross-fetch@npm:^4.1.0":
-  version: 4.1.0
-  resolution: "cross-fetch@npm:4.1.0"
-  dependencies:
-    node-fetch: ^2.7.0
-  checksum: c02fa85d59f83e50dbd769ee472c9cc984060c403ee5ec8654659f61a525c1a655eef1c7a35e365c1a107b4e72d76e786718b673d1cb3c97f61d4644cb0a9f9d
-  languageName: node
-  linkType: hard
-
 "cross-spawn@npm:^7.0.0, cross-spawn@npm:^7.0.1, cross-spawn@npm:^7.0.2, cross-spawn@npm:^7.0.3":
   version: 7.0.3
   resolution: "cross-spawn@npm:7.0.3"
@@ -9038,7 +9029,6 @@ __metadata:
     debug: ^4.4.3
     dotenv: ^16.4.5
     dotenv-expand: ^12.0.2
-    proxy-fetcher: 0.1.0
   languageName: unknown
   linkType: soft
 
@@ -14385,11 +14375,11 @@ __metadata:
     next-sitemap: ^4.2.3
     node_extra_ca_certs_mozilla_bundle: ^1.0.7
     npm: ^11.6.0
+    p-retry: ^7.1.0
     playwright-core: ^1.57.0
     plop: ^4.0.1
     prettier: ^3.2.5
     prettier-eslint: ^16.4.2
-    proxy-fetcher: 0.1.0
     react: 19.1.3
     react-dom: 19.1.3
     react-gtm-module: ^2.0.11
@@ -16154,18 +16144,6 @@ __metadata:
   checksum: d03ad2d171c2768280ade7ea6a7c5b1d0746215d70c0a16e02780c26e1d347edd27b3f48374661ae54ec0f7b41e6e45175b687baf333b36b1fd109a525154806
   languageName: node
   linkType: hard
-
-"proxy-fetcher@0.1.0, proxy-fetcher@workspace:packages/proxy-fetcher":
-  version: 0.0.0-use.local
-  resolution: "proxy-fetcher@workspace:packages/proxy-fetcher"
-  dependencies:
-    cross-fetch: ^4.1.0
-    debug: ^4.4.3
-    p-retry: ^7.1.0
-    socks-proxy-agent: ^8.0.5
-    syswide-cas: ^5.3.0
-  languageName: unknown
-  linkType: soft
 
 "proxy-from-env@npm:^1.1.0":
   version: 1.1.0
@@ -18112,13 +18090,6 @@ __metadata:
   dependencies:
     "@pkgr/core": ^0.2.9
   checksum: bc896d4320525501495654766e6b0aa394e522476ea0547af603bdd9fd7e9b65dcd6e3a237bc7eb3ab7e196376712f228bf1bf6ed1e1809f4b32dc9baf7ad413
-  languageName: node
-  linkType: hard
-
-"syswide-cas@npm:^5.3.0":
-  version: 5.3.0
-  resolution: "syswide-cas@npm:5.3.0"
-  checksum: 8478c036fc480564288bdd34411956ab50b11fe1c19fea4b110b9c6c663e95892b6bcbf17395b6ea61b79bac6fa66490405ba63c4b8b28ea54cc4651b7ac3e92
   languageName: node
   linkType: hard
 
