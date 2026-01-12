@@ -499,7 +499,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     // If we get a 403, it's probably because we're trying to preview an unpublished page.
     // Return a 404 instead of failing the build.
     //
-    // NOTE: The cause is added to the AbortError message in proxy-fetcher
+    // NOTE: The cause is added to the AbortError message in our fetch wrapper
     if (err.cause?.status === 403) {
       log('getStaticProps: 403 received; returning notFound')
       writeWarningToFile(
