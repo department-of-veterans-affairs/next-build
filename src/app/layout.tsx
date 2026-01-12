@@ -4,6 +4,7 @@ import { GTM_ID } from '@/lib/analytics'
 import '@/assets/styles/globals.css'
 import { ClientMetrics } from './ClientMetrics'
 import { CustomElements } from './CustomElements'
+import { PolyfillsScript } from './PolyfillsScript'
 
 const ASSETS_URL = process.env.NEXT_PUBLIC_ASSETS_URL || '/generated/'
 const nonce = '**CSP_NONCE**'
@@ -104,15 +105,6 @@ export default function RootLayout({
         {/* Add web components */}
         <link rel="stylesheet" href={`${ASSETS_URL}web-components.css`} />
 
-        {/* Add polyfills */}
-        <Script
-          id="polyfills"
-          noModule
-          strategy="afterInteractive"
-          src={`${ASSETS_URL}polyfills.entry.js`}
-          data-nb-nonce={nonce}
-        />
-
         {/* We participate in the US government's analytics program. See the data at analytics.usa.gov. https://github.com/digital-analytics-program/gov-wide-code */}
         <Script
           src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=VA"
@@ -123,6 +115,7 @@ export default function RootLayout({
         />
       </head>
       <body className="merger">
+        <PolyfillsScript />
         <div id="announcement-root"></div>
         <noscript>
           <iframe
