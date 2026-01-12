@@ -1,15 +1,19 @@
 import { VetCenterOutstation as FormattedVetCenterOutstation } from './formatted-type'
 import { GoogleMapsDirections } from '@/components/googleMapsDirections/template'
 import { Hours } from '@/components/hours/template'
-import { FeaturedContent } from '@/components/featuredContent/template'
-import { QaSection } from '@/components/qaSection/template'
-import { Accordion } from '@/components/accordion/template'
-import { AccordionItem } from '@/components/accordion/formatted-type'
 import { PhoneNumber } from '@/components/phoneNumber/template'
 import { TextWithImage } from '@/components/textWithImage/template'
 import { MediaImage } from '@/components/mediaImage/template'
+import { ExpandableOperatingStatus } from '@/components/expandableOperatingStatus/template'
+import { Accordion } from '@/components/accordion/template'
+import { AccordionItem } from '@/components/accordion/formatted-type'
+import { FeaturedContent } from '@/components/featuredContent/template'
+import { QaSection } from '@/components/qaSection/template'
+import { AlertBlock } from '@/components/alertBlock/template'
+import { ContentFooter } from '@/components/contentFooter/template'
+import VetCenterHealthServices from '@/components/vetCenterHealthServices/template'
 
-const PrepareForVisitComponent = ({
+const PrepareForVisitSection = ({
   visitItems,
 }: {
   visitItems: AccordionItem[]
@@ -25,7 +29,7 @@ const PrepareForVisitComponent = ({
       </h2>
       <p>Select a topic to learn more.</p>
       <div className="vads-u-margin-bottom--3">
-        <Accordion id={'prepare-for-your-visit'} bordered items={visitItems} />
+        <Accordion id="prepare-for-your-visit" bordered items={visitItems} />
       </div>
     </>
   )
@@ -33,22 +37,48 @@ const PrepareForVisitComponent = ({
 
 export function VetCenterOutstation({
   address,
-  ccNonTraditionalHours,
-  ccVetCenterCallCenter,
-  ccVetCenterFaqs,
   geolocation,
-  featuredContent,
   introText,
   officeHours,
   officialName,
+  operatingStatusFacility,
+  operatingStatusMoreInfo,
   phoneNumber,
   healthServices,
+  counselingHealthServices,
+  referralHealthServices,
+  otherHealthServices,
   image,
-  prepareForVisit,
   title,
   fieldFacilityLocatorApiId,
   path,
+  prepareForVisit,
+  featuredContent,
+  ccNonTraditionalHours,
+  ccVetCenterCallCenter,
+  ccVetCenterFaqs,
 }: FormattedVetCenterOutstation) {
+  const dayOfWeek = [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+  ] as const
+
+  const normalizedOfficeHours = officeHours ?? []
+  const outstationOrTitle = title || officialName || ''
+
+  const inferredOfficePath = path.includes('/')
+    ? `/${path.split('/').filter(Boolean).slice(0, -1).join('/')}`
+    : null
+  const locationsLink =
+    inferredOfficePath && inferredOfficePath !== '/'
+      ? `${inferredOfficePath}/locations`
+      : `${path}/locations`
+
   const structuredSchemaData = {
     '@context': 'https://schema.org',
     '@type': 'Place',
@@ -61,11 +91,11 @@ export function VetCenterOutstation({
       addressRegion: address.administrative_area,
       postalCode: address.postal_code,
     },
-    name: title,
+    name: outstationOrTitle,
     telephone: phoneNumber,
-    openingHoursSpecification: officeHours.map((hours) => ({
+    openingHoursSpecification: normalizedOfficeHours.map((hours) => ({
       '@type': 'OpeningHoursSpecification',
-      dayOfWeek: `https://schema.org/${hours.day}`,
+      dayOfWeek: `https://schema.org/${dayOfWeek[hours.day] ?? dayOfWeek[0]}`,
       opens: hours.starthours,
       closes: hours.endhours,
     })),
@@ -74,11 +104,13 @@ export function VetCenterOutstation({
     )}`,
     image: image?.links?.['2_1_large']?.href,
     branchCode: fieldFacilityLocatorApiId,
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: geolocation.lat.toString(),
-      longitude: geolocation.lon.toString(),
-    },
+    geo: geolocation
+      ? {
+          '@type': 'GeoCoordinates',
+          latitude: geolocation.lat.toString(),
+          longitude: geolocation.lon.toString(),
+        }
+      : undefined,
   }
 
   const generateStructuredDataForHealthServices = (
@@ -90,7 +122,7 @@ export function VetCenterOutstation({
       '@context': 'https://schema.org',
       '@type': 'GovernmentService',
       name: title,
-      alternateName: service?.fieldVetCenterFriendlyName || null,
+      alternateName: service?.vetCenterFriendlyName || null,
       serviceType: service?.vetCenterTypeOfCare || null,
       serviceOperator: {
         '@type': 'GovernmentOrganization',
@@ -109,7 +141,7 @@ export function VetCenterOutstation({
         serviceUrl: 'https://www.va.gov',
         servicePhone: {
           '@type': 'ContactPoint',
-          telephone: service?.phoneNumber || null,
+          telephone: phoneNumber || null,
         },
       },
       provider: {
@@ -122,27 +154,27 @@ export function VetCenterOutstation({
         name: title,
         address: {
           '@type': 'PostalAddress',
-          streetAddress:
-            fieldAddress.address_line1 +
-            (address.address_line2
-              ? `${address.address_line1}${address.address_line2}`
-              : address.address_line1),
+          streetAddress: `${fieldAddress.address_line1}${
+            fieldAddress.address_line2 ? `, ${fieldAddress.address_line2}` : ''
+          }`,
           addressLocality: fieldAddress?.locality,
           addressRegion: fieldAddress?.administrative_area,
           postalCode: fieldAddress?.postal_code,
         },
-        geo: {
-          '@type': 'GeoCoordinates',
-          latitude: geolocation.lat.toString(),
-          longitude: geolocation.lon.toString(),
-        },
+        geo: geolocation
+          ? {
+              '@type': 'GeoCoordinates',
+              latitude: geolocation.lat.toString(),
+              longitude: geolocation.lon.toString(),
+            }
+          : undefined,
       },
     }))
   }
 
   const structuredDataHealthServices = generateStructuredDataForHealthServices(
     healthServices,
-    title,
+    outstationOrTitle,
     address
   )
 
@@ -150,10 +182,10 @@ export function VetCenterOutstation({
     <div className="usa-grid usa-grid-full">
       <div className="usa-width-three-fourths">
         <article className="usa-content va-l-facility-detail vads-u-padding-bottom--0">
-          {title && (
+          {outstationOrTitle && (
             <>
-              <h1 aria-describedby="vet-center-title">{title}</h1>
-              {officialName && title !== officialName && (
+              <h1 aria-describedby="vet-center-title">{outstationOrTitle}</h1>
+              {officialName && outstationOrTitle !== officialName && (
                 <p
                   id="vet-center-title"
                   className="vads-u-line-height--4 vads-u-font-family--serif vads-u-font-size--lg vads-u-font-weight--bold vads-u-padding-bottom--0p5"
@@ -179,7 +211,9 @@ export function VetCenterOutstation({
           <TextWithImage
             image={
               <>
-                <MediaImage {...image} imageStyle="3_2_medium_thumbnail" />
+                {image && (
+                  <MediaImage {...image} imageStyle="3_2_medium_thumbnail" />
+                )}
                 <div
                   data-widget-type="facility-map"
                   data-facility={fieldFacilityLocatorApiId}
@@ -187,72 +221,92 @@ export function VetCenterOutstation({
               </>
             }
           >
-            {/* TODO: put operating status here */}
             <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
               Address
             </h3>
+            {operatingStatusFacility && (
+              <ExpandableOperatingStatus
+                operatingStatusFlag={operatingStatusFacility}
+                operatingStatusMoreInfo={operatingStatusMoreInfo ?? null}
+              />
+            )}
             <div className="vads-u-margin-bottom--3">
               <address>
                 <div>{address.address_line1}</div>
                 {address.address_line2 && <div>{address.address_line2}</div>}
                 <div>{`${address.locality}, ${address.administrative_area} ${address.postal_code}`}</div>
               </address>
-              <GoogleMapsDirections address={address} location={title} />
+              <GoogleMapsDirections
+                address={address}
+                location={outstationOrTitle}
+              />
             </div>
 
-            <div className="vads-u-margin-bottom--3">
-              <PhoneNumber
-                number={phoneNumber}
-                label="Main phone"
-                className="main-phone vads-u-margin-bottom--1"
-              />
-              {ccVetCenterCallCenter && (
-                <>
-                  <PhoneNumber
-                    number={phoneNumber}
-                    label="After hours"
-                    className="main-phone vads-u-margin-bottom--1"
-                  />
-                  <div className="vads-u-margin-bottom--2">
-                    Need help after hours? We are available 24/7. Call us
-                    anytime.
-                  </div>
-                </>
-              )}
-            </div>
+            <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
+              Phone number
+            </h3>
+            <PhoneNumber
+              className="vads-u-margin-top--0 vads-u-margin-bottom--3"
+              label="Main phone"
+              number={phoneNumber}
+            />
 
             <Hours
               headerType="standard"
-              allHours={officeHours}
+              allHours={normalizedOfficeHours}
               nonTraditionalMessage={ccNonTraditionalHours}
             />
           </TextWithImage>
 
-          <h2 id="in-the-spotlight" className="vads-u-margin-y--2">
-            In the spotlight
-          </h2>
-          <div className="vads-u-display--flex vads-u-flex-direction--column vads-u-justify-content--space-between medium-screen:vads-u-flex-direction--row vads-u-margin-bottom--4 ">
-            {featuredContent &&
-              featuredContent.map((content, index) => (
-                <FeaturedContent
-                  key={index}
-                  title={content.title}
-                  description={content.description}
-                  link={content.link}
-                  id={content.id || ''}
-                />
-              ))}
-          </div>
-
-          {/* Prepare for Your Visit */}
-          {prepareForVisit && prepareForVisit.length > 0 && (
-            <PrepareForVisitComponent visitItems={prepareForVisit} />
+          {ccVetCenterCallCenter && (
+            <div className="vads-u-margin-bottom--2">
+              <AlertBlock
+                alertType="info"
+                id="field-cc-vet-call-center"
+                title="Need help after hours?"
+                content={ccVetCenterCallCenter}
+              />
+            </div>
           )}
 
-          {/* FAQs */}
+          {featuredContent && featuredContent.length > 0 && (
+            <>
+              <h2 id="in-the-spotlight" className="vads-u-margin-y--2">
+                In the spotlight
+              </h2>
+              <div className="vads-u-display--flex vads-u-flex-direction--column vads-u-justify-content--space-between medium-screen:vads-u-flex-direction--row vads-u-margin-bottom--4">
+                {featuredContent.map((content, index) => (
+                  <FeaturedContent
+                    key={index}
+                    title={content.title}
+                    description={content.description}
+                    link={content.link}
+                    id={content.id || ''}
+                  />
+                ))}
+              </div>
+            </>
+          )}
+
+          {prepareForVisit && prepareForVisit.length > 0 && (
+            <PrepareForVisitSection visitItems={prepareForVisit} />
+          )}
+
+          <VetCenterHealthServices
+            services={counselingHealthServices}
+            typeOfCare="counseling"
+          />
+          <VetCenterHealthServices
+            services={referralHealthServices}
+            typeOfCare="referral"
+          />
+          <VetCenterHealthServices
+            services={otherHealthServices}
+            typeOfCare="other"
+          />
+
           {ccVetCenterFaqs && <QaSection {...ccVetCenterFaqs} />}
 
-          {/* Other locations */}
           <div className="vads-u-margin-bottom--3">
             <h2
               id="other-nearby-vet-centers"
@@ -266,7 +320,7 @@ export function VetCenterOutstation({
                 where you live. Find a nearby Vet Center location.
               </p>
               <va-link
-                href={`${path}/locations`}
+                href={locationsLink}
                 text="Find a nearby Vet Center location"
               />
             </div>
@@ -274,7 +328,8 @@ export function VetCenterOutstation({
 
           <va-back-to-top></va-back-to-top>
 
-          {/* Embedding structured data scripts for schema.org */}
+          <ContentFooter />
+
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{

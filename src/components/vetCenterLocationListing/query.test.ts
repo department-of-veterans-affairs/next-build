@@ -112,7 +112,9 @@ describe('VetCenterLocationListing query', () => {
       expect(firstMobileCenter).toHaveProperty('phoneNumber')
       expect(firstMobileCenter).toHaveProperty('address')
       expect(firstMobileCenter).toHaveProperty('type')
-      expect(firstMobileCenter.type).toBe('node--vet_center_mobile_vet_center')
+      expect(firstMobileCenter.type).toBe(
+        RESOURCE_TYPES.VET_CENTER_MOBILE_VET_CENTER
+      )
     })
 
     test('handles empty array', async () => {
@@ -137,7 +139,7 @@ describe('VetCenterLocationListing query', () => {
       // Mock satellite locations query to return mobile vet centers
       const mockMobileVetCenterData = [
         {
-          type: 'node--vet_center_mobile_vet_center',
+          type: RESOURCE_TYPES.VET_CENTER_MOBILE_VET_CENTER,
           id: 'test-mobile-vet-center',
           title: 'Test Mobile Vet Center',
           field_phone_number: '555-123-4567',
@@ -170,7 +172,9 @@ describe('VetCenterLocationListing query', () => {
       expect(firstMobileCenter).toHaveProperty('phoneNumber')
       expect(firstMobileCenter).toHaveProperty('address')
       expect(firstMobileCenter).toHaveProperty('type')
-      expect(firstMobileCenter.type).toBe('node--vet_center_mobile_vet_center')
+      expect(firstMobileCenter.type).toBe(
+        RESOURCE_TYPES.VET_CENTER_MOBILE_VET_CENTER
+      )
     })
 
     test('handles empty array', async () => {

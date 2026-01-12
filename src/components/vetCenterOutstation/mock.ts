@@ -1,47 +1,12 @@
-import { Wysiwyg as FormattedWysiwyg } from '@/components/wysiwyg/formatted-type'
-import { FeaturedContent as FormattedFeaturedContent } from '@/components/featuredContent/formatted-type'
-import { QaSection as FormattedQaSection } from '@/components/qaSection/formatted-type'
-
 export const mockResponse = {
   address: {
     langcode: 'en',
     country_code: 'US',
     administrative_area: 'PA',
     locality: 'Pittsburgh',
+    postal_code: '15215',
     address_line1: '1010 Delafield Road',
     address_line2: '',
-  },
-  ccNonTraditionalHours: {
-    id: '1',
-    type: 'paragraph--wysiwyg' as FormattedWysiwyg['type'],
-    html: '<p>We also have non-traditional hours that change periodically given our community’s needs. Please call us to find out more.</p>',
-  },
-  ccVetCenterCallCenter: {
-    id: '1',
-    type: 'paragraph--wysiwyg' as FormattedWysiwyg['type'],
-    html: '<p>Our call center is available 24/7. Call us anytime at <a href="tel:+18779278387" aria-label="8 7 7. 9 2 7. 8 3 8 7.">877-927-8387</a>.</p>',
-  },
-  ccVetCenterFaqs: {
-    type: 'paragraph--q_a_section' as FormattedQaSection['type'],
-    id: '5f582f12-b72f-4a35-a9df-411485c8e446',
-    header: 'How we’re different than a clinic',
-    intro: 'Select a topic to learn more.',
-    displayAccordion: true,
-    questions: [
-      {
-        id: '29903',
-        type: 'paragraph--q_a_section' as FormattedQaSection['type'],
-        question: 'What are Vet Centers?',
-        answers: [
-          {
-            type: 'paragraph--wysiwyg' as FormattedWysiwyg['type'],
-            id: '1',
-            html: '<p>Vet Centers are small, non-medical, counseling centers conveniently located in your community. They’re staffed by highly trained counselors and team members dedicated to seeing you through the challenges that come with managing life during and after the military.</p>\r\n\r\n<p>Whether you come in for one-on-one counseling or to participate in a group session, at Vet Centers you can form social connections, try new things, and build a support system with people who understand you and want to help you succeed.</p>\r\n',
-          },
-        ],
-        header: 'Vet Center -- Facility pages > Content > Questions',
-      },
-    ],
   },
   geolocation: {
     value: 'POINT (-80.05719073 40.42665609)',
@@ -55,28 +20,6 @@ export const mockResponse = {
     geohash: 'dppjfr2nk4zuym',
     latlon: '40.42665609,-80.05719073',
   },
-  featuredContent: [
-    {
-      id: '1',
-      type: 'paragraph--featured_content' as FormattedFeaturedContent['type'],
-      title: 'New Vet Centers and Satellite Locations Announced',
-      description:
-        '<p>To improve access to counseling, we are adding three Vet Centers and six satellite locations across the US and its territories. We will continue to expand our program to meet Veteran demand and provide local support to those who served.&nbsp;</p>\n',
-      link: {
-        id: '32956',
-        url: 'https://www.vetcenter.va.gov/New_Vet_Centers.asp',
-        label: 'View the new locations here!',
-      },
-    },
-    {
-      id: '2',
-      type: 'paragraph--featured_content' as FormattedFeaturedContent['type'],
-      title: 'Group Session Available Virtual and In Person',
-      description:
-        '<p><strong>Vietnam Era Group -&nbsp;</strong>Tues 1-3pm</p>\n<p><strong>Vietnam Era Group - </strong>Wed 1-3pm</p>\n<p><strong>African American Vietnam Group at the Heinz VAMC </strong>1st, 2nd, 4th Thurs 4:30-6:30 pm</p>\n<p><strong>Strength at Home Couples Group&nbsp;</strong>Wed 9-11am</p>\n<p><strong>OIF/OEF Group-</strong>&nbsp;2nd &amp; 4th Mon 6-7:30pm</p>\n<p>&nbsp;</p>\n',
-      link: null,
-    },
-  ],
   introText: 'Test introText',
   officeHours: [
     { day: 0, starthours: null, endhours: null, comment: 'Closed' },
@@ -194,35 +137,21 @@ export const mockResponse = {
     width: 700,
     height: 350,
   },
-  bannerImage: {
-    id: 'banner-image-id',
-    links: {
-      '2_1_large': {
-        href: 'https://s3-us-gov-west-1.amazonaws.com/content.www.va.gov/img/styles/2_1_large/public/2019-05/banner-image.jpg',
-        meta: {
-          linkParams: {
-            width: 1200,
-            height: 600,
-          },
-        },
-      },
-    },
-    alt: 'Banner image for vet center',
-    title: '',
-    width: 1200,
-    height: 600,
-  },
-  prepareForVisit: null,
   title: 'Test title',
   fieldFacilityLocatorApiId: 'Test API ID',
-  path: 'Test title',
+  path: '/test-vet-center/test-outstation',
   id: '1',
-  type: 'node--vet_center',
+  type: 'node--vet_center_outstation',
   published: true,
   lastUpdated: '',
   lastSavedByAnEditor: '',
   operatingStatusFacility: '',
   operatingStatusMoreInfo: '',
   timezone: '',
-  administration: undefined,
+  administration: null,
+  prepareForVisit: null,
+  featuredContent: null,
+  ccNonTraditionalHours: null,
+  ccVetCenterCallCenter: null,
+  ccVetCenterFaqs: null,
 }

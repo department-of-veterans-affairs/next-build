@@ -80,6 +80,12 @@ During local development, you will need to activate the content type's feature f
    FEATURE_NEXT_BUILD_CONTENT_VET_CENTER=true
    ```
 
+   For Vet Center Outstations (machine name `vet_center_outstation`), you would add:
+
+   ```
+   FEATURE_NEXT_BUILD_CONTENT_VET_CENTER_OUTSTATION=true
+   ```
+
    Alternately, setting the following special environment variable will bypass the flag system and enable all content types that Next Build is aware of:
 
    ```
