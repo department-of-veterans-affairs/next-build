@@ -1,7 +1,5 @@
-'use client'
-
-import { useRouter } from 'next/navigation'
 import { HomePageHeroData as FormattedHomePageHero } from './formatted-type'
+import { CtaLoginButton } from './CtaLoginButton'
 
 export function HomePageHero({
   promoHeadline,
@@ -11,7 +9,6 @@ export function HomePageHero({
   primaryCtaButtonText,
   relatedInfoLinks,
 }: FormattedHomePageHero) {
-  const router = useRouter()
   return (
     <div className="homepage-hero__wrapper" data-testid="hero">
       <div className="vads-grid-container vads-u-padding-x--0">
@@ -48,16 +45,7 @@ export function HomePageHero({
                 <h2 className="vads-u-font-size--md vads-u-line-height--5 vads-u-color--gray vads-u-margin-top--0 vads-u-padding-right--2 vads-u-font-family--sans vads-u-font-weight--normal">
                   {ctaSummaryText}
                 </h2>
-                <va-button
-                  className="vads-u-margin-bottom--3"
-                  data-testid="ctaButton"
-                  text={primaryCtaButtonText}
-                  onClick={() => {
-                    const params = new URLSearchParams(window.location.search)
-                    params.set('next', 'loginModal')
-                    router.push(`?${params.toString()}`)
-                  }}
-                />
+                <CtaLoginButton text={primaryCtaButtonText} />
                 {relatedInfoLinks.map((link, index) => (
                   <va-link
                     data-testid={`related-link-${index}`}
