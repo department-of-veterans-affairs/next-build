@@ -57,12 +57,6 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
-      # This is necessary in order for fetch to work.
-      # Finally, made fetch happen...
-      - name: Build proxy-fetcher dist
-        run: |
-          yarn tsc -b ./packages/proxy-fetcher/tsconfig.json
-
       - name: Run Playwright tests
         run: |
           SEGMENT_INDEX=${{ matrix.shardIndex }} yarn playwright test --project=a11y
