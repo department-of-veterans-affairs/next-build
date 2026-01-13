@@ -1,4 +1,3 @@
-import { getFetcher } from 'proxy-fetcher'
 import { EnvVars } from '.'
 
 const removeTrailingSlash = (s: string): string =>
@@ -7,9 +6,8 @@ const removeTrailingSlash = (s: string): string =>
 export const getCmsFeatureFlags = async (
   drupalBaseUrl: string
 ): Promise<EnvVars> => {
-  const fetcher = getFetcher(drupalBaseUrl)
   const featureFlagUrl = `${removeTrailingSlash(drupalBaseUrl)}/flags_list`
-  const response = await fetcher(featureFlagUrl)
+  const response = await fetch(featureFlagUrl)
   const json = await response.json()
   return json.data
 }
