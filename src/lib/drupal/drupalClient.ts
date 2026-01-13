@@ -1,12 +1,12 @@
 import { DrupalClient } from 'next-drupal'
 import { createRedisClient, redisCache } from '@/lib/utils/redisCache'
-import { getFetcher } from 'proxy-fetcher'
+import { createFetcherWithRetry } from './createFetcherWithRetry'
 
 const baseUrl =
   process.env.NEXT_PUBLIC_DRUPAL_BASE_URL || 'https://va-gov-cms.ddev.site'
 
 export const drupalClient = new DrupalClient(baseUrl, {
-  fetcher: getFetcher(baseUrl),
+  fetcher: createFetcherWithRetry(),
   useDefaultResourceTypeEntry: true,
   throwJsonApiErrors: false,
   auth: {
