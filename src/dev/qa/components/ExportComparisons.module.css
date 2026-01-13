@@ -1,0 +1,12 @@
+/* ExportComparisons.module.css */
+
+.exportButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.exportButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
