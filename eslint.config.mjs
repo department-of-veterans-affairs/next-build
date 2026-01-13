@@ -116,7 +116,6 @@ export default [
         project: [
           './tsconfig.json',
           './packages/env-loader/tsconfig.json',
-          './packages/proxy-fetcher/tsconfig.json',
           './packages/template-migration-mcp-server/tsconfig.json',
           './scripts/dependency-tree-visualizer/tsconfig.json',
           './scripts/fetch-entity/tsconfig.json',
