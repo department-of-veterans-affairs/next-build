@@ -85,7 +85,7 @@ export const data: QueryData<
       hasLovellCounterpart =
         (await drupalClient.translatePath(counterpartPath)) !== null
     } catch (error) {
-      // If we're using proxy-fetcher, it'll actually throw an error for these
+      // Our fetch wrapper will throw an error for these
       if ([404, 403].includes(error.cause?.status)) {
         hasLovellCounterpart = false
       } else {
