@@ -77,6 +77,8 @@ export function VbaFacility({
   const otherServices = allServices.filter(
     (service) => service.type === 'vba_other_services'
   )
+  const isManila = facilityLocatorApiId === 'vba_358'
+
   return (
     <div className="interior">
       <main className="va-l-detail-page va-facility-page">
@@ -89,13 +91,32 @@ export function VbaFacility({
               </div>
             )}
             <div className="vads-u-margin-top--1p5 vads-u-margin-bottom--3">
-              <va-link-action
-                class="vads-u-display--block"
-                href="https://va.my.site.com/VAVERA/s/"
-                text="Make an appointment"
-                type="secondary"
-                data-testid="make-appointment-link"
-              />
+              {isManila ? (
+                <>
+                  <va-link-action
+                    class="vads-u-display--block"
+                    href="https://va.my.site.com/VAVERA/s/flow/VERA_Start?type=In-Person&office=0Hht00000008Oq9"
+                    text="Make an in-person appointment"
+                    type="secondary"
+                    data-testid="make-appointment-link-in-person"
+                  ></va-link-action>
+                  <va-link-action
+                    class="vads-u-display--block"
+                    href="https://va.my.site.com/VAVERA/s/flow/VERA_Start?type=Virtual&office=0Hht00000008OqE"
+                    text="Make a virtual appointment"
+                    type="secondary"
+                    data-testid="make-appointment-link-virtual"
+                  ></va-link-action>
+                </>
+              ) : (
+                <va-link-action
+                  class="vads-u-display--block"
+                  href="https://va.my.site.com/VAVERA/s/"
+                  text="Make an appointment"
+                  type="secondary"
+                  data-testid="make-appointment-link"
+                />
+              )}
               <va-link-action
                 class="vads-u-display--block"
                 href="https://ask.va.gov"
