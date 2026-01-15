@@ -178,7 +178,7 @@ export function VaForm({
                 <h2>Related forms and instructions</h2>
                 {relatedForms.map((vaForm) => (
                   <div key={vaForm.id}>
-                    {vaForm.entityPath && vaForm.published ? (
+                    {vaForm.entityPath ? (
                       <a href={vaForm.entityPath}>
                         <h3 className="vads-u-display--inline-block vads-u-text-decoration--underline">
                           VA Form {vaForm.formNumber}
