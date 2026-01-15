@@ -77,6 +77,9 @@ export function VbaFacility({
   const otherServices = allServices.filter(
     (service) => service.type === 'vba_other_services'
   )
+  // This bool and the conditional rendering below handle the special case for
+  // the Manila VBA facility, which has two separate appointment links.
+  // This is a hotfix and TODO: remove when VA VERA or CMS changes permit
   const isManila = facilityLocatorApiId === 'vba_358'
 
   return (
