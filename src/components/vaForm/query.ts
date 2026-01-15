@@ -62,11 +62,16 @@ export const formatter: QueryFormatter<NodeVaForm, VaForm> = (
     toolIntro: entity.field_va_form_tool_intro ?? null,
     usage: getHtmlFromField(entity.field_va_form_usage),
     linkTeasers: entity.field_va_form_link_teasers?.map(formatLinkTeaser),
-    relatedForms: entity.field_va_form_related_forms?.map((form) => ({
-      id: form.id,
-      formNumber: form.field_va_form_number ?? null,
-      formName: form.field_va_form_name ?? null,
-    })),
+    relatedForms: entity.field_va_form_related_forms
+      ?.filter((form) => form.status) // Filter out unpublished related forms.
+      .map((form) => ({
+        ...entityBaseFields(form),
+        formNumber: form.field_va_form_number ?? null,
+        formName: form.field_va_form_name ?? null,
+        usage: getHtmlFromField(form.field_va_form_usage),
+        formUrl: form.field_va_form_url ?? null,
+        formLanguage: form.field_va_form_language ?? null,
+      })),
     formUpload: entity.field_va_form_upload,
   }
 }
