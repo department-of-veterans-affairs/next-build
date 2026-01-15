@@ -5,6 +5,13 @@ import { VaForm as VaFormType } from './formatted-type'
 
 type VaFormProps = VaFormType
 
+const getDownloadButtonText = (lang: string, formNumber: string) => {
+  if (lang === 'es') {
+    return `Descargar el formulario VA ${formNumber}`
+  }
+  return `Download VA Form ${formNumber}`
+}
+
 export function VaForm({
   title,
   formName,
@@ -36,13 +43,6 @@ export function VaForm({
       year: 'numeric',
       month: 'long',
     })
-  }
-
-  const getDownloadButtonText = () => {
-    if (formLanguage === 'es') {
-      return `Descargar el formulario VA ${formNumber}`
-    }
-    return `Download VA Form ${formNumber}`
   }
 
   return (
@@ -144,7 +144,7 @@ export function VaForm({
                     icon="file_download"
                     size="3"
                   />
-                  {getDownloadButtonText()} (PDF)
+                  {getDownloadButtonText(formLanguage, formNumber)} (PDF)
                 </button>
               )}
             </div>
@@ -176,20 +176,55 @@ export function VaForm({
             {relatedForms && relatedForms.length > 0 && (
               <section>
                 <h2>Related forms and instructions</h2>
-                <ul className="usa-unstyled-list" role="list">
-                  {relatedForms.map((vaForm) => (
-                    <li key={vaForm.id}>
-                      <h3>
-                        <a
-                          href={`/find-forms/about-form-${vaForm.formNumber?.toLowerCase() ?? ''}`}
-                        >
+                {relatedForms.map((vaForm) => (
+                  <div key={vaForm.id}>
+                    {vaForm.entityPath ? (
+                      <a href={vaForm.entityPath}>
+                        <h3 className="vads-u-display--inline-block vads-u-text-decoration--underline">
                           VA Form {vaForm.formNumber}
-                        </a>
+                        </h3>
+                      </a>
+                    ) : (
+                      <h3 className="vads-u-display--inline-block">
+                        VA Form {vaForm.formNumber}
                       </h3>
-                      <p>{vaForm.formName}</p>
-                    </li>
-                  ))}
-                </ul>
+                    )}
+                    <p className="vads-u-margin-top--0 vads-u-font-size--h4 vads-u-font-weight--bold">
+                      <dfn className="vads-u-visibility--screen-reader">
+                        Form name:
+                      </dfn>{' '}
+                      {vaForm.formName}
+                    </p>
+                    {vaForm.usage && (
+                      <div dangerouslySetInnerHTML={{ __html: vaForm.usage }} />
+                    )}
+                    {vaForm.formUrl && (
+                      <div
+                        id={`${vaForm.formNumber}-download-button-${vaForm.formLanguage}-parent`}
+                      >
+                        <button
+                          className="va-button-link vads-u-display--flex vads-u-align-items--center"
+                          data-widget-type="find-va-forms-pdf-download-helper"
+                          data-href={vaForm.formUrl.uri}
+                          data-form-number={vaForm.formNumber}
+                          id={`${vaForm.formNumber}-download-button-${vaForm.formLanguage}`}
+                          lang={vaForm.formLanguage ?? 'en'}
+                        >
+                          <va-icon
+                            className="vads-u-margin-right--0p5"
+                            icon="file_download"
+                            size="3"
+                          />
+                          {getDownloadButtonText(
+                            vaForm.formLanguage,
+                            vaForm.formNumber
+                          )}{' '}
+                          (PDF)
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                ))}
               </section>
             )}
 
