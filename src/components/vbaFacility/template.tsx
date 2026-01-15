@@ -79,7 +79,8 @@ export function VbaFacility({
   )
   // This bool and the conditional rendering below handle the special case for
   // the Manila VBA facility, which has two separate appointment links.
-  // This is a hotfix and TODO: remove when VA VERA or CMS changes permit
+  // FIXME: EPIC - modernization: https://github.com/department-of-veterans-affairs/va.gov-cms/issues/22361
+  // https://github.com/department-of-veterans-affairs/va.gov-cms/issues/23217
   const isManila = facilityLocatorApiId === 'vba_358'
 
   return (
