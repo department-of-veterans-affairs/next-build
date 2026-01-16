@@ -39,15 +39,13 @@ export function EventListing({
 
   return (
     <SideNavLayout menu={menu}>
-      <div className="events vads-u-display--flex vads-u-flex-direction--column vads-u-padding-x--1p5 tablet:vads-u-padding-x--0 vads-u-padding-bottom--2">
-        <LovellSwitcher
-          currentVariant={lovellVariant}
-          switchPath={lovellSwitchPath}
-        />
+      <LovellSwitcher
+        currentVariant={lovellVariant}
+        switchPath={lovellSwitchPath}
+      />
 
-        <h1 id="article-heading">{title}</h1>
-        <div className="va-introtext">{introText && <p>{introText}</p>}</div>
-      </div>
+      <h1 id="article-heading">{title}</h1>
+      <div className="va-introtext">{introText && <p>{introText}</p>}</div>
 
       {/* Events widget coming from vets-website */}
       <div data-widget-type="events" className="clearfix"></div>
