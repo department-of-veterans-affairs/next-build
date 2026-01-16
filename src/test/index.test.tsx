@@ -103,9 +103,7 @@ describe('FrontPage', () => {
     expect(screen.getByTestId('common-tasks')).toBeInTheDocument()
     expect(screen.getByTestId('news-spotlight')).toBeInTheDocument()
     expect(screen.getByTestId('home-page-benefits')).toBeInTheDocument()
-    expect(
-      container.querySelector('[data-widget-type="homepage-email-signup"]')
-    ).toBeInTheDocument()
+    expect(screen.getByTestId('home-page-email-signup')).toBeInTheDocument()
     expect(container.querySelector('#vets-banner-1')).toBeInTheDocument()
   })
 })

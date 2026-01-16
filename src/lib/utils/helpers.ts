@@ -203,3 +203,19 @@ export const setPTag = (string: string) => {
   }
   return `<p>${string}</p>`
 }
+
+/**
+ * Validates email address format
+ * @param value - Email address string to validate
+ * @returns true if email format is valid, false otherwise
+ */
+export function isValidEmail(value: string): boolean {
+  if (!value || typeof value !== 'string') {
+    return false
+  }
+  // Email validation regex from StackOverflow: http://stackoverflow.com/questions/46155/validate-email-address-in-javascript
+  // eslint-disable-next-line no-useless-escape
+  return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+    value
+  )
+}
