@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { VaTextInput } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
 import { recordEvent } from '@/lib/analytics/recordEvent'
 import { isValidEmail } from '@/lib/utils/helpers'
@@ -8,43 +8,54 @@ import { isValidEmail } from '@/lib/utils/helpers'
 export function SignupForm() {
   const [inputError, setInputError] = useState<string | null>(null)
   const [email, setEmail] = useState('')
-  const [headerHasFocused, setHeaderHasFocused] = useState(false)
+  const headerHasFocusedRef = useRef(false)
+  const formRef = useRef<HTMLFormElement>(null)
 
+  const getInputShadowRoot = (): ShadowRoot | null => {
+    const textInput = formRef.current?.querySelector('va-text-input')
+    return textInput?.shadowRoot || null
+  }
+
+  // Style the character count message in the va-text-input shadow DOM
+  // This runs once on mount to apply custom styling to the shadow root
   useEffect(() => {
-    const textInput = document?.querySelector('va-text-input')
-    const shadowRoot = textInput?.shadowRoot
+    const shadowRoot = getInputShadowRoot()
+    if (!shadowRoot) return
 
-    if (shadowRoot) {
-      const charCountStyle = document.createElement('style')
+    const charCountStyle = document.createElement('style')
 
-      charCountStyle.textContent = `
-          #charcount-message {
-            color: #565c65;
-          }
-        `
+    charCountStyle.textContent = `
+        #charcount-message {
+          color: #565c65;
+        }
+      `
 
-      shadowRoot.appendChild(charCountStyle)
-    }
+    shadowRoot.appendChild(charCountStyle)
   })
 
+  // Handle accessibility: Focus the form heading when validation errors occur
+  // This ensures screen readers announce errors by focusing the heading element
+  // The flag prevents repeated focusing while an error persists, but resets when error clears
   useEffect(() => {
-    const textInput = document?.querySelector('va-text-input')
-    const shadowRoot = textInput?.shadowRoot
+    const shadowRoot = getInputShadowRoot()
+    const inputHeader = shadowRoot?.querySelector('h2')
+    if (!inputHeader) return
 
-    if (shadowRoot && !headerHasFocused) {
-      const inputHeader = shadowRoot?.querySelector('h2')
+    // Reset the flag when error clears, so header can be focused again on new errors
+    if (!inputError) {
+      headerHasFocusedRef.current = false
+      return
+    }
 
-      if (inputHeader) {
-        inputHeader.addEventListener('focus', () => {
-          ;(inputHeader as HTMLElement).style.outline = 'none'
-        })
-      }
+    // Only focus header if there's an error and we haven't focused it yet
+    if (!headerHasFocusedRef.current) {
+      inputHeader.addEventListener('focus', () => {
+        ;(inputHeader as HTMLElement).style.outline = 'none'
+      })
 
-      if (inputHeader && inputError) {
-        inputHeader.setAttribute('tabindex', '-1')
-        inputHeader.focus()
-        setHeaderHasFocused(true)
-      }
+      inputHeader.setAttribute('tabindex', '-1')
+      inputHeader.focus()
+      headerHasFocusedRef.current = true
     }
   }, [inputError])
 
@@ -75,19 +86,14 @@ export function SignupForm() {
         'button-click-label': 'Sign up',
       })
 
-      const form = document.querySelector(
-        '#email-signup-form'
-      ) as HTMLFormElement
-
-      if (form) {
-        form.requestSubmit()
-      }
+      formRef.current?.requestSubmit()
     }
   }
 
   return (
     <div className="email-signup-form">
       <form
+        ref={formRef}
         acceptCharset="UTF-8"
         action="https://public.govdelivery.com/accounts/USVACHOOSE/subscribers/qualify"
         id="email-signup-form"
