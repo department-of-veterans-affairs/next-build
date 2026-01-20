@@ -3,270 +3,288 @@
 exports[`Meta component Custom metatags renders custom metatags when provided (snapshot) 1`] = `
 {
   "links": [
-    {
-      "href": "//",
-      "rel": "canonical",
-    },
+    <link
+      href="//"
+      rel="canonical"
+    />,
   ],
   "metaTags": [
-    {
-      "content": "2023-12-31",
-      "name": "DC.Date",
-    },
-    {
-      "content": "Custom description",
-      "name": "description",
-    },
-    {
-      "content": "True",
-      "name": "HandheldFriendly",
-    },
-    {
-      "content": "320",
-      "name": "MobileOptimized",
-    },
-    {
-      "content": "Custom OG Title",
-      "property": "og:title",
-    },
-    {
-      "content": "website",
-      "property": "og:type",
-    },
-    {
-      "content": "//",
-      "property": "og:url",
-    },
-    {
-      "content": "noindex",
-      "name": "robots",
-    },
-    {
-      "charSet": "utf-8",
-    },
-    {
-      "content": "width=device-width, initial-scale=1.0",
-      "name": "viewport",
-    },
+    <meta
+      content="noindex"
+      name="robots"
+    />,
+    <meta
+      charset="utf-8"
+    />,
+    <meta
+      content="IE=edge"
+      http-equiv="X-UA-Compatible"
+    />,
+    <meta
+      content="True"
+      name="HandheldFriendly"
+    />,
+    <meta
+      content="320"
+      name="MobileOptimized"
+    />,
+    <meta
+      content="width=device-width, initial-scale=1.0"
+      name="viewport"
+    />,
+    <meta
+      content="//"
+      property="og:url"
+    />,
+    <meta
+      content="website"
+      property="og:type"
+    />,
+    <meta
+      content="2023-12-31"
+      name="DC.Date"
+    />,
+    <meta
+      content="Custom description"
+      name="description"
+    />,
+    <meta
+      content="Custom OG Title"
+      property="og:title"
+    />,
   ],
-  "title": "Custom Title",
+  "title": <title>
+    Custom Title
+  </title>,
 }
 `;
 
 exports[`Meta component Default tags renders default meta tags with basic resource (snapshot) 1`] = `
 {
   "links": [
-    {
-      "href": "//",
-      "rel": "canonical",
-    },
+    <link
+      href="//"
+      rel="canonical"
+    />,
   ],
   "metaTags": [
-    {
-      "content": "2023-12-31",
-      "name": "DC.Date",
-    },
-    {
-      "content": "True",
-      "name": "HandheldFriendly",
-    },
-    {
-      "content": "320",
-      "name": "MobileOptimized",
-    },
-    {
-      "content": "/img/design/logo/va-og-image.png",
-      "property": "og:image",
-    },
-    {
-      "content": "U.S. Department of Veterans Affairs logo",
-      "property": "og:image:alt",
-    },
-    {
-      "content": "Veterans Affairs",
-      "property": "og:site_name",
-    },
-    {
-      "content": "VA.gov | Veterans Affairs",
-      "property": "og:title",
-    },
-    {
-      "content": "website",
-      "property": "og:type",
-    },
-    {
-      "content": "//",
-      "property": "og:url",
-    },
-    {
-      "content": "noindex",
-      "name": "robots",
-    },
-    {
-      "content": "Summary",
-      "name": "twitter:card",
-    },
-    {
-      "content": "/img/design/logo/va-og-twitter-image.png",
-      "name": "twitter:image",
-    },
-    {
-      "content": "U.S. Department of Veterans Affairs logo",
-      "name": "twitter:image:alt",
-    },
-    {
-      "content": "@DeptVetAffairs",
-      "name": "twitter:site",
-    },
-    {
-      "content": "VA.gov | Veterans Affairs",
-      "name": "twitter:title",
-    },
-    {
-      "charSet": "utf-8",
-    },
-    {
-      "content": "width=device-width, initial-scale=1.0",
-      "name": "viewport",
-    },
+    <meta
+      content="noindex"
+      name="robots"
+    />,
+    <meta
+      charset="utf-8"
+    />,
+    <meta
+      content="IE=edge"
+      http-equiv="X-UA-Compatible"
+    />,
+    <meta
+      content="True"
+      name="HandheldFriendly"
+    />,
+    <meta
+      content="320"
+      name="MobileOptimized"
+    />,
+    <meta
+      content="width=device-width, initial-scale=1.0"
+      name="viewport"
+    />,
+    <meta
+      content="//"
+      property="og:url"
+    />,
+    <meta
+      content="website"
+      property="og:type"
+    />,
+    <meta
+      content="2023-12-31"
+      name="DC.Date"
+    />,
+    <meta
+      content="Veterans Affairs"
+      property="og:site_name"
+    />,
+    <meta
+      content="VA.gov | Veterans Affairs"
+      property="og:title"
+    />,
+    <meta
+      content="/img/design/logo/va-og-image.png"
+      property="og:image"
+    />,
+    <meta
+      content="U.S. Department of Veterans Affairs logo"
+      property="og:image:alt"
+    />,
+    <meta
+      content="@DeptVetAffairs"
+      name="twitter:site"
+    />,
+    <meta
+      content="VA.gov | Veterans Affairs"
+      name="twitter:title"
+    />,
+    <meta
+      content="Summary"
+      name="twitter:card"
+    />,
+    <meta
+      content="/img/design/logo/va-og-twitter-image.png"
+      name="twitter:image"
+    />,
+    <meta
+      content="U.S. Department of Veterans Affairs logo"
+      name="twitter:image:alt"
+    />,
   ],
-  "title": "VA.gov | Veterans Affairs",
+  "title": <title>
+    VA.gov | Veterans Affairs
+  </title>,
 }
 `;
 
 exports[`Meta component iOS Banner tags renders iOS banner tags for specific URLs (snapshot) 1`] = `
 {
   "links": [
-    {
-      "href": "/health-care/refill-track-prescriptions/",
-      "rel": "canonical",
-    },
+    <link
+      href="/health-care/refill-track-prescriptions/"
+      rel="canonical"
+    />,
   ],
   "metaTags": [
-    {
-      "content": "app-id=1559609596",
-      "name": "apple-itunes-app",
-    },
-    {
-      "content": "2023-12-31",
-      "name": "DC.Date",
-    },
-    {
-      "content": "True",
-      "name": "HandheldFriendly",
-    },
-    {
-      "content": "320",
-      "name": "MobileOptimized",
-    },
-    {
-      "content": "/img/design/logo/va-og-image.png",
-      "property": "og:image",
-    },
-    {
-      "content": "U.S. Department of Veterans Affairs logo",
-      "property": "og:image:alt",
-    },
-    {
-      "content": "Veterans Affairs",
-      "property": "og:site_name",
-    },
-    {
-      "content": "Refill Prescriptions | Veterans Affairs",
-      "property": "og:title",
-    },
-    {
-      "content": "website",
-      "property": "og:type",
-    },
-    {
-      "content": "/health-care/refill-track-prescriptions/",
-      "property": "og:url",
-    },
-    {
-      "content": "noindex",
-      "name": "robots",
-    },
-    {
-      "content": "US Dept. of Veteran Affairs",
-      "name": "smartbanner:author",
-    },
-    {
-      "content": "VIEW",
-      "name": "smartbanner:button",
-    },
-    {
-      "content": "https://apps.apple.com/us/app/va-health-and-benefits/id1559609596",
-      "name": "smartbanner:button-url-apple",
-    },
-    {
-      "content": "https://play.google.com/store/apps/details?id=gov.va.mobileapp&hl=en_US&gl=US&pli=1",
-      "name": "smartbanner:button-url-google",
-    },
-    {
-      "content": "Close",
-      "name": "smartbanner:close-label",
-    },
-    {
-      "content": "android,ios",
-      "name": "smartbanner:enabled-platforms",
-    },
-    {
-      "content": "^.*(Version).*Safari",
-      "name": "smartbanner:exclude-user-agent-regex",
-    },
-    {
-      "content": "https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/cb/43/1f/cb431fa1-b110-805f-251d-2fbb68babb1a/AppIcon-1x_U007emarketing-0-7-0-85-220.png/230x0w.webp",
-      "name": "smartbanner:icon-apple",
-    },
-    {
-      "content": "https://play-lh.googleusercontent.com/pxpOEzV8odLxElJtNrPhorM48TPh6p-RnTWqwvlhetuMM3lZuGmbXP2_4YHlQ-fCOA=w240-h480-rw",
-      "name": "smartbanner:icon-google",
-    },
-    {
-      "content": " ",
-      "name": "smartbanner:price",
-    },
-    {
-      "content": " ",
-      "name": "smartbanner:price-suffix-apple",
-    },
-    {
-      "content": " ",
-      "name": "smartbanner:price-suffix-google",
-    },
-    {
-      "content": "VA: Health and Benefits",
-      "name": "smartbanner:title",
-    },
-    {
-      "content": "Summary",
-      "name": "twitter:card",
-    },
-    {
-      "content": "/img/design/logo/va-og-twitter-image.png",
-      "name": "twitter:image",
-    },
-    {
-      "content": "U.S. Department of Veterans Affairs logo",
-      "name": "twitter:image:alt",
-    },
-    {
-      "content": "@DeptVetAffairs",
-      "name": "twitter:site",
-    },
-    {
-      "content": "Refill Prescriptions | Veterans Affairs",
-      "name": "twitter:title",
-    },
-    {
-      "charSet": "utf-8",
-    },
-    {
-      "content": "width=device-width, initial-scale=1.0",
-      "name": "viewport",
-    },
+    <meta
+      content="noindex"
+      name="robots"
+    />,
+    <meta
+      charset="utf-8"
+    />,
+    <meta
+      content="IE=edge"
+      http-equiv="X-UA-Compatible"
+    />,
+    <meta
+      content="True"
+      name="HandheldFriendly"
+    />,
+    <meta
+      content="320"
+      name="MobileOptimized"
+    />,
+    <meta
+      content="width=device-width, initial-scale=1.0"
+      name="viewport"
+    />,
+    <meta
+      content="/health-care/refill-track-prescriptions/"
+      property="og:url"
+    />,
+    <meta
+      content="website"
+      property="og:type"
+    />,
+    <meta
+      content="2023-12-31"
+      name="DC.Date"
+    />,
+    <meta
+      content="app-id=1559609596"
+      name="apple-itunes-app"
+    />,
+    <meta
+      content="^.*(Version).*Safari"
+      name="smartbanner:exclude-user-agent-regex"
+    />,
+    <meta
+      content="VA: Health and Benefits"
+      name="smartbanner:title"
+    />,
+    <meta
+      content="US Dept. of Veteran Affairs"
+      name="smartbanner:author"
+    />,
+    <meta
+      content=" "
+      name="smartbanner:price"
+    />,
+    <meta
+      content=" "
+      name="smartbanner:price-suffix-apple"
+    />,
+    <meta
+      content=" "
+      name="smartbanner:price-suffix-google"
+    />,
+    <meta
+      content="https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/cb/43/1f/cb431fa1-b110-805f-251d-2fbb68babb1a/AppIcon-1x_U007emarketing-0-7-0-85-220.png/230x0w.webp"
+      name="smartbanner:icon-apple"
+    />,
+    <meta
+      content="https://play-lh.googleusercontent.com/pxpOEzV8odLxElJtNrPhorM48TPh6p-RnTWqwvlhetuMM3lZuGmbXP2_4YHlQ-fCOA=w240-h480-rw"
+      name="smartbanner:icon-google"
+    />,
+    <meta
+      content="VIEW"
+      name="smartbanner:button"
+    />,
+    <meta
+      content="https://apps.apple.com/us/app/va-health-and-benefits/id1559609596"
+      name="smartbanner:button-url-apple"
+    />,
+    <meta
+      content="https://play.google.com/store/apps/details?id=gov.va.mobileapp&hl=en_US&gl=US&pli=1"
+      name="smartbanner:button-url-google"
+    />,
+    <meta
+      content="android,ios"
+      name="smartbanner:enabled-platforms"
+    />,
+    <meta
+      content="Close"
+      name="smartbanner:close-label"
+    />,
+    <meta
+      content="Veterans Affairs"
+      property="og:site_name"
+    />,
+    <meta
+      content="Refill Prescriptions | Veterans Affairs"
+      property="og:title"
+    />,
+    <meta
+      content="/img/design/logo/va-og-image.png"
+      property="og:image"
+    />,
+    <meta
+      content="U.S. Department of Veterans Affairs logo"
+      property="og:image:alt"
+    />,
+    <meta
+      content="@DeptVetAffairs"
+      name="twitter:site"
+    />,
+    <meta
+      content="Refill Prescriptions | Veterans Affairs"
+      name="twitter:title"
+    />,
+    <meta
+      content="Summary"
+      name="twitter:card"
+    />,
+    <meta
+      content="/img/design/logo/va-og-twitter-image.png"
+      name="twitter:image"
+    />,
+    <meta
+      content="U.S. Department of Veterans Affairs logo"
+      name="twitter:image:alt"
+    />,
   ],
-  "title": "Refill Prescriptions | Veterans Affairs",
+  "title": <title>
+    Refill Prescriptions | Veterans Affairs
+  </title>,
 }
 `;

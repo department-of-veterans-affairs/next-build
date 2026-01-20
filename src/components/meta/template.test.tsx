@@ -9,132 +9,39 @@ const originalBuildType = process.env.NEXT_PUBLIC_BUILD_TYPE
 const originalSiteUrl = process.env.SITE_URL
 const originalNextPublicSiteUrl = process.env.NEXT_PUBLIC_SITE_URL
 
-// Helper to extract meta tags, link tags, and title from rendered output (for snapshots)
-function extractRenderedTags(container: HTMLElement) {
-  const result: {
-    title?: string
-    metaTags: Array<{
-      name?: string
-      property?: string
-      content?: string
-      httpEquiv?: string
-      charSet?: string
-    }>
-    links: Array<{
-      rel?: string
-      href?: string
-    }>
-  } = {
-    metaTags: [],
-    links: [],
-  }
-
-  // Extract title - check container and document head
-  const titleElement =
-    container.querySelector('title') || document.head.querySelector('title')
-  if (titleElement) {
-    result.title = titleElement.textContent || ''
-  }
-
-  // Extract meta tags from container and document head
-  const containerMetas = Array.from(container.querySelectorAll('meta'))
-  const headMetas = Array.from(document.head.querySelectorAll('meta'))
-  const allMetas = Array.from(new Set([...containerMetas, ...headMetas]))
-
-  allMetas.forEach((meta) => {
-    const metaObj: {
-      name?: string
-      property?: string
-      content?: string
-      httpEquiv?: string
-      charSet?: string
-    } = {}
-
-    const name = meta.getAttribute('name')
-    const property = meta.getAttribute('property')
-    const content = meta.getAttribute('content')
-    const httpEquiv = meta.getAttribute('httpEquiv')
-    const charSet = meta.getAttribute('charSet')
-
-    if (charSet) {
-      metaObj.charSet = charSet
-    } else if (httpEquiv) {
-      metaObj.httpEquiv = httpEquiv
-      metaObj.content = content || ''
-    } else if (name) {
-      metaObj.name = name
-      metaObj.content = content || ''
-    } else if (property) {
-      metaObj.property = property
-      metaObj.content = content || ''
-    }
-
-    if (Object.keys(metaObj).length > 0) {
-      result.metaTags.push(metaObj)
-    }
-  })
-
-  // Extract link tags from container and document head
-  const containerLinks = Array.from(container.querySelectorAll('link'))
-  const headLinks = Array.from(document.head.querySelectorAll('link'))
-  const allLinks = Array.from(new Set([...containerLinks, ...headLinks]))
-
-  allLinks.forEach((link) => {
-    const rel = link.getAttribute('rel')
-    const href = link.getAttribute('href')
-    if (rel && href) {
-      result.links.push({ rel, href })
-    }
-  })
-
-  // Sort for consistent snapshots
-  result.metaTags.sort((a, b) => {
-    const aKey = a.name || a.property || a.httpEquiv || a.charSet || ''
-    const bKey = b.name || b.property || b.httpEquiv || b.charSet || ''
-    return aKey.localeCompare(bKey)
-  })
-  result.links.sort((a, b) => {
-    const key = (a.rel || '').localeCompare(b.rel || '')
-    return key !== 0 ? key : (a.href || '').localeCompare(b.href || '')
-  })
-
-  return result
-}
-
 // Helper functions for assertions
-function getAllMetaTags(container: HTMLElement) {
-  const containerMetas = Array.from(container.querySelectorAll('meta'))
-  const headMetas = Array.from(document.head.querySelectorAll('meta'))
-  return Array.from(new Set([...containerMetas, ...headMetas]))
+function getAllMetaTags() {
+  return Array.from(document.head.querySelectorAll('meta'))
 }
 
-function getMetaTag(
-  container: HTMLElement,
-  options: { name?: string; property?: string }
-) {
-  const allMetas = getAllMetaTags(container)
-  return allMetas.find((meta) => {
-    if (options.name) {
-      return meta.getAttribute('name') === options.name
-    }
-    if (options.property) {
-      return meta.getAttribute('property') === options.property
-    }
-    return false
-  })
+function getMetaTagByName(name: string) {
+  return document.head.querySelector(`meta[name="${name}"]`)
 }
 
-function getLinkTag(container: HTMLElement, rel: string) {
-  const containerLinks = Array.from(container.querySelectorAll('link'))
-  const headLinks = Array.from(document.head.querySelectorAll('link'))
-  const allLinks = Array.from(new Set([...containerLinks, ...headLinks]))
-  return allLinks.find((link) => link.getAttribute('rel') === rel)
+function getMetaTagByProperty(property: string) {
+  return document.head.querySelector(`meta[property="${property}"]`)
 }
 
-function getTitle(container: HTMLElement) {
-  const titleElement =
-    container.querySelector('title') || document.head.querySelector('title')
+function getAllLinkTags() {
+  return Array.from(document.head.querySelectorAll('link'))
+}
+
+function getLinkTag(rel: string) {
+  return document.head.querySelector(`link[rel="${rel}"]`)
+}
+
+function getTitle() {
+  const titleElement = document.head.querySelector('title')
   return titleElement?.textContent || ''
+}
+
+// Helper to extract meta tags, link tags, and title from rendered output (for snapshots)
+function getAllTags() {
+  return {
+    title: document.head.querySelector('title'),
+    metaTags: getAllMetaTags(),
+    links: getAllLinkTags(),
+  }
 }
 
 describe('Meta component', () => {
@@ -166,8 +73,8 @@ describe('Meta component', () => {
         lastUpdated: '2024-01-01T00:00:00Z',
       }
 
-      const { container } = render(<Meta resource={resource} />)
-      const renderedTags = extractRenderedTags(container)
+      render(<Meta resource={resource} />)
+      const renderedTags = getAllTags()
       expect(renderedTags).toMatchSnapshot()
     })
 
@@ -178,17 +85,15 @@ describe('Meta component', () => {
         lastUpdated: '2024-01-01T00:00:00Z',
       }
 
-      const { container } = render(<Meta resource={resource} />)
+      render(<Meta resource={resource} />)
 
-      expect(getTitle(container)).toBe('Health Care | Veterans Affairs')
-      expect(
-        getMetaTag(container, { property: 'og:title' })?.getAttribute('content')
-      ).toBe('Health Care | Veterans Affairs')
-      expect(
-        getMetaTag(container, { name: 'twitter:title' })?.getAttribute(
-          'content'
-        )
-      ).toBe('Health Care | Veterans Affairs')
+      expect(getTitle()).toBe('Health Care | Veterans Affairs')
+      expect(getMetaTagByProperty('og:title')?.getAttribute('content')).toBe(
+        'Health Care | Veterans Affairs'
+      )
+      expect(getMetaTagByName('twitter:title')?.getAttribute('content')).toBe(
+        'Health Care | Veterans Affairs'
+      )
     })
 
     it('renders with lastUpdated date formatted correctly', () => {
@@ -198,9 +103,9 @@ describe('Meta component', () => {
         lastUpdated: '2024-03-15T10:30:00Z',
       }
 
-      const { container } = render(<Meta resource={resource} />)
+      render(<Meta resource={resource} />)
 
-      const dcDateTag = getMetaTag(container, { name: 'DC.Date' })
+      const dcDateTag = getMetaTagByName('DC.Date')
       expect(dcDateTag).toBeDefined()
       expect(dcDateTag?.getAttribute('content')).toBe('2024-03-15')
     })
@@ -213,9 +118,9 @@ describe('Meta component', () => {
         lastUpdated: '2024-01-01T00:00:00Z',
       }
 
-      const { container } = render(<Meta resource={resource} />)
+      render(<Meta resource={resource} />)
 
-      const canonicalLink = getLinkTag(container, 'canonical')
+      const canonicalLink = getLinkTag('canonical')
       expect(canonicalLink).toBeDefined()
       expect(canonicalLink?.getAttribute('href')).toBe(
         'https://www.va.gov/test-page/'
@@ -231,9 +136,9 @@ describe('Meta component', () => {
         lastUpdated: '2024-01-01T00:00:00Z',
       }
 
-      const { container } = render(<Meta resource={resource} />)
+      render(<Meta resource={resource} />)
 
-      const canonicalLink = getLinkTag(container, 'canonical')
+      const canonicalLink = getLinkTag('canonical')
       expect(canonicalLink).toBeDefined()
       expect(canonicalLink?.getAttribute('href')).toBe(
         'https://www.va.gov/custom-canonical/'
@@ -274,8 +179,8 @@ describe('Meta component', () => {
         metatags: customMetatags,
       }
 
-      const { container } = render(<Meta resource={resource} />)
-      const renderedTags = extractRenderedTags(container)
+      render(<Meta resource={resource} />)
+      const renderedTags = getAllTags()
       expect(renderedTags).toMatchSnapshot()
     })
 
@@ -318,20 +223,18 @@ describe('Meta component', () => {
         metatags: customMetatags,
       }
 
-      const { container } = render(<Meta resource={resource} />)
+      render(<Meta resource={resource} />)
 
-      expect(getTitle(container)).toBe('Complex Page Title')
+      expect(getTitle()).toBe('Complex Page Title')
+      expect(getMetaTagByProperty('og:image')?.getAttribute('content')).toBe(
+        '/custom-image.jpg'
+      )
       expect(
-        getMetaTag(container, { property: 'og:image' })?.getAttribute('content')
-      ).toBe('/custom-image.jpg')
-      expect(
-        getMetaTag(container, { property: 'og:image:alt' })?.getAttribute(
-          'content'
-        )
+        getMetaTagByProperty('og:image:alt')?.getAttribute('content')
       ).toBe('Custom image alt text')
-      expect(
-        getMetaTag(container, { name: 'twitter:card' })?.getAttribute('content')
-      ).toBe('summary_large_image')
+      expect(getMetaTagByName('twitter:card')?.getAttribute('content')).toBe(
+        'summary_large_image'
+      )
     })
   })
 
@@ -343,8 +246,8 @@ describe('Meta component', () => {
         lastUpdated: '2024-01-01T00:00:00Z',
       }
 
-      const { container } = render(<Meta resource={resource} />)
-      const renderedTags = extractRenderedTags(container)
+      render(<Meta resource={resource} />)
+      const renderedTags = getAllTags()
       expect(renderedTags).toMatchSnapshot()
     })
 
@@ -355,14 +258,10 @@ describe('Meta component', () => {
         lastUpdated: '2024-01-01T00:00:00Z',
       }
 
-      const { container } = render(<Meta resource={resource} />)
+      render(<Meta resource={resource} />)
 
-      expect(
-        getMetaTag(container, { name: 'apple-itunes-app' })
-      ).toBeUndefined()
-      expect(
-        getMetaTag(container, { name: 'smartbanner:title' })
-      ).toBeUndefined()
+      expect(getMetaTagByName('apple-itunes-app')).toBeNull()
+      expect(getMetaTagByName('smartbanner:title')).toBeNull()
     })
 
     it('renders iOS banner tags for secure messaging', () => {
@@ -372,13 +271,13 @@ describe('Meta component', () => {
         lastUpdated: '2024-01-01T00:00:00Z',
       }
 
-      const { container } = render(<Meta resource={resource} />)
+      render(<Meta resource={resource} />)
 
-      expect(getMetaTag(container, { name: 'apple-itunes-app' })).toBeDefined()
+      expect(getMetaTagByName('apple-itunes-app')).toBeDefined()
       expect(
-        getMetaTag(container, {
-          name: 'smartbanner:button-url-apple',
-        })?.getAttribute('content')
+        getMetaTagByName('smartbanner:button-url-apple')?.getAttribute(
+          'content'
+        )
       ).toContain('apps.apple.com')
     })
   })
@@ -392,9 +291,9 @@ describe('Meta component', () => {
         lastUpdated: '2024-01-01T00:00:00Z',
       }
 
-      const { container } = render(<Meta resource={resource} />)
+      render(<Meta resource={resource} />)
 
-      const robotsTag = getMetaTag(container, { name: 'robots' })
+      const robotsTag = getMetaTagByName('robots')
       expect(robotsTag).toBeDefined()
       expect(robotsTag?.getAttribute('content')).toBe('noindex')
     })
@@ -407,10 +306,10 @@ describe('Meta component', () => {
         lastUpdated: '2024-01-01T00:00:00Z',
       }
 
-      const { container } = render(<Meta resource={resource} />)
+      render(<Meta resource={resource} />)
 
-      const robotsTag = getMetaTag(container, { name: 'robots' })
-      expect(robotsTag).toBeUndefined()
+      const robotsTag = getMetaTagByName('robots')
+      expect(robotsTag).toBeNull()
     })
   })
 
@@ -421,14 +320,14 @@ describe('Meta component', () => {
         lastUpdated: '2024-01-01T00:00:00Z',
       }
 
-      const { container } = render(<Meta resource={resource} />)
+      render(<Meta resource={resource} />)
 
       // Should default to '/' for entityPath
-      expect(
-        getMetaTag(container, { property: 'og:url' })?.getAttribute('content')
-      ).toContain('/')
+      expect(getMetaTagByProperty('og:url')?.getAttribute('content')).toContain(
+        '/'
+      )
       // Should not render canonical link when entityPath is missing
-      expect(getLinkTag(container, 'canonical')).toBeUndefined()
+      expect(getLinkTag('canonical')).toBeNull()
     })
 
     it('handles empty metatags array', () => {
@@ -439,11 +338,11 @@ describe('Meta component', () => {
         metatags: [],
       }
 
-      const { container } = render(<Meta resource={resource} />)
+      render(<Meta resource={resource} />)
 
       // Should fall back to default tags
-      expect(getTitle(container)).toBe('Test Page | Veterans Affairs')
-      expect(getMetaTag(container, { property: 'og:title' })).toBeDefined()
+      expect(getTitle()).toBe('Test Page | Veterans Affairs')
+      expect(getMetaTagByProperty('og:title')).toBeDefined()
     })
 
     it('handles invalid lastUpdated date', () => {
@@ -453,12 +352,12 @@ describe('Meta component', () => {
         lastUpdated: 'invalid-date',
       }
 
-      const { container } = render(<Meta resource={resource} />)
+      render(<Meta resource={resource} />)
 
       // Should not render DC.Date tag for invalid dates
-      expect(getMetaTag(container, { name: 'DC.Date' })).toBeUndefined()
+      expect(getMetaTagByName('DC.Date')).toBeNull()
       // But should still render other tags
-      expect(getTitle(container)).toBe('Test Page | Veterans Affairs')
+      expect(getTitle()).toBe('Test Page | Veterans Affairs')
     })
   })
 })
