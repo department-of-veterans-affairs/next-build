@@ -1,4 +1,5 @@
 import { AlertBlock } from '../alertBlock/template'
+import { ContentFooter } from '../contentFooter/template'
 import { ListOfLinkTeasers } from '../listOfLinkTeasers/template'
 import { defaultHelpfulLinks } from './default-helpful-links'
 import { VaForm as VaFormType } from './formatted-type'
@@ -30,6 +31,7 @@ export function VaForm({
   linkTeasers,
   relatedForms,
   formUpload,
+  lastUpdated,
 }: VaFormProps) {
   const formatDate = (dateString: string) => {
     // Avoid UTC-to-local-timezone conversion by not using the `dateString`
@@ -245,6 +247,7 @@ export function VaForm({
                 />
               )}
             </div>
+            <ContentFooter lastUpdated={lastUpdated} />
           </article>
         </div>
       </div>
