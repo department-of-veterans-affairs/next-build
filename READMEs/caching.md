@@ -1,3 +1,5 @@
+> [!warning] > **TL;DR:** Redis caching isn't useful anymore. See _Build-side caching discovery - January 2026_ below for more details.
+
 # Caching
 
 Next-build interacts with several different caching layers during its operations. Some of these layers it can control and others it lives with.
