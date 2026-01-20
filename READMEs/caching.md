@@ -91,6 +91,8 @@ See [next-drupal's docs](https://next-drupal.org/docs/cache) for more informatio
 
 This is me trying to give a comprehensive summary of the things I've tried, the problems I've encountered, and the conclusions I've made regarding build-side caching.
 
+**TL;DR:** After testing Redis caching and in-memory caching approaches, build-side caching does not meaningfully reduce Next.js build times. Initial apparent wins were due to Varnish caching on the Drupal side, not our implementation. The core bottleneck is page-specific queries that can't be cached, which dominate build time. Redis caching does not help in production builds, and lower-environment builds gain far more from Varnish caching on the Drupal side than Redis caching on the build side.
+
 ## A false start
 
 I set out to implement build-side query caching for [the content-release workflow](https://github.com/department-of-veterans-affairs/next-build/actions/workflows/content-release.yml) to see if it would shorten Next.js build times. The first thing I did was collect a couple recent historical staging-environment build times as a baseline:
