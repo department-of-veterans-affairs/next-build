@@ -1,4 +1,4 @@
-import { getFetcher } from 'proxy-fetcher'
+import { createFetcherWithRetry } from '../src/lib/drupal/createFetcherWithRetry'
 
 // Given an .xml file, extracts every string inside a <loc> element.
 function extractUrlsFromXML(xml) {
@@ -14,7 +14,7 @@ function extractUrlsFromXML(xml) {
 
 // Gets all URLs included in the output from `yarn build:sitemap` from all sitemaps
 export async function getSitemapLocations(baseUrl) {
-  const fetcher = getFetcher(baseUrl)
+  const fetcher = createFetcherWithRetry()
   // handle trailing slash
   const base = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl
   const mainSitemapUrl = `${base}/sitemap_index.xml`

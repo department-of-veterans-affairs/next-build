@@ -77,6 +77,12 @@ export function VbaFacility({
   const otherServices = allServices.filter(
     (service) => service.type === 'vba_other_services'
   )
+  // This bool and the conditional rendering below handle the special case for
+  // the Manila VBA facility, which has two separate appointment links.
+  // FIXME: EPIC - modernization: https://github.com/department-of-veterans-affairs/va.gov-cms/issues/22361
+  // https://github.com/department-of-veterans-affairs/va.gov-cms/issues/23217
+  const isManila = facilityLocatorApiId === 'vba_358'
+
   return (
     <div className="interior">
       <main className="va-l-detail-page va-facility-page">
@@ -89,13 +95,32 @@ export function VbaFacility({
               </div>
             )}
             <div className="vads-u-margin-top--1p5 vads-u-margin-bottom--3">
-              <va-link-action
-                class="vads-u-display--block"
-                href="https://va.my.site.com/VAVERA/s/"
-                text="Make an appointment"
-                type="secondary"
-                data-testid="make-appointment-link"
-              />
+              {isManila ? (
+                <>
+                  <va-link-action
+                    class="vads-u-display--block"
+                    href="https://va.my.site.com/VAVERA/s/flow/VERA_Start?type=In-Person&office=0Hht00000008Oq9"
+                    text="Make an in-person appointment"
+                    type="secondary"
+                    data-testid="make-appointment-link-in-person"
+                  ></va-link-action>
+                  <va-link-action
+                    class="vads-u-display--block"
+                    href="https://va.my.site.com/VAVERA/s/flow/VERA_Start?type=Virtual&office=0Hht00000008OqE"
+                    text="Make a virtual appointment"
+                    type="secondary"
+                    data-testid="make-appointment-link-virtual"
+                  ></va-link-action>
+                </>
+              ) : (
+                <va-link-action
+                  class="vads-u-display--block"
+                  href="https://va.my.site.com/VAVERA/s/"
+                  text="Make an appointment"
+                  type="secondary"
+                  data-testid="make-appointment-link"
+                />
+              )}
               <va-link-action
                 class="vads-u-display--block"
                 href="https://ask.va.gov"
