@@ -1,28 +1,30 @@
+import Head from 'next/head'
 import { MetaTag } from '@/types/formatted/metatags'
 import { parseDate, getDateParts } from '@/lib/utils/date'
 import { capitalizeWords } from '@/lib/utils/capitalizeWords'
 import { generateAbsoluteUrlFromEnv } from '@/lib/utils/environment'
 import { BUILD_TYPES } from '@/lib/constants/environment'
 
-const LastUpdatedTag = ({ timestamp }: { timestamp: string | number }) => {
+const LastUpdated = ({ timestamp }: { timestamp: string | number }) => {
   if (timestamp) {
     const lastUpdatedDate = parseDate(timestamp)
-    if (lastUpdatedDate) {
-      const dateParts = getDateParts(lastUpdatedDate)
-      const month = dateParts?.month?.twoDigit
-      const day = dateParts?.day?.twoDigit
-      const year = dateParts?.year?.numeric
+    const dateParts = getDateParts(lastUpdatedDate)
+    const month = dateParts.month?.twoDigit
+    const day = dateParts.day?.twoDigit
+    const year = dateParts.year?.numeric
 
-      if (month && day && year) {
-        return <meta name="DC.Date" content={`${year}-${month}-${day}`}></meta>
-      }
+    if (month && day && year) {
+      return (
+        <Head>
+          <meta name="DC.Date" content={`${year}-${month}-${day}`}></meta>
+        </Head>
+      )
     }
   }
-  return null
 }
 
-const IOSBannerTags = () => (
-  <>
+const IOSBanner = () => (
+  <Head>
     <meta name="apple-itunes-app" content="app-id=1559609596" />
     <meta
       name="smartbanner:exclude-user-agent-regex"
@@ -52,23 +54,26 @@ const IOSBannerTags = () => (
     />
     <meta name="smartbanner:enabled-platforms" content="android,ios" />
     <meta name="smartbanner:close-label" content="Close" />
-  </>
+  </Head>
 )
 
-const CustomTags = ({ tags }: { tags: MetaTag[] }) =>
-  tags.map?.(({ tag: Tag, attributes }, i) =>
-    attributes.name === 'title' ? (
-      <title key={i}>{capitalizeWords(attributes.content)}</title>
-    ) : (
-      <Tag key={i} {...attributes} />
-    )
-  )
+const CustomTags = ({ tags }: { tags: MetaTag[] }) => (
+  <Head>
+    {tags.map?.(({ tag: Tag, attributes }, i) =>
+      attributes.name === 'title' ? (
+        <title key={i}>{capitalizeWords(attributes.content)}</title>
+      ) : (
+        <Tag key={i} {...attributes} />
+      )
+    )}
+  </Head>
+)
 
 const DefaultTags = ({ title }: { title: string }) => {
   const metaTitle = `${title} | Veterans Affairs`
 
   return (
-    <>
+    <Head>
       <meta property="og:site_name" content="Veterans Affairs" />
       <meta property="og:title" content={metaTitle} />
       <meta property="og:image" content="/img/design/logo/va-og-image.png" />
@@ -90,7 +95,7 @@ const DefaultTags = ({ title }: { title: string }) => {
       />
 
       <title>{metaTitle}</title>
-    </>
+    </Head>
   )
 }
 
@@ -108,7 +113,6 @@ export const Meta = ({ resource }: { resource: PseudoResource }) => {
     'canonicalLink' in resource ? resource.canonicalLink : resource.entityPath
 
   const lastUpdated = resource.lastUpdated
-  const entityPath = resource.entityPath || '/'
 
   const urlsForBanner = [
     // For testing purposes you can uncomment this following route.
@@ -123,30 +127,30 @@ export const Meta = ({ resource }: { resource: PseudoResource }) => {
     '/va-payment-history',
     '/change-direct-deposit',
   ]
-  const showIOSBanner = urlsForBanner.includes(entityPath)
+  const showIOSBanner = urlsForBanner.includes(resource.entityPath)
 
   return (
     <>
-      {noIndex && <meta name="robots" content="noindex" />}
-      <meta charSet="utf-8" />
-      <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-      <meta name="HandheldFriendly" content="True" />
-      <meta name="MobileOptimized" content="320" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      {canonicalLink && (
+      <Head>
+        {noIndex && <meta name="robots" content="noindex" />}
+        <meta charSet="utf-8" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="MobileOptimized" content="320" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link
           rel="canonical"
           href={generateAbsoluteUrlFromEnv(canonicalLink)}
         />
-      )}
-      <meta
-        property="og:url"
-        content={generateAbsoluteUrlFromEnv(entityPath)}
-      />
-      <meta property="og:type" content="website" />
+        <meta
+          property="og:url"
+          content={generateAbsoluteUrlFromEnv(resource.entityPath)}
+        />
+        <meta property="og:type" content="website" />
+      </Head>
 
-      {lastUpdated && <LastUpdatedTag timestamp={lastUpdated} />}
-      {showIOSBanner && <IOSBannerTags />}
+      {lastUpdated && <LastUpdated timestamp={lastUpdated} />}
+      {showIOSBanner && <IOSBanner />}
 
       {resource.metatags?.length > 0 ? (
         <CustomTags tags={resource.metatags} />
