@@ -1,5 +1,3 @@
-'use client'
-
 import Script from 'next/script'
 import { useEffect } from 'react'
 import {
@@ -16,11 +14,9 @@ export function MedalliaAssets() {
     process.env.NEXT_PUBLIC_BUILD_TYPE === BUILD_TYPES.PROD ? 2 : 5
 
   useEffect(() => {
-    const pathname = window.location.pathname
-
     if (process.env.NEXT_PUBLIC_BUILD_TYPE === BUILD_TYPES.LOCAL) {
       onMedalliaLoaded(() => {
-        const surveyNumber = getSurveyNumber(pathname, false)
+        const surveyNumber = getSurveyNumber(window.location.pathname, false)
         const neb_status = loadForm(surveyNumber)
         if (neb_status === true) {
           /*eslint-disable-next-line*/
@@ -29,7 +25,7 @@ export function MedalliaAssets() {
       })
     }
 
-    const isVamcPage = pathname.includes('health-care')
+    const isVamcPage = window.location.pathname.includes('health-care')
     if (isVamcPage) {
       setWindowVaSurvey('mcenter')
     }

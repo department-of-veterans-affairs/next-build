@@ -1,16 +1,27 @@
+import { useEffect } from 'react'
 import { Banner } from '@/components/banner/template'
 import { PromoBanner } from '@/components/promoBanner/template'
 import { FooterLink } from '@/components/footer/formatted-type'
 import { MegaMenuSection } from '@/components/header/formatted-type'
 import { BannersData } from '@/components/banner/formatted-type'
 import { BANNER_RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
+import { handleSkipLink } from '@/lib/utils/handleSkipLink'
 import { UnpublishedBanner } from '@/components/preview/template'
 import { StaticPropsResource } from '@/lib/drupal/staticProps'
 import { FormattedPageResource } from '@/lib/drupal/queries'
 import { Footer } from '@/components/footer/template'
 import { Header } from '@/components/header/template'
-import { WindowDataProvider } from './WindowDataProvider'
-import { SkipLink } from './SkipLink'
+
+// Allows additions to window object without overwriting global type
+interface customWindow extends Window {
+  VetsGov?: {
+    headerFooter?: {
+      footerData?: FooterLink[]
+      megaMenuData?: MegaMenuSection[]
+    }
+  }
+}
+declare const window: customWindow
 
 export interface PageLayoutProps {
   bannerData: BannersData
@@ -32,10 +43,6 @@ export const formatBannerType = (bannerData) => {
   }
 }
 
-/**
- * Server component for page layout.
- * Uses WindowDataProvider client component for window.VetsGov initialization.
- */
 export function PageLayout({
   bannerData,
   footerData,
@@ -44,13 +51,23 @@ export function PageLayout({
   resource,
   children,
 }: PageLayoutProps) {
+  useEffect(() => {
+    // Place header & footer data on window object for vets-website widgets
+    window.VetsGov = {}
+    window.VetsGov.headerFooter = {
+      footerData,
+      megaMenuData,
+    }
+  }, [footerData, megaMenuData])
+
   // determine what type of banners to display
   const banners = bannerData.map(formatBannerType)
 
   return (
     <>
-      <WindowDataProvider footerData={footerData} megaMenuData={megaMenuData} />
-      <SkipLink />
+      <a href="#content" onClick={handleSkipLink} className="show-on-focus">
+        Skip to Content
+      </a>
       {preview ? <UnpublishedBanner resource={resource} /> : null}
       <Header />
       {banners}
