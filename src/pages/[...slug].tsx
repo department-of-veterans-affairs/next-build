@@ -31,7 +31,6 @@ import {
   inflateObjectGraph,
   FlattenedGraph,
 } from '@/lib/utils/object-graph'
-import Head from 'next/head'
 
 const slugLogger = Debug('next-build:slug')
 const log = slugLogger.extend('log')
@@ -199,9 +198,7 @@ export default function ResourcePage({
       preview={preview}
       resource={resource}
     >
-      <Head>
-        <Meta resource={resource} />
-      </Head>
+      <Meta resource={resource} />
       <HTMLComment position="head" content={comment} />
 
       {/* We want preview to always have the edit link if the domain is right. */}

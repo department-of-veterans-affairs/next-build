@@ -1,5 +1,8 @@
+import React from 'react'
+import { MedalliaAssets } from '@/components/medallia/template'
+import { getSurveyNumber, showForm } from '@/lib/utils/medallia'
+import { BUILD_TYPES } from '@/lib/constants/environment'
 import { format } from 'date-fns'
-import { MedalliaFeedbackButton } from './MedalliaFeedbackButton'
 
 // "Back to top", "Last updated" date and Medallia feedback button
 
@@ -9,11 +12,6 @@ type ContentFooterProps = {
   responsiveLayout?: string
 }
 
-/**
- * Server component for content footer.
- * Date formatting is done server-side using date-fns (not bundled client-side).
- * Interactive parts (Medallia feedback) are handled by MedalliaFeedbackButton client component.
- */
 export function ContentFooter({
   lastUpdated,
   responsiveLayout,
@@ -26,37 +24,43 @@ export function ContentFooter({
     wrapperClasses = 'tablet:vads-u-display--none'
   }
 
-  // Format date server-side - date-fns won't be bundled client-side since this is a server component
-  let formattedDate: { dateTime: string; display: string } | null = null
-  if (lastUpdated) {
-    const date = new Date(lastUpdated)
-    if (!isNaN(date.getTime())) {
-      formattedDate = {
-        dateTime: format(date, 'yyyy-MM-dd'),
-        display: format(date, 'MMMM d, yyyy'),
-      }
-    }
-  }
-
   return (
     <div
       data-testid="content-footer"
       className={`last-updated ${wrapperClasses}`}
     >
       <div className="mobile-lg:vads-u-display--flex above-footer-elements-container">
-        {formattedDate && (
+        {lastUpdated && (
           <div className="vads-u-flex--auto">
             <span className="vads-u-text-align--justify">
               <p>
                 Last updated:&nbsp;
-                <time dateTime={formattedDate.dateTime}>
-                  {formattedDate.display}
+                <time dateTime={format(lastUpdated, 'yyyy-MM-dd')}>
+                  {format(lastUpdated, 'MMMM d, yyyy')}
                 </time>
               </p>
             </span>
           </div>
         )}
-        <MedalliaFeedbackButton />
+        <div className="vads-u-flex--1 vads-u-text-align--right">
+          <MedalliaAssets />
+          <va-button
+            id="mdFormButton"
+            disable-analytics
+            secondary
+            className="vads-u-background-color--white"
+            onClick={() => {
+              const isProduction =
+                process.env.NEXT_PUBLIC_BUILD_TYPE === BUILD_TYPES.PROD
+              const surveyNumber = getSurveyNumber(
+                window.location.pathname,
+                isProduction
+              )
+              showForm(surveyNumber)
+            }}
+            text="Feedback"
+          />
+        </div>
       </div>
     </div>
   )
