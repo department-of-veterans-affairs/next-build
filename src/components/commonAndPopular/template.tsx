@@ -1,7 +1,7 @@
 export function CommonAndPopular() {
   return (
-    <div className="row vads-u-padding-bottom--9">
-      <div className="small-12 usa-width-one-half medium-6 columns">
+    <div className="vads-grid-row vads-grid-gap-5 vads-u-padding-bottom--9">
+      <div className="vads-grid-col-12 tablet:vads-grid-col-6">
         <h3 className="va-h-ruled vads-u-margin-bottom--2 vads-u-padding-bottom--1 vads-u-font-size--xl">
           Common Questions
         </h3>
@@ -23,7 +23,7 @@ export function CommonAndPopular() {
           </li>
         </ul>
       </div>
-      <div className="small-12 usa-width-one-half medium-6 columns">
+      <div className="vads-grid-col-12 tablet:vads-grid-col-6">
         <h3 className="va-h-ruled vads-u-margin-bottom--2 vads-u-padding-bottom--1 vads-u-font-size--xl">
           Popular on VA.gov
         </h3>
