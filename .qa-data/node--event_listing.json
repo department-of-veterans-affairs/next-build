@@ -1,0 +1,436 @@
+{
+  "resourceType": "node--event_listing",
+  "paths": [
+    {
+      "path": "/lebanon-health-care/events"
+    },
+    {
+      "path": "/alaska-health-care/events"
+    },
+    {
+      "path": "/richmond-health-care/events"
+    },
+    {
+      "path": "/north-texas-health-care/events"
+    },
+    {
+      "path": "/augusta-health-care/events"
+    },
+    {
+      "path": "/charleston-health-care/events"
+    },
+    {
+      "path": "/el-paso-health-care/events"
+    },
+    {
+      "path": "/amarillo-health-care/events"
+    },
+    {
+      "path": "/san-francisco-health-care/events"
+    },
+    {
+      "path": "/northern-california-health-care/events"
+    },
+    {
+      "path": "/atlanta-health-care/events"
+    },
+    {
+      "path": "/central-western-massachusetts-health-care/events"
+    },
+    {
+      "path": "/tuscaloosa-health-care/events"
+    },
+    {
+      "path": "/texas-valley-health-care/events"
+    },
+    {
+      "path": "/west-texas-health-care/events"
+    },
+    {
+      "path": "/bronx-health-care/events"
+    },
+    {
+      "path": "/maine-health-care/events"
+    },
+    {
+      "path": "/central-alabama-health-care/events"
+    },
+    {
+      "path": "/erie-health-care/events"
+    },
+    {
+      "path": "/central-iowa-health-care/events"
+    },
+    {
+      "path": "/northport-health-care/events"
+    },
+    {
+      "path": "/salisbury-health-care/events"
+    },
+    {
+      "path": "/connecticut-health-care/events"
+    },
+    {
+      "path": "/clarksburg-health-care/events"
+    },
+    {
+      "path": "/boise-health-care/events"
+    },
+    {
+      "path": "/southeast-louisiana-health-care/events"
+    },
+    {
+      "path": "/louisville-health-care/events"
+    },
+    {
+      "path": "/sierra-nevada-health-care/events"
+    },
+    {
+      "path": "/houston-health-care/events"
+    },
+    {
+      "path": "/lexington-health-care/events"
+    },
+    {
+      "path": "/memphis-health-care/events"
+    },
+    {
+      "path": "/southern-oregon-health-care/events"
+    },
+    {
+      "path": "/new-york-harbor-health-care/events"
+    },
+    {
+      "path": "/walla-walla-health-care/events"
+    },
+    {
+      "path": "/finger-lakes-health-care/events"
+    },
+    {
+      "path": "/phoenix-health-care/events"
+    },
+    {
+      "path": "/roseburg-health-care/events"
+    },
+    {
+      "path": "/marion-health-care/events"
+    },
+    {
+      "path": "/loma-linda-health-care/events"
+    },
+    {
+      "path": "/nebraska-western-iowa-health-care/events"
+    },
+    {
+      "path": "/washington-dc-health-care/events"
+    },
+    {
+      "path": "/southern-arizona-health-care/events"
+    },
+    {
+      "path": "/beckley-health-care/events"
+    },
+    {
+      "path": "/miami-health-care/events"
+    },
+    {
+      "path": "/jackson-health-care/events"
+    },
+    {
+      "path": "/boston-health-care/events"
+    },
+    {
+      "path": "/central-arkansas-health-care/events"
+    },
+    {
+      "path": "/iowa-city-health-care/events"
+    },
+    {
+      "path": "/central-texas-health-care/events"
+    },
+    {
+      "path": "/maryland-health-care/events"
+    },
+    {
+      "path": "/pittsburgh-health-care/events"
+    },
+    {
+      "path": "/martinsburg-health-care/events"
+    },
+    {
+      "path": "/altoona-health-care/events"
+    },
+    {
+      "path": "/san-diego-health-care/events"
+    },
+    {
+      "path": "/st-cloud-health-care/events"
+    },
+    {
+      "path": "/hudson-valley-health-care/events"
+    },
+    {
+      "path": "/portland-health-care/events",
+      "starred": true,
+      "notes": "With side nav, has upcoming events"
+    },
+    {
+      "path": "/dublin-health-care/events"
+    },
+    {
+      "path": "/durham-health-care/events"
+    },
+    {
+      "path": "/st-louis-health-care/events"
+    },
+    {
+      "path": "/albany-health-care/events"
+    },
+    {
+      "path": "/greater-los-angeles-health-care/events"
+    },
+    {
+      "path": "/oklahoma-city-health-care/events"
+    },
+    {
+      "path": "/cheyenne-health-care/events"
+    },
+    {
+      "path": "/eastern-oklahoma-health-care/events"
+    },
+    {
+      "path": "/battle-creek-health-care/events"
+    },
+    {
+      "path": "/mountain-home-health-care/events"
+    },
+    {
+      "path": "/minneapolis-health-care/events"
+    },
+    {
+      "path": "/north-florida-health-care/events"
+    },
+    {
+      "path": "/iron-mountain-health-care/events"
+    },
+    {
+      "path": "/pacific-islands-health-care/events"
+    },
+    {
+      "path": "/spokane-health-care/events"
+    },
+    {
+      "path": "/west-palm-beach-health-care/events"
+    },
+    {
+      "path": "/sheridan-health-care/events"
+    },
+    {
+      "path": "/orlando-health-care/events"
+    },
+    {
+      "path": "/outreach-and-events/events",
+      "starred": true,
+      "notes": "Without a side nav. This one is unique because it's not part of a specific location"
+    },
+    {
+      "path": "/manila-health-care/events"
+    },
+    {
+      "path": "/gulf-coast-health-care/events"
+    },
+    {
+      "path": "/wilmington-health-care/events"
+    },
+    {
+      "path": "/bay-pines-health-care/events"
+    },
+    {
+      "path": "/new-jersey-health-care/events"
+    },
+    {
+      "path": "/shreveport-health-care/events"
+    },
+    {
+      "path": "/wilkes-barre-health-care/events"
+    },
+    {
+      "path": "/caribbean-health-care/events"
+    },
+    {
+      "path": "/detroit-health-care/events"
+    },
+    {
+      "path": "/new-mexico-health-care/events"
+    },
+    {
+      "path": "/cincinnati-health-care/events"
+    },
+    {
+      "path": "/central-california-health-care/events"
+    },
+    {
+      "path": "/providence-health-care/events"
+    },
+    {
+      "path": "/northern-indiana-health-care/events"
+    },
+    {
+      "path": "/manchester-health-care/events"
+    },
+    {
+      "path": "/chicago-health-care/events"
+    },
+    {
+      "path": "/ann-arbor-health-care/events"
+    },
+    {
+      "path": "/central-ohio-health-care/events"
+    },
+    {
+      "path": "/bedford-health-care/events"
+    },
+    {
+      "path": "/madison-health-care/events"
+    },
+    {
+      "path": "/indiana-health-care/events"
+    },
+    {
+      "path": "/palo-alto-health-care/events"
+    },
+    {
+      "path": "/kansas-city-health-care/events"
+    },
+    {
+      "path": "/western-colorado-health-care/events"
+    },
+    {
+      "path": "/salt-lake-city-health-care/events"
+    },
+    {
+      "path": "/chillicothe-health-care/events"
+    },
+    {
+      "path": "/dayton-health-care/events"
+    },
+    {
+      "path": "/syracuse-health-care/events"
+    },
+    {
+      "path": "/hines-health-care/events"
+    },
+    {
+      "path": "/fayetteville-arkansas-health-care/events"
+    },
+    {
+      "path": "/south-texas-health-care/events"
+    },
+    {
+      "path": "/northeast-ohio-health-care/events"
+    },
+    {
+      "path": "/long-beach-health-care/events"
+    },
+    {
+      "path": "/white-river-junction-health-care/events"
+    },
+    {
+      "path": "/columbia-missouri-health-care/events"
+    },
+    {
+      "path": "/lovell-federal-health-care-tricare/events"
+    },
+    {
+      "path": "/lovell-federal-health-care-va/events"
+    },
+    {
+      "path": "/southern-nevada-health-care/events"
+    },
+    {
+      "path": "/asheville-health-care/events"
+    },
+    {
+      "path": "/butler-health-care/events"
+    },
+    {
+      "path": "/coatesville-health-care/events"
+    },
+    {
+      "path": "/illiana-health-care/events"
+    },
+    {
+      "path": "/poplar-bluff-health-care/events"
+    },
+    {
+      "path": "/black-hills-health-care/events"
+    },
+    {
+      "path": "/northern-arizona-health-care/events"
+    },
+    {
+      "path": "/columbia-south-carolina-health-care/events"
+    },
+    {
+      "path": "/montana-health-care/events"
+    },
+    {
+      "path": "/tampa-health-care/events"
+    },
+    {
+      "path": "/salem-health-care/events"
+    },
+    {
+      "path": "/tomah-health-care/events"
+    },
+    {
+      "path": "/fayetteville-coastal-health-care/events"
+    },
+    {
+      "path": "/saginaw-health-care/events"
+    },
+    {
+      "path": "/sioux-falls-health-care/events"
+    },
+    {
+      "path": "/tennessee-valley-health-care/events"
+    },
+    {
+      "path": "/eastern-colorado-health-care/events"
+    },
+    {
+      "path": "/birmingham-health-care/events"
+    },
+    {
+      "path": "/wichita-health-care/events"
+    },
+    {
+      "path": "/huntington-health-care/events"
+    },
+    {
+      "path": "/western-new-york-health-care/events"
+    },
+    {
+      "path": "/hampton-health-care/events"
+    },
+    {
+      "path": "/fargo-health-care/events"
+    },
+    {
+      "path": "/alexandria-health-care/events"
+    },
+    {
+      "path": "/puget-sound-health-care/events"
+    },
+    {
+      "path": "/milwaukee-health-care/events"
+    },
+    {
+      "path": "/eastern-kansas-health-care/events"
+    },
+    {
+      "path": "/philadelphia-health-care/events"
+    }
+  ],
+  "lastFetched": "2026-01-16T19:08:28.350Z"
+}
