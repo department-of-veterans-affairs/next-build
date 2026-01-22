@@ -30,6 +30,28 @@ if (process.env.BUILD_OPTION === 'static') {
 
 const exitCode = await processEnv('next build --turbopack', true)
 
+/**
+ * Post-build cleanup: Delete index.html if homepage feature flag is off
+ * This prevents the 404 HTML file from being served, allowing fallback to content-build
+ */
+if (process.env.BUILD_OPTION === 'static') {
+  const isHomepageFeatureEnabled =
+    process.env.FEATURE_NEXT_BUILD_CONTENT_ALL === 'true' ||
+    process.env.FEATURE_NEXT_BUILD_CONTENT_HOMEPAGE === 'true'
+
+  if (!isHomepageFeatureEnabled) {
+    const exportBuildPath = path.resolve(__dirname, '../../out')
+    const indexHtmlPath = path.resolve(exportBuildPath, 'index.html')
+
+    if (fs.existsSync(indexHtmlPath)) {
+      exportLog(
+        'Homepage feature flag is disabled. Deleting index.html to prevent serving 404 content.'
+      )
+      fs.unlinkSync(indexHtmlPath)
+    }
+  }
+}
+
 // Exit with the same code as the build process if it failed
 // This ensures the script fails if the build failed
 if (exitCode !== 0) {
