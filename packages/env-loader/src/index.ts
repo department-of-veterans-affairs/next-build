@@ -1,6 +1,7 @@
 /*eslint-disable no-console*/
 import fs from 'fs'
 import path from 'path'
+import chalk from 'chalk'
 
 import { getCliOptionsAndArgs } from './cli-options'
 import { getEnvFileVars } from './env-file'
@@ -121,10 +122,7 @@ export const processEnv = async (
 }
 
 async function cleanup(verbose = false) {
-  const chalk = await import('chalk').then((mod) => mod.default)
-  const Debug = await import('debug').then((mod) => mod.default)
-
-  const log = Debug('env-loader:cleanup')
+  const log = verbose ? console.log : () => {}
 
   log(chalk.blue('\nCleaning up...'))
   try {
