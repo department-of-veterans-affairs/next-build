@@ -1,3 +1,4 @@
 import { processEnv } from 'env-loader'
 
-processEnv('jest')
+const exitCode = await processEnv('jest')
+process.exit(exitCode)

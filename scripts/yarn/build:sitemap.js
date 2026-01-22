@@ -1,3 +1,4 @@
 import { processEnv } from 'env-loader'
 
-processEnv('next-sitemap')
+const exitCode = await processEnv('next-sitemap')
+process.exit(exitCode)

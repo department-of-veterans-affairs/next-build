@@ -61,7 +61,7 @@ export const processEnv = async (
    */
   command: string,
   verbose = false
-): Promise<void> => {
+): Promise<number> => {
   // CLI
   const { args: cliArgs, options: cliOptions } = getCliOptionsAndArgs()
 
@@ -104,20 +104,36 @@ export const processEnv = async (
     fs.writeFileSync(buildIDFile, cmd.pid.toString(), 'utf8')
   }
 
-  cmd.on('exit', (code) => {
-    let exitCode = code
-    try {
-      // Override the exit code with the one from the file if it exists.
-      // This is to make sure that we don't accidentally exit with a code 0 if
-      // we need to ensure the process fails loudly.
-      if (fs.existsSync(exitCodeFile)) {
-        exitCode = parseInt(fs.readFileSync(exitCodeFile, 'utf8'), 10)
+  // Return a Promise that resolves when the process exits with the exit code
+  return new Promise<number>((resolve, reject) => {
+    cmd.on('exit', async (code) => {
+      let exitCode = code
+      try {
+        // Override the exit code with the one from the file if it exists.
+        // This is to make sure that we don't accidentally exit with a code 0 if
+        // we need to ensure the process fails loudly.
+        if (fs.existsSync(exitCodeFile)) {
+          exitCode = parseInt(fs.readFileSync(exitCodeFile, 'utf8'), 10)
+        }
+      } catch (e) {
+        console.error(e)
       }
-    } catch (e) {
-      console.error(e)
-    }
 
-    cleanup(verbose).finally(() => process.exit(exitCode))
+      try {
+        await cleanup(verbose)
+        const finalExitCode = exitCode ?? 1
+        // Resolve with the exit code so the caller can decide what to do
+        // This allows code after await processEnv() to run
+        // Callers are responsible for calling process.exit() if needed
+        resolve(finalExitCode)
+      } catch (error) {
+        reject(error)
+      }
+    })
+
+    cmd.on('error', (error) => {
+      reject(error)
+    })
   })
 }
 

@@ -1,3 +1,4 @@
 import { processEnv } from 'env-loader'
 
-processEnv('next start')
+const exitCode = await processEnv('next start')
+process.exit(exitCode)

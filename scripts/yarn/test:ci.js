@@ -1,3 +1,4 @@
 import { processEnv } from 'env-loader'
 
-processEnv('jest --ci --coverage')
+const exitCode = await processEnv('jest --ci --coverage')
+process.exit(exitCode)

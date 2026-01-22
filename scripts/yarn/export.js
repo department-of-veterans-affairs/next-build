@@ -28,4 +28,10 @@ if (process.env.BUILD_OPTION === 'static') {
   }
 }
 
-await processEnv('next build --turbopack', true)
+const exitCode = await processEnv('next build --turbopack', true)
+
+// Exit with the same code as the build process if it failed
+// This ensures the script fails if the build failed
+if (exitCode !== 0) {
+  process.exit(exitCode)
+}

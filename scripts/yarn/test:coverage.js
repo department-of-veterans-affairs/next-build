@@ -1,3 +1,4 @@
 import { processEnv } from 'env-loader'
 
-processEnv('RUST_BACKTRACE=1 jest --coverage')
+const exitCode = await processEnv('RUST_BACKTRACE=1 jest --coverage')
+process.exit(exitCode)

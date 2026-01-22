@@ -1,3 +1,4 @@
 import { processEnv } from 'env-loader'
 
-processEnv('next dev --turbopack')
+const exitCode = await processEnv('next dev --turbopack')
+process.exit(exitCode)
