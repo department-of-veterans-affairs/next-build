@@ -2250,6 +2250,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@fortawesome/fontawesome-free@npm:^7.1.0":
+  version: 7.1.0
+  resolution: "@fortawesome/fontawesome-free@npm:7.1.0"
+  checksum: 8b9d35ed889d24cbd49bfd25db675a01eb50cb0ae49e3cc7f9d623be63556ce83344b26a1d10094c3a052eb723d5c6d39246ef37c48944f01c78b419fe076b73
+  languageName: node
+  linkType: hard
+
 "@humanfs/core@npm:^0.19.1":
   version: 0.19.1
   resolution: "@humanfs/core@npm:0.19.1"
@@ -14329,7 +14336,7 @@ __metadata:
     "@eslint/eslintrc": ^3.3.3
     "@eslint/js": ^9.38.0
     "@faker-js/faker": ^9.9.0
-    "@fortawesome/fontawesome-free": ^5.15.4
+    "@fortawesome/fontawesome-free": ^7.1.0
     "@next/env": 15.5.0
     "@octokit/rest": ^22.0.1
     "@playwright/test": ^1.57.0
