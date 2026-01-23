@@ -14,6 +14,10 @@ import {
 } from '@/lib/drupal/query'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
+import {
+  getLovellVariantOfUrl,
+  getOppositeChildVariant,
+} from '@/lib/drupal/lovell/utils'
 
 const PAGE_SIZE = PAGE_SIZES[RESOURCE_TYPES.EVENT_LISTING]
 // See listingParams for more information about this value and its use.
@@ -36,6 +40,7 @@ type EventListingData = {
   menu?: Menu
   totalItems: number
   totalPages: number
+  lovell?: ExpandedStaticPropsContext['lovell']
 }
 
 const listingParams: QueryParams<string> = (listingEntityId: string) => {
@@ -98,6 +103,7 @@ export const data: QueryData<EventListingDataOpts, EventListingData> = async (
     menu,
     totalItems: events.length,
     totalPages: 1, // We don't want to paginate event listing pages. The widget handles pagination.
+    lovell: opts.context?.lovell,
   }
 }
 
@@ -107,10 +113,21 @@ export const formatter: QueryFormatter<EventListingData, EventListing> = ({
   menu,
   totalItems,
   totalPages,
+  lovell,
 }) => {
   const formattedEvents = events.map((event) => {
     return queries.formatData(`${RESOURCE_TYPES.EVENT}--teaser`, event)
   })
+
+  // Process Lovell URL for events if lovell variant is provided
+  const lovellProcessedEvents = lovell?.variant
+    ? formattedEvents.map((event) => ({
+        ...event,
+        entityUrl: {
+          path: getLovellVariantOfUrl(event.entityUrl.path, lovell.variant),
+        },
+      }))
+    : formattedEvents
 
   let formattedMenu = null
   if (menu !== null) {
@@ -118,11 +135,18 @@ export const formatter: QueryFormatter<EventListingData, EventListing> = ({
   }
 
   return {
-    ...entityBaseFields(entity),
+    ...entityBaseFields(entity, lovell),
     introText: entity.field_intro_text,
-    events: formattedEvents,
+    events: lovellProcessedEvents,
     menu: formattedMenu,
     totalItems,
     totalPages,
+    lovellVariant: lovell?.variant ?? null,
+    lovellSwitchPath: lovell?.isLovellVariantPage
+      ? getLovellVariantOfUrl(
+          entity.path.alias,
+          getOppositeChildVariant(lovell.variant)
+        )
+      : null,
   }
 }
