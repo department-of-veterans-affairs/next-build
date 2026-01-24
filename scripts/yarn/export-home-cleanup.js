@@ -10,27 +10,25 @@ const __dirname = path.dirname(__filename)
  * Post-build cleanup: Delete index.html if homepage feature flag is off
  * This prevents the 404 HTML file from being served, allowing fallback to content-build
  */
-if (process.env.BUILD_OPTION === 'static') {
-  const isHomepageFeatureEnabled =
-    process.env.FEATURE_NEXT_BUILD_CONTENT_ALL === 'true' ||
-    process.env.FEATURE_NEXT_BUILD_CONTENT_HOMEPAGE === 'true'
+const isHomepageFeatureEnabled =
+  process.env.FEATURE_NEXT_BUILD_CONTENT_ALL === 'true' ||
+  process.env.FEATURE_NEXT_BUILD_CONTENT_HOMEPAGE === 'true'
 
-  if (!isHomepageFeatureEnabled) {
-    const exportBuildPath = path.resolve(__dirname, '../../out')
-    const indexHtmlPath = path.resolve(exportBuildPath, 'index.html')
-    const indexTxtPath = path.resolve(exportBuildPath, 'index.txt')
+if (!isHomepageFeatureEnabled) {
+  const exportBuildPath = path.resolve(__dirname, '../../out')
+  const indexHtmlPath = path.resolve(exportBuildPath, 'index.html')
+  const indexTxtPath = path.resolve(exportBuildPath, 'index.txt')
 
-    if (fs.existsSync(indexHtmlPath)) {
-      // eslint-disable-next-line no-console
-      console.log(
-        chalk.yellow(
-          'Homepage feature flag is disabled. Deleting index.html and index.txt to prevent serving 404 content.'
-        )
+  if (fs.existsSync(indexHtmlPath)) {
+    // eslint-disable-next-line no-console
+    console.log(
+      chalk.yellow(
+        'Homepage feature flag is disabled. Deleting index.html and index.txt to prevent serving 404 content.'
       )
-      fs.unlinkSync(indexHtmlPath)
-    }
-    if (fs.existsSync(indexTxtPath)) {
-      fs.unlinkSync(indexTxtPath)
-    }
+    )
+    fs.unlinkSync(indexHtmlPath)
+  }
+  if (fs.existsSync(indexTxtPath)) {
+    fs.unlinkSync(indexTxtPath)
   }
 }
