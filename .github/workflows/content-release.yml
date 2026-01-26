@@ -217,6 +217,7 @@ jobs:
           echo YARN_OUTPUT=$(<yarnoutput) >> $GITHUB_OUTPUT
           echo BUILT_PAGES=$(grep -oE "*\/([0-9]{4,})" ./yarnoutput| head -1 | sed 's/\///g') >> $GITHUB_OUTPUT
           node scripts/yarn/export-home-cleanup.js
+          echo "Is this even working???"
           ls
           ls out
           if [[ $? -ne 0 ]]; then
