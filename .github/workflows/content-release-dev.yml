@@ -16,7 +16,7 @@ jobs:
   content-release-dev:
     # This job should run for any valid event besides workflow_run, or workflow_run if the conclusion was successful.
     if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
-    uses: department-of-veterans-affairs/next-build/.github/workflows/content-release.yml
+    uses: department-of-veterans-affairs/next-build/.github/workflows/content-release.yml@${{ github.ref_name }}
     with:
       build_type: "dev"
     secrets: inherit
