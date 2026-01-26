@@ -12,17 +12,10 @@ import { getAllVars } from 'env-loader'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-// const envVars = await getAllVars()
-// const isHomepageFeatureEnabled =
-//   envVars.FEATURE_NEXT_BUILD_CONTENT_ALL === 'true' ||
-//   envVars.FEATURE_NEXT_BUILD_CONTENT_HOMEPAGE === 'true'
-
-// eslint-disable-next-line no-console
-console.log(process.env)
-
+const envVars = await getAllVars()
 const isHomepageFeatureEnabled =
-  process.env.FEATURE_NEXT_BUILD_CONTENT_ALL === 'true' ||
-  process.env.FEATURE_NEXT_BUILD_CONTENT_HOMEPAGE === 'true'
+  envVars.FEATURE_NEXT_BUILD_CONTENT_ALL === 'true' ||
+  envVars.FEATURE_NEXT_BUILD_CONTENT_HOMEPAGE === 'true'
 
 if (!isHomepageFeatureEnabled) {
   const exportBuildPath = path.resolve(__dirname, '../../out')

@@ -37,8 +37,6 @@ export async function getAllVars(): Promise<EnvVars> {
     const drupalBaseUrl =
       cliOptions[drupalBaseUrlProp] || envVars[drupalBaseUrlProp]
     cmsFeatureFlags = await getCmsFeatureFlags(drupalBaseUrl as string)
-    // eslint-disable-next-line no-console
-    console.log('cmsFeatureFlags:', cmsFeatureFlags)
   }
 
   return {
