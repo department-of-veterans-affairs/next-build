@@ -49,7 +49,7 @@ export function VaForm({
 
   return (
     <main className="va-l-detail-page">
-      <div className="usa-grid usa-grid-full">
+      <div className="vads-grid-container">
         <div className="usa-width-three-fourths">
           <article className="usa-content">
             <h1 className="vads-u-margin-bottom--0">{title}</h1>
