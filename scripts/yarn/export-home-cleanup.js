@@ -17,6 +17,9 @@ const __dirname = path.dirname(__filename)
 //   envVars.FEATURE_NEXT_BUILD_CONTENT_ALL === 'true' ||
 //   envVars.FEATURE_NEXT_BUILD_CONTENT_HOMEPAGE === 'true'
 
+// eslint-disable-next-line no-console
+console.log(process.env)
+
 const isHomepageFeatureEnabled =
   process.env.FEATURE_NEXT_BUILD_CONTENT_ALL === 'true' ||
   process.env.FEATURE_NEXT_BUILD_CONTENT_HOMEPAGE === 'true'
