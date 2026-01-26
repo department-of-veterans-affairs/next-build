@@ -892,7 +892,7 @@
     {
       "path": "/forms/21p-0517-1",
       "starred": true,
-      "notes": "Has a related form (Spanish, no detail page, can download).\nHas a \"submit completed form\" section."
+      "notes": "Has a related form (Spanish, no detail page, can download).\nHas a \"submit completed form\" section.\nThis one is currently different in local vs staging because the \"submit completed form\" section is a React widget which I believe is making an API call to fetch the JSON which is needed to render the widget. The related forms aren't showing up either because the one showing in staging / prod isn't published, and we don't show unpublished related forms now."
     },
     {
       "path": "/forms/21p-8049"
@@ -1234,5 +1234,5 @@
       "path": "/forms/21-526ez"
     }
   ],
-  "lastFetched": "2026-01-14T18:36:56.657Z"
+  "lastFetched": "2026-01-23T17:13:33.246Z"
 }
