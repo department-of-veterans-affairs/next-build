@@ -6,6 +6,7 @@ import {
   VetCenterOutstationLocationInfo,
   MobileVetCenterLocationInfo,
 } from './formatted-type'
+import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 
 const mockBaseFields = {
   id: 'test-id',
@@ -65,7 +66,7 @@ const mockMainOfficeOfficeHours = [
 
 const mockVetCenter: VetCenterLocationInfoType = {
   ...mockBaseFields,
-  type: 'node--vet_center',
+  type: RESOURCE_TYPES.VET_CENTER,
   officialName: 'Test Official Name',
   phoneNumber: '555-123-4567',
   officeHours: mockOfficeHours,
@@ -77,7 +78,7 @@ const mockMainOffice: VetCenterLocationInfoType = {
   ...mockBaseFields,
   id: 'main-office-id',
   title: 'Main Vet Center',
-  type: 'node--vet_center',
+  type: RESOURCE_TYPES.VET_CENTER,
   officialName: 'Main Official Name',
   phoneNumber: '555-987-6543',
   officeHours: mockMainOfficeOfficeHours,
@@ -87,7 +88,7 @@ const mockMainOffice: VetCenterLocationInfoType = {
 
 const mockVetCenterCap: VetCenterCapLocationInfo = {
   ...mockBaseFields,
-  type: 'node--vet_center_cap',
+  type: RESOURCE_TYPES.VET_CENTER_CAP,
   geographicalIdentifier: 'test-geo-id',
   vetCenterCapHoursOptIn: false,
   operatingStatusFacility: 'normal',
@@ -103,7 +104,7 @@ const mockVetCenterCapWithOptIn: VetCenterCapLocationInfo = {
 
 const mockVetCenterOutstation: VetCenterOutstationLocationInfo = {
   ...mockBaseFields,
-  type: 'node--vet_center_outstation',
+  type: RESOURCE_TYPES.VET_CENTER_OUTSTATION,
   operatingStatusFacility: 'normal',
   operatingStatusMoreInfo: null,
   phoneNumber: '555-456-7890',
@@ -113,7 +114,7 @@ const mockVetCenterOutstation: VetCenterOutstationLocationInfo = {
 
 const mockMobileVetCenter: MobileVetCenterLocationInfo = {
   ...mockBaseFields,
-  type: 'node--vet_center_mobile_vet_center',
+  type: RESOURCE_TYPES.VET_CENTER_MOBILE_VET_CENTER,
   phoneNumber: '555-111-2222',
 }
 
