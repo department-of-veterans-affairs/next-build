@@ -10,8 +10,12 @@ import { HomePageBenefits } from '@/components/homePageBenefits/template'
 import { Meta } from '@/components/meta/template'
 
 export default async function HomePage() {
-  // Check feature flags - prevent route from building if flags aren't set
-  // FEATURE_NEXT_BUILD_CONTENT_ALL bypasses all flag checks
+  // In the previous implementation, returning a "not found" was enough to tell the
+  // static site generation process to skip building the page. In Next.js's new "App
+  // Router", this will actually result in the page being built with 404 content during
+  // static site generation. When serving this route from a dev server, it will actually
+  // return a true 404 status code. Because of this discrepancy, we have to augment the
+  // following logic with an external post-export cleanup script for static builds.
   if (
     process.env.FEATURE_NEXT_BUILD_CONTENT_ALL !== 'true' &&
     process.env.FEATURE_NEXT_BUILD_CONTENT_HOMEPAGE !== 'true'
