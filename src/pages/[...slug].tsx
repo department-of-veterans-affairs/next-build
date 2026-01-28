@@ -183,14 +183,6 @@ export default function ResourcePage({
     typeof window !== 'undefined' &&
     previewDomainPattern.test(window.location.hostname)
 
-  const jsEntryName =
-    resource.type === RESOURCE_TYPES.PUBLICATION_LISTING
-      ? // We don't actually use the extra script that is included in the public outreach
-        // materials bundle, but this bundle is way smaller than the static-pages bundle.
-        // Eventually we want to strip these down to only what we need for specific pages.
-        'public-outreach-materials.entry.js'
-      : 'static-pages.entry.js'
-
   return (
     <PageLayout
       bannerData={[...bannerData, ...contentBanner]}
@@ -334,9 +326,15 @@ export default function ResourcePage({
 
       {/* Loads widgets built from vets-website after data has been added to window */}
       <Script
-        id="staticPages"
+        id="staticPagesEssentials"
         strategy="afterInteractive"
-        src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${jsEntryName}`}
+        src={`${process.env.NEXT_PUBLIC_ASSETS_URL}static-pages-essentials.entry.js`}
+      />
+      {/* TODO: Not all resource types will need this, and some may need a different bundle. */}
+      <Script
+        id="staticPagesWidgets"
+        strategy="afterInteractive"
+        src={`${process.env.NEXT_PUBLIC_ASSETS_URL}static-pages-widgets.entry.js`}
       />
     </PageLayout>
   )

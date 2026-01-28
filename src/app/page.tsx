@@ -69,7 +69,7 @@ export default async function HomePage() {
         <Script
           id="staticPages"
           strategy="afterInteractive"
-          src={`${process.env.NEXT_PUBLIC_ASSETS_URL}sitewide-minimal.entry.js`}
+          src={`${process.env.NEXT_PUBLIC_ASSETS_URL}static-pages-essentials.entry.js`}
         />
         <Script
           id="staticPages"
