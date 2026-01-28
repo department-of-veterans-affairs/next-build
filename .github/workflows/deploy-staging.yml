@@ -1,0 +1,80 @@
+name: Deploy Staging
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 18 * * 1-5' # 2pm Eastern Time (18:00 UTC), Monday through Friday
+  # Runs on API call. Used for CMS-driven build triggers.
+  repository_dispatch:
+    types: [content-release-staging]
+
+env:
+  SLACK_CHANNEL: C06DSBT7CBW #status-next-build
+  DSVA_SCHEDULE_ENABLED: true
+
+jobs:
+  create-stage-release-branch:
+    name: Create Stage release branch
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch'
+    steps:
+      - name: Checkout main branch
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Git user
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Create new branch
+        id: create_branch
+        run: |
+          NEW_BRANCH="stage-release-$(date +'%Y%m%d-%H%M%S')"
+          git checkout -b "$NEW_BRANCH"
+          echo "branch_name=$NEW_BRANCH" >> $GITHUB_OUTPUT
+
+      - name: Push new branch to origin
+        run: |
+          git push origin "${{ steps.create_branch.outputs.branch_name }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  notify-success:
+    name: Notify Success
+    runs-on: ubuntu-latest
+    needs: create-stage-release-branch
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@0c366fd6a839edf440554fa01a7085ccba70ac98 # v4.1.1
+
+      - name: Notify Slack
+        uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4 # main
+        continue-on-error: true
+        with:
+          payload: '{"attachments": [{"color": "#07711E","blocks": [{"type": "section","text": {"type": "mrkdwn","text": "Successfully created next-build stage release branch: ${{ needs.steps.create_branch.outputs.branch_name }}"}}]}]}'
+          channel_id: ${{ env.SLACK_CHANNEL }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+  notify-failure:
+    name: Notify Failure
+    runs-on: ubuntu-latest
+    if: ${{ failure() || cancelled() }}
+    needs: create-production-tag
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@0c366fd6a839edf440554fa01a7085ccba70ac98 # v4.1.1
+
+      - name: Notify Slack
+        if: ${{ env.DSVA_SCHEDULE_ENABLED == 'true' }}
+        uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4 # main
+        continue-on-error: true
+        with:
+          payload: '{"attachments": [{"color": "#D33834","blocks": [{"type": "section","text": {"type": "mrkdwn","text": "><!subteam^S09760WRN3T|cms-troubleshooting> New next-build stage release branch could not be created!: <https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}>"}}]}]}'
+          channel_id: ${{ env.SLACK_CHANNEL }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
