@@ -48,7 +48,7 @@ jobs:
         - /etc/ssl/certs:/etc/ssl/certs
     if: github.event.deployment_status.state == 'success'
     steps:
-    - uses: actions/checkout@v6.0.1
+    - uses: actions/checkout@v6.0.2
     - uses: actions/setup-node@v6
       with:
         node-version: 24
