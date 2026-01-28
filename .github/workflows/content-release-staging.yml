@@ -1,7 +1,7 @@
 name: "Content release: Staging"
 on:
   workflow_run:
-    workflows: ["Deploy Staging"]
+    workflows: ["Create release branch"]
     types:
       - completed
   # Can be manually triggered

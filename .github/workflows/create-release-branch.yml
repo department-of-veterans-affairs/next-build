@@ -1,4 +1,4 @@
-name: Deploy Staging
+name: Create release branch
 
 on:
   workflow_dispatch:
