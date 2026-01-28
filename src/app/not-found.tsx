@@ -1,22 +1,22 @@
-import { useEffect } from 'react'
-import { recordEvent } from '@/lib/analytics/recordEvent'
+import Script from 'next/script'
 import { PageLayout } from '@/components/pageLayout/template'
 import { queries } from '@/lib/drupal/queries'
 import { CommonAndPopular } from '@/components/commonAndPopular/template'
-import Head from 'next/head'
-import Script from 'next/script'
+import { NotFoundAnalytics } from './NotFoundAnalytics'
 
-const Error404Page = ({ footerData, megaMenuData, bannerData }) => {
-  useEffect(() => {
-    recordEvent({ event: 'nav-404-error' })
-  })
+export default async function NotFoundPage() {
+  // Fetch header and footer data directly (no banners on 404)
+  const [footerData, megaMenuData] = await Promise.all([
+    queries.getData('footer-data'),
+    queries.getData('header-data'),
+  ])
+
   return (
     <>
-      <Head>
-        <title>VA.gov | Veterans Affairs</title>
-      </Head>
+      <title>VA.gov | Veterans Affairs</title>
+      <NotFoundAnalytics />
       <PageLayout
-        bannerData={bannerData}
+        bannerData={[]} // no banners on 404
         footerData={footerData}
         megaMenuData={megaMenuData}
       >
@@ -72,25 +72,3 @@ const Error404Page = ({ footerData, megaMenuData, bannerData }) => {
     </>
   )
 }
-
-export async function getStaticProps() {
-  try {
-    // Fetch header and footer data directly (no banners on 404)
-    const [footerData, megaMenuData] = await Promise.all([
-      queries.getData('footer-data'),
-      queries.getData('header-data'),
-    ])
-
-    return {
-      props: {
-        footerData,
-        megaMenuData,
-        bannerData: [], // no banners on 404
-      },
-    }
-  } catch (error) {
-    console.error('Failed to fetch global elements:', error)
-  }
-}
-
-export default Error404Page
