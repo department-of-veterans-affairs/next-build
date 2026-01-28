@@ -27,11 +27,20 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+  
+      - name: Get latest tag
+        id: get-latest-tag
+        run: echo LATEST_TAG_VERSION=$(git fetch --all --tags > /dev/null && git tag -l | sort -V --reverse | head -n 1) >> $GITHUB_OUTPUT
+  
+      - name: Get next tag version
+        run: |
+          next_increment=$(( $(echo ${{ steps.get-latest-tag.outputs.LATEST_TAG_VERSION }} | cut -d'.' -f3) + 1))
+          echo "NEW_TAG=$(echo ${{ steps.get-latest-tag.outputs.LATEST_TAG_VERSION }} | sed -E "s/\.[0-9]+/.$next_increment/2")" >> $GITHUB_ENV
 
       - name: Create new branch
         id: create_branch
         run: |
-          NEW_BRANCH="stage-release-$(date +'%Y%m%d-%H%M%S')"
+          NEW_BRANCH="release/{{ $NEW_TAG }}"
           git checkout -b "$NEW_BRANCH"
           echo "branch_name=$NEW_BRANCH" >> $GITHUB_OUTPUT
 
@@ -54,7 +63,7 @@ jobs:
         uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4 # main
         continue-on-error: true
         with:
-          payload: '{"attachments": [{"color": "#07711E","blocks": [{"type": "section","text": {"type": "mrkdwn","text": "Successfully created next-build stage release branch: ${{ needs.steps.create_branch.outputs.branch_name }}"}}]}]}'
+          payload: '{"attachments": [{"color": "#07711E","blocks": [{"type": "section","text": {"type": "mrkdwn","text": "Successfully created next-build stage release branch: ${{ needs.steps.create_branch.outputs.branch_name }}\n Please review changes to be released: [${{ LATEST_TAG_VERSION }}...${{ NEW_BRANCH }}](https://github.com/department-of-veterans-affairs/next-build/compare/${{ LATEST_TAG_VERSION }}...${{ NEW_BRANCH }}) "}}]}]}'
           channel_id: ${{ env.SLACK_CHANNEL }}
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -63,7 +72,7 @@ jobs:
     name: Notify Failure
     runs-on: ubuntu-latest
     if: ${{ failure() || cancelled() }}
-    needs: create-production-tag
+    needs: create-stage-release-branch
 
     steps:
       - name: Checkout
