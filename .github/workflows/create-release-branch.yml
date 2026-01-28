@@ -37,7 +37,7 @@ jobs:
           next_increment=$(( $(echo ${{ env.LATEST_TAG_VERSION }} | cut -d'.' -f3) + 1))
           echo "NEW_TAG=$(echo ${{ env.LATEST_TAG_VERSION }} | sed -E "s/\.[0-9]+/.$next_increment/2")" >> $GITHUB_ENV
 
-      - name: Create new branch
+      - name: Create new branch and push
         id: create_branch
         run: |
           echo "NEW_BRANCH=release/${{ env.NEW_TAG }}" >> $GITHUB_ENV
@@ -46,18 +46,10 @@ jobs:
             echo "Branch ${{ env.NEW_BRANCH }} already exists. Checking it out."
             git fetch origin "${{ env.NEW_BRANCH }}"
             git checkout "${{ env.NEW_BRANCH }}"
+            git push origin "${{ env.NEW_BRANCH }}"
           else
             echo "Branch ${{ env.NEW_BRANCH }} does not exist. Creating it."
             git checkout -b "${{ env.NEW_BRANCH }}"
-          fi
-
-      - name: Push new branch to origin
-        run: |
-          # Only push if the branch was just created (not if it already existed)
-          if ! git ls-remote --exit-code --heads origin "${{ env.NEW_BRANCH }}"; then
-            git push origin "${{ env.NEW_BRANCH }}"
-          else
-            echo "Branch ${{ env.NEW_BRANCH }} already exists on remote. Skipping push."
           fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
