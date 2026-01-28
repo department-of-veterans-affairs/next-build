@@ -20,10 +20,19 @@ export type VaForm = PublishedEntity & {
   toolIntro?: string
   usage?: string
   linkTeasers?: LinkTeaser[]
-  relatedForms?: Array<{
-    id: string
-    formNumber: string | null
-    formName: string | null
-  }>
+  relatedForms?: Array<
+    Pick<
+      VaForm,
+      | 'id'
+      | 'type'
+      | 'formNumber'
+      | 'formName'
+      | 'entityPath'
+      | 'published'
+      | 'usage'
+      | 'formUrl'
+      | 'formLanguage'
+    >
+  >
   formUpload?: boolean
 }
