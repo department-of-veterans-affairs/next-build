@@ -58,11 +58,11 @@ docker compose up --scale worker=10 -d
 ##### Testing connection from Locust EC2 to a preview revproxy server
 
 From the EC2 instance cli you can run a curl command to test the connection. Specify the host as staging.va.gov to avoid getting a 301 'has moved' error
-curl -k -v -H "Host: staging.va.gov" https://ip-10-247-34-244.us-gov-west-1.compute.internal/tampa-health-care/stories/clinical-resource-hub-increases-veterans-access-to-care/
+curl -k -v -H "Host: staging.va.gov" https://internal-host/tampa-health-care/stories/clinical-resource-hub-increases-veterans-access-to-care/
 
 #### Quick Start
 
-1. Go to the Locust UI at http://ec2-3-31-42-137.us-gov-west-1.compute.amazonaws.com:8089/
+1. Go to the Locust UI at https://locust-host:8089/
 2. Select the NextBuildUser user class to test next build urls
 
 - This line of code tells you what sitemap will be used for that user class
