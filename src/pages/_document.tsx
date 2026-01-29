@@ -102,6 +102,15 @@ const Document = () => {
           data-nb-nonce={nonce}
           async
         />
+
+        {/* Siteimprove Analytics */}
+        <Script
+          src="https://siteimproveanalytics.com/js/siteanalyze_6319010.js"
+          id="siteimprove"
+          strategy="afterInteractive"
+          data-nb-nonce={nonce}
+          async
+        />
       </Head>
       <body className="merger">
         <div id="announcement-root"></div>
