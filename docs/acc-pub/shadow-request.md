@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document explains the shadow request implementation in the `@nextcontent` location block within the nginx reverse proxy configuration. Shadow requests allow us to send duplicate traffic to a Next.js server for ISR purposes without affecting the primary response flow. Once the nextjs server receives thi srequest it will build the page and store it using the shared caching function. This should be connected to an S3 storage location.
+This document explains the shadow request implementation in the `@nextcontent` location block within the nginx reverse proxy configuration. Shadow requests allow us to send duplicate traffic to a Next.js server for ISR purposes without affecting the primary response flow. Once the nextjs server receives this request it will build the page and store it using the shared caching function. This should be connected to an S3 storage location.
 
 ## What is a Shadow Request?
 

@@ -1,4 +1,4 @@
-# Introduction for Accelerated Publishing - Shadow Request Archtecture
+# Introduction for Accelerated Publishing - Shadow Request Architecture
 
 ## Overview
 
@@ -6,7 +6,7 @@ The approach for this architecture uses the built in shared caching feature of n
 
 ## How ISR pages get created/stored
 
-When a request hits the nextjs server the shared caching script executes. The script `is sent the fuill json object that normally would get stored in Nextjs cache that would then be served later by Nextjs. In our shared cahce script we break apart the JSON object into 3 parts:
+When a request hits the nextjs server the shared caching script executes. The script `is sent the full json object that normally would get stored in Nextjs cache that would then be served later by Nextjs. In our shared cache script we break apart the JSON object into 3 parts:
 
 1. Static HTML
 2. Metadata
@@ -14,11 +14,11 @@ When a request hits the nextjs server the shared caching script executes. The sc
 
 These 3 objects get stored in the S3 bucket in the appropriate folder to be then served by the NGINX web server.
 
-The code uses a metadat.kind property to match "PAGES" or "PAGE" to determine if the object is a page, If it is page then it will process the object to store in S3. This is a key parameter and should be reviewed if anything breaks.
+The code uses a metadata.kind property to match "PAGES" or "PAGE" to determine if the object is a page, If it is page then it will process the object to store in S3. This is a key parameter and should be reviewed if anything breaks.
 
 ## Static Assets
 
-Static assets must be stored using a seperate process since the shared caching only is for creating and storing the page html and data. There are 2 parts:
+Static assets must be stored using a separate process since the shared caching only is for creating and storing the page html and data. There are 2 parts:
 
 1. Public assets stored in the "public" directory
 2. Chunks created during the ISR build process, stored in the ".next" folder
@@ -27,7 +27,7 @@ The assets a page needs can easily be determined by loading the page with the we
 
 These assets should be kept up to date with each code deploy/CI/CD build process.
 
-The build proces can be exectued by using "yarn build". DO NOT USE yarn build -export. The export is for a different static generation. We need to use the ISR build process without the export flag.
+The build process can be executed by using "yarn build". DO NOT USE yarn build -export. The export is for a different static generation. We need to use the ISR build process without the export flag.
 
 ## Testing
 
@@ -37,9 +37,9 @@ I have setup an EC2 instance in the staging environment that can connect to the 
 
 - nextjs-locust-cms-test
 
-- http://ec2-3-31-42-137.us-gov-west-1.compute.amazonaws.com:8089/
+- http://<locust-ec2-public-dns>:8089/
 
-This runs in a docker container on the EC2 instance. The code/docker contianer is in the locust direcrtory
+This runs in a docker container on the EC2 instance. The code/docker container is in the locust directory
 
 Locally you can also run locust using the code in:
 
@@ -71,7 +71,7 @@ curl -k -v -H "Host: staging.va.gov" https://ip-10-247-34-244.us-gov-west-1.comp
 3. Then set the host url for the environment you are testing.
 
 - Preview revproxy for example:
-  https://ip-10-247-97-70.us-gov-west-1.compute.internal
+  https://[INTERNAL-HOST]
 - Staging
   http://staging.va.gov
 
@@ -85,9 +85,9 @@ curl -k -v -H "Host: staging.va.gov" https://ip-10-247-34-244.us-gov-west-1.comp
 
 - There should be 3 code blocks we own, content, nextcontent and the new nextshadowrequests3content. The new block should use the code from this branch:
   https://github.com/department-of-veterans-affairs/vsp-platform-revproxy/tree/testing-nextjs-accpub
-- That branch has teh code in the nextcontent block and this should be moved to a new code block and the old nextcontent should be left intact as a backup.
+- That branch has the code in the nextcontent block and this should be moved to a new code block and the old nextcontent should be left intact as a backup.
 
-3. Create the CI/CD piepline process to keep the static assets up to date
+3. Create the CI/CD pipeline process to keep the static assets up to date
 
 - Will need to copy the public static assets and the build chunks to the S3 bucket.
 - Should utilize the GIT_HASH for the Build ID in nextjs, this will allow you to delete the old chunks and static assets that are no longer needed.
