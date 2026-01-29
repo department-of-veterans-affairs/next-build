@@ -83,11 +83,13 @@ local ok, err = ngx.timer.at(0, shadow_handler)
 
 #### 4. HTTPS Support
 
-The implementation handles both HTTP and HTTPS connections with proper SSL handshake:
+The implementation handles both HTTP and HTTPS connections with a validated SSL/TLS handshake:
 
 ```lua
 if scheme == "https" then
-  local session, err = sock:sslhandshake(nil, host, false)
+  -- enable certificate verification; trusted CAs and verify depth are configured
+  -- via nginx directives such as lua_ssl_trusted_certificate and lua_ssl_verify_depth
+  local session, err = sock:sslhandshake(nil, host, true)
   if not session then
     ngx.log(ngx.ERR, "Shadow request SSL handshake failed: ", err)
     sock:close()
