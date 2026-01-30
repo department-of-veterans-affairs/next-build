@@ -13,6 +13,10 @@ on:
         description: "Environment this workflow runs against"
         required: true
         default: 'PROD'
+      branch:
+        type: string
+        description: "optional branch to build"
+        required: false
   # Manual release.
   workflow_dispatch:
     inputs:
@@ -163,7 +167,7 @@ jobs:
       if: inputs.build_type != 'prod'
       with:
         repository: department-of-veterans-affairs/next-build
-        ref: ${{ github.head_ref || github.ref_name }}
+        ref: ${{ inputs.branch || github.head_ref || github.ref_name }}
         path: main
         sparse-checkout-cone-mode: false
 
