@@ -16,7 +16,7 @@ jobs:
   create-stage-release-branch:
     name: Create Stage release branch
     runs-on: ubuntu-latest
-    if: github.event_name == 'schedule'
+    # if: github.event_name == 'schedule'
     outputs:
       LATEST_TAG_VERSION: ${{ steps.get-latest-tag.outputs.latest_tag_version }}
       NEW_BRANCH: ${{ steps.create-branch.outputs.new_branch }}
@@ -108,4 +108,3 @@ jobs:
           channel_id: ${{ env.SLACK_CHANNEL }}
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-
