@@ -52,9 +52,15 @@ jobs:
           echo "new_branch=$NEW_BRANCH" >> $GITHUB_OUTPUT
           # Check if branch exists remotely
           if git ls-remote --exit-code --heads origin "$NEW_BRANCH"; then
-            echo "Branch $NEW_BRANCH already exists. Checking it out."
+            echo "Branch $NEW_BRANCH already exists. Checking it out and updating with latest from main."
             git fetch origin "$NEW_BRANCH"
             git checkout "$NEW_BRANCH"
+            git fetch origin main
+            git merge --ff-only origin/main || {
+              echo "Fast-forward merge from main failed. Please resolve conflicts manually.";
+              exit 1;
+            }
+            git push origin "$NEW_BRANCH"
           else
             echo "Branch $NEW_BRANCH does not exist. Creating it."
             git checkout -b "$NEW_BRANCH"
