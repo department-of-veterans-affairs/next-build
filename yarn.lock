@@ -13596,9 +13596,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"linkinator@npm:^7.5.1":
-  version: 7.5.1
-  resolution: "linkinator@npm:7.5.1"
+"linkinator@npm:^7.5.3":
+  version: 7.5.3
+  resolution: "linkinator@npm:7.5.3"
   dependencies:
     chalk: ^5.0.0
     escape-html: ^1.0.3
@@ -13613,7 +13613,7 @@ __metadata:
     undici: ^7.16.0
   bin:
     linkinator: build/src/cli.js
-  checksum: 376e5d2a313b39fb8cfbcd6436da99ab85b5c026afc3b5dbdf13d158e342206e1eab80d1f094317ce881d982b1d76d739ae50ec20f235f19846e8008b410acab
+  checksum: 37416ad697fbf24c39f25a174d89ebe17e91b993bbfd02009f25e1f6f27104d12e47f9bece0da3c733dfa7f1c161d4227fb54ff8f353fba7818d727da8633c49
   languageName: node
   linkType: hard
 
@@ -14494,7 +14494,7 @@ __metadata:
     jsdom: ^27.3.0
     jsona: ^1.12.1
     lighthouse: ^12.8.0
-    linkinator: ^7.5.1
+    linkinator: ^7.5.3
     lint-staged: ^16.2.3
     lodash: ^4.17.23
     mq-polyfill: ^1.1.8
