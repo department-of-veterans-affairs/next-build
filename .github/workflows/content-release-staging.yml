@@ -34,9 +34,9 @@ jobs:
       - name: Get latest tag
         id: get-latest-tag
         run: |
-          LATEST_TAG_VERSION=$(git fetch --all --tags > /dev/null && git tag -l | sort -V --reverse | head -n 1)
+          LATEST_TAG_VERSION=$(git fetch --tags > /dev/null 2>&1 && git describe --tags --abbrev=0
           echo "latest_tag_version=$LATEST_TAG_VERSION" >> $GITHUB_OUTPUT
-  
+
       - name: Get next tag version
         id: get-next-tag
         run: |
