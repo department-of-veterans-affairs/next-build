@@ -93,18 +93,27 @@ jobs:
     name: Notify Failure
     runs-on: ubuntu-latest
     if: ${{ (failure() || cancelled()) }}
-    needs: content-release-staging
-
+    needs: [content-release-staging, create-stage-release-branch]
     steps:
       - name: Checkout
         uses: actions/checkout@0c366fd6a839edf440554fa01a7085ccba70ac98 # v4.1.1
 
-      - name: Notify Slack
-        if: ${{ env.DSVA_SCHEDULE_ENABLED == 'true' }}
+      - name: Notify Slack (create-branch failure)
+        if: ${{ failure() && needs.create-stage-release-branch.result == 'failure' }}
         uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4 # main
         continue-on-error: true
         with:
-          payload: '{"attachments": [{"color": "#D33834","blocks": [{"type": "section","text": {"type": "mrkdwn","text": "><!subteam^S09760WRN3T|cms-troubleshooting> There was a problem releasing ${{ needs.create-stage-release-branch.outputs.NEW_BRANCH}} branch to stage: <https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}>"}}]}]}'
+          payload: '{"attachments": [{"color": "#D33834","blocks": [{"type": "section","text": {"type": "mrkdwn","text": "><!subteam^S09760WRN3T|cms-troubleshooting> Failed to create the release branch in the content release workflow. See <https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}> for details."}}]}]}'
+          channel_id: ${{ env.SLACK_CHANNEL }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+      - name: Notify Slack (content-release-staging failure)
+        if: ${{ failure() && needs.content-release-staging.result == 'failure' }}
+        uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4 # main
+        continue-on-error: true
+        with:
+          payload: '{"attachments": [{"color": "#D33834","blocks": [{"type": "section","text": {"type": "mrkdwn","text": "><!subteam^S09760WRN3T|cms-troubleshooting> There was a problem releasing ${{ needs.create-stage-release-branch.outputs.NEW_BRANCH}} branch to stage: <https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}>}"}}]}]}'
           channel_id: ${{ env.SLACK_CHANNEL }}
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
