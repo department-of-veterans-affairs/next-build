@@ -415,7 +415,7 @@ jobs:
     name: Notify Failure
     runs-on: ubuntu-latest
     needs: build
-    if: ${{ failure() || cancelled() && inputs.build_type == 'prod' }}
+    if: ${{ (failure() || cancelled()) && inputs.build_type == 'prod' }}
 
     steps:
       - name: Checkout
