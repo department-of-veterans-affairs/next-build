@@ -99,7 +99,23 @@ jobs:
         uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4 # main
         continue-on-error: true
         with:
-          payload: '{"attachments": [{"color": "#07711E","blocks": [{"type": "section","text": {"type": "mrkdwn","text": "TEST Successfully released ${{ needs.create-stage-release-branch.outputs.NEW_BRANCH }} branch on https://staging.va.gov \n Please review [URLS TBD]\n Please review changes to be released: <https://github.com/department-of-veterans-affairs/next-build/compare/${{ needs.create-stage-release-branch.outputs.LATEST_TAG_VERSION }}...${{ needs.create-stage-release-branch.outputs.NEW_BRANCH }}|${{ needs.create-stage-release-branch.outputs.LATEST_TAG_VERSION }}...${{ needs.create-stage-release-branch.outputs.NEW_BRANCH }}>"}}]}]}'
+          payload: '{"attachments": [{"color": "#07711E","blocks": [{"type": "section","text": {"type": "mrkdwn","text": 
+            "TEST Successfully released ${{ needs.create-stage-release-branch.outputs.NEW_BRANCH }} branch on https://staging.va.gov \n 
+            Please review [URLS TBD]\n 
+            <https://staging.va.gov/|Homepage>\n
+            <https://staging.va.gov/forms/|Find a form>\n
+            <https://staging.va.gov/find-locations/|Find a location>\n
+            <https://staging.va.gov/claim-or-appeal-status/|Check your claim, decision review, or appeal status>\n
+            <https://staging.va.gov/health-care/manage-health/|Manage your health care with My HealtheVet>\n
+            <https://staging.va.gov/health-care/get-reimbursed-for-travel-pay/|Get travel pay reimbursement>\n
+            <https://staging.va.gov/va-payment-history/|Review your payment history>\n
+            <https://staging.va.gov/records/download-va-letters/|Download your benefit letters>\n
+            <https://staging.va.gov/disability/view-disability-rating/|Reiew your disability rating>\n
+            <https://staging.va.gov/health-care/manage-appointments/|Manage health appointments>\n
+            <https://staging.va.gov/education/verify-school-enrollment/|Verify your school enrollment>\n
+            <https://staging.va.gov/education/check-remaining-post-9-11-gi-bill-benefits/|Check your remaining GI Bill benefits>\n
+            <https://staging.va.gov/view-change-dependents/|Review or update your dependents>\n
+            Please review changes to be released: <https://github.com/department-of-veterans-affairs/next-build/compare/${{ needs.create-stage-release-branch.outputs.LATEST_TAG_VERSION }}...${{ needs.create-stage-release-branch.outputs.NEW_BRANCH }}|${{ needs.create-stage-release-branch.outputs.LATEST_TAG_VERSION }}...${{ needs.create-stage-release-branch.outputs.NEW_BRANCH }}>"}}]}]}'
           channel_id: ${{ env.SLACK_CHANNEL }}
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
