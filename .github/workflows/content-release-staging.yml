@@ -16,7 +16,7 @@ jobs:
   create-stage-release-branch:
     name: Create Stage release branch
     runs-on: ubuntu-latest
-    # if: github.event_name == 'schedule'
+    if: github.event_name == 'schedule'
     outputs:
       LATEST_TAG_VERSION: ${{ steps.get-latest-tag.outputs.latest_tag_version }}
       NEW_BRANCH: ${{ steps.create-branch.outputs.new_branch }}
@@ -80,7 +80,7 @@ jobs:
     name: Notify Success
     runs-on: ubuntu-latest
     needs: [content-release-staging, create-stage-release-branch]
-    # if: github.event_name == 'schedule'
+    if: github.event_name == 'schedule'
 
     steps:
       - name: Checkout
@@ -98,7 +98,7 @@ jobs:
   notify-failure:
     name: Notify Failure
     runs-on: ubuntu-latest
-    if: ${{ (failure() || cancelled()) }}
+    if: ${{ (failure() || cancelled()) && github.event_name == 'schedule' }}
     needs: [content-release-staging, create-stage-release-branch]
     steps:
       - name: Checkout
