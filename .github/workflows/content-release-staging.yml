@@ -16,7 +16,6 @@ jobs:
   create-stage-release-branch:
     name: Create Stage release branch
     runs-on: ubuntu-latest
-    if: github.event_name == 'schedule'
     outputs:
       LATEST_TAG_VERSION: ${{ steps.get-latest-tag.outputs.latest_tag_version }}
       NEW_BRANCH: ${{ steps.create-branch.outputs.new_branch }}
@@ -33,12 +32,14 @@ jobs:
   
       - name: Get latest tag
         id: get-latest-tag
+        if: github.event_name == 'schedule'
         run: |
           LATEST_TAG_VERSION=$(git fetch --tags > /dev/null 2>&1 && git describe --tags --abbrev=0)
           echo "latest_tag_version=$LATEST_TAG_VERSION" >> $GITHUB_OUTPUT
 
       - name: Get next tag version
         id: get-next-tag
+        if: github.event_name == 'schedule'
         run: |
           latest_tag="${{ steps.get-latest-tag.outputs.latest_tag_version }}"
           next_increment=$(( $(echo "$latest_tag" | cut -d'.' -f3) + 1 ))
@@ -47,6 +48,7 @@ jobs:
 
       - name: Create new branch and push
         id: create-branch
+        if: github.event_name == 'schedule'
         run: |
           NEW_BRANCH=release/${{ steps.get-next-tag.outputs.new_tag }}
           echo "new_branch=$NEW_BRANCH" >> $GITHUB_OUTPUT
@@ -66,6 +68,11 @@ jobs:
             git checkout -b "$NEW_BRANCH"
             git push origin "$NEW_BRANCH"
           fi
+
+      - name: No new branch for manual run
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          echo "Not creating a new branch for manual run."
 
   content-release-staging:
     # This job should run for any valid event besides workflow_run, or workflow_run if the conclusion was successful.
