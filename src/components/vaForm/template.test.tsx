@@ -57,13 +57,25 @@ const formWithRelatedMock: VaFormType = {
   relatedForms: [
     {
       id: '1',
+      type: 'node--va_form',
+      published: true,
       formNumber: '10-10EZ',
       formName: 'Application for Health Benefits',
+      entityPath: '/find-forms/about-form-10-10ez',
+      usage: null,
+      formUrl: null,
+      formLanguage: null,
     },
     {
       id: '2',
+      type: 'node--va_form',
+      published: true,
       formNumber: '21-526EZ',
       formName: 'Application for Disability Compensation',
+      entityPath: '/find-forms/about-form-21-526ez',
+      usage: null,
+      formUrl: null,
+      formLanguage: null,
     },
   ],
 }

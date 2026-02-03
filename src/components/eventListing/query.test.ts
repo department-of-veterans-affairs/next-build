@@ -9,6 +9,7 @@ import mockEventData from '@/components/event/mock.json'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { params } from './query'
 import { formatter } from './query'
+import { LovellChildVariant } from '@/lib/drupal/lovell/types'
 
 const EventListingMock: NodeEventListing = mockResponse
 const EventMock: NodeEvent[] = [mockEventData]
@@ -30,6 +31,7 @@ describe(`${RESOURCE_TYPES.EVENT_LISTING} formatData`, () => {
         menu: { items: [], tree: [] },
         totalItems: EventMock.length,
         totalPages: 1,
+        lovell: undefined,
       })
     ).toMatchSnapshot()
   })
@@ -81,116 +83,52 @@ describe('EventListing formatter', () => {
     ],
   }
 
-  const mockData = {
-    entity: {
-      id: 'test-id',
-      type: 'node--event_listing',
-      status: true,
-      title: 'Test Event Listing',
-      path: {
-        alias: '/test-path',
-        pid: 123,
-        langcode: 'en',
-        severity: 0,
-      },
-      field_intro_text: 'Test intro text',
-      field_description: 'Test description',
-      field_enforce_unique_combo: false,
-      field_office: {
-        type: 'node--health_care_region_page',
-        id: 'test-office-id',
-        field_system_menu: null,
-        field_body: null,
-        field_email_updates_link: null,
-        field_external_link: null,
-        field_description: 'Test office description',
-        field_facility_hours: null,
-        field_facility_locator_api_id: null,
-        field_intro_text: null,
-        field_link_facility_emerg_list: null,
-        field_link_facility_health_list: null,
-        field_link_facility_nca_list: null,
-        field_link_facility_vba_list: null,
-        field_media: null,
-        field_meta_tags: null,
-        field_meta_title: null,
-        field_nickname_for_this_facility: null,
-        field_operating_status: null,
-        field_operating_status_facility: null,
-        field_operating_status_more_info: null,
-        field_press_release_office: null,
-        field_region_page: null,
-        field_social_media_links: null,
-        field_twitter_feed_url: null,
-        field_website_url: null,
-        field_office_id: null,
-        field_parent_office: null,
-        drupal_internal__nid: 456,
-        drupal_internal__vid: 789,
-        status: true,
-        title: 'Test Office',
-        path: {
-          alias: '/test-office',
-          pid: 123,
-          langcode: 'en',
-          severity: 0,
-        },
-        changed: '2024-03-20',
-        created: '2024-03-20',
-        default_langcode: true,
-        langcode: 'en',
-        promote: false,
-        revision_log: '',
-        revision_timestamp: '2024-03-20',
-        sticky: false,
-        uuid: 'test-uuid',
-      },
-      drupal_internal__nid: 123,
-      drupal_internal__vid: 456,
-      created: '2024-01-01',
-      changed: '2024-01-02',
-      promote: false,
-      sticky: false,
-      default_langcode: true,
-      revision_translation_affected: true,
-      moderation_state: 'published',
-      langcode: 'en',
-    },
-    events: [],
-    menu: mockMenu,
-    totalItems: 0,
-    totalPages: 1,
-  }
-
   test('handles non-Lovell paths without transformation', () => {
     const nonLovellData = {
-      ...mockData,
+      entity: {
+        ...EventListingMock,
+        path: {
+          ...EventListingMock.path,
+          alias: '/test-path',
+        },
+      },
+      events: [],
       menu: {
-        items: [],
+        ...mockMenu,
         tree: [
           {
-            ...mockData.menu.tree[0],
+            ...mockMenu.tree[0],
             url: '/test-url',
           },
         ],
       },
+      totalItems: 0,
+      totalPages: 1,
+      lovell: undefined,
     }
     const result = formatter(nonLovellData)
     expect(result.menu.rootPath).toBe('/test-path/')
     expect(result.menu.data.links[0].url.path).toBe('/test-url')
+    expect(result.lovellVariant).toBe(null)
+    expect(result.lovellSwitchPath).toBe(null)
   })
 
   test('detects TRICARE variant and transforms menu URLs', () => {
     const tricareData = {
-      ...mockData,
       entity: {
-        ...mockData.entity,
+        ...EventListingMock,
         path: {
+          ...EventListingMock.path,
           alias: '/lovell-federal-health-care-tricare/events',
-          pid: 123,
-          langcode: 'en',
-          severity: 0,
         },
+      },
+      events: [],
+      menu: mockMenu,
+      totalItems: 0,
+      totalPages: 1,
+      lovell: {
+        isLovellVariantPage: true,
+        variant: 'tricare' as LovellChildVariant,
       },
     }
     const result = formatter(tricareData)
@@ -198,23 +136,120 @@ describe('EventListing formatter', () => {
       '/lovell-federal-health-care-tricare/events/'
     )
     expect(result.menu.data.links[0].url.path).toContain('tricare')
+    expect(result.lovellVariant).toBe('tricare')
+    expect(result.lovellSwitchPath).toBe(
+      '/lovell-federal-health-care-va/events'
+    )
   })
 
   test('detects VA variant and transforms menu URLs', () => {
     const vaData = {
-      ...mockData,
       entity: {
-        ...mockData.entity,
+        ...EventListingMock,
         path: {
+          ...EventListingMock.path,
           alias: '/lovell-federal-health-care-va/events',
-          pid: 123,
-          langcode: 'en',
-          severity: 0,
         },
+      },
+      events: [],
+      menu: mockMenu,
+      totalItems: 0,
+      totalPages: 1,
+      lovell: {
+        isLovellVariantPage: true,
+        variant: 'va' as LovellChildVariant,
       },
     }
     const result = formatter(vaData)
     expect(result.menu.rootPath).toBe('/lovell-federal-health-care-va/events/')
     expect(result.menu.data.links[0].url.path).toContain('va')
+    expect(result.lovellVariant).toBe('va')
+    expect(result.lovellSwitchPath).toBe(
+      '/lovell-federal-health-care-tricare/events'
+    )
+  })
+
+  describe('Lovell event URL transformation', () => {
+    // Create a mock event with a Lovell path to test transformation
+    const lovellEventMock: NodeEvent = {
+      ...EventMock[0],
+      path: {
+        ...EventMock[0].path,
+        alias: '/lovell-federal-health-care-va/events/52265',
+      },
+    }
+
+    test('transforms event URLs when TRICARE variant is provided', () => {
+      const tricareData = {
+        entity: {
+          ...EventListingMock,
+          path: {
+            ...EventListingMock.path,
+            alias: '/lovell-federal-health-care-tricare/events',
+          },
+        },
+        events: [lovellEventMock],
+        menu: mockMenu,
+        totalItems: 1,
+        totalPages: 1,
+        lovell: {
+          isLovellVariantPage: true,
+          variant: 'tricare' as LovellChildVariant,
+        },
+      }
+      const result = formatter(tricareData)
+      // formatData will format the event, then lovell processing will transform the URL
+      expect(result.events[0].entityUrl.path).toBe(
+        '/lovell-federal-health-care-tricare/events/52265'
+      )
+    })
+
+    test('transforms event URLs when VA variant is provided', () => {
+      const vaEventMock: NodeEvent = {
+        ...EventMock[0],
+        path: {
+          ...EventMock[0].path,
+          alias: '/lovell-federal-health-care-tricare/events/52265',
+        },
+      }
+      const vaData = {
+        entity: {
+          ...EventListingMock,
+          path: {
+            ...EventListingMock.path,
+            alias: '/lovell-federal-health-care-va/events',
+          },
+        },
+        events: [vaEventMock],
+        menu: mockMenu,
+        totalItems: 1,
+        totalPages: 1,
+        lovell: {
+          isLovellVariantPage: true,
+          variant: 'va' as LovellChildVariant,
+        },
+      }
+      const result = formatter(vaData)
+      // formatData will format the event, then lovell processing will transform the URL
+      expect(result.events[0].entityUrl.path).toBe(
+        '/lovell-federal-health-care-va/events/52265'
+      )
+    })
+
+    test('does not transform event URLs when lovell variant is not provided', () => {
+      const nonLovellData = {
+        entity: EventListingMock,
+        events: [lovellEventMock],
+        menu: mockMenu,
+        totalItems: 1,
+        totalPages: 1,
+        lovell: undefined,
+      }
+      const result = formatter(nonLovellData)
+      // Without lovell variant, the URL should remain as formatted by formatData
+      expect(result.events[0].entityUrl.path).toBe(
+        '/lovell-federal-health-care-va/events/52265'
+      )
+    })
   })
 })
