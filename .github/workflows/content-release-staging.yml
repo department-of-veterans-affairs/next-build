@@ -77,7 +77,7 @@ jobs:
           echo "Not creating a new branch for manual run."
 
   content-release-staging:
-    # This job should run for any valid event besides workflow_run, or workflow_run if the conclusion was successful.
+    # This job runs for scheduled and manually triggered (workflow_dispatch) events.
     needs: create-stage-release-branch
     uses: ./.github/workflows/content-release.yml
     with:
