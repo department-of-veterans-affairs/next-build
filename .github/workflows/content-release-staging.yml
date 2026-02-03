@@ -21,11 +21,13 @@ jobs:
       NEW_BRANCH: ${{ steps.create-branch.outputs.new_branch }}
     steps:
       - name: Checkout main branch
+        if: github.event_name == 'schedule'
         uses: actions/checkout@v4
         with:
           ref: main
 
       - name: Set up Git user
+        if: github.event_name == 'schedule'
         run: |
           git config user.name "va-vsp-bot"
           git config user.email "70344339+va-vsp-bot@users.noreply.github.com"
