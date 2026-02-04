@@ -100,8 +100,9 @@ jobs:
         continue-on-error: true
         with:
           payload: '{"attachments": [{"color": "#07711E","blocks": [{"type": "section","text": {"type": "mrkdwn","text": 
-            "TEST Successfully released ${{ needs.create-stage-release-branch.outputs.NEW_BRANCH }} branch on https://staging.va.gov \n 
-            Please review [URLS TBD]\n 
+            "@next-build-team Successfully released ${{ needs.create-stage-release-branch.outputs.NEW_BRANCH }} branch on https://staging.va.gov \n
+            Please review changes to be released: <https://github.com/department-of-veterans-affairs/next-build/compare/${{ needs.create-stage-release-branch.outputs.LATEST_TAG_VERSION }}...${{ needs.create-stage-release-branch.outputs.NEW_BRANCH }}|${{ needs.create-stage-release-branch.outputs.LATEST_TAG_VERSION }}...${{ needs.create-stage-release-branch.outputs.NEW_BRANCH }}>\n
+            Please review these URLSn 
             <https://staging.va.gov/|Homepage>\n
             <https://staging.va.gov/forms/|Find a form>\n
             <https://staging.va.gov/find-locations/|Find a location>\n
@@ -114,8 +115,7 @@ jobs:
             <https://staging.va.gov/health-care/manage-appointments/|Manage health appointments>\n
             <https://staging.va.gov/education/verify-school-enrollment/|Verify your school enrollment>\n
             <https://staging.va.gov/education/check-remaining-post-9-11-gi-bill-benefits/|Check your remaining GI Bill benefits>\n
-            <https://staging.va.gov/view-change-dependents/|Review or update your dependents>\n
-            Please review changes to be released: <https://github.com/department-of-veterans-affairs/next-build/compare/${{ needs.create-stage-release-branch.outputs.LATEST_TAG_VERSION }}...${{ needs.create-stage-release-branch.outputs.NEW_BRANCH }}|${{ needs.create-stage-release-branch.outputs.LATEST_TAG_VERSION }}...${{ needs.create-stage-release-branch.outputs.NEW_BRANCH }}>"}}]}]}'
+            <https://staging.va.gov/view-change-dependents/|Review or update your dependents>\n"}}]}]}'
           channel_id: ${{ env.SLACK_CHANNEL }}
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
