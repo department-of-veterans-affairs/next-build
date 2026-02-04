@@ -36,7 +36,8 @@ Edit `.env.local` with your settings:
 ```bash
 # Enable S3 cache handler
 USE_S3_CACHE=true
-
+# Specify the S3 storage
+S3_CACHE_BUCKET_NAME=nextjs-cache-staging-test
 # AWS Configuration
 AWS_REGION=us-gov-west-1
 
