@@ -168,7 +168,7 @@ jobs:
       if: inputs.build_type != 'prod'
       with:
         repository: department-of-veterans-affairs/next-build
-        ref: ${{ inputs.branch || github.head_ref || github.ref_name }}
+        ref: ${{ inputs.branch || github.ref_name || github.head_ref }}
         path: main
         sparse-checkout-cone-mode: false
 
