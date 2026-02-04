@@ -1,6 +1,9 @@
 /**
  * Post-build cleanup: Delete index.html if homepage feature flag is off
- * This prevents the 404 HTML file from being served, allowing fallback to content-build
+ * This prevents the 404 HTML file from being served, allowing fallback to content-build.
+ *
+ * Note that once we have released the home page and removed the feature flag, we can
+ * remove this script.
  */
 
 import chalk from 'chalk'

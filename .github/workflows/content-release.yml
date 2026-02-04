@@ -216,6 +216,7 @@ jobs:
           cd main && BUILD_OPTION=static yarn export --DRUPAL_CLIENT_ID ${{ secrets.PROD_DRUPAL_CLIENT_ID }} --DRUPAL_CLIENT_SECRET ${{ secrets.PROD_DRUPAL_CLIENT_SECRET }} --no-USE_REDIS | tee yarnoutput
           echo YARN_OUTPUT=$(<yarnoutput) >> $GITHUB_OUTPUT
           echo BUILT_PAGES=$(grep -oE "*\/([0-9]{4,})" ./yarnoutput| head -1 | sed 's/\///g') >> $GITHUB_OUTPUT
+          # Temporary script for removing the home page if the feature flag is off. It can be removed once the home page is released.
           node scripts/yarn/export-home-cleanup.js
           ls
           ls out
