@@ -82,7 +82,7 @@ jobs:
     uses: ./.github/workflows/content-release.yml
     with:
       build_type: "staging"
-      branch: ${{ needs.create-stage-release-branch.outputs.NEW_BRANCH || github.ref }}
+      branch: ${{ needs.create-stage-release-branch.outputs.NEW_BRANCH || github.ref_name }}
     secrets: inherit
   
   notify-success:
