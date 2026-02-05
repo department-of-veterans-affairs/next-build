@@ -60,12 +60,13 @@ export function HomePageHero({
                   }}
                 />
                 {relatedInfoLinks.map((link, index) => (
-                  <va-link
-                    data-testid={`related-link-${index}`}
-                    key={index}
-                    href={link.url}
-                    text={link.title}
-                  />
+                  <p key={index}>
+                    <va-link
+                      data-testid={`related-link-${index}`}
+                      href={link.url}
+                      text={link.title}
+                    />
+                  </p>
                 ))}
               </div>
             </div>
