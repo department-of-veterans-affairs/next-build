@@ -1,8 +1,5 @@
-import React from 'react'
-import { MedalliaAssets } from '@/components/medallia/template'
-import { getSurveyNumber, showForm } from '@/lib/utils/medallia'
-import { BUILD_TYPES } from '@/lib/constants/environment'
 import { format } from 'date-fns'
+import { MedalliaFeedbackButton } from './MedalliaFeedbackButton'
 
 // "Back to top", "Last updated" date and Medallia feedback button
 
@@ -12,6 +9,11 @@ type ContentFooterProps = {
   responsiveLayout?: string
 }
 
+/**
+ * Server component for content footer.
+ * Date formatting is done server-side using date-fns (not bundled client-side).
+ * Interactive parts (Medallia feedback) are handled by MedalliaFeedbackButton client component.
+ */
 export function ContentFooter({
   lastUpdated,
   responsiveLayout,
@@ -42,25 +44,7 @@ export function ContentFooter({
             </span>
           </div>
         )}
-        <div className="vads-u-flex--1 vads-u-text-align--right">
-          <MedalliaAssets />
-          <va-button
-            id="mdFormButton"
-            disable-analytics
-            secondary
-            className="vads-u-background-color--white"
-            onClick={() => {
-              const isProduction =
-                process.env.NEXT_PUBLIC_BUILD_TYPE === BUILD_TYPES.PROD
-              const surveyNumber = getSurveyNumber(
-                window.location.pathname,
-                isProduction
-              )
-              showForm(surveyNumber)
-            }}
-            text="Feedback"
-          />
-        </div>
+        <MedalliaFeedbackButton />
       </div>
     </div>
   )

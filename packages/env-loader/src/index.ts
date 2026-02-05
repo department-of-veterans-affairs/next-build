@@ -11,7 +11,39 @@ const buildIDFile = path.join(process.cwd(), 'build_id')
 const exitCodeFile = path.join(process.cwd(), 'exit_code')
 
 export type EnvVars = {
-  [key: string]: string | boolean
+  [key: string]: string
+}
+
+/**
+ * Processes the environment variables, CMS feature flags, and CLI options and
+ * returns them as a single object. See `processEnv` for more information.
+ *
+ * @returns All environment variables, including CLI options, environment file variables, and CMS feature flags.
+ */
+export async function getAllVars(): Promise<EnvVars> {
+  // CLI
+  const { options: cliOptions } = getCliOptionsAndArgs()
+
+  // ENV FILE
+  const envVars = getEnvFileVars(process.env.APP_ENV)
+
+  // CMS FEATURE FLAGS
+  let cmsFeatureFlags // EnvVars, but TypeScript gets angry when assigning a boolean to a property of process.env
+  if (process.env.APP_ENV === 'test') {
+    // For now, don't fetch CMS feature flags for tests. Will fail CI.
+    cmsFeatureFlags = {}
+  } else {
+    const drupalBaseUrlProp = 'NEXT_PUBLIC_DRUPAL_BASE_URL'
+    const drupalBaseUrl =
+      cliOptions[drupalBaseUrlProp] || envVars[drupalBaseUrlProp]
+    cmsFeatureFlags = await getCmsFeatureFlags(drupalBaseUrl as string)
+  }
+
+  return {
+    ...cmsFeatureFlags,
+    ...envVars,
+    ...cliOptions,
+  }
 }
 
 /**
@@ -61,31 +93,12 @@ export const processEnv = async (
   command: string,
   verbose = false
 ): Promise<void> => {
-  // CLI
-  const { args: cliArgs, options: cliOptions } = getCliOptionsAndArgs()
-
-  // ENV FILE
-  const envVars = getEnvFileVars(process.env.APP_ENV)
-
-  // CMS FEATURE FLAGS
-  let cmsFeatureFlags // EnvVars, but TypeScript gets angry when assigning a boolean to a property of process.env
-  if (process.env.APP_ENV === 'test') {
-    // For now, don't fetch CMS feature flags for tests. Will fail CI.
-    cmsFeatureFlags = {}
-  } else {
-    const drupalBaseUrlProp = 'NEXT_PUBLIC_DRUPAL_BASE_URL'
-    const drupalBaseUrl =
-      cliOptions[drupalBaseUrlProp] || envVars[drupalBaseUrlProp]
-    cmsFeatureFlags = await getCmsFeatureFlags(drupalBaseUrl as string)
-  }
+  const { args: cliArgs } = getCliOptionsAndArgs()
+  const allVars = await getAllVars()
 
   process.env = {
     ...process.env,
-    ...{
-      ...cmsFeatureFlags,
-      ...envVars,
-      ...cliOptions,
-    },
+    ...allVars,
   }
 
   await cleanup(verbose)
