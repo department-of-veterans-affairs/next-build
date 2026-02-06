@@ -37,7 +37,7 @@ const config: EPTConfig = {
   ],
 
   execution: {
-    concurrency: 4,
+    concurrency: 13,
     failFast: false,
   },
 
