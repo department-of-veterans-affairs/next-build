@@ -57,14 +57,17 @@ export const visualComparisonTool: ComparisonTool = {
         threshold: visual.pixelTolerance,
       })
 
+      // Use per-path threshold if specified, otherwise use global
+      const diffThreshold = pathConfig.diffThreshold ?? visual.diffThreshold
+
       // Determine pass/fail based on threshold
-      const passed = diffResult.diffPercent <= visual.diffThreshold
+      const passed = diffResult.diffPercent <= diffThreshold
 
       const data: VisualComparisonData = {
         diffPercent: diffResult.diffPercent,
         diffPixels: diffResult.diffPixels,
         totalPixels: diffResult.totalPixels,
-        threshold: visual.diffThreshold,
+        threshold: diffThreshold,
         artifacts: {
           envA: envAPath,
           envB: envBPath,

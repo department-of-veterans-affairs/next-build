@@ -15,16 +15,11 @@ import {
   DEFAULT_HOOKS,
 } from './defaults.js'
 
-// Default VA.gov environments
-const DEFAULT_ENV_A = 'https://www.va.gov'
-const DEFAULT_ENV_B = 'https://staging.va.gov'
-
 // Get the package root directory
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const PACKAGE_ROOT = path.resolve(__dirname, '../..')
-const DEFAULT_PATHS_FILE = path.join(PACKAGE_ROOT, 'paths/critical.txt')
+const DEFAULT_CONFIG_FILE = path.join(PACKAGE_ROOT, 'ept.config.default.ts')
 const DEFAULT_ARTIFACTS_DIR = path.join(PACKAGE_ROOT, 'artifacts')
-const DEFAULT_REPORT_FILE = path.join(PACKAGE_ROOT, 'artifacts/report.json')
 
 /**
  * Load a TypeScript/JavaScript config file
@@ -81,27 +76,31 @@ function normalizePaths(paths: PathInput[]): PathConfig[] {
  * 3. Built-in defaults
  */
 export async function loadConfig(cli: CLIOptions): Promise<ResolvedConfig> {
-  // Load config file if specified
-  let fileConfig: EPTConfig = {}
-  if (cli.config) {
-    fileConfig = await loadConfigFile(cli.config)
-  }
+  // Load config file - use default if none specified
+  const configPath = cli.config || DEFAULT_CONFIG_FILE
+  const fileConfig = await loadConfigFile(configPath)
 
-  // Load paths from file if specified (CLI override)
-  // Falls back to default critical paths if none specified
+  // Load paths from file if specified (CLI override), otherwise use config file paths
   let paths: PathInput[] = fileConfig.paths || []
   if (cli.paths) {
     paths = loadPathsFile(cli.paths)
-  } else if (paths.length === 0) {
-    // Use default critical paths
-    paths = loadPathsFile(DEFAULT_PATHS_FILE)
   }
 
-  // Resolve environment URLs with defaults
-  const envAUrl =
-    cli.envA || fileConfig.environments?.a?.baseUrl || DEFAULT_ENV_A
-  const envBUrl =
-    cli.envB || fileConfig.environments?.b?.baseUrl || DEFAULT_ENV_B
+  if (paths.length === 0) {
+    throw new Error(
+      'No paths configured. Provide paths via config file or --paths option.'
+    )
+  }
+
+  // Resolve environment URLs (CLI overrides config file)
+  const envAUrl = cli.envA || fileConfig.environments?.a?.baseUrl
+  const envBUrl = cli.envB || fileConfig.environments?.b?.baseUrl
+
+  if (!envAUrl || !envBUrl) {
+    throw new Error(
+      'Both environment URLs must be specified in config file or via --envA and --envB options.'
+    )
+  }
 
   // Build resolved config
   const resolved: ResolvedConfig = {

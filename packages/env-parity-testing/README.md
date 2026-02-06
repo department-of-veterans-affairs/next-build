@@ -101,30 +101,32 @@ EPT uses a layered configuration system. Settings are applied in this order (hig
 
 ### Defaults
 
-When run without arguments, EPT uses these defaults:
+When run without arguments, EPT uses the default config file at `ept.config.default.ts`. This includes:
 
 **Environments:**
 
 - Environment A: `https://www.va.gov`
 - Environment B: `https://staging.va.gov`
 
-**Critical Paths** (located in `paths/critical.txt`):
+**Critical Paths with per-path thresholds:**
 
-- `/` - Homepage
-- `/forms/` - Find a form
-- `/find-locations` - Find a location
-- `/claim-or-appeal-status/` - Check your claim, decision review, or appeal status
-- `/health-care/manage-health` - Manage your health care with My HealtheVet
-- `/health-care/get-reimbursed-for-travel-pay/` - Get travel pay reimbursement
-- `/va-payment-history/` - Review your payment history
-- `/records/download-va-letters` - Download your benefit letters
-- `/disability/view-disability-rating` - Review your disability rating
-- `/health-care/manage-appointments` - Manage health appointments
-- `/education/verify-school-enrollment` - Verify your school enrollment
-- `/education/check-remaining-post-9-11-gi-bill-benefits` - Check your remaining GI Bill benefits
-- `/view-change-dependents` - Review or update your dependents
+| Path                                                    | Description               | Threshold |
+| ------------------------------------------------------- | ------------------------- | --------- |
+| `/`                                                     | Homepage                  | 0.1%      |
+| `/forms/`                                               | Find a form               | 24%       |
+| `/find-locations`                                       | Find a location           | 1%        |
+| `/claim-or-appeal-status/`                              | Check claim/appeal status | 37%       |
+| `/health-care/manage-health`                            | My HealtheVet             | 16%       |
+| `/health-care/get-reimbursed-for-travel-pay/`           | Travel pay                | 12%       |
+| `/va-payment-history/`                                  | Payment history           | 13%       |
+| `/records/download-va-letters`                          | Benefit letters           | 45%       |
+| `/disability/view-disability-rating`                    | Disability rating         | 16%       |
+| `/health-care/manage-appointments`                      | Health appointments       | 12%       |
+| `/education/verify-school-enrollment`                   | School enrollment         | 15%       |
+| `/education/check-remaining-post-9-11-gi-bill-benefits` | GI Bill benefits          | 13%       |
+| `/view-change-dependents`                               | Dependents                | 10%       |
 
-You can edit `paths/critical.txt` to customize the default paths, or use `--paths` to specify a different file.
+To customize the defaults, edit `ept.config.default.ts` or use `--config` to specify a different config file.
 
 ### Config File
 
@@ -147,6 +149,10 @@ export default {
       path: '/contact-us',
       waitForSelector: '#main-content',
       timeoutMs: 60000,
+    },
+    {
+      path: '/dynamic-page',
+      diffThreshold: 1.0, // Allow more variance for this page
     },
   ],
 
@@ -206,14 +212,19 @@ paths: [
     waitForSelector: '#main-content', // Wait for this selector before screenshot
     timeoutMs: 60000, // Custom timeout for this path
   },
+  {
+    path: '/dynamic-page',
+    diffThreshold: 1.0, // Allow more variance for pages with dynamic content
+  },
 ]
 ```
 
-| Property          | Type     | Default  | Description                                          |
-| ----------------- | -------- | -------- | ---------------------------------------------------- |
-| `path`            | `string` | required | URL path to compare                                  |
-| `waitForSelector` | `string` | none     | CSS selector to wait for before capturing screenshot |
-| `timeoutMs`       | `number` | `30000`  | Timeout for this specific path                       |
+| Property          | Type     | Default        | Description                                          |
+| ----------------- | -------- | -------------- | ---------------------------------------------------- |
+| `path`            | `string` | required       | URL path to compare                                  |
+| `waitForSelector` | `string` | none           | CSS selector to wait for before capturing screenshot |
+| `timeoutMs`       | `number` | `30000`        | Timeout for this specific path                       |
+| `diffThreshold`   | `number` | global setting | Override the diff threshold for this path (0-100)    |
 
 #### `execution`
 

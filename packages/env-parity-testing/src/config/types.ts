@@ -40,6 +40,7 @@ export interface PathConfig {
   path: string
   waitForSelector?: string
   timeoutMs?: number
+  diffThreshold?: number
 }
 
 export type PathInput = string | PathConfig
