@@ -1,0 +1,270 @@
+Environment Parity Testing Tool (EPT)
+
+Overview
+
+This tool is an environment parity testing CLI application. Its purpose is to compare two live environments (e.g. production vs staging) across a defined set of URL paths and report meaningful differences. Unlike traditional visual regression testing (VRT), this tool does not rely on a single canonical baseline. Instead, it treats both environments as peers and compares them directly.
+
+The tool is designed as a suite of comparison tools, with visual regression testing (VRT) as the first implemented comparison method. The architecture should make it straightforward to add additional comparison strategies in the future (e.g. DOM diffs, accessibility checks, performance deltas), without reworking the core execution model.
+
+This document defines the scope, architecture, configuration model, and behavior for the initial VRT-based implementation.
+
+⸻
+
+Goals & Non‑Goals
+
+Goals
+	•	Compare two live environments for parity across multiple pages
+	•	Produce deterministic, repeatable comparisons suitable for CI and local use
+	•	Generate machine-readable output (JSON) and on-disk artifacts
+	•	Be configurable and extensible from the outset
+
+Non‑Goals (for v1)
+	•	Authenticated flows
+	•	DOM diffing or semantic HTML comparison
+	•	Performance or accessibility auditing
+	•	Blocking CI gates (tool is informational by default)
+
+⸻
+
+Mental Model
+
+Core abstraction
+
+The fundamental unit of work is a page comparison:
+
+PageComparison = {
+  path,
+  urlA,
+  urlB,
+  results: [ComparisonResult]
+}
+
+Where each ComparisonResult corresponds to one comparison tool (e.g. visual diff).
+
+This separation allows the tool to add new comparison strategies without changing the execution pipeline.
+
+⸻
+
+Execution Flow
+	1.	Load configuration (defaults → config file → CLI overrides)
+	2.	Resolve list of paths to compare
+	3.	For each path:
+	•	Construct environment A and B URLs
+	•	Run all enabled comparison tools
+	4.	Collect all results (do not fail fast)
+	5.	Write JSON report
+	6.	Exit with appropriate status code
+
+⸻
+
+CLI Interface (Proposed)
+
+env-parity-test \
+  --config ./ept.config.ts \
+  --paths ./paths.txt \
+  --envA https://www.va.gov \
+  --envB https://staging.va.gov \
+  --fail-fast=false
+
+CLI responsibilities
+	•	Override config values
+	•	Provide alternate path lists
+	•	Control failure semantics
+
+⸻
+
+Configuration Model
+
+Configuration layering (highest precedence wins)
+	1.	CLI arguments
+	2.	Local config file (ept.config.ts)
+	3.	Repo-level default config
+	4.	Built-in defaults
+
+Config file format
+	•	JavaScript or TypeScript (not JSON)
+	•	Allows future use of functions and hooks
+
+Top-level config shape (illustrative)
+
+export default {
+  environments: {
+    a: { baseUrl: 'https://www.va.gov' },
+    b: { baseUrl: 'https://staging.va.gov' }
+  },
+
+  paths: [
+    '/',
+    '/health-care/apply',
+    {
+      path: '/contact-us',
+      waitForSelector: '#main'
+    }
+  ],
+
+  execution: {
+    concurrency: 4,
+    failFast: false
+  },
+
+  visual: {
+    viewport: { width: 1280, height: 800 },
+    fullPage: true,
+    disableAnimations: true,
+    colorScheme: 'light',
+    reducedMotion: true,
+    diffThreshold: 0.1,
+    pixelTolerance: 0.01
+  },
+
+  output: {
+    artifactsDir: './artifacts',
+    reportFile: './report.json'
+  }
+}
+
+
+⸻
+
+Path Configuration
+
+Paths may be defined as:
+	•	Simple strings ("/")
+	•	Objects with per-path overrides
+
+Supported per-path options (v1):
+	•	path: string
+	•	waitForSelector: string
+	•	timeoutMs: number
+
+This structure allows future per-path masking or tool-specific overrides.
+
+⸻
+
+Visual Regression Tool (v1)
+
+Rendering controls
+
+All of the following must be configurable:
+	•	Viewport size
+	•	Device scale factor
+	•	Color scheme (light/dark)
+	•	Reduced motion preference
+	•	Full-page screenshots
+
+Determinism controls
+	•	Disable CSS animations
+	•	Disable caret blinking
+	•	Consistent viewport and DPR
+	•	Wait strategy:
+	•	Network idle
+	•	Selector present
+
+⸻
+
+Diffing Behavior
+
+Diff algorithm
+	•	Pixel-based comparison
+	•	Configurable thresholds
+
+Failure criteria
+	•	Any diff exceeding configured threshold → comparison failure
+	•	Any navigation failure → comparison failure
+
+Failures do not stop execution. All pages are processed, and failures are aggregated.
+
+Fail-fast option
+	•	Configurable
+	•	When enabled, execution stops on first failure
+
+⸻
+
+Artifacts
+
+For each page comparison, screenshots are written to disk:
+
+artifacts/
+  /health-care_apply/
+    envA.png
+    envB.png
+    diff.png
+
+	•	Each run produces a fresh artifact directory
+	•	Artifact retention is out of scope for v1
+
+⸻
+
+Reporting
+
+Output format
+	•	Single JSON report per run
+
+Report contents
+	•	Tool metadata
+	•	Environment info
+	•	Per-path results
+	•	Summary statistics
+
+Example (simplified):
+
+{
+  "summary": {
+    "total": 12,
+    "passed": 10,
+    "failed": 2
+  },
+  "pages": [
+    {
+      "path": "/",
+      "visual": {
+        "diffPercent": 0.02,
+        "passed": true
+      }
+    }
+  ]
+}
+
+
+⸻
+
+Concurrency & Reliability
+	•	Configurable concurrency limit
+	•	Navigation retries (configurable)
+	•	Screenshot retries (configurable)
+
+⸻
+
+Extensibility Model
+
+The tool should expose lifecycle hooks, even if unused initially:
+	•	beforeNavigate(page, context)
+	•	afterNavigate(page, context)
+	•	beforeComparison(context)
+	•	afterComparison(result, context)
+
+Comparison tools (e.g. VRT) should be implemented as pluggable modules that conform to a shared interface.
+
+⸻
+
+Exit Codes
+	•	0: All comparisons passed
+	•	1: One or more comparisons failed
+	•	2: Tool misconfiguration or unrecoverable error
+
+⸻
+
+Naming
+
+This tool is referred to as an Environment Parity Testing tool.
+
+Visual regression testing is treated as one comparison strategy within this broader category, not the defining feature of the system.
+
+⸻
+
+Future Work (Explicitly Out of Scope)
+	•	DOM diffing with normalization
+	•	Authenticated flows
+	•	HTML or interactive reports
+	•	CI artifact retention policies
+	•	Additional comparison tools (a11y, perf, etc.)
