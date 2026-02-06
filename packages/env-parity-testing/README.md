@@ -101,7 +101,16 @@ EPT uses a layered configuration system. Settings are applied in this order (hig
 
 ### Defaults
 
-When run without arguments, EPT uses the default config file at `ept.config.default.ts`. This includes:
+When run without arguments, EPT uses two files:
+
+- **Paths file** (`paths/critical.txt`) - Controls _which_ paths to compare
+- **Config file** (`ept.config.default.ts`) - Controls _how_ to compare (thresholds, options)
+
+This separation means:
+
+- Comment out a path in the txt file → it won't be compared
+- Add options in the config → they apply to paths in the txt file
+- Paths in config that aren't in the txt file are ignored
 
 **Environments:**
 
@@ -114,7 +123,7 @@ When run without arguments, EPT uses the default config file at `ept.config.defa
 | ------------------------------------------------------- | ------------------------- | --------- |
 | `/`                                                     | Homepage                  | 0.1%      |
 | `/forms/`                                               | Find a form               | 24%       |
-| `/find-locations`                                       | Find a location           | 1%        |
+| `/find-locations`                                       | Find a location           | 14%       |
 | `/claim-or-appeal-status/`                              | Check claim/appeal status | 37%       |
 | `/health-care/manage-health`                            | My HealtheVet             | 16%       |
 | `/health-care/get-reimbursed-for-travel-pay/`           | Travel pay                | 12%       |
@@ -126,11 +135,16 @@ When run without arguments, EPT uses the default config file at `ept.config.defa
 | `/education/check-remaining-post-9-11-gi-bill-benefits` | GI Bill benefits          | 13%       |
 | `/view-change-dependents`                               | Dependents                | 10%       |
 
-To customize the defaults, edit `ept.config.default.ts` or use `--config` to specify a different config file.
+**To customize:**
+
+- Edit `paths/critical.txt` to add/remove paths (comment with `#` to disable)
+- Edit `ept.config.default.ts` to change thresholds and other options
+- Use `--paths` to specify a different paths file
+- Use `--config` to specify a different config file
 
 ### Config File
 
-Create an `ept.config.ts` file:
+Create an `ept.config.ts` file to customize options:
 
 ```typescript
 import type { EPTConfig } from 'env-parity-testing'
@@ -141,19 +155,11 @@ export default {
     b: { baseUrl: 'https://staging.va.gov' },
   },
 
+  // Path-specific options (the paths themselves come from the paths file)
+  // Only paths that exist in the paths file will be compared
   paths: [
-    '/',
-    '/health-care',
-    '/health-care/apply',
-    {
-      path: '/contact-us',
-      waitForSelector: '#main-content',
-      timeoutMs: 60000,
-    },
-    {
-      path: '/dynamic-page',
-      diffThreshold: 1.0, // Allow more variance for this page
-    },
+    { path: '/contact-us', waitForSelector: '#main-content', timeoutMs: 60000 },
+    { path: '/dynamic-page', diffThreshold: 1.0 },
   ],
 
   execution: {

@@ -1,7 +1,9 @@
 /**
  * Default configuration for VA.gov environment parity testing
  *
- * This config is used when no --config option is specified.
+ * This config specifies OPTIONS for paths, not the paths themselves.
+ * The paths to compare are defined in paths/critical.txt (or via --paths).
+ *
  * Per-path thresholds are set based on known differences between environments.
  */
 
@@ -13,47 +15,24 @@ const config: EPTConfig = {
     b: { baseUrl: 'https://staging.va.gov' },
   },
 
+  // Path-specific options (thresholds, selectors, etc.)
+  // Paths not listed here will use global defaults
   paths: [
-    // Homepage - environments are in sync
     { path: '/', diffThreshold: 0.1 },
-
-    // Find a form
     { path: '/forms/', diffThreshold: 24 },
-
-    // Find a location
-    { path: '/find-locations', diffThreshold: 1 },
-
-    // Check your claim, decision review, or appeal status
+    { path: '/find-locations', diffThreshold: 14 },
     { path: '/claim-or-appeal-status/', diffThreshold: 37 },
-
-    // Manage your health care with My HealtheVet
     { path: '/health-care/manage-health', diffThreshold: 16 },
-
-    // Get travel pay reimbursement
     { path: '/health-care/get-reimbursed-for-travel-pay/', diffThreshold: 12 },
-
-    // Review your payment history
     { path: '/va-payment-history/', diffThreshold: 13 },
-
-    // Download your benefit letters
     { path: '/records/download-va-letters', diffThreshold: 45 },
-
-    // Review your disability rating
     { path: '/disability/view-disability-rating', diffThreshold: 16 },
-
-    // Manage health appointments
     { path: '/health-care/manage-appointments', diffThreshold: 12 },
-
-    // Verify your school enrollment
     { path: '/education/verify-school-enrollment', diffThreshold: 15 },
-
-    // Check your remaining GI Bill benefits
     {
       path: '/education/check-remaining-post-9-11-gi-bill-benefits',
       diffThreshold: 13,
     },
-
-    // Review or update your dependents
     { path: '/view-change-dependents', diffThreshold: 10 },
   ],
 

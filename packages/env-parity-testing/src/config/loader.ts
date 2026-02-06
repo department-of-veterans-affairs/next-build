@@ -18,6 +18,7 @@ import {
 // Get the package root directory
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const PACKAGE_ROOT = path.resolve(__dirname, '../..')
+const DEFAULT_PATHS_FILE = path.join(PACKAGE_ROOT, 'paths/critical.txt')
 const DEFAULT_CONFIG_FILE = path.join(PACKAGE_ROOT, 'ept.config.default.ts')
 const DEFAULT_ARTIFACTS_DIR = path.join(PACKAGE_ROOT, 'artifacts')
 
@@ -56,14 +57,38 @@ function loadPathsFile(pathsFile: string): string[] {
 }
 
 /**
- * Normalize path inputs to PathConfig objects
+ * Build a map of path options from config file
  */
-function normalizePaths(paths: PathInput[]): PathConfig[] {
-  return paths.map((p) => {
+function buildPathOptionsMap(
+  configPaths: PathInput[] | undefined
+): Map<string, Partial<PathConfig>> {
+  const map = new Map<string, Partial<PathConfig>>()
+
+  if (!configPaths) return map
+
+  for (const p of configPaths) {
     if (typeof p === 'string') {
-      return { path: p }
+      // Simple string path in config - no special options
+      continue
     }
-    return p
+    // Store options keyed by path
+    const { path: pathStr, ...options } = p
+    map.set(pathStr, options)
+  }
+
+  return map
+}
+
+/**
+ * Merge paths from file with options from config
+ */
+function mergePathsWithOptions(
+  paths: string[],
+  optionsMap: Map<string, Partial<PathConfig>>
+): PathConfig[] {
+  return paths.map((p) => {
+    const options = optionsMap.get(p) || {}
+    return { path: p, ...options }
   })
 }
 
@@ -78,29 +103,30 @@ function normalizePaths(paths: PathInput[]): PathConfig[] {
 export async function loadConfig(cli: CLIOptions): Promise<ResolvedConfig> {
   // Load config file - use default if none specified
   const configPath = cli.config || DEFAULT_CONFIG_FILE
-  const fileConfig = await loadConfigFile(configPath)
-
-  // Load paths from file if specified (CLI override), otherwise use config file paths
-  let paths: PathInput[] = fileConfig.paths || []
-  if (cli.paths) {
-    paths = loadPathsFile(cli.paths)
+  let fileConfig: EPTConfig = {}
+  if (fs.existsSync(configPath)) {
+    fileConfig = await loadConfigFile(configPath)
   }
 
-  if (paths.length === 0) {
+  // Load paths from file (paths file is the source of truth for WHICH paths)
+  const pathsFile = cli.paths || DEFAULT_PATHS_FILE
+  const pathStrings = loadPathsFile(pathsFile)
+
+  if (pathStrings.length === 0) {
     throw new Error(
-      'No paths configured. Provide paths via config file or --paths option.'
+      `No paths found in ${pathsFile}. Add paths to the file (one per line).`
     )
   }
 
-  // Resolve environment URLs (CLI overrides config file)
-  const envAUrl = cli.envA || fileConfig.environments?.a?.baseUrl
-  const envBUrl = cli.envB || fileConfig.environments?.b?.baseUrl
+  // Build options map from config file and merge with paths
+  const pathOptionsMap = buildPathOptionsMap(fileConfig.paths)
+  const paths = mergePathsWithOptions(pathStrings, pathOptionsMap)
 
-  if (!envAUrl || !envBUrl) {
-    throw new Error(
-      'Both environment URLs must be specified in config file or via --envA and --envB options.'
-    )
-  }
+  // Resolve environment URLs (CLI overrides config file, then defaults)
+  const envAUrl =
+    cli.envA || fileConfig.environments?.a?.baseUrl || 'https://www.va.gov'
+  const envBUrl =
+    cli.envB || fileConfig.environments?.b?.baseUrl || 'https://staging.va.gov'
 
   // Build resolved config
   const resolved: ResolvedConfig = {
@@ -108,7 +134,7 @@ export async function loadConfig(cli: CLIOptions): Promise<ResolvedConfig> {
       a: { baseUrl: envAUrl },
       b: { baseUrl: envBUrl },
     },
-    paths: normalizePaths(paths),
+    paths,
     execution: {
       ...DEFAULT_EXECUTION,
       ...fileConfig.execution,
