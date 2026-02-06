@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
 @import '@department-of-veterans-affairs/component-library/dist/main.css';
+@import './va-breadcrumbs.css';
+@import './va-button.css';
+@import './va-on-this-page.css';
+@import './va-back-to-top.css';
+@import './va-additional-info.css';
+@import './va-accordion.css';
+@import './va-accordion-item.css';
+@import './va-icon.css';
+@import './va-link.css';
 
 html,
 body {

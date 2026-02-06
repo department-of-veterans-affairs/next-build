@@ -44,22 +44,26 @@ export function ContentFooter({
         )}
         <div className="vads-u-flex--1 vads-u-text-align--right">
           <MedalliaAssets />
-          <va-button
-            id="mdFormButton"
-            disable-analytics
-            secondary
-            className="vads-u-background-color--white"
-            onClick={() => {
-              const isProduction =
-                process.env.NEXT_PUBLIC_BUILD_TYPE === BUILD_TYPES.PROD
-              const surveyNumber = getSurveyNumber(
-                window.location.pathname,
-                isProduction
-              )
-              showForm(surveyNumber)
-            }}
-            text="Feedback"
-          />
+          {/* I want the va-button to still trigger a lazy load of the custom element */}
+          <div style={{ display: 'none' }}>
+            <va-button
+              id="mdFormButton"
+              disable-analytics
+              secondary
+              className="vads-u-background-color--white"
+              onClick={() => {
+                const isProduction =
+                  process.env.NEXT_PUBLIC_BUILD_TYPE === BUILD_TYPES.PROD
+                const surveyNumber = getSurveyNumber(
+                  window.location.pathname,
+                  isProduction
+                )
+                showForm(surveyNumber)
+              }}
+              text="Feedback"
+            ></va-button>
+          </div>
+          <button className="usa-button usa-button--outline" type="button">Feedback</button>
         </div>
       </div>
     </div>

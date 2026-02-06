@@ -1,0 +1,30 @@
+/* Scoped to va-link-wrapper to prevent affecting other page elements */
+.va-link-wrapper { display: inline; }
+.va-link-wrapper[href]:focus { outline: none !important; }
+.va-link-wrapper a { cursor: pointer; text-decoration: underline; font: inherit; text-decoration: none; color: var(--vads-color-link); transition-duration: 0.3s; transition-timing-function: ease-in-out; transition-property: color, background-color, border-color; }
+.va-link-wrapper a:hover { background-color: rgba(0, 0, 0, 0.05); color: inherit; }
+.va-link-wrapper a:visited { color: var(--vads-color-link-visited); }
+.va-link-wrapper a.va-link--reverse,
+.va-link-wrapper a.va-link--reverse .link-icon--back { color: var(--vads-color-white); }
+.va-link-wrapper a.va-link--reverse:hover,
+.va-link-wrapper a.va-link--reverse:active,
+.va-link-wrapper a.va-link--reverse:hover .link-icon--back,
+.va-link-wrapper a.va-link--reverse:active .link-icon--back,
+.va-link-wrapper a.va-link--reverse .link-icon--back:hover,
+.va-link-wrapper a.va-link--reverse .link-icon--back:active,
+.va-link-wrapper a.va-link--reverse .link-icon--back:hover .link-icon--back,
+.va-link-wrapper a.va-link--reverse .link-icon--back:active .link-icon--back { color: var(--vads-color-action-focus-on-light); background-color: transparent; }
+.va-link-wrapper[active]:not([active="false"]) a { font-weight: 700; }
+.va-link-wrapper[icon-name] va-icon { margin-right: 4px; }
+.va-link-wrapper .link-icon--active-icon-wrapper { white-space: nowrap; }
+.va-link-wrapper .link-icon--active { vertical-align: baseline; position: relative; top: 3px; }
+.va-link-wrapper .link-icon--left { margin-right: 4px; vertical-align: baseline; position: relative; top: 3px; }
+.va-link-wrapper .link-container { display: flex; flex-direction: row; }
+.va-link-wrapper .link-icon--back { color: var(--vads-color-gray-medium); transition-duration: 0.3s; transition-timing-function: ease-in-out; transition-property: color, background-color, border-color; }
+.va-link-wrapper .link--center { display: inline-flex; align-items: center; }
+.va-link-wrapper dfn { font-style: normal; }
+.va-link-wrapper abbr { text-decoration: none; }
+.va-link-wrapper .external-link-icon { margin-left: 4px; }
+@media print {
+  .va-link-wrapper .screen-only { display: none; }
+}

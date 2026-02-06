@@ -1,0 +1,18 @@
+/* Scoped to va-accordion-wrapper since accordion items are used within accordions */
+.va-accordion-wrapper .usa-sr-only { position: absolute; left: -999em; right: auto; }
+.va-accordion-wrapper va-accordion-item { display: block; }
+.va-accordion-wrapper va-accordion-item:not(:last-child) { margin-bottom: 0.5rem; }
+.va-accordion-wrapper va-accordion-item:last-child { margin-bottom: 0.3125rem; }
+.va-accordion-wrapper button { font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; line-height: 1.15; }
+.va-accordion-wrapper .va-accordion__header,
+.va-accordion-wrapper .va-accordion__subheader { display: flex; align-items: center; }
+.va-accordion-wrapper .va-accordion__subheader { font-weight: 400; font-size: 1rem; line-height: var(--vads-font-line-height-5); margin-top: 2px; }
+.va-accordion-wrapper .va-accordion__header.va-accordion__header--has-icon { padding-top: 2px; line-height: inherit; }
+.va-accordion-wrapper .va-accordion__subheader.va-accordion__subheader--has-icon { margin-top: calc(2px + 0.2rem); padding-bottom: 0.2rem; line-height: 1.219; }
+.va-accordion-wrapper .usa-prose > p { line-height: 1.5; max-width: 64ex; }
+.va-accordion-wrapper va-accordion-item:not([open]) #content,
+.va-accordion-wrapper va-accordion-item[open="false"] #content { display: none; }
+@media print {
+  .va-accordion-wrapper va-accordion-item:not([open]) #content,
+  .va-accordion-wrapper va-accordion-item[open="false"] #content { display: block; }
+}

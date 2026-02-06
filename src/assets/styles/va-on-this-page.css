@@ -1,0 +1,13 @@
+/* Scoped to va-on-this-page-wrapper to prevent affecting other page elements */
+.va-on-this-page-wrapper { display: block; border: 1px solid var(--vads-color-base-light); border-radius: 4px; padding: 1em; }
+@media (min-width: 768px) {
+  .va-on-this-page-wrapper { border: none; padding: 1em 1em 1em 0px; }
+}
+.va-on-this-page-wrapper #on-this-page { font-family: var(--font-serif); font-size: 1.25rem; font-weight: var(--font-weight-normal); margin: 0.4em 0em; padding: 0.5em; max-width: var(--vads-size-line-length-4); }
+.va-on-this-page-wrapper ul { margin-top: 0px; margin-bottom: 0px; margin-left: 0px; list-style-type: none; padding-left: 0px; }
+.va-on-this-page-wrapper li { padding: 0.5em; max-width: var(--vads-size-line-length-4); }
+.va-on-this-page-wrapper li a { text-decoration: none; color: var(--vads-color-link); transition-duration: 0.3s; transition-timing-function: ease-in-out; transition-property: color, background-color, border-color; line-height: 1.5em; display: flex; }
+.va-on-this-page-wrapper li a:hover { background-color: transparent; color: inherit; }
+.va-on-this-page-wrapper li a:visited { color: var(--vads-color-link-visited); }
+.va-on-this-page-wrapper li:hover { background-color: rgba(0, 0, 0, 0.05); }
+.va-on-this-page-wrapper va-icon { margin-right: 4px; padding-top: 4px; line-height: 1; }

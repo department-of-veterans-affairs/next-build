@@ -1,0 +1,112 @@
+button:not([disabled]):focus, select:not([disabled]):focus, a:not([disabled]):focus, h1:focus, input:not([disabled]):focus, textarea:not([disabled]):focus, #form-question [role="option"]:focus, [tabindex]:focus, a.va-sidenav-submenu__link:focus { outline: 2px solid var(--vads-color-action-focus-on-light); outline-offset: 2px; z-index: 2; }
+.usa-sr-only { position: absolute; left: -999em; right: auto; }
+.usa-button { font-family: "Source Sans Pro Web", "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans; font-size: 1.06rem; line-height: 0.9; color: white; background-color: rgb(0, 94, 162); appearance: none; align-items: center; border: 0px; border-radius: 0.25rem; cursor: pointer; column-gap: 0.5rem; display: inline-flex; font-weight: 700; justify-content: center; margin-right: 0.5rem; padding: 0.75rem 1.25rem; text-align: center; text-decoration: none; width: 100%; }
+@media (min-width: 30em) {
+  .usa-button { width: auto; }
+}
+.usa-button:visited { color: white; }
+.usa-button:hover, .usa-button.usa-button--hover { color: white; background-color: rgb(26, 68, 128); border-bottom: 0px; text-decoration: none; }
+.usa-button:active, .usa-button.usa-button--active { color: white; background-color: rgb(22, 46, 81); }
+.usa-button:not([disabled]):focus, .usa-button:not([disabled]).usa-focus { outline-offset: 0.25rem; }
+.usa-button:disabled, .usa-button[aria-disabled="true"] { color: rgb(69, 69, 69); background-color: rgb(201, 201, 201); cursor: not-allowed; opacity: 1; }
+.usa-button:disabled:hover, .usa-button:disabled:active, .usa-button:disabled:focus, .usa-button:disabled.usa-focus, .usa-button[aria-disabled="true"]:hover, .usa-button[aria-disabled="true"]:active, .usa-button[aria-disabled="true"]:focus, .usa-button[aria-disabled="true"].usa-focus { color: rgb(69, 69, 69); background-color: rgb(201, 201, 201); }
+@media (forced-colors: active) {
+  .usa-button:disabled, .usa-button[aria-disabled="true"] { border: 0px; color: graytext; }
+  .usa-button:disabled:hover, .usa-button:disabled:active, .usa-button:disabled:focus, .usa-button:disabled.usa-focus, .usa-button[aria-disabled="true"]:hover, .usa-button[aria-disabled="true"]:active, .usa-button[aria-disabled="true"]:focus, .usa-button[aria-disabled="true"].usa-focus { color: graytext; }
+}
+.usa-button:disabled.usa-button--hover, .usa-button:disabled.usa-button--active, .usa-button[aria-disabled="true"].usa-button--hover, .usa-button[aria-disabled="true"].usa-button--active { color: rgb(69, 69, 69); background-color: rgb(201, 201, 201); cursor: not-allowed; opacity: 1; }
+.usa-button:disabled.usa-button--hover:hover, .usa-button:disabled.usa-button--hover:active, .usa-button:disabled.usa-button--hover:focus, .usa-button:disabled.usa-button--hover.usa-focus, .usa-button:disabled.usa-button--active:hover, .usa-button:disabled.usa-button--active:active, .usa-button:disabled.usa-button--active:focus, .usa-button:disabled.usa-button--active.usa-focus, .usa-button[aria-disabled="true"].usa-button--hover:hover, .usa-button[aria-disabled="true"].usa-button--hover:active, .usa-button[aria-disabled="true"].usa-button--hover:focus, .usa-button[aria-disabled="true"].usa-button--hover.usa-focus, .usa-button[aria-disabled="true"].usa-button--active:hover, .usa-button[aria-disabled="true"].usa-button--active:active, .usa-button[aria-disabled="true"].usa-button--active:focus, .usa-button[aria-disabled="true"].usa-button--active.usa-focus { color: rgb(69, 69, 69); background-color: rgb(201, 201, 201); }
+@media (forced-colors: active) {
+  .usa-button:disabled.usa-button--hover, .usa-button:disabled.usa-button--active, .usa-button[aria-disabled="true"].usa-button--hover, .usa-button[aria-disabled="true"].usa-button--active { border: 0px; color: graytext; }
+  .usa-button:disabled.usa-button--hover:hover, .usa-button:disabled.usa-button--hover:active, .usa-button:disabled.usa-button--hover:focus, .usa-button:disabled.usa-button--hover.usa-focus, .usa-button:disabled.usa-button--active:hover, .usa-button:disabled.usa-button--active:active, .usa-button:disabled.usa-button--active:focus, .usa-button:disabled.usa-button--active.usa-focus, .usa-button[aria-disabled="true"].usa-button--hover:hover, .usa-button[aria-disabled="true"].usa-button--hover:active, .usa-button[aria-disabled="true"].usa-button--hover:focus, .usa-button[aria-disabled="true"].usa-button--hover.usa-focus, .usa-button[aria-disabled="true"].usa-button--active:hover, .usa-button[aria-disabled="true"].usa-button--active:active, .usa-button[aria-disabled="true"].usa-button--active:focus, .usa-button[aria-disabled="true"].usa-button--active.usa-focus { color: graytext; }
+}
+@media (forced-colors: active) {
+  .usa-button:disabled:not(.usa-button--unstyled), .usa-button[aria-disabled="true"]:not(.usa-button--unstyled) { border: 2px solid graytext; }
+}
+.usa-button .usa-icon { flex-shrink: 0; }
+@media (forced-colors: active) {
+  .usa-button:not(.usa-button--unstyled) { border: 2px solid transparent; }
+}
+.usa-button--accent-cool { color: rgb(27, 27, 27); background-color: rgb(0, 189, 227); }
+.usa-button--accent-cool:visited { color: rgb(27, 27, 27); background-color: rgb(0, 189, 227); }
+.usa-button--accent-cool:hover, .usa-button--accent-cool.usa-button--hover { color: rgb(27, 27, 27); background-color: rgb(40, 160, 203); }
+.usa-button--accent-cool:active, .usa-button--accent-cool.usa-button--active { color: white; background-color: rgb(7, 100, 141); }
+.usa-button--accent-warm { color: rgb(27, 27, 27); background-color: rgb(250, 148, 65); }
+.usa-button--accent-warm:visited { color: rgb(27, 27, 27); background-color: rgb(250, 148, 65); }
+.usa-button--accent-warm:hover, .usa-button--accent-warm.usa-button--hover { color: white; background-color: rgb(192, 86, 0); }
+.usa-button--accent-warm:active, .usa-button--accent-warm.usa-button--active { color: white; background-color: rgb(119, 85, 64); }
+.usa-button--outline { background-color: transparent; box-shadow: rgb(0, 94, 162) 0px 0px 0px 2px inset; color: rgb(0, 94, 162); }
+.usa-button--outline:visited { color: rgb(0, 94, 162); }
+.usa-button--outline:hover, .usa-button--outline.usa-button--hover { background-color: transparent; box-shadow: rgb(26, 68, 128) 0px 0px 0px 2px inset; color: rgb(26, 68, 128); }
+.usa-button--outline:active, .usa-button--outline.usa-button--active { background-color: transparent; box-shadow: rgb(22, 46, 81) 0px 0px 0px 2px inset; color: rgb(22, 46, 81); }
+.usa-button--outline.usa-button--inverse { box-shadow: rgb(223, 225, 226) 0px 0px 0px 2px inset; color: rgb(223, 225, 226); }
+.usa-button--outline.usa-button--inverse:visited { color: rgb(223, 225, 226); }
+.usa-button--outline.usa-button--inverse:hover, .usa-button--outline.usa-button--inverse.usa-button--hover { box-shadow: rgb(240, 240, 240) 0px 0px 0px 2px inset; color: rgb(240, 240, 240); }
+.usa-button--outline.usa-button--inverse:active, .usa-button--outline.usa-button--inverse.usa-button--active { background-color: transparent; box-shadow: white 0px 0px 0px 2px inset; color: white; }
+.usa-button--outline.usa-button--inverse.usa-button--unstyled { text-decoration: underline; background-color: transparent; border: 0px; border-radius: 0px; box-shadow: none; font-weight: normal; justify-content: normal; text-align: left; margin: 0px; padding: 0px; width: auto; color: rgb(223, 225, 226); }
+.usa-button--outline.usa-button--inverse.usa-button--unstyled:visited { color: rgb(84, 39, 143); }
+.usa-button--outline.usa-button--inverse.usa-button--unstyled:hover { color: rgb(26, 68, 128); }
+.usa-button--outline.usa-button--inverse.usa-button--unstyled:active { color: rgb(22, 46, 81); }
+.usa-button--outline.usa-button--inverse.usa-button--unstyled:focus { outline: rgb(36, 145, 255) solid 0.25rem; outline-offset: 0rem; }
+.usa-button--outline.usa-button--inverse.usa-button--unstyled:hover, .usa-button--outline.usa-button--inverse.usa-button--unstyled.usa-button--hover, .usa-button--outline.usa-button--inverse.usa-button--unstyled:disabled:hover, .usa-button--outline.usa-button--inverse.usa-button--unstyled[aria-disabled="true"]:hover, .usa-button--outline.usa-button--inverse.usa-button--unstyled:disabled.usa-button--hover, .usa-button--outline.usa-button--inverse.usa-button--unstyled[aria-disabled="true"].usa-button--hover, .usa-button--outline.usa-button--inverse.usa-button--unstyled:active, .usa-button--outline.usa-button--inverse.usa-button--unstyled.usa-button--active, .usa-button--outline.usa-button--inverse.usa-button--unstyled:disabled:active, .usa-button--outline.usa-button--inverse.usa-button--unstyled[aria-disabled="true"]:active, .usa-button--outline.usa-button--inverse.usa-button--unstyled:disabled.usa-button--active, .usa-button--outline.usa-button--inverse.usa-button--unstyled[aria-disabled="true"].usa-button--active, .usa-button--outline.usa-button--inverse.usa-button--unstyled:disabled:focus, .usa-button--outline.usa-button--inverse.usa-button--unstyled[aria-disabled="true"]:focus, .usa-button--outline.usa-button--inverse.usa-button--unstyled:disabled.usa-focus, .usa-button--outline.usa-button--inverse.usa-button--unstyled[aria-disabled="true"].usa-focus, .usa-button--outline.usa-button--inverse.usa-button--unstyled:disabled, .usa-button--outline.usa-button--inverse.usa-button--unstyled[aria-disabled="true"], .usa-button--outline.usa-button--inverse.usa-button--unstyled.usa-button--disabled { background-color: transparent; box-shadow: none; text-decoration: underline; }
+.usa-button--outline.usa-button--inverse.usa-button--unstyled.usa-button--hover { color: rgb(26, 68, 128); }
+.usa-button--outline.usa-button--inverse.usa-button--unstyled.usa-button--active { color: rgb(22, 46, 81); }
+.usa-button--outline.usa-button--inverse.usa-button--unstyled:disabled, .usa-button--outline.usa-button--inverse.usa-button--unstyled[aria-disabled="true"], .usa-button--outline.usa-button--inverse.usa-button--unstyled:disabled:hover, .usa-button--outline.usa-button--inverse.usa-button--unstyled[aria-disabled="true"]:hover, .usa-button--outline.usa-button--inverse.usa-button--unstyled[aria-disabled="true"]:focus { color: rgb(117, 117, 117); }
+@media (forced-colors: active) {
+  .usa-button--outline.usa-button--inverse.usa-button--unstyled:disabled, .usa-button--outline.usa-button--inverse.usa-button--unstyled[aria-disabled="true"], .usa-button--outline.usa-button--inverse.usa-button--unstyled:disabled:hover, .usa-button--outline.usa-button--inverse.usa-button--unstyled[aria-disabled="true"]:hover, .usa-button--outline.usa-button--inverse.usa-button--unstyled[aria-disabled="true"]:focus { color: graytext; }
+}
+.usa-button--outline.usa-button--inverse.usa-button--unstyled:visited { color: rgb(223, 225, 226); }
+.usa-button--outline.usa-button--inverse.usa-button--unstyled:hover, .usa-button--outline.usa-button--inverse.usa-button--unstyled.usa-button--hover { color: rgb(240, 240, 240); }
+.usa-button--outline.usa-button--inverse.usa-button--unstyled:active, .usa-button--outline.usa-button--inverse.usa-button--unstyled.usa-button--active { color: white; }
+.usa-button--base { color: white; background-color: rgb(113, 118, 122); }
+.usa-button--base:hover, .usa-button--base.usa-button--hover { color: white; background-color: rgb(86, 92, 101); }
+.usa-button--base:active, .usa-button--base.usa-button--active { color: white; background-color: rgb(61, 69, 81); }
+.usa-button--secondary { color: white; background-color: rgb(216, 57, 51); }
+.usa-button--secondary:hover, .usa-button--secondary.usa-button--hover { color: white; background-color: rgb(181, 9, 9); }
+.usa-button--secondary:active, .usa-button--secondary.usa-button--active { color: white; background-color: rgb(139, 10, 3); }
+.usa-button--big { border-radius: 0.25rem; font-size: 1.46rem; padding: 1rem 1.5rem; }
+.usa-button--outline:disabled, .usa-button--outline:disabled:hover, .usa-button--outline:disabled:active, .usa-button--outline:disabled:focus, .usa-button--outline[aria-disabled="true"], .usa-button--outline[aria-disabled="true"]:hover, .usa-button--outline[aria-disabled="true"]:active, .usa-button--outline[aria-disabled="true"]:focus, .usa-button--outline-inverse:disabled, .usa-button--outline-inverse:disabled:hover, .usa-button--outline-inverse:disabled:active, .usa-button--outline-inverse:disabled:focus, .usa-button--outline-inverse[aria-disabled="true"], .usa-button--outline-inverse[aria-disabled="true"]:hover, .usa-button--outline-inverse[aria-disabled="true"]:active, .usa-button--outline-inverse[aria-disabled="true"]:focus { background-color: transparent; color: rgb(117, 117, 117); }
+.usa-button--outline:disabled, .usa-button--outline[aria-disabled="true"] { box-shadow: rgb(201, 201, 201) 0px 0px 0px 2px inset; }
+.usa-button--outline:disabled.usa-button--inverse, .usa-button--outline[aria-disabled="true"].usa-button--inverse { box-shadow: rgb(145, 145, 145) 0px 0px 0px 2px inset; color: rgb(145, 145, 145); }
+@media (forced-colors: active) {
+  .usa-button--outline:disabled.usa-button--inverse, .usa-button--outline[aria-disabled="true"].usa-button--inverse { color: graytext; }
+}
+.usa-button--unstyled { color: rgb(0, 94, 162); text-decoration: underline; background-color: transparent; border: 0px; border-radius: 0px; box-shadow: none; font-weight: normal; justify-content: normal; text-align: left; margin: 0px; padding: 0px; width: auto; }
+.usa-button--unstyled:visited { color: rgb(84, 39, 143); }
+.usa-button--unstyled:hover { color: rgb(26, 68, 128); }
+.usa-button--unstyled:active { color: rgb(22, 46, 81); }
+.usa-button--unstyled:focus { outline: rgb(36, 145, 255) solid 0.25rem; outline-offset: 0rem; }
+.usa-button--unstyled:hover, .usa-button--unstyled.usa-button--hover, .usa-button--unstyled:disabled:hover, .usa-button--unstyled[aria-disabled="true"]:hover, .usa-button--unstyled:disabled.usa-button--hover, .usa-button--unstyled[aria-disabled="true"].usa-button--hover, .usa-button--unstyled:active, .usa-button--unstyled.usa-button--active, .usa-button--unstyled:disabled:active, .usa-button--unstyled[aria-disabled="true"]:active, .usa-button--unstyled:disabled.usa-button--active, .usa-button--unstyled[aria-disabled="true"].usa-button--active, .usa-button--unstyled:disabled:focus, .usa-button--unstyled[aria-disabled="true"]:focus, .usa-button--unstyled:disabled.usa-focus, .usa-button--unstyled[aria-disabled="true"].usa-focus, .usa-button--unstyled:disabled, .usa-button--unstyled[aria-disabled="true"], .usa-button--unstyled.usa-button--disabled { background-color: transparent; box-shadow: none; text-decoration: underline; }
+.usa-button--unstyled.usa-button--hover { color: rgb(26, 68, 128); }
+.usa-button--unstyled.usa-button--active { color: rgb(22, 46, 81); }
+.usa-button--unstyled:disabled, .usa-button--unstyled[aria-disabled="true"], .usa-button--unstyled:disabled:hover, .usa-button--unstyled[aria-disabled="true"]:hover, .usa-button--unstyled[aria-disabled="true"]:focus { color: rgb(117, 117, 117); }
+@media (forced-colors: active) {
+  .usa-button--unstyled:disabled, .usa-button--unstyled[aria-disabled="true"], .usa-button--unstyled:disabled:hover, .usa-button--unstyled[aria-disabled="true"]:hover, .usa-button--unstyled[aria-disabled="true"]:focus { color: graytext; }
+}
+:host { display: inline-block; }
+:host .loading-message { opacity: 1e-05; position: absolute; pointer-events: none; }
+:host .loading-icon { animation: 1.5s linear 0s infinite normal none running spin; }
+:host .loading-icon.chromatic::after { animation: auto ease 0s 1 normal none running none; }
+:host .usa-button { line-height: var(--vads-font-line-height-2); padding: 0.6rem 1.25rem; position: relative; }
+:host .usa-button--big { padding: 0.8rem 1.5rem; }
+:host .usa-button:focus { z-index: 1; }
+@media (prefers-reduced-motion) {
+  :host .loading-icon { animation: auto ease 0s 1 normal none running none; }
+}
+@-webkit-keyframes spin { 
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+@keyframes spin { 
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+:host([disabled]:not([disabled="false"])) button { pointer-events: none; }
+:host([disabled]:not([disabled="false"])) { cursor: not-allowed; }
+:host([full-width]:not([full-width="false"])) { width: 100%; }
+:host([big]:not([big="false"]):is([back], [continue])) .usa-button--big { padding-top: 14px; }
+.usa-button.usa-button--outline { background-color: var(--vads-button-color-background-secondary-on-light); }
+.usa-button.usa-button--outline:hover, .usa-button.usa-button--outline:focus { background-color: var(--vads-button-color-background-secondary-on-light); text-decoration: none; }
+.va-button-primary--alternate { background: var(--vads-color-success-dark); }
+.va-button-primary--alternate:hover, .va-button-primary--alternate:focus { background-color: var(--vads-button-color-background-primary-alt-active-on-light); text-decoration: none; }
+:host .va-button--full-width { width: 100%; }

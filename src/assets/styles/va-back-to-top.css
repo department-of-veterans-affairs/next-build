@@ -1,0 +1,50 @@
+/* Keyframes are global - safe to keep */
+@-webkit-keyframes slideInUp { 
+  0% { transform: translate3d(0px, 100%, 0px); visibility: visible; }
+  100% { transform: translate3d(0px, 0px, 0px); }
+}
+@keyframes slideInUp { 
+  0% { transform: translate3d(0px, 100%, 0px); visibility: visible; }
+  100% { transform: translate3d(0px, 0px, 0px); }
+}
+.slideInUp { animation-name: slideInUp; }
+@-webkit-keyframes slideOutDown { 
+  0% { transform: translate3d(0px, 0px, 0px); }
+  100% { visibility: hidden; transform: translate3d(0px, 100%, 0px); }
+}
+@keyframes slideOutDown { 
+  0% { transform: translate3d(0px, 0px, 0px); }
+  100% { visibility: hidden; transform: translate3d(0px, 100%, 0px); }
+}
+.slideOutDown { animation-name: slideOutDown; }
+
+/* Scoped to va-back-to-top-wrapper to prevent affecting other page elements */
+.va-back-to-top-wrapper #ds-back-to-top { display: block; width: 100%; height: 44px; margin-top: 2.5rem; margin-bottom: 1.25rem; }
+.va-back-to-top-wrapper .reveal-point { position: absolute; width: 1px; height: 1px; top: var(--reveal-breakpoint, 37.5rem); left: 0px; }
+.va-back-to-top-wrapper > div { position: fixed; bottom: 0px; width: 100%; }
+.va-back-to-top-wrapper > div a { border-bottom-right-radius: 0px; border-top-right-radius: 0px; bottom: 0px; color: var(--vads-color-link); right: 0px; background: rgba(255, 255, 255, 0.9); height: 48px; width: 48px; margin-bottom: 0.313rem; opacity: 0; padding: 0px; pointer-events: none; position: absolute; transition: background-color 0.25s ease-in; display: none; }
+.va-back-to-top-wrapper > div a:not([disabled]):active,
+.va-back-to-top-wrapper > div a:not([disabled]):focus { border-radius: 5px; outline: 2px solid var(--vads-color-action-focus-on-light); outline-offset: 2px; }
+.va-back-to-top-wrapper > div a:not([disabled]):hover { border-radius: 5px; background-color: var(--vads-color-gray-cool-light); color: var(--vads-color-primary-darker); }
+.va-back-to-top-wrapper > div.reveal a { display: inherit; border-bottom-left-radius: 5px; border-top-left-radius: 5px; text-decoration: none; pointer-events: auto; opacity: 1; animation: 0.25s ease 0s 1 normal none running slideInUp; }
+.va-back-to-top-wrapper > div.reveal a > span { display: flex; align-items: center; justify-content: center; }
+.va-back-to-top-wrapper > div:not(.reveal) a { animation: 0.25s ease 0s 1 normal none running slideOutDown; }
+@media (prefers-reduced-motion) {
+  .va-back-to-top-wrapper > div a { transition: none; }
+  .va-back-to-top-wrapper > div.reveal a { animation: auto ease 0s 1 normal none running none; }
+  .va-back-to-top-wrapper > div:not(.reveal) a { animation: auto ease 0s 1 normal none running none; }
+}
+.va-back-to-top-wrapper a > span { display: flex; align-items: center; justify-content: center; height: 100%; width: 100%; }
+.va-back-to-top-wrapper a span.text { display: none; font-weight: 700; }
+.va-back-to-top-wrapper a span.sr-only { visibility: visible; border: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; width: 1px; position: absolute !important; overflow-wrap: normal !important; }
+.va-back-to-top-wrapper > div.docked { position: relative; display: flex; flex-direction: row-reverse; }
+.va-back-to-top-wrapper > div:not(.docked) { max-width: var(--undocked-width); }
+.va-back-to-top-wrapper > div:not(.docked):not(.reveal) { position: relative; }
+.va-back-to-top-wrapper > div.docked a { position: relative; }
+.va-back-to-top-wrapper va-icon { margin-right: 0px; }
+@media (min-width: 768px) {
+  .va-back-to-top-wrapper > div a { height: 44px; padding: 0px 1rem; text-decoration: none; width: auto; }
+  .va-back-to-top-wrapper a span.text { color: var(--vads-color-link); display: inline-block; text-decoration: underline; }
+  .va-back-to-top-wrapper a span.sr-only { visibility: hidden; }
+  .va-back-to-top-wrapper va-icon { margin-right: 4px; }
+}

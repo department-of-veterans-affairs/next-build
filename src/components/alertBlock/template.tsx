@@ -21,20 +21,32 @@ export function AlertBlock(alertBlock: FormattedAlertBlock) {
         )}
 
         {content.type === PARAGRAPH_RESOURCE_TYPES.EXPANDABLE_TEXT && (
-          <va-additional-info
-            id={`alert-with-additional-info-${id}`}
-            trigger={content.header}
-            disable-border="true"
-            className="alert-with-additional-info"
-          >
-            {content.text && (
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: content.text,
-                }}
-              />
-            )}
-          </va-additional-info>
+          <>
+            {/* I want the va-additional-info to still trigger a lazy load of the custom element */}
+            <div style={{ display: 'none' }}>
+              <va-additional-info
+                id={`alert-with-additional-info-${id}`}
+                trigger={content.header}
+                disable-border="true"
+                className="alert-with-additional-info"
+              >
+                {content.text && (
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: content.text,
+                    }}
+                  />
+                )}
+              </va-additional-info>
+            </div>
+            {/* TODO: Replace this placeholder with actual HTML extracted from va-additional-info shadow DOM */}
+            {/* Extract HTML by inspecting shadow DOM in browser DevTools */}
+            {/* Only add this if va-additional-info is actually used on the target page */}
+            <div className="va-additional-info-static alert-with-additional-info">
+              {/* Static HTML from shadow DOM goes here */}
+              {/* Preserve the trigger and content structure */}
+            </div>
+          </>
         )}
       </VaAlert>
     </>
