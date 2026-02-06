@@ -8,12 +8,11 @@ A CLI tool for comparing two live environments (e.g., production vs staging) acr
 # Build the tool
 yarn build:ept
 
-# Run a comparison
-node packages/env-parity-testing/bin/ept.js \
-  --envA https://www.va.gov \
-  --envB https://staging.va.gov \
-  --paths ./paths.txt
+# Run with defaults (compares VA.gov production vs staging using critical paths)
+node packages/env-parity-testing/bin/ept.js
 ```
+
+That's it! By default, EPT compares `https://www.va.gov` against `https://staging.va.gov` using a curated list of critical paths.
 
 ## Installation
 
@@ -47,13 +46,22 @@ Options:
 
 ### Basic Examples
 
-**Compare two environments with a paths file:**
+**Run with all defaults (production vs staging, critical paths):**
 
 ```bash
-node packages/env-parity-testing/bin/ept.js \
-  --envA https://www.va.gov \
-  --envB https://staging.va.gov \
-  --paths ./paths.txt
+node packages/env-parity-testing/bin/ept.js
+```
+
+**Compare a different environment against production:**
+
+```bash
+node packages/env-parity-testing/bin/ept.js --envB https://dev.va.gov
+```
+
+**Use custom paths:**
+
+```bash
+node packages/env-parity-testing/bin/ept.js --paths ./my-paths.txt
 ```
 
 **Use a configuration file:**
@@ -90,6 +98,33 @@ EPT uses a layered configuration system. Settings are applied in this order (hig
 1. CLI arguments
 2. Config file (`ept.config.ts`)
 3. Built-in defaults
+
+### Defaults
+
+When run without arguments, EPT uses these defaults:
+
+**Environments:**
+
+- Environment A: `https://www.va.gov`
+- Environment B: `https://staging.va.gov`
+
+**Critical Paths** (located in `paths/critical.txt`):
+
+- `/` - Homepage
+- `/forms/` - Find a form
+- `/find-locations` - Find a location
+- `/claim-or-appeal-status/` - Check your claim, decision review, or appeal status
+- `/health-care/manage-health` - Manage your health care with My HealtheVet
+- `/health-care/get-reimbursed-for-travel-pay/` - Get travel pay reimbursement
+- `/va-payment-history/` - Review your payment history
+- `/records/download-va-letters` - Download your benefit letters
+- `/disability/view-disability-rating` - Review your disability rating
+- `/health-care/manage-appointments` - Manage health appointments
+- `/education/verify-school-enrollment` - Verify your school enrollment
+- `/education/check-remaining-post-9-11-gi-bill-benefits` - Check your remaining GI Bill benefits
+- `/view-change-dependents` - Review or update your dependents
+
+You can edit `paths/critical.txt` to customize the default paths, or use `--paths` to specify a different file.
 
 ### Config File
 

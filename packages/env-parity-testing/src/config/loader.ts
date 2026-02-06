@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import { pathToFileURL } from 'url'
+import { pathToFileURL, fileURLToPath } from 'url'
 import type {
   EPTConfig,
   CLIOptions,
@@ -14,6 +14,15 @@ import {
   DEFAULT_OUTPUT,
   DEFAULT_HOOKS,
 } from './defaults.js'
+
+// Default VA.gov environments
+const DEFAULT_ENV_A = 'https://www.va.gov'
+const DEFAULT_ENV_B = 'https://staging.va.gov'
+
+// Get the package root directory
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+const PACKAGE_ROOT = path.resolve(__dirname, '../..')
+const DEFAULT_PATHS_FILE = path.join(PACKAGE_ROOT, 'paths/critical.txt')
 
 /**
  * Load a TypeScript/JavaScript config file
@@ -77,26 +86,20 @@ export async function loadConfig(cli: CLIOptions): Promise<ResolvedConfig> {
   }
 
   // Load paths from file if specified (CLI override)
+  // Falls back to default critical paths if none specified
   let paths: PathInput[] = fileConfig.paths || []
   if (cli.paths) {
     paths = loadPathsFile(cli.paths)
+  } else if (paths.length === 0) {
+    // Use default critical paths
+    paths = loadPathsFile(DEFAULT_PATHS_FILE)
   }
 
-  if (paths.length === 0) {
-    throw new Error(
-      'No paths configured. Provide paths via config file or --paths option.'
-    )
-  }
-
-  // Resolve environment URLs
-  const envAUrl = cli.envA || fileConfig.environments?.a?.baseUrl
-  const envBUrl = cli.envB || fileConfig.environments?.b?.baseUrl
-
-  if (!envAUrl || !envBUrl) {
-    throw new Error(
-      'Both environment URLs must be specified. Use --envA and --envB options or configure in config file.'
-    )
-  }
+  // Resolve environment URLs with defaults
+  const envAUrl =
+    cli.envA || fileConfig.environments?.a?.baseUrl || DEFAULT_ENV_A
+  const envBUrl =
+    cli.envB || fileConfig.environments?.b?.baseUrl || DEFAULT_ENV_B
 
   // Build resolved config
   const resolved: ResolvedConfig = {
