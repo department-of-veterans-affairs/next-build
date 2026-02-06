@@ -168,8 +168,8 @@ export default {
   },
 
   output: {
-    artifactsDir: './artifacts',
-    reportFile: './report.json',
+    artifactsDir: './my-artifacts',
+    reportFile: './my-artifacts/report.json',
   },
 
   hooks: {
@@ -239,10 +239,10 @@ paths: [
 
 #### `output`
 
-| Property       | Type     | Default           | Description                               |
-| -------------- | -------- | ----------------- | ----------------------------------------- |
-| `artifactsDir` | `string` | `'./artifacts'`   | Directory for screenshots and diff images |
-| `reportFile`   | `string` | `'./report.json'` | Path for JSON report output               |
+| Property       | Type     | Default                           | Description                               |
+| -------------- | -------- | --------------------------------- | ----------------------------------------- |
+| `artifactsDir` | `string` | `<package>/artifacts`             | Directory for screenshots and diff images |
+| `reportFile`   | `string` | `<package>/artifacts/report.json` | Path for JSON report output               |
 
 ### Lifecycle Hooks
 
@@ -301,10 +301,11 @@ interface HookContext {
 
 ### Artifacts Directory
 
-Each run creates a fresh artifacts directory with the following structure:
+Each run creates a fresh artifacts directory (by default inside the package at `packages/env-parity-testing/artifacts/`) with the following structure:
 
 ```
 artifacts/
+├── report.json              # JSON report with all results
 ├── root/                    # For path "/"
 │   ├── envA.png            # Screenshot from environment A
 │   ├── envB.png            # Screenshot from environment B

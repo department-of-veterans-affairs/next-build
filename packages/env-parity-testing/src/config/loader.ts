@@ -23,6 +23,8 @@ const DEFAULT_ENV_B = 'https://staging.va.gov'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const PACKAGE_ROOT = path.resolve(__dirname, '../..')
 const DEFAULT_PATHS_FILE = path.join(PACKAGE_ROOT, 'paths/critical.txt')
+const DEFAULT_ARTIFACTS_DIR = path.join(PACKAGE_ROOT, 'artifacts')
+const DEFAULT_REPORT_FILE = path.join(PACKAGE_ROOT, 'artifacts/report.json')
 
 /**
  * Load a TypeScript/JavaScript config file
@@ -119,9 +121,16 @@ export async function loadConfig(cli: CLIOptions): Promise<ResolvedConfig> {
       ...fileConfig.visual,
     },
     output: {
-      ...DEFAULT_OUTPUT,
-      ...fileConfig.output,
-      ...(cli.output && { artifactsDir: cli.output }),
+      artifactsDir:
+        fileConfig.output?.artifactsDir || cli.output || DEFAULT_ARTIFACTS_DIR,
+      reportFile:
+        fileConfig.output?.reportFile ||
+        path.join(
+          fileConfig.output?.artifactsDir ||
+            cli.output ||
+            DEFAULT_ARTIFACTS_DIR,
+          'report.json'
+        ),
     },
     hooks: {
       ...DEFAULT_HOOKS,

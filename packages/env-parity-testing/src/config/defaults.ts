@@ -22,9 +22,11 @@ export const DEFAULT_VISUAL: VisualConfig = {
   pixelTolerance: 0.01,
 }
 
+// Note: Default output paths are computed relative to the package root in loader.ts
+// These values are only used when a config file specifies partial output config
 export const DEFAULT_OUTPUT: OutputConfig = {
   artifactsDir: './artifacts',
-  reportFile: './report.json',
+  reportFile: './artifacts/report.json',
 }
 
 export const DEFAULT_HOOKS: LifecycleHooks = {}
