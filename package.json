@@ -12,6 +12,7 @@
     "build": "yarn build:env-loader && yarn build:s3-cache-handler && node ./scripts/yarn/build.js --SSG --USE_REDIS",
     "build:env-loader": "tsc -b ./packages/env-loader/tsconfig.json",
     "build:s3-cache-handler": "tsc -b ./packages/s3-cache-handler/tsconfig.json",
+    "build:ept": "tsc -b ./packages/env-parity-testing/tsconfig.json",
     "build:preview": "yarn build:env-loader && yarn build:s3-cache-handler && node ./scripts/yarn/build.js",
     "build:sitemap": "yarn build:env-loader & node ./scripts/yarn/build:sitemap.js",
     "start": "yarn build:env-loader && node ./scripts/yarn/start.js",
