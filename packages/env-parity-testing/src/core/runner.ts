@@ -6,6 +6,7 @@ import type {
   ComparisonResult,
   ComparisonTool,
   Report,
+  VisualComparisonData,
 } from './types.js'
 import { HookExecutor } from './hooks.js'
 import { visualComparisonTool } from '../tools/visual/index.js'
@@ -19,7 +20,40 @@ import { generateReport, writeReport } from '../output/report.js'
 const debug = Debug('ept:runner')
 
 /**
- * Run comparison for a single page
+ * Format a single comparison result for logging
+ */
+function formatResultLog(comparison: PageComparison): string {
+  const { path, passed, duration, results } = comparison
+  const status = passed ? chalk.green('✓') : chalk.red('✗')
+  const pathDisplay = chalk.bold(path)
+  const durationDisplay = chalk.gray(`(${duration}ms)`)
+
+  let line = `  ${status} ${pathDisplay} ${durationDisplay}`
+
+  // Add details for each tool result
+  for (const result of results) {
+    if (result.tool === 'visual' && result.data) {
+      const data = result.data as VisualComparisonData
+      const diffPct = data.diffPercent.toFixed(2)
+      const threshold = data.threshold
+
+      if (result.passed) {
+        line += chalk.gray(` — ${diffPct}% diff (threshold: ${threshold}%)`)
+      } else if (result.error) {
+        line += chalk.red(` — Error: ${result.error}`)
+      } else {
+        line += chalk.red(` — ${diffPct}% diff (threshold: ${threshold}%)`)
+      }
+    } else if (!result.passed && result.error) {
+      line += chalk.red(` — ${result.tool}: ${result.error}`)
+    }
+  }
+
+  return line
+}
+
+/**
+ * Run comparison for a single page (no logging - results logged after batch)
  */
 async function comparePage(
   pathConfig: PathConfig,
@@ -33,7 +67,6 @@ async function comparePage(
   const urlB = `${config.environments.b.baseUrl}${pathConfig.path}`
 
   debug(`Comparing: ${pathConfig.path}`)
-  console.log(chalk.blue(`  Comparing: ${pathConfig.path}`))
 
   // Create page-specific artifacts directory
   const pageArtifactsDir = createPageArtifactsDir(
@@ -70,22 +103,6 @@ async function comparePage(
   const duration = Date.now() - startTime
   const passed = results.every((r) => r.passed)
 
-  // Log result
-  if (passed) {
-    console.log(chalk.green(`    ✓ Passed (${duration}ms)`))
-  } else {
-    console.log(chalk.red(`    ✗ Failed (${duration}ms)`))
-    for (const result of results) {
-      if (!result.passed) {
-        console.log(
-          chalk.red(
-            `      - ${result.tool}: ${result.error || 'diff exceeded threshold'}`
-          )
-        )
-      }
-    }
-  }
-
   return {
     path: pathConfig.path,
     urlA,
@@ -118,11 +135,24 @@ async function processPages(
     }
 
     const batch = paths.slice(i, i + concurrency)
+    const batchNum = Math.floor(i / concurrency) + 1
+    const totalBatches = Math.ceil(paths.length / concurrency)
+
+    // Log batch start
+    if (concurrency > 1 && totalBatches > 1) {
+      console.log(chalk.gray(`\nBatch ${batchNum}/${totalBatches}`))
+    }
+
     const batchResults = await Promise.all(
       batch.map((pathConfig) =>
         comparePage(pathConfig, config, tools, artifactsDir, hookExecutor)
       )
     )
+
+    // Log results after batch completes (avoids interleaving)
+    for (const result of batchResults) {
+      console.log(formatResultLog(result))
+    }
 
     results.push(...batchResults)
 
