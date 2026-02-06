@@ -30,11 +30,11 @@ Before pushing our updates to Production, we want to verify that the following i
 
 ## Phase 2 - Automated Smoke Test + Manual intervention as needed
 * With [#23421](https://github.com/department-of-veterans-affairs/va.gov-cms/issues/23421), we are exploring the option of introducing visual regression testing to confirm that the staging page looks the same as the production page.
-    * If the visual regression detects any differences between the two environments, the team would be alerted to review the pages manually and confirm if the differences are expected or a bug was detected.
-        * If differences are expected, deployment to production will be approved.
+    * If the visual regression detects any differences between the two environments, the team would be alerted to review the pages manually and confirm if the differences are expected or a potential bug was detected.
+        * If differences are expected, deployment to production will be manually reviewed and approved.
         * If differences are unexpected and confirmed to be a bug, a ticket will be created to resolve the issue. 
             * CMS team will be consulted to determine path of least resistance to unblock the deployment to production. (i.e. revert related PR or introduce quick fix)
-    * If the visual regression passes indicated that all pages are matching as expected, the deployment to Production will proceed without manual intervention. 
+    * If the visual regression passes indicating that all pages are matching as expected, the deployment to Production will proceed without manual intervention. 
 
 ## (Potential) Phase 3 - More Robust Automated Smoke Test
 * In the future, we want to evaluate the potential for adding additional automation to our smoke tests, so that we could detect critical functional and accessibility issues.
