@@ -219,6 +219,8 @@ jobs:
           ls
           ls out
           ls out/generated
+          cp public/generated/static-pages-essentials.entry.js out/generated/static-pages-essentials.entry.js
+          cp public/generated/homepage.entry.js out/generated/homepage.entry.js
           if [[ $? -ne 0 ]]; then
             echo "One or more pages failed to build. Exiting."
             exit 1
