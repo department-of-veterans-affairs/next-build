@@ -218,6 +218,7 @@ jobs:
           echo BUILT_PAGES=$(grep -oE "*\/([0-9]{4,})" ./yarnoutput| head -1 | sed 's/\///g') >> $GITHUB_OUTPUT
           ls
           ls out
+          ls out/generated
           if [[ $? -ne 0 ]]; then
             echo "One or more pages failed to build. Exiting."
             exit 1
