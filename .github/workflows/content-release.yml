@@ -309,7 +309,9 @@ jobs:
     - if: inputs.build_type == 'dev'
       name: Deploy to S3
       run: |
-        cd main && ./scripts/github-actions/deploy.sh -s $SRC -d $DEST -v
+        cd main
+        ls ./out/generated
+        ./scripts/github-actions/deploy.sh -s $SRC -d $DEST -v
         ls
       env:
         SRC: ./out/
