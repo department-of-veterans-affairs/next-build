@@ -31,7 +31,9 @@ broken-links-*
 dump.rdb
 
 # vets-website assets
-/public/generated
+/public/generated/*
+!/public/generated/static-pages-essentials.entry.js
+!/public/generated/homepage.entry.js
 /public/data
 /public/img
 
