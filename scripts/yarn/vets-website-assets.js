@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 /* eslint-disable import/no-extraneous-dependencies */
 import Debug from 'debug'
 import fetch from 'cross-fetch'
@@ -116,16 +115,16 @@ async function gatherAssets() {
   const buildtype = process.env.BUILD_TYPE || 'vagovprod'
 
   // Clean any existing assets or symlinks
-  if (fs.pathExistsSync(destinationPath)) {
-    try {
-      fs.rmSync(destinationPath, { recursive: true, force: true })
-      debug(
-        `Removed existing vets-website assets. Preparing to gather fresh from ${BUILD_TYPE_BUCKET[buildtype]}`
-      )
-    } catch (err) {
-      debug('%O', err)
-    }
-  }
+  // if (fs.pathExistsSync(destinationPath)) {
+  //   try {
+  //     fs.rmSync(destinationPath, { recursive: true, force: true })
+  //     debug(
+  //       `Removed existing vets-website assets. Preparing to gather fresh from ${BUILD_TYPE_BUCKET[buildtype]}`
+  //     )
+  //   } catch (err) {
+  //     debug('%O', err)
+  //   }
+  // }
   // Download compiled js assets from the appropriate bucket.
   if (buildtype !== 'localhost') {
     await downloadFromLiveBucket(buildtype)
