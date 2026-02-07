@@ -69,12 +69,12 @@ export default async function HomePage() {
         <Script
           id="staticPages"
           strategy="afterInteractive"
-          src={`${process.env.NEXT_PUBLIC_ASSETS_URL}static-pages-essentials.entry.js`}
+          src={`/generated/static-pages-essentials.entry.js`}
         />
         <Script
           id="staticPages"
           strategy="afterInteractive"
-          src={`${process.env.NEXT_PUBLIC_ASSETS_URL}homepage.entry.js`}
+          src={`/generated/homepage.entry.js`}
         />
       </PageLayout>
     </>
