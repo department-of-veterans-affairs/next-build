@@ -42,6 +42,6 @@ Before pushing our updates to Production, we want to verify that the following i
 
 ## (Potential) Phase 3 - More Robust Automated Smoke Test
 * In the future, we want to evaluate the potential for adding additional automation to our smoke tests, so that we could detect critical functional and accessibility issues.
-    * We could incorporate existing nightly the a11y scan located [here](https://github.com/department-of-veterans-affairs/next-build/actions/workflows/a11y.yml).
+    * We could incorporate the existing nightly a11y scan located [here](https://github.com/department-of-veterans-affairs/next-build/actions/workflows/a11y.yml).
 
 
