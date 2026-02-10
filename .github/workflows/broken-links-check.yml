@@ -40,9 +40,6 @@ jobs:
         run: |
           yarn set version 3.6.1
           HUSKY=0 yarn install --immutable
-      - name: Rebuild combined cert
-        run: |
-          yarn certs
 
       # Runs the link check on a given instance. Each instance is passed the
       # total number of instances and a particular instance. The script uses
