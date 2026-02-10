@@ -40,12 +40,6 @@ jobs:
         run: |
           yarn set version 3.6.1
           HUSKY=0 yarn install --immutable
-
-      # This is necessary in order for fetch to work.
-      - name: Compile fetcher with retry
-        run: |
-          yarn tsc -b ./src/lib/drupal/tsconfig.json
-
       - name: Rebuild combined cert
         run: |
           yarn certs
