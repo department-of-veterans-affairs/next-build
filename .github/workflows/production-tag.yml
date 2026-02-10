@@ -7,10 +7,10 @@ on:
         type: boolean
         description: "Override code freeze and create production tag"
         default: false
-  workflow_run:
-    workflows: ['Continuous Integration']
-    types: [completed]
-    branches: [main]
+  # workflow_run:
+  #   workflows: ['Continuous Integration']
+  #   types: [completed]
+  #   branches: [main]
 concurrency:
   group: production-tag
   cancel-in-progress: true
