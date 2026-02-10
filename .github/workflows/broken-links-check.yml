@@ -40,6 +40,12 @@ jobs:
         run: |
           yarn set version 3.6.1
           HUSKY=0 yarn install --immutable
+
+      # This is necessary in order for fetch to work.
+      - name: Build proxy-fetcher dist
+        run: |
+          yarn tsc -b ./src/lib/drupal/createFetcherWithRetry.ts
+
       - name: Rebuild combined cert
         run: |
           yarn certs
