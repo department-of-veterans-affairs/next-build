@@ -1,5 +1,3 @@
-import { createFetcherWithRetry } from '../src/lib/drupal/createFetcherWithRetry'
-
 // Given an .xml file, extracts every string inside a <loc> element.
 function extractUrlsFromXML(xml) {
   return [...xml.matchAll(new RegExp(`<loc>(.|\n)*?</loc>`, 'g'))].map(
@@ -14,12 +12,11 @@ function extractUrlsFromXML(xml) {
 
 // Gets all URLs included in the output from `yarn build:sitemap` from all sitemaps
 export async function getSitemapLocations(baseUrl) {
-  const fetcher = createFetcherWithRetry()
   // handle trailing slash
   const base = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl
   const mainSitemapUrl = `${base}/sitemap_index.xml`
 
-  const response = await fetcher(mainSitemapUrl)
+  const response = await fetch(mainSitemapUrl)
 
   const xml = await response.text()
   const locs = []
@@ -29,7 +26,7 @@ export async function getSitemapLocations(baseUrl) {
   for (const url of urls) {
     // toplevel sitemap is an index of additional sitemaps
     if (url.endsWith('.xml')) {
-      const response = await fetcher(url)
+      const response = await fetch(url)
       const xml = await response.text()
       const urls = extractUrlsFromXML(xml)
       locs.push(urls)
