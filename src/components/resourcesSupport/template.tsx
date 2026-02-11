@@ -50,13 +50,13 @@ export const ResourcesSupport = ({
       data-resource-type="node--support_resources_detail_page"
     >
       <main className="va-l-detail-page">
-        <div className="usa-grid usa-grid-full">
-          <div className="usa-width-three-fourths">
-            <div className="usa-content">
+        <div className="vads-grid-container">
+          <div className="vads-grid-row">
+            <div className="vads-grid-col-9">
               <div data-widget-type="i18-select"></div>
 
               {/* Search Bar */}
-              <div className="medium-screen:vads-u-border-bottom--2px vads-u-border-color--gray-light medium-screen:vads-u-margin-bottom--3">
+              <div className="medium-screen:vads-u-border-bottom--2px vads-u-border-color--gray-light tablet:vads-u-margin-bottom--3">
                 {/* TODO: SearchBar */}
               </div>
 
@@ -110,9 +110,9 @@ export const ResourcesSupport = ({
         {/* Need more help? */}
         <ContactInfo {...contactInformation} />
 
-        <div className="usa-grid usa-grid-full">
-          <div className="usa-width-three-fourths">
-            <div className="usa-content">
+        <div className="vads-grid-container">
+          <div className="vads-grid-row">
+            <div className="vads-grid-col-9">
               <va-back-to-top></va-back-to-top>
               {/* Last updated & feedback button */}
               <ContentFooter lastUpdated={lastUpdated} />
