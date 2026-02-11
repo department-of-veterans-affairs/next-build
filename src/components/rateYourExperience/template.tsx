@@ -46,7 +46,7 @@ const SubmitButton = ({
 }) => (
   <div>
     <button
-      className={`usa-button usa-button-secondary vads-u-width--full medium-screen:vads-u-width--auto vads-u-margin--0 vads-u-margin-top--2p5 ${isActive ? '' : 'vads-u-display--none'}`}
+      className={`usa-button usa-button-secondary vads-u-width--full tablet:vads-u-width--auto vads-u-margin--0 vads-u-margin-top--2p5 ${isActive ? '' : 'vads-u-display--none'}`}
       aria-hidden={!isActive}
       id="rate-your-experience--rating-submit"
       type="submit"
