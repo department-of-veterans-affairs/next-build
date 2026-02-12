@@ -71,7 +71,7 @@ async function waitForReady(
   timeout: number
 ): Promise<void> {
   // Wait for network to be idle
-  await page.waitForLoadState('networkidle', { timeout })
+  await page.waitForLoadState('domcontentloaded', { timeout })
 
   // Wait for specific selector if configured
   if (pathConfig.waitForSelector) {
