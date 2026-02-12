@@ -1,0 +1,41 @@
+# Critical paths for VA.gov environment parity testing
+# These pages represent key user journeys and high-traffic areas
+
+# Homepage
+/
+
+# Find a form
+/forms/
+
+# Find a location
+/find-locations
+
+# Check your claim, decision review, or appeal status
+/claim-or-appeal-status/
+
+# Manage your health care with My HealtheVet
+/health-care/manage-health
+
+# Get travel pay reimbursement
+/health-care/get-reimbursed-for-travel-pay/
+
+# Review your payment history
+/va-payment-history/
+
+# Download your benefit letters
+/records/download-va-letters
+
+# Review your disability rating
+/disability/view-disability-rating
+
+# Manage health appointments
+/health-care/manage-appointments
+
+# Verify your school enrollment
+/education/verify-school-enrollment
+
+# Check your remaining GI Bill benefits
+/education/check-remaining-post-9-11-gi-bill-benefits
+
+# Review or update your dependents
+/view-change-dependents

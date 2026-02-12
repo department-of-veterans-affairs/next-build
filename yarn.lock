@@ -5759,6 +5759,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/debug@npm:^4.1.12":
+  version: 4.1.12
+  resolution: "@types/debug@npm:4.1.12"
+  dependencies:
+    "@types/ms": "*"
+  checksum: 47876a852de8240bfdaf7481357af2b88cb660d30c72e73789abf00c499d6bc7cd5e52f41c915d1b9cd8ec9fef5b05688d7b7aef17f7f272c2d04679508d1053
+  languageName: node
+  linkType: hard
+
 "@types/estree@npm:^1.0.6":
   version: 1.0.8
   resolution: "@types/estree@npm:1.0.8"
@@ -5870,6 +5879,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/ms@npm:*":
+  version: 2.1.0
+  resolution: "@types/ms@npm:2.1.0"
+  checksum: 532d2ebb91937ccc4a89389715e5b47d4c66e708d15942fe6cc25add6dc37b2be058230a327dd50f43f89b8b6d5d52b74685a9e8f70516edfc9bdd6be910eff4
+  languageName: node
+  linkType: hard
+
 "@types/mysql@npm:2.15.26":
   version: 2.15.26
   resolution: "@types/mysql@npm:2.15.26"
@@ -5934,6 +5950,15 @@ __metadata:
     pg-protocol: "*"
     pg-types: ^2.2.0
   checksum: a44710ff06e70f57685ddb88edbb93d4b46e03fed90619f09853ed3868ab28541c4da03eccf6b0b444a7566a0b3c56028543ced43554d51168ca3f8ae15e194f
+  languageName: node
+  linkType: hard
+
+"@types/pngjs@npm:^6.0.5":
+  version: 6.0.5
+  resolution: "@types/pngjs@npm:6.0.5"
+  dependencies:
+    "@types/node": "*"
+  checksum: 132fce25817d47a784ed48aa678332521b0f7e6edbaa76f3fa4e9ca1228078788ae712f99ad4d1a324d9ba0b14829958677eabf3ebef1fb6e120816f433f0cd8
   languageName: node
   linkType: hard
 
@@ -9333,6 +9358,23 @@ __metadata:
     debug: ^4.4.3
     dotenv: ^16.4.5
     dotenv-expand: ^12.0.3
+  languageName: unknown
+  linkType: soft
+
+"env-parity-testing@workspace:packages/env-parity-testing":
+  version: 0.0.0-use.local
+  resolution: "env-parity-testing@workspace:packages/env-parity-testing"
+  dependencies:
+    "@types/debug": ^4.1.12
+    "@types/pngjs": ^6.0.5
+    chalk: ^5.6.2
+    commander: ^14.0.3
+    debug: ^4.4.3
+    pixelmatch: ^7.1.0
+    playwright: ^1.58.1
+    pngjs: ^7.0.0
+  bin:
+    ept: ./bin/ept.js
   languageName: unknown
   linkType: soft
 
@@ -16187,6 +16229,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"pixelmatch@npm:^7.1.0":
+  version: 7.1.0
+  resolution: "pixelmatch@npm:7.1.0"
+  dependencies:
+    pngjs: ^7.0.0
+  bin:
+    pixelmatch: bin/pixelmatch
+  checksum: 0ad2e863e0e87ae52289c4366860a4040712a30a1e19c606745b9750b3ecda6f587dc959ce452818c50c7753ef6916f23026c14ef4d5f6c3b13c8205d61b923d
+  languageName: node
+  linkType: hard
+
 "pkce-challenge@npm:^5.0.0":
   version: 5.0.0
   resolution: "pkce-challenge@npm:5.0.0"
@@ -16212,6 +16265,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"playwright-core@npm:1.58.1":
+  version: 1.58.1
+  resolution: "playwright-core@npm:1.58.1"
+  bin:
+    playwright-core: cli.js
+  checksum: 8c74e1cb6f2fb5bec038704efd35332f99d6f6a239be5792fe23416575433ff52082a22295758783f1461a0a8dc87638ef9f6ecdb811dbcb4c850532ecdec359
+  languageName: node
+  linkType: hard
+
 "playwright@npm:1.57.0":
   version: 1.57.0
   resolution: "playwright@npm:1.57.0"
@@ -16224,6 +16286,21 @@ __metadata:
   bin:
     playwright: cli.js
   checksum: 176fd9fd890f390e0aa00d42697b70072d534243b15467d9430f3af329e77b3225b67a0afa12ea76fb440300dabd92d4cf040baf5edceee8eeff0ee1590ae5b7
+  languageName: node
+  linkType: hard
+
+"playwright@npm:^1.58.1":
+  version: 1.58.1
+  resolution: "playwright@npm:1.58.1"
+  dependencies:
+    fsevents: 2.3.2
+    playwright-core: 1.58.1
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  bin:
+    playwright: cli.js
+  checksum: 0dfcfded17a1bc9a0e48044582e31809c65c51c30b3c8cfd4dfd4e7ff3688065af2d071568095dd0aadbeca2eee82eccb91081f485e9fe2026994d3834216d86
   languageName: node
   linkType: hard
 
@@ -16242,6 +16319,13 @@ __metadata:
   bin:
     plop: bin/plop.js
   checksum: 609373d7df40cd19c77e1b8ef7708210f0ac8356b3ed9e2436ac7be6261620f46b976369c5e71dd1ad869115441a48550603744a541e724f95498846753ba1d0
+  languageName: node
+  linkType: hard
+
+"pngjs@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "pngjs@npm:7.0.0"
+  checksum: b19a018930d27de26229c1b3ff250b3a25d09caa22cbb0b0459987d91eb0a560a18ab5d67da45a38ed7514140f26d1db58de83c31159ec101f2bb270a3c707f1
   languageName: node
   linkType: hard
 
