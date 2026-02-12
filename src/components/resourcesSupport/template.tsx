@@ -56,7 +56,7 @@ export const ResourcesSupport = ({
               <div data-widget-type="i18-select"></div>
 
               {/* Search Bar */}
-              <div className="medium-screen:vads-u-border-bottom--2px vads-u-border-color--gray-light tablet:vads-u-margin-bottom--3">
+              <div className="tablet:vads-u-border-bottom--2px vads-u-border-color--gray-light tablet:vads-u-margin-bottom--3">
                 {/* TODO: SearchBar */}
               </div>
 
