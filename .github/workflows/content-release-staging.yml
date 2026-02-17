@@ -42,7 +42,7 @@ jobs:
         id: get-latest-tag
         if: github.event_name == 'schedule' || github.event.inputs.create_branch
         run: |
-          LATEST_TAG_VERSION=$(git fetch --all --tags > /dev/null && git tag -l --sort=-version:refname | head -1)
+          LATEST_TAG_VERSION=$(git tag -l --sort=-version:refname | head -1)
           echo "latest_tag_version=$LATEST_TAG_VERSION" >> $GITHUB_OUTPUT
       - name: Get next tag version
         id: get-next-tag
