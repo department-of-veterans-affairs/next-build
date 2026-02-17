@@ -110,6 +110,8 @@ import { VaForm } from '../components/vaForm/template'
 import { CampaignLandingPage } from '@/components/campaignLandingPage/template'
 import { OutreachHub } from '../components/outreachHub/template'
 import { OutreachMaterials } from '@/components/outreachMaterials/template'
+import { VetCenterOutstation } from '../components/vetCenterOutstation/template'
+import { VetCenterOutstation as FormattedVetCenterOutstation } from '../components/vetCenterOutstation/formatted-type'
 
 // IMPORTANT: in order for a content type to build in Next Build, it must have an appropriate
 // environment variable set in one of two places:
@@ -252,6 +254,11 @@ export default function ResourcePage({
           )}
           {resource.type === RESOURCE_TYPES.VET_CENTER && (
             <VetCenter {...(resource as FormattedVetCenter)} />
+          )}
+          {resource.type === RESOURCE_TYPES.VET_CENTER_OUTSTATION && (
+            <VetCenterOutstation
+              {...(resource as FormattedVetCenterOutstation)}
+            />
           )}
           {resource.type === RESOURCE_TYPES.VAMC_FACILITY && (
             <VamcFacility {...(resource as FormattedVamcFacility)} />
