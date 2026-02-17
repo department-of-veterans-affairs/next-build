@@ -135,7 +135,7 @@ export function VetCenterOutstation(
         <h2 id="in-the-spotlight" className="vads-u-margin-y--2">
           In the spotlight
         </h2>
-        <div className="vads-u-display--flex vads-u-flex-direction--column vads-u-justify-content--space-between medium-screen:vads-u-flex-direction--row vads-u-margin-bottom--4 ">
+        <div className="vads-u-display--flex vads-u-flex-direction--column vads-u-justify-content--space-between tablet:vads-u-flex-direction--row vads-u-margin-bottom--4 ">
           {featuredContent &&
             featuredContent.map((content, index) => (
               <FeaturedContent
