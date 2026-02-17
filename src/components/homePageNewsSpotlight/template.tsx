@@ -43,14 +43,14 @@ export function HomePageNewsSpotlight({
                 />
               </p>
 
-              <div>
+              <p>
                 <va-link
                   href="https://news.va.gov/"
                   text="More VA news"
                   active
                   reverse
                 ></va-link>
-              </div>
+              </p>
             </div>
           </div>
           {/* end second column */}
