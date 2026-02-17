@@ -29,7 +29,7 @@ Before pushing our updates to Production, we want to verify that the following i
   - If any issues are detected, CMS engineering support will be consulted to determine path of least resistance to unblock the deployment to production. (i.e. revert related PR or introduce quick fix)
   - If all critical URLs look good, CMS PM will reply to slack alert thread indicating that tests have passed and we can proceed with deployment to production.
 - CMS eng support will then manually kick off the deployment to production.
-  - Manual production deploy can be done by visiting the [Create Production Tag workflow](https://github.com/department-of-veterans-affairs/next-build/actions/workflows/production-tag.yml), selecting "Run workflow", and clicking the "Run Workflow" button. The branch value and checkbox can be left as-is.
+  - Manual production deploy can be done by visiting the [Releases page](https://github.com/department-of-veterans-affairs/next-build/releases), and drafting a new release based off of the branch just tested on stage.
 
 ## Phase 2 - Automated Smoke Test + Manual intervention as needed
 
