@@ -33,21 +33,21 @@ Next Build creates and deploys content changes to each of these environments. In
 
 Production is the environment the public interacts with. It must be well-tested and in a stable state.
 
-Next Build code on production is defined by a [release tag](). A release tag is created from a release branch which has been tested on the Staging environment.
+Next Build code on production is defined by a [release tag](https://github.com/department-of-veterans-affairs/next-build/tags). A release tag is created from a release branch which has been tested on the Staging environment.
 
 Production release tags are created and put into use once daily. The exact time will depend on length of testing on Staging. Generally new code will be put into use between 2:30 - 3:00 pm ET. Creation of release tags is subject to code freeze at holidays.
 
-Next Build on Production uses the Production CMS at https://prod.cms.va.gov/ as its content data source. Content changes are released to Production continually between 8:00 am - 8:00 pm ET, Monday - Friday. Content changes may be deployed outside that timeframe by certain content changes. Content release is _not_ subject to code freeze at holidays.
+Next Build on Production uses the Production CMS at https://prod.cms.va.gov/ as its content data source. Content changes are released to Production continually between 8:00 am - 8:00 pm ET, Monday - Friday. Content changes may be deployed outside that timeframe to publish time-sensitive content like facility situation updates and banners. Content release is _not_ subject to code freeze at holidays.
 
 The CMS feature toggles in use on Production match what is defined in the Production CMS. No feature toggle overrides are defined in code for the Production environment.
 
 ### Staging
 
-Staging is used for review of new code releases. It either matches Production or it contains code that is about to go to Production. Pre-deployment QA is done on Staging.
+Staging is used for review of new code releases. It either matches Production or it contains code that is about to go to Production. Pre-deployment [smoke test QA](https://github.com/department-of-veterans-affairs/next-build/blob/main/READMEs/smoke-tests.md) is done on Staging. Additionally, major feature launches may trigger additional QA.
 
-Additionally, Staging may be used for testing of Next Build that is sensitive to what kind of builds are deployed. Vets-website in particular builds a optimized and minified version of its code for its Staging deployments. It may be necessary to test Next Build performance on Staging, since the JavaScript is comparable to Production.
+Staging may also be used for testing of Next Build that requires a Production-like build. Vets-website in particular builds an optimized and minified version of its code for its Staging deployments. It may be necessary to test Next Build performance on Staging, since the JavaScript is comparable to Production.
 
-Staging code is defined by a [release branch]() created from the `main` branch in preparation for a Production deploy. The release branch is created as the first step of Production deploy.
+Staging code is defined by a [release branch](https://github.com/department-of-veterans-affairs/next-build/branches/all?query=release%2F) created from the `main` branch in preparation for a Production deploy. The release branch is created as the first step of Production deploy.
 
 Release branches are created at 2:00 pm ET each day and used to release content to Staging. This release is QA'd prior to Production deployment on Staging. Release branch creation is subject to code freeze.
 
