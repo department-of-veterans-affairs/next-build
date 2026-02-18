@@ -5,8 +5,8 @@
 // In preview mode, this appears just above the page's breadcrumbs.
 export const PreviewCrumb = ({ entityId }) => {
   return (
-    <div className="usa-grid-full">
-      <div className="usa-width-one-whole">
+    <div className="vads-grid-container">
+      <div className="vads-u-width--full">
         <div className="vads-u-margin-top--2">
           <a
             data-same-tab=""
@@ -38,7 +38,7 @@ export const UnpublishedBanner = ({ resource }) => {
 
   return (
     <div className="vads-u-background-color--primary-alt-lightest vads-u-padding--1">
-      <div className="vads-l-grid-container medium-screen:vads-u-padding-x--0">
+      <div className="vads-grid-container tablet:vads-u-padding-x--0">
         You are viewing {modState} revision of {resource?.entityPath}.
         <a
           data-same-tab=""
