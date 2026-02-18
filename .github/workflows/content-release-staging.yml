@@ -1,7 +1,7 @@
 name: "Content release: Staging"
 on:
   schedule:
-    - cron: '0 18 * * 1-5' # 2pm Eastern Time (18:00 UTC), Monday through Friday
+    - cron: '0 19 * * 1-5' # 2pm Eastern Time (19:00 UTC), Monday through Friday
   # Can be manually triggered
   workflow_dispatch:
     inputs:
