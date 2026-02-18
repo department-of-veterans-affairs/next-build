@@ -27,6 +27,7 @@ Before pushing our updates to Production, we want to verify that the following i
     - This will be a visual comparison to confirm that the pages load successfully and display the expected content.
     - **Out of scope:** These tests will not include testing functionality of each page. (i.e. broken links, accessibility)
   - If any issues are detected, CMS engineering support will be consulted to determine path of least resistance to unblock the deployment to production. (i.e. revert related PR or introduce quick fix)
+    - In some cases, content will be different between Staging and Production due to flipper feature toggles. This is expected and should not prevent Next Build deployment.
   - If all critical URLs look good, CMS PM will reply to slack alert thread indicating that tests have passed and we can proceed with deployment to production.
 - CMS eng support will then manually kick off the deployment to production.
   - Manual production deploy can be done by visiting the [Releases page](https://github.com/department-of-veterans-affairs/next-build/releases), and drafting a new release based off of the branch just tested on stage.
