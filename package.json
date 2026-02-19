@@ -73,7 +73,7 @@
     "linkinator": "^7.5.3",
     "lodash": "^4.17.23",
     "mq-polyfill": "^1.1.8",
-    "next": "15.5.11",
+    "next": "15.5.12",
     "next-drupal": "^2.0.0",
     "next-drupal-query": "^0.4.0",
     "next-sitemap": "^4.2.3",
