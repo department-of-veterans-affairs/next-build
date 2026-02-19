@@ -1,0 +1,5 @@
+# Build output
+dist/
+
+# Generated artifacts and reports
+artifacts/

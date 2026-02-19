@@ -20,7 +20,7 @@ const formatHealthServiceLocations = (
       .map((service) => ({
         id: service.drupal_internal__nid?.toString() || '',
         title: service.field_facility_location.title || '',
-        path: service.field_facility_location.path.alias || '',
+        path: service.field_facility_location.path?.alias || '',
         isMainLocation:
           service.field_facility_location.field_main_location || false,
         facilityClassification:

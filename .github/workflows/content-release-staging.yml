@@ -1,22 +1,155 @@
 name: "Content release: Staging"
 on:
+  schedule:
+    - cron: '0 19 * * 1-5' # 2pm Eastern Time (19:00 UTC), Monday through Friday
   # Can be manually triggered
   workflow_dispatch:
-  # Runs 5:35 am EDT Monday to Friday.
-  # This currently UTC -> EDT.
-  # schedule:
-  #   - cron: "35 9 * * 1-5"
-  # Runs on API call. Used for CMS-driven build triggers.
-  repository_dispatch:
-    types: [content-release-staging]
+    inputs:
+      create_branch:
+        description: 'Create release branch on manual run?'
+        required: false
+        default: false
+        type: boolean
 
 concurrency: next-build-content-release-staging
 
+env:
+  SLACK_CHANNEL: C06DSBT7CBW #status-next-build
+  DSVA_SCHEDULE_ENABLED: true
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 jobs:
+  create-stage-release-branch:
+    name: Create Stage release branch
+    runs-on: ubuntu-latest
+    outputs:
+      LATEST_TAG_VERSION: ${{ steps.get-latest-tag.outputs.latest_tag_version }}
+      NEW_BRANCH: ${{ steps.create-branch.outputs.new_branch }}
+    steps:
+      - name: Checkout main branch
+        if: github.event_name == 'schedule' || github.event.inputs.create_branch
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Git user
+        if: github.event_name == 'schedule' || github.event.inputs.create_branch
+        run: |
+          git config user.name "va-vsp-bot"
+          git config user.email "70344339+va-vsp-bot@users.noreply.github.com"
+  
+      - name: Get latest tag
+        id: get-latest-tag
+        if: github.event_name == 'schedule' || github.event.inputs.create_branch
+        run: |
+          LATEST_TAG_VERSION=$(git fetch --all --tags > /dev/null && git tag -l --sort=-version:refname | head -1)
+          echo "latest_tag_version=$LATEST_TAG_VERSION" >> $GITHUB_OUTPUT
+      - name: Get next tag version
+        id: get-next-tag
+        if: github.event_name == 'schedule' || github.event.inputs.create_branch
+        run: |
+          latest_tag="${{ steps.get-latest-tag.outputs.latest_tag_version }}"
+          next_increment=$(( $(echo "$latest_tag" | cut -d'.' -f3) + 1 ))
+          new_tag=$(echo "$latest_tag" | sed -E "s/\.[0-9]+/.$next_increment/2")
+          echo "new_tag=$new_tag" >> $GITHUB_OUTPUT
+
+      - name: Create new branch and push
+        id: create-branch
+        if: github.event_name == 'schedule' || github.event.inputs.create_branch
+        run: |
+          NEW_BRANCH=release/${{ steps.get-next-tag.outputs.new_tag }}
+          echo "new_branch=$NEW_BRANCH" >> $GITHUB_OUTPUT
+          # Check if branch exists remotely
+          if git ls-remote --exit-code --heads origin "$NEW_BRANCH"; then
+            echo "Branch $NEW_BRANCH already exists. Checking it out and updating with latest from main."
+            git fetch origin "$NEW_BRANCH"
+            git checkout "$NEW_BRANCH"
+            git fetch origin main
+            git merge --ff-only origin/main || {
+              echo "Fast-forward merge from main failed. Please resolve conflicts manually.";
+              exit 1;
+            }
+            git push origin "$NEW_BRANCH"
+          else
+            echo "Branch $NEW_BRANCH does not exist. Creating it."
+            git checkout -b "$NEW_BRANCH"
+            git push origin "$NEW_BRANCH"
+          fi
+
+      - name: No new branch for manual run
+        if: github.event_name == 'workflow_dispatch' && github.event.inputs.create_branch != true
+        run: |
+          echo "Not creating a new branch for manual run."
+
   content-release-staging:
-    # This job should run for any valid event besides workflow_run, or workflow_run if the conclusion was successful.
-    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
-    uses: department-of-veterans-affairs/next-build/.github/workflows/content-release.yml@main
+    # This job runs for scheduled and manually triggered (workflow_dispatch) events.
+    needs: create-stage-release-branch
+    uses: ./.github/workflows/content-release.yml
     with:
       build_type: "staging"
+      branch: ${{ needs.create-stage-release-branch.outputs.NEW_BRANCH || github.ref_name }}
     secrets: inherit
+  
+  notify-success:
+    name: Notify Success
+    runs-on: ubuntu-latest
+    needs: [content-release-staging, create-stage-release-branch]
+    if: github.event_name == 'schedule' || github.event.inputs.create_branch
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@0c366fd6a839edf440554fa01a7085ccba70ac98 # v4.1.1
+
+      - name: Notify Slack
+        uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4 # main
+        continue-on-error: true
+        with:
+          payload: '{"attachments": [{"color": "#07711E","blocks": [{"type": "section","text": {"type": "mrkdwn","text": 
+            "@next-build-team Successfully released ${{ needs.create-stage-release-branch.outputs.NEW_BRANCH }} branch on https://staging.va.gov \n
+            Please review changes to be released: <https://github.com/department-of-veterans-affairs/next-build/compare/${{ needs.create-stage-release-branch.outputs.LATEST_TAG_VERSION }}...${{ needs.create-stage-release-branch.outputs.NEW_BRANCH }}|${{ needs.create-stage-release-branch.outputs.LATEST_TAG_VERSION }}...${{ needs.create-stage-release-branch.outputs.NEW_BRANCH }}>\n
+            Please review these URLS\n 
+            <https://staging.va.gov/|Homepage>\n
+            <https://staging.va.gov/forms/|Find a form>\n
+            <https://staging.va.gov/find-locations/|Find a location>\n
+            <https://staging.va.gov/claim-or-appeal-status/|Check your claim, decision review, or appeal status>\n
+            <https://staging.va.gov/health-care/manage-health/|Manage your health care with My HealtheVet>\n
+            <https://staging.va.gov/health-care/get-reimbursed-for-travel-pay/|Get travel pay reimbursement>\n
+            <https://staging.va.gov/va-payment-history/|Review your payment history>\n
+            <https://staging.va.gov/records/download-va-letters/|Download your benefit letters>\n
+            <https://staging.va.gov/disability/view-disability-rating/|Review your disability rating>\n
+            <https://staging.va.gov/health-care/manage-appointments/|Manage health appointments>\n
+            <https://staging.va.gov/education/verify-school-enrollment/|Verify your school enrollment>\n
+            <https://staging.va.gov/education/check-remaining-post-9-11-gi-bill-benefits/|Check your remaining GI Bill benefits>\n
+            <https://staging.va.gov/view-change-dependents/|Review or update your dependents>\n"}}]}]}'
+          channel_id: ${{ env.SLACK_CHANNEL }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+  notify-failure:
+    name: Notify Failure
+    runs-on: ubuntu-latest
+    if: ${{ (failure() || cancelled()) && (github.event_name == 'schedule' || github.event.inputs.create_branch) }}
+    needs: [content-release-staging, create-stage-release-branch]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@0c366fd6a839edf440554fa01a7085ccba70ac98 # v4.1.1
+
+      - name: Notify Slack (create-branch failure)
+        if: ${{ failure() && needs.create-stage-release-branch.result == 'failure' }}
+        uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4 # main
+        continue-on-error: true
+        with:
+          payload: '{"attachments": [{"color": "#D33834","blocks": [{"type": "section","text": {"type": "mrkdwn","text": "><!subteam^S09760WRN3T|cms-troubleshooting> Failed to create the release branch in the content release workflow. See <https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}> for details."}}]}]}'
+          channel_id: ${{ env.SLACK_CHANNEL }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+      - name: Notify Slack (content-release-staging failure)
+        if: ${{ failure() && needs.content-release-staging.result == 'failure' }}
+        uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4 # main
+        continue-on-error: true
+        with:
+          payload: '{"attachments": [{"color": "#D33834","blocks": [{"type": "section","text": {"type": "mrkdwn","text": "><!subteam^S09760WRN3T|cms-troubleshooting> There was a problem releasing ${{ needs.create-stage-release-branch.outputs.NEW_BRANCH }} branch to stage: <https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}>}"}}]}]}'
+          channel_id: ${{ env.SLACK_CHANNEL }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
