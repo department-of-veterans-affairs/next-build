@@ -50,69 +50,65 @@ export const ResourcesSupport = ({
       data-resource-type="node--support_resources_detail_page"
     >
       <main className="va-l-detail-page">
-        <div className="usa-grid usa-grid-full">
-          <div className="usa-width-three-fourths">
-            <div className="usa-content">
-              <div data-widget-type="i18-select"></div>
+        <div className="vads-grid-container">
+          <div data-widget-type="i18-select"></div>
 
-              {/* Search Bar */}
-              <div className="medium-screen:vads-u-border-bottom--2px vads-u-border-color--gray-light medium-screen:vads-u-margin-bottom--3">
-                {/* TODO: SearchBar */}
-              </div>
-
-              <article className="usa-content vads-u-padding-x--1 desktop-lg:vads-u-padding-x--0">
-                <h1>{title}</h1>
-
-                {/* Intro */}
-                <div
-                  className="va-introtext"
-                  dangerouslySetInnerHTML={{ __html: intro }}
-                ></div>
-
-                {/* Alert */}
-                {alert && <AlertSingle {...alert} />}
-
-                {/* Buttons */}
-                {buttons && <Buttons buttons={buttons} />}
-
-                {/* Table of Contents */}
-                {toc && (
-                  <va-on-this-page className="vads-u-margin-left--1 vads-u-margin-bottom--0 vads-u-padding-bottom--0"></va-on-this-page>
-                )}
-
-                {/* Main Content */}
-                {/* Note: eventually this key can just be `pargraph.id`, but only once we implement all paragraph types for this resource*/}
-                {mainContent.map((paragraph, index) => (
-                  <Paragraph key={paragraph?.id || index} {...paragraph} />
-                ))}
-
-                {/* Repeated buttons */}
-                {buttons && repeatButtons && (
-                  <Buttons buttons={buttons} margin="top" />
-                )}
-              </article>
-
-              {/* Tags */}
-              {tags && <AudienceTopics {...tags} />}
-
-              {/* How do you rate? */}
-              <RateYourExperience />
-
-              {/* Related information */}
-              {/* {% include "src/site/includes/related-information.drupal.liquid" with fieldRelatedInformation = fieldRelatedInformation %} */}
-
-              {/* VA benefits */}
-              <BenefitsHubLinks title="VA benefits" links={benefitsHubLinks} />
-            </div>
+          {/* Search Bar */}
+          <div className="tablet:vads-u-border-bottom--2px vads-u-border-color--gray-light tablet:vads-u-margin-bottom--3">
+            {/* TODO: SearchBar */}
           </div>
+
+          <article className="usa-content vads-u-padding-x--1 desktop-lg:vads-u-padding-x--0">
+            <h1>{title}</h1>
+
+            {/* Intro */}
+            <div
+              className="va-introtext"
+              dangerouslySetInnerHTML={{ __html: intro }}
+            ></div>
+
+            {/* Alert */}
+            {alert && <AlertSingle {...alert} />}
+
+            {/* Buttons */}
+            {buttons && <Buttons buttons={buttons} />}
+
+            {/* Table of Contents */}
+            {toc && (
+              <va-on-this-page className="vads-u-margin-left--1 vads-u-margin-bottom--0 vads-u-padding-bottom--0"></va-on-this-page>
+            )}
+
+            {/* Main Content */}
+            {/* Note: eventually this key can just be `pargraph.id`, but only once we implement all paragraph types for this resource*/}
+            {mainContent.map((paragraph, index) => (
+              <Paragraph key={paragraph?.id || index} {...paragraph} />
+            ))}
+
+            {/* Repeated buttons */}
+            {buttons && repeatButtons && (
+              <Buttons buttons={buttons} margin="top" />
+            )}
+          </article>
+
+          {/* Tags */}
+          {tags && <AudienceTopics {...tags} />}
+
+          {/* How do you rate? */}
+          <RateYourExperience />
+
+          {/* Related information */}
+          {/* {% include "src/site/includes/related-information.drupal.liquid" with fieldRelatedInformation = fieldRelatedInformation %} */}
+
+          {/* VA benefits */}
+          <BenefitsHubLinks title="VA benefits" links={benefitsHubLinks} />
         </div>
 
         {/* Need more help? */}
         <ContactInfo {...contactInformation} />
 
-        <div className="usa-grid usa-grid-full">
-          <div className="usa-width-three-fourths">
-            <div className="usa-content">
+        <div className="vads-grid-container">
+          <div className="vads-grid-row">
+            <div className="vads-grid-col-9">
               <va-back-to-top></va-back-to-top>
               {/* Last updated & feedback button */}
               <ContentFooter lastUpdated={lastUpdated} />
