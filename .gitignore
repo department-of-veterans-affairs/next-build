@@ -1,7 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
+node_modules
 /.pnp
 .pnp.js
 .pnp.cjs
@@ -75,3 +75,9 @@ exit_code
 
 # logs
 logs/
+
+# link checker
+urls.txt
+lychee-pages/*
+lychee-pages-combined.*
+

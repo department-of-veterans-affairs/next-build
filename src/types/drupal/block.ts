@@ -1,11 +1,13 @@
 import { DrupalBlock } from 'next-drupal'
 import { DrupalMediaImage } from './media'
 import {
+  ParagraphButton,
   ParagraphExpandableText,
   ParagraphLinkTeaser,
   ParagraphWysiwyg,
 } from './paragraph'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
+import { FieldLink } from './field_type'
 
 /** Union of all block content types.  */
 export type BlockContentTypes = BlockAlert | BlockPromo
@@ -17,13 +19,16 @@ export const enum BlockContentResourceType {
 }
 
 export interface BlockAlert extends DrupalBlock {
+  type: 'block_content--alert'
   field_alert_title: string
-  field_alert_type: string
+  /** The "severity" of the alert. What are the other options? */
+  field_alert_type: 'info' | 'warning' | string
   field_reusability: string
   field_alert_content: ParagraphExpandableText | ParagraphWysiwyg
 }
 
 export interface BlockPromo extends DrupalBlock {
+  type: 'block_content--promo'
   field_image: DrupalMediaImage
   field_promo_link: ParagraphLinkTeaser
 }
@@ -72,4 +77,16 @@ export interface BlockContentMetaOut {
     }: BlockContentProps) => React.JSX.Element
     params?: DrupalJsonApiParams
   }
+}
+
+export interface BlockBenefitPromo extends DrupalBlock {
+  field_promo_headline: string
+  field_promo_text: string
+  field_promo_cta: ParagraphButton
+}
+export interface BlockCtaWithLink extends DrupalBlock {
+  field_cta_summary_text: string
+  field_primary_cta_button_text: string
+  field_primary_cta_button_url: FieldLink
+  field_related_info_links: FieldLink[]
 }

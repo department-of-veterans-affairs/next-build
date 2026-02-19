@@ -9,7 +9,11 @@ import {
   FieldTable,
   FieldDateTimeRange,
 } from './field_type'
-import { DrupalMediaImage } from './media'
+import {
+  DrupalMediaImage,
+  DrupalMediaDocument,
+  DrupalMediaVideo,
+} from './media'
 import { NodeLandingPage, NodePersonProfile, NodeSupportService } from './node'
 import {
   TaxonomyTermAudienceBeneficiaries,
@@ -27,13 +31,16 @@ export type ParagraphTypes =
   | ParagraphCollapsiblePanel
   | ParagraphCollapsiblePanelItem
   | ParagraphContactInformation
+  | ParagraphDownloadableFile
   | ParagraphEmailContact
   | ParagraphExpandableText
   | ParagraphFeaturedContent
   | ParagraphHealthCareLocalFacilityService
   | ParagraphLinkTeaser
+  | ParagraphLinkTeaserWithImage
   | ParagraphListOfLinks
   | ParagraphListOfLinkTeasers
+  | ParagraphMedia
   | ParagraphNonReusableAlert
   | ParagraphNumberCallout
   | ParagraphPhoneNumber
@@ -46,6 +53,7 @@ export type ParagraphTypes =
   | ParagraphServiceLocation
   | ParagraphServiceLocationAddress
   | ParagraphSituationUpdate
+  | ParagraphSpanishTranslationSummary
   | ParagraphStaffProfile
   | ParagraphStep
   | ParagraphStepByStep
@@ -69,8 +77,8 @@ export interface ParagraphAlert extends DrupalParagraph {
 export interface ParagraphAlertSingle extends DrupalParagraph {
   type: 'paragraph--alert_single'
   field_alert_selection: string
-  field_alert_block_reference: BlockAlert
-  field_alert_non_reusable_ref: ParagraphNonReusableAlert
+  field_alert_block_reference: BlockAlert | null
+  field_alert_non_reusable_ref: ParagraphNonReusableAlert | null
 }
 
 export interface ParagraphAudienceTopics extends DrupalParagraph {
@@ -90,9 +98,11 @@ export interface ParagraphButton extends DrupalParagraph {
 export interface ParagraphCollapsiblePanel extends DrupalParagraph {
   type: 'paragraph--collapsible_panel'
   field_collapsible_panel_bordered: boolean
-  field_collapsible_panel_expand: boolean
-  field_collapsible_panel_multi: boolean
   field_va_paragraphs: ParagraphCollapsiblePanelItem[]
+
+  // Editors don't have control over these fields, so we don't use them
+  // field_collapsible_panel_expand: boolean
+  // field_collapsible_panel_multi: boolean
 }
 
 export interface ParagraphCollapsiblePanelItem extends DrupalParagraph {
@@ -108,6 +118,13 @@ export interface ParagraphContactInformation extends DrupalParagraph {
   field_additional_contact: ParagraphEmailContact | ParagraphPhoneNumber
   field_benefit_hub_contacts: NodeLandingPage
   field_contact_default: NodeSupportService
+}
+
+export interface ParagraphDownloadableFile extends DrupalParagraph {
+  type: 'paragraph--downloadable_file'
+  field_title: string
+  field_markup: string | null
+  field_media: DrupalMediaImage | DrupalMediaDocument | DrupalMediaVideo
 }
 
 export interface ParagraphEmailContact extends DrupalParagraph {
@@ -160,6 +177,12 @@ export interface ParagraphLinkTeaser extends DrupalParagraph {
   field_link_summary: string
 }
 
+export interface ParagraphLinkTeaserWithImage extends DrupalParagraph {
+  type: 'paragraph--link_teaser_with_image'
+  field_link_teaser: ParagraphLinkTeaser
+  field_media: DrupalMediaImage
+}
+
 export interface ParagraphListOfLinkTeasers extends DrupalParagraph {
   type: 'paragraph--list_of_link_teasers'
   field_title: string
@@ -171,6 +194,11 @@ export interface ParagraphListOfLinks extends DrupalParagraph {
   field_link: FieldLink
   field_links: FieldLink[]
   field_section_header: string
+}
+
+export interface ParagraphMedia extends DrupalParagraph {
+  type: 'paragraph--media'
+  field_media: DrupalMediaImage
 }
 
 export interface ParagraphNonReusableAlert extends DrupalParagraph {
@@ -210,6 +238,7 @@ export interface ParagraphQaGroup extends DrupalParagraph {
   field_accordion_display: boolean
   field_q_as: ParagraphSectionQas[]
   field_section_header: string
+  field_rich_wysiwyg: FieldFormattedText | null
 }
 
 export interface ParagraphSectionQas extends DrupalNode {
@@ -326,4 +355,14 @@ export interface ParagraphSituationUpdate extends DrupalParagraph {
   field_datetime_range_timezone: FieldDateTimeRange
   field_wysiwyg: FieldFormattedText
   field_send_email_to_subscribers: boolean
+}
+
+/**
+ * Note that this is not primarily used for Spanish translation on VA.gov but instead
+ * for expandable blocks of additional information.
+ */
+export interface ParagraphSpanishTranslationSummary extends DrupalParagraph {
+  type: 'paragraph--spanish_translation_summary'
+  field_wysiwyg: FieldFormattedText
+  field_text_expander: string
 }

@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react'
+import { axe } from '@/test-utils'
 import { MediaImage } from '@/components/mediaDocument/formatted-type'
 import { NewsStory } from './template'
 
@@ -25,8 +26,8 @@ const data = {
   id: 'a1b2c3',
   published: true,
   breadcrumbs: [
-    { title: 'Home', uri: '/', options: [] },
-    { title: 'News', uri: '/news', options: [] },
+    { label: 'Home', href: '/', options: [] },
+    { label: 'News', href: '/news', options: [] },
   ],
   type: 'node--news_story',
   title: 'We honor outstanding doctors\n',
@@ -84,7 +85,7 @@ describe('<newsStory> with valid data', () => {
   afterEach(() => {
     spy.mockRestore()
   })
-  test('renders component', () => {
+  test('renders component', async () => {
     const { container } = render(<NewsStory {...data} />)
     const imgEl = container.querySelector('img')
     expect(imgEl).toBeTruthy()
@@ -92,6 +93,9 @@ describe('<newsStory> with valid data', () => {
       screen.queryByText(/We honor outstanding doctors/)
     ).toBeInTheDocument()
     expect(screen.queryByText(/Keith Gottschalk/)).toBeInTheDocument()
+
+    const axeResults = await axe(container)
+    expect(axeResults).toHaveNoViolations()
   })
 
   test('renders component without image', () => {

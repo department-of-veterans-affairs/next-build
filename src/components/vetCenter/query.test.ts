@@ -10,16 +10,18 @@ import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 const mockBannerMediaQuery = jest.fn()
 const mockVetCenterQuery = jest.fn()
 
-jest.mock('@/lib/drupal/query', () => ({
-  ...jest.requireActual('@/lib/drupal/query'),
-  fetchSingleEntityOrPreview: (...args) => mockVetCenterQuery(...args),
-  fetchAndConcatAllResourceCollectionPages: (nodeType: string) => {
-    if (nodeType === 'media--image') {
-      return mockBannerMediaQuery()
-    }
-    return { data: [] }
-  },
-}))
+jest.mock('@/lib/drupal/query')
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const mockDrupalQuery = require('@/lib/drupal/query')
+
+mockDrupalQuery.setSingleEntityMock(
+  RESOURCE_TYPES.VET_CENTER,
+  mockVetCenterQuery
+)
+mockDrupalQuery.setResourceCollectionMock(
+  RESOURCE_TYPES.MEDIA_IMAGE,
+  mockBannerMediaQuery
+)
 
 function getData() {
   return queries.getData(RESOURCE_TYPES.VET_CENTER, {

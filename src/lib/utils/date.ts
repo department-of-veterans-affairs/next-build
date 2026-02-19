@@ -172,7 +172,11 @@ export function getDateParts(
   }
 }
 
-export const formatDateObject = (datetimeRange) => {
+export const formatDateObject = <
+  T extends Pick<FieldDateTimeRange, 'value' | 'end_value'>,
+>(
+  datetimeRange: T[]
+) => {
   if (!datetimeRange) return []
 
   return datetimeRange.map((dateObject) => {
@@ -257,6 +261,7 @@ export const deriveFormattedTimestamp = (datetime) => {
   return reformatTime(formattedTime)
 }
 
+import { FieldDateTimeRange } from '@/types/drupal/field_type'
 import { formatInTimeZone } from 'date-fns-tz'
 /**
  * Represents a time range for events or appointments using Unix timestamps.
@@ -305,12 +310,19 @@ const getTimeZoneAbbreviation = (timeZone: string): string => {
 /**
  * Formats date range according to VA.gov standards
  * and if international displays event timezone
- * US: "Thu. May 4, 2023, 12:00 pm – 2:00 pm ET"
- * @see https://design.va.gov/content-style-guide/dates-and-times
+ * Default (US): "Thu. May 4, 2023, 12:00 pm – 2:00 pm ET"
+ * @see https://design.va.gov/content-style-guide/dates-and-numbers
  * @param mostRecentDate - Event time range with optional timezone
+ * @param opts - Custom options
  * @returns Formatted date string or error message if invalid
  */
-export const formatEventDateTime = (mostRecentDate: DateTimeRange | null) => {
+export const formatEventDateTime = <T = string>(
+  mostRecentDate: DateTimeRange | null,
+  opts?: {
+    fullEndDate?: boolean
+    format?: (segments: { start: string; end: string; tz: string }) => T
+  }
+): T | string => {
   if (!mostRecentDate) return 'No event data'
 
   const startsAtUnix = mostRecentDate.value
@@ -322,13 +334,15 @@ export const formatEventDateTime = (mostRecentDate: DateTimeRange | null) => {
   const eventTimeZone = mostRecentDate.timezone || 'UTC'
   const targetTimeZone = isUserInUS ? userTimeZone : eventTimeZone
 
+  const fullDateFormat = 'EEE. MMM d, yyyy, h:mm aaaa'
+
   // Format start and end times in target timezone
   const formattedStartsAt =
     startsAtUnix && startsAtUnix > 0
       ? formatInTimeZone(
           new Date(startsAtUnix * 1000),
           targetTimeZone,
-          'EEE. MMM d, yyyy, h:mm aaaa'
+          fullDateFormat
         )
       : 'Invalid date'
 
@@ -337,12 +351,20 @@ export const formatEventDateTime = (mostRecentDate: DateTimeRange | null) => {
       ? formatInTimeZone(
           new Date(endsAtUnix * 1000),
           targetTimeZone,
-          'h:mm aaaa'
+          opts?.fullEndDate ? fullDateFormat : 'h:mm aaaa'
         )
       : 'Invalid date'
 
   //timezone abbreviation for the displayed time
   const endsAtTimezone = getTimeZoneAbbreviation(targetTimeZone)
+
+  if (opts?.format) {
+    return opts.format({
+      start: formattedStartsAt,
+      end: formattedEndsAt,
+      tz: endsAtTimezone,
+    })
+  }
 
   return `${formattedStartsAt} – ${formattedEndsAt} ${endsAtTimezone}`
 }

@@ -1,0 +1,138 @@
+/**
+ * @jest-environment node
+ */
+
+import { NodeCampaignLandingPage } from '@/types/drupal/node'
+import { queries } from '@/lib/drupal/queries'
+import mockData from './mock.json'
+
+const campaignLandingPageMock = mockData as unknown as NodeCampaignLandingPage
+
+import { CampaignLandingPage as FormattedCampaignLandingPage } from './formatted-type'
+import { BlockPromo } from '@/types/drupal/block'
+
+describe('DrupalJsonApiParams configuration', () => {
+  test('params function sets the correct include fields', () => {
+    // TODO
+  })
+})
+
+describe('CampaignLandingPage formatData', () => {
+  let data: FormattedCampaignLandingPage | undefined
+
+  beforeEach(() => {
+    data = queries.formatData(
+      'node--campaign_landing_page',
+      campaignLandingPageMock
+    )
+  })
+
+  test('outputs formatted data', () => {
+    expect(data).toMatchSnapshot()
+  })
+
+  test('has null breadcrumb (hidden)', () => {
+    expect(data.breadcrumbs).toBe(null)
+  })
+
+  test('outputs correct hero info', () => {
+    expect(data.hero.blurb).toBe(
+      'This page will help answer your questions about the PACT Act and what it means for survivors.'
+    )
+    expect(data.hero.image.links.large.href).toBe(
+      'https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/large/public/2021-03/Listening-Session-Website-Graphic-730x370.jpg'
+    )
+  })
+
+  test('outputs correct cta links', () => {
+    expect(data.cta.primary.href).toBe(
+      'https://www.va.gov/disability/file-disability-claim-form-21-526ez/'
+    )
+    expect(data.cta.primary.label).toBe('File a disability claim online')
+
+    expect(data.cta.secondary.href).toBe(
+      '/resources/support-for-common-logingov-and-idme-issues'
+    )
+    expect(data.cta.secondary.label).toBe('Get support for common issues')
+  })
+
+  test('outputs correct why-this-matters', () => {
+    expect(data.whyThisMatters).toBe('Example why it matters')
+  })
+
+  test('outputs audiences', () => {
+    expect(data.audience.length).toBe(1)
+    expect(data.audience[0].name).toBe('All Veterans')
+  })
+
+  test('outputs social links', () => {
+    expect(data.socialLinks.length).toBe(2)
+
+    const [fb, x] = data.socialLinks
+
+    expect(fb.icon).toBe('facebook')
+    expect(fb.href).toBe(
+      `https://www.facebook.com/sharer/sharer.php?href=${process.env.SITE_URL}/initiatives/pact-act-and-survivors`
+    )
+    expect(fb.text).toBe('Share on Facebook')
+
+    expect(x.icon).toBe('x')
+    expect(x.href).toBe(
+      `https://twitter.com/intent/tweet?text=PACT Act and survivors&url=${process.env.SITE_URL}/initiatives/pact-act-and-survivors`
+    )
+    expect(x.text).toBe('Share on X (formerly Twitter)')
+  })
+
+  test('filters out promos with missing link or image', () => {
+    const withoutPromoLink = queries.formatData('node--campaign_landing_page', {
+      ...campaignLandingPageMock,
+      field_clp_what_you_can_do_promos: [
+        ...campaignLandingPageMock.field_clp_what_you_can_do_promos,
+        { field_image: { image: {} } } as BlockPromo,
+      ],
+    })
+    expect(withoutPromoLink.whatYouCanDo.promos.length).toBe(1)
+
+    const withoutImage = queries.formatData('node--campaign_landing_page', {
+      ...campaignLandingPageMock,
+      field_clp_what_you_can_do_promos: [
+        ...campaignLandingPageMock.field_clp_what_you_can_do_promos,
+        { field_promo_link: {} } as BlockPromo,
+      ],
+    })
+    expect(withoutImage.whatYouCanDo.promos.length).toBe(1)
+
+    const withBoth = queries.formatData('node--campaign_landing_page', {
+      ...campaignLandingPageMock,
+      field_clp_what_you_can_do_promos: [
+        ...campaignLandingPageMock.field_clp_what_you_can_do_promos,
+        { field_promo_link: {}, field_image: { image: {} } } as BlockPromo,
+      ],
+    })
+    expect(withBoth.whatYouCanDo.promos.length).toBe(2)
+  })
+
+  test('stories cta label is title when non-empty or else "See more stories"', () => {
+    const makeDataWithStoriesCtaTitle = (title: string | null | undefined) => {
+      return queries.formatData('node--campaign_landing_page', {
+        ...campaignLandingPageMock,
+        field_clp_stories_cta: {
+          ...campaignLandingPageMock.field_clp_stories_cta,
+          title,
+        },
+      })
+    }
+
+    const withTitle = makeDataWithStoriesCtaTitle('specific test title')
+    expect(withTitle.stories.cta.label).toBe('specific test title')
+
+    const withEmpty = makeDataWithStoriesCtaTitle('')
+    expect(withEmpty.stories.cta.label).toBe('See more stories')
+
+    const withNull = makeDataWithStoriesCtaTitle(null)
+    expect(withNull.stories.cta.label).toBe('See more stories')
+
+    const withUndefined = makeDataWithStoriesCtaTitle(undefined)
+    expect(withUndefined.stories.cta.label).toBe('See more stories')
+  })
+})

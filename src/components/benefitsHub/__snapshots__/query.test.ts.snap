@@ -1,0 +1,108 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`BenefitHubLanding formatData outputs formatted data 1`] = `
+{
+  "alert": {
+    "alertType": "info",
+    "content": {
+      "entityId": 7117,
+      "header": "Find out how to get support anytime, day or night",
+      "id": "5f530160-a26b-4ed1-8900-552df2d6f611",
+      "text": "<p>If you’re concerned about a Veteran in crisis, connect with our caring, qualified Veterans Crisis Line responders for confidential help. Many of them are Veterans themselves. This service is private, free, and available 24/7.</p><p><strong>To connect with a Veterans Crisis Line responder anytime, day or night:</strong></p><ul><li>Call <a href="tel:988" aria-label="9 8 8.">988</a></li><li>Text <a href="sms:838255">838255</a></li><li><a href="https://www.veteranscrisisline.net/ChatTermsOfService.aspx?account=Veterans%20Chat">Start a confidential chat</a></li><li>For TTY, call <a href="tel:988" aria-label="7 1 1.">711</a> then <a href="tel:988" aria-label="9 8 8.">988</a></li></ul><p><strong>If you</strong>’<strong>re concerned about a Veteran who</strong>’<strong>s homeless or at risk of becoming homeless</strong></p><p>Call the National Call Center for Homeless Veterans at <a href="tel:+18774243838">877-424-3838</a> for help 24 hours a day, 7 days a week. You or the Veteran can talk privately with a trained VA counselor for free.</p>",
+      "type": "paragraph--expandable_text",
+    },
+    "id": "e0a2bc31-b671-4f12-8423-e150d40852f2",
+    "title": "How do I get help for a Veteran who’s in crisis?",
+  },
+  "breadcrumbs": [
+    {
+      "href": "/",
+      "label": "Home",
+      "options": [],
+    },
+    {
+      "href": "",
+      "label": "VA health care",
+      "options": [],
+    },
+  ],
+  "connectWithUs": {
+    "field_email_updates_link": {
+      "options": [],
+      "title": "Veterans Affairs Email Updates",
+      "uri": "https://public.govdelivery.com/accounts/USVA/subscriber/new/",
+      "url": "https://public.govdelivery.com/accounts/USVA/subscriber/new/",
+    },
+    "field_social_media_links": {
+      "platform": null,
+      "platform_values": {
+        "facebook": {
+          "value": "VeteransAffairs",
+        },
+        "instagram": {
+          "value": "deptvetaffairs",
+        },
+        "linkedin": {
+          "value": "",
+        },
+        "twitter": {
+          "value": "DeptVetAffairs",
+        },
+        "youtube": {
+          "value": "DeptVetAffairs",
+        },
+      },
+      "value": null,
+    },
+    "id": "1413f4e9-053f-46a4-907f-030ddf93b45c",
+    "type": "block_content--connect_with_us",
+  },
+  "entityId": 67,
+  "entityPath": "/health-care",
+  "fieldLinks": null,
+  "hubLabel": "Health care",
+  "id": "fd822f25-788f-489c-a0fc-b1f7ad6c20d5",
+  "intro": "With a VA health care plan, you're covered for regular checkups with your primary care provider and appointments with specialists (like cardiologists, gynecologists, and mental health providers).",
+  "lastUpdated": "2023-12-01T12:00:00+00:00",
+  "metatags": [],
+  "moderationState": "published",
+  "promo": {
+    "description": "Find out how to get the support you need to care for a Veteran.",
+    "id": 25,
+    "img": {
+      "alt": "Family",
+      "src": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2019-09/family-caregiver.png",
+    },
+    "link": {
+      "href": "https://www.caregiver.va.gov/",
+      "text": "VA Caregiver Support Program",
+    },
+  },
+  "published": true,
+  "relatedLinks": null,
+  "spokes": [],
+  "supportServices": [
+    {
+      "id": "8b8a00fd-cd76-40ce-97ed-521cb3df5519",
+      "link": {
+        "options": {
+          "data-entity-substitution": "",
+          "data-entity-type": "",
+          "data-entity-uuid": "",
+          "href": "tel:1-855-260-3274",
+        },
+        "title": "",
+        "uri": "tel:1-855-260-3274",
+        "url": "tel:1-855-260-3274",
+      },
+      "number": "855-260-3274",
+      "title": "Caregiver support line:",
+      "type": "node--support_service",
+    },
+  ],
+  "teaserText": "Apply for and manage VA health care benefits",
+  "title": "VA health care",
+  "titleIcon": "",
+  "type": "node--landing_page",
+}
+`;

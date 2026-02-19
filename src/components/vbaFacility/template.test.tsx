@@ -1,10 +1,14 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
+import { axe } from '@/test-utils'
 import { VbaFacility } from './template'
 import mockData from '@/components/vbaFacility/mock.json'
 import mockServiceData from './vbaFacilityService.mock.json'
 import { formatter } from './query'
 import { NodeVbaFacility, NodeVbaService } from '@/types/drupal/node'
+
+// Import the loader to register web components
+import { defineCustomElements } from '@department-of-veterans-affairs/web-components/loader'
 
 describe('VbaFacility with valid data', () => {
   const mockWithService = {
@@ -13,46 +17,85 @@ describe('VbaFacility with valid data', () => {
       { ...(mockServiceData as NodeVbaService), field_office: mockData },
     ],
   }
+  const mockManilaService = {
+    entity: {
+      ...mockData,
+      field_facility_locator_api_id: 'vba_358',
+    } as NodeVbaFacility,
+    services: [
+      {
+        ...(mockServiceData as NodeVbaService),
+        field_office: { ...mockData, field_facility_locator_api_id: 'vba_358' },
+      },
+    ],
+  }
   const formattedMockData = formatter(mockWithService)
-  test('renders VbaFacility component', () => {
-    render(<VbaFacility {...formattedMockData} />)
+  const formattedMockManilaData = formatter(mockManilaService)
 
-    expect(
-      screen.queryByText(
-        /Togus VA Regional Benefit Office at Togus VA Medical Center/
-      )
-    ).toBeInTheDocument()
-    expect(
-      screen.queryByText(
-        /We help Veterans, service members, and their families access VA benefits and services./
-      )
-    ).toBeInTheDocument()
-    expect(screen.queryByText(/1 VA Center, Bldg. 248/)).toBeInTheDocument()
-    expect(screen.getByTestId('make-appointment-link')).toHaveAttribute(
-      'text',
-      'Make an appointment'
-    )
-    expect(screen.getByTestId('make-appointment-link')).toHaveAttribute(
-      'href',
-      'https://va.my.site.com/VAVERA/s/'
-    )
-    expect(screen.getByTestId('ask-benefit-question-link')).toHaveAttribute(
-      'text',
-      'Ask a benefit question'
-    )
-    expect(screen.getByTestId('ask-benefit-question-link')).toHaveAttribute(
-      'href',
-      'https://ask.va.gov'
-    )
-    expect(screen.getByTestId('check-claim-status-link')).toHaveAttribute(
-      'text',
-      'Check a claim status'
-    )
-    expect(screen.getByTestId('check-claim-status-link')).toHaveAttribute(
-      'href',
-      '/claim-or-appeal-status'
-    )
+  // Register web components before tests run
+  beforeAll(() => {
+    defineCustomElements()
   })
+  for (const formattedData of [formattedMockData, formattedMockManilaData]) {
+    test('renders VbaFacility component', async () => {
+      const { container } = render(<VbaFacility {...formattedData} />)
+
+      expect(
+        screen.queryByText(
+          /Togus VA Regional Benefit Office at Togus VA Medical Center/
+        )
+      ).toBeInTheDocument()
+      expect(
+        screen.queryByText(
+          /We help Veterans, service members, and their families access VA benefits and services./
+        )
+      ).toBeInTheDocument()
+      expect(screen.queryByText(/1 VA Center, Bldg. 248/)).toBeInTheDocument()
+
+      // Check web component properties (not HTML attributes)
+      // Web components store their props as JavaScript properties on the element
+      let linksToCheck = [
+        {
+          testId: 'make-appointment-link',
+          href: 'https://va.my.site.com/VAVERA/s/',
+          text: 'Make an appointment',
+        },
+      ]
+      if (formattedData.facilityLocatorApiId === 'vba_358') {
+        linksToCheck = [
+          {
+            testId: 'make-appointment-link-virtual',
+            href: 'https://va.my.site.com/VAVERA/s/flow/VERA_Start?type=Virtual&office=0Hht00000008OqE',
+            text: 'Make a virtual appointment',
+          },
+          {
+            testId: 'make-appointment-link-in-person',
+            href: 'https://va.my.site.com/VAVERA/s/flow/VERA_Start?type=In-Person&office=0Hht00000008Oq9',
+            text: 'Make an in-person appointment',
+          },
+        ]
+      }
+      for (const link of linksToCheck) {
+        const makeApptLink = screen.getByTestId(link.testId)
+        expect(makeApptLink).toBeInTheDocument()
+        expect(makeApptLink.text).toBe(link.text)
+        expect(makeApptLink.href).toBe(link.href)
+      }
+
+      const askQuestionLink = screen.getByTestId('ask-benefit-question-link')
+      expect(askQuestionLink).toBeInTheDocument()
+      expect(askQuestionLink.text).toBe('Ask a benefit question')
+      expect(askQuestionLink.href).toBe('https://ask.va.gov')
+
+      const checkStatusLink = screen.getByTestId('check-claim-status-link')
+      expect(checkStatusLink).toBeInTheDocument()
+      expect(checkStatusLink.text).toBe('Check a claim status')
+      expect(checkStatusLink.href).toBe('/claim-or-appeal-status')
+
+      const axeResults = await axe(container)
+      expect(axeResults).toHaveNoViolations()
+    })
+  }
   test('renders ExpandableOperatingStatus when operating status is provided', () => {
     const testDataWithOperatingStatus = {
       ...formattedMockData,

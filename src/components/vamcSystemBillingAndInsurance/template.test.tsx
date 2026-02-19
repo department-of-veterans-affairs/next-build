@@ -1,9 +1,23 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
+import { axe } from '@/test-utils'
 import VamcSystemBillingAndInsurance from './template'
 import mockData from './mock.formatted'
 
 describe('VamcSystemBillingAndInsurance', () => {
+  it('gives no axe violations', async () => {
+    const { container } = render(
+      <VamcSystemBillingAndInsurance {...mockData} />
+    )
+    const axeResults = await axe(container, {
+      rules: {
+        // It's only empty because it isn't evaluating the `<va-link>` element inside it.
+        'empty-heading': { enabled: false },
+      },
+    })
+    expect(axeResults).toHaveNoViolations()
+  })
+
   it('renders the title', () => {
     render(<VamcSystemBillingAndInsurance {...mockData} />)
     expect(screen.getByText('Billing and insurance')).toBeInTheDocument()
@@ -17,7 +31,7 @@ describe('VamcSystemBillingAndInsurance', () => {
 
   it('renders the main heading with correct id', () => {
     render(<VamcSystemBillingAndInsurance {...mockData} />)
-    const heading = screen.getByRole('heading', { level: 1 })
+    screen.getByRole('heading', { level: 1 })
   })
 
   test('adds the sideNav to window.sideNav', () => {

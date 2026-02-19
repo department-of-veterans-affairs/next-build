@@ -1,8 +1,3 @@
-## Notice about main branch
-Until further notice, the main branch of this repo is locked. Pull requests should be made against the [integration-202510](https://github.com/department-of-veterans-affairs/next-build/tree/integration-202510) branch. 
-
-Merges to the main branch for critical bugs or security updates are allowed. Please contact CMS Team in the [#platform-cms-team](https://dsva.slack.com/archives/CT4GZBM8F) channel if you need assistance. 
-
 ## Description
 
 What does this PR address?
@@ -21,6 +16,7 @@ Closes _link to ticket_
 - [ ] PR submitted against the `main` branch of `next-build`.
 - [ ] Link to the issue that this PR addresses (if applicable).
 - [ ] Define all changes in your PR and note any changes that could potentially be breaking changes.
+- [ ] If you've changed a content type, star and add notes to the appropriate URL(s) in the [QA tool](http://localhost:3000/_playground/qa/) so reviewers can test your changes.
 - [ ] PR includes steps to test your changes and links to these changes in the Tugboat preview (if applicable).
 - [ ] Provided before and after screenshots of your changes (if applicable).
 - [ ] Alerted the #next-build Slack channel to request a PR review.
@@ -65,6 +61,7 @@ This section lists items that need to be checked or updated when making changes 
 - [ ] Code Quality: Readabilty, Naming Conventions, Consistency, Reusability
 - [ ] Test Coverage: 80% coverage
 - [ ] Functionality: Change functions as expected with no additional bugs
+- [ ] QA: Changes are QA'd in the Tugboat preview or locally (use the [QA tool](http://localhost:3000/_playground/qa/) to test)
 - [ ] Performance: Code does not introduce performance issues
 - [ ] Documentation: Changes are documented in their respective README.md files
 - [ ] Security: Packages have been approved in the TRM
@@ -76,6 +73,6 @@ When merging a layout, you must ensure that the content type has been turned on 
 
 The layout component and matching resource type should be included in the [slug.tsx](../src/pages/[[...slug]].tsx), so that it can reviewed. Including a component in the slug.tsx does not mean a page will be viewable in production only on the tugboat for the branch.
 
-When a layout is merged to main and approved for deployment, the prod CMS will turn the toggle on for the resource type. 
+When a layout is merged to main and approved for deployment, the prod CMS will turn the toggle on for the resource type.
 
 The status of layouts should be kept up to date inside [templates.md](../READMEs/templates.md). This includes QA progress, development progress, etc. A link should be provided for where testing can occur.

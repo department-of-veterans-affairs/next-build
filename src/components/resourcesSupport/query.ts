@@ -2,10 +2,7 @@ import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { queries } from '@/lib/drupal/queries'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
-import {
-  entityBaseFields,
-  fetchSingleEntityOrPreview,
-} from '@/lib/drupal/query'
+import { fetchSingleEntityOrPreview } from '@/lib/drupal/query'
 import { NodeSupportResourcesDetailPage } from '@/types/drupal/node'
 import { ResourcesSupport } from './formatted-type'
 import {
@@ -18,6 +15,7 @@ import { ContactInfo } from '@/components/contactInfo/formatted-type'
 import { Button } from '@/components/button/formatted-type'
 import { AudienceTopics } from '@/components/audienceTopics/formatted-type'
 import { getNestedIncludes } from '@/lib/utils/queries'
+import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
 
 // Define the query params for fetching node--news_story.
 export const params: QueryParams<null> = () => {
@@ -89,9 +87,11 @@ export const formatter: QueryFormatter<
     contactInformation: formatParagraph(
       entity.field_contact_information
     ) as ContactInfo,
-    benefitsHubLinks: queries.formatData(
-      RESOURCE_TYPES.BENEFITS_HUB,
-      entity.field_related_benefit_hubs
-    ),
+    benefitsHubLinks: entity.field_related_benefit_hubs
+      ? queries.formatData(
+          'benefits-hub-links',
+          entity.field_related_benefit_hubs
+        )
+      : [],
   }
 }

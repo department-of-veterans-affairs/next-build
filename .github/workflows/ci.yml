@@ -14,8 +14,8 @@ jobs:
     name: Check TypeScript
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-node@v5
+      - uses: actions/checkout@v6.0.2
+      - uses: actions/setup-node@v6
         with:
           node-version-file: .nvmrc
 
@@ -31,8 +31,8 @@ jobs:
     name: Run Lint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-node@v5
+      - uses: actions/checkout@v6.0.2
+      - uses: actions/setup-node@v6
         with:
           node-version-file: .nvmrc
 
@@ -48,8 +48,8 @@ jobs:
     name: Check Format
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-node@v5
+      - uses: actions/checkout@v6.0.2
+      - uses: actions/setup-node@v6
         with:
           node-version-file: .nvmrc
 
@@ -65,8 +65,8 @@ jobs:
     name: Jest Tests
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-node@v5
+      - uses: actions/checkout@v6.0.2
+      - uses: actions/setup-node@v6
         with:
           node-version-file: .nvmrc
 

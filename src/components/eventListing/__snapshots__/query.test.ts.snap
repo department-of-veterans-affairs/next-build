@@ -4,24 +4,19 @@ exports[`node--event_listing formatData outputs formatted data 1`] = `
 {
   "breadcrumbs": [
     {
+      "href": "/",
+      "label": "Home",
       "options": [],
-      "title": "Home",
-      "uri": "https://va-gov-cms.ddev.site/",
     },
     {
+      "href": "/wilkes-barre-health-care",
+      "label": "VA Wilkes-Barre health care",
       "options": [],
-      "title": "VA Wilkes-Barre health care",
-      "uri": "https://va-gov-cms.ddev.site/wilkes-barre-health-care",
     },
     {
+      "href": "",
+      "label": "Events",
       "options": [],
-      "title": "News and events",
-      "uri": "internal:#",
-    },
-    {
-      "options": [],
-      "title": "Events",
-      "uri": "internal:#",
     },
   ],
   "entityId": 3036,
@@ -112,6 +107,8 @@ exports[`node--event_listing formatData outputs formatted data 1`] = `
   "id": "4c24a406-37dc-4709-9ba7-24f430973cfb",
   "introText": "Learn more about events in our VA Wilkes-Barre health care community, including classes on health and wellness.",
   "lastUpdated": "2021-02-11T16:15:00+00:00",
+  "lovellSwitchPath": null,
+  "lovellVariant": null,
   "menu": {
     "data": null,
     "rootPath": "/wilkes-barre-health-care/events/",

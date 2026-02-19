@@ -1,0 +1,380 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`VamcSystemMedicalRecordsOffice formatter outputs formatted data 1`] = `
+{
+  "breadcrumbs": [
+    {
+      "href": "/",
+      "label": "Home",
+      "options": [],
+    },
+    {
+      "href": "/beckley-health-care",
+      "label": "VA Beckley health care",
+      "options": [],
+    },
+    {
+      "href": "",
+      "label": "Medical records office",
+      "options": [],
+    },
+  ],
+  "entityId": 45806,
+  "entityPath": "/beckley-health-care/medical-records-office",
+  "faqsContent": {
+    "displayAccordion": true,
+    "header": "Questions about medical records",
+    "id": "82653",
+    "intro": null,
+    "questions": [
+      {
+        "answers": [
+          {
+            "html": "<p>You can get another person's medical records if you’re listed as having Power of Attorney (POA) or you’re the patient’s next of kin.</p>",
+            "id": "82643",
+            "type": "paragraph--wysiwyg",
+          },
+        ],
+        "id": "82644",
+        "question": "Can I get someone else's medical records?",
+        "type": "paragraph--q_a",
+      },
+      {
+        "answers": [
+          {
+            "html": "<p>You can get the records of a deceased patient if you have:</p>
+
+<ul>
+	<li>A copy of their death certificate</li>
+	<li>A valid photo ID for yourself</li>
+	<li>Any POA paperwork or will showing you have a legal right to their record</li>
+</ul>",
+            "id": "82645",
+            "type": "paragraph--wysiwyg",
+          },
+        ],
+        "id": "82646",
+        "question": "Can I get records of a deceased patient?",
+        "type": "paragraph--q_a",
+      },
+      {
+        "answers": [
+          {
+            "html": "<p>Yes. If you’re making the request in person, you can tell us what format you would like. If you’re using <a href="https://www.va.gov/vaforms/medical/pdf/VHA%20Form%2010-5345a%20Fill-revision.pdf" hreflang="en">VA Form 10-5345a</a>, check the “CD-ROM” or “Other” box (and write in DVD).</p>",
+            "id": "82647",
+            "type": "paragraph--wysiwyg",
+          },
+        ],
+        "id": "82648",
+        "question": "Can I get records on a CD or DVD?",
+        "type": "paragraph--q_a",
+      },
+      {
+        "answers": [
+          {
+            "html": "<p>Yes, we provide all available images on DVD.</p>
+
+<p>If you have a <a href="https://www.myhealth.va.gov/mhv-portal-web/web/myhealthevet/home" hreflang="en" target="_blank">My HealtheVet Premium account</a>, you can also view or download many kinds of radiology images online. A Premium account is one where you’ve gone through extra identity authentication. </p>",
+            "id": "82649",
+            "type": "paragraph--wysiwyg",
+          },
+        ],
+        "id": "82650",
+        "question": "Can I get radiology images and X-rays?",
+        "type": "paragraph--q_a",
+      },
+      {
+        "answers": [
+          {
+            "html": "<p>Please ask at the Register for care office, and they will provide you documentation of your VA coverage.</p>",
+            "id": "82651",
+            "type": "paragraph--wysiwyg",
+          },
+        ],
+        "id": "82652",
+        "question": "Can I get a proof of health insurance document?",
+        "type": "paragraph--q_a",
+      },
+    ],
+    "type": "paragraph--q_a_section",
+  },
+  "faxNumber": null,
+  "getRecordsInPersonContent": {
+    "html": "<h2 id="get-your-records-in-person">Get your records in person</h2><p>We can help you get copies of your VA medical records. We can also help you update your records. Call or visit one of our release of information offices.</p><p><strong>What to bring</strong></p><ul><li>A signed written request for a copy of your records to be provided to you. For your convenience you may download and complete the “Individuals’ Request For a Copy of Their Own Health Information” (VA Form 10-5345a).  <a href="https://www.va.gov/vaforms/medical/pdf/VHA%20Form%2010-5345a%20Fill-revision.pdf" hreflang="en">Download VA Form 10-5345a (PDF)</a></li><li>Your Veteran Health Identification Card (VHIC)</li></ul>",
+    "id": "82639",
+    "type": "paragraph--wysiwyg",
+  },
+  "getRecordsMailOrFaxContent": {
+    "html": "<h2 id="get-your-records-by-mail-or-fa">Get your records by mail or fax</h2><p>To request a copy of your VA medical records by mail or fax, send a signed and completed VA Form 10-5345a to our Release of Information office.</p><p><a href="https://www.va.gov/vaforms/medical/pdf/VHA%20Form%2010-5345a%20Fill-revision.pdf" hreflang="en">Download VA Form 10-5345a (PDF)</a></p>",
+    "id": "82640",
+    "type": "paragraph--wysiwyg",
+  },
+  "howWeShareRecordsContent": {
+    "html": "<p>Per VHA Directives, we have 20 business days to process all requests. Requests are accepted in-person, through My HealtheVet, mail, and fax. Please contact the facility to verify if submission by email is available.</p><p> </p><h2 id="how-we-share-your-records-with">How we share your records with providers outside VA</h2><p>The Veterans Health Information Exchange (VHIE) program lets us electronically share your health information with health care providers who treat you, including <a href="https://www.va.gov/vhie/" hreflang="en">participating non-VA providers</a> if you receive care outside of VA.</p><p>This program is voluntary, and you can choose not to share your information (opt out of sharing).</p><p><a href="https://www.va.gov/health-care/get-medical-records/#the-veterans-health-informatio">Learn more about VHIE</a></p><h3 id="to-opt-out-of-sharing">To opt out of sharing</h3><p>Fill out, sign, and date VA Form 10-10164 (Opt Out of Sharing Protected Health Information).</p><p>Mail the signed, completed form to our ROI office. You can also bring it with you or ask for this form when you visit us.</p><p><a href="https://www.va.gov/vaforms/medical/pdf/10-10164-fill.pdf" hreflang="en">Download VA Form 10-10164 (PDF)</a></p><p><strong>Note: </strong>If you had revoked your permission to share, before September 30, 2019, your opt out status will stay active. You don’t need to submit form 10-10164.</p><h3 id="to-allow-sharing-after-opting-">To allow sharing after opting out</h3><p>If you change your mind and want to share your health information, you’ll need to submit VA Form 10-10163 (Request for and Permission to Participate in Sharing Protected Health Information).</p><p>Mail the signed, completed form to our ROI office. You can also bring it with you or ask for this form when you visit us.</p><p><a href="https://www.va.gov/vaforms/medical/pdf/10-10163-fill.pdf" hreflang="en">Download VA Form 10-10163 (PDF)</a></p>",
+    "id": "82641",
+    "type": "paragraph--wysiwyg",
+  },
+  "id": "a2123e95-9605-4988-af58-5946129b0e5d",
+  "lastUpdated": "2022-05-26T16:02:50+00:00",
+  "lovellSwitchPath": null,
+  "lovellVariant": null,
+  "mailingAddress": {
+    "address_line1": "200 Veterans Avenue",
+    "address_line2": "",
+    "administrative_area": "WV",
+    "country_code": "US",
+    "langcode": null,
+    "locality": "Beckley ",
+    "postal_code": "25801",
+  },
+  "menu": {
+    "data": {
+      "description": null,
+      "links": [
+        {
+          "description": null,
+          "expanded": false,
+          "label": "VA Richmond health care",
+          "links": [
+            {
+              "description": null,
+              "expanded": false,
+              "label": "SERVICES AND LOCATIONS",
+              "links": [],
+              "lovellSection": null,
+              "url": {
+                "path": "",
+              },
+            },
+            {
+              "description": null,
+              "expanded": false,
+              "label": "NEWS AND EVENTS",
+              "links": [],
+              "lovellSection": null,
+              "url": {
+                "path": "",
+              },
+            },
+            {
+              "description": null,
+              "expanded": false,
+              "label": "ABOUT VA RICHMOND",
+              "links": [],
+              "lovellSection": null,
+              "url": {
+                "path": "",
+              },
+            },
+          ],
+          "lovellSection": null,
+          "url": {
+            "path": "/richmond-health-care",
+          },
+        },
+      ],
+      "name": "VA Richmond health care",
+    },
+    "rootPath": "/beckley-health-care/medical-records-office/",
+  },
+  "metatags": [],
+  "moderationState": "published",
+  "published": true,
+  "reactWidget": {
+    "buttonFormat": false,
+    "ctaWidget": true,
+    "defaultLink": null,
+    "entityId": null,
+    "errorMessage": "<strong>We’re sorry. Something went wrong when we tried to load your saved application.</strong><br>Please try refreshing your browser in a few minutes.",
+    "id": "82635",
+    "loadingMessage": null,
+    "timeout": 20,
+    "type": "paragraph--react_widget",
+    "widgetType": "modern-get-medical-records-page",
+  },
+  "relatedLinks": {
+    "entityId": null,
+    "id": "82659",
+    "linkTeasers": [
+      {
+        "entityId": null,
+        "id": "82655",
+        "options": {
+          "data-entity-substitution": "canonical",
+          "data-entity-type": "node",
+          "data-entity-uuid": "5f539c97-cfe7-4496-9dd5-a9b4d01f592d",
+          "href": "entity:node/8473",
+        },
+        "summary": "Find out how to change your address and other information in your VA.gov profile. This will update your information across several VA benefits and services.",
+        "title": "Change your address on file with VA",
+        "type": "paragraph--link_teaser",
+        "uri": "/test-translated-path",
+      },
+      {
+        "entityId": null,
+        "id": "82656",
+        "options": {
+          "data-entity-substitution": "canonical",
+          "data-entity-type": "node",
+          "data-entity-uuid": "bcca7668-9a43-47ec-b029-e3563dc836f4",
+          "href": "entity:node/39",
+        },
+        "summary": "Update your personal, financial, or insurance information with VA Form 10-10EZR.",
+        "title": "Update your VA health benefits information",
+        "type": "paragraph--link_teaser",
+        "uri": "/test-translated-path",
+      },
+      {
+        "entityId": null,
+        "id": "82657",
+        "options": {
+          "data-entity-substitution": "canonical",
+          "data-entity-type": "node",
+          "data-entity-uuid": "be5ce8bb-48af-4ac0-bf45-124081bb3dcb",
+          "href": "entity:node/79",
+        },
+        "summary": "Apply for a printed Veteran ID card, get your VA benefit letters and military service records, and learn how to apply for a discharge upgrade.",
+        "title": "Access and manage your records",
+        "type": "paragraph--link_teaser",
+        "uri": "/test-translated-path",
+      },
+      {
+        "entityId": null,
+        "id": "82658",
+        "options": {
+          "data-entity-substitution": "",
+          "data-entity-type": "",
+          "data-entity-uuid": "",
+          "href": "https://www.choose.va.gov/",
+        },
+        "summary": "Learn how we're making it easier for you to get health care through VA facilities, mobile health clinics, virtual telehealth, and community care providers.",
+        "title": "MISSION Act and VA health care",
+        "type": "paragraph--link_teaser",
+        "uri": "https://www.choose.va.gov/",
+      },
+    ],
+    "title": "More information",
+    "type": "paragraph--list_of_link_teasers",
+  },
+  "services": [
+    {
+      "address": {
+        "additional_name": null,
+        "address_line1": "1200 South Detroit Avenue",
+        "administrative_area": "OH",
+        "country_code": "US",
+        "dependent_locality": null,
+        "langcode": null,
+        "locality": "Toledo",
+        "postal_code": "43614-5903",
+      },
+      "id": "209b73cd-22e9-4cd4-901f-99e1b3c9fff0",
+      "path": "/ann-arbor-health-care/locations/toledo-va-clinic",
+      "phoneNumber": "419-259-2000",
+      "serviceLocations": [
+        {
+          "additionalHoursInfo": null,
+          "appointmentPhoneNumbers": [],
+          "apptIntroTextCustom": null,
+          "apptIntroTextType": null,
+          "contactInfoPhoneNumbers": [
+            {
+              "entityId": 109229,
+              "extension": "37523",
+              "id": "1adcb239-8634-45be-b7e5-15ca21c7a3f8",
+              "label": "Release of Information Office",
+              "number": "419-259-2000",
+              "phoneType": "tel",
+              "type": "paragraph--phone_number",
+            },
+            {
+              "entityId": 109230,
+              "extension": null,
+              "id": "082bb7b8-cc39-4544-b5e1-495dc50a0a75",
+              "label": "Release of Information",
+              "number": "419-213-7635",
+              "phoneType": "fax",
+              "type": "paragraph--phone_number",
+            },
+          ],
+          "emailContacts": [],
+          "hours": "0",
+          "id": "034314d2-4ee2-4b7b-9dc6-7e309036b72a",
+          "officeHours": [],
+          "officeVisits": null,
+          "onlineSchedulingAvail": null,
+          "serviceLocationAddress": {
+            "behavior_settings": [],
+            "breadcrumbs": [],
+            "content_translation_changed": null,
+            "content_translation_outdated": false,
+            "content_translation_source": "und",
+            "created": "2022-05-18T14:35:53+00:00",
+            "default_langcode": true,
+            "drupal_internal__id": 109231,
+            "drupal_internal__revision_id": 648810,
+            "field_address": {
+              "address_line1": "",
+              "address_line2": "",
+              "administrative_area": "",
+              "country_code": "US",
+              "dependent_locality": null,
+              "langcode": null,
+              "locality": "",
+              "postal_code": "",
+              "sorting_code": null,
+            },
+            "field_building_name_number": null,
+            "field_clinic_name": "Release of Information Office",
+            "field_use_facility_address": true,
+            "field_wing_floor_or_room_number": "1st Floor - Room 1-006",
+            "id": "26310f89-4b9d-4de0-b063-8fd52fbdf8cb",
+            "langcode": "en",
+            "links": {
+              "self": {
+                "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/service_location_address/26310f89-4b9d-4de0-b063-8fd52fbdf8cb?resourceVersion=id%3A648810",
+              },
+            },
+            "paragraph_type": {
+              "id": "bd794386-a382-48d0-84fb-47290c3c1176",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": "service_location_address",
+              },
+              "type": "paragraphs_type--paragraphs_type",
+            },
+            "parent_field_name": "field_service_location_address",
+            "parent_id": "109232",
+            "parent_type": "paragraph",
+            "relationshipNames": [
+              "paragraph_type",
+            ],
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 109231,
+              "target_revision_id": 648810,
+            },
+            "revision_translation_affected": true,
+            "status": true,
+            "type": "paragraph--service_location_address",
+          },
+          "type": "paragraph--service_location",
+          "useFacilityPhoneNumber": null,
+          "useMainFacilityPhone": false,
+          "virtualSupport": null,
+        },
+      ],
+      "title": "Toledo VA Clinic",
+    },
+  ],
+  "title": "Medical records office",
+  "topOfPageContent": {
+    "html": "<h2 id="get-your-records-online">Get your records online</h2><p>Access your VA medical records online. Sign in to view, organize, and share your VA medical records and other personal health information. We don't charge any fees to send copies directly to health care providers.</p>",
+    "id": "82634",
+    "type": "paragraph--wysiwyg",
+  },
+  "type": "node--vamc_system_medical_records_offi",
+  "vamcSystem": {
+    "id": "6e35d07b-6b55-4f0c-b92d-bfc6e4f46528",
+    "title": "VA Beckley health care",
+  },
+}
+`;

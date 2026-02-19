@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v5.0.0
+      uses: aws-actions/configure-aws-credentials@v6.0.0
       with:
         aws-region: us-gov-west-1
         role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
@@ -49,8 +49,8 @@ jobs:
         - my_docker_volume:/home/runner
         - /etc/ssl/certs:/etc/ssl/certs
     steps:
-    - uses: actions/checkout@v5
-    - uses: actions/setup-node@v5
+    - uses: actions/checkout@v6.0.2
+    - uses: actions/setup-node@v6
       with:
         node-version: 24
     - name: Setup Yarn
@@ -60,7 +60,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        yarn
+        yarn install --immutable
 
     - name: Verify CMS preview build works
       run: yarn build:preview --DRUPAL_CLIENT_ID ${{ secrets.PROD_DRUPAL_CLIENT_ID }} --DRUPAL_CLIENT_SECRET ${{ secrets.PROD_DRUPAL_CLIENT_SECRET }}

@@ -10,7 +10,7 @@ Front-end templating, build, and deploy for VA.gov CMS content.
 
 Prerequisites
 
-- [VA SOCKS access](https://depo-platform-documentation.scrollhelp.site/getting-started/Internal-tools-access-via-SOCKS-proxy.1821081710.html)
+- [a local VA CMS instance](https://github.com/department-of-veterans-affairs/va.gov-cms/blob/main/READMES/getting-started.md)
 - [NVM](https://github.com/nvm-sh/nvm) for node version management
 - [Yarn](https://yarnpkg.com/getting-started/install) for package management
 - [Docker](https://www.docker.com/products/docker-desktop/) for the redis container
@@ -30,7 +30,7 @@ You should set these up before attempting to install the repo.
 
 5. Copy `envs/.env.example` to `envs/.env.local`. This is a reasonable set of environment defaults for local development.
 
-6. Make sure your SOCKS access is running. (e.g. `vtk socks on`)
+6. Make sure you have a local VA CMS instance running. Follow [the CMS repo setup instructions](https://github.com/department-of-veterans-affairs/va.gov-cms/blob/main/READMES/getting-started.md) if needed.
 
 7. In the `next-build` directory, run `yarn setup` to pull initial built assets from the `vets-website` repo. This will grab a bunch of files from a vets-website S3 bucket and place them into the appropriate `public/` folders.
 
@@ -88,8 +88,8 @@ This certificate should be git ignored by default. In your `.env.local` file, up
 
 ```
 # This is the standard lower environment for Content API.
-#NEXT_PUBLIC_DRUPAL_BASE_URL=https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov
-#NEXT_IMAGE_DOMAIN=https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov
+#NEXT_PUBLIC_DRUPAL_BASE_URL=https://mirror.cms.va.gov
+#NEXT_IMAGE_DOMAIN=https://mirror.cms.va.gov
 
 # If running va.gov-cms locally
 NEXT_PUBLIC_DRUPAL_BASE_URL=https://va-gov-cms.ddev.site
@@ -147,3 +147,61 @@ This container can be reached from your localhost (e.g. `redis://localhost:6379`
 - [Testing](READMEs/testing.md)
 - [TypeScript](READMEs/typescript.md)
 - [Working with other repos](READMEs/next-build-and-other-repos.md)
+
+## Broken link scanner (lychee wrapper)
+
+We include a convenience script to run Lychee per-site-page and produce per-page JSON + a combined CSV/JSON report.
+
+Location: `scripts/lychee-per-page-scan-and-merge.js`
+
+Basic usage examples (run from the repo root):
+
+- Scan the first 100 URLs from the default `urls.txt`:
+
+```bash
+node scripts/lychee-per-page-scan-and-merge.js --sample-size 100
+```
+
+- Scan a single page using a temporary URL list:
+
+```bash
+printf '%s\n' 'https://www.va.gov/corpus-christi-vet-center/' > tmp-urls.txt
+node scripts/lychee-per-page-scan-and-merge.js --urls-file ./tmp-urls.txt --sample-size 1
+rm tmp-urls.txt
+```
+
+- Pass extra Lychee args (for example to set a custom User-Agent or Accept header):
+
+```bash
+node scripts/lychee-per-page-scan-and-merge.js \
+   --sample-size 1 \
+   --extra-lychee-args --user-agent 'lychee-bot/1.0' --accept 'text/html'
+```
+
+Available flags (with env-var fallbacks):
+
+- `--sample-size` / `-n` (env: SAMPLE_SIZE)
+- `--urls-file` (env: URLS_FILE) — defaults to `./urls.txt`
+- `--lychee-chunk-size` (env: LYCHEE_CHUNK_SIZE)
+- `--batch-concurrency` (env: BATCH_CONCURRENCY)
+- `--lychee-max-concurrency` (env: LYCHEE_MAX_CONCURRENCY)
+- `--lychee-timeout` (env: LYCHEE_TIMEOUT)
+- `--lychee-retries` (env: LYCHEE_RETRIES)
+- `--exclude` (env: LYCHEE_EXCLUDE) — comma-separated list
+- `--fail-on-lychee-error` (env: FAIL_ON_LYCHEE_ERROR)
+- `--fail-on-missing-tools` (env: FAIL_ON_MISSING_TOOLS) — also enabled automatically on CI
+- `--parent-fetch-retries` (env: PARENT_FETCH_RETRIES)
+- `--parent-fetch-retry-delay-ms` (env: PARENT_FETCH_RETRY_DELAY_MS)
+- `--extra-lychee-args` (env: EXTRA_LYCHEE_ARGS) — pass any additional lychee CLI options (must appear last on the command line)
+
+Outputs:
+
+- Per-page JSON files: `./lychee-pages/lychee-<safe-url>.json`
+- Combined JSON: `./lychee-pages-combined.json`
+- Combined CSV: `./lychee-pages-combined.csv`
+
+Notes:
+
+- Flags override env vars; env vars remain supported for CI convenience.
+- The script will fail early in strict mode if Lychee or Cheerio are missing (`--fail-on-missing-tools` or CI).
+- Use `--extra-lychee-args` to pass any valid Lychee option; the script adds `--` so options are parsed by Lychee correctly.

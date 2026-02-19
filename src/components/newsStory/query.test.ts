@@ -6,7 +6,7 @@ import { NodeNewsStory } from '@/types/drupal/node'
 import { queries } from '@/lib/drupal/queries'
 import mockData from '@/components/newsStory/mock.json'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
-import { params } from './query'
+import { params, formatter } from './query'
 
 const nodeNewsStoryMock = mockData as NodeNewsStory
 
@@ -37,5 +37,17 @@ describe('DrupalJsonApiParams configuration for newsStory', () => {
     expect(queryString).toMatch(
       /include=field_media,field_media.image,field_author,field_listing,field_administration/
     )
+  })
+})
+
+describe('newsStory formatter applies content formatting', () => {
+  test('applies getHtmlFromDrupalContent to bodyContent', () => {
+    const mockWithH2 = {
+      ...nodeNewsStoryMock,
+      field_full_story: '<h2>Test Heading</h2><p>Some content</p>',
+    }
+    const formattedData = formatter(mockWithH2)
+    // Verify H2 IDs are added (proves formatting is applied)
+    expect(formattedData.bodyContent).toContain('id="test-heading"')
   })
 })

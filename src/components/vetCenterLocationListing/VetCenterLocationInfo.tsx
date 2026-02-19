@@ -94,14 +94,16 @@ export const VetCenterLocationInfo = ({
       image={
         <>
           {image && <MediaImage {...image} imageStyle="3_2_medium_thumbnail" />}
-          <div
-            data-widget-type={
-              isMainOffice
-                ? 'facility-map-satellite-main-office'
-                : 'facility-map-satellite-locations'
-            }
-            data-facility={fieldFacilityLocatorApiId}
-          />
+          <div style={{ minHeight: '13.625rem' }}>
+            <div
+              data-widget-type={
+                isMainOffice
+                  ? 'facility-map-satellite-main-office'
+                  : 'facility-map-satellite-locations'
+              }
+              data-facility={fieldFacilityLocatorApiId}
+            />
+          </div>
         </>
       }
     >

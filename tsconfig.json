@@ -21,6 +21,7 @@
       "@/assets/*": ["./src/assets/*"],
       "@/api/*": ["./src/pages/api/*"],
       "@/datadogConnector/*": ["./src/datadogConnector/*"],
+      "@/dev/*": ["./src/dev/*"],
       "@/lib/*": ["./src/lib/*"],
       "@/pages/*": ["./src/pages/*"],
       "@/types/*": ["./src/types/*"],
@@ -32,17 +33,24 @@
       "@department-of-veterans-affairs/component-library/dist/react-bindings": [
         "./node_modules/@department-of-veterans-affairs/component-library/dist/react-bindings/index.js"
       ]
-    }
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "strictNullChecks": false
   },
   "include": [
-    "next-env.d.ts",
+    "*.{ts,tsx,js,jsx}",
     "additional.d.ts",
     "jest.config.ts",
-    "src/**/*",
-    "*.{ts|tsx|js|jsx}",
+    "next-env.d.ts",
+    "playwright/**/*",
     "scripts/*",
+    "src/**/*",
     "test/*",
-    "playwright/**/*"
+    ".next/types/**/*.ts"
   ],
   "exclude": ["node_modules", "src/__tests__", "public/generated"]
 }

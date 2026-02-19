@@ -4,33 +4,28 @@ exports[`VamcSystemVaPolice formatData outputs formatted data 1`] = `
 {
   "breadcrumbs": [
     {
+      "href": "/",
+      "label": "Home",
       "options": [],
-      "title": "Home",
-      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
     },
     {
+      "href": "/central-arkansas-health-care",
+      "label": "VA Central Arkansas health care",
       "options": [],
-      "title": "VA Central Arkansas health care",
-      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/central-arkansas-health-care",
     },
     {
+      "href": "",
+      "label": "VA police",
       "options": [],
-      "title": "About VA Central Arkansas",
-      "uri": "internal:#",
-    },
-    {
-      "options": [],
-      "title": "VA police",
-      "uri": "internal:#",
     },
   ],
   "entityId": 63857,
   "entityPath": "/central-arkansas-health-care/va-police",
   "faqs": {
-    "displayAccordion": "1",
+    "displayAccordion": true,
     "header": "Other questions you may have about VA police",
     "id": "141575",
-    "intro": [],
+    "intro": null,
     "questions": [
       {
         "answers": [

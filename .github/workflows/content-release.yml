@@ -13,6 +13,10 @@ on:
         description: "Environment this workflow runs against"
         required: true
         default: 'PROD'
+      branch:
+        type: string
+        description: "optional branch to build"
+        required: false
   # Manual release.
   workflow_dispatch:
     inputs:
@@ -40,7 +44,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@a03048d87541d1d9fcf2ecf528a4a65ba9bd7838 # v5.0.0
+      uses: aws-actions/configure-aws-credentials@8df5847569e6427dd6c4fb1cf565c83acfa8afa7 # v6.0.0
       with:
         aws-region: us-gov-west-1
         role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
@@ -70,9 +74,9 @@ jobs:
         run: echo APPROX_WORKFLOW_START_TIME=$(date +"%s") >> $GITHUB_OUTPUT
 
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6.0.2
 
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v6
         with:
           node-version: 20 # the validate-build-status requires node12, node16, node20...
       - name: Setup Yarn
@@ -81,7 +85,7 @@ jobs:
           corepack install -g --cache-only .yarn/releases/corepack.tgz
 
       - name: Install dependencies
-        run: yarn
+        run: yarn install --immutable
 
       - name: Get latest release
         id: get-latest-release
@@ -96,9 +100,10 @@ jobs:
     name: Notify Start (Slack)
     runs-on: ubuntu-latest
     needs: validate-build-status
+    if: inputs.build_type == 'prod'
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6.0.2
 
       - name: Notify Slack
         uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4 # main
@@ -111,7 +116,7 @@ jobs:
 
   build:
     name: Build static pages & deploy to S3
-    timeout-minutes: 90 # Adding 50% more time. Build is taking close to 50 minutes on a cold cache and the new sitemap takes about 10 minutes.
+    timeout-minutes: 100 # Adding 50% more time. Build is taking close to 50 minutes on a cold cache and the new sitemap takes about 10 minutes.
     runs-on: [self-hosted, asg]
     needs: [validate-build-status, login-to-amazon-ecr]
     outputs:
@@ -122,6 +127,7 @@ jobs:
       SETUP_START_TIME: ${{ steps.export-setup-start-time.outputs.SETUP_START_TIME }}
       SETUP_END_TIME: ${{ steps.export-setup-end-time.outputs.SETUP_END_TIME }}
       YARN_OUTPUT: ${{ steps.export-yarn-output.outputs.YARN_OUTPUT }}
+      BUILT_PAGES: ${{ steps.export-yarn-output.outputs.BUILT_PAGES }}
       EXPORT_WARNINGS: ${{ steps.export-warnings.outputs.EXPORT_WARNINGS }}
     container:
       image: 008577686731.dkr.ecr.us-gov-west-1.amazonaws.com/node-22.16.0-bullseye:latest
@@ -148,17 +154,26 @@ jobs:
       id: export-setup-start-time
       run: echo SETUP_START_TIME=$(date +"%s") >> $GITHUB_OUTPUT
 
-    - name: Checkout next-build
-      uses: actions/checkout@v5
+    - name: Checkout next-build (prod)
+      uses: actions/checkout@v6.0.2
+      if: inputs.build_type == 'prod'
       with:
         repository: department-of-veterans-affairs/next-build
-        #ref: ${{ needs.validate-build-status.outputs.TAG }}
-        ref: ${{ github.head_ref || github.ref_name }}
+        ref: ${{ needs.validate-build-status.outputs.TAG || github.head_ref || github.ref_name }}
+        path: main
+        sparse-checkout-cone-mode: false
+    
+    - name: Checkout next-build (non-prod)
+      uses: actions/checkout@v6.0.2
+      if: inputs.build_type != 'prod'
+      with:
+        repository: department-of-veterans-affairs/next-build
+        ref: ${{ inputs.branch || github.ref_name || github.head_ref }}
         path: main
         sparse-checkout-cone-mode: false
 
     - name: Checkout vets-website
-      uses: actions/checkout@v5
+      uses: actions/checkout@v6.0.2
       with:
         repository: department-of-veterans-affairs/vets-website
         path: vets-website
@@ -169,7 +184,7 @@ jobs:
         unzip -o awscliv2.zip
         ./aws/install
 
-    - uses: actions/setup-node@v5
+    - uses: actions/setup-node@v6
       with:
         node-version: 24
     - name: Setup Yarn
@@ -179,15 +194,11 @@ jobs:
         corepack install -g --cache-only .yarn/releases/corepack.tgz
 
     - name: Install dependencies
-      run: cd main && yarn
+      run: cd main && yarn install --immutable
 
     - name: Export setup end time
       id: export-setup-end-time
       run: echo SETUP_END_TIME=$(date +"%s") >> $GITHUB_OUTPUT
-
-    - name: Export build start time
-      id: export-build-start-time
-      run: echo BUILD_START_TIME=$(date +"%s") >> $GITHUB_OUTPUT
 
     - name: Gather vets-website assets
       run: cd main && yarn setup
@@ -195,16 +206,23 @@ jobs:
     - name: Wait for the CMS to be ready
       uses: "./main/.github/workflows/wait-for-cms-ready"
 
+    - name: Export build start time
+      id: export-build-start-time
+      run: echo BUILD_START_TIME=$(date +"%s") >> $GITHUB_OUTPUT
+
     - name: Build site
       id: export-yarn-output
       uses: nick-fields/retry@v3
       with:
         max_attempts: 3
         retry_on: error
-        timeout_minutes: 70
+        timeout_minutes: 90
         command: |
           cd main && BUILD_OPTION=static yarn export --DRUPAL_CLIENT_ID ${{ secrets.PROD_DRUPAL_CLIENT_ID }} --DRUPAL_CLIENT_SECRET ${{ secrets.PROD_DRUPAL_CLIENT_SECRET }} --no-USE_REDIS | tee yarnoutput
           echo YARN_OUTPUT=$(<yarnoutput) >> $GITHUB_OUTPUT
+          echo BUILT_PAGES=$(grep -oE "*\/([0-9]{4,})" ./yarnoutput| head -1 | sed 's/\///g') >> $GITHUB_OUTPUT
+          # Temporary script for removing the home page if the feature flag is off. It can be removed once the home page is released.
+          node scripts/yarn/export-home-cleanup.js
           ls
           ls out
           if [[ $? -ne 0 ]]; then
@@ -281,7 +299,7 @@ jobs:
 
 
     - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@a03048d87541d1d9fcf2ecf528a4a65ba9bd7838 # v5.0.0
+      uses: aws-actions/configure-aws-credentials@8df5847569e6427dd6c4fb1cf565c83acfa8afa7 # v6.0.0
       with:
         aws-region: us-gov-west-1
         role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
@@ -335,10 +353,11 @@ jobs:
     name: Notify Success
     needs: [validate-build-status, build]
     runs-on: ubuntu-latest
-
+    if: inputs.build_type == 'prod'
+  
     steps:
       - name: Check out repo
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6.0.2
 
       - name: Notify Slack
         uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4 # main
@@ -360,7 +379,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@a03048d87541d1d9fcf2ecf528a4a65ba9bd7838 # v5.0.0
+        uses: aws-actions/configure-aws-credentials@8df5847569e6427dd6c4fb1cf565c83acfa8afa7 # v6.0.0
         with:
           aws-region: us-gov-west-1
           role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
@@ -398,23 +417,23 @@ jobs:
     name: Notify Failure
     runs-on: ubuntu-latest
     needs: build
-    if: ${{ failure() || cancelled() }}
+    if: ${{ (failure() || cancelled()) && inputs.build_type == 'prod' }}
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6.0.2
 
       - name: Notify Slack
         uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4 # main
         continue-on-error: true
         with:
-          payload: '{"attachments": [{"color": "#D33834","blocks": [{"type": "section","text": {"type": "mrkdwn","text": ">:warning: The latest content-release failed to complete: <https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}>"}}]}]}'
+          payload: '{"attachments": [{"color": "#D33834","blocks": [{"type": "section","text": {"type": "mrkdwn","text": ">:warning: <!subteam^S09760WRN3T|cms-troubleshooting> The latest content-release failed to complete: <https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}>"}}]}]}'
           channel_id: ${{ env.SLACK_CHANNEL }}
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@a03048d87541d1d9fcf2ecf528a4a65ba9bd7838 # v5.0.0
+        uses: aws-actions/configure-aws-credentials@8df5847569e6427dd6c4fb1cf565c83acfa8afa7 # v6.0.0
         with:
           aws-region: us-gov-west-1
           role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
@@ -456,9 +475,11 @@ jobs:
         - validate-build-status
       env:
         METRIC_NAMESPACE: dsva_vagov.next_build
+      if: inputs.build_type == 'prod'
+  
       steps:
         - name: Checkout
-          uses: actions/checkout@v5
+          uses: actions/checkout@v6.0.2
         #uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
         - name: Get current timestamp
@@ -477,8 +498,7 @@ jobs:
             echo "NEXT_BUILD_DURATION=$(expr ${{needs.build.outputs.BUILD_END_TIME}} - ${{needs.build.outputs.BUILD_START_TIME}})" >> $GITHUB_ENV
             echo "OVERALL_DURATION=$(expr ${{needs.build.outputs.DEPLOY_END_TIME}} - ${{needs.validate-build-status.outputs.APPROX_WORKFLOW_START_TIME}})" >> $GITHUB_ENV
             echo "DEPLOY_DURATION=$(expr ${{needs.build.outputs.DEPLOY_END_TIME}} - ${{needs.build.outputs.DEPLOY_START_TIME}})" >> $GITHUB_ENV
-            echo "${{needs.build.outputs.YARN_OUTPUT}}" >> yarnoutput
-            echo "BUILT_PAGES=$(grep -oE "*\/([0-9]{4,})" ./yarnoutput| head -1 | sed 's/\///g')" >> $GITHUB_ENV
+            echo "BUILT_PAGES_OUTPUT=${{needs.build.outputs.BUILT_PAGES}}" >> $GITHUB_ENV
 
         - name: Build JSON object
           run: |
@@ -492,14 +512,14 @@ jobs:
             jq '.series[3].metric = "${{env.METRIC_NAMESPACE}}.overall.duration"' | \
             jq '.series[3].points[0] = [${{env.NOW}}, ${{env.OVERALL_DURATION || 0}}]' | \
             jq '.series[4].metric = "${{env.METRIC_NAMESPACE}}.built.pages"' | \
-            jq '.series[4].points[0] = [${{env.NOW}}, ${{env.BUILT_PAGES || 0}}]' | \
+            jq '.series[4].points[0] = [${{env.NOW}}, ${{env.BUILT_PAGES_OUTPUT || 0}}]' | \
             jq '.series[].tags[0] = "env:${{env.DEPLOY_ENV}}"' | \
             jq '.series[].tags[1] = "build_number:${{github.run_number}}"' | \
             jq '.series[].tags[2] = "status:${{needs.build.result}}"' | \
             jq '.series[].tags[3] = "trigger:${{env.BUILD_TRIGGER}}"' > metrics.json
 
         - name: Configure AWS credentials
-          uses: aws-actions/configure-aws-credentials@a03048d87541d1d9fcf2ecf528a4a65ba9bd7838 # v5.0.0
+          uses: aws-actions/configure-aws-credentials@8df5847569e6427dd6c4fb1cf565c83acfa8afa7 # v6.0.0
           with:
             aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
             aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}

@@ -34,9 +34,7 @@ export function VamcHealthServicesListing({
           {title}
         </h1>
 
-        <div className="va-introtext">
-          {introText && <p id="office-events-description">{introText}</p>}
-        </div>
+        <div className="va-introtext">{introText && <p>{introText}</p>}</div>
 
         {/* Top Task links */}
         {path && (

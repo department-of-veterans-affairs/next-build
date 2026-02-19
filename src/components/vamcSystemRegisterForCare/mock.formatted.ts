@@ -95,18 +95,18 @@ const mockData: VamcSystemRegisterForCare = {
   ],
   breadcrumbs: [
     {
-      uri: 'https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/',
-      title: 'Home',
+      href: '/',
+      label: 'Home',
       options: [],
     },
     {
-      uri: 'https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/richmond-health-care',
-      title: 'VA Richmond health care',
+      href: '/richmond-health-care',
+      label: 'VA Richmond health care',
       options: [],
     },
     {
-      uri: 'internal:#',
-      title: 'Register for care',
+      href: '',
+      label: 'Register for care',
       options: [],
     },
   ],
@@ -593,10 +593,6 @@ const mockData: VamcSystemRegisterForCare = {
         options: [],
         summary:
           'Review copay rates for outpatient care, hospital stays, medications, and other health services.',
-        parentField: null,
-        componentParams: {
-          sectionHeader: '',
-        },
       },
       {
         type: 'paragraph--link_teaser',
@@ -607,10 +603,6 @@ const mockData: VamcSystemRegisterForCare = {
         options: [],
         summary:
           'If you’re struggling to pay your copays, learn how to request a repayment plan, debt relief, or copay exemption.',
-        parentField: null,
-        componentParams: {
-          sectionHeader: '',
-        },
       },
       {
         type: 'paragraph--link_teaser',
@@ -621,10 +613,6 @@ const mockData: VamcSystemRegisterForCare = {
         options: [],
         summary:
           'Find out how to file a dispute If you disagree with the charges or amounts on your bill. Find out how to file a dispute If you disagree with the charges or amounts on your bill.',
-        parentField: null,
-        componentParams: {
-          sectionHeader: '',
-        },
       },
       {
         type: 'paragraph--link_teaser',
@@ -635,10 +623,6 @@ const mockData: VamcSystemRegisterForCare = {
         options: [],
         summary:
           'Update your address and other information in your VA.gov profile. This will update your information across several VA benefits and services.',
-        parentField: null,
-        componentParams: {
-          sectionHeader: '',
-        },
       },
     ],
   },

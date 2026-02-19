@@ -1,9 +1,8 @@
 import '@testing-library/jest-dom'
 import 'jest-axe/extend-expect'
-import { back as nockBack } from 'nock'
 import { loadEnvConfig } from '@next/env'
+import { MockIntersectionObserver } from './test/intersection-observer-mock'
 
-nockBack.setMode('record')
 global.setImmediate = jest.useRealTimers
 
 // Load Environment vars to Jest.
@@ -13,3 +12,7 @@ const loadEnv = async () => {
 }
 
 loadEnv()
+
+// Mock the IntersectionObserver globally for all tests
+// The mock implementation is defined in test/test-utils.ts
+global.IntersectionObserver = MockIntersectionObserver

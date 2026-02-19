@@ -44,25 +44,19 @@ export const QuestionAnswer = ({
   return (
     <div className="interior" data-template="node-q_a">
       <div className="va-l-detail-page">
-        <div className="usa-grid usa-grid-full">
-          <div className="usa-width-three-fourths">
-            <div className="usa-content">
-              <article className="vads-u-padding-x--1 desktop-lg:vads-u-padding-x--0">
-                <h1>{title}</h1>
-                {answers && (
-                  <div dangerouslySetInnerHTML={createAnswersMarkup()} />
-                )}
-                <ul className="vads-u-margin-top--3 vads-u-margin-bottom--3 usa-unstyled-list">
-                  {button}
-                </ul>
-                {tag}
-                <h2 className="vads-u-margin-y--3 vads-u-font-size--h3">
-                  Related information
-                </h2>
-                <ul className="usa-unstyled-list">{teaser}</ul>
-              </article>
-            </div>
-          </div>
+        <div className="vads-grid-container">
+          <article className="usa-content vads-u-padding-x--1 desktop-lg:vads-u-padding-x--0">
+            <h1>{title}</h1>
+            {answers && <div dangerouslySetInnerHTML={createAnswersMarkup()} />}
+            <ul className="vads-u-margin-top--3 vads-u-margin-bottom--3 usa-unstyled-list">
+              {button}
+            </ul>
+            {tag}
+            <h2 className="vads-u-margin-y--3 vads-u-font-size--h3">
+              Related information
+            </h2>
+            <ul className="usa-unstyled-list">{teaser}</ul>
+          </article>
         </div>
       </div>
     </div>

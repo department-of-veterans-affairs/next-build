@@ -9,7 +9,6 @@ import {
 } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
-  entityBaseFields,
   fetchAndConcatAllResourceCollectionPages,
   fetchSingleEntityOrPreview,
 } from '@/lib/drupal/query'
@@ -26,6 +25,7 @@ import {
 import { ParagraphCCQaSection } from '@/types/drupal/paragraph'
 import { QaSection } from '@/components/qaSection/formatted-type'
 import { DrupalMediaImage } from '@/types/drupal/media'
+import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
 
 // Define the query params for fetching node--vet_center.
 export const params: QueryParams<null> = () => {
@@ -72,7 +72,7 @@ export const data: QueryData<VetCenterDataOpts, VetCenterData> = async (
   if (bannerMediaId) {
     bannerMedia = (
       await fetchAndConcatAllResourceCollectionPages<DrupalMediaImage>(
-        'media--image',
+        RESOURCE_TYPES.MEDIA_IMAGE,
         new DrupalJsonApiParams()
           .addFilter('drupal_internal__mid', bannerMediaId)
           .addInclude(['image']),

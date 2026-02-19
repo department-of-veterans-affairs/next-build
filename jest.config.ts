@@ -19,6 +19,7 @@ const customJestConfig: Config = {
   ],
   moduleNameMapper: {
     '^@/__tests__/(.*)$': '<rootDir>/src/__tests__/$1',
+    '^@/dev/(.*)$': '<rootDir>/src/dev/$1',
     '^@/lib/(.*)$': '<rootDir>/src/lib/$1',
     '^@/pages/(.*)$': '<rootDir>/src/pages/$1',
     '^@/components/(.*)$': '<rootDir>/src/components/$1',
@@ -31,6 +32,8 @@ const customJestConfig: Config = {
     'src/**/*.{js,jsx,ts,tsx}',
     '!**/__tests__/**.test.{js,jsx,ts,tsx}',
     '!playwright/**/*.{js,jsx,ts,tsx}',
+    // Don't include any of our mock files
+    '!src/components/**/mock*.{js,ts}',
     // Some files excluded from unit test coverage reporting in favor of e2e tests
     '!src/lib/utils/redisCache.ts',
     '!src/lib/drupal/drupalClient.ts',
@@ -39,6 +42,7 @@ const customJestConfig: Config = {
     '!src/lib/drupal/query.ts',
     '!src/components/meta/template.tsx',
     '!src/pages/**',
+    '!src/dev/**',
     '!src/types/**/*.{js,jsx,ts,tsx}',
   ],
   coverageThreshold: {

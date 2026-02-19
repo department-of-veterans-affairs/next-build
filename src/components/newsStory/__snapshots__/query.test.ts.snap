@@ -238,9 +238,24 @@ exports[`node--news_story formatData outputs formatted data 1`] = `
 <p>Decker and Rahman were formally recognized as Outstanding Physicians of the Year on April 26 during the medical staff's quarterly meeting at University Drive.</p>",
   "breadcrumbs": [
     {
+      "href": "/",
+      "label": "Home",
       "options": [],
-      "title": "Home",
-      "uri": "https://cms-7m0jwgfd3t0pt3txlgzvixowibrfagsq.ci.cms.va.gov/",
+    },
+    {
+      "href": "/pittsburgh-health-care",
+      "label": "VA Pittsburgh Health Care",
+      "options": [],
+    },
+    {
+      "href": "/pittsburgh-health-care/stories",
+      "label": "Stories",
+      "options": [],
+    },
+    {
+      "href": "",
+      "label": "We honor outstanding doctors",
+      "options": [],
     },
   ],
   "caption": "
