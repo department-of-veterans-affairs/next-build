@@ -68,4 +68,4 @@ do
   echo "Successfully processed ${cert} -> ${cert_name}.crt"
 done
 
-ls
+
