@@ -95,15 +95,40 @@ jobs:
     runs-on: ubuntu-latest
     needs: [content-release-staging, create-stage-release-branch]
     if: github.event_name == 'schedule' || github.event.inputs.create_branch
+    outputs:
+      SLACK_THREAD_TS: ${{ steps.slack-success.outputs.ts }}
 
+    # NOTE: We inline the steps from platform-release-tools-actions/slack-notify
+    # here instead of using the composite action directly. We need the `ts` output
+    # from slackapi/slack-github-action so the env-parity-testing job can thread
+    # its results under this message. The composite action doesn't expose `ts` in
+    # its outputs, and the repo (platform-release-tools-actions) is read-only, so
+    # we can't modify it to forward the output.
     steps:
       - name: Checkout
         uses: actions/checkout@0c366fd6a839edf440554fa01a7085ccba70ac98 # v4.1.1
 
-      - name: Notify Slack
-        uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4 # main
-        continue-on-error: true
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
         with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-gov-west-1
+
+      - name: Get Slack bot token
+        uses: department-of-veterans-affairs/action-inject-ssm-secrets@latest
+        with:
+          ssm_parameter: /devops/github_actions_slack_bot_user_token
+          env_variable_name: SLACK_BOT_TOKEN
+
+      - name: Notify Slack
+        id: slack-success
+        uses: slackapi/slack-github-action@v1.23.0
+        continue-on-error: true
+        env:
+          SLACK_BOT_TOKEN: ${{ env.SLACK_BOT_TOKEN }}
+        with:
+          channel-id: ${{ env.SLACK_CHANNEL }}
           payload: '{"attachments": [{"color": "#07711E","blocks": [{"type": "section","text": {"type": "mrkdwn","text": 
             "@next-build-team Successfully released ${{ needs.create-stage-release-branch.outputs.NEW_BRANCH }} branch on https://staging.va.gov \n
             Please review changes to be released: <https://github.com/department-of-veterans-affairs/next-build/compare/${{ needs.create-stage-release-branch.outputs.LATEST_TAG_VERSION }}...${{ needs.create-stage-release-branch.outputs.NEW_BRANCH }}|${{ needs.create-stage-release-branch.outputs.LATEST_TAG_VERSION }}...${{ needs.create-stage-release-branch.outputs.NEW_BRANCH }}>\n
