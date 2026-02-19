@@ -12,7 +12,7 @@
 **Current effort**
 
 - The second step to the Accelerated Publishing work (and the focus of this architecture intent) will be to implement a persistent server that will allow content to be published from Drupal CMS to VA.gov much more quickly; we are estimating ~5 minutes from when content is updated in Drupal CMS to updated in VA.gov. This is because the server will be triggered to rebuild the pages after a predetermined amount of time.
-- We will be using a Nextjs Server to perform Incremental Static Regeneration (ISR) for content pages. [Incremental Static Regeneration (ISR)](https://nextjs.org/docs/pages/guides/incremental-static-regeneration) in Next.js is a hybrid rendering strategy that combines the performance benefits of Static Site Generation (SSG) with the flexibility of dynamic content updates. It allows you to update static content on your Next.js application without requiring a full rebuild and redeployment of the entire site.
+- We will be using a Next.js Server to perform Incremental Static Regeneration (ISR) for content pages. [Incremental Static Regeneration (ISR)](https://nextjs.org/docs/pages/guides/incremental-static-regeneration) in Next.js is a hybrid rendering strategy that combines the performance benefits of Static Site Generation (SSG) with the flexibility of dynamic content updates. It allows you to update static content on your Next.js application without requiring a full rebuild and redeployment of the entire site.
 - Additional Documentation:
   - [Static Site Generation Summary and Recommendation](https://dvagov.sharepoint.com/:w:/r/sites/CMSTeam/Shared%20Documents/Static%20Site%20Generation%20Summary%20and%20Recommendation.docx?d=w98220445f4ca467c834cde562b977d3c&csf=1&web=1&e=WZTeUn)
   - [Accelerated Publishing System Design](https://dvagov.sharepoint.com/:w:/r/sites/CMSTeam/Shared%20Documents/%5BFinal%5D%20On%20Demand%20Publishing_%20Performance%20and%20Load%20Testing.docx?d=w8e43b417534d437d927dabc7cc50f1e3&csf=1&web=1&e=1kKjId)
@@ -27,11 +27,11 @@
 
 **Backend changes**
 
-- We are introducing a Nodejs server (aka [Nextjs](https://nextjs.org/)) that runs Nextjs for generating and serving web pages using Drupal as their data source.
+- We are introducing a Node.js server that runs [Next.js](https://nextjs.org/) for generating and serving web pages using Drupal as their data source.
 - An additional logic step will be added to the RevProxy to send a request to Next.js Server.
   - **<span style="color: #00a700ff;">ON SUCCESS</span>**: Content page will be returned to the user
   - **<span style="color: #d60000ff;">ON FAILURE</span>**: The RevProxy will continue its normal operation to serve the content page from the existing S3 Storage options as it does today.
-- The failover logic currently being used in production determines if a content page is available in the Nextjs S3 Storage, and falls back to Content Build S3 storage if not. In our proposed changes, if the Next.js server does not return a success response, the URL will fall back to static S3 storage.
+- The failover logic currently being used in production determines if a content page is available in the Next.js S3 Storage, and falls back to Content Build S3 storage if not. In our proposed changes, if the Next.js server does not return a success response, the URL will fall back to static S3 storage.
 - More detailed information on this is available in the [Accelerated Publishing System Design](https://dvagov.sharepoint.com/:w:/r/sites/CMSTeam/Shared%20Documents/%5BFinal%5D%20On%20Demand%20Publishing_%20Performance%20and%20Load%20Testing.docx?d=w8e43b417534d437d927dabc7cc50f1e3&csf=1&web=1&e=1kKjId) Documentation.
 
 **Does the project introduce any new connections or exchanges of new information types with other systems? (e.g. "new" meaning a new connection of type of information not already present in vets-api)**
@@ -41,8 +41,8 @@
 **Do you need to poll any APIs for status? How is API success or failure determined?**
 
 - Monitoring will be done with Datadog and alerts will be generated if tolerances are exceeded or connection issues are detected.
-- **<span style="color: #00a700ff;">Success</span>** is a 200 code returned from Drupal and a successful page build by Nextjs
-- **<span style="color: #d60000ff;">Failure</span>** is code other than 200 from Drupal or if Nextjs fails to generate the page. The failover logic will then be invoked to ensure a reliable and resilient user experience
+- **<span style="color: #00a700ff;">Success</span>** is a 200 code returned from Drupal and a successful page build by Next.js
+- **<span style="color: #d60000ff;">Failure</span>** is code other than 200 from Drupal or if Next.js fails to generate the page. The failover logic will then be invoked to ensure a reliable and resilient user experience
   - If a failure occurs the pages will be served from S3 Storage
 
 **Are you handling all failure and error cases while in custody of your users's data?**
@@ -85,14 +85,14 @@
 
 **Do you have API documentation?**
 
-- We have Readme documentation in our Nextjs repository to assist developers in retrieving the information needed for the content types in Drupal
+- We have Readme documentation in our Next.js repository to assist developers in retrieving the information needed for the content types in Drupal
 - Drupal has documentation for its [JSON:API](https://www.drupal.org/docs/core-modules-and-themes/core-modules/jsonapi-module)
 - Our [CMS implementation's API is documented](https://prod.cms.va.gov/admin/config/services/openapi/swagger/va_gov_json_api) (account required)
 - [next-drupal](https://next-drupal.org/) has documentation for the Drupal Client
 
 **Describe expected call patterns**
 
-- Requests made to our content pages on VA.gov will be routed thru the RevProxy. The RevProxy contains the logic for determining if the request will be successful from Nextjs or S3 Storage.
+- Requests made to our content pages on VA.gov will be routed through the RevProxy. The RevProxy contains the logic for determining if the request will be successful from Next.js or S3 Storage.
 - We will be using caching, Kubernetes and horizontal scaling for expected spikes in traffic
 - We are currently working on our performance monitoring, configuration and testing
 
@@ -102,7 +102,7 @@
 
 **Are there any third party integrations, and how are they vetted?**
 
-- N/A - Nextjs and Drupal are hosted internally. No third party integrations are used.
+- N/A - Next.js and Drupal are hosted internally. No third party integrations are used.
 
 **Are there any new scheduled/cron jobs? If so, how are their intervals and impact considered? (especially with regard to periods of higher traffic or times when Sidekiq and infrastructure is already handling a high volume of jobs?)**
 
@@ -161,8 +161,8 @@
 
 **Do the changes have implications for data volume, memory, or CPU usage to consider?**
 
-- There are 2 systems: Nextjs and Drupal. These are completely separate applications from vets-api and other VA applications.
-- Currently testing performance and capacity for memory, cpu, and network
+- There are 2 systems: Next.js and Drupal. These are completely separate applications from vets-api and other VA applications.
+- Currently testing performance and capacity for memory, CPU, and network
 - Currently making adjustments based on our first results of chaos testing.
 - Implementing improved caching and increasing horizontal scaling
 
@@ -178,7 +178,7 @@ List new or updated dependencies**
 **Metrics, logging, observability, alerting
 Identify key areas to monitor**
 
-- Nextjs Server - Deployed on EKS Cluster
+- Next.js Server - Deployed on EKS Cluster
 - Drupal Server - Deployed to EC2 Instance (EKS Cluster in the future)
 
 **Are you introducing any custom metric tags?**
@@ -196,7 +196,7 @@ Identify key areas to monitor**
 **Infrastructure and network changes
 List any changes or additions**
 
-- **Nextjs Server** in an EKS Cluster. Currently deployed to all environments(Dev, Stage, Prod-Mirror (Not accessible by public currently))
+- **Next.js Server** in an EKS Cluster. Currently deployed to all environments (Dev, Stage, Prod-Mirror (Not accessible by public currently))
 - **Drupal Server** currently being used in Production for Internal Content Authors. Deployed to EC2 Instance; EKS Cluster coming Q1 2026
 
 **Test strategy**
@@ -226,8 +226,8 @@ List any changes or additions**
 **Internal administration tasks**
 
 - Maintenance and Tasks
-  - Nextjs server javascript libraries to apply updates as needed
-  - Drupal server code updates, including php library updates.
+  - Next.js server JavaScript libraries to apply updates as needed
+  - Drupal server code updates, including PHP library updates.
   - Both of these maintenance tasks are already being performed on a regular basis.
   - Currently dependabot assists us in applying appropriate updates and our support rotation reviews and updates the code.
   - Updates are performed within Github and go thru automated regression testing using our CI/CD pipeline

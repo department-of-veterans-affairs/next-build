@@ -7,7 +7,7 @@ Please see the [engineering checklist & overview](./engineering-checklist.md) fo
 **Please describe a plan to monitor this code base after deployment, including the following scenarios (NOTE: If you don't (yet) have such a plan, or don't know how to get started with one, we can work on this with you!).**
 
 - We are using DataDog for monitoring
-- Using lock files for our code in Nextjs
+- Using lock files for our code in Next.js
 - No plan in place to monitor for unauthorized code changes in production servers
   - We welcome insight and direction from platform on a possible solution if this is a threat we should consider.
 
@@ -22,7 +22,7 @@ Please see the [engineering checklist & overview](./engineering-checklist.md) fo
 
 - **What process and privilege does the code base execute under?**
 
-  - There is no specified role defined for Nextjs or Drupal
+  - There is no specified role defined for Next.js or Drupal
 
   * **If so, is that process isolated?**
 
@@ -34,9 +34,9 @@ Please see the [engineering checklist & overview](./engineering-checklist.md) fo
 - **Links to dashboards that help identify and debug application issues**
   - [CMS Production and Staging [Drupal]](https://vagov.ddog-gov.com/dashboard/vnk-g4s-fru/cms-prod-staging?fromUser=false&offset=1&refresh_mode=daily&from_ts=1762318800000&to_ts=1762405199999&live=true)
   - [CMS APM [Drupal]](https://vagov.ddog-gov.com/apm/entity/service%3Avagov-cms?dependencyMap.showNetworkMetrics=false&env=brd-prod&fromUser=false&graphType=flamegraph&groupMapByOperation=null&primaryTags=%3A%2A&shouldShowLegend=true&spanKind=server&traceQuery=&start=1762438001585&end=1762441601585&paused=false)
-  - [Nextjs K8s Pods Overview](https://vagov.ddog-gov.com/dashboard/6db-3rm-wui/kubernetes-pods-overview-nextjs-test-staging?fromUser=false&refresh_mode=sliding&tpl_var_cluster%5B0%5D=dsva-vagov-prod-cluster&tpl_var_namespace%5B0%5D=next-build&from_ts=1761836663179&to_ts=1762441463179&live=true)
-  - [Nextjs RUM](https://vagov.ddog-gov.com/dashboard/f9n-yzk-t5u/rum---web-app-performance-nextjs?fromUser=false&refresh_mode=sliding&tpl_var_applicationName%5B0%5D=%22Nextjs%20Frontend%22&tpl_var_env%5B0%5D=vagovprod&from_ts=1761836738454&to_ts=1762441538454&live=true)
-  - [Nextjs APM](https://vagov.ddog-gov.com/apm/entity/service%3Avagov-next-build?dependencyMap.showNetworkMetrics=false&env=eks-prod&fromUser=false&graphType=flamegraph&groupMapByOperation=null&operationName=web.request&shouldShowLegend=true&traceQuery=&start=1762438001585&end=1762441601585&paused=false)
+  - [Next.js K8s Pods Overview](https://vagov.ddog-gov.com/dashboard/6db-3rm-wui/kubernetes-pods-overview-nextjs-test-staging?fromUser=false&refresh_mode=sliding&tpl_var_cluster%5B0%5D=dsva-vagov-prod-cluster&tpl_var_namespace%5B0%5D=next-build&from_ts=1761836663179&to_ts=1762441463179&live=true)
+  - [Next.js RUM](https://vagov.ddog-gov.com/dashboard/f9n-yzk-t5u/rum---web-app-performance-nextjs?fromUser=false&refresh_mode=sliding&tpl_var_applicationName%5B0%5D=%22Nextjs%20Frontend%22&tpl_var_env%5B0%5D=vagovprod&from_ts=1761836738454&to_ts=1762441538454&live=true)
+  - [Next.js APM](https://vagov.ddog-gov.com/apm/entity/service%3Avagov-next-build?dependencyMap.showNetworkMetrics=false&env=eks-prod&fromUser=false&graphType=flamegraph&groupMapByOperation=null&operationName=web.request&shouldShowLegend=true&traceQuery=&start=1762438001585&end=1762441601585&paused=false)
 
 **Provide your Release Plan with the "Planning" sections completed (in each section: Phase I, Phase II, Go Live)**
 
@@ -105,7 +105,7 @@ Please provide the following documentation as attachments.
 | ------------------------------------------------- | ---------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
 | Firewall (WAF)                                    | Injection Attacks                                                                              | Need to confirm if this is handled by TIC or other current infrastructure deployed with Kubernetes |
 | Content Security Policy (CSP)                     | Cross-Site Scripting (XSS) Client-Side Attacks                                                 |                                                                                                    |
-| Principle of Least Privilege                      | Security Misconfigurations, Broken Access Control, API Security Vulnerabilities                | Only using GET Requests from Nextjs to Drupal                                                      |
+| Principle of Least Privilege                      | Security Misconfigurations, Broken Access Control, API Security Vulnerabilities                | Only using GET Requests from Next.js to Drupal                                                      |
 | Disallow requests to private IP ranges            | Server-Side Request Forgery (SSRF)                                                             |                                                                                                    |
 | Rate limit for API and controller access          | Broken Access Control, API Security Vulnerabilities, Denial of Service (DoS) & Distributed DoS |                                                                                                    |
 | Using lock files to prevent floating dependencies | Supply Chain Attacks                                                                           |                                                                                                    |
@@ -122,7 +122,7 @@ Please provide the following documentation as attachments.
   - PR is reviewed and automated tests are run - ~10 mins
   - PR is merged after successful review and automated testing
   - Deployment executes and updates the production environment
-    - Nextjs Env - ~10 mins
+    - Next.js Env - ~10 mins
     - Drupal Env - ~90 mins
   - No VA.gov downtime due to the deployment process. The CMS has some downtime as part of its deployment process, but this is not public facing.
 
@@ -169,11 +169,11 @@ A link to the Release Plan with the "Planning" sections completed (in each secti
 
 - [CMS APM [Drupal] - Datadog Dashboard](https://vagov.ddog-gov.com/apm/entity/service%3Avagov-cms?dependencyMap.showNetworkMetrics=false&env=brd-prod&fromUser=false&graphType=flamegraph&groupMapByOperation=null&primaryTags=%3A%2A&shouldShowLegend=true&spanKind=server&traceQuery=&start=1762438001585&end=1762441601585&paused=false)
 
-- [Nextjs Pods Overview - Datadog Dashboard](https://vagov.ddog-gov.com/dashboard/6db-3rm-wui/kubernetes-pods-overview-nextjs-test-staging?fromUser=false&refresh_mode=sliding&tpl_var_cluster%5B0%5D=dsva-vagov-prod-cluster&tpl_var_namespace%5B0%5D=next-build&from_ts=1761836663179&to_ts=1762441463179&live=true)
+- [Next.js Pods Overview - Datadog Dashboard](https://vagov.ddog-gov.com/dashboard/6db-3rm-wui/kubernetes-pods-overview-nextjs-test-staging?fromUser=false&refresh_mode=sliding&tpl_var_cluster%5B0%5D=dsva-vagov-prod-cluster&tpl_var_namespace%5B0%5D=next-build&from_ts=1761836663179&to_ts=1762441463179&live=true)
 
-- [Nextjs RUM - Datadog Dashboard](https://vagov.ddog-gov.com/dashboard/f9n-yzk-t5u/rum---web-app-performance-nextjs?fromUser=false&refresh_mode=sliding&tpl_var_applicationName%5B0%5D=%22Nextjs%20Frontend%22&tpl_var_env%5B0%5D=vagovprod&from_ts=1761836738454&to_ts=1762441538454&live=true)
+- [Next.js RUM - Datadog Dashboard](https://vagov.ddog-gov.com/dashboard/f9n-yzk-t5u/rum---web-app-performance-nextjs?fromUser=false&refresh_mode=sliding&tpl_var_applicationName%5B0%5D=%22Nextjs%20Frontend%22&tpl_var_env%5B0%5D=vagovprod&from_ts=1761836738454&to_ts=1762441538454&live=true)
 
-- [Nextjs APM - Datadog Dashboard](https://vagov.ddog-gov.com/apm/entity/service%3Avagov-next-build?dependencyMap.showNetworkMetrics=false&env=eks-prod&fromUser=false&graphType=flamegraph&groupMapByOperation=null&operationName=web.request&shouldShowLegend=true&traceQuery=&start=1762438001585&end=1762441601585&paused=false)
+- [Next.js APM - Datadog Dashboard](https://vagov.ddog-gov.com/apm/entity/service%3Avagov-next-build?dependencyMap.showNetworkMetrics=false&env=eks-prod&fromUser=false&graphType=flamegraph&groupMapByOperation=null&operationName=web.request&shouldShowLegend=true&traceQuery=&start=1762438001585&end=1762441601585&paused=false)
 
 **Is there a playbook included in your product outline, for investigating and handling likely failure modes?**
 
@@ -181,7 +181,7 @@ A link to the Release Plan with the "Planning" sections completed (in each secti
 
 **Code links:** Link to relevant code directories in GitHub.
 
-- [Nextjs Repo](https://github.com/department-of-veterans-affairs/next-build)
+- [Next.js Repo](https://github.com/department-of-veterans-affairs/next-build)
 - [Drupal Repo](https://github.com/department-of-veterans-affairs/va.gov-cms)
-- [Nextjs Infrastructure/Devops](https://github.com/department-of-veterans-affairs/vsp-infra-application-manifests/tree/main/apps/next-build)
+- [Next.js Infrastructure/Devops](https://github.com/department-of-veterans-affairs/vsp-infra-application-manifests/tree/main/apps/next-build)
 - [Drupal Infrastructure/Devops](https://github.com/department-of-veterans-affairs/vsp-infra-application-manifests/tree/main/apps/cms)
