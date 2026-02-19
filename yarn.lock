@@ -3151,10 +3151,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/env@npm:15.5.10":
-  version: 15.5.10
-  resolution: "@next/env@npm:15.5.10"
-  checksum: cc481d2bd5a7cf97a0d3c093bb9a9b5359ad324c9eb26c89621c90f8d8d11a284fd05cdcc5358db973074fb65c0d9aa01ecbc464b181c9fe3b2bca0776a0fc54
+"@next/env@npm:15.5.11":
+  version: 15.5.11
+  resolution: "@next/env@npm:15.5.11"
+  checksum: fe49836b5d421681d63e48f64b839833ef8101d3d3d6bc1f2492815c43e2f68e7647dac31a2f2d8399794ae68a7935045906a08e771ab7d503afe6d921964aff
   languageName: node
   linkType: hard
 
@@ -14781,7 +14781,7 @@ __metadata:
     lodash: ^4.17.23
     mq-polyfill: ^1.1.8
     msw: ^2.12.4
-    next: 15.5.10
+    next: 15.5.11
     next-drupal: ^2.0.0
     next-drupal-query: ^0.4.0
     next-sitemap: ^4.2.3
@@ -14857,11 +14857,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next@npm:15.5.10":
-  version: 15.5.10
-  resolution: "next@npm:15.5.10"
+"next@npm:15.5.11":
+  version: 15.5.11
+  resolution: "next@npm:15.5.11"
   dependencies:
-    "@next/env": 15.5.10
+    "@next/env": 15.5.11
     "@next/swc-darwin-arm64": 15.5.7
     "@next/swc-darwin-x64": 15.5.7
     "@next/swc-linux-arm64-gnu": 15.5.7
@@ -14912,7 +14912,7 @@ __metadata:
       optional: true
   bin:
     next: dist/bin/next
-  checksum: c60fc5eb6d2fc7868a110a713fc772e69dfb0b13a64dc6ddb3b79a37bfe88c870433959337693b33bc88c1086a0c42e25b6eafbb6e198c935e7e7bff213c40e9
+  checksum: b2812dfe0e9590d87d20337a97ae3e5b108c175c5d11740a2d649110cf1ac7a30815f4473fd8445aec9f57939ee857994eb2176493a18ab01a74694e0616dd9e
   languageName: node
   linkType: hard
 
@@ -16710,16 +16710,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"qs@npm:^6.13.1, qs@npm:^6.14.0, qs@npm:^6.4.0":
-  version: 6.14.1
-  resolution: "qs@npm:6.14.1"
-  dependencies:
-    side-channel: ^1.1.0
-  checksum: 7fffab0344fd75bfb6b8c94b8ba17f3d3e823d25b615900f68b473c3a078e497de8eaa08f709eaaa170eedfcee50638a7159b98abef7d8c89c2ede79291522f2
-  languageName: node
-  linkType: hard
-
-"qs@npm:^6.14.1":
+"qs@npm:^6.13.1, qs@npm:^6.14.0, qs@npm:^6.14.1, qs@npm:^6.4.0":
   version: 6.15.0
   resolution: "qs@npm:6.15.0"
   dependencies:
