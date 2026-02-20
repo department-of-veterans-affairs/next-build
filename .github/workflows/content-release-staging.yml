@@ -86,21 +86,17 @@ jobs:
   content-release-staging:
     # This job runs for scheduled and manually triggered (workflow_dispatch) events.
     needs: create-stage-release-branch
-    runs-on: ubuntu-latest
-    # uses: ./.github/workflows/content-release.yml
-    # with:
-    #   build_type: "staging"
-    #   branch: ${{ needs.create-stage-release-branch.outputs.NEW_BRANCH || github.ref_name }}
-    # secrets: inherit
-    steps:
-      - name: No op
-        run: echo "No op for testing the slack notification"
+    uses: ./.github/workflows/content-release.yml
+    with:
+      build_type: "staging"
+      branch: ${{ needs.create-stage-release-branch.outputs.NEW_BRANCH || github.ref_name }}
+    secrets: inherit
 
   notify-success:
     name: Notify Success
     runs-on: ubuntu-latest
     needs: [content-release-staging, create-stage-release-branch]
-    # if: github.event_name == 'schedule' || github.event.inputs.create_branch
+    if: github.event_name == 'schedule' || github.event.inputs.create_branch
     outputs:
       SLACK_THREAD_TS: ${{ steps.slack-success.outputs.ts }}
 
@@ -136,8 +132,7 @@ jobs:
         with:
           channel-id: ${{ env.SLACK_CHANNEL }}
           payload: '{"attachments": [{"color": "#07711E","blocks": [{"type": "section","text": {"type": "mrkdwn","text":
-            "Fake released ${{ needs.create-stage-release-branch.outputs.NEW_BRANCH }} branch on https://staging.va.gov \n
-            _(Nothing was actually release; that step was skipped entirely for a faster feedback loop while this branch is being tested)_
+            "@next-build-team Successfully released ${{ needs.create-stage-release-branch.outputs.NEW_BRANCH }} branch on https://staging.va.gov \n
             Please review changes to be released: <https://github.com/department-of-veterans-affairs/next-build/compare/${{ needs.create-stage-release-branch.outputs.LATEST_TAG_VERSION }}...${{ needs.create-stage-release-branch.outputs.NEW_BRANCH }}|${{ needs.create-stage-release-branch.outputs.LATEST_TAG_VERSION }}...${{ needs.create-stage-release-branch.outputs.NEW_BRANCH }}>\n
             Please review these URLS\n
             <https://staging.va.gov/|Homepage>\n
