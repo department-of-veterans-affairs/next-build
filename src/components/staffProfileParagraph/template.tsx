@@ -23,9 +23,9 @@ export function StaffProfileParagraph({
   return (
     <div
       data-template="includes/bioParagraph"
-      className="vads-u-display--flex vads-u-margin-bottom--4 vads-u-flex-direction--column medium-screen:vads-u-flex-direction--row"
+      className="vads-u-display--flex vads-u-margin-bottom--4 vads-u-flex-direction--column tablet:vads-u-flex-direction--row"
     >
-      <div className="vads-u-flex--auto medium-screen:vads-u-margin-right--3 vads-u-margin-bottom--2 medium-screen:vads-u-margin-bottom--0">
+      <div className="vads-u-flex--auto tablet:vads-u-margin-right--3 vads-u-margin-bottom--2 tablet:vads-u-margin-bottom--0">
         {!media ? (
           <div className="circular-profile-image bio-paragraph-image vads-u-position--relative vads-u-background-color--gray-lightest vads-u-display--block">
             <div className="circular-profile-missing-icon">
