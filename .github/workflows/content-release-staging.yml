@@ -84,12 +84,12 @@ jobs:
   content-release-staging:
     # This job runs for scheduled and manually triggered (workflow_dispatch) events.
     needs: create-stage-release-branch
+    runs-on: ubuntu-latest
     # uses: ./.github/workflows/content-release.yml
-    with:
-      build_type: "staging"
-      branch: ${{ needs.create-stage-release-branch.outputs.NEW_BRANCH || github.ref_name }}
-    secrets: inherit
-
+    # with:
+    #   build_type: "staging"
+    #   branch: ${{ needs.create-stage-release-branch.outputs.NEW_BRANCH || github.ref_name }}
+    # secrets: inherit
     steps:
       - name: No op
         run: echo "No op for testing the slack notification"
