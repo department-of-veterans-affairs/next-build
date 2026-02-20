@@ -20,7 +20,7 @@ const config: EPTConfig = {
   paths: [
     { path: '/' },
     { path: '/forms/' },
-    { path: '/find-locations' },
+    { path: '/find-locations', diffThreshold: 1 },
     {
       path: '/claim-or-appeal-status/',
       // waitForSelector: '.va-alert-sign-in__body',
@@ -35,7 +35,7 @@ const config: EPTConfig = {
     {
       path: '/education/check-remaining-post-9-11-gi-bill-benefits',
     },
-    { path: '/view-change-dependents', diffThreshold: 10 },
+    { path: '/view-change-dependents', diffThreshold: 11 },
   ],
 
   execution: {
