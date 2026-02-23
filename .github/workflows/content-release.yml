@@ -74,7 +74,7 @@ jobs:
         run: echo APPROX_WORKFLOW_START_TIME=$(date +"%s") >> $GITHUB_OUTPUT
 
       - name: Checkout
-        uses: actions/checkout@v6.0.2
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
       - uses: actions/setup-node@v6
         with:
@@ -103,7 +103,7 @@ jobs:
     if: inputs.build_type == 'prod'
     steps:
       - name: Checkout
-        uses: actions/checkout@v6.0.2
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
       - name: Notify Slack
         uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4 # main
@@ -155,7 +155,7 @@ jobs:
       run: echo SETUP_START_TIME=$(date +"%s") >> $GITHUB_OUTPUT
 
     - name: Checkout next-build (prod)
-      uses: actions/checkout@v6.0.2
+      uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
       if: inputs.build_type == 'prod'
       with:
         repository: department-of-veterans-affairs/next-build
@@ -164,7 +164,7 @@ jobs:
         sparse-checkout-cone-mode: false
     
     - name: Checkout next-build (non-prod)
-      uses: actions/checkout@v6.0.2
+      uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
       if: inputs.build_type != 'prod'
       with:
         repository: department-of-veterans-affairs/next-build
@@ -173,7 +173,7 @@ jobs:
         sparse-checkout-cone-mode: false
 
     - name: Checkout vets-website
-      uses: actions/checkout@v6.0.2
+      uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
       with:
         repository: department-of-veterans-affairs/vets-website
         path: vets-website
@@ -357,7 +357,7 @@ jobs:
   
     steps:
       - name: Check out repo
-        uses: actions/checkout@v6.0.2
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
       - name: Notify Slack
         uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4 # main
@@ -421,7 +421,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6.0.2
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
       - name: Notify Slack
         uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4 # main
@@ -479,7 +479,7 @@ jobs:
   
       steps:
         - name: Checkout
-          uses: actions/checkout@v6.0.2
+          uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         #uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
         - name: Get current timestamp
