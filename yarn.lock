@@ -14582,7 +14582,7 @@ __metadata:
     next-drupal-query: ^0.4.0
     next-sitemap: ^4.2.3
     node_extra_ca_certs_mozilla_bundle: ^1.0.7
-    npm: ^11.10.1
+    npm: ^11.9.0
     p-retry: ^7.1.0
     playwright-core: ^1.57.0
     plop: ^4.0.1
@@ -15084,7 +15084,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"npm@npm:^11.10.1":
+"npm@npm:^11.9.0":
   version: 11.10.1
   resolution: "npm@npm:11.10.1"
   dependencies:
