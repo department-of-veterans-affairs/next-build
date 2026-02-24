@@ -31,19 +31,18 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: main
-          fetch-tags: true
 
       - name: Set up Git user
         if: github.event_name == 'schedule' || github.event.inputs.create_branch == 'true'
         run: |
           git config user.name "va-vsp-bot"
           git config user.email "70344339+va-vsp-bot@users.noreply.github.com"
-
+  
       - name: Get latest tag
         id: get-latest-tag
         if: github.event_name == 'schedule' || github.event.inputs.create_branch == 'true'
         run: |
-          LATEST_TAG_VERSION=$(git tag -l --sort=-version:refname | head -1)
+          LATEST_TAG_VERSION=$(git fetch --all --tags > /dev/null && git tag -l --sort=-version:refname | head -1)
           echo "latest_tag_version=$LATEST_TAG_VERSION" >> $GITHUB_OUTPUT
           echo "latest_tag_version=$LATEST_TAG_VERSION"
       - name: Get next tag version
