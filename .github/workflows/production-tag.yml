@@ -30,10 +30,10 @@ jobs:
   check-parity:
     name: Check Environment Parity
     runs-on: ubuntu-latest
-    # [TEST] Removed schedule gate so manual dispatch of staging triggers this.
     if: >
       github.event_name == 'workflow_run'
       && github.event.workflow_run.conclusion == 'success'
+      && github.event.workflow_run.event == 'schedule'
     outputs:
       parity: ${{ steps.check.outputs.parity }}
     steps:
@@ -81,6 +81,118 @@ jobs:
         github.event_name == 'workflow_dispatch'
         || (needs.check-parity.result == 'success' && needs.check-parity.outputs.parity == 'true')
       )
-    # [TEST] Stripped steps — verify the job triggers but don't actually create a tag.
+    outputs:
+      RELEASE_NAME: ${{ steps.export-release-name.outputs.RELEASE_NAME }}
+    permissions:
+      id-token: write
+      contents: write
+
     steps:
-      - run: echo "create-production-tag would run here"
+      - name: Cancel workflow due to DSVA schedule, unless this is a manual build
+        if: ${{ github.event_name != 'workflow_dispatch' && env.DSVA_SCHEDULE_ENABLED != 'true' }}
+        uses: andymckay/cancel-action@a955d435292c0d409d104b57d8e78435a93a6ef1 # v0.5
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@8df5847569e6427dd6c4fb1cf565c83acfa8afa7 # v6.0.0
+        with:
+          role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
+          aws-region: us-gov-west-1
+
+      - name: Get bot token from Parameter Store
+        uses: department-of-veterans-affairs/action-inject-ssm-secrets@d8e6de3bde4dd728c9d732baef58b3c854b8c4bb # latest
+        with:
+          ssm_parameter: /devops/VA_VSP_BOT_GITHUB_TOKEN
+          env_variable_name: VA_VSP_BOT_GITHUB_TOKEN
+
+      - uses: actions/checkout@v6.0.2
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: .nvmrc
+
+      - name: Install Npm Dependencies
+        run: |
+          yarn set version 3.6.1
+          HUSKY=0 yarn install --immutable
+
+      - name: Get current ref
+        id: get-current-ref
+        run: echo REF=$(git rev-parse HEAD) >> $GITHUB_OUTPUT
+
+      - name: Get latest tag
+        id: get-latest-tag
+        run: echo LATEST_TAG_VERSION=$(git fetch --all --tags > /dev/null && git tag -l | sort -V --reverse | head -n 1) >> $GITHUB_OUTPUT
+
+      - name: Get next tag version
+        run: |
+          next_increment=$(( $(echo ${{ steps.get-latest-tag.outputs.LATEST_TAG_VERSION }} | cut -d'.' -f3) + 1))
+          echo "NEW_TAG=$(echo ${{ steps.get-latest-tag.outputs.LATEST_TAG_VERSION }} | sed -E "s/\.[0-9]+/.$next_increment/2")" >> $GITHUB_ENV
+
+      - name: Create next tag
+        uses: nick-invision/retry@ce71cc2ab81d554ebbe88c79ab5975992d79ba08 # v3.0.2
+        with:
+          timeout_seconds: 30
+          max_attempts: 3
+          command: git tag ${{ env.NEW_TAG }} ${{ steps.get-current-ref.outputs.REF }} && git push --no-verify origin ${{ env.NEW_TAG }}
+          new_command_on_retry: git tag ${{ env.NEW_TAG }} ${{ steps.get-current-ref.outputs.REF }} && git push --no-verify origin ${{ env.NEW_TAG }}
+
+
+      - name: Create release
+        uses: ncipollo/release-action@b7eabc95ff50cbeeedec83973935c8f306dfcd0b # v1.20.0
+        with:
+          tag: ${{ env.NEW_TAG }}
+          name: next-build/${{ env.NEW_TAG }}
+          token: ${{ env.VA_VSP_BOT_GITHUB_TOKEN }}
+          commit: ${{ steps.get-current-ref.outputs.REF }}
+
+      - name: Export new release name
+        id: export-release-name
+        run: |
+          echo RELEASE_NAME=${{ env.NEW_TAG }} >> $GITHUB_OUTPUT
+
+      - name: Write release name as artifact
+        run: |
+          mkdir -p ./tag
+          echo $NEW_TAG > ./tag/tag.txt
+
+      - uses: actions/upload-artifact@v6
+        with:
+          name: tag.txt
+          path: tag/
+
+  notify-success:
+    name: Notify Success
+    runs-on: ubuntu-latest
+    needs: create-production-tag
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@0c366fd6a839edf440554fa01a7085ccba70ac98 # v4.1.1
+
+      - name: Notify Slack
+        uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4 # main
+        continue-on-error: true
+        with:
+          payload: '{"attachments": [{"color": "#07711E","blocks": [{"type": "section","text": {"type": "mrkdwn","text": "Successfully tagged new next-build release: ${{ needs.create-production-tag.outputs.RELEASE_NAME }}"}}]}]}'
+          channel_id: ${{ env.SLACK_CHANNEL }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+  notify-failure:
+    name: Notify Failure
+    runs-on: ubuntu-latest
+    if: ${{ failure() || cancelled() }}
+    needs: create-production-tag
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@0c366fd6a839edf440554fa01a7085ccba70ac98 # v4.1.1
+
+      - name: Notify Slack
+        if: ${{ env.DSVA_SCHEDULE_ENABLED == 'true' }}
+        uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4 # main
+        continue-on-error: true
+        with:
+          payload: '{"attachments": [{"color": "#D33834","blocks": [{"type": "section","text": {"type": "mrkdwn","text": "><!subteam^S09760WRN3T|cms-troubleshooting> New next-build release could not be tagged!: <https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}>"}}]}]}'
+          channel_id: ${{ env.SLACK_CHANNEL }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}

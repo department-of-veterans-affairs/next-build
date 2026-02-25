@@ -83,11 +83,13 @@ jobs:
           echo "Not creating a new branch for manual run."
 
   content-release-staging:
-    # [TEST] Stubbed out — skip actual content release, just succeed so EPT runs.
+    # This job runs for scheduled and manually triggered (workflow_dispatch) events.
     needs: create-stage-release-branch
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "Skipping content release for testing"
+    uses: ./.github/workflows/content-release.yml
+    with:
+      build_type: "staging"
+      branch: ${{ needs.create-stage-release-branch.outputs.NEW_BRANCH || github.ref_name }}
+    secrets: inherit
 
   notify-success:
     name: Notify Success
