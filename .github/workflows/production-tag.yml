@@ -105,6 +105,10 @@ jobs:
           env_variable_name: VA_VSP_BOT_GITHUB_TOKEN
 
       - uses: actions/checkout@v6.0.2
+        with:
+          # For workflow_run: check out the commit the staging release was built from.
+          # For workflow_dispatch: falls back to the default branch HEAD.
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
       - uses: actions/setup-node@v6
         with:
           node-version-file: .nvmrc
