@@ -58,7 +58,7 @@ jobs:
       - name: Delete existing release branch for latest tag if it exists
         if: github.event_name == 'schedule' || github.event.inputs.create_branch == 'true'
         run: |
-          LATEST_RELEASE_BRANCH=release/${{ steps.get-next-tag.outputs.latest_tag }}
+          LATEST_RELEASE_BRANCH=release/${{ steps.get-latest-tag.outputs.latest_tag_version }}
           if git ls-remote --exit-code --heads origin "$LATEST_RELEASE_BRANCH"; then
             echo "Deleting existing remote branch $LATEST_RELEASE_BRANCH"
             git push origin --delete "$LATEST_RELEASE_BRANCH"
