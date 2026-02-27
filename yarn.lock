@@ -14477,6 +14477,7 @@ __metadata:
     date-fns-tz: ^3.2.0
     dd-trace: ^5.81.0
     debug: ^4.4.3
+    deepmerge: ^4.2.2
     drupal-jsonapi-params: ^3.0.0
     env-loader: 0.1.0
     eslint: 9.39.1
@@ -14507,7 +14508,6 @@ __metadata:
     msw: ^2.12.4
     next: 15.5.12
     next-drupal: ^2.0.0
-    next-drupal-query: ^0.4.0
     next-sitemap: ^4.2.3
     node_extra_ca_certs_mozilla_bundle: ^1.0.7
     npm: ^11.9.0
@@ -14528,6 +14528,7 @@ __metadata:
     ts-morph: ^27.0.2
     tsconfig-paths: ^4.2.0
     tsx: ^4.20.5
+    type-fest: ^2.17.0
     typescript: ^5.9.2
     uswds: ^2.14.0
     uuid: ^9.0.1
@@ -14537,18 +14538,6 @@ __metadata:
       built: true
   languageName: unknown
   linkType: soft
-
-"next-drupal-query@npm:^0.4.0":
-  version: 0.4.0
-  resolution: "next-drupal-query@npm:0.4.0"
-  dependencies:
-    deepmerge: ^4.2.2
-    drupal-jsonapi-params: ^2.1.0
-    next: ^12.2.3 || ^13
-    type-fest: ^2.17.0
-  checksum: 712df4a51ac44a1c7d2913298e482e0710901bde7442889ed777c0a7a6f7e3757463e33341512325bd06b5320b433edefc72a8ba7772d02fe4ef0839e786b85f
-  languageName: node
-  linkType: hard
 
 "next-drupal@npm:^2.0.0":
   version: 2.0.0

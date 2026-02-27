@@ -18,6 +18,7 @@ const customJestConfig: Config = {
     path.join(__dirname, 'test'),
   ],
   moduleNameMapper: {
+    '^next-drupal-query$': '<rootDir>/src/lib/next-drupal-query/index.ts',
     '^@/__tests__/(.*)$': '<rootDir>/src/__tests__/$1',
     '^@/dev/(.*)$': '<rootDir>/src/dev/$1',
     '^@/lib/(.*)$': '<rootDir>/src/lib/$1',
@@ -61,6 +62,7 @@ const customJestConfig: Config = {
     '/node_modules/',
     '<rootDir>/playwright',
     '<rootDir>/scripts',
+    '<rootDir>/src/lib/next-drupal-query/__tests__/queries',
   ],
   transformIgnorePatterns: ['/dist/.+\\.js'],
 }
