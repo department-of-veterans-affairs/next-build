@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       LATEST_TAG_VERSION: ${{ steps.get-latest-tag.outputs.latest_tag_version }}
-      NEW_BRANCH: ${{ steps.create-branch.outputs.new_branch }}
+      NEW_BRANCH: ${{ steps.get-next-tag.outputs.new_branch }}
     steps:
       - name: Checkout main branch
         if: github.event_name == 'schedule' || github.event.inputs.create_branch == 'true'
@@ -68,9 +68,9 @@ jobs:
       - name: Delete next release branch for next tag if it exists
         if: github.event_name == 'schedule' || github.event.inputs.create_branch == 'true'
         run: |
-          if git ls-remote --exit-code --heads origin ${{ steps.get-next-tag.outputs.next_branch }}; then
+          if git ls-remote --exit-code --heads origin "${{ steps.get-next-tag.outputs.next_branch }}"; then
             echo "Deleting existing remote branch ${{ steps.get-next-tag.outputs.next_branch }}"
-            git push origin --delete ${{ steps.get-next-tag.outputs.next_branch }}
+            git push origin --delete "${{ steps.get-next-tag.outputs.next_branch }}"
           else
             echo "Remote branch ${{ steps.get-next-tag.outputs.next_branch }} does not exist"
           fi
@@ -78,8 +78,8 @@ jobs:
         id: create-branch
         if: github.event_name == 'schedule' || github.event.inputs.create_branch == 'true'
         run: |
-          git checkout -b ${{ steps.get-next-tag.outputs.next_branch }}
-          git push origin ${{ steps.get-next-tag.outputs.next_branch }}
+          git checkout -b "${{ steps.get-next-tag.outputs.next_branch }}"
+          git push origin "${{ steps.get-next-tag.outputs.next_branch }}"
 
       - name: No new branch for manual run
         if: github.event_name == 'workflow_dispatch' && github.event.inputs.create_branch != 'true'
