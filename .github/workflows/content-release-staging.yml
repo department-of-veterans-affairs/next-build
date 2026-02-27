@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       LATEST_TAG_VERSION: ${{ steps.get-latest-tag.outputs.latest_tag_version }}
-      NEW_BRANCH: ${{ steps.get-next-tag.outputs.new_branch }}
+      NEXT_BRANCH: ${{ steps.get-next-tag.outputs.next_branch }}
     steps:
       - name: Checkout main branch
         if: github.event_name == 'schedule' || github.event.inputs.create_branch == 'true'
@@ -92,7 +92,7 @@ jobs:
     uses: ./.github/workflows/content-release.yml
     with:
       build_type: "staging"
-      branch: ${{ needs.create-stage-release-branch.outputs.NEW_BRANCH || github.ref_name }}
+      branch: ${{ needs.create-stage-release-branch.outputs.NEXT_BRANCH || github.ref_name }}
     secrets: inherit
 
   notify-success:
@@ -135,8 +135,8 @@ jobs:
         with:
           channel-id: ${{ env.SLACK_CHANNEL }}
           payload: '{"attachments": [{"color": "#07711E","blocks": [{"type": "section","text": {"type": "mrkdwn","text":
-            "@next-build-team Successfully released ${{ needs.create-stage-release-branch.outputs.NEW_BRANCH }} branch on https://staging.va.gov \n
-            Please review changes to be released: <https://github.com/department-of-veterans-affairs/next-build/compare/${{ needs.create-stage-release-branch.outputs.LATEST_TAG_VERSION }}...${{ needs.create-stage-release-branch.outputs.NEW_BRANCH }}|${{ needs.create-stage-release-branch.outputs.LATEST_TAG_VERSION }}...${{ needs.create-stage-release-branch.outputs.NEW_BRANCH }}>\n
+            "@next-build-team Successfully released ${{ needs.create-stage-release-branch.outputs.NEXT_BRANCH }} branch on https://staging.va.gov \n
+            Please review changes to be released: <https://github.com/department-of-veterans-affairs/next-build/compare/${{ needs.create-stage-release-branch.outputs.LATEST_TAG_VERSION }}...${{ needs.create-stage-release-branch.outputs.NEXT_BRANCH }}|${{ needs.create-stage-release-branch.outputs.LATEST_TAG_VERSION }}...${{ needs.create-stage-release-branch.outputs.NEXT_BRANCH }}>\n
             Please review these URLS\n
             <https://staging.va.gov/|Homepage>\n
             <https://staging.va.gov/forms/|Find a form>\n
@@ -261,7 +261,7 @@ jobs:
         uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4 # main
         continue-on-error: true
         with:
-          payload: '{"attachments": [{"color": "#D33834","blocks": [{"type": "section","text": {"type": "mrkdwn","text": "><!subteam^S09760WRN3T|cms-troubleshooting> There was a problem releasing ${{ needs.create-stage-release-branch.outputs.NEW_BRANCH }} branch to stage: <https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}>}"}}]}]}'
+          payload: '{"attachments": [{"color": "#D33834","blocks": [{"type": "section","text": {"type": "mrkdwn","text": "><!subteam^S09760WRN3T|cms-troubleshooting> There was a problem releasing ${{ needs.create-stage-release-branch.outputs.NEXT_BRANCH }} branch to stage: <https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}>}"}}]}]}'
           channel_id: ${{ env.SLACK_CHANNEL }}
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
