@@ -1,5 +1,5 @@
 import { ParagraphReactWidget } from '@/types/drupal/paragraph'
-import { QueryFormatter } from 'next-drupal-query'
+import { QueryFormatter } from '@/lib/next-drupal-query'
 import { ReactWidget } from '@/components/reactWidget/formatted-type'
 
 export const formatter: QueryFormatter<ParagraphReactWidget, ReactWidget> = (

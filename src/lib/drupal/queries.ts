@@ -1,4 +1,4 @@
-import { createQueries } from 'next-drupal-query'
+import { createQueries } from '@/lib/next-drupal-query'
 import * as Accordion from '@/components/accordion/query'
 import * as Alert from '@/components/alert/query'
 import * as AlertBlock from '@/components/alertBlock/query'

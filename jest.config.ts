@@ -18,7 +18,6 @@ const customJestConfig: Config = {
     path.join(__dirname, 'test'),
   ],
   moduleNameMapper: {
-    '^next-drupal-query$': '<rootDir>/src/lib/next-drupal-query/index.ts',
     '^@/__tests__/(.*)$': '<rootDir>/src/__tests__/$1',
     '^@/dev/(.*)$': '<rootDir>/src/dev/$1',
     '^@/lib/(.*)$': '<rootDir>/src/lib/$1',

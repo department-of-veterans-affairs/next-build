@@ -1,4 +1,4 @@
-import { QueryFormatter, QueryParams } from 'next-drupal-query'
+import { QueryFormatter, QueryParams } from '@/lib/next-drupal-query'
 import { ParagraphServiceLocation } from '@/types/drupal/paragraph'
 import { ServiceLocation } from './formatted-type'
 import { getHtmlFromDrupalContent } from '@/lib/utils/getHtmlFromDrupalContent'

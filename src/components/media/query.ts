@@ -1,4 +1,4 @@
-import { QueryFormatter, QueryParams } from 'next-drupal-query'
+import { QueryFormatter, QueryParams } from '@/lib/next-drupal-query'
 import { ParagraphMedia } from '@/types/drupal/paragraph'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { getNestedIncludes } from '@/lib/utils/queries'

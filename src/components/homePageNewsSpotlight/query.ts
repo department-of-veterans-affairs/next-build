@@ -1,4 +1,4 @@
-import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
+import { QueryData, QueryFormatter, QueryParams } from '@/lib/next-drupal-query'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { NewsSpotlightData } from './formatted-type'
 import { deserialize, JsonApiResponse } from 'next-drupal'

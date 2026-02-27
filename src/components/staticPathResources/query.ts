@@ -3,7 +3,7 @@ import {
   QueryFormatter,
   QueryOpts,
   QueryParams,
-} from 'next-drupal-query'
+} from '@/lib/next-drupal-query'
 import { JsonApiResourceWithPath } from 'next-drupal'
 import { ResourceType } from '@/lib/constants/resourceTypes'
 import { StaticPathResource } from '@/components/staticPathResources/formatted-type'
