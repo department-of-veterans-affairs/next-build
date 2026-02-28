@@ -66,7 +66,7 @@ describe('HomePageCommonTasks Component', () => {
     const { container } = render(<HomePageCommonTasks {...mockData} />)
 
     const searchLinks = container.querySelectorAll(
-      '.homepage-common-tasks__search-tools va-link'
+      '.homepage-common-tasks__search-tools va-link-action'
     )
     expect(searchLinks).toHaveLength(mockSearchLinks.length)
 
