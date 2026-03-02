@@ -13,6 +13,7 @@ export const SpanishTranslationSummary = ({
   html,
   textExpander,
 }: ParagraphComponent<FormattedSpanishTranslationSummary>) => {
+  if (!textExpander) return null
   // There's an `additional-info.js` script in the site-wide scripts that will look for
   // the `additional-info-*` classes and dynamically add toggle functionality.
   return (
