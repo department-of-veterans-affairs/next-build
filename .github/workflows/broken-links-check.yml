@@ -41,15 +41,6 @@ jobs:
           yarn set version 3.6.1
           HUSKY=0 yarn install --immutable
 
-      # This is necessary in order for fetch to work.
-      - name: Build proxy-fetcher dist
-        run: |
-          yarn tsc -b ./packages/proxy-fetcher/tsconfig.json
-
-      - name: Rebuild combined cert
-        run: |
-          yarn certs
-
       # Runs the link check on a given instance. Each instance is passed the
       # total number of instances and a particular instance. The script uses
       # this to restrict the link checking to a slice.
