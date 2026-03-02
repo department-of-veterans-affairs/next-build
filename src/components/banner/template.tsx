@@ -1,3 +1,6 @@
+'use client'
+// Note that right now `<VaBanner>` is an old class component, which needs to be wrapped in a client component.
+
 import { VaBanner } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
 import { Banner as FormattedBanner } from './formatted-type'
 

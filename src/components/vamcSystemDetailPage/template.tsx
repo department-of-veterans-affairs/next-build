@@ -47,13 +47,11 @@ export function VamcSystemDetailPage({
 
         {/* Main action buttons for contact pages */}
         {isContactPage && (
-          <div className="usa-grid usa-grid-full vads-u-margin-y--1p5">
-            <RegionalTopTasks
-              path={vamcSystem.path}
-              administration={administration}
-              vamcEhrSystem={vamcEhrSystem}
-            />
-          </div>
+          <RegionalTopTasks
+            path={vamcSystem.path}
+            administration={administration}
+            vamcEhrSystem={vamcEhrSystem}
+          />
         )}
 
         {/* Table of contents */}
