@@ -9,6 +9,11 @@ on:
   # Runs on API call. Used for CMS-driven build triggers.
   repository_dispatch:
     types: [content-release-dev]
+  # Do a content release to dev when we have a successful build on main. 
+  workflow_run:
+    workflows: ['Continuous Integration']
+    types: [completed]
+    branches: [main]
 
 concurrency: next-build-content-release-dev
 
@@ -16,7 +21,7 @@ jobs:
   content-release-dev:
     # This job should run for any valid event besides workflow_run, or workflow_run if the conclusion was successful.
     if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
-    uses: department-of-veterans-affairs/next-build/.github/workflows/content-release.yml@main
+    uses: ./.github/workflows/content-release.yml
     with:
       build_type: "dev"
     secrets: inherit

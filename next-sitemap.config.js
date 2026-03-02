@@ -2,6 +2,10 @@
 const RE_META_DATE =
   /<meta\s+name\s*=\s*["']DC\.Date["'][^>]*content\s*=\s*["']([^"']+)["']/i
 
+const isHomepageFeatureEnabled =
+  process.env.FEATURE_NEXT_BUILD_CONTENT_ALL === 'true' ||
+  process.env.FEATURE_NEXT_BUILD_CONTENT_HOMEPAGE === 'true'
+
 /** @type {import('next-sitemap').IConfig} */
 const sitemapConfig = {
   // see https://www.npmjs.com/package/next-sitemap for all options
@@ -17,7 +21,12 @@ const sitemapConfig = {
   changefreq: false,
   priority: false,
   generateRobotsTxt: false, // (optional)
-  transform: async (config, path) => {
+  transform: async (_config, path) => {
+    if (path === '/' && !isHomepageFeatureEnabled) {
+      // Don't include the homepage in the sitemap if the homepage feature flag is disabled
+      return null
+    }
+
     // Transform found paths to add lastmod date https://github.com/iamvishnusankar/next-sitemap?tab=readme-ov-file#custom-transformation-function
     const fs = await import('fs/promises')
     const pathToFile = `./out${path}/index.html`

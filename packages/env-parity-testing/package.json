@@ -1,0 +1,25 @@
+{
+  "name": "env-parity-testing",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "ept": "./bin/ept.js"
+  },
+  "scripts": {
+    "build": "tsc -b tsconfig.json"
+  },
+  "dependencies": {
+    "chalk": "^5.6.2",
+    "commander": "^14.0.3",
+    "debug": "^4.4.3",
+    "pixelmatch": "^7.1.0",
+    "playwright": "^1.58.1",
+    "pngjs": "^7.0.0"
+  },
+  "packageManager": "yarn@3.6.1",
+  "devDependencies": {
+    "@types/debug": "^4.1.12",
+    "@types/pngjs": "^6.0.5"
+  }
+}
