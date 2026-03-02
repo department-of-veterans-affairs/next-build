@@ -12,7 +12,7 @@ exports[`Collapsible Panel formatData outputs formatted data 1`] = `
       "paragraphs": [],
       "title": "Homeless services",
       "type": "paragraph--collapsible_panel_item",
-      "wysiwyg": "<h2>24/7 VA helpline for homeless or at-risk Veterans: 877-4AID-VET (877-424-3838)</h2>
+      "wysiwyg": "<h2 id="247-va-helpline-for-homeless-or-at-risk-veterans-877-4aid-vet">24/7 VA helpline for homeless or at-risk Veterans: 877-4AID-VET <va-telephone contact="877-424-3838" extension=""></va-telephone>)</h2>
 
 <p><strong>@Shelley's team&nbsp;</strong>If functionality is available, this could be an alert box or similar component</p>
 
@@ -39,35 +39,35 @@ exports[`Collapsible Panel formatData outputs formatted data 1`] = `
 
 <p>Mary Frances Pilarski<br>
 Coordinator for homeless Veterans health care<br>
-412-822-1272 (direct)<br>
-866-482-7488, ext. 221272 (outside the Pittsburgh area)<br>
+<va-telephone contact="412-822-1272" extension=""></va-telephone> (direct)<br>
+<va-telephone contact="866-482-7488" extension="221272"></va-telephone> (outside the Pittsburgh area)<br>
 <a href="mailto:test@va.gov">test@va.gov</a></p>
 
 <p>Keather Likins<br>
 Outreach social worker<br>
-412-822-1409<br>
+<va-telephone contact="412-822-1409" extension=""></va-telephone><br>
 <a href="mailto:test@va.gov">test@va.gov</a></p>
 
 <p>Linda Crawford<br>
 HUD-VASH social worker<br>
-412-822-1271<br>
+<va-telephone contact="412-822-1271" extension=""></va-telephone><br>
 <a href="mailto:test@va.gov">test@va.gov</a></p>
 
 <p>Joseph Savino<br>
 Transitional housing liaison<br>
-412-822-1295<br>
+<va-telephone contact="412-822-1295" extension=""></va-telephone><br>
 <a href="mailto:test@va.gov">test@va.gov</a></p>
 
 <p>Mary Henderson<br>
 Veterans benefits counselor<br>
-412-822-1275<br>
+<va-telephone contact="412-822-1275" extension=""></va-telephone><br>
 &lt;insert email&gt;</p>
 
 <p>You can also come in person to this office at this location to talk to someone about which homeless services are right for you.</p>
 
 <h3>For Veterans struggling with addiction or substance abuse</h3>
 
-<p>You can enroll in our intensive 14 or 21-day behavioral health program to start your recovery from alcohol or drug addiction. Call us at 412-360-6110 or 412-360-6092</p>
+<p>You can enroll in our intensive 14 or 21-day behavioral health program to start your recovery from alcohol or drug addiction. Call us at <va-telephone contact="412-360-6110" extension=""></va-telephone> or <va-telephone contact="412-360-6092" extension=""></va-telephone></p>
 
 <h3>Center for Treatment of Addictive Disorders</h3>
 
@@ -92,19 +92,19 @@ First floor, check-in area 3</p>
 <p><strong>@Shelley team:&nbsp;</strong>Giving the name and location of this program here might be distracting, as the CTA is really just to call the number.</p>
 
 <p>John Erskine<br>
-412-822-1285<br>
+<va-telephone contact="412-822-1285" extension=""></va-telephone><br>
 <a href="mailto:test@va.gov">test@va.gov</a></p>
 
 <h3>For Veterans with justice involvement or transitioning out of prison</h3>
 
-<p>We connect Veterans in local courts and jails with services to help them reintegrate back into their communities as smoothly as possible. We can provide housing and employment opportunities, health care, and access to VA benefits. Call us at 412-822-1275.</p>
+<p>We connect Veterans in local courts and jails with services to help them reintegrate back into their communities as smoothly as possible. We can provide housing and employment opportunities, health care, and access to VA benefits. Call us at <va-telephone contact="412-822-1275" extension=""></va-telephone>.</p>
 
 <h3>For Veterans with psychiatric disorders</h3>
 
 <p>We provide residential programs for Veterans struggling with psychiatric disorders and help them transition back into their communities. Contact:</p>
 
 <p>Bridget Wright<br>
-412-822-1403<br>
+<va-telephone contact="412-822-1403" extension=""></va-telephone><br>
 &lt;email&gt;</p>
 
 <p><a>Tim Morrison<br>

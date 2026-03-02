@@ -44,7 +44,7 @@ async function fetchPageElementHtml(
     const context = await browser.newContext()
     const page = await context.newPage()
 
-    await page.goto(url, { waitUntil: 'networkidle', timeout: 30000 })
+    await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 30000 })
 
     // Wait for the selector to be available
     await page.waitForSelector(selector, { timeout: 10000 })
