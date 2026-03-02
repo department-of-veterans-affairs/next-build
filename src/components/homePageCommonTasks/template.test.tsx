@@ -83,7 +83,7 @@ describe('HomePageCommonTasks Component', () => {
     )
 
     const searchLinks = container.querySelectorAll(
-      '.homepage-common-tasks__search-tools va-link'
+      '.homepage-common-tasks__search-tools va-link-action'
     )
     expect(searchLinks).toHaveLength(0)
   })
