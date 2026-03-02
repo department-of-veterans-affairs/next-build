@@ -1,4 +1,4 @@
-import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
+import { QueryData, QueryFormatter, QueryParams } from '@/lib/next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodeCampaignLandingPage } from '@/types/drupal/node'
 import { CampaignLandingPage } from './formatted-type'

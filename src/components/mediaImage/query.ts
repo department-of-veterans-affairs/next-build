@@ -3,7 +3,7 @@ import {
   QueryFormatter,
   QueryOpts,
   QueryParams,
-} from 'next-drupal-query'
+} from '@/lib/next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { DrupalMediaImage } from '@/types/drupal/media'
 import { drupalClient } from '@/lib/drupal/drupalClient'
