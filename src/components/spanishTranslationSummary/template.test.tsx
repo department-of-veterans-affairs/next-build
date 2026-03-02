@@ -49,4 +49,11 @@ describe('<SpanishTranslationSummary>', () => {
     const contentDiv = content.closest('.additional-info-content')
     expect(contentDiv).toBeInTheDocument()
   })
+
+  test('returns null if textExpander is not provided', () => {
+    const { container } = render(
+      <SpanishTranslationSummary {...data} textExpander={null} />
+    )
+    expect(container).toBeEmptyDOMElement()
+  })
 })
