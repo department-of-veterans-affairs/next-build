@@ -2,10 +2,18 @@ import React from 'react'
 import { render, screen } from '@testing-library/react'
 import { HomePageHero } from './template'
 
-// Mock useSearchParams
+// Mock useSearchParams and useRouter
 jest.mock('next/navigation', () => ({
   useSearchParams: () => ({
     toString: () => '',
+  }),
+  useRouter: () => ({
+    push: jest.fn(),
+    replace: jest.fn(),
+    refresh: jest.fn(),
+    back: jest.fn(),
+    forward: jest.fn(),
+    prefetch: jest.fn(),
   }),
 }))
 

@@ -10,7 +10,7 @@ const Breadcrumbs = ({ breadcrumbs }: BreadcrumbProps) => {
   return (
     <div className="vads-grid-container" style={{ minHeight: '5.125rem' }}>
       <va-breadcrumbs
-        class="row"
+        class="vads-grid-row"
         wrapping
         breadcrumb-list={JSON.stringify(breadcrumbs)}
       ></va-breadcrumbs>

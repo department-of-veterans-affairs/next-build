@@ -8,7 +8,7 @@ export const TopNav = () => {
           <div className="usa-banner">
             <div className="usa-accordion">
               <div className="usa-banner-header">
-                <div className="usa-grid usa-banner-inner">
+                <div className="vads-grid-container usa-banner-inner">
                   <Image
                     src="/img/tiny-usa-flag.png"
                     alt="U.S. flag"
@@ -29,11 +29,11 @@ export const TopNav = () => {
                 </div>
               </div>
               <div
-                className="usa-banner-content usa-grid usa-accordion-content"
+                className="usa-banner-content vads-grid-container usa-accordion-content"
                 id="gov-banner"
                 aria-hidden="true"
               >
-                <div className="usa-banner-guidance-gov usa-width-one-half">
+                <div className="usa-banner-guidance-gov vads-grid-col-6">
                   <Image
                     className="usa-banner-icon usa-media_block-img"
                     src="/img/icon-dot-gov.svg"
@@ -51,7 +51,7 @@ export const TopNav = () => {
                     </p>
                   </div>
                 </div>
-                <div className="usa-banner-guidance-ssl usa-width-one-half">
+                <div className="usa-banner-guidance-ssl vads-grid-col-6">
                   <Image
                     className="usa-banner-icon usa-media_block-img"
                     src="/img/icon-https.svg"
@@ -98,32 +98,39 @@ export const TopNav = () => {
       {/* <!-- /header alert box --> */}
 
       <div
-        className="row va-flex usa-grid usa-grid-full"
+        className="vads-grid-container vads-u-padding-x--0 desktop:vads-u-padding-x--1p5"
         id="va-header-logo-menu"
       >
-        <div className="va-header-logo-wrapper">
-          <a href="/" className="va-header-logo">
-            <Image
-              src="/img/header-logo.png"
-              alt="VA logo and Seal, U.S. Department of Veterans Affairs"
-              height="59"
-              width="264"
-            />
-          </a>
+        <div className="vads-grid-row va-flex vads-u-margin-x--1p5">
+          <div className="va-header-logo-wrapper">
+            <a href="/" className="va-header-logo">
+              <Image
+                src="/img/header-logo.png"
+                alt="VA logo and Seal, U.S. Department of Veterans Affairs"
+                height="59"
+                width="264"
+              />
+            </a>
+          </div>
+
+          {/* <div id="va-nav-controls"></div> */}
+
+          <div className="tablet:vads-u-display--none vads-grid-container">
+            <div className="menu-rule"></div>
+            <div className="mega-menu" id="mega-menu-mobile"></div>
+          </div>
+
+          <div
+            id="login-root"
+            className="vet-toolbar vads-u-margin-y--0p5"
+          ></div>
         </div>
-
-        {/* <div id="va-nav-controls"></div> */}
-
-        <div className="medium-screen:vads-u-display--none usa-grid usa-grid-full">
-          <div className="menu-rule usa-one-whole"></div>
-          <div className="mega-menu" id="mega-menu-mobile"></div>
-        </div>
-
-        <div id="login-root" className="vet-toolbar"></div>
       </div>
 
-      <div className="usa-grid usa-grid-full">
-        <div className="menu-rule usa-one-whole"></div>
+      <div className="vads-grid-container vads-u-padding-x--0">
+        <div className="vads-u-width--full vads-u-align-items--center">
+          <div className="menu-rule vads-u-margin-x--0"></div>
+        </div>
         <div className="mega-menu" id="mega-menu"></div>
       </div>
     </div>

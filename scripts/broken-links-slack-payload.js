@@ -4,7 +4,7 @@ import { program } from 'commander'
 
 const DEFAULT_INPUT_FILE = 'broken-links-report.json'
 const DEFAULT_OUTPUT_FILE = 'broken-links-slack-payload.json'
-const GROUP_TO_NOTIFY = 'subteam^S010U41C30V|cms-helpdesk' // '<!subteam^S010U41C30V|cms-helpdesk>'
+const GROUP_TO_NOTIFY = '@cms-helpdesk' // '<!subteam^S010U41C30V|cms-helpdesk>'
 const RUN_URL = `${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`
 
 // Gather any command line options or provide defaults
