@@ -1,3 +1,3 @@
 export async function register() {
-  await import('./datadogConnector/datadog-apm')
+  await import('./lib/datadog/datadog-apm')
 }

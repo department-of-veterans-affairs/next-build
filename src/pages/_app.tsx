@@ -6,8 +6,8 @@ import { defineCustomElements } from '@department-of-veterans-affairs/web-compon
 import { TAG_MANAGER_ARGS, pageview } from '@/lib/analytics'
 import TagManager from 'react-gtm-module'
 import '@/assets/styles/globals.css'
-import DatadogRumConnector from '@/datadogConnector/DatadogRumConnector'
-import FamilyCaregiverDatadogRum from '@/datadogConnector/FamilyCaregiverDatadogRum'
+import DatadogRumConnector from '@/lib/datadog/DatadogRumConnector'
+import FamilyCaregiverDatadogRum from '@/lib/datadog/FamilyCaregiverDatadogRum'
 
 type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode

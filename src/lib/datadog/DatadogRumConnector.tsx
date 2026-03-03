@@ -2,7 +2,7 @@
 import { datadogRum } from '@datadog/browser-rum'
 import { useEffect } from 'react'
 import { BUILD_TYPES } from '@/lib/constants/environment'
-import { canInitDatadog } from '@/datadogConnector/utils/canInitDatadog'
+import { canInitDatadog } from '@/lib/datadog/utils/canInitDatadog'
 
 const DatadogRumConnector = () => {
   useEffect(() => {
