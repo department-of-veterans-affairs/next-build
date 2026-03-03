@@ -1,12 +1,5 @@
 import tracer from 'dd-trace'
-
-function parseSampleRate(rateString: string | undefined): number | undefined {
-  const rate = parseFloat(rateString)
-  if (isNaN(rate)) {
-    return undefined
-  }
-  return rate
-}
+import { parseSampleRate } from './utils/parseSampleRate'
 
 tracer.init({
   logInjection: process.env.DD_LOGS_INJECTION === 'true',

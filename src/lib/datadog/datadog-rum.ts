@@ -1,6 +1,7 @@
 import { datadogRum } from '@datadog/browser-rum'
 import { BUILD_TYPES } from '@/lib/constants/environment'
 import { isBot } from './utils/isBot'
+import { parseSampleRate } from './utils/parseSampleRate'
 
 const getDefaultConfig = () => ({
   applicationId: process.env.NEXT_PUBLIC_DATADOG_RUM_APP_ID || '',
@@ -11,7 +12,8 @@ const getDefaultConfig = () => ({
   //  version: '1.0.0',
   silentMultipleInit: true, // silently ignore multiple inits
   sessionSampleRate:
-    Number(process.env.NEXT_PUBLIC_DATADOG_RUM_SESSION_SAMPLE_RATE) || 10,
+    parseSampleRate(process.env.NEXT_PUBLIC_DATADOG_RUM_SESSION_SAMPLE_RATE) ??
+    10,
   sessionReplaySampleRate: 0,
   trackResources: true,
   trackLongTasks: true,
