@@ -41,6 +41,9 @@ const FAMILY_CAREGIVER_CONFIG = {
 } as const
 
 export function initDatadogRum() {
+  // Short circuit if we're not in a browser environment for the sake of the Pages Router
+  if (typeof window === 'undefined') return
+
   if (isBot()) return
 
   const isFamilyCaregiverPage = window.location.pathname.includes(
