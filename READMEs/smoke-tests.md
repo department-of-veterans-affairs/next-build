@@ -32,7 +32,7 @@ Before pushing our updates to Production, we want to verify that the following i
 - CMS eng support will then manually kick off the deployment to Production.
   - Manual Production deploy can be done by visiting the [Releases page](https://github.com/department-of-veterans-affairs/next-build/releases), and drafting a new release based off of the latest commit ref of the branch just tested on stage.
 
-## Phase 2 - Automated Smoke Test + Manual intervention as needed (began March 3, 2026)
+## Phase 2 - Automated Smoke Test + Manual intervention as needed (began Mar 4, 2026)
 
 - With [#23421](https://github.com/department-of-veterans-affairs/va.gov-cms/issues/23421), we explored the option of introducing visual regression testing to confirm that the Staging page looks the same as the Production page.
 - With [#23459](https://github.com/department-of-veterans-affairs/va.gov-cms/issues/23459), we implemented this visual regression testing and automatic deployment to Production.
