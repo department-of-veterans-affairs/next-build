@@ -1,7 +1,7 @@
 import tracer from 'dd-trace'
 
 function parseSampleRate(rateString: string | undefined): number | undefined {
-  const rate = parseInt(rateString)
+  const rate = parseFloat(rateString)
   if (isNaN(rate)) {
     return undefined
   }
