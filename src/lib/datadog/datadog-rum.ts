@@ -10,7 +10,6 @@ const getDefaultConfig = () => ({
   service: process.env.NEXT_PUBLIC_DATADOG_RUM_SERVICE || '',
   env: process.env.NEXT_PUBLIC_BUILD_TYPE || BUILD_TYPES.LOCAL,
   //  version: '1.0.0',
-  silentMultipleInit: true, // silently ignore multiple inits
   sessionSampleRate:
     parseSampleRate(process.env.NEXT_PUBLIC_DATADOG_RUM_SESSION_SAMPLE_RATE) ??
     10,
@@ -29,7 +28,6 @@ const FAMILY_CAREGIVER_CONFIG = {
   service: 'family-and-caregiver-benefit-hub',
   env: 'production',
   version: '1.0.0',
-  silentMultipleInit: true, // silently ignore multiple inits
   sessionSampleRate: 100,
   sessionReplaySampleRate: 10,
   trackResources: true,
