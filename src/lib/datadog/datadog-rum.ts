@@ -1,3 +1,5 @@
+'use client'
+
 import { datadogRum } from '@datadog/browser-rum'
 import { BUILD_TYPES } from '@/lib/constants/environment'
 import { isBot } from './utils/isBot'
