@@ -15,7 +15,7 @@ const getDefaultConfig = () => ({
   sessionSampleRate:
     parseSampleRate(process.env.NEXT_PUBLIC_DATADOG_RUM_SESSION_SAMPLE_RATE) ??
     10,
-  sessionReplaySampleRate: 100,
+  sessionReplaySampleRate: 0,
   trackResources: true,
   trackLongTasks: true,
   trackUserInteractions: false,

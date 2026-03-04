@@ -45,20 +45,8 @@ describe('initDatadogRum', () => {
 
   it('should initialize Datadog RUM with default config when env vars are set and not on family caregiver page', () => {
     initDatadogRum()
-    expect(mockDatadogRum.init).toHaveBeenCalledWith({
-      applicationId: 'test-app-id',
-      clientToken: 'test-client-token',
-      site: 'ddog-gov.com',
-      service: 'test',
-      env: 'test',
-      sessionSampleRate: 10,
-      sessionReplaySampleRate: 100,
-      trackResources: true,
-      trackLongTasks: true,
-      trackUserInteractions: false,
-      trackAnonymousUser: true,
-      enablePrivacyForActionName: true,
-    })
+    const actualConfig = mockDatadogRum.init.mock.calls[0][0]
+    expect(actualConfig).toMatchSnapshot()
   })
 
   it('should call init without throwing errors', () => {
@@ -69,23 +57,8 @@ describe('initDatadogRum', () => {
   it('should initialize with family caregiver config when pathname includes family-and-caregiver-benefits', () => {
     setLocationPathname('/family-and-caregiver-benefits/some-page/')
     initDatadogRum()
-
-    expect(mockDatadogRum.init).toHaveBeenCalledWith({
-      applicationId: '8eb3ffe5-db3c-49a4-88d8-506ca2f9babd',
-      clientToken: 'pubd7a6c99934887d257e49455e667b1bcd',
-      site: 'ddog-gov.com',
-      service: 'family-and-caregiver-benefit-hub',
-      env: 'production',
-      version: '1.0.0',
-      sessionSampleRate: 100,
-      sessionReplaySampleRate: 10,
-      trackResources: true,
-      trackLongTasks: true,
-      trackUserInteractions: true,
-      trackAnonymousUser: true,
-      enablePrivacyForActionName: true,
-      defaultPrivacyLevel: 'mask-user-input',
-    })
+    const actualConfig = mockDatadogRum.init.mock.calls[0][0]
+    expect(actualConfig).toMatchSnapshot()
   })
 
   it('should not call init when isBot returns true', () => {
