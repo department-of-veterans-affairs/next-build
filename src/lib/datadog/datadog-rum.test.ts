@@ -52,7 +52,7 @@ describe('initDatadogRum', () => {
       service: 'test',
       env: 'test',
       sessionSampleRate: 10,
-      sessionReplaySampleRate: 0,
+      sessionReplaySampleRate: 100,
       trackResources: true,
       trackLongTasks: true,
       trackUserInteractions: false,
