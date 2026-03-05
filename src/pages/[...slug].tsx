@@ -44,7 +44,7 @@ const previewDomainPattern = /^preview-[a-z-]+\.cms\.va\.gov$/
 
 // Config
 const isExport = process.env.BUILD_OPTION === 'static'
-const DEFAULT_RESOURCE_TYPE_CONCURRENCY = 2
+const DEFAULT_RESOURCE_TYPE_CONCURRENCY = 4
 
 function getResourceTypeConcurrency(): number {
   const rawValue = process.env.CMS_RESOURCE_TYPE_CONCURRENCY
