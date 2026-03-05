@@ -40,13 +40,36 @@ interface EditableCellProps {
   value: string
   onChange: (value: string) => void
   onBlur?: () => void
+  onKeyDown?: (e: React.KeyboardEvent) => void
   isSelect?: boolean
   options?: ContentTypeOption[]
   placeholder?: string
+  autoFocus?: boolean
+}
+
+// Padding chosen to match read-only cell content height
+const cellInputStyle: React.CSSProperties = {
+  width: '100%',
+  minWidth: 0,
+  padding: '8px 6px',
+  border: '1px solid #d6d7d9',
+  borderRadius: '4px',
+  fontSize: '14px',
+  boxSizing: 'border-box',
+  lineHeight: 1.4,
 }
 
 const EditableCell = React.memo<EditableCellProps>(
-  ({ value, onChange, onBlur, isSelect, options, placeholder }) => {
+  ({
+    value,
+    onChange,
+    onBlur,
+    onKeyDown,
+    isSelect,
+    options,
+    placeholder,
+    autoFocus,
+  }) => {
     const [localValue, setLocalValue] = useState(value)
 
     useEffect(() => {
@@ -68,17 +91,13 @@ const EditableCell = React.memo<EditableCellProps>(
     if (isSelect && options) {
       return (
         <select
+          className="vads-u-font-family--mono"
           value={localValue}
           onChange={handleChange}
           onBlur={handleBlur}
-          style={{
-            width: '100%',
-            padding: '6px 8px',
-            border: '1px solid #d6d7d9',
-            borderRadius: '4px',
-            fontFamily: 'inherit',
-            fontSize: '14px',
-          }}
+          onKeyDown={onKeyDown}
+          style={cellInputStyle}
+          autoFocus={autoFocus}
         >
           {options.map((opt) => (
             <option key={opt.value || '__blank__'} value={opt.value}>
@@ -92,18 +111,14 @@ const EditableCell = React.memo<EditableCellProps>(
     return (
       <input
         type="text"
+        className="vads-u-font-family--mono"
         value={localValue}
         onChange={handleChange}
         onBlur={handleBlur}
+        onKeyDown={onKeyDown}
         placeholder={placeholder}
-        style={{
-          width: '100%',
-          padding: '6px 8px',
-          border: '1px solid #d6d7d9',
-          borderRadius: '4px',
-          fontFamily: 'inherit',
-          fontSize: '14px',
-        }}
+        style={cellInputStyle}
+        autoFocus={autoFocus}
       />
     )
   }
@@ -120,6 +135,9 @@ export default function PerformancePage() {
   const [urlFilter, setUrlFilter] = useState('')
   const [editingRowIndex, setEditingRowIndex] = useState<number | null>(null)
   const [editingRow, setEditingRow] = useState<PerformanceScoreRow | null>(null)
+  const [editingColumnWidths, setEditingColumnWidths] = useState<
+    number[] | null
+  >(null)
   const [addingNew, setAddingNew] = useState(false)
   const [newRow, setNewRow] = useState<Partial<PerformanceScoreRow>>({})
 
@@ -224,6 +242,7 @@ export default function PerformancePage() {
       })
       setEditingRowIndex(null)
       setEditingRow(null)
+      setEditingColumnWidths(null)
     } catch (err) {
       setError(err?.message || 'Failed to save')
     }
@@ -232,6 +251,7 @@ export default function PerformancePage() {
   const handleCancelEdit = useCallback(() => {
     setEditingRowIndex(null)
     setEditingRow(null)
+    setEditingColumnWidths(null)
   }, [])
 
   const handleStartEdit = useCallback(
@@ -277,8 +297,41 @@ export default function PerformancePage() {
     setNewRow({})
   }, [])
 
+  const handleRowClick = useCallback(
+    (e: React.MouseEvent<HTMLTableRowElement>, index: number) => {
+      if (!devMode || editingRowIndex === index) return
+      if (addingNew) handleCancelAdd()
+
+      const row = e.currentTarget
+      const cells = row.querySelectorAll('td')
+      const widths = Array.from(cells).map(
+        (cell) => cell.getBoundingClientRect().width
+      )
+
+      setEditingColumnWidths(widths)
+      handleStartEdit(index)
+    },
+    [devMode, editingRowIndex, addingNew, handleCancelAdd, handleStartEdit]
+  )
+
   return (
     <div className="vads-u-padding--3">
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+            .performance-row-hoverable:hover .performance-cell-content {
+              background-color: var(--vads-color-primary-alt-lightest, #e7f2f5);
+            }
+            .performance-pencil-icon {
+              opacity: 0;
+              transition: opacity 0.15s ease;
+            }
+            .performance-row-hoverable:hover .performance-pencil-icon {
+              opacity: 0.6;
+            }
+          `,
+        }}
+      />
       <h1 className="vads-u-font-size--h2 vads-u-margin-top--0">
         Performance Scores
       </h1>
@@ -407,15 +460,6 @@ export default function PerformancePage() {
                       {col}
                     </th>
                   ))}
-                  <th
-                    style={{
-                      padding: '12px 16px',
-                      width: '100px',
-                      borderBottom: '1px solid #d6d7d9',
-                    }}
-                  >
-                    Actions
-                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -436,6 +480,15 @@ export default function PerformancePage() {
                             onChange={(v) =>
                               setNewRow((prev) => ({ ...prev, [col]: v }))
                             }
+                            onKeyDown={(e) => {
+                              if (e.key === 'Enter') {
+                                e.preventDefault()
+                                handleAddRow()
+                              } else if (e.key === 'Escape') {
+                                e.preventDefault()
+                                handleCancelAdd()
+                              }
+                            }}
                             isSelect
                             options={contentTypeOptions}
                           />
@@ -450,49 +503,56 @@ export default function PerformancePage() {
                                 [col]: v,
                               }))
                             }
+                            onKeyDown={(e) => {
+                              if (e.key === 'Enter') {
+                                e.preventDefault()
+                                handleAddRow()
+                              } else if (e.key === 'Escape') {
+                                e.preventDefault()
+                                handleCancelAdd()
+                              }
+                            }}
                             placeholder={col}
                           />
                         )}
                       </td>
                     ))}
-                    <td
-                      style={{
-                        padding: '8px',
-                        borderBottom: '1px solid #d6d7d9',
-                        verticalAlign: 'middle',
-                      }}
-                    >
-                      <button
-                        type="button"
-                        className="usa-button usa-button--small"
-                        onClick={handleAddRow}
-                      >
-                        Save
-                      </button>
-                      <button
-                        type="button"
-                        className="usa-button usa-button-secondary usa-button--small vads-u-margin-left--1"
-                        onClick={handleCancelAdd}
-                      >
-                        Cancel
-                      </button>
-                    </td>
                   </tr>
                 )}
                 {filteredAndSortedRows.map((row, index) => {
                   const isEditing = editingRowIndex === index
+                  const isHoverable = !isEditing && devMode
 
                   return (
                     <tr
                       key={`${row.URL}-${row['Version number']}-${row['Content type']}-${row['Test date']}-${index}`}
+                      onClick={(e) => {
+                        if (devMode && !isEditing) {
+                          handleRowClick(e, index)
+                        }
+                      }}
+                      style={{
+                        cursor: isHoverable ? 'pointer' : undefined,
+                        position: 'relative',
+                      }}
+                      className={
+                        isHoverable ? 'performance-row-hoverable' : undefined
+                      }
                     >
-                      {COLUMNS.map((col) => (
+                      {COLUMNS.map((col, colIndex) => (
                         <td
                           key={col}
                           style={{
                             padding: '8px',
                             borderBottom: '1px solid #d6d7d9',
                             verticalAlign: 'middle',
+                            ...(isEditing &&
+                              editingColumnWidths &&
+                              editingColumnWidths[colIndex] !== undefined && {
+                                width: editingColumnWidths[colIndex],
+                                minWidth: editingColumnWidths[colIndex],
+                                maxWidth: editingColumnWidths[colIndex],
+                              }),
                           }}
                         >
                           {isEditing && editingRow ? (
@@ -502,6 +562,16 @@ export default function PerformancePage() {
                                 onChange={(v) =>
                                   handleCellChange(index, col, v)
                                 }
+                                autoFocus
+                                onKeyDown={(e) => {
+                                  if (e.key === 'Enter') {
+                                    e.preventDefault()
+                                    handleSaveRow()
+                                  } else if (e.key === 'Escape') {
+                                    e.preventDefault()
+                                    handleCancelEdit()
+                                  }
+                                }}
                                 isSelect
                                 options={contentTypeOptions}
                               />
@@ -511,52 +581,53 @@ export default function PerformancePage() {
                                 onChange={(v) =>
                                   handleCellChange(index, col, v)
                                 }
+                                onKeyDown={(e) => {
+                                  if (e.key === 'Enter') {
+                                    e.preventDefault()
+                                    handleSaveRow()
+                                  } else if (e.key === 'Escape') {
+                                    e.preventDefault()
+                                    handleCancelEdit()
+                                  }
+                                }}
                               />
                             )
                           ) : (
-                            <span>
+                            <span
+                              className={`vads-u-font-family--mono ${isHoverable ? 'performance-cell-content' : ''}`.trim()}
+                              style={{
+                                display: 'inline-block',
+                                position: 'relative',
+                                padding: '14px 6px',
+                                paddingRight: isHoverable ? '28px' : '6px',
+                                borderRadius: '4px',
+                                lineHeight: 1.4,
+                                minHeight: '34px',
+                                boxSizing: 'border-box',
+                                fontSize: '14px',
+                              }}
+                            >
                               {col === 'Content type' && row[col] === ''
                                 ? 'Home page'
                                 : row[col] || '—'}
+                              {isHoverable && (
+                                <va-icon
+                                  icon="edit"
+                                  style={{
+                                    position: 'absolute',
+                                    right: '6px',
+                                    top: '50%',
+                                    transform: 'translateY(-50%)',
+                                    fontSize: '16px',
+                                    color: 'var(--vads-color-primary, #0071bc)',
+                                  }}
+                                  className="performance-pencil-icon"
+                                />
+                              )}
                             </span>
                           )}
                         </td>
                       ))}
-                      <td
-                        style={{
-                          padding: '8px',
-                          borderBottom: '1px solid #d6d7d9',
-                          verticalAlign: 'middle',
-                        }}
-                      >
-                        {isEditing ? (
-                          <>
-                            <button
-                              type="button"
-                              className="usa-button usa-button--small"
-                              onClick={handleSaveRow}
-                            >
-                              Save
-                            </button>
-                            <button
-                              type="button"
-                              className="usa-button usa-button-secondary usa-button--small vads-u-margin-left--1"
-                              onClick={handleCancelEdit}
-                            >
-                              Cancel
-                            </button>
-                          </>
-                        ) : (
-                          <button
-                            type="button"
-                            className="usa-button usa-button-secondary usa-button--small"
-                            onClick={() => handleStartEdit(index)}
-                            disabled={!devMode}
-                          >
-                            Edit
-                          </button>
-                        )}
-                      </td>
                     </tr>
                   )
                 })}
