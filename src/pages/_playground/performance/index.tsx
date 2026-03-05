@@ -375,6 +375,26 @@ export default function PerformancePage() {
         Performance Scores
       </h1>
 
+      <p className="vads-u-color--gray vads-u-margin-top--1 vads-u-margin-bottom--0">
+        These scores are collected via the{' '}
+        <a
+          href="https://github.com/pwolfert/lighthouse-testing-tool"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Lighthouse Testing Tool
+        </a>
+        . More is explained in the{' '}
+        <a
+          href="https://github.com/department-of-veterans-affairs/next-build/blob/main/docs/template-migration/phases/active-migration/qa.md"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          qa.md
+        </a>{' '}
+        file.
+      </p>
+
       {!devMode && (
         <div className="usa-alert usa-alert--warning vads-u-margin-y--3">
           <div className="usa-alert__body">
