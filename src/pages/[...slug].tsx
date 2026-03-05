@@ -44,7 +44,7 @@ const previewDomainPattern = /^preview-[a-z-]+\.cms\.va\.gov$/
 
 // Config
 const isExport = process.env.BUILD_OPTION === 'static'
-const DEFAULT_RESOURCE_TYPE_CONCURRENCY = 2
+const DEFAULT_RESOURCE_TYPE_CONCURRENCY = 4
 
 function getResourceTypeConcurrency(): number {
   const rawValue = process.env.CMS_RESOURCE_TYPE_CONCURRENCY
@@ -388,6 +388,7 @@ export async function getStaticPaths(
   )
 
   log('Fetching page paths...')
+  const fetchPagePathsStartMs = Date.now()
 
   const resources = await mapWithConcurrency(
     RESOURCE_TYPES_TO_BUILD,
@@ -395,7 +396,14 @@ export async function getStaticPaths(
     async (resourceType) => getStaticPathsByResourceType(resourceType)
   )
 
-  log('Finished fetching page paths')
+  const fetchPagePathsDurationMs = Date.now() - fetchPagePathsStartMs
+  const totalFetchedPathCount = resources.reduce(
+    (total, resourcePaths) => total + resourcePaths.length,
+    0
+  )
+  log(
+    `Finished fetching page paths in ${fetchPagePathsDurationMs}ms (${totalFetchedPathCount} paths)`
+  )
 
   /* eslint-disable no-console */
   console.log('\n')
