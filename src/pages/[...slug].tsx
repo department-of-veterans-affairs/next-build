@@ -32,6 +32,7 @@ import {
   FlattenedGraph,
 } from '@/lib/utils/object-graph'
 import Head from 'next/head'
+import { mapWithConcurrency } from '@/lib/utils/mapWithConcurrency'
 
 const slugLogger = Debug('next-build:slug')
 const log = slugLogger.extend('log')
@@ -43,6 +44,15 @@ const previewDomainPattern = /^preview-[a-z-]+\.cms\.va\.gov$/
 
 // Config
 const isExport = process.env.BUILD_OPTION === 'static'
+const DEFAULT_RESOURCE_TYPE_CONCURRENCY = 2
+
+function getResourceTypeConcurrency(): number {
+  const rawValue = process.env.CMS_RESOURCE_TYPE_CONCURRENCY
+  const parsedValue = rawValue ? Number.parseInt(rawValue, 10) : NaN
+  return Number.isFinite(parsedValue) && parsedValue > 0
+    ? parsedValue
+    : DEFAULT_RESOURCE_TYPE_CONCURRENCY
+}
 
 // Types
 import { Event as FormattedEvent } from '../components/event/formatted-type'
@@ -379,8 +389,10 @@ export async function getStaticPaths(
 
   log('Fetching page paths...')
 
-  const resources = await Promise.all(
-    RESOURCE_TYPES_TO_BUILD.map(getStaticPathsByResourceType)
+  const resources = await mapWithConcurrency(
+    RESOURCE_TYPES_TO_BUILD,
+    getResourceTypeConcurrency(),
+    async (resourceType) => getStaticPathsByResourceType(resourceType)
   )
 
   log('Finished fetching page paths')
