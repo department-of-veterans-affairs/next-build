@@ -31,6 +31,36 @@ const COLUMNS = [
   'Test date',
 ] as const
 
+function escapeCSVValue(value: string): string {
+  if (value.includes(',') || value.includes('"') || value.includes('\n')) {
+    return `"${value.replace(/"/g, '""')}"`
+  }
+  return value
+}
+
+function rowsToCSV(rows: PerformanceScoreRow[]): string {
+  const headerLine = COLUMNS.map(escapeCSVValue).join(',')
+  const dataLines = rows.map((row) =>
+    COLUMNS.map((col) => escapeCSVValue(row[col] ?? '')).join(',')
+  )
+  return [headerLine, ...dataLines].join('\n')
+}
+
+function rowsToMarkdown(rows: PerformanceScoreRow[]): string {
+  const headerLine = '| ' + COLUMNS.join(' | ') + ' |'
+  const separator = '| ' + COLUMNS.map(() => '---').join(' | ') + ' |'
+  const dataLines = rows.map(
+    (row) =>
+      '| ' +
+      COLUMNS.map((col) => {
+        const val = row[col] ?? ''
+        return val.replace(/\|/g, '\\|').replace(/\n/g, ' ')
+      }).join(' | ') +
+      ' |'
+  )
+  return [headerLine, separator, ...dataLines].join('\n')
+}
+
 interface ContentTypeOption {
   value: string
   label: string
@@ -140,6 +170,7 @@ export default function PerformancePage() {
   >(null)
   const [addingNew, setAddingNew] = useState(false)
   const [newRow, setNewRow] = useState<Partial<PerformanceScoreRow>>({})
+  const [exportOutput, setExportOutput] = useState('')
 
   useEffect(() => {
     setDevMode(isDevMode())
@@ -651,6 +682,53 @@ export default function PerformancePage() {
                 })}
               </tbody>
             </table>
+          </div>
+
+          <div className="vads-u-margin-top--3">
+            <div
+              style={{
+                display: 'flex',
+                gap: '8px',
+                marginBottom: '12px',
+              }}
+            >
+              <button
+                type="button"
+                className="usa-button usa-button-secondary"
+                onClick={() =>
+                  setExportOutput(rowsToCSV(filteredAndSortedRows))
+                }
+              >
+                Export current view to CSV
+              </button>
+              <button
+                type="button"
+                className="usa-button usa-button-secondary"
+                onClick={() =>
+                  setExportOutput(rowsToMarkdown(filteredAndSortedRows))
+                }
+              >
+                Export current view to Markdown
+              </button>
+            </div>
+            {exportOutput && (
+              <textarea
+                readOnly
+                value={exportOutput}
+                className="vads-u-font-family--mono vads-u-width--full"
+                rows={12}
+                style={{
+                  padding: '12px',
+                  fontSize: '14px',
+                  border: '1px solid #d6d7d9',
+                  borderRadius: '4px',
+                  maxWidth: 'none',
+                }}
+                onClick={(e) => {
+                  e.currentTarget.select()
+                }}
+              />
+            )}
           </div>
         </div>
       )}
