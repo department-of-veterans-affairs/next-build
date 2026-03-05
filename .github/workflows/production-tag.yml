@@ -37,7 +37,7 @@ jobs:
       parity: ${{ steps.check.outputs.parity }}
     steps:
       - name: Download prod tag config
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: prod-tag-config
           run-id: ${{ github.event.workflow_run.id }}
@@ -45,7 +45,7 @@ jobs:
           path: config
 
       - name: Download parity report
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: env-parity-report
           run-id: ${{ github.event.workflow_run.id }}
