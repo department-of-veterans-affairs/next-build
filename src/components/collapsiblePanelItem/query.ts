@@ -3,6 +3,7 @@ import { QueryFormatter, QueryParams } from 'next-drupal-query'
 import { CollapsiblePanelItem } from '@/components/collapsiblePanel/formatted-type'
 import { formatParagraph } from '@/lib/drupal/paragraphs'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
+import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 
 // Define the query params for fetching paragraph--collapsible_panel_item.
 export const params: QueryParams<null> = () =>
@@ -17,7 +18,7 @@ export const formatter: QueryFormatter<
     id: entity.id,
     entityId: entity.drupal_internal__id,
     title: entity.field_title,
-    wysiwyg: entity.field_wysiwyg?.processed || null,
+    wysiwyg: getHtmlFromField(entity.field_wysiwyg) || null,
     paragraphs: entity.field_va_paragraphs?.map?.((paragraph) =>
       formatParagraph(paragraph)
     ),

@@ -31,6 +31,7 @@ import {
   inflateObjectGraph,
   FlattenedGraph,
 } from '@/lib/utils/object-graph'
+import Head from 'next/head'
 
 const slugLogger = Debug('next-build:slug')
 const log = slugLogger.extend('log')
@@ -80,7 +81,7 @@ import { BenefitsDetailPage } from '../components/benefitsDetailPage/template'
 import { Event } from '../components/event/template'
 import { EventListing } from '../components/eventListing/template'
 import { LocationsListing } from '../components/locationsListing/template'
-import { Meta } from '@/components/meta/template'
+import { getMetaElements } from '@/components/meta/template'
 import { NewsStory } from '../components/newsStory/template'
 import { PressRelease } from '../components/pressRelease/template'
 import { PressReleaseListing } from '../components/pressReleaseListing/template'
@@ -198,7 +199,7 @@ export default function ResourcePage({
       preview={preview}
       resource={resource}
     >
-      <Meta resource={resource} />
+      <Head>{getMetaElements(resource)}</Head>
       <HTMLComment position="head" content={comment} />
 
       {/* We want preview to always have the edit link if the domain is right. */}
