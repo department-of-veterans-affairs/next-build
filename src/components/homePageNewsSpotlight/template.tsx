@@ -30,7 +30,7 @@ export function HomePageNewsSpotlight({
                 VA NEWS
               </h2>
               <h3 className="vads-u-font-family--serif vads-u-margin-top--0 vads-u-font-size--xl">
-                <va-link href={link.url} text={headline} reverse></va-link>
+                {headline}
               </h3>
 
               <p className="vads-u-padding-right--0 desktop:vads-u-padding-right--8 vads-u-margin-bottom--3 desktop:vads-u-margin-bottom--6">

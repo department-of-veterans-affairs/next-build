@@ -1,4 +1,4 @@
-import { QueryData, QueryFormatter } from 'next-drupal-query'
+import { QueryData, QueryFormatter } from '@/lib/next-drupal-query'
 import { Menu } from '@/types/drupal/menu'
 import { FooterLink } from './formatted-type'
 import { buildFooterData } from './utils'

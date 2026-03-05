@@ -1,4 +1,4 @@
-import { QueryData, QueryFormatter } from 'next-drupal-query'
+import { QueryData, QueryFormatter } from '@/lib/next-drupal-query'
 import { Menu, MenuItem } from '@/types/drupal/menu'
 import { CommonTasksData, Link } from './formatted-type'
 import { getMenu } from '@/lib/drupal/query'

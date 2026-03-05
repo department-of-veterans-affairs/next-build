@@ -1,4 +1,4 @@
-import { QueryData, QueryFormatter } from 'next-drupal-query'
+import { QueryData, QueryFormatter } from '@/lib/next-drupal-query'
 import { HomePageHubListMenu } from '@/types/drupal/menu'
 import { BenefitsData } from './formatted-type'
 import { getMenu } from '@/lib/drupal/query'

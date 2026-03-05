@@ -1,4 +1,4 @@
-import { QueryFormatter, QueryParams } from 'next-drupal-query'
+import { QueryFormatter, QueryParams } from '@/lib/next-drupal-query'
 import { NodeLandingPage } from '@/types/drupal/node'
 import { BenefitsHubLink } from './formatted-type'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'

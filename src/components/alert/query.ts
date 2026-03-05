@@ -1,4 +1,4 @@
-import { QueryFormatter, QueryParams } from 'next-drupal-query'
+import { QueryFormatter, QueryParams } from '@/lib/next-drupal-query'
 import { ParagraphAlert } from '@/types/drupal/paragraph'
 import { Alert, AlertBlock, AlertType } from '@/components/alert/formatted-type'
 import { formatParagraph } from '@/lib/drupal/paragraphs'

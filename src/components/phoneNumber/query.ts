@@ -1,5 +1,5 @@
 import { ParagraphPhoneNumber } from '@/types/drupal/paragraph'
-import { QueryFormatter } from 'next-drupal-query'
+import { QueryFormatter } from '@/lib/next-drupal-query'
 import { PhoneNumber } from '@/components/phoneNumber/formatted-type'
 
 export const formatter: QueryFormatter<
