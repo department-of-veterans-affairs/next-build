@@ -1,4 +1,4 @@
-import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
+import { QueryData, QueryFormatter, QueryParams } from '@/lib/next-drupal-query'
 import { queries } from '@/lib/drupal/queries'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodeNewsStory } from '@/types/drupal/node'

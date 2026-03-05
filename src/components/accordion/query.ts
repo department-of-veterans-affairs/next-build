@@ -1,4 +1,4 @@
-import { QueryFormatter } from 'next-drupal-query'
+import { QueryFormatter } from '@/lib/next-drupal-query'
 import { ParagraphAccordion } from '@/types/drupal/paragraph'
 import { AccordionItem } from '@/components/accordion/formatted-type'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'

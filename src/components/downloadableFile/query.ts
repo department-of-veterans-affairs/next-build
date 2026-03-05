@@ -1,4 +1,4 @@
-import { QueryFormatter, QueryParams } from 'next-drupal-query'
+import { QueryFormatter, QueryParams } from '@/lib/next-drupal-query'
 import { ParagraphDownloadableFile } from '@/types/drupal/paragraph'
 import { DownloadableFile } from '@/components/downloadableFile/formatted-type'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
