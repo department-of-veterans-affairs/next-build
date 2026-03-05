@@ -5,6 +5,48 @@ const log = logger.extend('log')
 const error = logger.extend('error')
 
 const DEFAULT_RETRY_COUNT = 5
+const DEFAULT_MAX_CONCURRENT_REQUESTS = 4
+
+function getPositiveIntegerEnv(name: string, fallback: number): number {
+  const rawValue = process.env[name]
+  const parsedValue = rawValue ? Number.parseInt(rawValue, 10) : NaN
+  return Number.isFinite(parsedValue) && parsedValue > 0
+    ? parsedValue
+    : fallback
+}
+
+function createLimiter(maxConcurrency: number) {
+  const queue: Array<() => void> = []
+  let activeCount = 0
+
+  const releaseNext = () => {
+    if (activeCount >= maxConcurrency) {
+      return
+    }
+
+    const next = queue.shift()
+    if (!next) {
+      return
+    }
+
+    activeCount += 1
+    next()
+  }
+
+  return async function runWithLimit<T>(task: () => Promise<T>): Promise<T> {
+    await new Promise<void>((resolve) => {
+      queue.push(resolve)
+      releaseNext()
+    })
+
+    try {
+      return await task()
+    } finally {
+      activeCount -= 1
+      releaseNext()
+    }
+  }
+}
 
 /**
  * Creates a fetcher function with retry logic for Drupal API requests.
@@ -12,11 +54,17 @@ const DEFAULT_RETRY_COUNT = 5
  * Does not retry on 404/403 errors unless the path is a JSON API path.
  */
 export function createFetcherWithRetry(
-  retryCount: number = DEFAULT_RETRY_COUNT
+  retryCount: number = DEFAULT_RETRY_COUNT,
+  maxConcurrentRequests: number = getPositiveIntegerEnv(
+    'CMS_FETCH_CONCURRENCY',
+    DEFAULT_MAX_CONCURRENT_REQUESTS
+  )
 ) {
+  const runWithLimit = createLimiter(maxConcurrentRequests)
+
   return async (input: RequestInfo, init: RequestInit = {}) => {
     const wrappedFetch = async (attempt: number) => {
-      const response = await fetch(input, init)
+      const response = await runWithLimit(async () => fetch(input, init))
 
       if (!response.ok) {
         const logOrError = attempt <= retryCount ? log : error
