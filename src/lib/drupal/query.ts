@@ -3,6 +3,17 @@ import { JsonApiResponse } from 'next-drupal'
 import { QueryParams } from 'next-drupal-query'
 import { ResourceType } from '@/lib/constants/resourceTypes'
 import { drupalClient } from '@/lib/drupal/drupalClient'
+import { mapWithConcurrency } from '@/lib/utils/mapWithConcurrency'
+
+const DEFAULT_PAGINATION_CONCURRENCY = 4
+
+function getPaginationConcurrency(): number {
+  const rawValue = process.env.CMS_PAGINATION_CONCURRENCY
+  const parsedValue = rawValue ? Number.parseInt(rawValue, 10) : NaN
+  return Number.isFinite(parsedValue) && parsedValue > 0
+    ? parsedValue
+    : DEFAULT_PAGINATION_CONCURRENCY
+}
 
 export type ResourceCollection<T> = {
   data: T[]
@@ -63,13 +74,15 @@ export async function fetchAndConcatAllResourceCollectionPages<T>(
     1
   )
 
-  // If more pages, fetch them in parallel.
-  // Note: If we used JSON:API `next` links, we'd have to fetch in series.
-  const subsequentPageData = await Promise.all(
-    Array.from({
-      length: totalPages - 1,
-    }).map(async (_, i) => {
-      const pageNumber = i + 2
+  const pageNumbers = Array.from({
+    length: totalPages - 1,
+  }).map((_, i) => i + 2)
+
+  // Keep page fetches bounded to avoid request bursts against CMS.
+  const subsequentPageData = await mapWithConcurrency(
+    pageNumbers,
+    getPaginationConcurrency(),
+    async (pageNumber) => {
       return (
         await fetchSingleResourceCollectionPage<T>(
           resourceType,
@@ -78,7 +91,7 @@ export async function fetchAndConcatAllResourceCollectionPages<T>(
           pageNumber
         )
       ).data
-    })
+    }
   )
 
   // Glue all pages together.

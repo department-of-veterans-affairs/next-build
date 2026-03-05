@@ -31,7 +31,7 @@ const nextConfig = {
   //   ? 'https://s3.us-gov-west-1.amazonaws.com/next-content.www.va.gov/'
   //   : undefined,
   //arbitrary; 60 is default but it's too small
-  staticPageGenerationTimeout: 300,
+  staticPageGenerationTimeout: 900,
 
   experimental: {
     // 512kb, is 128kb by default
@@ -40,9 +40,6 @@ const nextConfig = {
     // Enable React 19 optimizations
     reactCompiler: true,
     instrumentationHook: true,
-    staticGenerationRetryCount: 3,
-    staticGenerationMaxConcurrency: 1,
-    staticGenerationMinPagesPerWorker: 2,
   },
 
   // Custom cache handler for S3
