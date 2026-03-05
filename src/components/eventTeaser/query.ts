@@ -1,4 +1,4 @@
-import { QueryFormatter, QueryParams } from 'next-drupal-query'
+import { QueryFormatter, QueryParams } from '@/lib/next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodeEvent } from '@/types/drupal/node'
 import { EventWidgetTeaser } from '@/components/eventTeaser/formatted-type'

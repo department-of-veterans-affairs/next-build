@@ -61,6 +61,7 @@ const customJestConfig: Config = {
     '/node_modules/',
     '<rootDir>/playwright',
     '<rootDir>/scripts',
+    '<rootDir>/src/lib/next-drupal-query/__tests__/queries',
   ],
   transformIgnorePatterns: ['/dist/.+\\.js'],
 }

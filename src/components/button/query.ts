@@ -1,6 +1,6 @@
 // Define the query params for fetching paragraph--button.
 import { ParagraphButton } from '@/types/drupal/paragraph'
-import { QueryFormatter } from 'next-drupal-query'
+import { QueryFormatter } from '@/lib/next-drupal-query'
 import { Button } from '@/components/button/formatted-type'
 
 export const formatter: QueryFormatter<ParagraphButton, Button> = (

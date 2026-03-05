@@ -1,4 +1,4 @@
-import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
+import { QueryData, QueryFormatter, QueryParams } from '@/lib/next-drupal-query'
 import { NodeVamcSystemDetailPage } from '@/types/drupal/node'
 import { VamcSystemDetailPage } from './formatted-type'
 import { formatter as formatListOfLinkTeasers } from '@/components/listOfLinkTeasers/query'

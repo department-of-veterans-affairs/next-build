@@ -1,4 +1,4 @@
-import { QueryFormatter } from 'next-drupal-query'
+import { QueryFormatter } from '@/lib/next-drupal-query'
 import { ParagraphTable } from '@/types/drupal/paragraph'
 import { Table } from '@/components/table/formatted-type'
 

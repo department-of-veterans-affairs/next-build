@@ -3,7 +3,7 @@ import {
   VetCenterHealthService as FormattedHealthService,
   VetCenterHealthServices as FormattedHealthServices,
 } from '@/components/vetCenterHealthServices/formatted-type'
-import { QueryFormatter, QueryParams } from 'next-drupal-query'
+import { QueryFormatter, QueryParams } from '@/lib/next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 import { getHtmlFromDrupalContent } from '@/lib/utils/getHtmlFromDrupalContent'

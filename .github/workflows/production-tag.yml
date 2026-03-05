@@ -7,10 +7,9 @@ on:
         type: boolean
         description: "Override code freeze and create production tag"
         default: false
-  # workflow_run:
-  #   workflows: ['Continuous Integration']
-  #   types: [completed]
-  #   branches: [main]
+  workflow_run:
+    workflows: ['Content release: Staging']
+    types: [completed]
 concurrency:
   group: production-tag
   cancel-in-progress: true
@@ -28,15 +27,76 @@ jobs:
       - name: Check if today is a holiday
         id: holiday-check
         uses: department-of-veterans-affairs/vsp-github-actions/holiday-checker@main
+  check-parity:
+    name: Check Environment Parity
+    runs-on: ubuntu-latest
+    if: >
+      github.event_name == 'workflow_run'
+      && github.event.workflow_run.conclusion == 'success'
+    outputs:
+      parity: ${{ steps.check.outputs.parity }}
+    steps:
+      - name: Download prod tag config
+        uses: actions/download-artifact@v8
+        with:
+          name: prod-tag-config
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: config
+
+      - name: Download parity report
+        uses: actions/download-artifact@v8
+        with:
+          name: env-parity-report
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: report
+
+      - name: Check parity result
+        id: check
+        run: |
+          echo "Triggering workflow: ${{ github.event.workflow_run.html_url }}"
+
+          AUTO_TAG=$(cat config/prod-tag-config.txt | tr -d '[:space:]')
+          if [ "$AUTO_TAG" != "true" ]; then
+            echo "Auto-tagging not requested"
+            echo "parity=false" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
+          if [ ! -f report/report.json ]; then
+            echo "No parity report found"
+            echo "parity=false" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+          FAILED=$(jq '.summary.failed' report/report.json)
+          if [ "$FAILED" -eq 0 ]; then
+            echo "Environments are in parity"
+            echo "parity=true" >> $GITHUB_OUTPUT
+          else
+            echo "Environments are not in parity ($FAILED pages differ)"
+            echo "parity=false" >> $GITHUB_OUTPUT
+          fi
+
   create-production-tag:
     name: Create Production Tag
     runs-on: ubuntu-latest
-    needs: holiday-checker
-    # Do not run the workflow during VA holidays unless we explicitly override it.
-    # Run the workflow unless it was triggered by CI and that failed.
+    needs: [holiday-checker, check-parity]
+    # For workflow_dispatch: check-parity is skipped; proceed if not a holiday (or override)
+    # For workflow_run: only proceed if check-parity confirmed environments are in parity
+    #
+    # **Note:** `always()` is required because check-parity is skipped on
+    # workflow_dispatch (it only runs for workflow_run events). Without
+    # always(), GitHub Actions would skip this job whenever any dependency is
+    # skipped.
     if: >
-      (needs.holiday-checker.outputs.is_holiday == 'false' || (inputs && inputs.override_code_freeze))
-      && !(github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'failure')
+      always()
+      && needs.holiday-checker.result == 'success'
+      && (needs.holiday-checker.outputs.is_holiday == 'false' || (inputs && inputs.override_code_freeze))
+      && (
+        github.event_name == 'workflow_dispatch'
+        || (needs.check-parity.result == 'success' && needs.check-parity.outputs.parity == 'true')
+      )
     outputs:
       RELEASE_NAME: ${{ steps.export-release-name.outputs.RELEASE_NAME }}
     permissions:
@@ -61,6 +121,10 @@ jobs:
           env_variable_name: VA_VSP_BOT_GITHUB_TOKEN
 
       - uses: actions/checkout@v6.0.2
+        with:
+          # For workflow_run: check out the commit the staging release was built from.
+          # For workflow_dispatch: falls back to the default branch HEAD.
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
       - uses: actions/setup-node@v6
         with:
           node-version-file: .nvmrc

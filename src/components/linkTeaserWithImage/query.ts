@@ -1,4 +1,4 @@
-import { QueryFormatter } from 'next-drupal-query'
+import { QueryFormatter } from '@/lib/next-drupal-query'
 import { LinkTeaserWithImage } from './formatted-type'
 import { ParagraphLinkTeaserWithImage } from '@/types/drupal/paragraph'
 
