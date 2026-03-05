@@ -1,0 +1,25 @@
+Content type,URL,Avg mobile score,Avg desktop score,Version number,Test date
+node--vamc_system_billing_insurance,https://staging.va.gov/boston-health-care/billing-and-insurance/,54.3,,0,12/3/2025
+node--vamc_system_billing_insurance,https://staging.va.gov/boston-health-care/billing-and-insurance/,54.4,,1,12/3/2025
+node--campaign_landing_page,https://staging.va.gov/initiatives/prepare-for-vas-secure-sign-in-changes/,56.33,85.17,0,12/29/2025
+node--campaign_landing_page,https://staging.va.gov/initiatives/prepare-for-vas-secure-sign-in-changes/,54.67,77.83,1,12/29/2025
+,https://staging.va.gov/,59.17,91.04,0,12/19/2025
+,https://staging.va.gov/,52.29,94.67,1,12/19/2025
+,https://staging.va.gov/,59.85,95.6,2,1/12/2026
+node--vamc_operating_status_and_alerts,https://staging.va.gov/portland-health-care/operating-status/,41.7,,0,12/3/2025
+node--vamc_operating_status_and_alerts,https://staging.va.gov/portland-health-care/operating-status/,38,,1,12/3/2025
+node--office,https://staging.va.gov/outreach-and-events/,65.13,82.31,0,1/2/2026
+node--office,https://staging.va.gov/outreach-and-events/,63.13,89.94,1,1/2/2026
+node--publication_listing,https://staging.va.gov/outreach-and-events/outreach-materials/,62.94,87.94,0,1/2/2026
+node--publication_listing,https://staging.va.gov/outreach-and-events/outreach-materials/,63.56,94.06,1,1/2/2026
+node--vamc_system_register_for_care,https://staging.va.gov/washington-dc-health-care/register-for-care/,55.3,,0,12/3/2025
+node--vamc_system_register_for_care,https://staging.va.gov/washington-dc-health-care/register-for-care/,59.6,,1,12/3/2025
+node--vamc_system_medical_records_offi,https://staging.va.gov/boston-health-care/medical-records-office/,54,74.7,0,12/8/2025
+node--vamc_system_medical_records_offi,https://staging.va.gov/boston-health-care/medical-records-office/,50.8,81.5,1,12/8/2025
+node--health_care_region_detail_page,https://staging.va.gov/columbia-south-carolina-health-care/programs/my-healthevet/,63,81.38,0,12/15/2025
+node--health_care_region_detail_page,https://staging.va.gov/columbia-south-carolina-health-care/programs/my-healthevet/,64.13,90.06,1,12/15/2025
+node--health_care_region_detail_page,https://staging.va.gov/north-florida-health-care/health-services/patient-advocates/,56.38,79.25,0,12/15/2025
+node--health_care_region_detail_page,https://staging.va.gov/north-florida-health-care/health-services/patient-advocates/,51.81,85.87,1,12/15/2025
+node--vet_center_locations_list,https://staging.va.gov/omaha-vet-center/locations/,66.3,,0,12/3/2025
+node--vet_center_locations_list,https://staging.va.gov/omaha-vet-center/locations/,63.1,,1,12/3/2025
+node--va_form,https://staging.va.gov/forms/10-10ezr/,,,,
