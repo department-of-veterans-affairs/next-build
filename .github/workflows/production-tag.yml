@@ -33,27 +33,43 @@ jobs:
     if: >
       github.event_name == 'workflow_run'
       && github.event.workflow_run.conclusion == 'success'
-      && github.event.workflow_run.event == 'schedule'
     outputs:
       parity: ${{ steps.check.outputs.parity }}
     steps:
+      - name: Download prod tag config
+        uses: actions/download-artifact@v4
+        with:
+          name: prod-tag-config
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: config
+
       - name: Download parity report
         uses: actions/download-artifact@v4
         with:
           name: env-parity-report
           run-id: ${{ github.event.workflow_run.id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: report
 
       - name: Check parity result
         id: check
         run: |
           echo "Triggering workflow: ${{ github.event.workflow_run.html_url }}"
-          if [ ! -f report.json ]; then
+
+          AUTO_TAG=$(cat config/prod-tag-config.txt | tr -d '[:space:]')
+          if [ "$AUTO_TAG" != "true" ]; then
+            echo "Auto-tagging not requested"
+            echo "parity=false" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
+          if [ ! -f report/report.json ]; then
             echo "No parity report found"
             echo "parity=false" >> $GITHUB_OUTPUT
             exit 0
           fi
-          FAILED=$(jq '.summary.failed' report.json)
+          FAILED=$(jq '.summary.failed' report/report.json)
           if [ "$FAILED" -eq 0 ]; then
             echo "Environments are in parity"
             echo "parity=true" >> $GITHUB_OUTPUT

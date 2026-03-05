@@ -10,6 +10,11 @@ on:
         required: false
         default: false
         type: boolean
+      create_prod_tag_on_parity:
+        description: 'Create a production tag if environments are in parity?'
+        required: false
+        default: false
+        type: boolean
 
 concurrency: next-build-content-release-staging
 
@@ -159,6 +164,21 @@ jobs:
     if: always() && needs.content-release-staging.result == 'success'
 
     steps:
+      - name: Write prod tag config
+        run: |
+          if [ "${{ github.event_name }}" == "schedule" ] || [ "${{ github.event.inputs.create_prod_tag_on_parity }}" == "true" ]; then
+            echo "true" > prod-tag-config.txt
+          else
+            echo "false" > prod-tag-config.txt
+          fi
+
+      - name: Upload prod tag config
+        uses: actions/upload-artifact@v6
+        with:
+          name: prod-tag-config
+          path: prod-tag-config.txt
+          retention-days: 1
+
       - name: Checkout
         uses: actions/checkout@v4
 

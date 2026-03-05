@@ -54,7 +54,9 @@ describe('HomePageNewsSpotlight', () => {
   it('renders headline and promo text', () => {
     render(<HomePageNewsSpotlight {...defaultProps} />)
 
-    expect(getLinkByText(defaultProps.headline)).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: defaultProps.headline })
+    ).toBeInTheDocument()
     expect(screen.getByText(defaultProps.promoText)).toBeInTheDocument()
   })
 
