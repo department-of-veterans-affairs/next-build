@@ -301,6 +301,7 @@ export default function PerformancePage() {
     (e: React.MouseEvent<HTMLTableRowElement>, index: number) => {
       if (!devMode || editingRowIndex === index) return
       if (addingNew) handleCancelAdd()
+      if (editingRowIndex !== null) handleCancelEdit()
 
       const row = e.currentTarget
       const cells = row.querySelectorAll('td')
@@ -311,7 +312,14 @@ export default function PerformancePage() {
       setEditingColumnWidths(widths)
       handleStartEdit(index)
     },
-    [devMode, editingRowIndex, addingNew, handleCancelAdd, handleStartEdit]
+    [
+      devMode,
+      editingRowIndex,
+      addingNew,
+      handleCancelAdd,
+      handleCancelEdit,
+      handleStartEdit,
+    ]
   )
 
   return (
@@ -419,13 +427,22 @@ export default function PerformancePage() {
               marginBottom: '16px',
             }}
           >
-            <h2 style={{ fontSize: '20px', fontWeight: 'bold', margin: 0 }}>
-              Rows ({filteredAndSortedRows.length})
-            </h2>
+            <div style={{ display: 'flex', alignItems: 'end', gap: '12px' }}>
+              <h2 style={{ fontSize: '20px', fontWeight: 'bold', margin: 0 }}>
+                Rows ({filteredAndSortedRows.length})
+              </h2>
+              <span className="vads-u-color--gray">
+                Click to edit. <kbd>ENTER</kbd> to save. <kbd>ESC</kbd> to
+                cancel.
+              </span>
+            </div>
             <button
               type="button"
               className="usa-button"
-              onClick={() => setAddingNew(true)}
+              onClick={() => {
+                if (editingRowIndex !== null) handleCancelEdit()
+                setAddingNew(true)
+              }}
               disabled={!devMode}
             >
               Add row
@@ -480,6 +497,7 @@ export default function PerformancePage() {
                             onChange={(v) =>
                               setNewRow((prev) => ({ ...prev, [col]: v }))
                             }
+                            autoFocus
                             onKeyDown={(e) => {
                               if (e.key === 'Enter') {
                                 e.preventDefault()
