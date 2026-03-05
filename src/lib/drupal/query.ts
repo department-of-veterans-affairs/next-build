@@ -5,7 +5,7 @@ import { ResourceType } from '@/lib/constants/resourceTypes'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { mapWithConcurrency } from '@/lib/utils/mapWithConcurrency'
 
-const DEFAULT_PAGINATION_CONCURRENCY = 4
+const DEFAULT_PAGINATION_CONCURRENCY = 8
 
 function getPaginationConcurrency(): number {
   const rawValue = process.env.CMS_PAGINATION_CONCURRENCY

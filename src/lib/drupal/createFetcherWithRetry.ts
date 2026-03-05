@@ -5,7 +5,7 @@ const log = logger.extend('log')
 const error = logger.extend('error')
 
 const DEFAULT_RETRY_COUNT = 5
-const DEFAULT_MAX_CONCURRENT_REQUESTS = 8
+const DEFAULT_MAX_CONCURRENT_REQUESTS = 16
 
 function getPositiveIntegerEnv(name: string, fallback: number): number {
   const rawValue = process.env[name]

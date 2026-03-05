@@ -31,7 +31,7 @@ import { formatter as formatQaSection } from '@/components/qaSection/query'
 import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
 import { mapWithConcurrency } from '@/lib/utils/mapWithConcurrency'
 
-const DEFAULT_LINK_TRANSLATION_CONCURRENCY = 4
+const DEFAULT_LINK_TRANSLATION_CONCURRENCY = 8
 
 function getLinkTranslationConcurrency(): number {
   const rawValue = process.env.CMS_LINK_TRANSLATION_CONCURRENCY
