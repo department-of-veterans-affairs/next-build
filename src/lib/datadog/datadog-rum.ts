@@ -40,6 +40,15 @@ const FAMILY_CAREGIVER_CONFIG = {
   defaultPrivacyLevel: 'mask-user-input',
 } as const
 
+/**
+ * Initializes Datadog RUM (Real User Monitoring) in the browser.
+ *
+ * - Detects if running in a browser and aborts early on server environments.
+ * - Skips initialization for bot traffic.
+ * - Chooses configuration based on the current pathname:
+ *   - If on a family caregiver benefits page, uses a specific config.
+ *   - Otherwise, uses environment-variable-based defaults if available.
+ */
 export function initDatadogRum() {
   // Short circuit if we're not in a browser environment for the sake of the Pages Router
   if (typeof window === 'undefined') return
