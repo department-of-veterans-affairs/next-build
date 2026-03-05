@@ -42,7 +42,7 @@ Before pushing our updates to Production, we want to verify that the following i
       - CMS PM will review differences and determine if engineering support is required.
       - If needed, CMS eng support will be consulted to determine path of least resistance to unblock the deployment to Production. (i.e. revert related PR or introduce quick fix)
   - If the visual regression passes indicating that all pages are matching as expected, the deployment to Production will proceed without manual intervention.
-      - A new tag will be created referencing the commit that was used for the Staging content release, so that the next Production content release will use the same code.
+    - A new tag will be created referencing the commit that was used for the Staging content release, so that the next Production content release will use the same code.
 
 ## (Potential) Phase 3 - More Robust Automated Smoke Test
 
