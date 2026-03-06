@@ -46,6 +46,11 @@ function rowsToCSV(rows: PerformanceScoreRow[]): string {
   return [headerLine, ...dataLines].join('\n')
 }
 
+function escapeMarkdownCellValue(value: string): string {
+  // First escape backslashes, then escape pipe characters, and normalize newlines.
+  return value.replace(/\\/g, '\\\\').replace(/\|/g, '\\|').replace(/\n/g, ' ')
+}
+
 function rowsToMarkdown(rows: PerformanceScoreRow[]): string {
   const headerLine = '| ' + COLUMNS.join(' | ') + ' |'
   const separator = '| ' + COLUMNS.map(() => '---').join(' | ') + ' |'
@@ -54,7 +59,7 @@ function rowsToMarkdown(rows: PerformanceScoreRow[]): string {
       '| ' +
       COLUMNS.map((col) => {
         const val = row[col] ?? ''
-        return val.replace(/\|/g, '\\|').replace(/\n/g, ' ')
+        return escapeMarkdownCellValue(val)
       }).join(' | ') +
       ' |'
   )
