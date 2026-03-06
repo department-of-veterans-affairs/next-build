@@ -27,6 +27,17 @@ import {
   getOppositeChildVariant,
 } from '@/lib/drupal/lovell/utils'
 import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
+import { mapWithConcurrency } from '@/lib/utils/mapWithConcurrency'
+
+const DEFAULT_LINK_TRANSLATION_CONCURRENCY = 8
+
+function getLinkTranslationConcurrency(): number {
+  const rawValue = process.env.CMS_LINK_TRANSLATION_CONCURRENCY
+  const parsedValue = rawValue ? Number.parseInt(rawValue, 10) : NaN
+  return Number.isFinite(parsedValue) && parsedValue > 0
+    ? parsedValue
+    : DEFAULT_LINK_TRANSLATION_CONCURRENCY
+}
 
 // Define the query params for fetching node--vamc_system_register_for_care.
 export const params: QueryParams<null> = () => {
@@ -68,18 +79,18 @@ export const data: QueryData<
 
   // The URIs for the link teasers (fetched via entity_field_fetch) are not true URL paths,
   // so we need to translate them from Drupal entity paths.
-  await Promise.all(
-    entity.field_cc_related_links.fetched.field_va_paragraphs.map(
-      async (linkTeaser) => {
-        for (const link of linkTeaser.field_link) {
-          if (link.uri.startsWith('entity:')) {
-            const uri = link.uri.replace('entity:', '')
-            const pathInfo = await drupalClient.translatePath(uri)
-            link.uri = pathInfo.entity.path
-          }
+  await mapWithConcurrency(
+    entity.field_cc_related_links.fetched.field_va_paragraphs,
+    getLinkTranslationConcurrency(),
+    async (linkTeaser) => {
+      for (const link of linkTeaser.field_link) {
+        if (link.uri.startsWith('entity:')) {
+          const uri = link.uri.replace('entity:', '')
+          const pathInfo = await drupalClient.translatePath(uri)
+          link.uri = pathInfo.entity.path
         }
       }
-    )
+    }
   )
 
   const services = await fetchVhaFacilityNonclinicalServices(
