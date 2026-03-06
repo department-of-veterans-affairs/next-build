@@ -38,6 +38,7 @@ exports[`node--q_a formatData outputs formatted data 1`] = `
         "title": "VA health care",
       },
     ],
+    "breadcrumbs": null,
     "buttons": [
       {
         "entityId": 13772,
@@ -60,6 +61,8 @@ exports[`node--q_a formatData outputs formatted data 1`] = `
     "entityPath": "/resources/how-can-i-find-out-my-va-claim-or-appeal-status",
     "id": "c2839a4c-c13d-46da-b448-9d1ec389773b",
     "lastUpdated": "2020-11-04T21:54:28+00:00",
+    "metatags": null,
+    "moderationState": "published",
     "published": true,
     "tags": {
       "entityId": 13779,
@@ -143,6 +146,7 @@ exports[`node--q_a formatData outputs formatted data 1`] = `
         "title": "VA health care",
       },
     ],
+    "breadcrumbs": null,
     "buttons": [
       {
         "entityId": 13894,
@@ -165,6 +169,8 @@ exports[`node--q_a formatData outputs formatted data 1`] = `
     "entityPath": "/resources/are-service-dogs-allowed-in-va-facilities",
     "id": "eaff8edf-2cee-4e11-9373-7860a78295a6",
     "lastUpdated": "2020-11-04T21:54:28+00:00",
+    "metatags": null,
+    "moderationState": "published",
     "published": true,
     "tags": {
       "entityId": 13897,
@@ -213,6 +219,7 @@ exports[`node--q_a formatData outputs formatted data 1`] = `
         "title": "VA health care",
       },
     ],
+    "breadcrumbs": null,
     "buttons": [
       {
         "entityId": 13801,
@@ -242,6 +249,8 @@ exports[`node--q_a formatData outputs formatted data 1`] = `
     "entityPath": "/resources/what-types-of-claims-and-appeals-can-i-track-online",
     "id": "bcf87f05-f947-4631-8a86-a3c0c0fe9878",
     "lastUpdated": "2020-11-04T21:54:28+00:00",
+    "metatags": null,
+    "moderationState": "published",
     "published": true,
     "tags": {
       "entityId": 13805,

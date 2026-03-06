@@ -4,7 +4,7 @@ import { ParagraphComponent } from '@/components/paragraph/formatted-type'
 
 export function AudienceTopics({
   tags,
-}: ParagraphComponent<FormattedAudienceTopics>) {
+}: ParagraphComponent<FormattedAudienceTopics> | null) {
   if (isEmpty(tags)) return null
   const tagsList = tags.map(({ id, href, name }) => (
     <div key={id}>

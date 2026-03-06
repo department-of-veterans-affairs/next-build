@@ -19,6 +19,7 @@ import { AlertSingle } from '@/components/alert/formatted-type'
 import { ContactInfo } from '@/components/contactInfo/formatted-type'
 import { Button } from '@/components/button/formatted-type'
 import { BenefitsHubLink } from '@/components/benefitsHubLinks/formatted-type'
+import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
 
 // Define the query params for fetching node--q_a.
 export const params: QueryParams<null> = () => {
@@ -67,7 +68,7 @@ export const formatter: QueryFormatter<NodeQA, QuestionAnswer> = (
 ) => {
   const buttons = (entity.field_buttons?.map((button) =>
     queries.formatData(PARAGRAPH_RESOURCE_TYPES.BUTTON, button)
-  ) ?? []) as Button[]
+  ) ?? null) as Button[] | null
   const teasers =
     entity.field_related_information?.map((teaser) =>
       queries.formatData(PARAGRAPH_RESOURCE_TYPES.LINK_TEASER, teaser)
@@ -84,24 +85,15 @@ export const formatter: QueryFormatter<NodeQA, QuestionAnswer> = (
     : []
 
   return {
-    id: entity.id,
-    type: entity.type,
-    entityPath: entity.path.alias,
-    entityId: entity.drupal_internal__nid,
-    published: entity.status,
-    title: entity.title,
+    ...entityBaseFields(entity),
     answers: entity.field_answer?.field_wysiwyg?.processed ?? '',
     tags,
     buttons,
     teasers,
-    alert: formatParagraph(entity.field_alert_single) as
-      | AlertSingle
-      | undefined,
-    contactInformation: formatParagraph(entity.field_contact_information) as
-      | ContactInfo
-      | undefined,
+    alert: formatParagraph(entity.field_alert_single) as AlertSingle | null,
+    contactInformation: formatParagraph(
+      entity.field_contact_information
+    ) as ContactInfo | null,
     benefitsHubLinks,
-    lastUpdated:
-      entity.field_last_saved_by_an_editor || entity.changed || entity.created,
   }
 }

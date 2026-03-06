@@ -48,6 +48,9 @@ describe('<QuestionAnswerData> component renders with data', () => {
         label: 'Go to DEERS FAQs on milConnect',
       },
     ],
+    alert: null,
+    contactInformation: null,
+    benefitsHubLinks: [],
     teasers: [
       {
         id: 'e800c299-d555-42da-83e4-301126f09fcf',

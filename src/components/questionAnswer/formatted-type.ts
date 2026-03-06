@@ -7,15 +7,11 @@ import { ContactInfo } from '@/components/contactInfo/formatted-type'
 import { BenefitsHubLink } from '@/components/benefitsHubLinks/formatted-type'
 
 export type QuestionAnswer = PublishedEntity & {
-  title: string
   answers: string
   buttons: Button[]
   teasers: LinkTeaser[]
-  tags?: AudienceTopics
-  alert?: AlertSingle
-  contactInformation?: ContactInfo
-  benefitsHubLinks?: BenefitsHubLink[]
-  className?: string
-  entityId: number
-  entityPath: string
+  tags: AudienceTopics | null
+  alert: AlertSingle | null
+  contactInformation: ContactInfo | null
+  benefitsHubLinks: BenefitsHubLink[]
 }
