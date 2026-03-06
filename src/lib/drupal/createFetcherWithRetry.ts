@@ -5,24 +5,12 @@ const log = logger.extend('log')
 const error = logger.extend('error')
 
 const DEFAULT_RETRY_COUNT = 5
-const DEFAULT_REQUEST_TIMEOUT_MS = 30_000
-
-function getRequestTimeoutMs(): number {
-  const raw = process.env.CMS_REQUEST_TIMEOUT_MS
-  const parsed = raw ? Number.parseInt(raw, 10) : NaN
-  return Number.isFinite(parsed) && parsed > 0
-    ? parsed
-    : DEFAULT_REQUEST_TIMEOUT_MS
-}
 
 /**
  * Creates a fetcher function with retry logic for Drupal API requests.
  * Retries failed requests up to 5 times with jittered exponential backoff.
  * Does not retry on 404/403 errors unless the path is a JSON API path.
  *
- * Concurrency improvements for K8s-based Drupal:
- * - Per-request timeout (default 30s, env: CMS_REQUEST_TIMEOUT_MS) abandons
- *   slow requests before the ELB returns a 504, freeing retry slots faster
  * - Jittered backoff prevents thundering-herd retry storms under 5xx pressure
  * - Node's native fetch (undici) already pools and reuses connections via keep-alive
  *
@@ -33,23 +21,9 @@ function getRequestTimeoutMs(): number {
 export function createFetcherWithRetry(
   retryCount: number = DEFAULT_RETRY_COUNT
 ) {
-  const timeoutMs = getRequestTimeoutMs()
-
   return async (input: RequestInfo, init: RequestInit = {}) => {
     const wrappedFetch = async (attempt: number) => {
-      // Per-request timeout: abandon slow requests before the ELB returns a 504.
-      // This frees the retry slot to try again against a (hopefully) different pod.
-      const timeoutSignal = AbortSignal.timeout(timeoutMs)
-
-      // Merge caller's signal with our timeout signal if both exist
-      const signal = init.signal
-        ? AbortSignal.any([init.signal, timeoutSignal])
-        : timeoutSignal
-
-      const response = await fetch(input, {
-        ...init,
-        signal,
-      })
+      const response = await fetch(input, init)
 
       if (!response.ok) {
         const logOrError = attempt <= retryCount ? log : error
