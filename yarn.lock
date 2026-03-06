@@ -2336,11 +2336,11 @@ __metadata:
   linkType: hard
 
 "@hono/node-server@npm:^1.19.9":
-  version: 1.19.9
-  resolution: "@hono/node-server@npm:1.19.9"
+  version: 1.19.11
+  resolution: "@hono/node-server@npm:1.19.11"
   peerDependencies:
     hono: ^4
-  checksum: 8ec9095c8b2679b2e958836806c659de45b0e74a0031dea93413d51a5eb89a79219bc9d55efc4f5fb2506ab83e15856bb009fb77b76c6689189b26d5eada25a4
+  checksum: 5270444b197f4ee0f1f25a6fb6420c9a5eb96c347c6a3b26413e33353fe52de4533da66ab7deb4e75cdea35e852aa1c24bca82544ccc09d1db2a960d438b7e35
   languageName: node
   linkType: hard
 
@@ -5970,14 +5970,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^1.13.5":
-  version: 1.13.5
-  resolution: "axios@npm:1.13.5"
+"axios@npm:^1.13.6":
+  version: 1.13.6
+  resolution: "axios@npm:1.13.6"
   dependencies:
     follow-redirects: ^1.15.11
     form-data: ^4.0.5
     proxy-from-env: ^1.1.0
-  checksum: 985024c4a32f837053f198f02a308fd6f8bfb4053a2f21e39e37992bc6d06917f008679c36b3e7f0f0c9060c85ffe37c61e58d2ac662595d68dc1b89cef78de8
+  checksum: 72e94640e34aa9b591a47a9cc1798a1e18f179e15e39276514dd73f6d910981bdb2117c649da858bd72fc34d91db4f84318f88c8d306e395cd4ef5d6f142ab70
   languageName: node
   linkType: hard
 
@@ -9639,9 +9639,9 @@ __metadata:
   linkType: hard
 
 "hono@npm:^4.11.4":
-  version: 4.11.10
-  resolution: "hono@npm:4.11.10"
-  checksum: cfad89ed3b73d03438af41fdd548bdbac095f9beb330769973985d0c2ef4eb241a248134ba5643859f5f4dc67db5efb4bf590b9d378b790562ee3eb2c98f325d
+  version: 4.12.5
+  resolution: "hono@npm:4.12.5"
+  checksum: 37da4f743e34198dccc15ce2635f9d5f1e4d6ca6b19894617e1ae210ff110fa53cd310523a4f8daa0029ddbbab8f4c4e438dd0f21e1eff904cfdb41c4c7521c6
   languageName: node
   linkType: hard
 
@@ -12364,7 +12364,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^8.56.0
     "@typescript-eslint/parser": ^8.55.0
     axe-core: ^4.10.3
-    axios: ^1.13.5
+    axios: ^1.13.6
     babel-plugin-react-compiler: ^19.1.0-rc.2
     chalk: ^5.6.2
     cheerio: ^1.2.0
