@@ -9,6 +9,17 @@ import { getLovellVariantOfStaticPathResource } from '@/lib/drupal/lovell/static
 import { LOVELL } from '@/lib/drupal/lovell/constants'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 import { ExpandedStaticPropsContext } from './staticProps'
+import { mapWithConcurrency } from '@/lib/utils/mapWithConcurrency'
+
+const DEFAULT_LISTING_PAGING_CONCURRENCY = 8
+
+function getListingPagingConcurrency(): number {
+  const rawValue = process.env.CMS_LISTING_PAGING_CONCURRENCY
+  const parsedValue = rawValue ? Number.parseInt(rawValue, 10) : NaN
+  return Number.isFinite(parsedValue) && parsedValue > 0
+    ? parsedValue
+    : DEFAULT_LISTING_PAGING_CONCURRENCY
+}
 
 const LISTING_RESOURCE_TYPES = [
   RESOURCE_TYPES.STORY_LISTING,
@@ -118,8 +129,10 @@ async function getListingPageStaticPathResourcesWithPagingData(
     return []
   }
 
-  return Promise.all(
-    listingPageStaticPathResources.map(async (resource) => {
+  return mapWithConcurrency(
+    listingPageStaticPathResources,
+    getListingPagingConcurrency(),
+    async (resource) => {
       const { totalItems, totalPages } = await getListingPageCounts(
         resource,
         listingResourceType
@@ -137,14 +150,10 @@ async function getListingPageStaticPathResourcesWithPagingData(
       // For Lovell (TRICARE or VA) listing pages,
       // we need to merge in Federal page items to calculate
       // totalItems and, ultimately, totalPages
-      const { totalItems: totalLovellFederalItems } =
-        await getListingPageCounts(
-          getLovellVariantOfStaticPathResource(
-            resource,
-            LOVELL.federal.variant
-          ),
-          listingResourceType
-        )
+      const { totalItems: totalLovellFederalItems } = await getListingPageCounts(
+        getLovellVariantOfStaticPathResource(resource, LOVELL.federal.variant),
+        listingResourceType
+      )
 
       return {
         ...resource,
@@ -155,7 +164,7 @@ async function getListingPageStaticPathResourcesWithPagingData(
           ),
         },
       }
-    })
+    }
   )
 }
 

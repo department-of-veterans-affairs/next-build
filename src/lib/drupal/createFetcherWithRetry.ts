@@ -5,66 +5,51 @@ const log = logger.extend('log')
 const error = logger.extend('error')
 
 const DEFAULT_RETRY_COUNT = 5
-const DEFAULT_MAX_CONCURRENT_REQUESTS = 4
+const DEFAULT_REQUEST_TIMEOUT_MS = 30_000
 
-function getPositiveIntegerEnv(name: string, fallback: number): number {
-  const rawValue = process.env[name]
-  const parsedValue = rawValue ? Number.parseInt(rawValue, 10) : NaN
-  return Number.isFinite(parsedValue) && parsedValue > 0
-    ? parsedValue
-    : fallback
-}
-
-function createLimiter(maxConcurrency: number) {
-  const queue: Array<() => void> = []
-  let activeCount = 0
-
-  const releaseNext = () => {
-    if (activeCount >= maxConcurrency) {
-      return
-    }
-
-    const next = queue.shift()
-    if (!next) {
-      return
-    }
-
-    activeCount += 1
-    next()
-  }
-
-  return async function runWithLimit<T>(task: () => Promise<T>): Promise<T> {
-    await new Promise<void>((resolve) => {
-      queue.push(resolve)
-      releaseNext()
-    })
-
-    try {
-      return await task()
-    } finally {
-      activeCount -= 1
-      releaseNext()
-    }
-  }
+function getRequestTimeoutMs(): number {
+  const raw = process.env.CMS_REQUEST_TIMEOUT_MS
+  const parsed = raw ? Number.parseInt(raw, 10) : NaN
+  return Number.isFinite(parsed) && parsed > 0
+    ? parsed
+    : DEFAULT_REQUEST_TIMEOUT_MS
 }
 
 /**
  * Creates a fetcher function with retry logic for Drupal API requests.
- * Retries failed requests up to 5 times.
+ * Retries failed requests up to 5 times with jittered exponential backoff.
  * Does not retry on 404/403 errors unless the path is a JSON API path.
+ *
+ * Concurrency improvements for K8s-based Drupal:
+ * - Per-request timeout (default 30s, env: CMS_REQUEST_TIMEOUT_MS) abandons
+ *   slow requests before the ELB returns a 504, freeing retry slots faster
+ * - Jittered backoff prevents thundering-herd retry storms under 5xx pressure
+ * - Node's native fetch (undici) already pools and reuses connections via keep-alive
+ *
+ * Note: Request concurrency is controlled at the call-site level via
+ * mapWithConcurrency in getStaticPaths, query.ts, listingPages.ts, etc.
+ * Do NOT add a global fetch limiter here — it starves retries under 5xx pressure.
  */
 export function createFetcherWithRetry(
-  retryCount: number = DEFAULT_RETRY_COUNT,
-  maxConcurrentRequests: number = getPositiveIntegerEnv(
-    'CMS_FETCH_CONCURRENCY',
-    DEFAULT_MAX_CONCURRENT_REQUESTS
-  )
+  retryCount: number = DEFAULT_RETRY_COUNT
 ) {
-  const runWithLimit = createLimiter(maxConcurrentRequests)
+  const timeoutMs = getRequestTimeoutMs()
 
   return async (input: RequestInfo, init: RequestInit = {}) => {
     const wrappedFetch = async (attempt: number) => {
-      const response = await runWithLimit(async () => fetch(input, init))
+      // Per-request timeout: abandon slow requests before the ELB returns a 504.
+      // This frees the retry slot to try again against a (hopefully) different pod.
+      const timeoutSignal = AbortSignal.timeout(timeoutMs)
+
+      // Merge caller's signal with our timeout signal if both exist
+      const signal = init.signal
+        ? AbortSignal.any([init.signal, timeoutSignal])
+        : timeoutSignal
+
+      const response = await fetch(input, {
+        ...init,
+        signal,
+      })
 
       if (!response.ok) {
         const logOrError = attempt <= retryCount ? log : error
@@ -100,6 +85,7 @@ export function createFetcherWithRetry(
     const pRetry = await import('p-retry')
     return pRetry.default(wrappedFetch, {
       retries: retryCount,
+      randomize: true, // Jitter backoff to prevent thundering-herd retries under 5xx pressure
     })
   }
 }
