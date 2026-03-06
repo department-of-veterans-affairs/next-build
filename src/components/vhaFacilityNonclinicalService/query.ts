@@ -1,5 +1,5 @@
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { QueryParams } from 'next-drupal-query'
+import { QueryParams } from '@/lib/next-drupal-query'
 import {
   NodeVhaFacilityNonclinicalService,
   NodeHealthCareLocalFacility,

@@ -1,5 +1,5 @@
 import { ParagraphSpanishTranslationSummary } from '@/types/drupal/paragraph'
-import { QueryFormatter } from 'next-drupal-query'
+import { QueryFormatter } from '@/lib/next-drupal-query'
 import { SpanishTranslationSummary } from './formatted-type'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 

@@ -1,6 +1,6 @@
 // Define the query params for fetching node--news_story.
 import { ParagraphAudienceTopics } from '@/types/drupal/paragraph'
-import { QueryFormatter, QueryParams } from 'next-drupal-query'
+import { QueryFormatter, QueryParams } from '@/lib/next-drupal-query'
 import {
   AudienceTopic,
   AudienceTopics,

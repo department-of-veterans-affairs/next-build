@@ -1,6 +1,6 @@
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { JsonApiResponse } from 'next-drupal'
-import { QueryParams } from 'next-drupal-query'
+import { QueryParams } from '@/lib/next-drupal-query'
 import { ResourceType } from '@/lib/constants/resourceTypes'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 

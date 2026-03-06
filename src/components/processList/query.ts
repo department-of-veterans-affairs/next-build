@@ -1,4 +1,4 @@
-import { QueryFormatter } from 'next-drupal-query'
+import { QueryFormatter } from '@/lib/next-drupal-query'
 
 import { ParagraphProcessList } from '@/types/drupal/paragraph'
 import { ProcessList } from '@/components/processList/formatted-type'

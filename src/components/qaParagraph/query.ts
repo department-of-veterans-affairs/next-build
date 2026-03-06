@@ -1,4 +1,4 @@
-import { QueryFormatter, QueryParams } from 'next-drupal-query'
+import { QueryFormatter, QueryParams } from '@/lib/next-drupal-query'
 import { ParagraphQA } from '@/types/drupal/paragraph'
 import { QaParagraph } from '@/components/qaParagraph/formatted-type'
 import { formatParagraph } from '@/lib/drupal/paragraphs'

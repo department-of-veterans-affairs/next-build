@@ -1,6 +1,6 @@
 // Define the query params for fetching block_content--alert.
 import { BlockAlert } from '@/types/drupal/block'
-import { QueryFormatter, QueryParams } from 'next-drupal-query'
+import { QueryFormatter, QueryParams } from '@/lib/next-drupal-query'
 import { AlertBlock, AlertType } from '@/components/alert/formatted-type'
 import { formatParagraph } from '@/lib/drupal/paragraphs'
 import { Wysiwyg } from '@/components/wysiwyg/formatted-type'
