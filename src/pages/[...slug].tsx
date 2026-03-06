@@ -425,6 +425,7 @@ export async function getStaticPaths(
 
 // Given some context (path, slug, locale, etc), get all props for the path.
 export async function getStaticProps(context: GetStaticPropsContext) {
+
   try {
     const expandedContext = getExpandedStaticPropsContext(context)
 
@@ -494,6 +495,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
           itemPath: expandedContext.drupalPath,
         }),
       ])
+
 
       return {
         props: {
