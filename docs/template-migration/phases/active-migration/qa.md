@@ -76,3 +76,5 @@ Use the [Lighthouse Testing Tool](https://github.com/pwolfert/lighthouse-testing
    This generates CSV files in `analysis/` and displays statistics in the console.
 
 6. **Compare** results in the LHCI web UI at http://localhost:9001/ or via the generated CSV files. If performance is consistently worse with the template on, create a ticket to investigate.
+
+7. **Log results** in our performance-scores database here in our next-build project at http://localhost:3999/\_playground/performance/ (Next.js dev server must be running).
