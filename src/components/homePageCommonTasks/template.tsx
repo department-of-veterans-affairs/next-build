@@ -39,12 +39,11 @@ export function HomePageCommonTasks({
                 <ul className="vads-u-padding-left--0" role="list">
                   {searchLinks.map((link, index) => (
                     <li key={index}>
-                      <va-icon
-                        icon="arrow_forward"
-                        className="vads-u-color--link-default vads-u-margin-right--1"
-                        size="3"
-                      ></va-icon>
-                      <va-link href={link.url} text={link.title}></va-link>
+                      <va-link-action
+                        type="secondary"
+                        href={link.url}
+                        text={link.title}
+                      />
                     </li>
                   ))}
                 </ul>

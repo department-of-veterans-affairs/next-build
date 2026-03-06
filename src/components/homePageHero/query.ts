@@ -1,4 +1,4 @@
-import { QueryData, QueryFormatter } from 'next-drupal-query'
+import { QueryData, QueryFormatter } from '@/lib/next-drupal-query'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { HomePageHeroData } from './formatted-type'
 import { deserialize, JsonApiResponse } from 'next-drupal'

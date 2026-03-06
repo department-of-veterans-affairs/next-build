@@ -1,4 +1,4 @@
-import { QueryFormatter } from 'next-drupal-query'
+import { QueryFormatter } from '@/lib/next-drupal-query'
 import { ParagraphNumberCallout } from '@/types/drupal/paragraph'
 import { NumberCallout } from '@/components/numberCallout/formatted-type'
 

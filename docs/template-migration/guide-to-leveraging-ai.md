@@ -34,4 +34,4 @@ After installation, it should prompt you to sign in using your GitHub account wh
 - Manually creating the static types expected from Drupal before step 1 may be useful for the more complicated entity types
 - I haven't found generating the query file to be very useful; feel free to try AI-generating it, but be sure have a solid input type and output type first, and give it an example
 - You can use AI for documenting sections of your code, or even layout documentation in files if needed
-- Human in the loop is needed when it comes to understanding Drupal data and their meanings
+- Human in the loop is needed when it comes to understanding Drupal data and their meanings, but you can use [our MCP server](/packages/template-migration-mcp-server/README.md) to help

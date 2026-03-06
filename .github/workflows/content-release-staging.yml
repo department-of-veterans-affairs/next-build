@@ -10,6 +10,11 @@ on:
         required: false
         default: false
         type: boolean
+      create_prod_tag_on_parity:
+        description: 'Create a production tag if environments are in parity?'
+        required: false
+        default: false
+        type: boolean
 
 concurrency: next-build-content-release-staging
 
@@ -128,7 +133,7 @@ jobs:
 
       - name: Notify Slack
         id: slack-success
-        uses: slackapi/slack-github-action@v1.23.0
+        uses: slackapi/slack-github-action@v2.1.1
         continue-on-error: true
         env:
           SLACK_BOT_TOKEN: ${{ env.SLACK_BOT_TOKEN }}
@@ -159,6 +164,21 @@ jobs:
     if: always() && needs.content-release-staging.result == 'success'
 
     steps:
+      - name: Write prod tag config
+        run: |
+          if [ "${{ github.event_name }}" == "schedule" ] || [ "${{ github.event.inputs.create_prod_tag_on_parity }}" == "true" ]; then
+            echo "true" > prod-tag-config.txt
+          else
+            echo "false" > prod-tag-config.txt
+          fi
+
+      - name: Upload prod tag config
+        uses: actions/upload-artifact@v6
+        with:
+          name: prod-tag-config
+          path: prod-tag-config.txt
+          retention-days: 1
+
       - name: Checkout
         uses: actions/checkout@v4
 
@@ -236,6 +256,14 @@ jobs:
           channel_id: ${{ env.SLACK_CHANNEL }}
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+      - name: Upload parity report
+        if: steps.parse-report.outputs.parity != 'error'
+        uses: actions/upload-artifact@v6
+        with:
+          name: env-parity-report
+          path: packages/env-parity-testing/artifacts/report.json
+          retention-days: 1
 
   notify-failure:
     name: Notify Failure
