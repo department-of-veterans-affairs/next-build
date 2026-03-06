@@ -11,7 +11,7 @@ import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 import { ExpandedStaticPropsContext } from './staticProps'
 import { mapWithConcurrency } from '@/lib/utils/mapWithConcurrency'
 
-const DEFAULT_LISTING_PAGING_CONCURRENCY = 4
+const DEFAULT_LISTING_PAGING_CONCURRENCY = 8
 
 function getListingPagingConcurrency(): number {
   const rawValue = process.env.CMS_LISTING_PAGING_CONCURRENCY
