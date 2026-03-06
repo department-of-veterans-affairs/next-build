@@ -13,6 +13,12 @@ import {
   PARAGRAPH_RESOURCE_TYPES,
   RESOURCE_TYPES,
 } from '@/lib/constants/resourceTypes'
+import { getNestedIncludes } from '@/lib/utils/queries'
+import { formatParagraph } from '@/lib/drupal/paragraphs'
+import { AlertSingle } from '@/components/alert/formatted-type'
+import { ContactInfo } from '@/components/contactInfo/formatted-type'
+import { Button } from '@/components/button/formatted-type'
+import { BenefitsHubLink } from '@/components/benefitsHubLinks/formatted-type'
 
 // Define the query params for fetching node--q_a.
 export const params: QueryParams<null> = () => {
@@ -21,14 +27,18 @@ export const params: QueryParams<null> = () => {
     'field_buttons',
     'field_related_benefit_hubs',
     'field_related_information',
-    'field_tags.field_topics',
-    'field_tags.field_audience_beneficiares',
-    'field_tags.field_non_beneficiares',
-    // 'field_administration',
-    // 'field_alert_single',
-    // 'field_contact_information',
-    // 'field_other_categories',
-    // 'field_primary_category'
+    ...getNestedIncludes(
+      'field_tags',
+      PARAGRAPH_RESOURCE_TYPES.AUDIENCE_TOPICS
+    ),
+    ...getNestedIncludes(
+      'field_alert_single',
+      PARAGRAPH_RESOURCE_TYPES.ALERT_SINGLE
+    ),
+    ...getNestedIncludes(
+      'field_contact_information',
+      PARAGRAPH_RESOURCE_TYPES.CONTACT_INFORMATION
+    ),
   ])
 }
 
@@ -55,12 +65,24 @@ export const data: QueryData<DataOpts, NodeQA> = async (
 export const formatter: QueryFormatter<NodeQA, QuestionAnswer> = (
   entity: NodeQA
 ) => {
-  const buttons = entity.field_buttons?.map((button) => {
-    return queries.formatData(PARAGRAPH_RESOURCE_TYPES.BUTTON, button)
-  })
-  const teasers = entity.field_related_information?.map((teaser) => {
-    return queries.formatData(PARAGRAPH_RESOURCE_TYPES.LINK_TEASER, teaser)
-  })
+  const buttons = (entity.field_buttons?.map((button) =>
+    queries.formatData(PARAGRAPH_RESOURCE_TYPES.BUTTON, button)
+  ) ?? []) as Button[]
+  const teasers =
+    entity.field_related_information?.map((teaser) =>
+      queries.formatData(PARAGRAPH_RESOURCE_TYPES.LINK_TEASER, teaser)
+    ) ?? []
+  const tags = queries.formatData(
+    PARAGRAPH_RESOURCE_TYPES.AUDIENCE_TOPICS,
+    entity.field_tags
+  )
+  const benefitsHubLinks = entity.field_related_benefit_hubs
+    ? (queries.formatData(
+        'benefits-hub-links',
+        entity.field_related_benefit_hubs
+      ) as BenefitsHubLink[])
+    : []
+
   return {
     id: entity.id,
     type: entity.type,
@@ -68,16 +90,18 @@ export const formatter: QueryFormatter<NodeQA, QuestionAnswer> = (
     entityId: entity.drupal_internal__nid,
     published: entity.status,
     title: entity.title,
-    answers: entity.field_answer?.field_wysiwyg?.processed,
-    tags: queries.formatData(
-      PARAGRAPH_RESOURCE_TYPES.AUDIENCE_TOPICS,
-      entity.field_tags
-    ),
-    buttons: buttons,
-    teasers: teasers,
-    lastUpdated: entity.field_last_saved_by_an_editor || entity.created,
-    // contact: entity.field_contact_information, component is available to frontend
-    //  alert: entity.field_alert_single, || component is available to frontend
-    //  benefits: entity.field_related_benefit_hubs, || component is available to frontend
+    answers: entity.field_answer?.field_wysiwyg?.processed ?? '',
+    tags,
+    buttons,
+    teasers,
+    alert: formatParagraph(entity.field_alert_single) as
+      | AlertSingle
+      | undefined,
+    contactInformation: formatParagraph(entity.field_contact_information) as
+      | ContactInfo
+      | undefined,
+    benefitsHubLinks,
+    lastUpdated:
+      entity.field_last_saved_by_an_editor || entity.changed || entity.created,
   }
 }

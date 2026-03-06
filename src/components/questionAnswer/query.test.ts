@@ -17,9 +17,14 @@ describe('DrupalJsonApiParams configuration for questionAnswer', () => {
   test('params function sets the correct include fields', () => {
     const paramsInstance = params()
     const queryString = decodeURIComponent(paramsInstance.getQueryString())
-    expect(queryString).toMatch(
-      /include=field_answer,field_buttons,field_related_benefit_hubs,field_related_information,field_tags.field_topics,field_tags.field_audience_beneficiares,field_tags.field_non_beneficiares/
-    )
+    expect(queryString).toContain('include=')
+    expect(queryString).toMatch(/field_answer/)
+    expect(queryString).toMatch(/field_buttons/)
+    expect(queryString).toMatch(/field_related_benefit_hubs/)
+    expect(queryString).toMatch(/field_related_information/)
+    expect(queryString).toMatch(/field_tags/)
+    expect(queryString).toMatch(/field_alert_single/)
+    expect(queryString).toMatch(/field_contact_information/)
   })
 })
 
