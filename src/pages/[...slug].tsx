@@ -425,10 +425,6 @@ export async function getStaticPaths(
 
 // Given some context (path, slug, locale, etc), get all props for the path.
 export async function getStaticProps(context: GetStaticPropsContext) {
-  const pageStartMs = Date.now()
-  const pagePath = Array.isArray(context.params?.slug)
-    ? `/${context.params.slug.join('/')}`
-    : context.params?.slug || '/'
 
   try {
     const expandedContext = getExpandedStaticPropsContext(context)
@@ -444,9 +440,6 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 
     if (!pathInfo) {
       warn('No path info found, returning notFound')
-      log(
-        `Static page generation for ${pagePath} completed in ${Date.now() - pageStartMs}ms (notFound)`
-      )
       return {
         notFound: true,
       }
@@ -458,9 +451,6 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     if (!RESOURCE_TYPES_TO_BUILD.includes(resourceType)) {
       warn(
         `Resource type ${resourceType} not in RESOURCE_TYPES_TO_BUILD, returning notFound`
-      )
-      log(
-        `Static page generation for ${pagePath} completed in ${Date.now() - pageStartMs}ms (notFound, type=${resourceType})`
       )
       return {
         notFound: true,
@@ -491,9 +481,6 @@ export async function getStaticProps(context: GetStaticPropsContext) {
         warn(
           'Resource not published and not in preview mode, returning notFound'
         )
-        log(
-          `Static page generation for ${pagePath} completed in ${Date.now() - pageStartMs}ms (unpublished, type=${resourceType})`
-        )
         return {
           notFound: true,
         }
@@ -509,9 +496,6 @@ export async function getStaticProps(context: GetStaticPropsContext) {
         }),
       ])
 
-      log(
-        `Static page generation for ${pagePath} completed in ${Date.now() - pageStartMs}ms (type=${resourceType})`
-      )
 
       return {
         props: {
@@ -534,9 +518,6 @@ export async function getStaticProps(context: GetStaticPropsContext) {
   } catch (err) {
     error('Error in getStaticProps:', err)
     error(`SSG env var: ${process.env.SSG} (${typeof process.env.SSG})`)
-    error(
-      `Static page generation for ${pagePath} failed after ${Date.now() - pageStartMs}ms`
-    )
 
     // If we get a 403, it's probably because we're trying to preview an unpublished page.
     // Return a 404 instead of failing the build.

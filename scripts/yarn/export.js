@@ -28,4 +28,13 @@ if (process.env.BUILD_OPTION === 'static') {
   }
 }
 
+const buildStartMs = Date.now()
+exportLog('Starting static page generation...')
+
 await processEnv('next build --turbopack', true)
+
+const buildDurationMs = Date.now() - buildStartMs
+const buildDurationMin = (buildDurationMs / 60_000).toFixed(1)
+exportLog(
+  `Static page generation completed in ${buildDurationMs}ms (${buildDurationMin} min)`
+)
