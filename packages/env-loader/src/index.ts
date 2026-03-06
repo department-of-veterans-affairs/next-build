@@ -103,6 +103,8 @@ export const processEnv = async (
 
   await cleanup(verbose)
 
+  const buildStartMs = Date.now()
+
   // Pass additional arguments through to the underlying command
   const cmd = spawn(`${command} ${cliArgs.join(' ')}`, {
     shell: true,
@@ -118,6 +120,13 @@ export const processEnv = async (
 
   cmd.on('exit', (code) => {
     let exitCode = code
+
+    const buildDurationMs = Date.now() - buildStartMs
+    const buildDurationMin = (buildDurationMs / 60_000).toFixed(1)
+    console.log(
+      `\n  Static page generation completed in ${buildDurationMs}ms (${buildDurationMin} min)\n`
+    )
+
     try {
       // Override the exit code with the one from the file if it exists.
       // This is to make sure that we don't accidentally exit with a code 0 if
