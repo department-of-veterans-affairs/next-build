@@ -28,4 +28,8 @@ if (process.env.BUILD_OPTION === 'static') {
   }
 }
 
+const buildStartMs = Date.now()
+exportLog('Starting static page generation...')
+
+
 await processEnv('next build --turbopack', true)
