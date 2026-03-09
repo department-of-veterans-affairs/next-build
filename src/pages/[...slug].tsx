@@ -538,7 +538,11 @@ export async function getStaticProps(context: GetStaticPropsContext) {
       const fs = await import('fs')
       const path = await import('path')
       const chalk = await import('chalk').then((mod) => mod.default)
-      const exitCodePath = path.join(process.cwd(), 'exit_code')
+      // Build workers (e.g. Turbopack) may have a different process.cwd()
+      // than the project root where build_id / exit_code live.
+      const projectRoot =
+        process.env.NEXT_BUILD_PROJECT_ROOT || process.cwd()
+      const exitCodePath = path.join(projectRoot, 'exit_code')
 
       // Kill the `next build` process to stop the build
       try {
@@ -552,7 +556,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
           // exit with a 0, causing CI to continue.
           fs.writeFileSync(exitCodePath, '1')
           const nextBuildPID = parseInt(
-            fs.readFileSync(path.join(process.cwd(), 'build_id')).toString(),
+            fs.readFileSync(path.join(projectRoot, 'build_id')).toString(),
             10
           )
           process.kill(nextBuildPID, 'SIGINT')

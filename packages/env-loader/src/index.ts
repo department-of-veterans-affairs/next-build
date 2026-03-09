@@ -99,6 +99,9 @@ export const processEnv = async (
   process.env = {
     ...process.env,
     ...allVars,
+    // Expose the project root so build workers (which may have a different
+    // process.cwd()) can locate build_id / exit_code reliably.
+    NEXT_BUILD_PROJECT_ROOT: process.cwd(),
   }
 
   await cleanup(verbose)
@@ -109,6 +112,7 @@ export const processEnv = async (
   const cmd = spawn(`${command} ${cliArgs.join(' ')}`, {
     shell: true,
     stdio: 'inherit',
+    env: process.env,
   })
 
   if (command === 'next build') {
