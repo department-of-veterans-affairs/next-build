@@ -208,18 +208,16 @@ export function ContactInformation({
   )
 
   const content = (
-    <div className="usa-grid usa-grid-full">
-      <div className="usa-width-three-fourths">
-        <div className="usa-content vads-u-padding-x--1 desktop-lg:vads-u-padding-x--0">
-          {section}
-        </div>
-      </div>
+    <div className="usa-content vads-u-padding-x--1 desktop-lg:vads-u-padding-x--0">
+      {section}
     </div>
   )
 
   if (grayWide) {
     return (
-      <div className="vads-u-background-color--gray-light-alt">{content}</div>
+      <div className="vads-u-background-color--gray-light-alt">
+        <div className="vads-grid-container">{content}</div>
+      </div>
     )
   }
 
