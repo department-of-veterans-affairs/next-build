@@ -55,7 +55,7 @@ jobs:
 
       - name: Upload individual report json
         id: upload-report-json
-        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f
         with:
           name: "broken-links-report-run-${{github.run_id}}-instance-${{ matrix.instance_number }}.json"
           path: broken-links-report-run-${{github.run_id}}-instance-${{ matrix.instance_number }}.json
@@ -102,7 +102,7 @@ jobs:
 
       - name: Upload report json
         id: upload-report-json
-        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f
         with:
           name: "broken-links-report-combined-run-${{github.run_id}}.json"
           path: broken-links-report-combined-run-${{github.run_id}}.json
@@ -110,7 +110,7 @@ jobs:
 
       - name: Upload report CSV
         id: upload-report-csv
-        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f
         with:
           name: "broken-links-report-run-${{github.run_id}}.csv"
           path: broken-links-report-run-${{github.run_id}}.csv
