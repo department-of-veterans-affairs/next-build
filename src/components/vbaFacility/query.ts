@@ -19,7 +19,7 @@ import {
   fetchSingleEntityOrPreview,
   fetchAndConcatAllResourceCollectionPages,
 } from '@/lib/drupal/query'
-import { PhoneContact } from '@/components/contactInfo/formatted-type'
+import { PhoneContact } from '@/components/contactInformation/formatted-type'
 import { formatter as formatServiceLocation } from '@/components/serviceLocation/query'
 import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
 

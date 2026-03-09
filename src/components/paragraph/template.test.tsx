@@ -69,8 +69,8 @@ jest.mock('@/components/collapsiblePanel/template', () => ({
   ),
 }))
 
-jest.mock('@/components/contactInfo/template', () => ({
-  ContactInfo: jest.fn(() =>
+jest.mock('@/components/contactInformation/template', () => ({
+  ContactInformation: jest.fn(() =>
     mockDiv(PARAGRAPH_RESOURCE_TYPES.CONTACT_INFORMATION)
   ),
   EmailContact: jest.fn(() => mockDiv(PARAGRAPH_RESOURCE_TYPES.EMAIL_CONTACT)),

@@ -18,11 +18,16 @@ import {
   CollapsiblePanel as FormattedCollapsiblePanel,
   CollapsiblePanelItem as FormattedCollapsiblePanelItem,
 } from '@/components/collapsiblePanel/formatted-type'
-import { ContactInfo, EmailContact } from '@/components/contactInfo/template'
 import {
-  ContactInfo as FormattedContactInfo,
+  ContactInformation,
+  EmailContact,
+  PhoneContact,
+} from '@/components/contactInformation/template'
+import {
+  ContactInformation as FormattedContactInformation,
   EmailContact as FormattedEmailContact,
-} from '@/components/contactInfo/formatted-type'
+  PhoneContact as FormattedPhoneContact,
+} from '@/components/contactInformation/formatted-type'
 import { DownloadableFile } from '@/components/downloadableFile/template'
 import { DownloadableFile as FormattedDownloadableFile } from '@/components/downloadableFile/formatted-type'
 import { ExpandableText } from '@/components/expandableText/template'
@@ -35,11 +40,9 @@ import { ListOfLinkTeasers } from '@/components/listOfLinkTeasers/template'
 import { ListOfLinkTeasers as FormattedListOfLinkTeasers } from '@/components/listOfLinkTeasers/formatted-type'
 import { NumberCallout } from '@/components/numberCallout/template'
 import { NumberCallout as FormattedNumberCallout } from '@/components/numberCallout/formatted-type'
-import { PhoneContact } from '@/components/contactInfo/template'
 import { QaSection } from '@/components/qaSection/template'
 import { QaSection as FormattedQaSection } from '@/components/qaSection/formatted-type'
 import { QaGroup as FormattedQaGroup } from '@/components/qaGroup/formatted-type'
-import { PhoneContact as FormattedPhoneContact } from '@/components/contactInfo/formatted-type'
 import { ProcessList } from '@/components/processList/template'
 import { ProcessList as FormattedProcessList } from '@/components/processList/formatted-type'
 import { ReactWidget } from '@/components/reactWidget/template'
@@ -89,7 +92,9 @@ export const Paragraph = (
       )
 
     case PARAGRAPH_RESOURCE_TYPES.CONTACT_INFORMATION:
-      return <ContactInfo {...(paragraph as FormattedContactInfo)} />
+      return (
+        <ContactInformation {...(paragraph as FormattedContactInformation)} />
+      )
 
     case PARAGRAPH_RESOURCE_TYPES.DOWNLOADABLE_FILE:
       return <DownloadableFile {...(paragraph as FormattedDownloadableFile)} />

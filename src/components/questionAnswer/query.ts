@@ -16,7 +16,7 @@ import {
 import { getNestedIncludes } from '@/lib/utils/queries'
 import { formatParagraph } from '@/lib/drupal/paragraphs'
 import { AlertSingle } from '@/components/alert/formatted-type'
-import { ContactInfo } from '@/components/contactInfo/formatted-type'
+import { ContactInformation } from '@/components/contactInformation/formatted-type'
 import { Button } from '@/components/button/formatted-type'
 import { BenefitsHubLink } from '@/components/benefitsHubLinks/formatted-type'
 import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
@@ -93,7 +93,7 @@ export const formatter: QueryFormatter<NodeQA, QuestionAnswer> = (
     alert: formatParagraph(entity.field_alert_single) as AlertSingle | null,
     contactInformation: formatParagraph(
       entity.field_contact_information
-    ) as ContactInfo | null,
+    ) as ContactInformation | null,
     benefitsHubLinks,
   }
 }

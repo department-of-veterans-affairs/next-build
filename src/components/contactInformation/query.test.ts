@@ -4,7 +4,7 @@
 
 import { ParagraphContactInformation } from '@/types/drupal/paragraph'
 import { queries } from '@/lib/drupal/queries'
-import mockData from '@/components/contactInfo/mock.json'
+import mockData from '@/components/contactInformation/mock.json'
 import { params } from './query'
 
 const ContactInfoMock = mockData as ParagraphContactInformation
@@ -17,7 +17,7 @@ describe('DrupalJsonApiParams configuration', () => {
   })
 })
 
-describe('ContactInfo formatData', () => {
+describe('ContactInformation formatData', () => {
   test('outputs formatted data', () => {
     expect(
       queries.formatData('paragraph--contact_information', ContactInfoMock)

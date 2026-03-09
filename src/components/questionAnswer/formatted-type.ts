@@ -3,7 +3,7 @@ import { AudienceTopics } from '@/components/audienceTopics/formatted-type'
 import { LinkTeaser } from '@/components/linkTeaser/formatted-type'
 import { Button } from '@/components/button/formatted-type'
 import { AlertSingle } from '@/components/alert/formatted-type'
-import { ContactInfo } from '@/components/contactInfo/formatted-type'
+import { ContactInformation } from '@/components/contactInformation/formatted-type'
 import { BenefitsHubLink } from '@/components/benefitsHubLinks/formatted-type'
 
 export type QuestionAnswer = PublishedEntity & {
@@ -12,6 +12,6 @@ export type QuestionAnswer = PublishedEntity & {
   teasers: LinkTeaser[]
   tags: AudienceTopics | null
   alert: AlertSingle | null
-  contactInformation: ContactInfo | null
+  contactInformation: ContactInformation | null
   benefitsHubLinks: BenefitsHubLink[]
 }

@@ -17,7 +17,7 @@ import { AudienceTopics } from '@/components/audienceTopics/template'
 import { LinkTeaser } from '@/components/linkTeaser/template'
 import AlertSingle from '@/components/alertSingle/template'
 import { BenefitsHubLinks } from '@/components/benefitsHubLinks/template'
-import { ContactInfo } from '@/components/contactInfo/template'
+import { ContactInformation } from '@/components/contactInformation/template'
 import { RateYourExperience } from '@/components/rateYourExperience/template'
 import { ContentFooter } from '@/components/contentFooter/template'
 
@@ -34,7 +34,7 @@ export const QuestionAnswer = ({
 }: FormattedQuestionAnswer) => {
   return (
     <div className="vads-grid-container">
-      <article className="usa-content vads-u-padding-bottom--0">
+      <article className="usa-content">
         <h1>{title ?? ''}</h1>
 
         {answers && <div dangerouslySetInnerHTML={{ __html: answers ?? '' }} />}
@@ -47,7 +47,8 @@ export const QuestionAnswer = ({
               buttons.map((button) => <Button key={button.id} {...button} />)}
           </ul>
         )}
-
+      </article>
+      <div className="usa-content">
         <RateYourExperience />
 
         {teasers && teasers.length > 0 && (
@@ -70,11 +71,11 @@ export const QuestionAnswer = ({
 
         <AudienceTopics {...tags} />
 
-        {contactInformation && <ContactInfo {...contactInformation} />}
+        {contactInformation && <ContactInformation {...contactInformation} />}
 
         <va-back-to-top></va-back-to-top>
         <ContentFooter lastUpdated={lastUpdated} />
-      </article>
+      </div>
     </div>
   )
 }

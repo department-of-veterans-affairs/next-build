@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
-exports[`ContactInfo formatData outputs formatted data 1`] = `
+exports[`ContactInformation formatData outputs formatted data 1`] = `
 {
   "additionalContact": {
     "address": "email@email.com",

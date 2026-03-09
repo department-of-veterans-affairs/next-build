@@ -11,7 +11,7 @@ import {
 } from '@/lib/constants/resourceTypes'
 import { formatParagraph } from '@/lib/drupal/paragraphs'
 import { AlertSingle } from '@/components/alert/formatted-type'
-import { ContactInfo } from '@/components/contactInfo/formatted-type'
+import { ContactInformation } from '@/components/contactInformation/formatted-type'
 import { Button } from '@/components/button/formatted-type'
 import { AudienceTopics } from '@/components/audienceTopics/formatted-type'
 import { getNestedIncludes } from '@/lib/utils/queries'
@@ -86,7 +86,7 @@ export const formatter: QueryFormatter<
     tags: formatParagraph(entity.field_tags) as AudienceTopics,
     contactInformation: formatParagraph(
       entity.field_contact_information
-    ) as ContactInfo,
+    ) as ContactInformation,
     benefitsHubLinks: entity.field_related_benefit_hubs
       ? queries.formatData(
           'benefits-hub-links',
