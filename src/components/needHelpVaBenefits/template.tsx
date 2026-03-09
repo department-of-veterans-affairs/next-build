@@ -3,7 +3,7 @@ import {
   VaTelephone,
 } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
 
-export const NeedHelp = () => {
+export const NeedHelpVaBenefits = () => {
   return (
     <div className="vads-grid-row vads-u-margin-bottom--8 vads-u-margin-top--8">
       <div className="vads-grid-col-12">

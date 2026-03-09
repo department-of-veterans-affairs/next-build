@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { VaPagination } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
 import { OutreachMaterials as OutreachMaterialsProps } from './formatted-type'
 import { ContentFooter } from '@/components/contentFooter/template'
-import { NeedHelp } from '@/components/needHelp/template'
+import { NeedHelpVaBenefits } from '@/components/needHelpVaBenefits/template'
 import { DEFAULT_PAGE_LIST_LENGTH } from '@/lib/constants/pagination'
 import { FilterForm } from './FilterForm'
 import { ResultsSummary } from './ResultsSummary'
@@ -126,7 +126,7 @@ export function OutreachMaterials({
             </div>
           </div>
         )}
-        <NeedHelp />
+        <NeedHelpVaBenefits />
         <ContentFooter lastUpdated={lastUpdated} />
       </article>
     </div>

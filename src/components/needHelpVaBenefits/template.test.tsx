@@ -1,16 +1,16 @@
 import { render, screen } from '@testing-library/react'
-import { NeedHelp } from './template'
+import { NeedHelpVaBenefits } from './template'
 
 describe('NeedHelp Component', () => {
   test('renders the need help section', () => {
-    const { container } = render(<NeedHelp />)
+    const { container } = render(<NeedHelpVaBenefits />)
 
     const vaNeedHelp = container.querySelector('va-need-help')
     expect(vaNeedHelp).toBeInTheDocument()
   })
 
   test('renders the help text', () => {
-    const { container } = render(<NeedHelp />)
+    const { container } = render(<NeedHelpVaBenefits />)
 
     const paragraph = container.querySelector('p')
     expect(paragraph).toBeInTheDocument()
@@ -23,7 +23,7 @@ describe('NeedHelp Component', () => {
   })
 
   test('renders the main phone number', () => {
-    const { container } = render(<NeedHelp />)
+    const { container } = render(<NeedHelpVaBenefits />)
 
     const vaTelephones = container.querySelectorAll('va-telephone')
     expect(vaTelephones.length).toBe(2)
@@ -33,7 +33,7 @@ describe('NeedHelp Component', () => {
   })
 
   test('renders the TTY number', () => {
-    const { container } = render(<NeedHelp />)
+    const { container } = render(<NeedHelpVaBenefits />)
 
     const vaTelephones = container.querySelectorAll('va-telephone')
 
