@@ -146,7 +146,10 @@ interface PseudoResource {
   canonicalLink?: string
 }
 
-export function getMetaElements(resource: PseudoResource): ReactNode[] {
+export function getMetaElements(
+  resource: PseudoResource,
+  description?: string
+): ReactNode[] {
   const elements: ReactNode[] = []
   const noIndex = process.env.NEXT_PUBLIC_BUILD_TYPE !== BUILD_TYPES.PROD
   const canonicalLink =
@@ -206,6 +209,22 @@ export function getMetaElements(resource: PseudoResource): ReactNode[] {
     <meta key="og:type" property="og:type" content="website" />
   )
 
+  if (description) {
+    elements.push(
+      <meta
+        key="og:description"
+        property="og:description"
+        content={description}
+      />,
+      <meta
+        key="twitter:description"
+        name="twitter:description"
+        content={description}
+      />,
+      <meta key="description" name="description" content={description} />
+    )
+  }
+
   elements.push(...getLastUpdatedTag(lastUpdated))
   if (showIOSBanner) {
     elements.push(...getIOSBannerTags())
@@ -221,5 +240,10 @@ export function getMetaElements(resource: PseudoResource): ReactNode[] {
 }
 
 /** Returns an array of meta/link/title elements for use as direct children of next/head */
-export const Meta = ({ resource }: { resource: PseudoResource }) =>
-  getMetaElements(resource)
+export const Meta = ({
+  resource,
+  description,
+}: {
+  resource: PseudoResource
+  description?: string
+}) => getMetaElements(resource, description)

@@ -313,6 +313,44 @@ describe('Meta component', () => {
     })
   })
 
+  describe('Description prop', () => {
+    it('renders og:description, twitter:description, and description meta tags when description prop is provided', () => {
+      const resource = {
+        title: 'VA.gov Home',
+        entityPath: '/',
+        lastUpdated: '2024-01-01T00:00:00Z',
+      }
+      const description =
+        'Welcome to the official website of the U.S. Department of Veterans Affairs. Discover, apply for, and manage your VA benefits and care.'
+
+      render(<Meta resource={resource} description={description} />)
+
+      expect(
+        getMetaTagByProperty('og:description')?.getAttribute('content')
+      ).toBe(description)
+      expect(
+        getMetaTagByName('twitter:description')?.getAttribute('content')
+      ).toBe(description)
+      expect(getMetaTagByName('description')?.getAttribute('content')).toBe(
+        description
+      )
+    })
+
+    it('does not render description meta tags when description prop is omitted', () => {
+      const resource = {
+        title: 'Test Page',
+        entityPath: '/test',
+        lastUpdated: '2024-01-01T00:00:00Z',
+      }
+
+      render(<Meta resource={resource} />)
+
+      expect(getMetaTagByProperty('og:description')).toBeNull()
+      expect(getMetaTagByName('twitter:description')).toBeNull()
+      expect(getMetaTagByName('description')).toBeNull()
+    })
+  })
+
   describe('Edge cases', () => {
     it('handles missing entityPath', () => {
       const resource = {

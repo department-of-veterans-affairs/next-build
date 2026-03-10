@@ -51,6 +51,7 @@ export default async function HomePage() {
           entityPath: '/',
           lastUpdated: new Date().toISOString(),
         }}
+        description="Welcome to the official website of the U.S. Department of Veterans Affairs. Discover, apply for, and manage your VA benefits and care."
       />
       <PageLayout
         bannerData={bannerData}
