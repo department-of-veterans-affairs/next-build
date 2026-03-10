@@ -68,9 +68,11 @@ export const formatter: QueryFormatter<NodeQA, QuestionAnswer> = (
     queries.formatData(PARAGRAPH_RESOURCE_TYPES.BUTTON, button)
   ) ?? null) as Button[] | null
   const teasers =
-    entity.field_related_information?.map((teaser) =>
-      queries.formatData(PARAGRAPH_RESOURCE_TYPES.LINK_TEASER, teaser)
-    ) ?? []
+    entity.field_related_information
+      ?.map((teaser) =>
+        queries.formatData(PARAGRAPH_RESOURCE_TYPES.LINK_TEASER, teaser)
+      )
+      .filter((teaser) => teaser !== null) ?? []
   const tags = queries.formatData(
     PARAGRAPH_RESOURCE_TYPES.AUDIENCE_TOPICS,
     entity.field_tags
