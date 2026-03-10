@@ -4,7 +4,7 @@ import {
   QueryOpts,
   QueryParams,
 } from '@/lib/next-drupal-query'
-import { drupalClient } from '@/lib/drupal/drupalClient'
+import { fetchSingleEntityOrPreview } from '@/lib/drupal/query'
 import { queries } from '@/lib/drupal/queries'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodeQA } from '@/types/drupal/node'
@@ -52,13 +52,11 @@ type DataOpts = QueryOpts<{
 export const data: QueryData<DataOpts, NodeQA> = async (
   opts
 ): Promise<NodeQA> => {
-  const entity = await drupalClient.getResource<NodeQA>(
+  const entity = (await fetchSingleEntityOrPreview(
+    opts,
     RESOURCE_TYPES.QA,
-    opts?.id,
-    {
-      params: params().getQueryObject(),
-    }
-  )
+    params
+  )) as NodeQA
 
   return entity
 }
