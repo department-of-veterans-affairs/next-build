@@ -133,7 +133,7 @@ jobs:
 
       - name: Notify Slack
         id: slack-success
-        uses: slackapi/slack-github-action@v2.1.1
+        uses: slackapi/slack-github-action@v1.23.0
         continue-on-error: true
         env:
           SLACK_BOT_TOKEN: ${{ env.SLACK_BOT_TOKEN }}
