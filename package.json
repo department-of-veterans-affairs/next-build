@@ -76,7 +76,7 @@
     "next-sitemap": "^4.2.3",
     "p-retry": "^7.1.0",
     "playwright-core": "^1.57.0",
-    "plop": "^4.0.1",
+    "plop": "^4.0.5",
     "react": "19.1.5",
     "react-dom": "19.1.5",
     "react-gtm-module": "^2.0.11",
@@ -93,7 +93,7 @@
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.11.0",
-    "@eslint/eslintrc": "^3.3.3",
+    "@eslint/eslintrc": "^3.3.5",
     "@eslint/js": "^10.0.1",
     "@faker-js/faker": "^9.9.0",
     "@next/env": "15.5.12",

@@ -173,7 +173,7 @@ jobs:
           fi
 
       - name: Upload prod tag config
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: prod-tag-config
           path: prod-tag-config.txt
@@ -259,7 +259,7 @@ jobs:
 
       - name: Upload parity report
         if: steps.parse-report.outputs.parity != 'error'
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: env-parity-report
           path: packages/env-parity-testing/artifacts/report.json
