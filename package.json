@@ -76,7 +76,7 @@
     "next-sitemap": "^4.2.3",
     "p-retry": "^7.1.0",
     "playwright-core": "^1.57.0",
-    "plop": "^4.0.1",
+    "plop": "^4.0.5",
     "react": "19.1.5",
     "react-dom": "19.1.5",
     "react-gtm-module": "^2.0.11",
