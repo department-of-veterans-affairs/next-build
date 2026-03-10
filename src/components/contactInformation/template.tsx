@@ -1,12 +1,3 @@
-/**
- * ContactInformation component for paragraph--contact_information.
- *
- * Renders the "Need more help?" section with contact info. Uses <section>, <p> tags,
- * and <va-telephone> for phone numbers throughout.
- *
- * Optional grayWide prop adds a gray background wrapper (used by faq_multiple_q_a,
- * step_by_step, checklist layouts).
- */
 import React from 'react'
 import { VaTelephone } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
 import {
@@ -164,6 +155,17 @@ export type ContactInformationProps = FormattedContactInformation & {
   grayWide?: true
 }
 
+/**
+ * ContactInformation component for rendering a `paragraph--contact_information` paragraph
+ * and replaces the content-build templates `contact_information` and `need_help`, which
+ * are only slightly different in function but were inconsistent in markup.
+ *
+ * Shows a "Need more help?" section with contact info. Uses <section>, <p> tags,
+ * <va-telephone> for phone numbers, and <va-link> for email addresses.
+ *
+ * Optional grayWide prop adds a gray background wrapper (used by faq_multiple_q_a,
+ * step_by_step, checklist layouts).
+ */
 export function ContactInformation({
   contactType,
   defaultContact,
