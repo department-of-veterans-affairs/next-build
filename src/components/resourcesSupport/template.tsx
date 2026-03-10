@@ -3,7 +3,7 @@ import { ContentFooter } from '@/components/contentFooter/template'
 import AlertSingle from '@/components/alertSingle/template'
 import { Button as FormattedButton } from '@/components/button/formatted-type'
 import { Paragraph } from '@/components/paragraph/template'
-import { AudienceTopics } from '@/components/audienceTopics/template'
+import { BrowseByTopic } from '@/components/audienceTopics/BrowseByTopic'
 import { Button } from '@/components/button/template'
 import { BenefitsHubLinks } from '@/components/benefitsHubLinks/template'
 import { ContactInformation } from '@/components/contactInformation/template'
@@ -91,7 +91,7 @@ export const ResourcesSupport = ({
           </article>
 
           {/* Tags */}
-          {tags && <AudienceTopics {...tags} />}
+          {tags && <BrowseByTopic {...tags} />}
 
           {/* How do you rate? */}
           <RateYourExperience />

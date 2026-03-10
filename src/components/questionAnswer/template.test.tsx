@@ -96,8 +96,9 @@ describe('<QuestionAnswerData> component renders with data', () => {
   })
 
   test('<Tag /> data to be in the document', () => {
-    render(<QuestionAnswer {...QuestionAnswerData} />)
-    expect(screen.queryByText(/All Veterans/)).toBeInTheDocument()
+    const { container } = render(<QuestionAnswer {...QuestionAnswerData} />)
+    const vaLink = container.querySelector('va-link[text="All Veterans"]')
+    expect(vaLink).toBeInTheDocument()
   })
 
   test('<Teaser /> data to be in the document', () => {
@@ -125,13 +126,13 @@ describe('<QuestionAnswerData> component renders with data', () => {
   test('Component still renders when TITLE data is NOT in document', () => {
     QuestionAnswerData.title = null
     render(<QuestionAnswer {...QuestionAnswerData} />)
-    expect(screen.queryByText(/Tags/)).toBeInTheDocument()
+    expect(screen.queryByText(/Browse by topic/)).toBeInTheDocument()
   })
 
   test('Component still renders when TAGS data is NOT provided', () => {
     delete QuestionAnswerData.tags
     render(<QuestionAnswer {...QuestionAnswerData} />)
-    expect(screen.queryByText(/Tags/)).not.toBeInTheDocument()
+    expect(screen.queryByText(/Browse by topic/)).not.toBeInTheDocument()
   })
 
   test('Component still renders when BUTTONS data is NOT provided', () => {

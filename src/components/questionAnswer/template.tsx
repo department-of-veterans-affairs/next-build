@@ -13,7 +13,7 @@
  */
 import { Button } from '@/components/button/template'
 import { QuestionAnswer as FormattedQuestionAnswer } from './formatted-type'
-import { AudienceTopics } from '@/components/audienceTopics/template'
+import { BrowseByTopic } from '@/components/audienceTopics/BrowseByTopic'
 import { LinkTeaser } from '@/components/linkTeaser/template'
 import AlertSingle from '@/components/alertSingle/template'
 import { BenefitsHubLinks } from '@/components/benefitsHubLinks/template'
@@ -69,7 +69,7 @@ export const QuestionAnswer = ({
           <BenefitsHubLinks title="VA benefits" links={benefitsHubLinks} />
         )}
 
-        <AudienceTopics {...tags} />
+        <BrowseByTopic {...tags} />
 
         {contactInformation && <ContactInformation {...contactInformation} />}
 

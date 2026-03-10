@@ -87,13 +87,19 @@ describe('<ResourcesSupport /> Component', () => {
   }
 
   it('renders all information correctly', () => {
-    render(<ResourcesSupport {...resourcesSupportProps} />)
+    const { container } = render(
+      <ResourcesSupport {...resourcesSupportProps} />
+    )
 
     expect(screen.getByText('Test Title')).toBeInTheDocument()
     expect(screen.getByText('Test Intro')).toBeInTheDocument()
     expect(screen.getByText('If you need support...')).toBeInTheDocument()
-    expect(screen.getByText('Test Audience')).toBeInTheDocument()
-    expect(screen.getByText('Test Topic')).toBeInTheDocument()
+    expect(
+      container.querySelector('va-link[text="Test Audience"]')
+    ).toBeInTheDocument()
+    expect(
+      container.querySelector('va-link[text="Test Topic"]')
+    ).toBeInTheDocument()
     expect(screen.getByText('Need more help?')).toBeInTheDocument()
     expect(screen.getByText(/Call/)).toBeInTheDocument()
   })
