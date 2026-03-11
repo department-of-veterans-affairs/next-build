@@ -1,8 +1,3 @@
-// Define types for agent input
-interface AgentInput {
-  agent?: string
-}
-
 // https://docs.datadoghq.com/real_user_monitoring/guide/identify-bots-in-the-ui/#filter-out-bot-sessions-on-intake
 // regex patterns to identify known bot instances:
 const botPattern =
@@ -10,9 +5,3 @@ const botPattern =
 const botRegex = new RegExp(botPattern, 'i')
 
 export const isBot = (agent = navigator.userAgent) => botRegex.test(agent)
-
-export const canInitDatadog = ({ agent }: AgentInput = {}): boolean =>
-  !isBot(agent) &&
-  !!process.env.NEXT_PUBLIC_DATADOG_RUM_APP_ID &&
-  !!process.env.NEXT_PUBLIC_DATADOG_RUM_CLIENT_TOKEN &&
-  !!process.env.NEXT_PUBLIC_DATADOG_RUM_SERVICE
