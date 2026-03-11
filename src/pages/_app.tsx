@@ -6,8 +6,7 @@ import { defineCustomElements } from '@department-of-veterans-affairs/web-compon
 import { TAG_MANAGER_ARGS, pageview } from '@/lib/analytics'
 import TagManager from 'react-gtm-module'
 import '@/assets/styles/globals.css'
-import DatadogRumConnector from '@/datadogConnector/DatadogRumConnector'
-import FamilyCaregiverDatadogRum from '@/datadogConnector/FamilyCaregiverDatadogRum'
+import DatadogRumConnector from '@/lib/datadog/DatadogRumConnector'
 
 type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode
@@ -47,7 +46,6 @@ export default function MyApp({
   return getLayout(
     <>
       <DatadogRumConnector />
-      <FamilyCaregiverDatadogRum entityPath={router.asPath} />
       <Component {...pageProps} key={router.asPath} />
     </>
   )

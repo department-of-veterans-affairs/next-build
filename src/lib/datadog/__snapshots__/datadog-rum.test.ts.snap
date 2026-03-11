@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`initDatadogRum should initialize Datadog RUM with default config when env vars are set and not on family caregiver page 1`] = `
+{
+  "applicationId": "test-app-id",
+  "clientToken": "test-client-token",
+  "enablePrivacyForActionName": true,
+  "env": "test",
+  "service": "test",
+  "sessionReplaySampleRate": 0,
+  "sessionSampleRate": 10,
+  "site": "ddog-gov.com",
+  "trackAnonymousUser": true,
+  "trackLongTasks": true,
+  "trackResources": true,
+  "trackUserInteractions": false,
+}
+`;
+
+exports[`initDatadogRum should initialize with family caregiver config when pathname includes family-and-caregiver-benefits 1`] = `
+{
+  "applicationId": "8eb3ffe5-db3c-49a4-88d8-506ca2f9babd",
+  "clientToken": "pubd7a6c99934887d257e49455e667b1bcd",
+  "defaultPrivacyLevel": "mask-user-input",
+  "enablePrivacyForActionName": true,
+  "env": "production",
+  "service": "family-and-caregiver-benefit-hub",
+  "sessionReplaySampleRate": 10,
+  "sessionSampleRate": 100,
+  "site": "ddog-gov.com",
+  "trackAnonymousUser": true,
+  "trackLongTasks": true,
+  "trackResources": true,
+  "trackUserInteractions": true,
+  "version": "1.0.0",
+}
+`;
