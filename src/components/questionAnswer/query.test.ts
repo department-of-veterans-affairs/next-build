@@ -6,6 +6,7 @@ import mockData from './mock.json'
 import { queries } from '@/lib/drupal/queries'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { params } from './query'
+import { DoNotPublishError } from '@/lib/drupal/query'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const mockPage = mockData[0] as any
@@ -47,6 +48,18 @@ describe('QuestionAnswer query module', () => {
   describe('formatter', () => {
     test('outputs formatted data', async () => {
       expect(await runQuery()).toMatchSnapshot()
+    })
+
+    test('throws DoNotPublishError when field_standalone_page is false', async () => {
+      mockPageQuery.mockReturnValue({
+        ...mockPage,
+        field_standalone_page: false,
+      })
+
+      await expect(runQuery()).rejects.toThrow(DoNotPublishError)
+      await expect(runQuery()).rejects.toThrow(
+        'this Q&A is not a standalone page'
+      )
     })
 
     describe('handles null fields', () => {

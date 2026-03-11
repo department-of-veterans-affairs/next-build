@@ -4,7 +4,10 @@ import {
   QueryOpts,
   QueryParams,
 } from '@/lib/next-drupal-query'
-import { fetchSingleEntityOrPreview } from '@/lib/drupal/query'
+import {
+  DoNotPublishError,
+  fetchSingleEntityOrPreview,
+} from '@/lib/drupal/query'
 import { queries } from '@/lib/drupal/queries'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodeQA } from '@/types/drupal/node'
@@ -64,6 +67,10 @@ export const data: QueryData<DataOpts, NodeQA> = async (
 export const formatter: QueryFormatter<NodeQA, QuestionAnswer> = (
   entity: NodeQA
 ) => {
+  if (!entity.field_standalone_page) {
+    throw new DoNotPublishError('this Q&A is not a standalone page')
+  }
+
   const buttons = (entity.field_buttons?.map((button) =>
     queries.formatData(PARAGRAPH_RESOURCE_TYPES.BUTTON, button)
   ) ?? null) as Button[] | null
