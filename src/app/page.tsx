@@ -47,10 +47,11 @@ export default async function HomePage() {
     <>
       <Meta
         resource={{
-          title: 'VA.gov | Veterans Affairs',
+          title: 'VA.gov Home',
           entityPath: '/',
           lastUpdated: new Date().toISOString(),
         }}
+        description="Welcome to the official website of the U.S. Department of Veterans Affairs. Discover, apply for, and manage your VA benefits and care."
       />
       <PageLayout
         bannerData={bannerData}

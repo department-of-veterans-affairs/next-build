@@ -4,6 +4,12 @@ import { Meta } from './template'
 import { MetaTag } from '@/types/formatted/metatags'
 import { BUILD_TYPES } from '@/lib/constants/environment'
 
+const mockResource = {
+  title: 'VA.gov',
+  entityPath: '/',
+  lastUpdated: '2024-01-01T00:00:00Z',
+}
+
 // Mock environment variables
 const originalBuildType = process.env.NEXT_PUBLIC_BUILD_TYPE
 const originalSiteUrl = process.env.SITE_URL
@@ -67,25 +73,13 @@ describe('Meta component', () => {
 
   describe('Default tags', () => {
     it('renders default meta tags with basic resource (snapshot)', () => {
-      const resource = {
-        title: 'VA.gov',
-        entityPath: '/',
-        lastUpdated: '2024-01-01T00:00:00Z',
-      }
-
-      render(<Meta resource={resource} />)
+      render(<Meta resource={mockResource} />)
       const renderedTags = getAllTags()
       expect(renderedTags).toMatchSnapshot()
     })
 
     it('renders default tags with custom title', () => {
-      const resource = {
-        title: 'Health Care',
-        entityPath: '/health-care',
-        lastUpdated: '2024-01-01T00:00:00Z',
-      }
-
-      render(<Meta resource={resource} />)
+      render(<Meta resource={{ ...mockResource, title: 'Health Care' }} />)
 
       expect(getTitle()).toBe('Health Care | Veterans Affairs')
       expect(getMetaTagByProperty('og:title')?.getAttribute('content')).toBe(
@@ -97,13 +91,11 @@ describe('Meta component', () => {
     })
 
     it('renders with lastUpdated date formatted correctly', () => {
-      const resource = {
-        title: 'Test Page',
-        entityPath: '/test',
-        lastUpdated: '2024-03-15T10:30:00Z',
-      }
-
-      render(<Meta resource={resource} />)
+      render(
+        <Meta
+          resource={{ ...mockResource, lastUpdated: '2024-03-15T10:30:00Z' }}
+        />
+      )
 
       const dcDateTag = getMetaTagByName('DC.Date')
       expect(dcDateTag).toBeDefined()
@@ -112,13 +104,7 @@ describe('Meta component', () => {
 
     it('renders canonical link from entityPath', () => {
       process.env.SITE_URL = 'https://www.va.gov'
-      const resource = {
-        title: 'Test Page',
-        entityPath: '/test-page',
-        lastUpdated: '2024-01-01T00:00:00Z',
-      }
-
-      render(<Meta resource={resource} />)
+      render(<Meta resource={{ ...mockResource, entityPath: '/test-page' }} />)
 
       const canonicalLink = getLinkTag('canonical')
       expect(canonicalLink).toBeDefined()
@@ -129,14 +115,11 @@ describe('Meta component', () => {
 
     it('renders canonical link from canonicalLink when provided', () => {
       process.env.SITE_URL = 'https://www.va.gov'
-      const resource = {
-        title: 'Test Page',
-        entityPath: '/test-page',
-        canonicalLink: '/custom-canonical',
-        lastUpdated: '2024-01-01T00:00:00Z',
-      }
-
-      render(<Meta resource={resource} />)
+      render(
+        <Meta
+          resource={{ ...mockResource, canonicalLink: '/custom-canonical' }}
+        />
+      )
 
       const canonicalLink = getLinkTag('canonical')
       expect(canonicalLink).toBeDefined()
@@ -172,14 +155,7 @@ describe('Meta component', () => {
         },
       ]
 
-      const resource = {
-        title: 'VA.gov',
-        entityPath: '/',
-        lastUpdated: '2024-01-01T00:00:00Z',
-        metatags: customMetatags,
-      }
-
-      render(<Meta resource={resource} />)
+      render(<Meta resource={{ ...mockResource, metatags: customMetatags }} />)
       const renderedTags = getAllTags()
       expect(renderedTags).toMatchSnapshot()
     })
@@ -216,14 +192,7 @@ describe('Meta component', () => {
         },
       ]
 
-      const resource = {
-        title: 'VA.gov',
-        entityPath: '/complex-page',
-        lastUpdated: '2024-01-01T00:00:00Z',
-        metatags: customMetatags,
-      }
-
-      render(<Meta resource={resource} />)
+      render(<Meta resource={{ ...mockResource, metatags: customMetatags }} />)
 
       expect(getTitle()).toBe('Complex Page Title')
       expect(getMetaTagByProperty('og:image')?.getAttribute('content')).toBe(
@@ -245,20 +214,13 @@ describe('Meta component', () => {
         entityPath: '/health-care/refill-track-prescriptions',
         lastUpdated: '2024-01-01T00:00:00Z',
       }
-
       render(<Meta resource={resource} />)
       const renderedTags = getAllTags()
       expect(renderedTags).toMatchSnapshot()
     })
 
     it('does not render iOS banner tags for other URLs', () => {
-      const resource = {
-        title: 'Regular Page',
-        entityPath: '/regular-page',
-        lastUpdated: '2024-01-01T00:00:00Z',
-      }
-
-      render(<Meta resource={resource} />)
+      render(<Meta resource={mockResource} />)
 
       expect(getMetaTagByName('apple-itunes-app')).toBeNull()
       expect(getMetaTagByName('smartbanner:title')).toBeNull()
@@ -270,7 +232,6 @@ describe('Meta component', () => {
         entityPath: '/health-care/secure-messaging',
         lastUpdated: '2024-01-01T00:00:00Z',
       }
-
       render(<Meta resource={resource} />)
 
       expect(getMetaTagByName('apple-itunes-app')).toBeDefined()
@@ -285,13 +246,7 @@ describe('Meta component', () => {
   describe('Robots meta tag', () => {
     it('renders noindex when not in production', () => {
       process.env.NEXT_PUBLIC_BUILD_TYPE = BUILD_TYPES.DEV
-      const resource = {
-        title: 'Test Page',
-        entityPath: '/test',
-        lastUpdated: '2024-01-01T00:00:00Z',
-      }
-
-      render(<Meta resource={resource} />)
+      render(<Meta resource={mockResource} />)
 
       const robotsTag = getMetaTagByName('robots')
       expect(robotsTag).toBeDefined()
@@ -300,16 +255,37 @@ describe('Meta component', () => {
 
     it('does not render noindex in production', () => {
       process.env.NEXT_PUBLIC_BUILD_TYPE = BUILD_TYPES.PROD
-      const resource = {
-        title: 'Test Page',
-        entityPath: '/test',
-        lastUpdated: '2024-01-01T00:00:00Z',
-      }
-
-      render(<Meta resource={resource} />)
+      render(<Meta resource={mockResource} />)
 
       const robotsTag = getMetaTagByName('robots')
       expect(robotsTag).toBeNull()
+    })
+  })
+
+  describe('Description prop', () => {
+    it('renders og:description, twitter:description, and description meta tags when description prop is provided', () => {
+      const description =
+        'Welcome to the official website of the U.S. Department of Veterans Affairs. Discover, apply for, and manage your VA benefits and care.'
+
+      render(<Meta resource={mockResource} description={description} />)
+
+      expect(
+        getMetaTagByProperty('og:description')?.getAttribute('content')
+      ).toBe(description)
+      expect(
+        getMetaTagByName('twitter:description')?.getAttribute('content')
+      ).toBe(description)
+      expect(getMetaTagByName('description')?.getAttribute('content')).toBe(
+        description
+      )
+    })
+
+    it('does not render description meta tags when description prop is omitted', () => {
+      render(<Meta resource={mockResource} />)
+
+      expect(getMetaTagByProperty('og:description')).toBeNull()
+      expect(getMetaTagByName('twitter:description')).toBeNull()
+      expect(getMetaTagByName('description')).toBeNull()
     })
   })
 
@@ -331,33 +307,22 @@ describe('Meta component', () => {
     })
 
     it('handles empty metatags array', () => {
-      const resource = {
-        title: 'Test Page',
-        entityPath: '/test',
-        lastUpdated: '2024-01-01T00:00:00Z',
-        metatags: [],
-      }
-
-      render(<Meta resource={resource} />)
+      render(<Meta resource={{ ...mockResource, metatags: [] }} />)
 
       // Should fall back to default tags
-      expect(getTitle()).toBe('Test Page | Veterans Affairs')
+      expect(getTitle()).toBe('VA.gov | Veterans Affairs')
       expect(getMetaTagByProperty('og:title')).toBeDefined()
     })
 
     it('handles invalid lastUpdated date', () => {
-      const resource = {
-        title: 'Test Page',
-        entityPath: '/test',
-        lastUpdated: 'invalid-date',
-      }
-
-      render(<Meta resource={resource} />)
+      render(
+        <Meta resource={{ ...mockResource, lastUpdated: 'invalid-date' }} />
+      )
 
       // Should not render DC.Date tag for invalid dates
       expect(getMetaTagByName('DC.Date')).toBeNull()
       // But should still render other tags
-      expect(getTitle()).toBe('Test Page | Veterans Affairs')
+      expect(getTitle()).toBe('VA.gov | Veterans Affairs')
     })
   })
 })
