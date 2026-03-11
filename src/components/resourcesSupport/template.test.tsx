@@ -100,7 +100,8 @@ describe('<ResourcesSupport /> Component', () => {
     expect(
       container.querySelector('va-link[text="Test Topic"]')
     ).toBeInTheDocument()
-    expect(screen.getByText('Need more help?')).toBeInTheDocument()
+    const vaNeedHelp = container.querySelector('va-need-help')
+    expect(vaNeedHelp).toBeInTheDocument()
     expect(screen.getByText(/Call/)).toBeInTheDocument()
   })
 

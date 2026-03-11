@@ -183,29 +183,33 @@ export function ContactInformation({
       className="vads-u-display--flex vads-u-flex-direction--column vads-u-padding-y--2"
       data-template="paragraphs/contact_information"
     >
-      <h2 className="vads-u-font-size--h3 vads-u-border-bottom--4px vads-u-border-color--primary vads-u-margin--0 vads-u-margin-y--1 vads-u-padding-bottom--1">
-        Need more help?
-      </h2>
-      {useDefaultContactOnly ? (
-        <DefaultContactBlock defaultContact={defaultContact} />
-      ) : (
-        <>
-          {contactType === 'DC' && defaultContact && (
+      <va-need-help>
+        <div slot="content">
+          {useDefaultContactOnly ? (
             <DefaultContactBlock defaultContact={defaultContact} />
+          ) : (
+            <>
+              {contactType === 'DC' && defaultContact && (
+                <DefaultContactBlock defaultContact={defaultContact} />
+              )}
+
+              {defaultContact &&
+                additionalContact &&
+                hasAdditionalContactContent(additionalContact) && (
+                  <AdditionalContactBlock {...additionalContact} />
+                )}
+
+              {contactType === 'BHC' &&
+                benefitHubContacts?.map((contact) => (
+                  <BenefitHubContactBlock
+                    key={contact.label}
+                    contact={contact}
+                  />
+                ))}
+            </>
           )}
-
-          {defaultContact &&
-            additionalContact &&
-            hasAdditionalContactContent(additionalContact) && (
-              <AdditionalContactBlock {...additionalContact} />
-            )}
-
-          {contactType === 'BHC' &&
-            benefitHubContacts?.map((contact) => (
-              <BenefitHubContactBlock key={contact.label} contact={contact} />
-            ))}
-        </>
-      )}
+        </div>
+      </va-need-help>
     </section>
   )
 

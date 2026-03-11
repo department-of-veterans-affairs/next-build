@@ -78,7 +78,9 @@ describe('ContactInformation', () => {
   test('renders default without gray background', () => {
     const { container } = render(<ContactInformation {...data} />)
 
-    expect(screen.getByText('Need more help?')).toBeInTheDocument()
+    const vaNeedHelp = container.querySelector('va-need-help')
+    expect(vaNeedHelp).toBeInTheDocument()
+    expect(vaNeedHelp?.querySelector('[slot="content"]')).toBeInTheDocument()
     expect(screen.getByText(/Call/)).toBeInTheDocument()
     expect(
       container.querySelector('.vads-u-background-color--gray-light-alt')
@@ -91,7 +93,8 @@ describe('ContactInformation', () => {
     expect(
       container.querySelector('.vads-u-background-color--gray-light-alt')
     ).toBeInTheDocument()
-    expect(screen.getByText('Need more help?')).toBeInTheDocument()
+    const vaNeedHelp = container.querySelector('va-need-help')
+    expect(vaNeedHelp).toBeInTheDocument()
   })
 
   test('renders additional contact when provided', () => {
@@ -212,5 +215,17 @@ describe('ContactInformation', () => {
       '[data-template="paragraphs/contact_information"]'
     )
     expect(section).toBeInTheDocument()
+  })
+
+  test('wraps content in va-need-help with content slot', () => {
+    const { container } = render(<ContactInformation {...data} />)
+    const section = container.querySelector(
+      '[data-template="paragraphs/contact_information"]'
+    )
+    const vaNeedHelp = section?.querySelector('va-need-help')
+    expect(vaNeedHelp).toBeInTheDocument()
+    const contentSlot = vaNeedHelp?.querySelector('[slot="content"]')
+    expect(contentSlot).toBeInTheDocument()
+    expect(contentSlot?.textContent).toContain('MyVA411 main information line')
   })
 })
