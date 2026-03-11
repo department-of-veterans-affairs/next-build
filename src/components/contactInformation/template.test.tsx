@@ -87,16 +87,6 @@ describe('ContactInformation', () => {
     ).not.toBeInTheDocument()
   })
 
-  test('renders with grayWide when specified', () => {
-    const { container } = render(<ContactInformation {...data} grayWide />)
-
-    expect(
-      container.querySelector('.vads-u-background-color--gray-light-alt')
-    ).toBeInTheDocument()
-    const vaNeedHelp = container.querySelector('va-need-help')
-    expect(vaNeedHelp).toBeInTheDocument()
-  })
-
   test('renders additional contact when provided', () => {
     const withAdditional: FormattedContactInformation = {
       ...data,

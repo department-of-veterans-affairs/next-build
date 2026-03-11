@@ -150,29 +150,18 @@ const BenefitHubContactBlock = ({
   )
 }
 
-export type ContactInformationProps = FormattedContactInformation & {
-  /** When true, wraps in gray background (faq_multiple_q_a, step_by_step, checklist) */
-  grayWide?: true
-}
-
 /**
- * ContactInformation component for rendering a `paragraph--contact_information` paragraph
- * and replaces the content-build templates `contact_information` and `need_help`, which
- * are only slightly different in function but were inconsistent in markup.
+ * ContactInformation component for rendering a `paragraph--contact_information`.
  *
  * Shows a "Need more help?" section with contact info. Uses <section>, <p> tags,
  * <va-telephone> for phone numbers, and <va-link> for email addresses.
- *
- * Optional grayWide prop adds a gray background wrapper (used by faq_multiple_q_a,
- * step_by_step, checklist layouts).
  */
 export function ContactInformation({
   contactType,
   defaultContact,
   additionalContact,
   benefitHubContacts,
-  grayWide,
-}: ContactInformationProps) {
+}: FormattedContactInformation) {
   const useDefaultContactOnly =
     contactType === 'DC' &&
     defaultContact &&
@@ -213,19 +202,9 @@ export function ContactInformation({
     </section>
   )
 
-  const content = (
+  return (
     <div className="usa-content vads-u-padding-x--1 desktop-lg:vads-u-padding-x--0">
       {section}
     </div>
   )
-
-  if (grayWide) {
-    return (
-      <div className="vads-u-background-color--gray-light-alt">
-        <div className="vads-grid-container">{content}</div>
-      </div>
-    )
-  }
-
-  return content
 }
