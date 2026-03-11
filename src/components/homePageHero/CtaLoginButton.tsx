@@ -1,14 +1,10 @@
 'use client'
 
-import { useRouter } from 'next/navigation'
-
 interface CtaLoginButtonProps {
   text: string
 }
 
 export function CtaLoginButton({ text }: CtaLoginButtonProps) {
-  const router = useRouter()
-
   return (
     <va-button
       className="vads-u-margin-bottom--3"
@@ -17,7 +13,9 @@ export function CtaLoginButton({ text }: CtaLoginButtonProps) {
       onClick={() => {
         const params = new URLSearchParams(window.location.search)
         params.set('next', 'loginModal')
-        router.push(`?${params.toString()}`)
+        window.location.replace(
+          `${window.location.pathname}?${params.toString()}`
+        )
       }}
     />
   )
