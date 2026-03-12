@@ -2,8 +2,10 @@ name: Continuous Integration
 on:
   push:
     branches:
-      - 'main'
-  pull_request:
+      - '**'
+    tags-ignore:
+      - '**'
+
 permissions:
   pull-requests: write
   issues: write
@@ -51,6 +53,7 @@ jobs:
 
   run-lint:
     name: Run Lint
+    needs: [dependency-review]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6.0.2
@@ -68,6 +71,7 @@ jobs:
 
   check-format:
     name: Check Format
+    needs: [dependency-review]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6.0.2
@@ -85,6 +89,7 @@ jobs:
 
   jest-tests:
     name: Jest Tests
+    needs: [dependency-review]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6.0.2
