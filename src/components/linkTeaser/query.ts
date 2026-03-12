@@ -2,7 +2,7 @@ import { QueryFormatter } from '@/lib/next-drupal-query'
 import { ParagraphLinkTeaser } from '@/types/drupal/paragraph'
 import { LinkTeaser } from '@/components/linkTeaser/formatted-type'
 import { getHtmlFromDrupalContent } from '@/lib/utils/getHtmlFromDrupalContent'
-import { formatArray } from '@/lib/utils/formatArray'
+import { formatNullableArray } from '@/lib/utils/formatNullableArray'
 
 /**
  * Formats an array of link teaser paragraphs.
@@ -11,7 +11,7 @@ import { formatArray } from '@/lib/utils/formatArray'
 export function formatLinkTeaserArray(
   arr: ParagraphLinkTeaser[] | null | undefined
 ): LinkTeaser[] | null {
-  return formatArray(arr, (item) => formatter(item))
+  return formatNullableArray(arr, (item) => formatter(item))
 }
 
 export const formatter: QueryFormatter<

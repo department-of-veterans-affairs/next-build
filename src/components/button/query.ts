@@ -2,7 +2,7 @@
 import { ParagraphButton } from '@/types/drupal/paragraph'
 import { QueryFormatter } from '@/lib/next-drupal-query'
 import { Button } from '@/components/button/formatted-type'
-import { formatArray } from '@/lib/utils/formatArray'
+import { formatNullableArray } from '@/lib/utils/formatNullableArray'
 
 export const formatter: QueryFormatter<ParagraphButton, Button> = (
   entity: ParagraphButton
@@ -25,5 +25,5 @@ export const formatter: QueryFormatter<ParagraphButton, Button> = (
 export function formatButtonArray(
   arr: ParagraphButton[] | null | undefined
 ): Button[] | null {
-  return formatArray(arr, (item) => formatter(item))
+  return formatNullableArray(arr, (item) => formatter(item))
 }

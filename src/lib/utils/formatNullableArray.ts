@@ -5,7 +5,7 @@
  * 2. Formats each item and filters out null values
  * 3. If the resulting filtered array is empty, returns null
  */
-export function formatArray<T, R>(
+export function formatNullableArray<T, R>(
   arr: T[] | null | undefined,
   formatSingle: (item: T) => R | null
 ): R[] | null {
