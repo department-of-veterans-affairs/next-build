@@ -5,7 +5,6 @@ import { AudienceTopics as FormattedAudienceTopics } from '@/components/audience
  * Browse by topic component - ported from content-build tags.drupal.liquid.
  * Renders an unstyled list of topic links with "Browse by topic" heading,
  * used on pages like Question Answer and Resources Support.
- * Caller should not render when tags is null (formatter returns null for empty tags).
  */
 export function BrowseByTopic({ tags }: FormattedAudienceTopics) {
   return (
