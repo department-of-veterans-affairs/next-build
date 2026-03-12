@@ -3,7 +3,7 @@ import { ContentFooter } from '@/components/contentFooter/template'
 import AlertSingle from '@/components/alertSingle/template'
 import { Button as FormattedButton } from '@/components/button/formatted-type'
 import { Paragraph } from '@/components/paragraph/template'
-import { BrowseByTopic } from '@/components/audienceTopics/BrowseByTopic'
+import { BrowseByTopic } from '@/components/browseByTopic/template'
 import { Button } from '@/components/button/template'
 import { BenefitsHubLinks } from '@/components/benefitsHubLinks/template'
 import { ContactInformation } from '@/components/contactInformation/template'
@@ -37,7 +37,7 @@ export const ResourcesSupport = ({
   buttons,
   repeatButtons = false,
   toc = true,
-  tags,
+  browseByTopic,
   mainContent,
   contactInformation,
   benefitsHubLinks,
@@ -91,7 +91,7 @@ export const ResourcesSupport = ({
           </article>
 
           {/* Tags */}
-          {tags && <BrowseByTopic {...tags} />}
+          {browseByTopic && <BrowseByTopic {...browseByTopic} />}
 
           {/* How do you rate? */}
           <RateYourExperience />

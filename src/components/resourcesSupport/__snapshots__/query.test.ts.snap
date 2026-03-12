@@ -36,6 +36,17 @@ exports[`Resources Support formatData outputs formatted data 1`] = `
       "options": [],
     },
   ],
+  "browseByTopic": {
+    "categories": [],
+    "tags": [
+      {
+        "categoryLabel": "Audience",
+        "href": "/resources/tag/all-veterans",
+        "id": "386eb70d-696c-4af3-8986-306ce63d90de",
+        "name": "All Veterans",
+      },
+    ],
+  },
   "buttons": [
     {
       "entityId": 23308,
@@ -227,19 +238,6 @@ exports[`Resources Support formatData outputs formatted data 1`] = `
   "moderationState": "draft",
   "published": false,
   "repeatButtons": true,
-  "tags": {
-    "entityId": 23312,
-    "id": "fdac0715-f3eb-4a9d-bf5e-298da4a82ef3",
-    "tags": [
-      {
-        "categoryLabel": "Audience",
-        "href": "/resources/tag/all-veterans",
-        "id": "386eb70d-696c-4af3-8986-306ce63d90de",
-        "name": "All Veterans",
-      },
-    ],
-    "type": "paragraph--audience_topics",
-  },
   "title": "Closed life insurance programs",
   "toc": false,
   "type": "node--support_resources_detail_page",

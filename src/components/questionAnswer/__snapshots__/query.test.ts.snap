@@ -38,6 +38,23 @@ exports[`QuestionAnswer query module formatter outputs formatted data 1`] = `
     },
   ],
   "breadcrumbs": null,
+  "browseByTopic": {
+    "categories": [],
+    "tags": [
+      {
+        "categoryLabel": "Audience",
+        "href": "/resources/tag/all-veterans",
+        "id": "386eb70d-696c-4af3-8986-306ce63d90de",
+        "name": "All Veterans",
+      },
+      {
+        "categoryLabel": "Topics",
+        "href": "/resources/tag/claims-and-appeals-status",
+        "id": "564808ad-d6b8-4337-8bf4-af296bc23e24",
+        "name": "Claims and appeals status",
+      },
+    ],
+  },
   "buttons": [
     {
       "entityId": 13772,
@@ -63,25 +80,6 @@ exports[`QuestionAnswer query module formatter outputs formatted data 1`] = `
   "metatags": null,
   "moderationState": "published",
   "published": true,
-  "tags": {
-    "entityId": 13779,
-    "id": "d7dd0c3a-5b28-4bb7-8a57-aa520fa7248b",
-    "tags": [
-      {
-        "categoryLabel": "Audience",
-        "href": "/resources/tag/all-veterans",
-        "id": "386eb70d-696c-4af3-8986-306ce63d90de",
-        "name": "All Veterans",
-      },
-      {
-        "categoryLabel": "Topics",
-        "href": "/resources/tag/claims-and-appeals-status",
-        "id": "564808ad-d6b8-4337-8bf4-af296bc23e24",
-        "name": "Claims and appeals status",
-      },
-    ],
-    "type": "paragraph--audience_topics",
-  },
   "teasers": [
     {
       "entityId": 13774,

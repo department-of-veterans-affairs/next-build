@@ -8,7 +8,6 @@ import {
   DoNotPublishError,
   fetchSingleEntityOrPreview,
 } from '@/lib/drupal/query'
-import { queries } from '@/lib/drupal/queries'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodeQA } from '@/types/drupal/node'
 import { QuestionAnswer } from './formatted-type'
@@ -24,6 +23,7 @@ import { formatButtonArray } from '@/components/button/query'
 import { formatLinkTeaserArray } from '@/components/linkTeaser/query'
 import { formatBenefitsHubLinks } from '@/components/benefitsHubLinks/query'
 import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
+import { formatBrowseByTopicData } from '@/components/browseByTopic/query'
 
 // Define the query params for fetching node--q_a.
 export const params: QueryParams<null> = () => {
@@ -32,6 +32,7 @@ export const params: QueryParams<null> = () => {
     'field_buttons',
     'field_related_benefit_hubs',
     'field_related_information',
+    'field_other_categories',
     ...getNestedIncludes(
       'field_tags',
       PARAGRAPH_RESOURCE_TYPES.AUDIENCE_TOPICS
@@ -79,9 +80,9 @@ export const formatter: QueryFormatter<NodeQA, QuestionAnswer> = (
     buttons: formatButtonArray(entity.field_buttons),
     teasers: formatLinkTeaserArray(entity.field_related_information),
     benefitsHubLinks: formatBenefitsHubLinks(entity.field_related_benefit_hubs),
-    tags: queries.formatData(
-      PARAGRAPH_RESOURCE_TYPES.AUDIENCE_TOPICS,
-      entity.field_tags
+    browseByTopic: formatBrowseByTopicData(
+      entity.field_tags,
+      entity.field_other_categories
     ),
     contactInformation: formatParagraph(
       entity.field_contact_information
