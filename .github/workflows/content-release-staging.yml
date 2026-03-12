@@ -33,7 +33,7 @@ jobs:
     steps:
       - name: Checkout main branch
         if: github.event_name == 'schedule' || github.event.inputs.create_branch == 'true'
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           ref: main
 
@@ -180,7 +180,7 @@ jobs:
           retention-days: 1
 
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - uses: actions/setup-node@v6
         with:
