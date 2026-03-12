@@ -69,7 +69,7 @@ export const QuestionAnswer = ({
           <BenefitsHubLinks title="VA benefits" links={benefitsHubLinks} />
         )}
 
-        <BrowseByTopic {...tags} />
+        {tags && <BrowseByTopic {...tags} />}
 
         {contactInformation && <ContactInformation {...contactInformation} />}
 

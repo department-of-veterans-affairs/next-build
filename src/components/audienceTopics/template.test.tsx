@@ -88,17 +88,5 @@ describe('AudienceTopics without Audience', () => {
   })
 })
 
-describe('AudienceTopics without Topics and Audience', () => {
-  const audienceTopicProps: ParagraphComponent<FormattedAudienceTopics> = {
-    id: '4',
-    tags: [],
-  }
-
-  test('does not render the component', () => {
-    render(<AudienceTopics {...audienceTopicProps} />)
-
-    expect(screen.queryByText(/Tags/)).not.toBeInTheDocument()
-    expect(screen.queryByText(/Payments and debt/)).not.toBeInTheDocument()
-    expect(screen.queryByText(/All Veterans/)).not.toBeInTheDocument()
-  })
-})
+// When tags are empty, the formatter returns null and the caller does not render.
+// The template is only rendered with non-empty tags.

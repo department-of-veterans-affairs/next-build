@@ -93,7 +93,7 @@ describe('QuestionAnswer query module', () => {
 
         const result = await runQuery()
 
-        expect(result.teasers).toEqual([])
+        expect(result.teasers).toBeNull()
       })
 
       test('handles null field_alert_single', async () => {
@@ -126,7 +126,7 @@ describe('QuestionAnswer query module', () => {
 
         const result = await runQuery()
 
-        expect(result.benefitsHubLinks).toEqual([])
+        expect(result.benefitsHubLinks).toBeNull()
       })
     })
 

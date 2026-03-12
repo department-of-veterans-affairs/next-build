@@ -2,6 +2,7 @@
 import { ParagraphButton } from '@/types/drupal/paragraph'
 import { QueryFormatter } from '@/lib/next-drupal-query'
 import { Button } from '@/components/button/formatted-type'
+import { formatArray } from '@/lib/utils/formatArray'
 
 export const formatter: QueryFormatter<ParagraphButton, Button> = (
   entity: ParagraphButton
@@ -15,4 +16,14 @@ export const formatter: QueryFormatter<ParagraphButton, Button> = (
     url: entity.field_button_link?.url || entity.field_button_link?.uri || null,
     label: entity.field_button_label || null,
   }
+}
+
+/**
+ * Formats an array of button paragraphs.
+ * Returns null if input is null, or if all items filter to null, or if result is empty.
+ */
+export function formatButtonArray(
+  arr: ParagraphButton[] | null | undefined
+): Button[] | null {
+  return formatArray(arr, (item) => formatter(item))
 }

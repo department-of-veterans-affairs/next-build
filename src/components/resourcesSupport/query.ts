@@ -12,7 +12,7 @@ import {
 import { formatParagraph } from '@/lib/drupal/paragraphs'
 import { AlertSingle } from '@/components/alert/formatted-type'
 import { ContactInformation } from '@/components/contactInformation/formatted-type'
-import { Button } from '@/components/button/formatted-type'
+import { formatButtonArray } from '@/components/button/query'
 import { AudienceTopics } from '@/components/audienceTopics/formatted-type'
 import { getNestedIncludes } from '@/lib/utils/queries'
 import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
@@ -78,7 +78,7 @@ export const formatter: QueryFormatter<
     title: entity.title,
     intro: entity.field_intro_text_limited_html.processed,
     alert: formatParagraph(entity.field_alert_single) as AlertSingle,
-    buttons: entity.field_buttons.map?.((p) => formatParagraph(p)) as Button[],
+    buttons: formatButtonArray(entity.field_buttons) ?? [],
     repeatButtons: entity.field_buttons_repeat,
     toc: entity.field_table_of_contents_boolean,
     mainContent:
@@ -87,11 +87,10 @@ export const formatter: QueryFormatter<
     contactInformation: formatParagraph(
       entity.field_contact_information
     ) as ContactInformation,
-    benefitsHubLinks: entity.field_related_benefit_hubs
-      ? queries.formatData(
-          'benefits-hub-links',
-          entity.field_related_benefit_hubs
-        )
-      : [],
+    benefitsHubLinks:
+      queries.formatData(
+        'benefits-hub-links',
+        entity.field_related_benefit_hubs
+      ) ?? [],
   }
 }

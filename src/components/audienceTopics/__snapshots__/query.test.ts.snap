@@ -2,18 +2,8 @@
 
 exports[`paragraph--audience_topics formatData outputs formatted data 1`] = `
 [
-  {
-    "entityId": 13655,
-    "id": "825866c9-05ea-4f4d-9593-b9376d16043c",
-    "tags": [],
-    "type": "paragraph--audience_topics",
-  },
-  {
-    "entityId": 13850,
-    "id": "9dacf621-0d71-4efb-81ce-5a1a2b0f1188",
-    "tags": [],
-    "type": "paragraph--audience_topics",
-  },
+  null,
+  null,
   {
     "entityId": 13394,
     "id": "0f0561f5-6af7-4511-870f-7bc42347cbdf",
@@ -52,36 +42,11 @@ exports[`paragraph--audience_topics formatData outputs formatted data 1`] = `
     ],
     "type": "paragraph--audience_topics",
   },
-  {
-    "entityId": 13581,
-    "id": "2bade0de-a01a-4b1a-a52d-faac81941041",
-    "tags": [],
-    "type": "paragraph--audience_topics",
-  },
-  {
-    "entityId": 13643,
-    "id": "38f0f719-90c8-4b43-80a7-a473c4470aaa",
-    "tags": [],
-    "type": "paragraph--audience_topics",
-  },
-  {
-    "entityId": 13575,
-    "id": "2e7f51db-bf4f-4060-9b1a-52124ca6501e",
-    "tags": [],
-    "type": "paragraph--audience_topics",
-  },
-  {
-    "entityId": 13617,
-    "id": "b2c1a1d6-d549-4758-9278-0bbaa81dbceb",
-    "tags": [],
-    "type": "paragraph--audience_topics",
-  },
-  {
-    "entityId": 13704,
-    "id": "801d5199-2495-4797-adbb-094195d9e8cc",
-    "tags": [],
-    "type": "paragraph--audience_topics",
-  },
+  null,
+  null,
+  null,
+  null,
+  null,
   {
     "entityId": 13668,
     "id": "c711c534-4ad2-4440-a81e-9b1577a258c8",

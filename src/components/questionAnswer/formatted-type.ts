@@ -8,10 +8,10 @@ import { BenefitsHubLink } from '@/components/benefitsHubLinks/formatted-type'
 
 export type QuestionAnswer = PublishedEntity & {
   answers: string
-  buttons: Button[]
-  teasers: LinkTeaser[]
+  buttons: Button[] | null
+  teasers: LinkTeaser[] | null
   tags: AudienceTopics | null
   alert: AlertSingle | null
   contactInformation: ContactInformation | null
-  benefitsHubLinks: BenefitsHubLink[]
+  benefitsHubLinks: BenefitsHubLink[] | null
 }

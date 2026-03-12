@@ -26,4 +26,12 @@ describe('BenefitsHubLinks formatData', () => {
     const formattedData = formatter(nodeBenefitsHubMock)
     expect(formattedData).toMatchSnapshot()
   })
+
+  test('returns null when input is null', () => {
+    expect(formatter(null)).toBeNull()
+  })
+
+  test('returns null when input is empty array', () => {
+    expect(formatter([])).toBeNull()
+  })
 })

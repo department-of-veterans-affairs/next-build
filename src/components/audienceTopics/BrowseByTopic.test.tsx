@@ -84,17 +84,8 @@ describe('BrowseByTopic', () => {
     expect(wrapper).toBeInTheDocument()
   })
 
-  test('returns null when tags is empty', () => {
-    const props: FormattedAudienceTopics = {
-      id: 'empty',
-      type: 'paragraph--audience_topics',
-      tags: [],
-    }
-    const { container } = render(<BrowseByTopic {...props} />)
-
-    expect(screen.queryByText(/Browse by topic/)).not.toBeInTheDocument()
-    expect(container.firstChild).toBeNull()
-  })
+  // When tags are empty, the formatter returns null and the caller does not render.
+  // BrowseByTopic is only rendered with non-empty tags.
 
   test('calls recordEvent with correct parameters when link is clicked', () => {
     const props = getFormattedMockWithTags()

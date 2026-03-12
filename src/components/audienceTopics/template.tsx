@@ -1,11 +1,12 @@
-import { isEmpty } from 'lodash'
 import { AudienceTopics as FormattedAudienceTopics } from '@/components/audienceTopics/formatted-type'
 import { ParagraphComponent } from '@/components/paragraph/formatted-type'
 
+/**
+ * Caller should not render when paragraph is null (formatter returns null for empty tags).
+ */
 export function AudienceTopics({
   tags,
-}: ParagraphComponent<FormattedAudienceTopics> | null) {
-  if (isEmpty(tags)) return null
+}: ParagraphComponent<FormattedAudienceTopics>) {
   const tagsList = tags.map(({ id, href, name }) => (
     <div key={id}>
       <div className="vads-u-margin-right--1 vads-u-margin-bottom--1 tablet:vads-u-margin-bottom--1p5">

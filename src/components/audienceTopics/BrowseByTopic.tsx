@@ -1,4 +1,3 @@
-import { isEmpty } from 'lodash'
 import { recordEvent } from '@/lib/analytics/recordEvent'
 import { AudienceTopics as FormattedAudienceTopics } from '@/components/audienceTopics/formatted-type'
 
@@ -6,10 +5,9 @@ import { AudienceTopics as FormattedAudienceTopics } from '@/components/audience
  * Browse by topic component - ported from content-build tags.drupal.liquid.
  * Renders an unstyled list of topic links with "Browse by topic" heading,
  * used on pages like Question Answer and Resources Support.
+ * Caller should not render when tags is null (formatter returns null for empty tags).
  */
 export function BrowseByTopic({ tags }: FormattedAudienceTopics) {
-  if (isEmpty(tags)) return null
-
   return (
     <div
       className="vads-u-padding-y--3 vads-u-display--flex vads-u-flex-direction--column vads-u-padding-x--1 desktop-lg:vads-u-padding-x--0 vads-u-border-top--1px vads-u-border-color--gray-light"

@@ -20,8 +20,8 @@ import { getNestedIncludes } from '@/lib/utils/queries'
 import { formatParagraph } from '@/lib/drupal/paragraphs'
 import { AlertSingle } from '@/components/alert/formatted-type'
 import { ContactInformation } from '@/components/contactInformation/formatted-type'
-import { Button } from '@/components/button/formatted-type'
-import { BenefitsHubLink } from '@/components/benefitsHubLinks/formatted-type'
+import { formatButtonArray } from '@/components/button/query'
+import { formatLinkTeaserArray } from '@/components/linkTeaser/query'
 import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
 
 // Define the query params for fetching node--q_a.
@@ -71,36 +71,22 @@ export const formatter: QueryFormatter<NodeQA, QuestionAnswer> = (
     throw new DoNotPublishError('this Q&A is not a standalone page')
   }
 
-  const buttons = (entity.field_buttons?.map((button) =>
-    queries.formatData(PARAGRAPH_RESOURCE_TYPES.BUTTON, button)
-  ) ?? null) as Button[] | null
-  const teasers =
-    entity.field_related_information
-      ?.map((teaser) =>
-        queries.formatData(PARAGRAPH_RESOURCE_TYPES.LINK_TEASER, teaser)
-      )
-      .filter((teaser) => teaser !== null) ?? []
-  const tags = queries.formatData(
-    PARAGRAPH_RESOURCE_TYPES.AUDIENCE_TOPICS,
-    entity.field_tags
-  )
-  const benefitsHubLinks = entity.field_related_benefit_hubs
-    ? (queries.formatData(
-        'benefits-hub-links',
-        entity.field_related_benefit_hubs
-      ) as BenefitsHubLink[])
-    : []
-
   return {
     ...entityBaseFields(entity),
     answers: entity.field_answer?.field_wysiwyg?.processed ?? '',
-    tags,
-    buttons,
-    teasers,
     alert: formatParagraph(entity.field_alert_single) as AlertSingle | null,
+    buttons: formatButtonArray(entity.field_buttons),
+    teasers: formatLinkTeaserArray(entity.field_related_information),
+    benefitsHubLinks: queries.formatData(
+      'benefits-hub-links',
+      entity.field_related_benefit_hubs
+    ),
+    tags: queries.formatData(
+      PARAGRAPH_RESOURCE_TYPES.AUDIENCE_TOPICS,
+      entity.field_tags
+    ),
     contactInformation: formatParagraph(
       entity.field_contact_information
     ) as ContactInformation | null,
-    benefitsHubLinks,
   }
 }
