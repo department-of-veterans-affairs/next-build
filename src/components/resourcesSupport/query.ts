@@ -1,5 +1,4 @@
 import { QueryData, QueryFormatter, QueryParams } from '@/lib/next-drupal-query'
-import { queries } from '@/lib/drupal/queries'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import { fetchSingleEntityOrPreview } from '@/lib/drupal/query'
@@ -13,6 +12,7 @@ import { formatParagraph } from '@/lib/drupal/paragraphs'
 import { AlertSingle } from '@/components/alert/formatted-type'
 import { ContactInformation } from '@/components/contactInformation/formatted-type'
 import { formatButtonArray } from '@/components/button/query'
+import { formatBenefitsHubLinks } from '@/components/benefitsHubLinks/query'
 import { AudienceTopics } from '@/components/audienceTopics/formatted-type'
 import { getNestedIncludes } from '@/lib/utils/queries'
 import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
@@ -88,9 +88,6 @@ export const formatter: QueryFormatter<
       entity.field_contact_information
     ) as ContactInformation,
     benefitsHubLinks:
-      queries.formatData(
-        'benefits-hub-links',
-        entity.field_related_benefit_hubs
-      ) ?? [],
+      formatBenefitsHubLinks(entity.field_related_benefit_hubs) ?? [],
   }
 }

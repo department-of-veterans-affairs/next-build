@@ -22,6 +22,7 @@ import { AlertSingle } from '@/components/alert/formatted-type'
 import { ContactInformation } from '@/components/contactInformation/formatted-type'
 import { formatButtonArray } from '@/components/button/query'
 import { formatLinkTeaserArray } from '@/components/linkTeaser/query'
+import { formatBenefitsHubLinks } from '@/components/benefitsHubLinks/query'
 import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
 
 // Define the query params for fetching node--q_a.
@@ -77,10 +78,7 @@ export const formatter: QueryFormatter<NodeQA, QuestionAnswer> = (
     alert: formatParagraph(entity.field_alert_single) as AlertSingle | null,
     buttons: formatButtonArray(entity.field_buttons),
     teasers: formatLinkTeaserArray(entity.field_related_information),
-    benefitsHubLinks: queries.formatData(
-      'benefits-hub-links',
-      entity.field_related_benefit_hubs
-    ),
+    benefitsHubLinks: formatBenefitsHubLinks(entity.field_related_benefit_hubs),
     tags: queries.formatData(
       PARAGRAPH_RESOURCE_TYPES.AUDIENCE_TOPICS,
       entity.field_tags

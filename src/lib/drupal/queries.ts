@@ -8,7 +8,6 @@ import * as AudienceTopics from '@/components/audienceTopics/query'
 import * as Banners from '@/components/banner/query'
 import * as BenefitsDetailPage from '@/components/benefitsDetailPage/query'
 import * as BenefitsHub from '@/components/benefitsHub/query'
-import * as BenefitsHubLinks from '@/components/benefitsHubLinks/query'
 import * as Button from '@/components/button/query'
 import * as CollapsiblePanel from '@/components/collapsiblePanel/query'
 import * as CollapsiblePanelItem from '@/components/collapsiblePanelItem/query'
@@ -175,7 +174,6 @@ export const QUERIES_MAP = {
   'banner-data': Banners,
   'header-data': Header,
   'footer-data': Footer,
-  'benefits-hub-links': BenefitsHubLinks,
   'hero-data': HomePageHero,
   'home-page-common-tasks': HomePageCommonTasks,
   'home-page-news-spotlight': HomePageNewsSpotlight,
