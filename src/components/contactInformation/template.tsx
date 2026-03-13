@@ -162,49 +162,31 @@ export function ContactInformation({
   additionalContact,
   benefitHubContacts,
 }: FormattedContactInformation) {
-  const useDefaultContactOnly =
-    contactType === 'DC' &&
-    defaultContact &&
-    !hasAdditionalContactContent(additionalContact)
-
-  const section = (
-    <section
-      className="vads-u-display--flex vads-u-flex-direction--column vads-u-padding-y--2"
-      data-template="paragraphs/contact_information"
-    >
-      <va-need-help>
-        <div slot="content">
-          {useDefaultContactOnly ? (
-            <DefaultContactBlock defaultContact={defaultContact} />
-          ) : (
-            <>
-              {contactType === 'DC' && defaultContact && (
-                <DefaultContactBlock defaultContact={defaultContact} />
-              )}
-
-              {defaultContact &&
-                additionalContact &&
-                hasAdditionalContactContent(additionalContact) && (
-                  <AdditionalContactBlock {...additionalContact} />
-                )}
-
-              {contactType === 'BHC' &&
-                benefitHubContacts?.map((contact) => (
-                  <BenefitHubContactBlock
-                    key={contact.label}
-                    contact={contact}
-                  />
-                ))}
-            </>
-          )}
-        </div>
-      </va-need-help>
-    </section>
-  )
-
   return (
     <div className="usa-content vads-u-padding-x--1 desktop-lg:vads-u-padding-x--0">
-      {section}
+      <section
+        className="vads-u-display--flex vads-u-flex-direction--column vads-u-padding-y--2"
+        data-template="paragraphs/contact_information"
+      >
+        <va-need-help>
+          <div slot="content">
+            {contactType === 'DC' && defaultContact && (
+              <DefaultContactBlock defaultContact={defaultContact} />
+            )}
+
+            {defaultContact &&
+              additionalContact &&
+              hasAdditionalContactContent(additionalContact) && (
+                <AdditionalContactBlock {...additionalContact} />
+              )}
+
+            {contactType === 'BHC' &&
+              benefitHubContacts?.map((contact) => (
+                <BenefitHubContactBlock key={contact.label} contact={contact} />
+              ))}
+          </div>
+        </va-need-help>
+      </section>
     </div>
   )
 }
