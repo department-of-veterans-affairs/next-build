@@ -75,7 +75,14 @@ describe('ContactInformation', () => {
     },
   }
 
-  test('renders default without gray background', () => {
+  const additionalContact = {
+    id: '11',
+    type: 'paragraph--email_contact',
+    address: 'test@va.gov',
+    label: 'Minority Veterans Program',
+  } as const
+
+  test('renders default contact', () => {
     const { container } = render(<ContactInformation {...data} />)
 
     const vaNeedHelp = container.querySelector('va-need-help')
@@ -83,19 +90,17 @@ describe('ContactInformation', () => {
     expect(vaNeedHelp?.querySelector('[slot="content"]')).toBeInTheDocument()
     expect(screen.getByText(/Call/)).toBeInTheDocument()
     expect(
-      container.querySelector('.vads-u-background-color--gray-light-alt')
+      screen.getByText(/MyVA411 main information line/)
+    ).toBeInTheDocument()
+    expect(
+      container.querySelector('va-link[href="mailto:"]')
     ).not.toBeInTheDocument()
   })
 
   test('renders additional contact when provided', () => {
     const withAdditional: FormattedContactInformation = {
       ...data,
-      additionalContact: {
-        id: '11',
-        type: 'paragraph--email_contact',
-        address: 'test@va.gov',
-        label: 'Minority Veterans Program',
-      },
+      additionalContact,
     }
 
     const { container } = render(<ContactInformation {...withAdditional} />)
@@ -103,6 +108,41 @@ describe('ContactInformation', () => {
     expect(screen.getByText(/Minority Veterans Program/)).toBeInTheDocument()
     const vaLink = container.querySelector('va-link[href="mailto:test@va.gov"]')
     expect(vaLink).toBeInTheDocument()
+  })
+
+  test('does not render additional contact when it has no content', () => {
+    const withEmptyAdditional: FormattedContactInformation = {
+      ...data,
+      additionalContact: {
+        id: '11',
+        type: 'paragraph--email_contact',
+        address: '',
+        label: 'Empty',
+      },
+    }
+
+    const { container } = render(
+      <ContactInformation {...withEmptyAdditional} />
+    )
+
+    expect(
+      screen.getByText(/MyVA411 main information line/)
+    ).toBeInTheDocument()
+    expect(
+      container.querySelector('va-link[href="mailto:test@va.gov"]')
+    ).not.toBeInTheDocument()
+  })
+
+  it('does not render additional contact when there is no default contact', () => {
+    const withNoDefault: FormattedContactInformation = {
+      ...data,
+      defaultContact: undefined,
+    }
+
+    const { container } = render(<ContactInformation {...withNoDefault} />)
+    expect(
+      container.querySelector('va-link[href="mailto:test@va.gov"]')
+    ).not.toBeInTheDocument()
   })
 
   test('renders Benefit Hub Contacts when provided', () => {
