@@ -47,7 +47,7 @@
     "@actions/github": "^6.0.1",
     "@datadog/browser-rum": "^6.25.0",
     "@date-fns/tz": "^1.4.1",
-    "@department-of-veterans-affairs/component-library": "50.2.1",
+    "@department-of-veterans-affairs/component-library": "^56.1.0",
     "@department-of-veterans-affairs/formation": "^12.0.0",
     "@department-of-veterans-affairs/web-components": "18.4.0",
     "@fortawesome/fontawesome-free": "^7.2.0",
