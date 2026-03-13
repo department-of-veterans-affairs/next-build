@@ -40,6 +40,7 @@ describe('QuestionAnswer query module', () => {
       expect(queryString).toMatch(/field_related_benefit_hubs/)
       expect(queryString).toMatch(/field_related_information/)
       expect(queryString).toMatch(/field_tags/)
+      expect(queryString).toMatch(/field_other_categories/)
       expect(queryString).toMatch(/field_alert_single/)
       expect(queryString).toMatch(/field_contact_information/)
     })

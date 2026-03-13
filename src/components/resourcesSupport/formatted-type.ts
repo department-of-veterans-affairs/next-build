@@ -3,7 +3,7 @@ import { PublishedEntity } from '@/types/formatted/publishedEntity'
 import { AlertSingle } from '@/components/alert/formatted-type'
 import { ContactInformation } from '@/components/contactInformation/formatted-type'
 import { Button } from '@/components/button/formatted-type'
-import { AudienceTopics } from '@/components/audienceTopics/formatted-type'
+import { BrowseByTopicData } from '@/components/browseByTopic/formatted-type'
 import { BenefitsHubLink } from '@/components/benefitsHubLinks/formatted-type'
 
 export type ResourcesSupport = PublishedEntity & {
@@ -14,7 +14,7 @@ export type ResourcesSupport = PublishedEntity & {
   repeatButtons: boolean
   toc: boolean
   mainContent: FormattedParagraph[]
-  tags: AudienceTopics
+  browseByTopic: BrowseByTopicData | null
   contactInformation: ContactInformation
   benefitsHubLinks: BenefitsHubLink[]
 }

@@ -1,26 +1,34 @@
 import { render, screen } from '@testing-library/react'
 import { fireEvent } from '@testing-library/dom'
 import { axe } from '@/test-utils'
-import { BrowseByTopic } from './BrowseByTopic'
-import { formatter } from './query'
-import mockData from './mock.json'
-import { ParagraphAudienceTopics } from '@/types/drupal/paragraph'
-import { AudienceTopics as FormattedAudienceTopics } from './formatted-type'
+import { BrowseByTopic } from './template'
 
 jest.mock('@/lib/analytics/recordEvent')
 import { recordEvent } from '@/lib/analytics/recordEvent'
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-/* @ts-ignore */
-const audienceTopicsMocks: ParagraphAudienceTopics[] = mockData
-
-const getFormattedMockWithTags = (): FormattedAudienceTopics => {
-  const mockWithTags = audienceTopicsMocks.find(
-    (m) =>
-      (m.field_audience_beneficiares?.length ?? 0) > 0 ||
-      (m.field_topics?.length ?? 0) > 0
-  )
-  return formatter(mockWithTags) as FormattedAudienceTopics
+const props = {
+  tags: [
+    {
+      id: 'tag-1',
+      href: '/resources/tag/all-veterans',
+      name: 'All Veterans',
+      categoryLabel: 'Audience',
+    },
+    {
+      id: 'tag-2',
+      href: '/resources/tag/payments',
+      name: 'Payments and debt',
+      categoryLabel: 'Topics',
+    },
+  ],
+  categories: [
+    {
+      id: 'cat-1',
+      href: '/resources/disability',
+      name: 'Disability',
+      categoryLabel: 'Resources and Support',
+    },
+  ],
 }
 
 describe('BrowseByTopic', () => {
@@ -28,8 +36,12 @@ describe('BrowseByTopic', () => {
     jest.clearAllMocks()
   })
 
+  test('renders nothing when both tags and categories are empty', () => {
+    const { container } = render(<BrowseByTopic tags={[]} categories={[]} />)
+    expect(container.firstChild).toBeNull()
+  })
+
   test('renders "Browse by topic" heading', () => {
-    const props = getFormattedMockWithTags()
     render(<BrowseByTopic {...props} />)
 
     expect(screen.getByRole('heading', { level: 2 })).toHaveTextContent(
@@ -37,29 +49,31 @@ describe('BrowseByTopic', () => {
     )
   })
 
-  test('renders topic links from mock data', () => {
-    const props = getFormattedMockWithTags()
+  test('renders tags and categories in order (tags first, then categories)', () => {
+    const { container } = render(<BrowseByTopic {...props} />)
+
+    const vaLinks = container.querySelectorAll('va-link')
+    expect(vaLinks.length).toBe(3)
+    expect(vaLinks[0].getAttribute('text')).toBe('All Veterans')
+    expect(vaLinks[1].getAttribute('text')).toBe('Payments and debt')
+    expect(vaLinks[2].getAttribute('text')).toBe('Disability')
+  })
+
+  test('renders only categories when tags are empty', () => {
+    const { container } = render(
+      <BrowseByTopic tags={[]} categories={props.categories} />
+    )
+
+    const vaLinks = container.querySelectorAll('va-link')
+    expect(vaLinks.length).toBe(1)
+    expect(vaLinks[0].getAttribute('text')).toBe('Disability')
+  })
+
+  test('renders va-link elements with correct href and text', () => {
     const { container } = render(<BrowseByTopic {...props} />)
 
     const allVeteransLink = container.querySelector(
       'va-link[text="All Veterans"]'
-    )
-    const paymentsLink = container.querySelector(
-      'va-link[text="Payments and debt"]'
-    )
-    expect(allVeteransLink).toBeInTheDocument()
-    expect(paymentsLink).toBeInTheDocument()
-  })
-
-  test('renders va-link elements with correct href and text', () => {
-    const props = getFormattedMockWithTags()
-    const { container } = render(<BrowseByTopic {...props} />)
-
-    const vaLinks = container.querySelectorAll('va-link')
-    expect(vaLinks.length).toBeGreaterThanOrEqual(2)
-
-    const allVeteransLink = Array.from(vaLinks).find(
-      (el: Element) => el.getAttribute('text') === 'All Veterans'
     )
     expect(allVeteransLink).toHaveAttribute(
       'href',
@@ -68,7 +82,6 @@ describe('BrowseByTopic', () => {
   })
 
   test('renders unstyled list with correct structure', () => {
-    const props = getFormattedMockWithTags()
     const { container } = render(<BrowseByTopic {...props} />)
 
     const list = container.querySelector('ul.usa-unstyled-list')
@@ -77,7 +90,6 @@ describe('BrowseByTopic', () => {
   })
 
   test('renders wrapper with data-template attribute', () => {
-    const props = getFormattedMockWithTags()
     const { container } = render(<BrowseByTopic {...props} />)
 
     const wrapper = container.querySelector('[data-template="includes/tags"]')
@@ -85,7 +97,6 @@ describe('BrowseByTopic', () => {
   })
 
   test('calls recordEvent with correct parameters when link is clicked', () => {
-    const props = getFormattedMockWithTags()
     const { container } = render(<BrowseByTopic {...props} />)
 
     const vaLink = container.querySelector(
@@ -101,7 +112,6 @@ describe('BrowseByTopic', () => {
   })
 
   test('gives no axe violations', async () => {
-    const props = getFormattedMockWithTags()
     const { container } = render(<BrowseByTopic {...props} />)
     const axeResults = await axe(container)
     expect(axeResults).toHaveNoViolations()

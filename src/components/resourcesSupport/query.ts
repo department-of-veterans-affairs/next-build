@@ -13,9 +13,9 @@ import { AlertSingle } from '@/components/alert/formatted-type'
 import { ContactInformation } from '@/components/contactInformation/formatted-type'
 import { formatButtonArray } from '@/components/button/query'
 import { formatBenefitsHubLinks } from '@/components/benefitsHubLinks/query'
-import { AudienceTopics } from '@/components/audienceTopics/formatted-type'
 import { getNestedIncludes } from '@/lib/utils/queries'
 import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
+import { formatBrowseByTopicData } from '@/components/browseByTopic/query'
 
 // Define the query params for fetching node--news_story.
 export const params: QueryParams<null> = () => {
@@ -37,6 +37,8 @@ export const params: QueryParams<null> = () => {
       'field_tags',
       PARAGRAPH_RESOURCE_TYPES.AUDIENCE_TOPICS
     ),
+    // other categories (for Browse by topic)
+    'field_other_categories',
     // related information
     'field_related_information',
     // related benefit hubs
@@ -83,7 +85,10 @@ export const formatter: QueryFormatter<
     toc: entity.field_table_of_contents_boolean,
     mainContent:
       entity.field_content_block.map?.((p) => formatParagraph(p)) || [],
-    tags: formatParagraph(entity.field_tags) as AudienceTopics,
+    browseByTopic: formatBrowseByTopicData(
+      entity.field_tags,
+      entity.field_other_categories
+    ),
     contactInformation: formatParagraph(
       entity.field_contact_information
     ) as ContactInformation,
