@@ -30,6 +30,18 @@ describe('paragraph--audience_topics formatData', () => {
       })
     ).toMatchSnapshot()
   })
+
+  test('returns null when tags are empty', () => {
+    const emptyTagsMock = {
+      ...audienceTopicsMocks[0],
+      field_topics: [],
+      field_audience_beneficiares: null,
+      field_non_beneficiares: null,
+    }
+    expect(
+      queries.formatData('paragraph--audience_topics', emptyTagsMock)
+    ).toBeNull()
+  })
 })
 
 describe('getTagsList', () => {

@@ -16,9 +16,7 @@ describe('<QuestionAnswerData> component renders with data', () => {
       '<p>Call the DMDC at <a aria-label="8 0 0. 5 3 8. 9 5 5 2." href="tel:+18005389552">800-538-9552</a>. They’re open Monday through Friday, 8:00 a.m. to 8:00 p.m. (closed on federal holidays). If you have hearing loss, call TTY: <a aria-label="TTY. 8 6 6. 3 6 3. 2 8 8 3." href="tel:8663632883">866-363-2883</a>.</p>\n' +
       '<p>If you’re a Veteran or family member and you’ve changed your legal name, you must update your name in DEERS. This keeps you eligible for military benefits like TRICARE—and any VA benefits you receive.</p>\n' +
       '<p><strong>Note:</strong> DEERS is the Defense Enrollment Eligibility Reporting System. It’s maintained by the Department of Defense.</p>\n',
-    tags: {
-      id: 'at-01',
-      type: 'paragraph--audience_topics',
+    browseByTopic: {
       tags: [
         {
           id: '386eb70d-696c-4af3-8986-306ce63d90de',
@@ -33,6 +31,7 @@ describe('<QuestionAnswerData> component renders with data', () => {
           categoryLabel: 'Audience',
         },
       ],
+      categories: [],
     },
     buttons: [
       {
@@ -129,8 +128,8 @@ describe('<QuestionAnswerData> component renders with data', () => {
     expect(screen.queryByText(/Browse by topic/)).toBeInTheDocument()
   })
 
-  test('Component still renders when TAGS data is NOT provided', () => {
-    delete QuestionAnswerData.tags
+  test('Component still renders when browseByTopic data is NOT provided', () => {
+    delete QuestionAnswerData.browseByTopic
     render(<QuestionAnswer {...QuestionAnswerData} />)
     expect(screen.queryByText(/Browse by topic/)).not.toBeInTheDocument()
   })

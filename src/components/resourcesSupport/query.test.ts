@@ -20,6 +20,7 @@ describe('DrupalJsonApiParams configuration', () => {
       'field_buttons',
       'field_content_block',
       'field_tags',
+      'field_other_categories',
       'field_related_information',
       'field_contact_information',
     ]
@@ -57,7 +58,7 @@ describe('Resources Support formatData', () => {
     expect(formattedData.alert).toBeNull()
     expect(formattedData.buttons).toEqual([])
     expect(formattedData.mainContent).toEqual([])
-    expect(formattedData.tags).toBeNull()
+    expect(formattedData.browseByTopic).toBeNull()
     expect(formattedData.contactInformation).toBeNull()
     expect(formattedData.benefitsHubLinks).toEqual([])
   })

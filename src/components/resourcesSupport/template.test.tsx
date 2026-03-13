@@ -3,7 +3,6 @@ import { render, screen } from '@testing-library/react'
 import { ResourcesSupport } from './template'
 import { Button } from '@/components/button/formatted-type'
 import { Wysiwyg } from '@/components/wysiwyg/formatted-type'
-import { AudienceTopics } from '@/components/audienceTopics/formatted-type'
 import { ContactInformation } from '@/components/contactInformation/formatted-type'
 import { axe } from '@/test-utils'
 
@@ -39,9 +38,7 @@ describe('<ResourcesSupport /> Component', () => {
         type: 'paragraph--wysiwyg' as Wysiwyg['type'],
       },
     ],
-    tags: {
-      type: 'paragraph--audience_topics' as AudienceTopics['type'],
-      id: '1',
+    browseByTopic: {
       tags: [
         {
           id: '1',
@@ -56,6 +53,7 @@ describe('<ResourcesSupport /> Component', () => {
           categoryLabel: 'Topic Category',
         },
       ],
+      categories: [],
     },
     contactInformation: {
       id: '1',

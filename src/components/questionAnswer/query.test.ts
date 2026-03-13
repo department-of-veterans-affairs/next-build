@@ -40,6 +40,7 @@ describe('QuestionAnswer query module', () => {
       expect(queryString).toMatch(/field_related_benefit_hubs/)
       expect(queryString).toMatch(/field_related_information/)
       expect(queryString).toMatch(/field_tags/)
+      expect(queryString).toMatch(/field_other_categories/)
       expect(queryString).toMatch(/field_alert_single/)
       expect(queryString).toMatch(/field_contact_information/)
     })
@@ -93,7 +94,7 @@ describe('QuestionAnswer query module', () => {
 
         const result = await runQuery()
 
-        expect(result.teasers).toEqual([])
+        expect(result.teasers).toBeNull()
       })
 
       test('handles null field_alert_single', async () => {
@@ -126,7 +127,7 @@ describe('QuestionAnswer query module', () => {
 
         const result = await runQuery()
 
-        expect(result.benefitsHubLinks).toEqual([])
+        expect(result.benefitsHubLinks).toBeNull()
       })
     })
 

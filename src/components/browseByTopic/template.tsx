@@ -1,14 +1,15 @@
-import { isEmpty } from 'lodash'
 import { recordEvent } from '@/lib/analytics/recordEvent'
-import { AudienceTopics as FormattedAudienceTopics } from '@/components/audienceTopics/formatted-type'
+import { BrowseByTopicData } from './formatted-type'
 
 /**
  * Browse by topic component - ported from content-build tags.drupal.liquid.
  * Renders an unstyled list of topic links with "Browse by topic" heading,
- * used on pages like Question Answer and Resources Support.
+ * combining tags (from field_tags/field_audience_beneficiares) and categories
+ * (from field_other_categories). Used on pages like Question Answer and Resources Support.
  */
-export function BrowseByTopic({ tags }: FormattedAudienceTopics) {
-  if (isEmpty(tags)) return null
+export function BrowseByTopic({ tags, categories }: BrowseByTopicData) {
+  const items = [...tags, ...categories]
+  if (items.length === 0) return null
 
   return (
     <div
@@ -19,7 +20,7 @@ export function BrowseByTopic({ tags }: FormattedAudienceTopics) {
         Browse by topic
       </h2>
       <ul className="usa-unstyled-list" role="list">
-        {tags.map(({ id, href, name, categoryLabel }) => (
+        {items.map(({ id, href, name, categoryLabel }) => (
           <li key={id} className="vads-u-margin-y--2">
             <va-link
               className="vads-u-font-weight--bold"

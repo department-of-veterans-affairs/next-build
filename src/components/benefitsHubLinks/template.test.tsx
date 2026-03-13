@@ -1,6 +1,10 @@
 import { render, screen } from '@testing-library/react'
+import { fireEvent } from '@testing-library/dom'
 import { axe } from '@/test-utils'
 import { BenefitsHubLinks } from './template'
+
+jest.mock('@/lib/analytics/recordEvent')
+import { recordEvent } from '@/lib/analytics/recordEvent'
 
 const data = {
   title: 'Deciding how much life insurance to get',
@@ -25,6 +29,10 @@ const data = {
 }
 
 describe('BenefitsHubLinks with valid data', () => {
+  beforeEach(() => {
+    jest.clearAllMocks()
+  })
+
   test('renders BenefitsHubLinks component', async () => {
     const { container } = render(<BenefitsHubLinks {...data} />)
 
@@ -32,5 +40,33 @@ describe('BenefitsHubLinks with valid data', () => {
 
     const axeResults = await axe(container)
     expect(axeResults).toHaveNoViolations()
+  })
+
+  test('renders introText when provided', () => {
+    const introText = 'Here are some helpful resources for you.'
+    render(<BenefitsHubLinks {...data} introText={introText} />)
+
+    expect(screen.getByText(introText)).toBeInTheDocument()
+  })
+
+  test('does not render intro paragraph when introText is not provided', () => {
+    const { container } = render(<BenefitsHubLinks {...data} />)
+
+    const section = container.querySelector('section')
+    const h2 = section?.querySelector('h2')
+    expect(h2?.nextElementSibling?.tagName).toBe('UL')
+  })
+
+  test('calls recordEvent with correct parameters when link is clicked', () => {
+    render(<BenefitsHubLinks {...data} />)
+
+    const healthCareLink = screen.getByRole('link', { name: 'Health Care' })
+    fireEvent.click(healthCareLink)
+
+    expect(recordEvent).toHaveBeenCalledWith({
+      event: 'nav-linkslist',
+      'links-list-header': 'Health Care',
+      'links-list-section-header': data.title,
+    })
   })
 })
