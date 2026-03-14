@@ -3,7 +3,7 @@
 import { MouseEvent, useRef, useState } from 'react'
 import { BUILD_TYPES } from '@/lib/constants/environment'
 import { recordEvent } from '@/lib/analytics/recordEvent'
-import { getSurveyNumber, showForm } from '@/lib/utils/medallia'
+import { openFeedbackForm } from '@/lib/utils/medallia'
 import {
   VaRadio,
   VaRadioOption,
@@ -49,14 +49,6 @@ export const RateYourExperience = () => {
     thankYouRef.current?.focus()
   }
 
-  const handleSurveyClick = () => {
-    const pathname =
-      typeof window !== 'undefined' ? window.location.pathname : ''
-    const isProduction = process.env.NEXT_PUBLIC_BUILD_TYPE === BUILD_TYPES.PROD
-    const surveyNumber = getSurveyNumber(pathname, isProduction)
-    showForm(surveyNumber)
-  }
-
   return (
     <div
       className="vads-u-padding-top--3 vads-u-padding-bottom--1 vads-u-display--flex vads-u-flex-direction--column vads-u-padding-x--1 desktop-lg:vads-u-padding-x--0"
@@ -97,7 +89,7 @@ export const RateYourExperience = () => {
         Want to share more feedback? We&apos;ll use it to keep improving VA.gov
         for all Veterans and their families.{' '}
         <button
-          onClick={handleSurveyClick}
+          onClick={openFeedbackForm}
           type="button"
           className="va-button-link"
         >

@@ -3,18 +3,15 @@ import { axe } from '@/test-utils'
 import { RateYourExperience } from './template'
 import userEvent from '@testing-library/user-event'
 import { waitFor } from '@testing-library/react'
-import { showForm } from '@/lib/utils/medallia'
-
-const MOCK_SURVEY_NUMBER = 42
+import { openFeedbackForm } from '@/lib/utils/medallia'
 
 jest.mock('@/lib/utils/medallia', () => ({
-  getSurveyNumber: jest.fn(() => MOCK_SURVEY_NUMBER),
-  showForm: jest.fn(),
+  openFeedbackForm: jest.fn(),
 }))
 
 describe('<RateYourExperience>', () => {
   beforeEach(() => {
-    jest.mocked(showForm).mockClear()
+    jest.mocked(openFeedbackForm).mockClear()
   })
 
   test('renders <RateYourExperience />', async () => {
@@ -80,7 +77,7 @@ describe('<RateYourExperience>', () => {
     })
   })
 
-  test('calls showForm with expected survey number when survey link is clicked', async () => {
+  test('calls openFeedbackForm when survey link is clicked', async () => {
     const user = userEvent.setup()
     const { container } = render(<RateYourExperience />)
 
@@ -99,6 +96,6 @@ describe('<RateYourExperience>', () => {
     )
     await user.click(surveyButton!)
 
-    expect(showForm).toHaveBeenCalledWith(MOCK_SURVEY_NUMBER)
+    expect(openFeedbackForm).toHaveBeenCalledTimes(1)
   })
 })
