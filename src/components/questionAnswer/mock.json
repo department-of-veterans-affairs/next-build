@@ -22,7 +22,7 @@
     "revision_translation_affected": true,
     "moderation_state": "published",
     "metatag": null,
-    "field_standalone_page": false,
+    "field_standalone_page": true,
     "links": {
       "self": {
         "href": "http://va-gov-cms.ddev.site/jsonapi/node/q_a/c2839a4c-c13d-46da-b448-9d1ec389773b?resourceVersion=id%3A339129"

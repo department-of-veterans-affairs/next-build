@@ -2,7 +2,7 @@ import { ComponentType } from 'react'
 import { PublishedEntity } from '@/types/formatted/publishedEntity'
 import { FieldAddress } from '@/types/drupal/field_type'
 import { Administration } from '@/components/administration/formatted-type'
-import { PressContact } from '@/components/contactInfo/formatted-type'
+import { PressContact } from '@/components/contactInformation/formatted-type'
 
 export type PressReleaseTeaser = PublishedEntity & {
   headingLevel?: ComponentType | keyof React.JSX.IntrinsicElements

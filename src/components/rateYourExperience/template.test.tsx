@@ -1,23 +1,35 @@
-import { render } from '@testing-library/react'
+import { act, render } from '@testing-library/react'
 import { axe } from '@/test-utils'
 import { RateYourExperience } from './template'
 import userEvent from '@testing-library/user-event'
 import { waitFor } from '@testing-library/react'
-import { prettyDOM } from '@testing-library/react'
-import { screen } from '@testing-library/dom'
+import { showForm } from '@/lib/utils/medallia'
+
+const MOCK_SURVEY_NUMBER = 42
+
+jest.mock('@/lib/utils/medallia', () => ({
+  getSurveyNumber: jest.fn(() => MOCK_SURVEY_NUMBER),
+  showForm: jest.fn(),
+}))
 
 describe('<RateYourExperience>', () => {
+  beforeEach(() => {
+    jest.mocked(showForm).mockClear()
+  })
+
   test('renders <RateYourExperience />', async () => {
-    const { queryByText, container } = render(<RateYourExperience />)
+    const { container } = render(<RateYourExperience />)
 
-    const good = document.querySelector('#rate-your-experience--good')
-    const bad = document.querySelector('#rate-your-experience--bad')
+    const vaRadio = container.querySelector('va-radio')
+    const goodOption = container.querySelector('#good')
+    const badOption = container.querySelector('#bad')
 
-    expect(
-      queryByText(/How do you rate your experience on this page?/)
-    ).toBeInTheDocument()
-    expect(good).toBeInTheDocument()
-    expect(bad).toBeInTheDocument()
+    expect(vaRadio).toBeInTheDocument()
+    expect(vaRadio?.getAttribute('label')).toBe(
+      'How do you rate your experience on this page?'
+    )
+    expect(goodOption).toBeInTheDocument()
+    expect(badOption).toBeInTheDocument()
 
     const axeResults = await axe(container)
     expect(axeResults).toHaveNoViolations()
@@ -25,45 +37,68 @@ describe('<RateYourExperience>', () => {
 
   test('shows error message when submitted without selection', async () => {
     const user = userEvent.setup()
-    render(<RateYourExperience />)
+    const { container } = render(<RateYourExperience />)
 
-    const submitButton = document.querySelector(
-      '#rate-your-experience--rating-submit'
-    )
-    const errorMessage = document.querySelector(
-      '#rate-your-experience--error-message'
-    )
-    expect(errorMessage).toBeInTheDocument()
-    expect(errorMessage).toHaveClass('vads-u-display--none')
+    const submitButton = container.querySelector('#rating-submit')
+    const vaRadio = container.querySelector('va-radio')
 
-    user.click(submitButton)
+    expect(vaRadio?.getAttribute('error')).toBe('')
+
+    await user.click(submitButton!)
+
     await waitFor(() =>
-      expect(errorMessage).not.toHaveClass('vads-u-display--none')
+      expect(vaRadio?.getAttribute('error')).toBe('Please select an answer')
     )
   })
 
   test('shows thank-you message when submitted with selection', async () => {
     const user = userEvent.setup()
-    render(<RateYourExperience />)
+    const { container } = render(<RateYourExperience />)
 
-    const goodRatingInput = document.querySelector(
-      '#rate-your-experience--good'
-    )
-    const submitButton = document.querySelector(
-      '#rate-your-experience--rating-submit'
-    )
-    const thankYouMessage = document.querySelector(
-      '#rate-your-experience--thank-you-message'
-    )
+    const vaRadio = container.querySelector('va-radio')
+    const submitButton = container.querySelector('#rating-submit')
+    const thankYouMessage = container.querySelector('#thank-you-message')
+
     expect(thankYouMessage).toBeInTheDocument()
     expect(thankYouMessage).toHaveClass('vads-u-display--none')
 
-    user.click(goodRatingInput)
-    await waitFor(() => expect(goodRatingInput).toBeChecked())
+    // Simulate vaValueChange event (va-radio-option click may not work in jsdom)
+    await act(async () => {
+      vaRadio?.dispatchEvent(
+        new CustomEvent('vaValueChange', { detail: { value: 'Good' } })
+      )
+    })
 
-    user.click(submitButton)
-    await waitFor(() =>
+    await user.click(submitButton!)
+
+    await waitFor(() => {
       expect(thankYouMessage).not.toHaveClass('vads-u-display--none')
+      expect(thankYouMessage).toHaveTextContent(/Want to share more feedback\?/)
+      expect(thankYouMessage).toHaveTextContent(
+        /Complete our 3-question survey/
+      )
+    })
+  })
+
+  test('calls showForm with expected survey number when survey link is clicked', async () => {
+    const user = userEvent.setup()
+    const { container } = render(<RateYourExperience />)
+
+    const vaRadio = container.querySelector('va-radio')
+    const submitButton = container.querySelector('#rating-submit')
+
+    await act(async () => {
+      vaRadio?.dispatchEvent(
+        new CustomEvent('vaValueChange', { detail: { value: 'Good' } })
+      )
+    })
+    await user.click(submitButton!)
+
+    const surveyButton = container.querySelector(
+      '#thank-you-message .va-button-link'
     )
+    await user.click(surveyButton!)
+
+    expect(showForm).toHaveBeenCalledWith(MOCK_SURVEY_NUMBER)
   })
 })

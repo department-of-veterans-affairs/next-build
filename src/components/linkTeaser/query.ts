@@ -2,6 +2,17 @@ import { QueryFormatter } from '@/lib/next-drupal-query'
 import { ParagraphLinkTeaser } from '@/types/drupal/paragraph'
 import { LinkTeaser } from '@/components/linkTeaser/formatted-type'
 import { getHtmlFromDrupalContent } from '@/lib/utils/getHtmlFromDrupalContent'
+import { formatNullableArray } from '@/lib/utils/formatNullableArray'
+
+/**
+ * Formats an array of link teaser paragraphs.
+ * Returns null if input is null, or if all items filter to null, or if result is empty.
+ */
+export function formatLinkTeaserArray(
+  arr: ParagraphLinkTeaser[] | null | undefined
+): LinkTeaser[] | null {
+  return formatNullableArray(arr, (item) => formatter(item))
+}
 
 export const formatter: QueryFormatter<
   ParagraphLinkTeaser,

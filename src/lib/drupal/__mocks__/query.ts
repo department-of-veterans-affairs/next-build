@@ -10,9 +10,14 @@
  * It also provides these helper functions for setting various mock functions:
  * - setSingleEntityMock
  * - setResourceCollectionMock
+ *
+ * DoNotPublishError is re-exported from the actual module so formatters can throw it.
  */
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
+
+const actualQuery = jest.requireActual<typeof import('../query')>('../query')
+export const { DoNotPublishError } = actualQuery
 
 export const fetchSingleResourceCollectionPage = jest.fn()
 

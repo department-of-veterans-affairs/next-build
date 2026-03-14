@@ -53,15 +53,18 @@ export const getTagsList = (
 /**
  * This formatter is unusual in that it takes a paragraph entity and digs into
  * its data to return multiple instances of similar values from it.
+ * Returns null if tags are empty or null.
  */
 export const formatter: QueryFormatter<
   ParagraphAudienceTopics,
-  AudienceTopics
+  AudienceTopics | null
 > = (entity: ParagraphAudienceTopics) => {
+  const tags = getTagsList(entity)
+  if (!tags || tags.length === 0) return null
   return {
     type: entity.type as AudienceTopics['type'],
     id: entity.id,
     entityId: entity.drupal_internal__id,
-    tags: getTagsList(entity),
+    tags,
   }
 }

@@ -1,0 +1,991 @@
+{
+  "resourceType": "node--q_a",
+  "paths": [
+    {
+      "path": "/resources/what-if-im-having-trouble-answering-the-idme-security-questions",
+      "starred": true,
+      "notes": "This page does not show up on prod, but because it is technically published, I would think we're supposed to create the page. There's an invalid related link in it, so perhaps that's causing it to not be created on content-build."
+    },
+    {
+      "path": "/resources/why-should-i-trust-vagov"
+    },
+    {
+      "path": "/resources/why-do-i-need-to-verify-my-identity-to-use-advanced-tools-on-vagov"
+    },
+    {
+      "path": "/resources/whats-idme-and-why-should-i-trust-them"
+    },
+    {
+      "path": "/resources/what-information-does-idme-collect-and-do-they-share-it-with-anyone"
+    },
+    {
+      "path": "/resources/what-if-my-military-information-is-wrong-in-my-vagov-profile"
+    },
+    {
+      "path": "/resources/what-if-i-need-to-change-my-personal-information-on-vagov"
+    },
+    {
+      "path": "/resources/whats-direct-deposit"
+    },
+    {
+      "path": "/resources/what-are-connected-apps-and-why-might-i-want-to-use-them"
+    },
+    {
+      "path": "/resources/i-dont-have-a-smartphone-do-i-need-one"
+    },
+    {
+      "path": "/resources/what-should-i-do-if-my-records-in-an-app-are-wrong-or-out-of-date"
+    },
+    {
+      "path": "/resources/am-i-eligible-for-commissary-and-exchange-privileges"
+    },
+    {
+      "path": "/resources/do-i-need-to-apply-for-commissary-and-exchange-privileges"
+    },
+    {
+      "path": "/resources/how-can-i-find-a-va-facility"
+    },
+    {
+      "path": "/resources/whats-a-vic"
+    },
+    {
+      "path": "/resources/do-i-need-a-vic-if-i-already-have-a-different-kind-of-veteran-id"
+    },
+    {
+      "path": "/resources/how-do-i-get-a-vic"
+    },
+    {
+      "path": "/resources/are-members-of-the-reserves-and-national-guard-eligible-for-a-vic"
+    },
+    {
+      "path": "/resources/do-i-have-to-pay-for-a-vic"
+    },
+    {
+      "path": "/resources/will-a-vic-allow-me-to-access-military-bases-or-installations"
+    },
+    {
+      "path": "/resources/why-does-my-vagov-claim-info-seem-different-from-whats-on-ebenefits"
+    },
+    {
+      "path": "/resources/are-service-dogs-allowed-in-va-facilities"
+    },
+    {
+      "path": "/resources/do-i-have-to-connect-my-vagov-profile-to-third-party-apps"
+    },
+    {
+      "path": "/resources/what-information-can-a-connected-app-access"
+    },
+    {
+      "path": "/resources/does-an-app-keep-my-personal-information-after-ive-disconnected-it"
+    },
+    {
+      "path": "/resources/what-if-i-tried-to-connect-to-an-app-and-got-an-error-message"
+    },
+    {
+      "path": "/resources/do-i-have-to-pay-taxes-on-the-va-education-benefit-payments-i-receive"
+    },
+    {
+      "path": "/resources/why-do-i-owe-money-to-va"
+    },
+    {
+      "path": "/resources/how-do-i-repay-debt-related-to-my-va-benefits"
+    },
+    {
+      "path": "/resources/how-can-i-get-help-to-fill-out-my-financial-status-report"
+    },
+    {
+      "path": "/resources/how-do-i-request-a-waiver"
+    },
+    {
+      "path": "/resources/how-do-i-submit-my-financial-status-report-and-personal-statement"
+    },
+    {
+      "path": "/resources/what-can-i-expect-after-i-request-a-waiver"
+    },
+    {
+      "path": "/resources/if-i-cant-repay-my-full-debt-balance-even-over-time-what-can-i-do"
+    },
+    {
+      "path": "/resources/can-i-get-a-gi-bill-payment-in-advance"
+    },
+    {
+      "path": "/resources/when-will-i-get-my-first-gi-bill-payment"
+    },
+    {
+      "path": "/resources/how-do-i-request-an-advance-gi-bill-payment"
+    },
+    {
+      "path": "/resources/why-is-my-monthly-gi-bill-payment-less-than-my-monthly-rate"
+    },
+    {
+      "path": "/resources/what-information-do-i-need-to-fill-out-a-financial-status-report"
+    },
+    {
+      "path": "/resources/if-i-dont-know-the-value-of-my-car-or-other-item-what-should-i-do"
+    },
+    {
+      "path": "/resources/where-do-i-find-my-va-file-number-and-deduction-code"
+    },
+    {
+      "path": "/resources/can-i-request-a-repayment-plan-to-repay-my-va-debt-over-time"
+    },
+    {
+      "path": "/resources/what-debt-repayment-and-relief-options-does-va-offer"
+    },
+    {
+      "path": "/resources/if-i-think-my-va-benefit-debt-is-due-to-an-error-what-should-i-do"
+    },
+    {
+      "path": "/resources/how-can-i-avoid-va-benefit-debt"
+    },
+    {
+      "path": "/resources/what-types-of-life-changes-do-i-have-to-report-to-va"
+    },
+    {
+      "path": "/resources/how-does-a-waiver-work"
+    },
+    {
+      "path": "/resources/what-is-the-personal-statement-or-letter-that-goes-with-the-report"
+    },
+    {
+      "path": "/resources/why-does-va-need-all-the-information-in-a-financial-status-report"
+    },
+    {
+      "path": "/resources/how-do-i-report-income-or-expenses-that-arent-the-same-every-month"
+    },
+    {
+      "path": "/resources/how-do-i-change-my-name-in-my-deers-record"
+    },
+    {
+      "path": "/resources/can-i-be-buried-in-arlington-national-cemetery"
+    },
+    {
+      "path": "/resources/can-i-choose-the-type-of-headstone-or-marker"
+    },
+    {
+      "path": "/resources/what-information-goes-on-the-headstone-or-marker-and-who-provides-it"
+    },
+    {
+      "path": "/resources/when-will-the-headstone-or-marker-i-requested-arrive-and-who-sets-it"
+    },
+    {
+      "path": "/resources/does-va-provide-a-headstone-or-marker-if-remains-arent-available"
+    },
+    {
+      "path": "/resources/can-2-veterans-who-are-married-get-separate-headstones"
+    },
+    {
+      "path": "/resources/can-i-file-for-an-increased-disability-rating"
+    },
+    {
+      "path": "/resources/can-i-get-a-loan-through-my-va-life-insurance-policy"
+    },
+    {
+      "path": "/resources/can-i-access-my-old-gi-bill-help-portal-questions-in-ask-va"
+    },
+    {
+      "path": "/resources/how-do-i-find-my-vagov-profile"
+    },
+    {
+      "path": "/resources/how-are-pension-benefits-and-disability-compensation-different",
+      "starred": true
+    },
+    {
+      "path": "/resources/does-va-cover-nursing-home-assisted-living-or-other-long-term-care"
+    },
+    {
+      "path": "/resources/can-i-get-free-health-care-and-prescriptions-as-a-veteran"
+    },
+    {
+      "path": "/resources/can-i-get-a-montgomery-gi-bill-refund"
+    },
+    {
+      "path": "/resources/how-much-money-will-i-get-with-this-refund"
+    },
+    {
+      "path": "/resources/can-i-get-a-refund-for-the-mgib-600-buy-up-program"
+    },
+    {
+      "path": "/resources/how-do-i-get-an-mgib-refund"
+    },
+    {
+      "path": "/resources/what-if-i-transferred-my-post-911-gi-bill-benefits-to-my-dependent"
+    },
+    {
+      "path": "/resources/what-does-it-mean-to-have-a-presumptive-condition-for-toxic-exposure"
+    },
+    {
+      "path": "/resources/how-do-i-file-a-disability-claim-for-a-new-presumptive-condition"
+    },
+    {
+      "path": "/resources/what-if-va-denied-my-claim-but-now-considers-my-condition-presumptive"
+    },
+    {
+      "path": "/resources/will-veterans-survivors-get-any-benefits-based-on-the-pact-act"
+    },
+    {
+      "path": "/resources/how-do-i-know-if-i-have-a-presumptive-exposure-to-burn-pits"
+    },
+    {
+      "path": "/resources/what-if-i-have-a-pending-claim-for-a-condition-thats-now-presumptive"
+    },
+    {
+      "path": "/resources/am-i-eligible-for-va-health-care-as-a-vietnam-veteran"
+    },
+    {
+      "path": "/resources/what-types-of-claims-and-appeals-can-i-track-online"
+    },
+    {
+      "path": "/resources/can-i-upload-new-evidence-online"
+    },
+    {
+      "path": "/resources/whats-the-pact-act-and-how-will-it-affect-my-va-benefits-and-care"
+    },
+    {
+      "path": "/resources/are-there-more-exposure-related-presumptive-conditions"
+    },
+    {
+      "path": "/resources/what-new-agent-orange-presumptive-conditions-will-va-add"
+    },
+    {
+      "path": "/resources/can-i-verify-my-identity-in-person-at-a-va-regional-office"
+    },
+    {
+      "path": "/resources/can-i-verify-my-identity-by-phone"
+    },
+    {
+      "path": "/resources/what-if-my-credit-is-frozen-and-im-trying-to-verify-my-identity"
+    },
+    {
+      "path": "/resources/whats-a-veteran-health-id-card-vhic-and-how-do-i-get-one"
+    },
+    {
+      "path": "/resources/what-should-i-do-if-i-didnt-get-my-gi-bill-payment"
+    },
+    {
+      "path": "/resources/what-if-i-have-2-or-more-non-compensable-disabilities"
+    },
+    {
+      "path": "/resources/what-va-benefits-am-i-eligible-for-if-i-have-a-0-disability-rating"
+    },
+    {
+      "path": "/resources/whats-multifactor-authentication-and-why-does-vagov-use-it"
+    },
+    {
+      "path": "/resources/should-i-verify-my-enrollment-if-wave-has-the-wrong-course-credits"
+    },
+    {
+      "path": "/resources/what-new-agent-orange-presumptive-locations-will-va-add"
+    },
+    {
+      "path": "/resources/what-burn-pit-and-other-toxic-exposure-conditions-are-now-presumptive"
+    },
+    {
+      "path": "/resources/what-kind-of-information-can-i-get-from-vagovs-claim-status-tool"
+    },
+    {
+      "path": "/resources/can-the-tool-tell-me-when-ill-receive-a-decision-letter-for-my-claim"
+    },
+    {
+      "path": "/resources/what-new-radiation-presumptive-locations-will-va-add"
+    },
+    {
+      "path": "/resources/should-i-pay-a-copay-at-a-non-va-urgent-care-clinic"
+    },
+    {
+      "path": "/resources/can-i-get-paid-back-for-the-cost-of-travel-to-non-va-urgent-care"
+    },
+    {
+      "path": "/resources/can-i-use-in-network-urgent-care-as-my-primary-care-provider"
+    },
+    {
+      "path": "/resources/what-do-i-do-if-there-are-no-in-network-urgent-care-providers-near-me"
+    },
+    {
+      "path": "/resources/can-i-get-medical-equipment-orthotics-or-prosthetics-outside-of-va"
+    },
+    {
+      "path": "/resources/what-are-state-veterans-homes-and-does-va-cover-care-at-these-homes"
+    },
+    {
+      "path": "/resources/do-i-need-a-referral-from-va-before-i-go-to-a-community-provider"
+    },
+    {
+      "path": "/resources/how-can-i-learn-about-an-in-network-surgeon-before-i-get-surgery"
+    },
+    {
+      "path": "/resources/what-if-i-answered-the-security-questions-but-im-still-not-verified"
+    },
+    {
+      "path": "/resources/what-if-i-see-an-error-message-when-i-try-to-sign-in-to-vagov"
+    },
+    {
+      "path": "/resources/can-i-still-file-pact-act-related-claims"
+    },
+    {
+      "path": "/resources/when-can-i-expect-va-to-make-a-decision-on-my-pact-act-claim"
+    },
+    {
+      "path": "/resources/what-are-va-health-care-income-limits"
+    },
+    {
+      "path": "/resources/what-does-va-count-as-income-for-health-care-income-limits"
+    },
+    {
+      "path": "/resources/what-expenses-does-va-deduct-for-health-care-income-limits"
+    },
+    {
+      "path": "/resources/what-happens-if-va-confirms-my-income-is-above-health-care-limits"
+    },
+    {
+      "path": "/resources/does-va-verify-the-income-information-i-provide-for-health-care"
+    },
+    {
+      "path": "/resources/what-if-i-was-discharged-or-released-before-october-1-2013"
+    },
+    {
+      "path": "/resources/am-i-eligible-for-free-va-health-care-as-a-post-911-combat-veteran"
+    },
+    {
+      "path": "/resources/can-i-use-logingov-to-verify-my-identity-without-a-us-phone-number"
+    },
+    {
+      "path": "/resources/i-dont-have-a-smartphone-how-do-i-verify-my-identity-through-idme"
+    },
+    {
+      "path": "/resources/how-does-multifactor-authentication-differ-from-identity-verification"
+    },
+    {
+      "path": "/resources/how-do-i-change-my-va-direct-deposit-information"
+    },
+    {
+      "path": "/resources/can-i-set-up-direct-deposit-for-health-care-travel-reimbursement"
+    },
+    {
+      "path": "/resources/am-i-eligible-for-va-health-care-under-the-pact-act"
+    },
+    {
+      "path": "/resources/am-i-eligible-for-va-health-care-as-a-gulf-war-or-post-911-veteran"
+    },
+    {
+      "path": "/resources/how-long-does-a-benefit-decision-review-take"
+    },
+    {
+      "path": "/resources/how-can-i-get-help-with-creating-an-account"
+    },
+    {
+      "path": "/resources/will-i-get-monthly-housing-allowance-mha-during-school-breaks"
+    },
+    {
+      "path": "/resources/how-does-the-vasp-program-work"
+    },
+    {
+      "path": "/resources/what-services-do-accredited-attorneys-or-claims-agents-often-provide"
+    },
+    {
+      "path": "/resources/how-does-someone-become-accredited-by-va"
+    },
+    {
+      "path": "/resources/what-if-i-want-to-discharge-my-va-accredited-representative"
+    },
+    {
+      "path": "/resources/when-can-an-accredited-attorney-or-claims-agent-charge-fees"
+    },
+    {
+      "path": "/resources/what-happens-to-my-fee-agreement-if-i-discharge-my-representative"
+    },
+    {
+      "path": "/resources/can-i-file-a-complaint-about-an-accredited-representative"
+    },
+    {
+      "path": "/resources/whats-an-intent-to-file"
+    },
+    {
+      "path": "/resources/can-a-representative-request-a-waiver-for-a-veteran"
+    },
+    {
+      "path": "/resources/what-criteria-determines-if-my-loan-qualifies-for-vasp"
+    },
+    {
+      "path": "/resources/whats-the-6-credit-hour-exclusion"
+    },
+    {
+      "path": "/resources/if-i-withdraw-from-a-class-what-do-i-need-to-pay-back"
+    },
+    {
+      "path": "/resources/what-are-mitigating-circumstances"
+    },
+    {
+      "path": "/resources/how-do-i-report-mitigating-circumstances"
+    },
+    {
+      "path": "/resources/can-i-choose-which-option-i-want-to-use-to-keep-my-home"
+    },
+    {
+      "path": "/resources/what-are-the-exceptions-to-the-pause-on-foreclosures"
+    },
+    {
+      "path": "/resources/is-vasp-an-option-for-me"
+    },
+    {
+      "path": "/resources/can-i-get-a-copy-of-my-education-decision-letter",
+      "starred": true
+    },
+    {
+      "path": "/resources/will-i-have-to-add-multifactor-authentication-with-this-change"
+    },
+    {
+      "path": "/resources/can-i-stop-sharing-my-va-information-with-an-app"
+    },
+    {
+      "path": "/resources/what-if-i-cant-sign-in-with-ds-logon-my-healthevet-or-idme"
+    },
+    {
+      "path": "/resources/what-should-i-do-if-i-no-longer-trust-a-connected-app"
+    },
+    {
+      "path": "/resources/what-third-party-apps-can-i-connect-to-my-profile"
+    },
+    {
+      "path": "/resources/if-i-return-to-active-duty-do-i-still-receive-va-disability-payments"
+    },
+    {
+      "path": "/resources/can-i-get-a-toxic-exposure-screening-at-va"
+    },
+    {
+      "path": "/resources/when-will-the-vasp-program-be-available"
+    },
+    {
+      "path": "/resources/where-can-i-find-more-information-about-preparing-for-a-disaster"
+    },
+    {
+      "path": "/resources/what-can-i-do-to-protect-myself-from-fraud"
+    },
+    {
+      "path": "/resources/does-va-provide-assistance-with-insurance-needs"
+    },
+    {
+      "path": "/resources/how-do-i-make-sure-an-email-is-really-from-va"
+    },
+    {
+      "path": "/resources/how-do-i-report-scams-and-fraud"
+    },
+    {
+      "path": "/resources/what-are-signs-that-a-phone-call-might-be-a-scam"
+    },
+    {
+      "path": "/resources/what-should-i-do-if-someone-calls-and-says-they-represent-va"
+    },
+    {
+      "path": "/resources/what-should-i-do-if-i-think-ive-been-scammed"
+    },
+    {
+      "path": "/resources/what-if-i-dont-want-a-fiduciary-anymore"
+    },
+    {
+      "path": "/resources/what-do-i-need-to-know-about-applying-for-a-plaque-or-urn"
+    },
+    {
+      "path": "/resources/can-i-plan-ahead-for-my-burial-in-a-va-national-cemetery"
+    },
+    {
+      "path": "/resources/does-champva-cover-dental-and-vision"
+    },
+    {
+      "path": "/resources/who-accepts-champva-insurance-near-me-and-how-do-i-find-a-provider"
+    },
+    {
+      "path": "/resources/does-champva-pay-secondary-to-medicare"
+    },
+    {
+      "path": "/resources/can-i-have-champva-and-a-medicare-advantage-plan"
+    },
+    {
+      "path": "/resources/does-champva-cover-the-medicare-part-b-deductible"
+    },
+    {
+      "path": "/resources/whats-the-difference-between-champva-and-tricare"
+    },
+    {
+      "path": "/resources/do-the-sbhcbp-and-cwvv-programs-cover-prescriptions"
+    },
+    {
+      "path": "/resources/do-i-pay-for-part-of-my-care-through-the-sbhcbp-or-cwvv-program"
+    },
+    {
+      "path": "/resources/how-do-i-find-a-provider-through-the-sbhcbp-or-cwvv-program"
+    },
+    {
+      "path": "/resources/will-i-have-to-pay-back-the-gi-bill-benefits-i-used-if-i-fail-a-class",
+      "starred": true
+    },
+    {
+      "path": "/resources/how-do-i-request-prior-authorization-for-the-sbhcbp-or-cwvv-programs"
+    },
+    {
+      "path": "/resources/what-if-my-servicer-isnt-ready-to-offer-vasp-yet"
+    },
+    {
+      "path": "/resources/what-if-my-loan-doesnt-meet-the-criteria-for-vasp"
+    },
+    {
+      "path": "/resources/how-can-i-learn-more-about-this-program"
+    },
+    {
+      "path": "/resources/what-does-burial-in-a-va-national-cemetery-include"
+    },
+    {
+      "path": "/resources/how-can-i-get-direct-support-from-idme"
+    },
+    {
+      "path": "/resources/i-got-an-error-when-i-tried-to-go-back-to-vagov-what-do-i-do"
+    },
+    {
+      "path": "/resources/how-can-i-get-direct-support-from-logingov"
+    },
+    {
+      "path": "/resources/idme-says-ive-been-blocked-and-cant-access-the-site-what-do-i-do"
+    },
+    {
+      "path": "/resources/i-got-error-a0104-when-i-tried-to-get-my-idme-mfa-code-what-do-i-do"
+    },
+    {
+      "path": "/resources/i-cant-reset-my-password-for-idme-what-do-i-do"
+    },
+    {
+      "path": "/resources/i-didnt-get-my-mfa-code-by-text-message-for-idme-what-do-i-do"
+    },
+    {
+      "path": "/resources/idme-says-i-already-have-an-account-what-do-i-do"
+    },
+    {
+      "path": "/resources/idme-says-my-device-is-no-longer-linked-to-my-account-what-do-i-do"
+    },
+    {
+      "path": "/resources/what-type-of-account-should-i-create-to-manage-my-va-benefits-online"
+    },
+    {
+      "path": "/resources/how-can-i-get-more-support-from-logingov-or-idme"
+    },
+    {
+      "path": "/resources/if-im-behind-on-my-hoa-fees-can-my-loan-still-qualify-for-vasp"
+    },
+    {
+      "path": "/resources/can-i-fill-my-urgent-care-prescription-at-a-non-va-pharmacy"
+    },
+    {
+      "path": "/resources/is-there-a-time-limit-for-when-i-can-request-a-waiver"
+    },
+    {
+      "path": "/resources/will-va-education-benefit-payments-affect-my-tax-credits"
+    },
+    {
+      "path": "/resources/what-information-is-in-my-medical-records-in-my-healthevet-on-vagov"
+    },
+    {
+      "path": "/resources/which-va-health-facilities-use-the-my-va-health-portal-now"
+    },
+    {
+      "path": "/resources/how-do-i-get-support-for-my-va-health-issues"
+    },
+    {
+      "path": "/resources/how-can-i-tell-my-care-team-that-my-health-information-has-changed"
+    },
+    {
+      "path": "/resources/will-va-protect-my-personal-health-information-online"
+    },
+    {
+      "path": "/resources/how-does-va-share-my-health-information-with-providers-outside-va"
+    },
+    {
+      "path": "/resources/where-will-va-send-my-prescriptions"
+    },
+    {
+      "path": "/resources/how-far-in-advance-should-i-request-refills-online"
+    },
+    {
+      "path": "/resources/what-types-of-prescriptions-can-i-refill-and-track-in-my-healthevet"
+    },
+    {
+      "path": "/resources/how-can-i-manage-my-medications-in-my-healthevet-on-vagov"
+    },
+    {
+      "path": "/resources/what-medications-and-supplies-does-my-healthevet-include-in-my-list"
+    },
+    {
+      "path": "/resources/are-there-medications-and-supplies-that-my-healthevet-doesnt-list"
+    },
+    {
+      "path": "/resources/what-types-of-prescriptions-can-i-refill-in-my-va-health"
+    },
+    {
+      "path": "/resources/what-medications-and-supplies-does-my-va-health-include-in-my-list"
+    },
+    {
+      "path": "/resources/can-i-use-secure-messaging-with-community-non-va-providers"
+    },
+    {
+      "path": "/resources/do-i-need-to-pay-a-copay-to-send-health-messages-online"
+    },
+    {
+      "path": "/resources/how-do-i-know-if-my-va-health-facility-uses-online-scheduling"
+    },
+    {
+      "path": "/resources/what-types-of-appointments-can-i-schedule-in-my-healthevet-on-vagov"
+    },
+    {
+      "path": "/resources/what-upcoming-appointments-can-i-review-in-my-healthevet-on-vagov"
+    },
+    {
+      "path": "/resources/how-do-i-appeal-if-va-denied-my-request-for-community-care"
+    },
+    {
+      "path": "/resources/is-my-type-2-diabetes-a-presumptive-condition"
+    },
+    {
+      "path": "/resources/what-benefits-can-i-get-if-i-have-an-other-than-honorable-discharge"
+    },
+    {
+      "path": "/resources/what-other-va-benefits-are-survivors-eligible-for"
+    },
+    {
+      "path": "/resources/how-do-i-get-college-credits-for-my-military-service"
+    },
+    {
+      "path": "/resources/do-i-need-prior-authorization-for-care-in-the-sbhcbp-or-cwvv-programs"
+    },
+    {
+      "path": "/resources/what-if-the-veteran-isnt-enrolled-in-va-health-care-yet"
+    },
+    {
+      "path": "/resources/who-should-i-contact-if-i-need-help-with-community-care"
+    },
+    {
+      "path": "/resources/can-veterans-survivors-get-compensation-payments-under-the-pact-act"
+    },
+    {
+      "path": "/resources/what-if-va-denied-my-dic-claim-and-i-think-im-now-eligible"
+    },
+    {
+      "path": "/resources/what-services-do-accredited-vso-representatives-often-provide"
+    },
+    {
+      "path": "/resources/what-if-the-veteran-im-caring-for-isnt-eligible-for-this-program"
+    },
+    {
+      "path": "/resources/i-tried-to-get-an-account-but-got-a-global-deny-error-what-do-i-do"
+    },
+    {
+      "path": "/resources/how-can-i-verify-my-identity-on-vagov-if-i-live-outside-the-us"
+    },
+    {
+      "path": "/resources/how-do-i-get-support-with-my-healthevet-issues"
+    },
+    {
+      "path": "/resources/can-i-add-medications-to-my-list"
+    },
+    {
+      "path": "/resources/how-do-i-get-information-i-added-to-my-health-records-myself"
+    },
+    {
+      "path": "/resources/can-i-get-a-logingov-or-idme-account-if-i-dont-have-a-mobile-phone",
+      "starred": true
+    },
+    {
+      "path": "/resources/how-do-i-create-an-idme-account"
+    },
+    {
+      "path": "/resources/how-are-connected-apps-different-from-my-healthevet-or-va-mobile-apps"
+    },
+    {
+      "path": "/resources/can-i-use-my-veterans-health-id-card-to-get-an-idme-account"
+    },
+    {
+      "path": "/resources/why-is-va-updating-its-online-terms-of-use"
+    },
+    {
+      "path": "/resources/what-should-i-bring-to-my-health-care-appointments"
+    },
+    {
+      "path": "/resources/how-can-i-find-out-my-va-claim-or-appeal-status"
+    },
+    {
+      "path": "/resources/how-do-i-get-or-update-notifications-for-prescriptions"
+    },
+    {
+      "path": "/resources/can-i-get-notified-when-my-medical-images-and-reports-are-ready"
+    },
+    {
+      "path": "/resources/how-should-i-prepare-for-a-video-health-appointment"
+    },
+    {
+      "path": "/resources/i-dont-have-a-drivers-license-or-state-id-can-i-get-an-account"
+    },
+    {
+      "path": "/resources/can-i-schedule-an-appointment-by-sending-a-secure-message"
+    },
+    {
+      "path": "/resources/how-can-i-manage-my-appointments-in-my-healthevet-on-vagov"
+    },
+    {
+      "path": "/resources/my-license-is-expired-can-i-still-get-a-logingov-or-idme-account"
+    },
+    {
+      "path": "/resources/can-i-still-enter-my-own-events-and-to-dos-to-my-health-calendar"
+    },
+    {
+      "path": "/resources/how-do-i-renew-a-va-prescription"
+    },
+    {
+      "path": "/resources/how-do-i-get-a-list-of-my-self-entered-medications"
+    },
+    {
+      "path": "/resources/can-i-add-information-to-my-medical-records-myself"
+    },
+    {
+      "path": "/resources/how-do-i-check-my-va-debt-balance-to-find-out-how-much-i-owe"
+    },
+    {
+      "path": "/resources/should-i-create-a-logingov-or-idme-account-to-sign-in-to-vagov"
+    },
+    {
+      "path": "/resources/how-do-i-report-a-complaint-or-concern-about-a-community-provider"
+    },
+    {
+      "path": "/resources/how-do-i-verify-my-enrollment"
+    },
+    {
+      "path": "/resources/can-i-use-this-tool-to-schedule-community-non-va-appointments"
+    },
+    {
+      "path": "/resources/what-services-does-the-sbhcbp-cover"
+    },
+    {
+      "path": "/resources/how-does-my-income-affect-my-va-health-care-costs"
+    },
+    {
+      "path": "/resources/how-does-va-decide-if-ill-pay-copays-for-non-service-connected-care"
+    },
+    {
+      "path": "/resources/can-i-get-free-va-health-care-as-a-veteran"
+    },
+    {
+      "path": "/resources/does-it-help-me-in-any-way-to-give-va-my-health-insurance-information"
+    },
+    {
+      "path": "/resources/does-the-aca-change-my-va-health-benefits"
+    },
+    {
+      "path": "/resources/what-services-does-the-cwvv-program-cover"
+    },
+    {
+      "path": "/resources/what-if-im-not-sure-if-i-already-have-a-logingov-or-idme-account"
+    },
+    {
+      "path": "/resources/what-are-the-champva-school-enrollment-certification-requirements"
+    },
+    {
+      "path": "/resources/how-do-i-submit-a-champva-school-certification-letter"
+    },
+    {
+      "path": "/resources/how-much-does-champva-pay-and-how-much-will-i-pay-myself-for-care"
+    },
+    {
+      "path": "/resources/can-champva-be-my-primary-insurance"
+    },
+    {
+      "path": "/resources/what-happens-if-i-dont-tell-champva-about-my-other-health-insurance"
+    },
+    {
+      "path": "/resources/does-champva-cover-prescription-medications"
+    },
+    {
+      "path": "/resources/how-can-i-get-a-new-or-replacement-champva-id-card"
+    },
+    {
+      "path": "/resources/can-i-get-care-at-a-va-health-facility-through-champva-citi"
+    },
+    {
+      "path": "/resources/do-i-need-prior-authorization-to-use-champva"
+    },
+    {
+      "path": "/resources/how-does-champva-prescription-coverage-work-with-other-insurance"
+    },
+    {
+      "path": "/resources/how-does-medicare-work-with-champva"
+    },
+    {
+      "path": "/resources/how-does-champva-coverage-work-with-other-insurance"
+    },
+    {
+      "path": "/resources/how-can-i-get-help-with-sign-in-account-issues-from-va"
+    },
+    {
+      "path": "/resources/does-va-cover-in-vitro-fertilization-ivf-treatment"
+    },
+    {
+      "path": "/resources/how-long-do-i-have-to-file-my-claim-after-i-notify-va-of-my-intent"
+    },
+    {
+      "path": "/resources/does-va-cover-indian-health-service-or-tribal-health-programs-care"
+    },
+    {
+      "path": "/resources/how-do-i-set-up-direct-deposit-as-a-caregiver"
+    },
+    {
+      "path": "/resources/whats-a-remand"
+    },
+    {
+      "path": "/resources/how-do-i-create-a-logingov-account"
+    },
+    {
+      "path": "/resources/i-dont-have-a-home-address-right-now-can-i-get-a-logingov-account"
+    },
+    {
+      "path": "/resources/i-moved-recently-and-cant-verify-with-logingov-what-do-i-do"
+    },
+    {
+      "path": "/resources/what-types-of-life-changes-do-i-need-to-report-to-the-program"
+    },
+    {
+      "path": "/resources/can-i-still-use-a-ds-logon-or-my-healthevet-account-to-sign-in"
+    },
+    {
+      "path": "/resources/why-did-i-get-an-email-from-idme-asking-to-confirm-my-email-address"
+    },
+    {
+      "path": "/resources/i-didnt-get-a-confirmation-email-from-vagov-what-should-i-do"
+    },
+    {
+      "path": "/resources/can-i-call-va-to-reset-my-logingov-or-idme-password"
+    },
+    {
+      "path": "/resources/can-i-still-access-the-same-information-with-my-new-sign-in-account"
+    },
+    {
+      "path": "/resources/can-i-verify-my-identity-in-person-for-my-logingov-account"
+    },
+    {
+      "path": "/resources/can-i-verify-my-identity-in-person-with-idme"
+    },
+    {
+      "path": "/resources/how-do-i-verify-my-identity-online-without-a-premium-account"
+    },
+    {
+      "path": "/resources/what-does-it-mean-to-verify-my-identity-and-why-do-i-have-to-do-it"
+    },
+    {
+      "path": "/resources/what-if-im-having-trouble-uploading-my-id-photo-for-verification"
+    },
+    {
+      "path": "/resources/whats-multifactor-authentication-and-why-does-va-use-it"
+    },
+    {
+      "path": "/resources/can-i-delete-my-logingov-or-idme-account",
+      "starred": true
+    },
+    {
+      "path": "/resources/i-cant-upload-my-id-documents-from-my-iphone-what-do-i-do"
+    },
+    {
+      "path": "/resources/i-dont-have-a-home-address-right-now-can-i-get-an-idme-account"
+    },
+    {
+      "path": "/resources/idme-cant-verify-my-identity-code-e401-402-or-403-what-do-i-do"
+    },
+    {
+      "path": "/resources/what-if-the-wait-time-is-too-long-for-my-idme-video-call"
+    },
+    {
+      "path": "/resources/logingov-cant-verify-my-phone-number-what-do-i-do"
+    },
+    {
+      "path": "/resources/i-changed-my-phone-number-how-do-i-get-my-mfa-code"
+    },
+    {
+      "path": "/resources/what-if-i-cant-sign-in-to-vagov-because-my-password-doesnt-work"
+    },
+    {
+      "path": "/resources/how-do-i-connect-an-app-to-my-vagov-profile"
+    },
+    {
+      "path": "/resources/whats-the-6-digit-security-code-that-idme-is-asking-me-for"
+    },
+    {
+      "path": "/resources/who-can-i-send-health-messages-to"
+    },
+    {
+      "path": "/resources/who-will-reply-to-my-health-messages"
+    },
+    {
+      "path": "/resources/can-i-use-health-messages-for-medical-emergencies-or-urgent-needs"
+    },
+    {
+      "path": "/resources/why-should-i-create-an-account-to-sign-in-to-vagov-0"
+    },
+    {
+      "path": "/resources/what-if-i-dont-get-a-logingov-or-idme-account-in-time"
+    },
+    {
+      "path": "/resources/what-if-i-dont-want-to-get-a-logingov-or-idme-account"
+    },
+    {
+      "path": "/resources/why-will-va-allow-only-2-sign-in-account-options-with-this-change"
+    },
+    {
+      "path": "/resources/whats-changing-for-va-sign-in-accounts-in-2025"
+    },
+    {
+      "path": "/resources/how-can-i-get-my-irs-1095-b-tax-form-as-a-family-member"
+    },
+    {
+      "path": "/resources/how-are-the-2-va-caregiver-support-programs-different"
+    },
+    {
+      "path": "/resources/how-do-i-sign-in-to-vagov"
+    },
+    {
+      "path": "/resources/whats-an-informal-conference-and-how-do-i-ask-for-one"
+    },
+    {
+      "path": "/resources/how-can-i-get-my-irs-1095-b-tax-form-as-a-veteran"
+    },
+    {
+      "path": "/resources/how-do-i-set-up-direct-deposit-for-va-benefits-by-phone-or-in-person"
+    },
+    {
+      "path": "/resources/what-if-i-dont-have-a-bank-account-but-i-want-to-use-direct-deposit"
+    },
+    {
+      "path": "/resources/when-do-i-need-to-submit-a-financial-status-report"
+    },
+    {
+      "path": "/resources/if-i-cant-repay-all-or-part-of-a-va-debt-what-should-i-do"
+    },
+    {
+      "path": "/resources/what-should-i-do-if-i-get-a-collection-call-or-letter-about-a-va-debt"
+    },
+    {
+      "path": "/resources/what-happens-after-i-request-help-with-a-va-debt"
+    },
+    {
+      "path": "/resources/what-happens-if-i-dont-repay-a-va-debt"
+    },
+    {
+      "path": "/resources/what-happens-if-va-refers-my-debt-to-the-us-treasury"
+    },
+    {
+      "path": "/resources/why-would-my-social-security-benefits-be-kept-to-pay-my-va-debt"
+    },
+    {
+      "path": "/resources/what-should-i-do-if-i-got-a-letter-about-suspended-pension-debt"
+    },
+    {
+      "path": "/resources/how-do-i-notify-va-of-my-intent-to-file"
+    },
+    {
+      "path": "/resources/do-i-have-to-submit-a-separate-intent-to-file-for-each-benefit-type"
+    }
+  ],
+  "lastFetched": "2026-03-10T03:50:21.545Z"
+}

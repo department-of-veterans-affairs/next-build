@@ -74,6 +74,7 @@ import { VaForm as FormattedVaForm } from '../components/vaForm/formatted-type'
 import { CampaignLandingPage as FormattedCampaignLandingPage } from '@/components/campaignLandingPage/formatted-type'
 import { OutreachHub as FormattedOutreachHub } from '../components/outreachHub/formatted-type'
 import { OutreachMaterials as FormattedOutreachMaterials } from '../components/outreachMaterials/formatted-type'
+import { QuestionAnswer as FormattedQuestionAnswer } from '../components/questionAnswer/formatted-type'
 
 // Templates
 import HTMLComment from '@/components/htmlComment/template'
@@ -110,6 +111,7 @@ import { VaForm } from '../components/vaForm/template'
 import { CampaignLandingPage } from '@/components/campaignLandingPage/template'
 import { OutreachHub } from '../components/outreachHub/template'
 import { OutreachMaterials } from '@/components/outreachMaterials/template'
+import { QuestionAnswer } from '../components/questionAnswer/template'
 
 // IMPORTANT: in order for a content type to build in Next Build, it must have an appropriate
 // environment variable set in one of two places:
@@ -236,9 +238,11 @@ export default function ResourcePage({
               {...(resource as FormattedPressReleaseListing)}
             />
           )}
-          {/* {resource.type === RESOURCE_TYPES.QA && (
-            <QuestionAnswer {...resource} />
-          )} */}
+          {resource.type === RESOURCE_TYPES.QA && (
+            <QuestionAnswer
+              {...(resource as unknown as FormattedQuestionAnswer)}
+            />
+          )}
           {resource.type === RESOURCE_TYPES.RESOURCES_SUPPORT && (
             <ResourcesSupport {...(resource as FormattedResourcesSupport)} />
           )}

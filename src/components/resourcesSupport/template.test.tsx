@@ -3,8 +3,7 @@ import { render, screen } from '@testing-library/react'
 import { ResourcesSupport } from './template'
 import { Button } from '@/components/button/formatted-type'
 import { Wysiwyg } from '@/components/wysiwyg/formatted-type'
-import { AudienceTopics } from '@/components/audienceTopics/formatted-type'
-import { ContactInfo } from '@/components/contactInfo/formatted-type'
+import { ContactInformation } from '@/components/contactInformation/formatted-type'
 import { axe } from '@/test-utils'
 
 describe('<ResourcesSupport /> Component', () => {
@@ -39,9 +38,7 @@ describe('<ResourcesSupport /> Component', () => {
         type: 'paragraph--wysiwyg' as Wysiwyg['type'],
       },
     ],
-    tags: {
-      type: 'paragraph--audience_topics' as AudienceTopics['type'],
-      id: '1',
+    browseByTopic: {
       tags: [
         {
           id: '1',
@@ -56,11 +53,12 @@ describe('<ResourcesSupport /> Component', () => {
           categoryLabel: 'Topic Category',
         },
       ],
+      categories: [],
     },
     contactInformation: {
       id: '1',
-      type: 'paragraph--contact_information' as ContactInfo['type'],
-      contactType: 'DC' as ContactInfo['contactType'],
+      type: 'paragraph--contact_information' as ContactInformation['type'],
+      contactType: 'DC' as ContactInformation['contactType'],
       defaultContact: {
         href: 'tel:1-800-698-2411',
         label: 'MyVA411 main information line:',
@@ -87,14 +85,22 @@ describe('<ResourcesSupport /> Component', () => {
   }
 
   it('renders all information correctly', () => {
-    render(<ResourcesSupport {...resourcesSupportProps} />)
+    const { container } = render(
+      <ResourcesSupport {...resourcesSupportProps} />
+    )
 
     expect(screen.getByText('Test Title')).toBeInTheDocument()
     expect(screen.getByText('Test Intro')).toBeInTheDocument()
     expect(screen.getByText('If you need support...')).toBeInTheDocument()
-    expect(screen.getByText('Test Audience')).toBeInTheDocument()
-    expect(screen.getByText('Test Topic')).toBeInTheDocument()
-    expect(screen.getByText('Need more help?')).toBeInTheDocument()
+    expect(
+      container.querySelector('va-link[text="Test Audience"]')
+    ).toBeInTheDocument()
+    expect(
+      container.querySelector('va-link[text="Test Topic"]')
+    ).toBeInTheDocument()
+    const vaNeedHelp = container.querySelector('va-need-help')
+    expect(vaNeedHelp).toBeInTheDocument()
+    expect(screen.getByText(/Call/)).toBeInTheDocument()
   })
 
   it('gives no axe violations', async () => {

@@ -3,10 +3,10 @@ import { ContentFooter } from '@/components/contentFooter/template'
 import AlertSingle from '@/components/alertSingle/template'
 import { Button as FormattedButton } from '@/components/button/formatted-type'
 import { Paragraph } from '@/components/paragraph/template'
-import { AudienceTopics } from '@/components/audienceTopics/template'
+import { BrowseByTopic } from '@/components/browseByTopic/template'
 import { Button } from '@/components/button/template'
 import { BenefitsHubLinks } from '@/components/benefitsHubLinks/template'
-import { ContactInfo } from '@/components/contactInfo/template'
+import { ContactInformation } from '@/components/contactInformation/template'
 import { RateYourExperience } from '@/components/rateYourExperience/template'
 
 const Buttons = ({
@@ -37,7 +37,7 @@ export const ResourcesSupport = ({
   buttons,
   repeatButtons = false,
   toc = true,
-  tags,
+  browseByTopic,
   mainContent,
   contactInformation,
   benefitsHubLinks,
@@ -91,7 +91,7 @@ export const ResourcesSupport = ({
           </article>
 
           {/* Tags */}
-          {tags && <AudienceTopics {...tags} />}
+          {browseByTopic && <BrowseByTopic {...browseByTopic} />}
 
           {/* How do you rate? */}
           <RateYourExperience />
@@ -104,7 +104,7 @@ export const ResourcesSupport = ({
         </div>
 
         {/* Need more help? */}
-        <ContactInfo {...contactInformation} />
+        {contactInformation && <ContactInformation {...contactInformation} />}
 
         <div className="vads-grid-container">
           <div className="vads-grid-row">

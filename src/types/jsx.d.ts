@@ -16,6 +16,7 @@ declare module 'react' {
       'va-icon': any
       'va-link': any
       'va-link-action': any
+      'va-need-help': any
       'va-on-this-page': any
       'va-process-list': any
       'va-process-list-item': any

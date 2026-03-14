@@ -1,7 +1,7 @@
 // Define the query params for fetching paragraph--email_contact.
 import { ParagraphEmailContact } from '@/types/drupal/paragraph'
 import { QueryFormatter } from '@/lib/next-drupal-query'
-import { EmailContact } from '@/components/contactInfo/formatted-type'
+import { EmailContact } from '@/components/contactInformation/formatted-type'
 
 export const formatter: QueryFormatter<ParagraphEmailContact, EmailContact> = (
   entity: ParagraphEmailContact

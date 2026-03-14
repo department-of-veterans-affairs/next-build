@@ -4,8 +4,10 @@ import {
   QueryOpts,
   QueryParams,
 } from '@/lib/next-drupal-query'
-import { drupalClient } from '@/lib/drupal/drupalClient'
-import { queries } from '@/lib/drupal/queries'
+import {
+  DoNotPublishError,
+  fetchSingleEntityOrPreview,
+} from '@/lib/drupal/query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodeQA } from '@/types/drupal/node'
 import { QuestionAnswer } from './formatted-type'
@@ -13,6 +15,15 @@ import {
   PARAGRAPH_RESOURCE_TYPES,
   RESOURCE_TYPES,
 } from '@/lib/constants/resourceTypes'
+import { getNestedIncludes } from '@/lib/utils/queries'
+import { formatParagraph } from '@/lib/drupal/paragraphs'
+import { AlertSingle } from '@/components/alert/formatted-type'
+import { ContactInformation } from '@/components/contactInformation/formatted-type'
+import { formatButtonArray } from '@/components/button/query'
+import { formatLinkTeaserArray } from '@/components/linkTeaser/query'
+import { formatBenefitsHubLinks } from '@/components/benefitsHubLinks/query'
+import { entityBaseFields } from '@/lib/drupal/entityBaseFields'
+import { formatBrowseByTopicData } from '@/components/browseByTopic/query'
 
 // Define the query params for fetching node--q_a.
 export const params: QueryParams<null> = () => {
@@ -21,14 +32,19 @@ export const params: QueryParams<null> = () => {
     'field_buttons',
     'field_related_benefit_hubs',
     'field_related_information',
-    'field_tags.field_topics',
-    'field_tags.field_audience_beneficiares',
-    'field_tags.field_non_beneficiares',
-    // 'field_administration',
-    // 'field_alert_single',
-    // 'field_contact_information',
-    // 'field_other_categories',
-    // 'field_primary_category'
+    'field_other_categories',
+    ...getNestedIncludes(
+      'field_tags',
+      PARAGRAPH_RESOURCE_TYPES.AUDIENCE_TOPICS
+    ),
+    ...getNestedIncludes(
+      'field_alert_single',
+      PARAGRAPH_RESOURCE_TYPES.ALERT_SINGLE
+    ),
+    ...getNestedIncludes(
+      'field_contact_information',
+      PARAGRAPH_RESOURCE_TYPES.CONTACT_INFORMATION
+    ),
   ])
 }
 
@@ -41,13 +57,11 @@ type DataOpts = QueryOpts<{
 export const data: QueryData<DataOpts, NodeQA> = async (
   opts
 ): Promise<NodeQA> => {
-  const entity = await drupalClient.getResource<NodeQA>(
+  const entity = (await fetchSingleEntityOrPreview(
+    opts,
     RESOURCE_TYPES.QA,
-    opts?.id,
-    {
-      params: params().getQueryObject(),
-    }
-  )
+    params
+  )) as NodeQA
 
   return entity
 }
@@ -55,29 +69,23 @@ export const data: QueryData<DataOpts, NodeQA> = async (
 export const formatter: QueryFormatter<NodeQA, QuestionAnswer> = (
   entity: NodeQA
 ) => {
-  const buttons = entity.field_buttons?.map((button) => {
-    return queries.formatData(PARAGRAPH_RESOURCE_TYPES.BUTTON, button)
-  })
-  const teasers = entity.field_related_information?.map((teaser) => {
-    return queries.formatData(PARAGRAPH_RESOURCE_TYPES.LINK_TEASER, teaser)
-  })
+  if (!entity.field_standalone_page) {
+    throw new DoNotPublishError('this Q&A is not a standalone page')
+  }
+
   return {
-    id: entity.id,
-    type: entity.type,
-    entityPath: entity.path.alias,
-    entityId: entity.drupal_internal__nid,
-    published: entity.status,
-    title: entity.title,
-    answers: entity.field_answer?.field_wysiwyg?.processed,
-    tags: queries.formatData(
-      PARAGRAPH_RESOURCE_TYPES.AUDIENCE_TOPICS,
-      entity.field_tags
+    ...entityBaseFields(entity),
+    answers: entity.field_answer?.field_wysiwyg?.processed ?? '',
+    alert: formatParagraph(entity.field_alert_single) as AlertSingle | null,
+    buttons: formatButtonArray(entity.field_buttons),
+    teasers: formatLinkTeaserArray(entity.field_related_information),
+    benefitsHubLinks: formatBenefitsHubLinks(entity.field_related_benefit_hubs),
+    browseByTopic: formatBrowseByTopicData(
+      entity.field_tags,
+      entity.field_other_categories
     ),
-    buttons: buttons,
-    teasers: teasers,
-    lastUpdated: entity.field_last_saved_by_an_editor || entity.created,
-    // contact: entity.field_contact_information, component is available to frontend
-    //  alert: entity.field_alert_single, || component is available to frontend
-    //  benefits: entity.field_related_benefit_hubs, || component is available to frontend
+    contactInformation: formatParagraph(
+      entity.field_contact_information
+    ) as ContactInformation | null,
   }
 }
