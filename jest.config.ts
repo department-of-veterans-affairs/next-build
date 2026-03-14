@@ -44,6 +44,7 @@ const customJestConfig: Config = {
     '!src/pages/**',
     '!src/app/**',
     '!src/instrumentation.ts',
+    '!src/lib/datadog/datadog-apm.ts',
     '!src/dev/**',
     '!src/types/**/*.{js,jsx,ts,tsx}',
   ],

@@ -113,4 +113,21 @@ describe('initDatadogRum', () => {
       })
     )
   })
+
+  it('should use custom session sample rate from env when set', () => {
+    process.env.NEXT_PUBLIC_DATADOG_RUM_SESSION_SAMPLE_RATE = '50'
+    initDatadogRum()
+    expect(mockDatadogRum.init).toHaveBeenCalledWith(
+      expect.objectContaining({
+        sessionSampleRate: 50,
+      })
+    )
+  })
+
+  it('should use BUILD_TYPES.LOCAL for env when NEXT_PUBLIC_BUILD_TYPE is unset', () => {
+    delete process.env.NEXT_PUBLIC_BUILD_TYPE
+    initDatadogRum()
+    const actualConfig = mockDatadogRum.init.mock.calls[0][0]
+    expect(actualConfig.env).toBe('localhost')
+  })
 })
