@@ -42,6 +42,8 @@ const customJestConfig: Config = {
     '!src/lib/drupal/query.ts',
     '!src/components/meta/template.tsx',
     '!src/pages/**',
+    '!src/app/**',
+    '!src/instrumentation.ts',
     '!src/dev/**',
     '!src/types/**/*.{js,jsx,ts,tsx}',
   ],
