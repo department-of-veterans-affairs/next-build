@@ -1,8 +1,7 @@
 'use client'
 
 import { MedalliaAssets } from '@/components/medallia/template'
-import { getSurveyNumber, showForm } from '@/lib/utils/medallia'
-import { BUILD_TYPES } from '@/lib/constants/environment'
+import { openFeedbackForm } from '@/lib/utils/medallia'
 
 /**
  * Client component for Medallia feedback button.
@@ -17,15 +16,7 @@ export function MedalliaFeedbackButton() {
         disable-analytics
         secondary
         className="vads-u-background-color--white"
-        onClick={() => {
-          // Use window.location.pathname instead of usePathname() to avoid issues during static export
-          const pathname =
-            typeof window !== 'undefined' ? window.location.pathname : ''
-          const isProduction =
-            process.env.NEXT_PUBLIC_BUILD_TYPE === BUILD_TYPES.PROD
-          const surveyNumber = getSurveyNumber(pathname, isProduction)
-          showForm(surveyNumber)
-        }}
+        onClick={openFeedbackForm}
         text="Feedback"
       />
     </div>

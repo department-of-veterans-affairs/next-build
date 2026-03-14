@@ -1,3 +1,5 @@
+import { BUILD_TYPES } from '@/lib/constants/environment'
+
 type KampyleOnsiteSdk = Window &
   typeof globalThis & {
     KAMPYLE_ONSITE_SDK: {
@@ -83,7 +85,8 @@ export function getSurveyNumber(url: string, isProduction = false): number {
   return defaultSurvey
 }
 
-export function loadForm(formNumber: number): boolean {
+export function loadForm(formNumber: number): boolean | undefined {
+  if (typeof window === 'undefined') return undefined
   const KAMPYLE_ONSITE_SDK = (window as KampyleOnsiteSdk).KAMPYLE_ONSITE_SDK
 
   if (KAMPYLE_ONSITE_SDK) {
@@ -91,7 +94,8 @@ export function loadForm(formNumber: number): boolean {
   }
 }
 
-export function showForm(formNumber: number): boolean {
+export function showForm(formNumber: number): boolean | undefined {
+  if (typeof window === 'undefined') return undefined
   const KAMPYLE_ONSITE_SDK = (window as KampyleOnsiteSdk).KAMPYLE_ONSITE_SDK
 
   if (KAMPYLE_ONSITE_SDK) {
@@ -111,4 +115,16 @@ export function onMedalliaLoaded(callback: () => void): void {
 
 export function setWindowVaSurvey(value: string): void {
   ;(window as KampyleOnsiteSdk).vaSurvey = value
+}
+
+/**
+ * Opens the feedback form. Uses window.location.pathname when available (client),
+ * or empty string when window is undefined (SSR/static export).
+ * Build type is read from process.env.NEXT_PUBLIC_BUILD_TYPE.
+ */
+export function openFeedbackForm(): void {
+  const pathname = typeof window !== 'undefined' ? window.location.pathname : ''
+  const isProduction = process.env.NEXT_PUBLIC_BUILD_TYPE === BUILD_TYPES.PROD
+  const surveyNumber = getSurveyNumber(pathname, isProduction)
+  showForm(surveyNumber)
 }
